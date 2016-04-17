@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux frequently used commands | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="####shell terminal
+
+!! the previous command (Actually the latest command list with command history)!-1 is equal to !!!-2 is second command list with command history!^  first parameter!:1 first paramet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux frequently used commands">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/2013-01-05-linux-common-command/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="####shell terminal
+
+!! the previous command (Actually the latest command list with command history)!-1 is equal to !!!-2 is second command list with command history!^  first parameter!:1 first paramet">
+<meta property="og:updated_time" content="2016-04-17T10:13:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux frequently used commands">
+<meta name="twitter:description" content="####shell terminal
+
+!! the previous command (Actually the latest command list with command history)!-1 is equal to !!!-2 is second command list with command history!^  first parameter!:1 first paramet">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2013-01-05-linux-common-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/17/2013-01-05-linux-common-command/" class="article-date">
+  <time datetime="2016-04-17T10:13:48.476Z" itemprop="datePublished">2016-04-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux frequently used commands
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####shell terminal</p>
+<ul>
+<li><p><code>!!</code> the previous command (Actually the latest command list with command <code>history</code>)<br><code>!-1</code> is equal to <code>!!</code><br><code>!-2</code> is second command list with command <code>history</code><br><code>!^</code>  first parameter<br><code>!:1</code> first parameter<br><code>!:n</code> the n parameter<br><code>!:$</code> last parameter  </p>
+</li>
+<li><p><code>C-A/E</code> <strong>jump to the head/end position</strong><br><code>C-U/K</code> trim to head/tail<br><code>C-P/N</code> <strong>prev/next command</strong><br><code>C-R</code>   <strong>history command</strong><br><code>C--</code>   zoom in<br><code>C-L</code>   clear screen, same as <code>clear</code><br><code>C-C</code>   cancel current command<br><code>C-&amp;</code>   cancel modify<br><code>C-T</code>   switch<br><code>C-Y</code>   paste<br><code>C-W</code>   <strong>delete a word</strong><br>Below operation need to unset Enable menu access keys option of terminal.<br><code>C-f/b</code> move cursor forward/backward a character<br><code>M-f/b</code> move cursor forward/backward a word<br><code>C-d</code>   delete a character forward<br><code>C-h</code>   delete a character backward<br><code>M-d</code>   delete a word froward<br><code>C-M-h</code> <strong>delete a word backward, the word was splited by any special symbols</strong><br><code>C-w</code>   <strong>delete a word backward, the word was splited by space symbol only</strong><br><code>C-]</code>   search character forward<br><code>C-M-]</code> <strong>search character backward</strong>  </p>
+</li>
+<li><p><code>&lt;alt&gt;+.</code> get the last parameter of previous command</p>
+</li>
+</ul>
+<p>####common command</p>
+<ul>
+<li><p><code>cd -</code> switch to last dir<br><code>cd</code> switch to user home dir  </p>
+</li>
+<li><p><code>cp filename{,.bak}</code> a fast method to bakup a file</p>
+</li>
+<li><p><code>mv filename{.bak,}</code> a fast method to cut the suffix</p>
+</li>
+<li><p><code>time command</code> count the elapsed time</p>
+</li>
+<li><p><code>mount -t cifs -o username=***,passwd=*** //ip/path /mnt/test</code><br>mount network sharing dir<br><code>mount -t iso9660 /mnt/iso/FC17-DVD.iso /mnt/dvd</code><br>use for mounting ISO file<br><code>mount --bind /root/project/myprj /root/x86_64_build/source</code><br>mount a dir to another, use for across-compilation mostly<br><code>mount -t tmpfs -o size=1024m tmpfs /mnt/ram</code><br>mount memory as a w/r dir (use for high speed I/O operation, and disk space not enough)  </p>
+</li>
+<li><p><code>tar xvf example.tar.gz -C /root/test</code> extract files to specific dir<br><code>tar tvf example.tar.gz</code> list the contents of an archive<br><code>tar -zcvf - stuff | openssl des3 -salt -k *** | dd of=stuff.des3</code> encryption<br><code>tar cvfz chenxu.tar.gz dir --exclude dir/dir1 --exclude dir/dir2/dir3</code><br><code>tar -xvf 1425279081.tar.gz var/log/message</code> get only one file<br><code>dd if=stuff.des3 | openssl des3 -d -k *** | tar zxf -</code> decryption<br><code>7z a -t7z -ptestpsw123 mytest.7z -r testfolder/*</code> zip folder and encrypt it by 7z  </p>
+</li>
+<li><p><code>getconf LONG_BIT</code>           print the operator system bits<br><code>grep -c &quot;lm&quot; /proc/cpuinfo</code> if output is not 0, it is 64bit cpu  </p>
+</li>
+<li><p><code>du -sh</code><br><code>du -s * |sort -n |tail</code></p>
+</li>
+<li><p><code>free   bg   kill pid    killall proc    chmod 777 (r:4,w:2,x:1)(user,group,all)</code></p>
+</li>
+<li><p><code>find / -name &quot;***&quot;</code><br><code>find path \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec grep -in &quot;***&quot; {} \;</code><br><code>find ./ -name &quot;*.*&quot; -exec ls -l {} \; |awk &#39;{print $5,$9}&#39; |sort -n |tail</code> find the 10 biggest files.<br><code>find / -type d -name &quot;gedit&quot;</code> search direactorys<br><code>find . \( -path ./.git -o -path dir2 \) -prune -o -type d -print</code> search sub-dir, except .git and dir2<br><code>find /usr/include/ -path /usr/include/boost -prune -o -name &#39;*.h&#39; -print &gt;1.txt</code><br><code>find . -name &quot;.svn&quot; | xargs rm -rf</code> find .svn folder in current directory, and remove it.<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec wc -l {} \; | awk &#39;{s+=$1} END {print s}&#39;</code> count lines of specify files<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) | xargs wc -l | tail -n 1</code> count lines of specify files<br>the upon two command can count lines of specify files, but what is the<br>difference of them, look this<br><a href="http://stackoverflow.com/questions/13651212/unix-difference-xargs-and-exec" target="_blank" rel="external">Difference xargs and exec</a><br>you will find the answer.<br><code>find ./ -path ./perl -prune -o -name &quot;*.so&quot; -exec cp {} ../net-snmp-5.4.4-sdk/lib/ \;</code><br>copy files which search by find, search exclude ./perl path<br><code>find /usr -size +100M</code>  find file size larger than 100M<br><code>find /home -mtime +120</code><br><code>find /var \! -atime -90</code><br><code>find &lt;dir&gt; -executable -type f</code> only find executable files  </p>
+</li>
+<li><p><code>grep -r &quot;abc&quot; /root/source</code><br><code>grep -r --include &quot;*.h&quot; &quot;date&quot; path</code><br><code>grep -m 1 &quot;model name&quot; /proc/cpuinfo</code> only display the first match line<br><code>grep -i -E &quot;abc|123&quot;</code> match abc or 123, -i ignore, -E extended regular expression.<br><code>grep -r -l &quot;main&quot; .</code> search all files under each directory, -l files-with-match, -L files-withou-match<br><code>grep -w &quot;linux&quot; *.md</code> match word<br><code>grep -rl --include=*.{h,cpp} &quot;socket&quot; .</code> search socket only with <em>.h </em>.cpp files<br><code>grep --exclude-dir=&quot;_posts&quot; --exclude-dir=&quot;_site&quot;  -r &quot;Dennis&quot; ./</code>  exclude specify directory<br><code>grep -rni &#39;[^a-zA-Z]abc[^a-zA-Z]&#39; ./</code>  match like “tt.abc.1234”, not match like “ttabccd”</p>
+</li>
+<li><p><code>cut -d&quot;&quot; -f1</code><br>e.g:<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot;</code><br>Core 0:       +30.0°C  (high = +76.0°C, crit = +100.0°C)<br>Core 1:       +37.0°C  (high = +76.0°C, crit = +100.0°C)<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot; |cut -d&quot;+&quot; -f2 |cut -d&quot; &quot; -f1</code><br>30.0°C<br>37.0°C  </p>
+</li>
+<li><p><code>history|awk &#39;{print $2}&#39;|awk &#39;begin {FS=&quot;|&quot;} {print $1}&#39;|sort|uniq -c|sort -rn|head -10</code></p>
+</li>
+<li><p><code>ps aux | sort -nk +4 | tail</code><br><code>ps -eo pid,lstart,etime | grep 3208</code> view the start and running time of specify process.<br><code>ps axjf</code> print process tree<br><code>ps -ef</code> see every process<br><code>ps -eLf</code> get about thread info<br><code>ps -U root -u root u</code> see every process running as root<br><code>pgrep firefox</code> print the procee id of firefox  </p>
+</li>
+<li><p><code>uname -a</code></p>
+</li>
+<li><p><code>whereis cp</code><br><code>rpm -qf /usr/bin/cp</code><br><code>rpm -ivp ***.rpm</code>  </p>
+</li>
+<li><p><code>rpm -qpl packetname</code> list files<br><code>rpm -i --relocate</code> change install directory<br><code>rpm -qa |grep XXX</code> check whether XXX was installed<br><code>rpm -e $(rpm -qf $(which teamviewer))</code> remove software  </p>
+</li>
+<li><p><code>mkdir -p /test/dir1/dir2/dir3</code></p>
+</li>
+<li><p><code>ftp 192.168.1.102 2121</code><br><code>pwd</code> view remote directory<br><code>lcd</code> change to the local directory<br><code>!ls</code> list local files<br><code>put 1.jpg</code><br><code>get 2.jpg</code><br><code>mput *.jpg</code><br><code>mget *.jpg</code>download multiple files<br><code>bye</code>  </p>
+</li>
+<li><code>wget ftp://IP:PORT/* --ftp-user=xxx --ftp-password=xxx -r</code> support download<br>multiple files and directories, good to replace <code>ftp</code></li>
+</ul>
+<p>####awk and sed  </p>
+<ul>
+<li><p>awk<br><code>awk FS&#39;&#39; &#39;condition1{operator1}condition2{operator2}...&#39; filename</code><br>NR:number row, NF:number field<br><code>awk &#39;NR==1{print $0}&#39;</code><br><code>arr=($(awk -F&#39;#&#39; &#39;{print $1,$2,$3,$4}&#39; $conf_file))</code><br><code>ps aux | awk &#39;NR==1{print $0}$3&gt;10{print $0}&#39;</code><br><code>awk -F&#39;&lt;|&gt;&#39; &#39;{if(NF&gt;3){print $2 &quot;:&quot; $3}}&#39; /tmp/test.xml</code> parse xml file<br><code>awk -F&#39;=&#39; &#39;/HWADDR/{print $2}&#39; /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
+</li>
+<li><p>sed<br><code>sed [options] &#39;command&#39; file(s)</code><br><code>sed [options] -f scriptfile file(s)</code><br><code>sed -i &#39;/&#39;$prj&#39;/{s/\(.*#.*#\)[0-9]\+/\1&#39;$rev_new&#39;/}&#39; $conf_file</code><br><code>sed -n 10,23p filepath</code> -n print the specific lines<br><code>sed &#39;N;s/\n/ /&#39; filepath</code> join two line into one<br><code>echo -e &quot;11\n22\n33\n&quot; | sed -n &#39;/22/{n;p}&#39;</code> print next line after match<br><code>sed &#39;:a;N;s/\n/ /;ba;&#39; file</code> join all lines  </p>
+</li>
+</ul>
+<p>####git and svn  </p>
+<ul>
+<li><p>git<br><code>git clone url</code><br><code>git add .</code><br><code>git commit -m &quot;***&quot;</code><br><code>git commit file -m &quot;***&quot;</code><br><code>git push origin master</code><br><code>git status</code><br><code>git diff</code><br><code>git rm ***</code> remove file<br><code>git rm -r ***</code> remove directory<br><code>git pull</code><br><code>git mv *** ###</code><br><code>git remote -v</code> show remote repository info<br><code>git reset &lt;file&gt;</code> undo git add<br><code>git checkout HEAD /path/file</code> undo git rm on one file<br><code>git rm $(git ls-files --deleted)</code> undo git rm multiple files  </p>
+</li>
+<li><p>svn<br><code>svn list url</code><br><code>svn co url</code><br><code>svn status</code><br><code>svn update</code><br><code>svn info url</code><br><code>svn di</code><br><code>svn di -r ver1:ver2</code><br><code>svn di -r ver1:ver2 path</code><br><code>svn revert [-R] path</code><br><code>svn merge -r ver2:ver1 path</code><br><code>svn log -r ver1:ver2</code><br><code>svn log -l5</code> show 5 latest logs<br><code>svn add path</code><br><code>svn commit -m &quot;***&quot;</code><br><code>svn ci path -m &quot;***&quot;</code><br><code>ls ~/.subversion/auth/svn.simple</code> user information location  </p>
+</li>
+</ul>
+<p>####network  </p>
+<ul>
+<li><code>ip addr</code><br><code>cat /sys/class/net/eth{0,1}/address</code> display mac address<br><code>ip addr add 172.16.60.69/24 dev eth1</code>  </li>
+<li><code>ifconfig eth0 down; ifconfig eth0 hw ether MAC_ADDR; ifconfig eth0 up</code> change MAC address<br><code>ifconfig eth2 192.168.1.102 netmask 255.255.255.0 up</code> add ip address for eth2<br><code>ifconfig eth2:1 192.168.1.23 netmask 255.255.255.0 up</code> add another ip for eth2<br><code>ifconfig eth0 mtu 6000</code> set MTU  </li>
+<li><code>ping -I 192.16.4.23 192.16.4.70</code> set source address to specified interface address  </li>
+<li><code>route add default gw 172.16.130.1 eth2</code><br><code>route del default gw 172.16.130.1 eth2</code><br><code>route add -host 192.168.168.110 dev eth0</code><br><code>route del -host 192.168.168.110 dev eth0</code><br><code>route add -net 172.16.130.0/24 gw 172.16.130.1 eth2</code><br><code>route del -net 172.16.0.0 netmask 255.255.0.0 dev eth0</code><br><code>ip route flush cache</code>  </li>
+<li><code>python -m SimpleHTTPServer</code><br><code>python -m http.server</code> for windows  </li>
+<li><code>ssh root@172.168.1.101</code>  </li>
+<li><code>ssh -f -NC -D7070 user@shell.cjb.net</code> ssh tunnel<br><code>ssh -f -NC -D7070 user@216.194.70.6</code> ssh tunnel </li>
+<li><code>scp abc.sh root@172.168.1.101:/root/test</code> upload file<br><code>scp root@172.168.1.101:/root/test/abc.sh /root/mytest</code> download file<br><code>sshpass -p passwd scp abc.sh root@172.168.1.101:/root/test</code></li>
+<li><code>nmap ip</code><br><code>nmap 192.168.1.1 -p 8000</code>  check the port is open or not<br><code>nmap -v -sn 192.168.1.1/24</code><br><code>nmap -v -sn 192.168.1.1/24 |grep &#39;report&#39; |grep -v &#39;down&#39; |awk &#39;{print $NF}&#39;</code> scan local alive ip  </li>
+<li><code>nc -z -w 1 IP PORT</code><br><code>nc -z -w 1 192.168.1.1 100</code><br><code>nc -z -w 1 -u 192.168.1.1 100</code><br><code>nc -z -w 1 192.168.1.100 1-65535</code> scan all ports from 1 to 65535  </li>
+<li><code>lsof -i:111</code><br><code>netstat -apn | grep 111</code><br><code>iptables -L</code> list rules<br><code>iptables -L INPUT --line-numbers</code><br><code>iptables -A INPUT -p tcp --dport 111 -j DROP</code> forbid specific port<br><code>iptables -A OUTPUT -p tcp --dport 111 -j DROP</code><br><code>iptables -A INPUT -p tcp --dport 8024 -j ACCEPT</code> all rule, allow port 8024<br><code>iptables -I INPUT 5 -p tcp --dport 8024 -j ACCEPT</code> add rule to specify position(5)<br><code>iptables -D INPUT -p tcp --dport 8024 -j ACCEPT</code> delete rule<br><code>service iptables save</code><br><code>service iptables stop</code><br><code>service iptables start</code>  </li>
+<li><code>curl ifconfig.me</code><br><code>curl ipinfo.io/IP_ADDRESS</code> get geographic location of an IP address  </li>
+<li><code>geoiplookup IP_ADDRESS</code>  </li>
+<li><code>dig domain</code>   <code>dig -x host</code></li>
+<li><code>netstat -nlp</code> view service and listen ports<br><code>netstat -npt</code> view tcp connections<br><code>netstat -s</code> display networking statistics  </li>
+<li><code>wget url</code> download file<br><code>wget -m -p -np -k -E http://site/path/</code> mirror the site<br><code>wget -A pdf,jpg -m -p -np -k -E http://site/path/</code> only download pdf and jpg file<br><code>wget url_file -O new_name.file</code> rename  </li>
+<li><code>tcpdump -D</code> list available device(run as root)<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 80 -n</code> use specify interface “p4p1”<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 3260 -w tcpdump.pcap</code><br><code>tcpdump -l | tee dat</code><br><code>tcpdump -U host 172.16.130.88 and port 3260 -w tcpdump.pcap</code> flush each packet to packet-buffered<br><code>tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</code><br><code>tcpdump -i eth0 src host hostname</code><br><code>tcpdump -i eth0 dst host hostname</code><br><code>tcpdump -n -e -i eth0 icmp</code><br><code>tcpdump -n -e icmp</code><br><code>tcpdump -n -e arp</code>  </li>
+<li><code>telnet 172.16.50.39 3128</code> check port is available or not</li>
+<li><code>arp -a</code>  </li>
+<li><code>squid -CNd1</code>  </li>
+<li><code>traceroute www.baidu.com</code>  display all the route from my host to the website  </li>
+</ul>
+<p>####os</p>
+<ul>
+<li>Fedora<br><code>Alt+Tab</code> switch windows<br><code>Alt+` </code>  switch sub-windows<br><code>Win</code> windows key, use to show all application<br><code>Win</code> -&gt; <code>Space</code> , search application  </li>
+<li>yum use local repository  <ul>
+<li>mount iso file to /mnt/cdrom</li>
+<li>modify /etc/yum.repos.d/CentOS-Media.repo, add text “file:///mnt/cdrom/“<br>[c6-media]<br>name=CentOS-$releasever - Media<br>baseurl=file:///media/CentOS/  <pre><code>file:///media/cdrom/  
+file:///media/cdrecorder/  
+file:///mnt/cdrom/  
+</code></pre>gdgcheck=1<br>enabled=1<br>gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6  </li>
+</ul>
+</li>
+<li><code>yum install XXX -y</code><br><code>yum search XXX</code><br><code>yum remove XXX</code><br><code>yum clean all</code><br><code>yum makecache</code>  </li>
+<li>Ubuntu<br>reset root password, press ‘e’ to edit grub boot option, change ‘ro quiet splash’<br>to ‘rw init=/bin/bash’, then login terminal with root, use ‘passwd’ to reset.</li>
+<li>Ubuntu remove software<ul>
+<li>dpkg –get-selections | grep ‘software-name’</li>
+<li>sudo apt-get remove –purge software_name</li>
+<li>dpkg -l |grep ^rc|awk ‘{print $2}’ |sudo xargs dpkg -P  </li>
+</ul>
+</li>
+</ul>
+<p>####vimperator(Firfox plugin)</p>
+<ul>
+<li>vimperator<br><code>:help</code>  Open help page<br><code>:helpall</code>  Show all help on one page<br><code>C-[</code>    cancel command mode<br><code>d</code>      close current page<br><code>u</code>      undo close current page<br><code>/</code>      search<br><code>H</code>      Go back in the browser history<br><code>gg</code>     Go to the top of the page<br><code>G</code>      Go to the bottom of the page<br><code>C-f</code>    forward page<br><code>C-b</code>    backward page<br><code>y</code>      Copy the current URL to clipboad<br><code>p</code>      Open the URL from current clipboad contents in current buffer<br><code>P</code>      Open the URL from current clipboad contents in a new tab buffer<br><code>r</code>      Reload current page<br><code>ZZ</code>     Quit and save the session<br><code>C-n</code>    Go to the next buffer<br><code>C-p</code>    Go to the previous buffer<br><code>gi</code>     Go to input field<br><code>g-u</code>    Go to the parent directory<br><code>g-U</code>    Go to the root of the website<br><code>c</code>      Start caret mode.Like normal mode of vim, use <code>h j k l</code> to move, and<br>press <code>v</code> to start visual mode, then press <code>y</code> to copy select text<br><code>gi</code>     Use [count]gi to Focus to the [count]th input field<br><code>C-l</code>    Go to URL editor and select it<br><code>C-t</code>    Open a new tab  </li>
+</ul>
+<p>####program</p>
+<ul>
+<li><code>man 2 sys_call_name</code> view system call function description<br><code>man 2 open</code>, <code>man 2 read</code>, <code>man 2 write</code>, <code>man 2 fork</code><br><code>man 3 errno</code> view error number description<br><code>man 3 printf</code><br><code>man ascii</code>  </li>
+</ul>
+<p>####Others  </p>
+<ul>
+<li><code>vimdiff a.log b.log</code> diff two files<br><code>vim -b file</code> edit binary file, use <code>:%!xxd</code> and <code>:%!xxd -r</code>  </li>
+<li><code>diff /tmp/test01 /tmp/test02</code> compare file in two directory<br><code>diff -r /tmp/test01 /tmp/test02</code> compare file in directory and subdirectory<br><code>diff /tmp/test01/1.c /tmp/test02/2.c</code> compare two files  </li>
+<li>patch<br><code>diff a.c b.c &gt; c.patch</code><br><code>patch a.c c.patch</code>  </li>
+<li><code>vmstat iostat ifstat nload top hexdump od</code><br><code>hexdump -C filename</code> display hex+ASCII of file<br><code>iostat -x 2 5</code><br><code>ipcs</code> show all ipc info<br><code>nload</code> monitor network traffic, use <code>tab</code> key to switch to next interface, and <code>q</code> to quit.  </li>
+<li><code>dd if=/dev/zero of=$test_file bs=1M count=$dev_size 2&gt;&gt; $log</code><br><code>dd of=/dev/sdh of=/dev/zero bs=1M count=500 oflag=direct</code> test the real hard disk speed<br><code>dd if=path/Fedora-os.iso of=/dev/sdb</code> install fedora live os to U disk(make<br>sure the mount directory of U disk is /dev/sdb, if not should change the out file directory)  </li>
+<li><code>&gt; file.txt</code></li>
+<li><code>watch -n 5 command</code></li>
+<li><code>chroot .</code></li>
+<li><code>date &quot;+%F %R:%S&quot;</code><br><code>date &quot;+%y%m%d%H%M%S&quot;</code><br><code>date +%s</code> print timestamp of current time<br><code>date -d @1420210697</code> translate timestamp to datetime<br><code>date +%s -d&quot;Jan 1, 1970 00:00:01&quot;</code> translate datetime to timestamp   </li>
+<li><code>which executefile</code> print directory of executefile<br><code>ldd /usr/bin/executefile</code> print shared library dependencies<br><code>nm /usr/lib64/libXXX.so</code> print interface  </li>
+<li><code>cat /proc/uptime | awk -F. &#39;{d=($1/86400);h=($1%86400)/3600;m=($1%3600)/60;s=($1%60);printf(&quot;system had run %d day %d hours %d mins %d secs\n&quot;,d,h,m,s)}&#39;</code></li>
+<li><code>fuser -u /home</code><br><code>fuser -v -n tcp 7070</code>  </li>
+<li><code>echo 1 &gt; /proc/sys/kernel/sysrq</code> enable sysrq<br><code>echo &quot;b&quot; &gt; /proc/sysrq-trigger</code>  reboot<br><code>echo &quot;o&quot; &gt; /proc/sysrq-trigger</code>  shutdown<br><code>shutdown -h now</code>                 shutdown<br><code>shutdown -h +10</code> shutdown 10 minutes later<br><code>shutdown -h 10:00</code> shutdown at ten clock  </li>
+<li><code>dmidecode | more</code>    : view mainboard info<br><code>cat /proc/cpuinfo</code>   : view CPU info<br><code>cat /proc/pci</code>       : view pci info<br><code>lspci</code>              : view PCI info<br><code>cat /proc/meminfo</code>   : view memory info<br><code>fdisk -l</code>            : view disk info<br><code>df</code>                  : view disk space useage<br><code>cat /proc/interrupts</code>: view interrupt request<br><code>dmesg | more</code>        : view device debug message  </li>
+<li><code>pdftk *.pdf cat output onelargepdfile.pdf</code> merge pdf to one<br><code>pdftk test.pdf cat 1-3 6-20 22-end output net.pdf</code> cut page 4,5,21 from file<br><code>qpdf --password=1234 --decrypt encrypted.pdf decrypted.pdf</code> decrypt pdf file<br><code>qpdf --decrypt encrypted.pdf decrypted.pdf</code> for empty password   </li>
+<li><code>vi -e -s -c &quot;:%s/pattern/string/g&quot; -c &quot;:wq&quot; file</code> execute vi comand in shell</li>
+<li>format u disk<br><code>fdisk -l</code>            : find u disk<br><code>umount /dev/sdb1</code>    : umount u disk<br><code>mkfs.vfat /dev/sdb1</code> : format as fat  </li>
+<li><code>history -c</code> clean<br><code>history -d offset</code> delete specify command  </li>
+<li><code>convert -resize 1024x768 input.svg output.png</code> convert svg to png<br><code>convert file.pdf file.png</code> convert pdf to images(file-XX.png)<br><code>convert *.png file.pdf</code> convert images to one pdf<br><code>convert -fill green -pointsize 40 -draw &#39;text 10,50 &quot;funny day&quot;&#39; foo.png comment.png</code> add text to picture  </li>
+<li><code>import foo.png</code> capture a select rectangular  </li>
+<li><code>for i in</code>ls<code>; do mv -f $i</code>echo $i | sed ‘s/^………/iscsi/‘<code>; done</code> rename<br>  files, replace the first 5 characters with <code>iscsi</code>  </li>
+<li><code>fc-list</code> list fonts  </li>
+<li><code>strace -o 1.log -s 1024 -T -tt -p 1234</code> print the system call and time used for process 1234</li>
+<li><code>printf</code> format and print data<br><code>printf &#39;%x\n&#39; 1550</code> convert octal value 1550 to hex, output 60e<br><code>printf &#39;%d\n&#39; 0x99</code> convert hex value 0x99 to octal, output 153   </li>
+<li><code>echo &quot;51200000/64/3“ |bc -l</code> calculate</li>
+<li><code>echo &#39;abc 123dd   3xxx tt&#39; |tr -s &#39;[:space:]&#39; &#39;\n&#39;</code> translate spaces to be line break symbol<br><code>echo &#39;abc 123dT 3xXX tt&#39; |tr &#39;[:upper:]&#39; &#39;[:lower:]&#39;</code><br><code>cat test.md |tr -s &#39;[:space:]&#39; &#39;\n&#39; |tr &#39;[:upper:]&#39; &#39;[:lower:]&#39; |sort |uniq -c| sort -nr |head -10</code><br> find the top hot words for text document.</li>
+<li><code>zip -Phq.hzy.zf.xf.hx.l@123 test.zip test</code> zip “test” file to be test.zip using password<br><code>unzip -Phq.hzy.zf.xf.hx.l@123 test.zip</code> unzip zip file with password<br><code>unzip -Z test.zip</code> unzip file without password<br><code>cat abc.zip.00* &gt;abc.zip</code> merge zip files  </li>
+<li><code>pkill -9 -t pts/1</code>  </li>
+<li><code>setenforce 0</code>  forbid Selinux temporary<br><code>sed -i &#39;s/SELINUX=.*/SELINUX=disabled/g&#39; /etc/selinux/config</code> forbid Selinux, need reboot  </li>
+<li><code>kill PID</code><br><code>kill -9 PID</code><br><code>kill -kill PID</code>  </li>
+<li><code>vgchange -ay</code>  </li>
+<li><code>lsof |grep &#39;/core/messages&#39;</code> find which application open the specify file</li>
+<li><code>for x in</code>seq 1 1 10<code>; do ps -eo state,pid,cmd | grep &quot;^D&quot;; echo &quot;----&quot;; sleep 5; done</code><br>print the processes in a “D” state every 5 seconds for 10 intervals </li>
+<li><code>echo export LANG=en_US.utf8 &gt;&gt;~/.profile</code>, set lang for os,  and checking with <code>echo $LANG</code> or <code>locale</code></li>
+<li><code>gstack threadID</code></li>
+<li><code>rm !(*.pdf)</code> remove files except pdf</li>
+<li><code>[! -d /temp/test] &amp;&amp; mkdir /tmp/test</code> if folder not exist, create it.</li>
+</ul>
+<p>####Reference</p>
+<ul>
+<li><a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">你可能不知道的Shell</a></li>
+<li><a href="http://ahei.info/bash.htm" target="_blank" rel="external">高效操作Bash</a></li>
+<li><a href="http://docs.huihoo.com/homepage/shredderyin/readline.html" target="_blank" rel="external">Bash readline 使用技巧</a></li>
+<li><a href="http://floss.zoomquiet.org/item20051011211622-frameset.html" target="_blank" rel="external">Shell大杂烩</a></li>
+<li><a href="http://blog.jobbole.com/54425/" target="_blank" rel="external">每个Linux用户都应该知道的命令行技巧</a></li>
+<li><a href="http://www.cyberciti.biz/faq/check-network-connection-linux/" target="_blank" rel="external">Check network connection command</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/" target="_blank" rel="external">50 Most Frequently Used UNIX / Linux Commands (With Examples)</a></li>
+<li><a href="http://albanianwizard.org/tcpdump-how-to-the-linux-troubleshooter.albanianwizard" target="_blank" rel="external">Tcpdump how to – the linux network troubleshooter</a></li>
+<li><a href="http://linux.cn/article-4790-1.html" target="_blank" rel="external">20条Linux命令面试问答</a></li>
+<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump命令详解</a></li>
+<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap扫描原理与用法</a></li>
+<li><a href="http://easwy.com/blog/archives/change-rpm-package-installation-directories/" target="_blank" rel="external">Linux使用笔记: 更改RPM包的安装目录</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/17/2013-01-05-linux-common-command/" data-id="cin4f0h18001kl8izhaofc7yt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/17/2013-01-06-linux-device-driver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux device driver
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/17/2013-01-04-copy-file-with-progress-bar/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Copy file with progress bar</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/debug/">debug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ARP/">ARP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Auto-Compile/">Auto Compile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Batch-File/">Batch File</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emacs/">Emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FAQ/">FAQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ICMP/">ICMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IRC/">IRC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NetworkStack/">NetworkStack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notepad/">Notepad++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Translation/">Translation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WinIO/">WinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/api/">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arp/">arp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-compile/">auto compile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/batch/">batch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blat/">blat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dot/">dot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exploit/">exploit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/flowchart/">flowchart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gedit/">gedit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/google/">google</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/graphviz/">graphviz</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hardware-monitor/">hardware monitor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">jekyll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kernel/">kernel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kvm/">kvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lisp/">lisp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mail/">mail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathematician/">mathematician</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maxima/">maxima</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mtrace/">mtrace</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-snmp/">net-snmp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/netbios/">netbios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/network/">network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novels/">novels</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opennebula/">opennebula</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/org-mode/">org mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandoc/">pandoc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plugin/">plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raid/">raid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rsync/">rsync</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sed/">sed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skype/">skype</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/source-analyze/">source analyze</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite/">sqlite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/study/">study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tunnel/">tunnel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/valgrind/">valgrind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/">vi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wget/">wget</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wifi/">wifi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wireless-tools/">wireless-tools</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wpa-supplicant/">wpa_supplicant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/">xml</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
