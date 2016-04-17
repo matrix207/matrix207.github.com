@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2016-01-17-c11" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-c11" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-01-17-c11/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.644Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/01/17/c11/" class="article-date">
+  <time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-01-17-c11/">c++11</a>
+      <a class="article-title" href="/2016/01/17/c11/">c++11</a>
     </h1>
   
 
@@ -86,15 +88,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Reference</p>
-<ul>
+        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://mindhacks.cn/2012/08/27/modern-cpp-practices/" target="_blank" rel="external">C++11（及现代C++风格）和快速迭代式开发</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-01-17-c11/" data-id="cin4eyndw0001knizfrgr3qh8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/17/c11/" data-id="cin4qo6jn009v7zizhpuw3ctn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -104,10 +105,10 @@
 
 
   
-    <article id="post-2016-01-07-linux-cc-coverage-testing-tool" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-cc-coverage-testing-tool" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-01-07-linux-cc-coverage-testing-tool/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.643Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/01/07/linux-cc-coverage-testing-tool/" class="article-date">
+  <time datetime="2016-01-06T16:00:00.000Z" itemprop="datePublished">2016-01-07</time>
 </a>
     
   </div>
@@ -118,7 +119,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-01-07-linux-cc-coverage-testing-tool/">Linux c/c++ coverage testing tool</a>
+      <a class="article-title" href="/2016/01/07/linux-cc-coverage-testing-tool/">Linux c/c++ coverage testing tool</a>
     </h1>
   
 
@@ -126,23 +127,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####gcov &amp; lcov</p>
-<ul>
+        <h4 id="gcov-amp-lcov"><a href="#gcov-amp-lcov" class="headerlink" title="gcov &amp; lcov"></a>gcov &amp; lcov</h4><ul>
 <li>Reference <a href="http://sdet.org/?p=212" target="_blank" rel="external">http://sdet.org/?p=212</a></li>
 <li>step 1: add optional in Makefile, and build with <code>make coverage=yes</code><br>  ifeq ($(coverage), yes)<br>  CXXFLAGS  += -fprofile-arcs -ftest-coverage<br>  LINKERCXX += -fprofile-arcs -ftest-coverage<br>  OPT_FLAGS  = -g3<br>  endif</li>
 <li>step 2: run test files</li>
 <li>step 3: generate text result by <code>gcov source_file.cc</code>, see result with <code>vim source_file.cc.gcov</code></li>
 <li>step 4: generate html result by <code>lcov -c -d ./ -o app.info</code> and <code>genhtml app.info -o cc_result</code></li>
 </ul>
-<p>####Reference</p>
-<ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://sdet.org/?p=212" target="_blank" rel="external">Linux下c/c++项目代码覆盖率的产生方法</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-01-07-linux-cc-coverage-testing-tool/" data-id="cin4eyne40006kniztdc14s6j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/07/linux-cc-coverage-testing-tool/" data-id="cin4qo6jm009u7ziz30kzbhgy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,10 +151,10 @@
 
 
   
-    <article id="post-2016-01-03-detect-cc-memory-overflow" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-detect-cc-memory-overflow" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-01-03-detect-cc-memory-overflow/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.642Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/01/03/detect-cc-memory-overflow/" class="article-date">
+  <time datetime="2016-01-02T16:00:00.000Z" itemprop="datePublished">2016-01-03</time>
 </a>
     
   </div>
@@ -166,7 +165,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-01-03-detect-cc-memory-overflow/">Detect c/c++ memory overflow</a>
+      <a class="article-title" href="/2016/01/03/detect-cc-memory-overflow/">Detect c/c++ memory overflow</a>
     </h1>
   
 
@@ -174,8 +173,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####Understand the process address space</p>
-<ul>
+        <h4 id="Understand-the-process-address-space"><a href="#Understand-the-process-address-space" class="headerlink" title="Understand the process address space"></a>Understand the process address space</h4><ul>
 <li>0 to 0x08048000, keep for OS, not used.</li>
 <li>0x08048000 to 0x40000000<ul>
 <li>read only of code and data</li>
@@ -193,7 +191,7 @@
 </li>
 <li>0xC0000000 to 0xFFFFFFFF, use for kernel space</li>
 </ul>
-<p>####Stack and heap<br>For multiple threads program, OS will allocate a stack for every threads.</p>
+<h4 id="Stack-and-heap"><a href="#Stack-and-heap" class="headerlink" title="Stack and heap"></a>Stack and heap</h4><p>For multiple threads program, OS will allocate a stack for every threads.</p>
 <ul>
 <li>Stack<ul>
 <li>ESP register point to the top of stack</li>
@@ -224,8 +222,7 @@
 </ul>
 </li>
 </ul>
-<p>####Failures</p>
-<ul>
+<h4 id="Failures"><a href="#Failures" class="headerlink" title="Failures"></a>Failures</h4><ul>
 <li>stack overflow<ul>
 <li>failures<ul>
 <li>changed global variable</li>
@@ -251,8 +248,7 @@
 </ul>
 </li>
 </ul>
-<p>####Detect tools</p>
-<ul>
+<h4 id="Detect-tools"><a href="#Detect-tools" class="headerlink" title="Detect tools"></a>Detect tools</h4><ul>
 <li><code>mprotect</code>, set protection on a region of memory. For more see <code>man mprotect</code></li>
 <li><code>electric-fence</code><ul>
 <li><a href="http://packages.debian.org/sid/electric-fence" target="_blank" rel="external">http://packages.debian.org/sid/electric-fence</a></li>
@@ -261,8 +257,7 @@
 <li><code>backtrac</code></li>
 <li><code>libsigsegv</code></li>
 </ul>
-<p>####Reference</p>
-<ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://m.blog.csdn.net/blog/pecywang/22799705" target="_blank" rel="external">C++编译器越界检查机制</a></li>
 <li><a href="http://www.cnblogs.com/djinmusic/archive/2013/02/04/2891753.html" target="_blank" rel="external">定位多线程内存越界问题实践总结</a></li>
 <li><a href="http://blog.codingnow.com/2014/01/out_of_range_bug.html" target="_blank" rel="external">一次内存越界的 bug</a></li>
@@ -272,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-01-03-detect-cc-memory-overflow/" data-id="cin4eynds0000kniz6tylyvaq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/03/detect-cc-memory-overflow/" data-id="cin4qo6jm009t7zizq7msh9o7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -282,10 +277,10 @@
 
 
   
-    <article id="post-2015-11-25-memory-program-and-debug" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-memory-program-and-debug" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-11-25-memory-program-and-debug/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.640Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/11/25/memory-program-and-debug/" class="article-date">
+  <time datetime="2015-11-24T16:00:00.000Z" itemprop="datePublished">2015-11-25</time>
 </a>
     
   <div class="article-category">
@@ -300,7 +295,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-11-25-memory-program-and-debug/">memory program and debug</a>
+      <a class="article-title" href="/2015/11/25/memory-program-and-debug/">memory program and debug</a>
     </h1>
   
 
@@ -346,7 +341,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-11-25-memory-program-and-debug/" data-id="cin4f0h5s007ml8izvyno59q2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/25/memory-program-and-debug/" data-id="cin4qo6jk009n7zizrb1rfxum" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mtrace/">mtrace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/valgrind/">valgrind</a></li></ul>
@@ -358,10 +353,10 @@
 
 
   
-    <article id="post-2015-11-06-what-i-had-learned-over-the-past-half-year" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-what-i-had-learned-over-the-past-half-year" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-11-06-what-i-had-learned-over-the-past-half-year/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.639Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/11/06/what-i-had-learned-over-the-past-half-year/" class="article-date">
+  <time datetime="2015-11-05T16:00:00.000Z" itemprop="datePublished">2015-11-06</time>
 </a>
     
   </div>
@@ -372,7 +367,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-11-06-what-i-had-learned-over-the-past-half-year/">what I had learned over the past half year</a>
+      <a class="article-title" href="/2015/11/06/what-i-had-learned-over-the-past-half-year/">what I had learned over the past half year</a>
     </h1>
   
 
@@ -384,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-11-06-what-i-had-learned-over-the-past-half-year/" data-id="cin4f0h5r007ll8iztyetbdp9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/06/what-i-had-learned-over-the-past-half-year/" data-id="cin4qo6jj009m7zizxa0iht0g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -394,10 +389,10 @@
 
 
   
-    <article id="post-2015-11-04-lua" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-lua" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-11-04-lua/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.638Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/11/04/lua/" class="article-date">
+  <time datetime="2015-11-03T16:00:00.000Z" itemprop="datePublished">2015-11-04</time>
 </a>
     
   </div>
@@ -408,7 +403,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-11-04-lua/">lua</a>
+      <a class="article-title" href="/2015/11/04/lua/">lua</a>
     </h1>
   
 
@@ -416,19 +411,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###what is Lua</p>
-<p>###what can Lua do?</p>
-<p>###how to implement?</p>
-<p>###what is the advantages and disadvantages?</p>
-<p>###how to use Lua?</p>
-<p>###compare with other scripts</p>
-<p>###code analysis</p>
-<p>###Reference<br><a href="https://www.chenlq.net/dev/cpp-why/46-what-are-the-characteristics-of-the-scripting-language-lua-compared-with-python-ruby-perl-etc.html" target="_blank" rel="external">features of Lua</a></p>
+        <h3 id="what-is-Lua"><a href="#what-is-Lua" class="headerlink" title="what is Lua"></a>what is Lua</h3><h3 id="what-can-Lua-do"><a href="#what-can-Lua-do" class="headerlink" title="what can Lua do?"></a>what can Lua do?</h3><h3 id="how-to-implement"><a href="#how-to-implement" class="headerlink" title="how to implement?"></a>how to implement?</h3><h3 id="what-is-the-advantages-and-disadvantages"><a href="#what-is-the-advantages-and-disadvantages" class="headerlink" title="what is the advantages and disadvantages?"></a>what is the advantages and disadvantages?</h3><h3 id="how-to-use-Lua"><a href="#how-to-use-Lua" class="headerlink" title="how to use Lua?"></a>how to use Lua?</h3><h3 id="compare-with-other-scripts"><a href="#compare-with-other-scripts" class="headerlink" title="compare with other scripts"></a>compare with other scripts</h3><h3 id="code-analysis"><a href="#code-analysis" class="headerlink" title="code analysis"></a>code analysis</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://www.chenlq.net/dev/cpp-why/46-what-are-the-characteristics-of-the-scripting-language-lua-compared-with-python-ruby-perl-etc.html" target="_blank" rel="external">features of Lua</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-11-04-lua/" data-id="cin4f0h5r007kl8izwxnysd20" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/04/lua/" data-id="cin4qo6ji009l7ziz331wlc9s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -438,10 +426,10 @@
 
 
   
-    <article id="post-2015-11-04-database-knowledge" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-database-knowledge" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-11-04-database-knowledge/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.636Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/11/04/database-knowledge/" class="article-date">
+  <time datetime="2015-11-03T16:00:00.000Z" itemprop="datePublished">2015-11-04</time>
 </a>
     
   </div>
@@ -452,7 +440,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-11-04-database-knowledge/">database knowledge</a>
+      <a class="article-title" href="/2015/11/04/database-knowledge/">database knowledge</a>
     </h1>
   
 
@@ -460,8 +448,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Reference</p>
-<ul>
+        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><p><code>DDL</code> is Data Definition Language (DDL) statements are used to define the database<br>structure or schema. Some examples:  </p>
 <p>  CREATE - to create table in the database<br>  ALTER - alters the structure of the database<br>  DROP - delete objects from the database<br>  TRUNCATE - remove all records from a table, including all spaces allocated for the records are removed<br>  COMMENT - add comments to the data dictionary<br>  RENAME - rename an object </p>
 </li>
@@ -472,15 +459,14 @@
 </li>
 <li><code>TCL</code> is Transaction Control Language (DCL) statements.</li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference-1"><a href="#Reference-1" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://liyuan2005.iteye.com/blog/209218" target="_blank" rel="external">数据库中的DML，DCL，DDL分别是那些操作？</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-11-04-database-knowledge/" data-id="cin4f0h5o007jl8iz8uboiaj1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/04/database-knowledge/" data-id="cin4qo6jf009k7zizx4ceql9s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -490,10 +476,10 @@
 
 
   
-    <article id="post-2015-11-01-network-freedom" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-network-freedom" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-11-01-network-freedom/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.635Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/11/01/network-freedom/" class="article-date">
+  <time datetime="2015-10-31T16:00:00.000Z" itemprop="datePublished">2015-11-01</time>
 </a>
     
   </div>
@@ -504,7 +490,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-11-01-network-freedom/">network freedom</a>
+      <a class="article-title" href="/2015/11/01/network-freedom/">network freedom</a>
     </h1>
   
 
@@ -512,27 +498,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Modify hosts file</p>
-<ul>
+        <h3 id="Modify-hosts-file"><a href="#Modify-hosts-file" class="headerlink" title="Modify hosts file"></a>Modify hosts file</h3><ul>
 <li>modify /etc/hosts file</li>
 <li>restart network with <code>systemctl restart NetworkManager</code></li>
 <li>fly on internet freedom</li>
 </ul>
-<p>###Using proxy</p>
-<p>###Using VPN</p>
-<p>###Build VPN on VPS</p>
-<ul>
+<h3 id="Using-proxy"><a href="#Using-proxy" class="headerlink" title="Using proxy"></a>Using proxy</h3><h3 id="Using-VPN"><a href="#Using-VPN" class="headerlink" title="Using VPN"></a>Using VPN</h3><h3 id="Build-VPN-on-VPS"><a href="#Build-VPN-on-VPS" class="headerlink" title="Build VPN on VPS"></a>Build VPN on VPS</h3><ul>
 <li>linode</li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://github.com/racaljk/hosts" target="_blank" rel="external">最新可用的google hosts文件</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-11-01-network-freedom/" data-id="cin4f0h5n007hl8izgxxbwqiy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/11/01/network-freedom/" data-id="cin4qo6jd009h7zizu1bfw5re" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/">google</a></li></ul>
@@ -544,10 +525,10 @@
 
 
   
-    <article id="post-2015-10-25-write-document-with-sphinx" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-write-document-with-sphinx" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-10-25-write-document-with-sphinx/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.634Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/10/25/write-document-with-sphinx/" class="article-date">
+  <time datetime="2015-10-24T16:00:00.000Z" itemprop="datePublished">2015-10-25</time>
 </a>
     
   </div>
@@ -558,7 +539,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-10-25-write-document-with-sphinx/">write document with sphinx</a>
+      <a class="article-title" href="/2015/10/25/write-document-with-sphinx/">write document with sphinx</a>
     </h1>
   
 
@@ -566,22 +547,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Introduce<br>Sphinx is tool that make it easy to create intelligent and beautiful documentation.<br>For more information, go to here <a href="http://sphinx-doc.org/" target="_blank" rel="external">http://sphinx-doc.org/</a></p>
-<p>###Install</p>
-<ul>
+        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>Sphinx is tool that make it easy to create intelligent and beautiful documentation.<br>For more information, go to here <a href="http://sphinx-doc.org/" target="_blank" rel="external">http://sphinx-doc.org/</a></p>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
 <li><code>easy-install -U sphinx</code></li>
 </ul>
-<p>###Example</p>
-<ul>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
 <li><a href="http://sphinx-doc.org/examples.html" target="_blank" rel="external">http://sphinx-doc.org/examples.html</a></li>
 </ul>
-<p>###My TODO list</p>
-<ul>
+<h3 id="My-TODO-list"><a href="#My-TODO-list" class="headerlink" title="My TODO list"></a>My TODO list</h3><ul>
 <li>write a book for VIM</li>
 <li>write a book to introduce database in memory</li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://sphinx-doc.org/" target="_blank" rel="external">SPHINX python document generator</a></li>
 <li><a href="http://hyry.dip.jp/tech/book/page/sphinx/setup.html" target="_blank" rel="external">用Sphinx写书</a></li>
 <li><a href="http://avnpc.com/pages/writing-best-documentation-by-sphinx-github-readthedocs" target="_blank" rel="external">写最好的文档：Sphinx + Read the Docs</a></li>
@@ -591,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-10-25-write-document-with-sphinx/" data-id="cin4f0h5m007gl8izg5b8bx12" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/25/write-document-with-sphinx/" data-id="cin4qo6jd009g7ziz7zzenjpz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -601,10 +578,10 @@
 
 
   
-    <article id="post-2015-10-24-redis" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-rdtsc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-10-24-redis/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.634Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/10/24/rdtsc/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
 </a>
     
   </div>
@@ -615,7 +592,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-10-24-redis/">redis</a>
+      <a class="article-title" href="/2015/10/24/rdtsc/">rdtsc</a>
     </h1>
   
 
@@ -623,38 +600,262 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Redis<br>Redis is an in-memory database that persist on disk. The data model is key-value,<br>but many different kind of values are supported: String, Lists, Sets, Sorted Set,<br>Hashes, HyperLogLog, Bitmaps.<a href="http://redis.io" target="_blank" rel="external">http://redis.io</a></p>
-<p>###Install</p>
-<ul>
-<li>Download, extract and compile Redis with:<br>  $ wget <a href="http://download.redis.io/releases/redis-3.0.5.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-3.0.5.tar.gz</a><br>  $ tar xzf redis-3.0.5.tar.gz<br>  $ cd redis-3.0.5<br>  $ make</li>
+        <h3 id="What-is-rdtsc"><a href="#What-is-rdtsc" class="headerlink" title="What is rdtsc"></a>What is rdtsc</h3><ul>
+<li>rdtsc is ReaD TimeStamp Count</li>
+<li>limition<ul>
+<li>only work on x86 platform</li>
 </ul>
-<p>###Use</p>
-<ul>
-<li><p>Playing with Redis</p>
-<p>  % cd src<br>  % ./redis-cli<br>  redis&gt; ping<br>  PONG<br>  redis&gt; set foo bar<br>  OK<br>  redis&gt; get foo<br>  “bar”<br>  redis&gt; incr mycounter<br>  (integer) 1<br>  redis&gt; incr mycounter<br>  (integer) 2<br>  redis&gt;</p>
 </li>
 </ul>
-<p>###Analyze</p>
-<ul>
-<li>size of source code, 1.3MB</li>
-<li>total lines of code, 58185</li>
-<li>allocate double memory size when append string</li>
+<h3 id="simple-implement-use-for-x86-64-platform"><a href="#simple-implement-use-for-x86-64-platform" class="headerlink" title="simple implement use for x86_64 platform"></a>simple implement use for x86_64 platform</h3><pre><code>uint64_t rdtsc()
+{
+   uint32_t hi, lo;
+   __asm__ __volatile__ (&quot;rdtsc&quot; : &quot;=a&quot;(lo), &quot;=d&quot;(hi));
+   return ( (uint64_t)lo)|( ((uint64_t)hi)&lt;&lt;32 );
+}
+</code></pre><h3 id="rdtsc-h"><a href="#rdtsc-h" class="headerlink" title="rdtsc.h"></a>rdtsc.h</h3><pre><code>#ifndef __RDTSC_H_DEFINED__
+#define __RDTSC_H_DEFINED__
+
+
+#if defined(__i386__)
+
+static __inline__ unsigned long long rdtsc(void)
+{
+  unsigned long long int x;
+     __asm__ volatile (&quot;.byte 0x0f, 0x31&quot; : &quot;=A&quot; (x));
+     return x;
+}
+#elif defined(__x86_64__)
+
+static __inline__ unsigned long long rdtsc(void)
+{
+  unsigned hi, lo;
+  __asm__ __volatile__ (&quot;rdtsc&quot; : &quot;=a&quot;(lo), &quot;=d&quot;(hi));
+  return ( (unsigned long long)lo)|( ((unsigned long long)hi)&lt;&lt;32 );
+}
+
+#elif defined(__powerpc__)
+
+static __inline__ unsigned long long rdtsc(void)
+{
+  unsigned long long int result=0;
+  unsigned long int upper, lower,tmp;
+  __asm__ volatile(
+                &quot;0:                  \n&quot;
+                &quot;\tmftbu   %0           \n&quot;
+                &quot;\tmftb    %1           \n&quot;
+                &quot;\tmftbu   %2           \n&quot;
+                &quot;\tcmpw    %2,%0        \n&quot;
+                &quot;\tbne     0b         \n&quot;
+                : &quot;=r&quot;(upper),&quot;=r&quot;(lower),&quot;=r&quot;(tmp)
+                );
+  result = upper;
+  result = result&lt;&lt;32;
+  result = result|lower;
+
+  return(result);
+}
+
+#else
+
+#error &quot;No tick counter is available!&quot;
+
+#endif
+
+
+/*  $RCSfile:  $   $Author: kazutomo $
+ *  $Revision: 1.6 $  $Date: 2005/04/13 18:49:58 $
+ */
+
+#endif
+</code></pre><h3 id="Sample-one"><a href="#Sample-one" class="headerlink" title="Sample one"></a>Sample one</h3><pre><code>#include &lt;stdio.h&gt;
+#include &quot;rdtsc.h&quot;
+
+int main(int argc, char* argv[])
+{
+  unsigned long long a,b;
+
+  a = rdtsc();
+  b = rdtsc();
+
+  printf(&quot;%llu\n&quot;, b-a);
+  return 0;
+}
+</code></pre><h3 id="Sample-two"><a href="#Sample-two" class="headerlink" title="Sample two"></a>Sample two</h3><pre><code>#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdlib.h&gt;
+
+#include &quot;rdtsc.h&quot;
+
+#define N (1024*1024*2)
+
+int main(int argc, char* argv[])
+{
+  unsigned long long a,b;
+  unsigned long long min,max;
+  char* p;
+  int i;
+
+  p = (char*)malloc(N);
+  assert( p!=(char*)0 );
+
+  max = 0;
+  min = UINT64_MAX;
+
+  for(i=0; i&lt;N; i++ ) {
+    a = rdtsc();
+    p[i] = 0;
+    b = rdtsc() - a;
+    if( b &gt; max ) max = b;
+    else if( b &lt; min ) min = b;
+  }
+  printf(&quot;min=%llu\n&quot;, min);
+  printf(&quot;max=%llu\n&quot;, max);
+  return 0;
+}
+</code></pre><h3 id="TODO-translate-CPU-cycle-to-time"><a href="#TODO-translate-CPU-cycle-to-time" class="headerlink" title="TODO: translate CPU cycle to time"></a>TODO: translate CPU cycle to time</h3><ul>
+<li><code>time_in_seconds = number_of_clock_cycles / frequency</code></li>
+<li><code>cat /proc/cpuinfo |grep &#39;MHz&#39;</code></li>
+<li><code>gettimeofday</code> and <code>rdtsc</code></li>
 </ul>
-<p>###Reference</p>
-<ul>
-<li><a href="http://redis.io/" target="_blank" rel="external">redis</a></li>
-<li><a href="https://github.com/antirez/redis" target="_blank" rel="external">redis on github</a></li>
-<li><a href="http://origin.redisbook.com/" target="_blank" rel="external">redis book</a></li>
-<li><a href="https://github.com/huangz1990/redisbook" target="_blank" rel="external">redis book source</a></li>
-<li><a href="http://redisdoc.com/" target="_blank" rel="external">Redis 命令参考</a></li>
-<li><a href="https://github.com/huangz1990/annotated_redis_source" target="_blank" rel="external">带有详细注释的 Redis 2.6 源码</a></li>
-<li><a href="https://github.com/springside/springside4/wiki/redis" target="_blank" rel="external">关于Redis的常识</a></li>
+<h3 id="Something-need-to-consider"><a href="#Something-need-to-consider" class="headerlink" title="Something need to consider?"></a>Something need to consider?</h3><ul>
+<li>Context switch?</li>
+<li>Multi-core processors</li>
+</ul>
+<h3 id="gettimeofday"><a href="#gettimeofday" class="headerlink" title="gettimeofday"></a>gettimeofday</h3><pre><code>#include &lt;iostream&gt;
+#include &lt;sys/time.h&gt; // for gettimeofday()
+using namespace std;
+
+int main()
+{
+    struct timeval t1, t2;
+    double elapsedTime;
+
+    // start timer
+    gettimeofday(&amp;t1, NULL);
+
+    // do something
+    // ...
+
+    // stop timer
+    gettimeofday(&amp;t2, NULL);
+
+    // compute and print the elapsed time in millisec
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;    // sec to ms
+    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0; // us to ms
+    cout &lt;&lt; elapsedTime &lt;&lt; &quot; ms.\n&quot;;
+
+    return 0;
+}
+</code></pre><h3 id="gettimeofday-vs-rdtsc-source-code"><a href="#gettimeofday-vs-rdtsc-source-code" class="headerlink" title="gettimeofday vs rdtsc, source code"></a>gettimeofday vs rdtsc, source code</h3><pre><code>#include &lt;iostream&gt;
+#include &lt;sys/time.h&gt; // for gettimeofday()
+#include &lt;stdlib.h&gt; // for malloc
+#include &lt;string.h&gt; // for memcpy
+#include &quot;rdtsc.h&quot;
+
+// cat /proc/cpuinfo |grep &apos;MHz&apos;
+#define CPUMHZ 1200.0f
+// frequency per micro second
+#define CPU_SPEED_US (CPUMHZ*1024*1024/1000/1000)
+
+using namespace std;
+int main()
+{
+    // test malloc
+    cout &lt;&lt; &quot;malloc:\n&quot;;
+    struct timeval t1, t2;
+    double elapsedTime;
+    gettimeofday(&amp;t1, NULL);
+    char* p = (char*)malloc(4);
+    gettimeofday(&amp;t2, NULL);
+    free(p);
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000000.0; // sec to us
+    elapsedTime += (t2.tv_usec - t1.tv_usec) ;
+    cout &lt;&lt; &quot;\t&quot; &lt;&lt; elapsedTime &lt;&lt; &quot; us (by gettimeofday)\n&quot;;
+
+    unsigned long long a,b;
+    a = rdtsc();
+    char* q = (char*)malloc(4);
+    b = rdtsc() - a;
+    free(q);
+    cout &lt;&lt; &quot;\ttimestamp count is &quot; &lt;&lt; b &lt;&lt; &quot;, elapsedTime &quot; &lt;&lt; b/CPU_SPEED_US &lt;&lt; &quot; us\n&quot;;
+
+    // test memcpy
+    cout &lt;&lt; &quot;memcpy:\n&quot;;
+    char tmp1[1024] = {0};
+    char tmp2[1024] = {&apos;a&apos;};
+    int count = 1000;
+
+    gettimeofday(&amp;t1, NULL);
+    for (int i=0; i&lt;count; i++) {
+        memcpy(tmp1, tmp2, sizeof(tmp1));
+    }
+    gettimeofday(&amp;t2, NULL);
+    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000000.0; // sec to us
+    elapsedTime += (t2.tv_usec - t1.tv_usec) ;
+    cout &lt;&lt; &quot;\t&quot; &lt;&lt; elapsedTime &lt;&lt; &quot; us (by gettimeofday)\n&quot;;
+
+    a = rdtsc();
+    for (int i=0; i&lt;count; i++) {
+        memcpy(tmp1, tmp2, sizeof(tmp1));
+    }
+    b = (rdtsc()-a)/count;
+    cout &lt;&lt; &quot;\ttimestamp count is &quot; &lt;&lt; b &lt;&lt; &quot;, elapsedTime &quot; &lt;&lt; b/CPU_SPEED_US &lt;&lt; &quot; us\n&quot;;
+    return 0;
+}
+</code></pre><h3 id="output"><a href="#output" class="headerlink" title="output"></a>output</h3><pre><code>dennis@dennis:~/tt$ g++ -O3 -o t t.cc
+dennis@dennis:~/tt$ ./t
+malloc:
+    0 us (by gettimeofday)
+    timestamp count is 58, elapsedTime 0.0460943 us
+memcpy:
+    0 us (by gettimeofday)
+    timestamp count is 0, elapsedTime 0 us
+dennis@dennis:~/tt$ g++ -O2 -o t t.cc
+dennis@dennis:~/tt$ ./t
+malloc:
+    0 us (by gettimeofday)
+    timestamp count is 69, elapsedTime 0.0548363 us
+memcpy:
+    0 us (by gettimeofday)
+    timestamp count is 0, elapsedTime 0 us
+dennis@dennis:~/tt$ g++ -O1 -o t t.cc
+dennis@dennis:~/tt$ ./t
+malloc:
+    0 us (by gettimeofday)
+    timestamp count is 58, elapsedTime 0.0460943 us
+memcpy:
+    2 us (by gettimeofday)
+    timestamp count is 3, elapsedTime 0.00238419 us
+dennis@dennis:~/tt$ g++ -o t t.cc
+dennis@dennis:~/tt$ ./t
+malloc:
+    80 us (by gettimeofday)
+    timestamp count is 1198, elapsedTime 0.952085 us
+memcpy:
+    102 us (by gettimeofday)
+    timestamp count is 295, elapsedTime 0.234445 us
+dennis@dennis:~/tt$ g++ -g -o t t.cc
+dennis@dennis:~/tt$ ./t
+malloc:
+    82 us (by gettimeofday)
+    timestamp count is 1421, elapsedTime 1.12931 us
+memcpy:
+
+    timestamp count is 295, elapsedTime 0.234445 us
+</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc" target="_blank" rel="external">http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc</a></li>
+<li><a href="http://www.mcs.anl.gov/~kazutomo/rdtsc.html" target="_blank" rel="external">Time-stamp Counter</a></li>
+<li><a href="http://www.cnblogs.com/cnmaizi/archive/2011/01/17/1937772.html" target="_blank" rel="external">X86平台采用rdtsc指令读取时间戳计数器完成高精度计时</a></li>
+<li><a href="http://www.strchr.com/performance_measurements_with_rdtsc" target="_blank" rel="external">Performance measurements with RDTSC</a></li>
+<li><a href="http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c" target="_blank" rel="external">http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-10-24-redis/" data-id="cin4f0h5m007fl8izcnfwwedv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/24/rdtsc/" data-id="cin4qo6jb009e7zizsls49iv9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -706,7 +907,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -719,23 +920,23 @@
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -750,7 +951,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -761,6 +962,8 @@
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

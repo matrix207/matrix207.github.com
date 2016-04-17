@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/page/12/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2013-07-19-mac-address-swap-with-two-network-cards" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mac-address-swap-with-two-network-cards" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-07-19-mac-address-swap-with-two-network-cards/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.542Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/07/19/mac-address-swap-with-two-network-cards/" class="article-date">
+  <time datetime="2013-07-18T16:00:00.000Z" itemprop="datePublished">2013-07-19</time>
 </a>
     
   <div class="article-category">
@@ -82,7 +84,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-07-19-mac-address-swap-with-two-network-cards/">MAC address swap with two network cards</a>
+      <a class="article-title" href="/2013/07/19/mac-address-swap-with-two-network-cards/">MAC address swap with two network cards</a>
     </h1>
   
 
@@ -90,8 +92,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###1. Problem </p>
-<p>####1.1 When network setting is normal, found that MAC address was swapped.<br>eth0 –&gt; 00:25:90:70:51:f1<br>eth1 –&gt; 00:25:90:70:51:f0</p>
+        <h3 id="1-Problem"><a href="#1-Problem" class="headerlink" title="1. Problem"></a>1. Problem</h3><h4 id="1-1-When-network-setting-is-normal-found-that-MAC-address-was-swapped"><a href="#1-1-When-network-setting-is-normal-found-that-MAC-address-was-swapped" class="headerlink" title="1.1 When network setting is normal, found that MAC address was swapped."></a>1.1 When network setting is normal, found that MAC address was swapped.</h4><p>eth0 –&gt; 00:25:90:70:51:f1<br>eth1 –&gt; 00:25:90:70:51:f0</p>
 <pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -107,8 +108,7 @@
     link/ether 00:25:90:70:51:f0 brd ff:ff:ff:ff:ff:ff
     inet6 fe80::225:90ff:fe70:51f0/64 scope link 
        valid_lft forever preferred_lft forever
-</code></pre><p>####1.2 But when made a bind to the two interface, it was correct.</p>
-<pre><code>[root@localhost ~]# ip a
+</code></pre><h4 id="1-2-But-when-made-a-bind-to-the-two-interface-it-was-correct"><a href="#1-2-But-when-made-a-bind-to-the-two-interface-it-was-correct" class="headerlink" title="1.2 But when made a bind to the two interface, it was correct."></a>1.2 But when made a bind to the two interface, it was correct.</h4><pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -242,8 +242,7 @@ ONBOOT=&quot;no&quot;
 TYPE=&quot;Ethernet&quot;
 UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
 [root@localhost ~]#
-</code></pre><p>####1.3 make a bind to the network, MAC is correct also.</p>
-<pre><code>[root@localhost ~]# ip a
+</code></pre><h4 id="1-3-make-a-bind-to-the-network-MAC-is-correct-also"><a href="#1-3-make-a-bind-to-the-network-MAC-is-correct-also" class="headerlink" title="1.3 make a bind to the network, MAC is correct also."></a>1.3 make a bind to the network, MAC is correct also.</h4><pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -260,7 +259,7 @@ UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
        valid_lft forever preferred_lft forever
 [root@localhost ~]# 
 </code></pre><p>delete the bind, still ok.</p>
-<p>####1.4 How for group ip?<br>group set to 172.16.110.233<br>eth0 set to 172.16.110.230<br>eth1 set to 172.16.110.231<br>from below we found the MAC was ok as hoped.</p>
+<h4 id="1-4-How-for-group-ip"><a href="#1-4-How-for-group-ip" class="headerlink" title="1.4 How for group ip?"></a>1.4 How for group ip?</h4><p>group set to 172.16.110.233<br>eth0 set to 172.16.110.230<br>eth1 set to 172.16.110.231<br>from below we found the MAC was ok as hoped.</p>
 <pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -279,16 +278,14 @@ UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
     inet 172.16.110.233/24 scope global secondary eth0
     inet6 fe80::225:90ff:fe70:51f0/64 scope link 
        valid_lft forever preferred_lft forever
-</code></pre><p>###2. The steps to modify MAC of eth* look like as below  </p>
-<ol>
+</code></pre><h3 id="2-The-steps-to-modify-MAC-of-eth-look-like-as-below"><a href="#2-The-steps-to-modify-MAC-of-eth-look-like-as-below" class="headerlink" title="2. The steps to modify MAC of eth* look like as below"></a>2. The steps to modify MAC of eth* look like as below</h3><ol>
 <li>OS boot </li>
 <li>udev start </li>
 <li>e1000e start, get eth* and MAC </li>
 <li>check /etc/sysconfig/network-scripts/ifcfg-XXX, call shell script<br>/lib/udev/write_net_rules to generate rule file to /etc/udev/rules.d/70-persistent-net.rules<br>if MAC was not match with what got from e1000e (view udev source, you wil find udev)</li>
 <li>udev rename eth* if there have “add” action in rule file /etc/udev/rules.d/70-persistent-net.rules</li>
 </ol>
-<p>####2.1 Check /lib/udev/write_net_rules</p>
-<pre><code>36 RULES_FILE=&apos;/etc/udev/rules.d/70-persistent-net.rules&apos;
+<h4 id="2-1-Check-lib-udev-write-net-rules"><a href="#2-1-Check-lib-udev-write-net-rules" class="headerlink" title="2.1 Check /lib/udev/write_net_rules"></a>2.1 Check /lib/udev/write_net_rules</h4><pre><code>36 RULES_FILE=&apos;/etc/udev/rules.d/70-persistent-net.rules&apos;
 37 
 38 . /lib/udev/rule_generator.functions
 39 
@@ -328,8 +325,7 @@ UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
 89 }
 
 153 write_rule &quot;$match&quot; &quot;$INTERFACE&quot; &quot;$COMMENT&quot;
-</code></pre><p>####2.1 Check udev source</p>
-<p>search the string we found in dmesg:</p>
+</code></pre><h4 id="2-1-Check-udev-source"><a href="#2-1-Check-udev-source" class="headerlink" title="2.1 Check udev source"></a>2.1 Check udev source</h4><p>search the string we found in dmesg:</p>
 <pre><code>[dennis@localhost udev]$ pwd
 /home/dennis/Downloads/udev-174/udev
 [dennis@localhost udev]$ grep -r -i --include &quot;*.c&quot; &quot;renamed&quot; .
@@ -379,10 +375,7 @@ if (udev_device_get_ifindex(dev) &gt; 0 &amp;&amp; strcmp(udev_device_get_action
     err = rename_netif(event);
 ....
 </code></pre><p>from the name of function <code>udev_event_execute_rules</code> and cod segment, we can say,<br>udev rename ethXXX by the rules, where should have action like as “add”.</p>
-<p>####2.2 Check e1000e source, found nothing</p>
-<p>####2.3 Check dmesg source, found nothing</p>
-<p>####2.4 Check system-config-network source, found nothing</p>
-<p>###3. How to fix<br>Use this shell scripts to check MAC</p>
+<h4 id="2-2-Check-e1000e-source-found-nothing"><a href="#2-2-Check-e1000e-source-found-nothing" class="headerlink" title="2.2 Check e1000e source, found nothing"></a>2.2 Check e1000e source, found nothing</h4><h4 id="2-3-Check-dmesg-source-found-nothing"><a href="#2-3-Check-dmesg-source-found-nothing" class="headerlink" title="2.3 Check dmesg source, found nothing"></a>2.3 Check dmesg source, found nothing</h4><h4 id="2-4-Check-system-config-network-source-found-nothing"><a href="#2-4-Check-system-config-network-source-found-nothing" class="headerlink" title="2.4 Check system-config-network source, found nothing"></a>2.4 Check system-config-network source, found nothing</h4><h3 id="3-How-to-fix"><a href="#3-How-to-fix" class="headerlink" title="3. How to fix"></a>3. How to fix</h3><p>Use this shell scripts to check MAC</p>
 <pre><code>#!/bin/sh
 
 # check MAC address, if not match the correct interface, fix it.
@@ -416,12 +409,10 @@ if [ -e $file_eth0 ] &amp;&amp; [ -e $file_eth1 ]; then
         fi
     fi
 fi
-</code></pre><p>###4. Question  </p>
-<ol>
+</code></pre><h3 id="4-Question"><a href="#4-Question" class="headerlink" title="4. Question"></a>4. Question</h3><ol>
 <li>/etc/sysconfig/network-scripts/ifcfg-XXX were generated by who? system-config-network?</li>
 </ol>
-<p>###5. Reference  </p>
-<ul>
+<h3 id="5-Reference"><a href="#5-Reference" class="headerlink" title="5. Reference"></a>5. Reference</h3><ul>
 <li><a href="http://www.linuxfromscratch.org/lfs/view/development/chapter07/network.html" target="_blank" rel="external">7.2. General Network Configuration</a></li>
 <li><a href="http://muzso.hu/2012/10/29/how-to-regenerate-the-etc-udev-rules.d-70-persistent-net.rules-file-on-debian-ubuntu" target="_blank" rel="external">How to regenerate the /etc/udev/rules.d/70-persistent-net.rules file on Debian/Ubuntu</a></li>
 <li><a href="http://blog.csdn.net/gangban_lau/article/details/7209123" target="_blank" rel="external">udev is renaming my ethernet devices</a></li>
@@ -434,7 +425,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-07-19-mac-address-swap-with-two-network-cards/" data-id="cin4f0h32004nl8iz2egh58es" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/07/19/mac-address-swap-with-two-network-cards/" data-id="cin4qo6gl006g7zizqesb412l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,10 +435,10 @@ fi
 
 
   
-    <article id="post-2013-07-16-steven-jobs-stanford-commencement-address-june-2005" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-steven-jobs-stanford-commencement-address-june-2005" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-07-16-steven-jobs-stanford-commencement-address-june-2005/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.541Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/07/16/steven-jobs-stanford-commencement-address-june-2005/" class="article-date">
+  <time datetime="2013-07-15T16:00:00.000Z" itemprop="datePublished">2013-07-16</time>
 </a>
     
   </div>
@@ -458,7 +449,7 @@ fi
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-07-16-steven-jobs-stanford-commencement-address-june-2005/">Steven Jobs: Stanford commencement address, June 2005</a>
+      <a class="article-title" href="/2013/07/16/steven-jobs-stanford-commencement-address-june-2005/">Steven Jobs: Stanford commencement address, June 2005</a>
     </h1>
   
 
@@ -469,23 +460,20 @@ fi
         <p>From <a href="http://english.koolearn.com/20111008/478099.html" target="_blank" rel="external">http://english.koolearn.com/20111008/478099.html</a></p>
 <p>This is the text of the Commencement address by Steven Jobs, CEO of Apple Computer and of Pixar Animation Studios, delivered on June 12, 2005.</p>
 <p>I am honored to be with you today at your commencement from one of the finest universities in the world. I never graduated from college. Truth be told, I never graduated from college. This is the closest I’ve ever gotten to a college graduation. Today I want to tell you three stories from my life. That’s it. No big deal. Just three stories.</p>
-<p>###The first story is about connecting the dots.</p>
-<p>I dropped out of Reed College after the first 6 months, but then stayed around as a drop-in for another 18 months or so before I really quit. So why did I drop out?</p>
+<h3 id="The-first-story-is-about-connecting-the-dots"><a href="#The-first-story-is-about-connecting-the-dots" class="headerlink" title="The first story is about connecting the dots."></a>The first story is about connecting the dots.</h3><p>I dropped out of Reed College after the first 6 months, but then stayed around as a drop-in for another 18 months or so before I really quit. So why did I drop out?</p>
 <p>It started before I was born. My biological mother was a young, unwed college graduate student, and she decided to put me up for adoption. She felt very strongly that I should be adopted by college graduates, so everything was all set for me to be adopted at birth by a lawyer and his wife. Except that when I popped out they decided at the last minute that they really wanted a girl. So my parents, who were on a waiting list, got a call in the middle of the night asking: “We have an unexpected baby boy; do you want hime?” They said: “Of course.” My biological mother later found out that my mother had never graduated from college and that my father had never graduated from high school. She refused to sign the final adoption papers. She only relented a few months later when my parents promised that I would someday go to college.</p>
 <p>And 17 years later I did go to college. But I naively chose a college that was almost as expensive as Stanford, and all of my working-class parents’ savings were being spent on my college tuition. After six months, I couldn’t see the value in it. I had no idea what I wanted to do with my life and no idea how college was going to help me figure it out. And here I was spending add of the money my parents had saved their entire life. So I decided to drop out and trust that it would all work out OK. It was pretty scary at the time, but looking back it was one of the best decisions I ever made. The minute I dropped out I could stop taking the required classes that didn’t interest me, and begin dropping in on the ones that looked interesting.</p>
 <p>It wasn’t all romantic. I didn’t have a dorm room, so I slept on the floor in friends’ rooms. I returned coke bottles for the 5 cent; deposites to buy food with, and I would walk the 7 miles across town every Sunday night to get one good meal a week at the Hare Krishna temple. I loved it. And much of what I stumbled into by following my curiosity and intuition turned out to be priceless later on. Let me give you one example.</p>
 <p>Reed College at that time offered perhaps the best calligraphy instruction in the country. Throughout the campus every poster, every label on every drawer, was beautifully hand calligraphed. Because I had dropped out and didn’t have to take the normal classes. I decided to take a calligraphy class to learn how to do this. I learned about serif and san serif typefaces, about varying the amount of space between different letter combinations, about what makes great typography great. It was beautiful, historical, artistically subtle in a way that science can’t capture and I found it fascinating.</p>
 <p>None of this had even a hope of any practical application in my life. But ten years later, when we were designing the first Macintosh computer, it all came back to me. And we designed it all into the Mac. It was the first computer with beautiful typography. If I had never dropped in on that single course in college, the Mac would have never had multiple typefaces or proportionally space fonts. And since Windows just copied the Mac, its likely that no personal computer would have them. If I had never dropped out, I would have never dropped in on this calligraphy class, and personal computers might not have the wonderful typography that they do. Of course it was impossible to connect the dots looking forward when I was in college. But it was very, very clear looking backwards ten years later.</p>
 <p>Again, you can’t connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something – your gut, destiny, life, karma, wahtever. This approach has never let me down, and it has made all the difference in my life.</p>
-<p>###My second story is about love and loss.</p>
-<p>I was lucky – I found what I loved to do early in life. Woz and I started Apple in my parents garage when I was 20. We worked hard, and in 10 years Apple had grown from just the two of us in a garage into a $2 billion company with over 4000 employees. We had just released out finest creation – the Macintosh – a year earlier, and I had just turned 30. And then I got fired. How can you get fired from a company you started? Well, as Apple grew we hired someone who I thought was very talented to run the company with me, and for the first year or so things went well. But then our visions of the future began to diverge and eventually we had a falling out. When we did, our Board of Directors sided with him. So at 30 I was out. And very publicly out. What had been the focus of my entire adult life was gone, and it was devastating.</p>
+<h3 id="My-second-story-is-about-love-and-loss"><a href="#My-second-story-is-about-love-and-loss" class="headerlink" title="My second story is about love and loss."></a>My second story is about love and loss.</h3><p>I was lucky – I found what I loved to do early in life. Woz and I started Apple in my parents garage when I was 20. We worked hard, and in 10 years Apple had grown from just the two of us in a garage into a $2 billion company with over 4000 employees. We had just released out finest creation – the Macintosh – a year earlier, and I had just turned 30. And then I got fired. How can you get fired from a company you started? Well, as Apple grew we hired someone who I thought was very talented to run the company with me, and for the first year or so things went well. But then our visions of the future began to diverge and eventually we had a falling out. When we did, our Board of Directors sided with him. So at 30 I was out. And very publicly out. What had been the focus of my entire adult life was gone, and it was devastating.</p>
 <p>I really didn’t know what to do for a few months. I felt that I had let the previous generation of entrepreneurs down - that I had dropped the baton as it was being passed to me. I met with David Packard and Bob Noyce and tried to apologize for screwing up so badly. I was a very public failure, and I even thought about running away from the valley. But something slowly began to dawn on me – I still loved what I did. The turn of events at Apple had not changed that one bit. I had been rejected, but I was still in love. And so I decided to start over.</p>
 <p>I didn’t seen it then, but it turned out that getting fired from Apple was the best thing that could have ever happened to me. The heaviness of being successful was replaced by the lightness of being a beginner again, less sure about everything. It freed me to enter one of the most creative periods of my life.</p>
 <p>During the next five years, I started a company named NeXT, another company named Pixar, and fell in love with an amazing woman who would become my wife. Pixar went on to create the worlds first computer animated feature film, Toy Story, and is now the most successful animation studio in the world. In a remarkable turn of events, Apple bought NeXT, I returned to Apple, and the technology we developed at NeXT is at the heart of Apple’s current renaissance. And Laurene and I have a wonderful family together.</p>
 <p>I’m pretty sure none of this would have happened if I hadn’t been fired from Apple. It was awful tasting medicine, but I guess the patient needed it.</p>
 <p>Sometimes life hits you in the head with a brick. Don’t lose faith. I’m convinced that the only thing that kept me going was that I loved what I did. You’ve got to find what you love. And that is as true for you work as it is for your lovers. Your work is going to fill a large part of your life, and the only way to be truely satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. And, like any great relationship, it just gets better and better as the years roll on. So keep looking until you find it. Don’t settle.</p>
-<p>###My third story is about death</p>
-<p>When I was 17, I read a quote that went something like: “If you live each day as if it was your last, someday you’ll most certainly be right.” It made an impression on me, and since then, for the past 33 years, I have looked in the mirror every morning and asked myself: “If today were the last day of my life, would I want to do what I am about to do today?” And whenever the answer has been “No” for too many days in a row, I know I need to change something.</p>
+<h3 id="My-third-story-is-about-death"><a href="#My-third-story-is-about-death" class="headerlink" title="My third story is about death"></a>My third story is about death</h3><p>When I was 17, I read a quote that went something like: “If you live each day as if it was your last, someday you’ll most certainly be right.” It made an impression on me, and since then, for the past 33 years, I have looked in the mirror every morning and asked myself: “If today were the last day of my life, would I want to do what I am about to do today?” And whenever the answer has been “No” for too many days in a row, I know I need to change something.</p>
 <p>Remembering that I’ll be dead soon is the most important tool I’ve ever encountered to help me make the big choices in life. Because almost everything – all external expectations, all pride, all fear of embarrassment or failure - these things just fall away in the face of death, leaving only what is truly important. Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. You are already naked. There is no reason not to follow your heart.</p>
 <p>About a year ago I was diagnosed with cancer. I had a scan at 7:30 in the morning, and it clearly showed a tumor on my pancreas. I didn’t even know what a pancreas was. The doctors told me this was almost certainly a type of cancer that is incurable, and what I should expect to live no longer than three to six months. My doctor advised me to go home and get my affairs in order, which is doctor’s code for  prepare to die. It means to try to tell your kids everything you thought you’d had the next 10 years to tell them in just a few months. It means to make sure everything is buttoned up so that it will be easy as possible for your family. It means to say your goodbyes.</p>
 <p>I lived with that diagnosis all day. Later that evening I had a biopsy, where they stuck anendoscope down my throat, through my stomach and into my intestines, put a needle into my pancreas and got a few cells from the tumor. I was sedated, but my wife, who  was there, told me that when they viewed the cells under a microscope the doctors started crying because it turned out to be a very rare from of pancreatic cancer that is curable with surgery. I had surgery and I’m fine now.</p>
@@ -500,7 +488,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-07-16-steven-jobs-stanford-commencement-address-june-2005/" data-id="cin4f0h31004ml8izs95bmcbh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/07/16/steven-jobs-stanford-commencement-address-june-2005/" data-id="cin4qo6gl006f7zize4qst1aw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -510,10 +498,10 @@ fi
 
 
   
-    <article id="post-2013-07-11-novels-three-peaks" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-novels-three-peaks" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-07-11-novels-three-peaks/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.540Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/07/11/novels-three-peaks/" class="article-date">
+  <time datetime="2013-07-10T16:00:00.000Z" itemprop="datePublished">2013-07-11</time>
 </a>
     
   </div>
@@ -524,7 +512,7 @@ fi
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-07-11-novels-three-peaks/">novels Three Peaks</a>
+      <a class="article-title" href="/2013/07/11/novels-three-peaks/">novels Three Peaks</a>
     </h1>
   
 
@@ -582,7 +570,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-07-11-novels-three-peaks/" data-id="cin4f0h30004kl8izad3lwmzg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/07/11/novels-three-peaks/" data-id="cin4qo6gj006c7zizygj13p9w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/novels/">novels</a></li></ul>
@@ -594,10 +582,10 @@ fi
 
 
   
-    <article id="post-2013-06-28-android-develepment" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-android-develepment" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-06-28-android-develepment/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.539Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/06/28/android-develepment/" class="article-date">
+  <time datetime="2013-06-27T16:00:00.000Z" itemprop="datePublished">2013-06-28</time>
 </a>
     
   </div>
@@ -608,7 +596,7 @@ fi
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-06-28-android-develepment/">android develepment</a>
+      <a class="article-title" href="/2013/06/28/android-develepment/">android develepment</a>
     </h1>
   
 
@@ -618,10 +606,8 @@ fi
       
         <p>##1. Introduce</p>
 <p>##2. Download</p>
-<p>###2.1 Download Tools</p>
-<p>Download android SDK from <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">http://developer.android.com/sdk/index.html</a>, ADT<br>Bundle is contain SDK and Eclipse, Linux 64-bit platform use<br><a href="http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20130522.zip" target="_blank" rel="external">http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20130522.zip</a>, if just<br>want to download SDK only, download <a href="http://dl.google.com/android/android-sdk_r22.0.1-linux.tgz" target="_blank" rel="external">http://dl.google.com/android/android-sdk_r22.0.1-linux.tgz</a><br>for Linux 32 &amp; 64-bit, other platform please referent the download page instruction. </p>
-<p>###2.2 Setting Environment</p>
-<p>Install android develep plugin:  </p>
+<h3 id="2-1-Download-Tools"><a href="#2-1-Download-Tools" class="headerlink" title="2.1 Download Tools"></a>2.1 Download Tools</h3><p>Download android SDK from <a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">http://developer.android.com/sdk/index.html</a>, ADT<br>Bundle is contain SDK and Eclipse, Linux 64-bit platform use<br><a href="http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20130522.zip" target="_blank" rel="external">http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20130522.zip</a>, if just<br>want to download SDK only, download <a href="http://dl.google.com/android/android-sdk_r22.0.1-linux.tgz" target="_blank" rel="external">http://dl.google.com/android/android-sdk_r22.0.1-linux.tgz</a><br>for Linux 32 &amp; 64-bit, other platform please referent the download page instruction. </p>
+<h3 id="2-2-Setting-Environment"><a href="#2-2-Setting-Environment" class="headerlink" title="2.2 Setting Environment"></a>2.2 Setting Environment</h3><p>Install android develep plugin:  </p>
 <pre><code>https://dl-ssl.google.com/android/eclipse/
 </code></pre><p>##3. Workflow</p>
 <p>If you want to run you application on really device, you should read this page<br><a href="http://developer.android.com/tools/device.html" target="_blank" rel="external">http://developer.android.com/tools/device.html</a>.</p>
@@ -639,7 +625,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-06-28-android-develepment/" data-id="cin4f0h2z004jl8iziyruio80" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/06/28/android-develepment/" data-id="cin4qo6gi006b7zizt2i4qwuo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -649,10 +635,10 @@ fi
 
 
   
-    <article id="post-2013-06-20-use-sg-ses" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-use-sg_ses" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-06-20-use-sg-ses/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.538Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/06/20/use-sg_ses/" class="article-date">
+  <time datetime="2013-06-19T16:00:00.000Z" itemprop="datePublished">2013-06-20</time>
 </a>
     
   </div>
@@ -663,7 +649,7 @@ fi
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-06-20-use-sg-ses/">use sg_ses</a>
+      <a class="article-title" href="/2013/06/20/use-sg_ses/">use sg_ses</a>
     </h1>
   
 
@@ -1138,7 +1124,7 @@ Table 73 — Array Device Slot status element -- Page 77
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-06-20-use-sg-ses/" data-id="cin4f0h2y004il8izvlbiwlrw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/06/20/use-sg_ses/" data-id="cin4qo6gh006a7ziz1uhqnv6v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1148,10 +1134,10 @@ Table 73 — Array Device Slot status element -- Page 77
 
 
   
-    <article id="post-2013-06-07-iscsi-and-implementation" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-iscsi-and-implementation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-06-07-iscsi-and-implementation/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.537Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/06/07/iscsi-and-implementation/" class="article-date">
+  <time datetime="2013-06-06T16:00:00.000Z" itemprop="datePublished">2013-06-07</time>
 </a>
     
   </div>
@@ -1162,7 +1148,7 @@ Table 73 — Array Device Slot status element -- Page 77
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-06-07-iscsi-and-implementation/">iSCSI and implementation</a>
+      <a class="article-title" href="/2013/06/07/iscsi-and-implementation/">iSCSI and implementation</a>
     </h1>
   
 
@@ -1170,7 +1156,7 @@ Table 73 — Array Device Slot status element -- Page 77
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Introduce<br>iSCSI（发音为 /аɪskʌzi/）（iSCSI = internet Small Computer System Interface ）<br>又稱為IP-SAN，是一种基于因特网及SCSI-3协议下的存储技术，<br>由IETF提出，並於2003年2月11日成為正式的標準。<br>与传统的SCSI技术比较起来，iSCSI技术有以下三个革命性的变化：</p>
+        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>iSCSI（发音为 /аɪskʌzi/）（iSCSI = internet Small Computer System Interface ）<br>又稱為IP-SAN，是一种基于因特网及SCSI-3协议下的存储技术，<br>由IETF提出，並於2003年2月11日成為正式的標準。<br>与传统的SCSI技术比较起来，iSCSI技术有以下三个革命性的变化：</p>
 <pre><code>1. 把原來只用於本機的SCSI協同透過TCP/IP网络傳送，使连接距离可作无限的地域延伸
 2. 连接的服务器数量无限（原來的SCSI-3的上限是15）
 3. 由于是服务器架构，因此也可以实现在线扩容以至动态部署
@@ -1296,8 +1282,7 @@ Table 73 — Array Device Slot status element -- Page 77
   +---------------+---------------+---------------+---------------+
  z/ Data Digest (Optional)                                        /
   +---------------+---------------+---------------+---------------+
-</code></pre><p>###Reference:  </p>
-<ul>
+</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><ul>
 <li><a href="http://en.wikipedia.org/wiki/ISCSI" target="_blank" rel="external">iSCSI</a></li>
 <li><a href="http://www.ietf.org/rfc/rfc3720.txt" target="_blank" rel="external">RFC 3720 TEXT format</a></li>
 <li><a href="http://tools.ietf.org/html/rfc3720" target="_blank" rel="external">RFC 3720 HTML format</a></li>
@@ -1313,7 +1298,7 @@ Table 73 — Array Device Slot status element -- Page 77
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-06-07-iscsi-and-implementation/" data-id="cin4f0h2x004hl8iznj8m6wy8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/06/07/iscsi-and-implementation/" data-id="cin4qo6gh00697zizjodoc308" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1323,10 +1308,10 @@ Table 73 — Array Device Slot status element -- Page 77
 
 
   
-    <article id="post-2013-05-28-linux-kernel-linked-list-explained" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-kernel-linked-list-explained" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-05-28-linux-kernel-linked-list-explained/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.536Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/05/28/linux-kernel-linked-list-explained/" class="article-date">
+  <time datetime="2013-05-27T16:00:00.000Z" itemprop="datePublished">2013-05-28</time>
 </a>
     
   </div>
@@ -1337,7 +1322,7 @@ Table 73 — Array Device Slot status element -- Page 77
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-05-28-linux-kernel-linked-list-explained/">Linux Kernel Linked List Explained</a>
+      <a class="article-title" href="/2013/05/28/linux-kernel-linked-list-explained/">Linux Kernel Linked List Explained</a>
     </h1>
   
 
@@ -1419,7 +1404,7 @@ freeing item to=19 from=9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-05-28-linux-kernel-linked-list-explained/" data-id="cin4f0h2w004gl8izkx9hba22" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/05/28/linux-kernel-linked-list-explained/" data-id="cin4qo6gg00687zizm3vg81ok" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1429,10 +1414,10 @@ freeing item to=19 from=9
 
 
   
-    <article id="post-2013-05-28-c-thread-pool" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-c-thread-pool" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-05-28-c-thread-pool/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.535Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/05/28/c-thread-pool/" class="article-date">
+  <time datetime="2013-05-27T16:00:00.000Z" itemprop="datePublished">2013-05-28</time>
 </a>
     
   </div>
@@ -1443,7 +1428,7 @@ freeing item to=19 from=9
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-05-28-c-thread-pool/">c thread pool</a>
+      <a class="article-title" href="/2013/05/28/c-thread-pool/">c thread pool</a>
     </h1>
   
 
@@ -1462,7 +1447,7 @@ freeing item to=19 from=9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-05-28-c-thread-pool/" data-id="cin4f0h2v004fl8iz51cxn6hx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/05/28/c-thread-pool/" data-id="cin4qo6gf00677ziz6dky1ylh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1472,10 +1457,10 @@ freeing item to=19 from=9
 
 
   
-    <article id="post-2013-05-21-skill-of-c" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-skill-of-c" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-05-21-skill-of-c/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.534Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/05/21/skill-of-c/" class="article-date">
+  <time datetime="2013-05-20T16:00:00.000Z" itemprop="datePublished">2013-05-21</time>
 </a>
     
   </div>
@@ -1486,7 +1471,7 @@ freeing item to=19 from=9
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-05-21-skill-of-c/">The Art of C Programming</a>
+      <a class="article-title" href="/2013/05/21/skill-of-c/">The Art of C Programming</a>
     </h1>
   
 
@@ -1501,14 +1486,11 @@ freeing item to=19 from=9
 <li><strong>Deeply understand point</strong></li>
 </ul>
 <p>##2. math</p>
-<p>###2.1 mod</p>
-<pre><code>if n%2k=x, then x=n&amp;(2k-1)
-</code></pre><p>###2.2 even odd check<br>if the lowest bit of binary mode is 0, even number, otherwise odd.</p>
-<p>###2.3 multi </p>
-<pre><code>a*5 = a&lt;&lt;2+a
+<h3 id="2-1-mod"><a href="#2-1-mod" class="headerlink" title="2.1 mod"></a>2.1 mod</h3><pre><code>if n%2k=x, then x=n&amp;(2k-1)
+</code></pre><h3 id="2-2-even-odd-check"><a href="#2-2-even-odd-check" class="headerlink" title="2.2 even odd check"></a>2.2 even odd check</h3><p>if the lowest bit of binary mode is 0, even number, otherwise odd.</p>
+<h3 id="2-3-multi"><a href="#2-3-multi" class="headerlink" title="2.3 multi"></a>2.3 multi</h3><pre><code>a*5 = a&lt;&lt;2+a
 </code></pre><p>##3.structure</p>
-<p>###3.1 size</p>
-<pre><code>int arr[] = {1, 5, 3, 18, 107, 21, 88};
+<h3 id="3-1-size"><a href="#3-1-size" class="headerlink" title="3.1 size"></a>3.1 size</h3><pre><code>int arr[] = {1, 5, 3, 18, 107, 21, 88};
 
 size of arr is sizeof(arr)/sizeof(arr[0])
 
@@ -1520,8 +1502,7 @@ struct _test_ {
 
 size of _test_ is sizeof(_test_)
 </code></pre><p>##4. Puzzle</p>
-<p>###4.1 Print the numbers between 1 and 1000.</p>
-<ul>
+<h3 id="4-1-Print-the-numbers-between-1-and-1000"><a href="#4-1-Print-the-numbers-between-1-and-1000" class="headerlink" title="4.1 Print the numbers between 1 and 1000."></a>4.1 Print the numbers between 1 and 1000.</h3><ul>
 <li>Add a rule: Don’t use any loops.</li>
 <li>Add another rule: No recursions.</li>
 <li>We can’t do that? OK. Please look at this one.</li>
@@ -1536,8 +1517,7 @@ int main (void){
 }
 </pre>
 
-<p>###4.2 swap two variables  </p>
-<pre><code>a = a^b;
+<h3 id="4-2-swap-two-variables"><a href="#4-2-swap-two-variables" class="headerlink" title="4.2 swap two variables"></a>4.2 swap two variables</h3><pre><code>a = a^b;
 b = a^b;
 a = a^b;
 </code></pre><p>##5. What we need to avoid using?</p>
@@ -1582,7 +1562,7 @@ int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-05-21-skill-of-c/" data-id="cin4f0h2u004el8iz96ns4xr8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/05/21/skill-of-c/" data-id="cin4qo6ge00667zizxqzkl7c4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1592,10 +1572,10 @@ int main()
 
 
   
-    <article id="post-2013-05-09-windows-event-log" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-windows-event-log" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2013-05-09-windows-event-log/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.532Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2013/05/09/windows-event-log/" class="article-date">
+  <time datetime="2013-05-08T16:00:00.000Z" itemprop="datePublished">2013-05-09</time>
 </a>
     
   <div class="article-category">
@@ -1610,7 +1590,7 @@ int main()
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2013-05-09-windows-event-log/">windows event log</a>
+      <a class="article-title" href="/2013/05/09/windows-event-log/">windows event log</a>
     </h1>
   
 
@@ -1830,7 +1810,7 @@ cleanup:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2013-05-09-windows-event-log/" data-id="cin4f0h2s004cl8iznke9valx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/05/09/windows-event-log/" data-id="cin4qo6gd00647zizq0dtzjgi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1882,7 +1862,7 @@ cleanup:
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -1895,23 +1875,23 @@ cleanup:
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -1926,7 +1906,7 @@ cleanup:
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1937,6 +1917,8 @@ cleanup:
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

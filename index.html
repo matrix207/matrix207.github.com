@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2016-04-13-malloc" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-malloc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-04-13-malloc/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.653Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/04/13/malloc/" class="article-date">
+  <time datetime="2016-04-12T16:00:00.000Z" itemprop="datePublished">2016-04-13</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+      <a class="article-title" href="/2016/04/13/malloc/">malloc</a>
     </h1>
   
 
@@ -86,15 +88,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Algorithms<br>The main properties of the algorithms are:</p>
+        <h3 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h3><p>The main properties of the algorithms are:</p>
 <ul>
 <li>For large (&gt;= 512 bytes) requests, it is a pure best-fit allocator,<br>with ties normally decided via FIFO (i.e. least recently used).</li>
 <li>For small (&lt;= 64 bytes by default) requests, it is a caching<br>allocator, that maintains pools of quickly recycled chunks.</li>
 <li>In between, and for combinations of large and small requests, it does<br>the best it can trying to meet both goals at once.</li>
 <li>For very large requests (&gt;= 128KB by default), it relies on system<br>memory mapping facilities, if supported.</li>
 </ul>
-<p>###Test</p>
-<ul>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><ul>
 <li><p>test code</p>
 <pre><code>// gcc -o t t.c
 #include &lt;stdio.h&gt;
@@ -164,8 +165,7 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
 </code></pre></li>
 </ul>
 <p>When require memory size less than 24, use fastbin to allocate memory;<br>When require size large than 24, use smallbin</p>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><strong><a href="https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/" target="_blank" rel="external">Understanding glibc malloc</a></strong></li>
 <li><strong><a href="http://tyrande000.how/2016/02/20/linux下的堆管理/" target="_blank" rel="external">Linux下的堆管理</a></strong></li>
 <li><strong><a href="http://www.valleytalk.org/wp-content/uploads/2015/02/glibc内存管理ptmalloc源代码分析1.pdf" target="_blank" rel="external">http://www.valleytalk.org/wp-content/uploads/2015/02/glibc内存管理ptmalloc源代码分析1.pdf</a></strong></li>
@@ -181,7 +181,7 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-04-13-malloc/" data-id="cin4eynea000ckniz3393lamm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/04/13/malloc/" data-id="cin4qo6k000a57ziz7i1hwblh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -191,10 +191,10 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
 
 
   
-    <article id="post-2016-03-12-performance-optimization-of-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-performance-optimization-of-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.652Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/03/12/performance-optimization-of-cplusplus/" class="article-date">
+  <time datetime="2016-03-11T16:00:00.000Z" itemprop="datePublished">2016-03-12</time>
 </a>
     
   </div>
@@ -205,7 +205,7 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+      <a class="article-title" href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
     </h1>
   
 
@@ -324,7 +324,7 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/" data-id="cin4eyne9000bknizahrdzrq5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/12/performance-optimization-of-cplusplus/" data-id="cin4qo6k000a47zizm1kewxx9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -334,10 +334,10 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
 
 
   
-    <article id="post-2016-03-09-stack-trace-when-program-crash" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-database-knowledges" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.651Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/03/09/database-knowledges/" class="article-date">
+  <time datetime="2016-03-08T16:00:00.000Z" itemprop="datePublished">2016-03-09</time>
 </a>
     
   </div>
@@ -348,91 +348,7 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>####Source</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;execinfo.h&gt;
-#include &lt;signal.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;unistd.h&gt;
-
-void handler(int sig) {
-    void *array[10];
-    size_t size;
-
-    // get void*&apos;s for all entries on the stack
-    size = backtrace(array, 10);
-
-    // print out all the frames to stderr
-    fprintf(stderr, &quot;Error: signal %d:\n&quot;, sig);
-    backtrace_symbols_fd(array, size, STDERR_FILENO);
-    exit(1);
-}
-
-void baz() {
-    int *foo = (int*)-1; // make a bad pointer
-    printf(&quot;%d\n&quot;, *foo);       // causes segfault
-}
-
-void bar() { baz(); }
-void foo() { bar(); }
-
-int main(int argc, char **argv) {
-    signal(SIGSEGV, handler);   // install our handler
-    foo(); // this will call foo, bar, and baz.  baz segfaults.
-}
-</code></pre><p>####Compile and test</p>
-<pre><code>[dennis@localhost code]$ gcc -g -rdynamic -o t stacktrace.c
-[dennis@localhost code]$ ./t
-Error: signal 11:
-./t(handler+0x1c)[0x400a32]
-/lib64/libc.so.6(+0x34960)[0x7fa03d30d960]
-./t(baz+0x14)[0x400a8b]
-./t(bar+0xe)[0x400aae]
-./t(foo+0xe)[0x400abe]
-./t(main+0x28)[0x400ae8]
-/lib64/libc.so.6(__libc_start_main+0xf0)[0x7fa03d2f8fe0]
-./t[0x400949]
-</code></pre><p>####Reference</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes" target="_blank" rel="external">http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-03-09-stack-trace-when-program-crash/" data-id="cin4eyne8000aknizk7lg1ewn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2016-03-09-database-knowledges" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/17/2016-03-09-database-knowledges/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.650Z" itemprop="datePublished">2016-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+      <a class="article-title" href="/2016/03/09/database-knowledges/">Database knowledges</a>
     </h1>
   
 
@@ -444,7 +360,7 @@ Error: signal 11:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-03-09-database-knowledges/" data-id="cin4eyne70009knizdom16q29" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/09/database-knowledges/" data-id="cin4qo6jy00a27ziz92599niq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -454,10 +370,10 @@ Error: signal 11:
 
 
   
-    <article id="post-2016-03-09-check-pow-overflow" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-check-pow-overflow" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-03-09-check-pow-overflow/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.649Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/03/09/check-pow-overflow/" class="article-date">
+  <time datetime="2016-03-08T16:00:00.000Z" itemprop="datePublished">2016-03-09</time>
 </a>
     
   </div>
@@ -468,7 +384,7 @@ Error: signal 11:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+      <a class="article-title" href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
     </h1>
   
 
@@ -608,7 +524,7 @@ Type: i,i 25^-20=1.09951e-28
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-03-09-check-pow-overflow/" data-id="cin4eyne60008kniz61p9rjz0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/09/check-pow-overflow/" data-id="cin4qo6jx00a17zizwwpbk19e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -618,10 +534,10 @@ Type: i,i 25^-20=1.09951e-28
 
 
   
-    <article id="post-2016-03-05-wrong-coding-in-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-stack-trace-when-program-crash" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-03-05-wrong-coding-in-cplusplus/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.648Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/03/09/stack-trace-when-program-crash/" class="article-date">
+  <time datetime="2016-03-08T16:00:00.000Z" itemprop="datePublished">2016-03-09</time>
 </a>
     
   </div>
@@ -632,7 +548,7 @@ Type: i,i 25^-20=1.09951e-28
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-03-05-wrong-coding-in-cplusplus/">Wrong coding in c++</a>
+      <a class="article-title" href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
     </h1>
   
 
@@ -640,8 +556,139 @@ Type: i,i 25^-20=1.09951e-28
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Use exception instead return boolean</p>
-<p>Sample code as below:</p>
+        <h4 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h4><pre><code>#include &lt;stdio.h&gt;
+#include &lt;execinfo.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+
+void handler(int sig) {
+    void *array[10];
+    size_t size;
+
+    // get void*&apos;s for all entries on the stack
+    size = backtrace(array, 10);
+
+    // print out all the frames to stderr
+    fprintf(stderr, &quot;Error: signal %d:\n&quot;, sig);
+    backtrace_symbols_fd(array, size, STDERR_FILENO);
+    exit(1);
+}
+
+void baz() {
+    int *foo = (int*)-1; // make a bad pointer
+    printf(&quot;%d\n&quot;, *foo);       // causes segfault
+}
+
+void bar() { baz(); }
+void foo() { bar(); }
+
+int main(int argc, char **argv) {
+    signal(SIGSEGV, handler);   // install our handler
+    foo(); // this will call foo, bar, and baz.  baz segfaults.
+}
+</code></pre><h4 id="Compile-and-test"><a href="#Compile-and-test" class="headerlink" title="Compile and test"></a>Compile and test</h4><pre><code>[dennis@localhost code]$ gcc -g -rdynamic -o t stacktrace.c
+[dennis@localhost code]$ ./t
+Error: signal 11:
+./t(handler+0x1c)[0x400a32]
+/lib64/libc.so.6(+0x34960)[0x7fa03d30d960]
+./t(baz+0x14)[0x400a8b]
+./t(bar+0xe)[0x400aae]
+./t(foo+0xe)[0x400abe]
+./t(main+0x28)[0x400ae8]
+/lib64/libc.so.6(__libc_start_main+0xf0)[0x7fa03d2f8fe0]
+./t[0x400949]
+</code></pre><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes" target="_blank" rel="external">http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/09/stack-trace-when-program-crash/" data-id="cin4qo6jz00a37zizga9hxhzn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/05/c/" class="article-date">
+  <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/05/c/">c</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><h3 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h3><ul>
+<li>1.<a href="http://home.tiscali.cz/~cz210552/webbench.html" target="_blank" rel="external">Webbench</a></li>
+<li>2.<a href="http://sourceforge.net/projects/tinyhttpd/" target="_blank" rel="external">Tinyhttpd</a></li>
+<li>3.<a href="http://sourceforge.net/projects/cjson/" target="_blank" rel="external">cJSON</a></li>
+<li>4.<a href="http://code.google.com/p/cmockery/downloads/list" target="_blank" rel="external">CMokery</a></li>
+<li>5.<a href="http://software.schmorp.de/pkg/libev.html" target="_blank" rel="external">Libev</a></li>
+<li>6.<a href="http://memcached.org/" target="_blank" rel="external">Memcached</a></li>
+<li>7.<a href="http://www.lua.org/" target="_blank" rel="external">Lua</a></li>
+<li>8.<a href="http://www.sqlite.org/" target="_blank" rel="external">SQLite</a></li>
+<li>9.<a href="http://minnie.tuhs.org/cgi-bin/utree.pl?file=V6" target="_blank" rel="external">UNIX v6</a></li>
+<li>10.<a href="http://www.netbsd.org/" target="_blank" rel="external">NETBSD</a></li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.jobbole.com/79023/" target="_blank" rel="external">最值得阅读学习的 10 个 C 语言开源项目代码</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/05/c/" data-id="cin4qo6jq009y7zizmfgs3itx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wrong-coding-in-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/05/wrong-coding-in-cplusplus/" class="article-date">
+  <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/05/wrong-coding-in-cplusplus/">Wrong coding in c++</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Use-exception-instead-return-boolean"><a href="#Use-exception-instead-return-boolean" class="headerlink" title="Use exception instead return boolean"></a>Use exception instead return boolean</h3><p>Sample code as below:</p>
 <pre><code>try {
     // Do something here, which may throw exception
 } catch (MyException&amp; e) {
@@ -649,13 +696,11 @@ Type: i,i 25^-20=1.09951e-28
         // Do another normal operation
     }
 }
-</code></pre><p>###Throw exception in loop</p>
-<p>###Reference</p>
-
+</code></pre><h3 id="Throw-exception-in-loop"><a href="#Throw-exception-in-loop" class="headerlink" title="Throw exception in loop"></a>Throw exception in loop</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-03-05-wrong-coding-in-cplusplus/" data-id="cin4eyne50007kniztxlklvug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/05/wrong-coding-in-cplusplus/" data-id="cin4qo6js00a07ziz5bhfay4g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -665,10 +710,10 @@ Type: i,i 25^-20=1.09951e-28
 
 
   
-    <article id="post-2016-03-05-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-03-05-cplusplus/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.647Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/03/05/cplusplus/" class="article-date">
+  <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
 </a>
     
   </div>
@@ -679,7 +724,7 @@ Type: i,i 25^-20=1.09951e-28
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-03-05-cplusplus/">c++</a>
+      <a class="article-title" href="/2016/03/05/cplusplus/">c++</a>
     </h1>
   
 
@@ -687,8 +732,7 @@ Type: i,i 25^-20=1.09951e-28
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Books</p>
-<ul>
+        <h3 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><ul>
 <li><a href="http://www.parashift.com/c++-faq-lite/" target="_blank" rel="external">C++FAQS</a></li>
 <li>Junior<ul>
 <li><a href="">(C++11)C++11 - 维基百科，自由的百科全书</a></li>
@@ -738,8 +782,7 @@ Type: i,i 25^-20=1.09951e-28
 </ul>
 </li>
 </ul>
-<p>###Projects</p>
-<ul>
+<h3 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h3><ul>
 <li>1.<a href="https://github.com/google/leveldb" target="_blank" rel="external">leveldb</a><ul>
 <li>Google出品，遵循Google C++编码规范</li>
 <li>作者是Jeff Dean大神</li>
@@ -753,12 +796,10 @@ Type: i,i 25^-20=1.09951e-28
 <li>2.<a href="http://www.llvm.org/" target="_blank" rel="external">llvm</a></li>
 <li>2.<a href="https://github.com/google/leveldb" target="_blank" rel="external">muduo</a></li>
 </ul>
-<p>###Lambda</p>
-<ul>
+<h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><ul>
 <li><a href="http://zh.cppreference.com/w/cpp/language/lambda" target="_blank" rel="external">http://zh.cppreference.com/w/cpp/language/lambda</a></li>
 </ul>
-<p>###resource manager</p>
-<ul>
+<h3 id="resource-manager"><a href="#resource-manager" class="headerlink" title="resource manager"></a>resource manager</h3><ul>
 <li><p>Implement ScopeGuard</p>
 <ul>
 <li><a href="https://en.wikibooks.org/wiki/More_C++_Idioms/Scope_Guard" target="_blank" rel="external">https://en.wikibooks.org/wiki/More_C++_Idioms/Scope_Guard</a></li>
@@ -885,8 +926,7 @@ int main()
 }
 </code></pre></li>
 </ul>
-<p>###Error handle</p>
-<ul>
+<h3 id="Error-handle"><a href="#Error-handle" class="headerlink" title="Error handle"></a>Error handle</h3><ul>
 <li>Target:<ul>
 <li>easy to use</li>
 <li>more error message</li>
@@ -995,8 +1035,7 @@ Ensure failed :
     Message : error occur!
 </code></pre></li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://zh.cppreference.com/w/" target="_blank" rel="external">http://zh.cppreference.com/w/</a></li>
 <li><a href="https://en.wikibooks.org/wiki/More_C++_Idioms" target="_blank" rel="external">https://en.wikibooks.org/wiki/More_C++_Idioms</a></li>
 <li><a href="http://www.drdobbs.com/cpp/enhancing-assertions/184403745" target="_blank" rel="external">Enhancing Assertions</a></li>
@@ -1006,7 +1045,7 @@ Ensure failed :
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-03-05-cplusplus/" data-id="cin4eyne00004knizv7cw370c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/03/05/cplusplus/" data-id="cin4qo6jr009z7zizx7oz1c5u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1016,10 +1055,10 @@ Ensure failed :
 
 
   
-    <article id="post-2016-03-05-c" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-why-use-json" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-03-05-c/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.646Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/02/21/why-use-json/" class="article-date">
+  <time datetime="2016-02-20T16:00:00.000Z" itemprop="datePublished">2016-02-21</time>
 </a>
     
   </div>
@@ -1030,61 +1069,7 @@ Ensure failed :
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-03-05-c/">c</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Books</p>
-<p>###Projects</p>
-<ul>
-<li>1.<a href="http://home.tiscali.cz/~cz210552/webbench.html" target="_blank" rel="external">Webbench</a></li>
-<li>2.<a href="http://sourceforge.net/projects/tinyhttpd/" target="_blank" rel="external">Tinyhttpd</a></li>
-<li>3.<a href="http://sourceforge.net/projects/cjson/" target="_blank" rel="external">cJSON</a></li>
-<li>4.<a href="http://code.google.com/p/cmockery/downloads/list" target="_blank" rel="external">CMokery</a></li>
-<li>5.<a href="http://software.schmorp.de/pkg/libev.html" target="_blank" rel="external">Libev</a></li>
-<li>6.<a href="http://memcached.org/" target="_blank" rel="external">Memcached</a></li>
-<li>7.<a href="http://www.lua.org/" target="_blank" rel="external">Lua</a></li>
-<li>8.<a href="http://www.sqlite.org/" target="_blank" rel="external">SQLite</a></li>
-<li>9.<a href="http://minnie.tuhs.org/cgi-bin/utree.pl?file=V6" target="_blank" rel="external">UNIX v6</a></li>
-<li>10.<a href="http://www.netbsd.org/" target="_blank" rel="external">NETBSD</a></li>
-</ul>
-<p>###Reference</p>
-<ul>
-<li><a href="http://blog.jobbole.com/79023/" target="_blank" rel="external">最值得阅读学习的 10 个 C 语言开源项目代码</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-03-05-c/" data-id="cin4eyne20005knizk1ltj0nx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2016-02-21-why-use-json" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/17/2016-02-21-why-use-json/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.646Z" itemprop="datePublished">2016-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-02-21-why-use-json/">why use json</a>
+      <a class="article-title" href="/2016/02/21/why-use-json/">why use json</a>
     </h1>
   
 
@@ -1104,15 +1089,14 @@ Ensure failed :
 </ul>
 </li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.infoq.com/cn/articles/serialization-and-deserialization" target="_blank" rel="external">http://www.infoq.com/cn/articles/serialization-and-deserialization</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-02-21-why-use-json/" data-id="cin4eyndy0003kniz3wbqb4rs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/02/21/why-use-json/" data-id="cin4qo6jp009x7zizb3xjsedw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1122,10 +1106,10 @@ Ensure failed :
 
 
   
-    <article id="post-2016-01-17-exception-vs-error-code" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-exception-vs-error-code" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2016-01-17-exception-vs-error-code/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.645Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2016/01/17/exception-vs-error-code/" class="article-date">
+  <time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     
   </div>
@@ -1136,7 +1120,7 @@ Ensure failed :
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2016-01-17-exception-vs-error-code/">exception vs error code</a>
+      <a class="article-title" href="/2016/01/17/exception-vs-error-code/">exception vs error code</a>
     </h1>
   
 
@@ -1144,9 +1128,7 @@ Ensure failed :
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###TODO: To be continue</p>
-<p>###Reference</p>
-<ul>
+        <h3 id="TODO-To-be-continue"><a href="#TODO-To-be-continue" class="headerlink" title="TODO: To be continue"></a>TODO: To be continue</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.csdn.net/pongba/article/details/1815742" target="_blank" rel="external">错误处理(Error-Handling)：为何、何时、如何(rev#2)</a></li>
 <li>[1] B. Stroustrup: <a href="http://www.research.att.com/~bs/eh_brief.pdf" target="_blank" rel="external">Programming with Exceptions</a>(pdf)</li>
 <li>[2] B. Stroustrup: [Exception Safety: Concepts and Techniques]<a href="http://www.research.att.com/~bs/except.pdf" target="_blank" rel="external">http://www.research.att.com/~bs/except.pdf</a></li>
@@ -1170,7 +1152,7 @@ Ensure failed :
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2016-01-17-exception-vs-error-code/" data-id="cin4eyndx0002knizkeeffyx2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/17/exception-vs-error-code/" data-id="cin4qo6jo009w7ziz1xvm1h5c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1222,7 +1204,7 @@ Ensure failed :
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -1235,23 +1217,23 @@ Ensure failed :
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -1266,7 +1248,7 @@ Ensure failed :
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1277,6 +1259,8 @@ Ensure failed :
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

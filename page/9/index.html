@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/page/9/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2014-05-11-terminology-of-cpp" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-terminology-of-cpp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-05-11-terminology-of-cpp/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.571Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/05/11/terminology-of-cpp/" class="article-date">
+  <time datetime="2014-05-10T16:00:00.000Z" itemprop="datePublished">2014-05-11</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-05-11-terminology-of-cpp/">Terminology of C++</a>
+      <a class="article-title" href="/2014/05/11/terminology-of-cpp/">Terminology of C++</a>
     </h1>
   
 
@@ -155,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-05-11-terminology-of-cpp/" data-id="cin4f0h3v005pl8iz23xk9kqz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/05/11/terminology-of-cpp/" data-id="cin4qo6hl007o7zizc01sxxzf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -165,10 +167,10 @@
 
 
   
-    <article id="post-2014-05-05-debugging-programs-with-gdb" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-debugging-programs-with-gdb" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-05-05-debugging-programs-with-gdb/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.570Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/05/05/debugging-programs-with-gdb/" class="article-date">
+  <time datetime="2014-05-04T16:00:00.000Z" itemprop="datePublished">2014-05-05</time>
 </a>
     
   </div>
@@ -179,7 +181,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-05-05-debugging-programs-with-gdb/">debugging programs with gdb</a>
+      <a class="article-title" href="/2014/05/05/debugging-programs-with-gdb/">debugging programs with gdb</a>
     </h1>
   
 
@@ -187,15 +189,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Features</p>
-<ul>
+        <h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
 <li>let program run by your order</li>
 <li>set breakpoints and let program stop</li>
 <li>check values when program stop</li>
 <li>change environment of program</li>
 </ul>
-<p>###Basic</p>
-<ol>
+<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ol>
 <li><p><strong>add <code>-g</code> option to compile, e.g: <code>gcc -g -Wall -o test test.c</code></strong>  </p>
 </li>
 <li><p>run</p>
@@ -213,8 +213,7 @@ finish       &lt;--- exit function
 q            &lt;--- exit gdb
 </code></pre></li>
 </ol>
-<p>###Advance</p>
-<ol>
+<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ol>
 <li><p>modify program running environment  </p>
 <pre><code>(gdb) set args -f -i /tmp/rssp.pid  
 (gdb) show args  
@@ -443,8 +442,7 @@ $1 = 97
 <li><p><code>dump binary memory filename start_addr end_addr</code> dump memory to files<br>ref : <a href="https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html" target="_blank" rel="external">https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html</a></p>
 </li>
 </ol>
-<p>###Reference </p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="external">用GDB调试程序 1</a></li>
 <li><a href="http://blog.csdn.net/haoel/article/details/2880" target="_blank" rel="external">用GDB调试程序 2</a></li>
 <li><a href="http://blog.csdn.net/haoel/article/details/2881" target="_blank" rel="external">用GDB调试程序 3</a></li>
@@ -459,7 +457,7 @@ $1 = 97
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-05-05-debugging-programs-with-gdb/" data-id="cin4f0h3u005ol8iztzzci2sq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/05/05/debugging-programs-with-gdb/" data-id="cin4qo6hl007n7zizk5c89wjc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -469,10 +467,10 @@ $1 = 97
 
 
   
-    <article id="post-2014-04-29-john-von-neumann-and-the-mathematicians-trap" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-john-von-neumann-and-the-mathematicians-trap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-04-29-john-von-neumann-and-the-mathematicians-trap/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.569Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/04/29/john-von-neumann-and-the-mathematicians-trap/" class="article-date">
+  <time datetime="2014-04-28T16:00:00.000Z" itemprop="datePublished">2014-04-29</time>
 </a>
     
   </div>
@@ -483,7 +481,7 @@ $1 = 97
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-29-john-von-neumann-and-the-mathematicians-trap/">John Von Neumann and the Mathematician&#39;s Trap</a>
+      <a class="article-title" href="/2014/04/29/john-von-neumann-and-the-mathematicians-trap/">John Von Neumann and the Mathematician&#39;s Trap</a>
     </h1>
   
 
@@ -501,7 +499,7 @@ $1 = 97
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-29-john-von-neumann-and-the-mathematicians-trap/" data-id="cin4f0h3t005nl8izmltwxzzi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/04/29/john-von-neumann-and-the-mathematicians-trap/" data-id="cin4qo6hk007m7ziziv8eij5m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -511,10 +509,10 @@ $1 = 97
 
 
   
-    <article id="post-2014-04-27-nginx" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nginx" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-04-27-nginx/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.568Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/04/27/nginx/" class="article-date">
+  <time datetime="2014-04-26T16:00:00.000Z" itemprop="datePublished">2014-04-27</time>
 </a>
     
   </div>
@@ -525,7 +523,7 @@ $1 = 97
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-27-nginx/">nginx</a>
+      <a class="article-title" href="/2014/04/27/nginx/">nginx</a>
     </h1>
   
 
@@ -533,12 +531,10 @@ $1 = 97
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Target</p>
-<p>资深Linux服务端开发工程师（C/C++）</p>
+        <h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>资深Linux服务端开发工程师（C/C++）</p>
 <p>工作职责<br>• 负责基础Web服务器软件设计与开发；<br>• 设计、优化Web平台与架构以满足日益增长的平台的性能要求；<br>• 直接参与到系统设计和核心代码开发；  </p>
 <p>职位要求<br>• 3年以上系统软件开发工作经验；<br>• 精通C/C++、HTTP协议；<br>• 精通高性能网络服务器编程，如异步、事件驱动；<br>• 具有良好的沟通能力，有较强的独立工作能力和解决问题的能力；<br>• 有4/7层负载均衡软件开发经验者优先；<br>• 熟悉开源的Web服务器（如Nginx、Apache、Lighttpd等），有分析其代码实现或模块编写经验者优先；<br>• 具有深厚算法及数据结构知识优先；<br>• 有大规模Web架构系统设计经验者优先；<br>• 开源社区成员优先；  </p>
-<p>###Reference </p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://tengine.taobao.org/book/" target="_blank" rel="external">Nginx开发从入门到精通</a></li>
 <li><a href="https://github.com/alibaba/tengine" target="_blank" rel="external">tengine</a></li>
 <li><a href="http://www.alidata.org/archives/tag/nginx" target="_blank" rel="external">Nginx源码分析</a></li>
@@ -547,7 +543,7 @@ $1 = 97
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-27-nginx/" data-id="cin4f0h3s005ml8iztir39tnw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/04/27/nginx/" data-id="cin4qo6hj007l7ziz2p0ptepp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -557,10 +553,10 @@ $1 = 97
 
 
   
-    <article id="post-2014-04-25-vpn-list" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vpn-list" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-04-25-vpn-list/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.567Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/04/25/vpn-list/" class="article-date">
+  <time datetime="2014-04-24T16:00:00.000Z" itemprop="datePublished">2014-04-25</time>
 </a>
     
   </div>
@@ -571,7 +567,7 @@ $1 = 97
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-25-vpn-list/">vpn list</a>
+      <a class="article-title" href="/2014/04/25/vpn-list/">vpn list</a>
     </h1>
   
 
@@ -595,7 +591,7 @@ $1 = 97
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-25-vpn-list/" data-id="cin4f0h3r005ll8izm5t2cqwa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/04/25/vpn-list/" data-id="cin4qo6hi007k7ziz2c3mf06i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -605,10 +601,10 @@ $1 = 97
 
 
   
-    <article id="post-2014-04-25-how-to-do-git-push-under-vpn" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-how-to-do-git-push-under-vpn" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-04-25-how-to-do-git-push-under-vpn/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.566Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/04/25/how-to-do-git-push-under-vpn/" class="article-date">
+  <time datetime="2014-04-24T16:00:00.000Z" itemprop="datePublished">2014-04-25</time>
 </a>
     
   </div>
@@ -619,7 +615,7 @@ $1 = 97
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-25-how-to-do-git-push-under-vpn/">how to do git push under vpn</a>
+      <a class="article-title" href="/2014/04/25/how-to-do-git-push-under-vpn/">how to do git push under vpn</a>
     </h1>
   
 
@@ -627,8 +623,7 @@ $1 = 97
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Analysis</p>
-<ol>
+        <h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ol>
 <li><p>Generally, when using <code>ssh -vT git@github.com</code>, it would show as below:</p>
 <pre><code>[dennis@localhost ~]$ ssh -vT git@github.com
 OpenSSH_6.1p1, OpenSSL 1.0.1e-fips 11 Feb 2013
@@ -792,8 +787,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
 <li><p><strong><em>CONTINUE</em></strong></p>
 </li>
 </ol>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://stackoverflow.com/questions/757432/git-push-pull-times-out/757462#757462" target="_blank" rel="external">git push/pull times out</a></li>
 <li><a href="https://help.github.com/articles/using-ssh-over-the-https-port" target="_blank" rel="external">Using SSH over the HTTPS port</a></li>
 </ul>
@@ -801,7 +795,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-25-how-to-do-git-push-under-vpn/" data-id="cin4f0h3r005kl8izvalgcw7u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/04/25/how-to-do-git-push-under-vpn/" data-id="cin4qo6hh007j7zizntmozmsd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -811,10 +805,10 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
 
 
   
-    <article id="post-2014-04-22-network-camera" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-implement-web-server-with-c-in-linux" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-04-22-network-camera/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.566Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/04/22/implement-web-server-with-c-in-linux/" class="article-date">
+  <time datetime="2014-04-21T16:00:00.000Z" itemprop="datePublished">2014-04-22</time>
 </a>
     
   </div>
@@ -825,7 +819,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-22-network-camera/">network camera</a>
+      <a class="article-title" href="/2014/04/22/implement-web-server-with-c-in-linux/">implement web server with c</a>
     </h1>
   
 
@@ -833,51 +827,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Reference </p>
-<ul>
-<li><a href="http://download.csdn.net/download/wanchangjiu123/3134157" target="_blank" rel="external">linux下 网络摄像头监控系统 服务器端(bug:修改设备打开方式为读写)</a></li>
-<li><a href="http://www.zoneminder.com/" target="_blank" rel="external">zone minder</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-mdst/" target="_blank" rel="external">Linux下的实时流媒体编程</a></li>
-<li><a href="http://www.linuxsir.com/main/node/221" target="_blank" rel="external">摄像头（WebCam）在Linux中采用Spcaserv 架设网络视频监控服务器 (v0.1b)</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-22-network-camera/" data-id="cin4f0h3q005jl8izjc5295re" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2014-04-22-implement-web-server-with-c-in-linux" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/17/2014-04-22-implement-web-server-with-c-in-linux/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.565Z" itemprop="datePublished">2016-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-22-implement-web-server-with-c-in-linux/">implement web server with c</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###Reference </p>
-<ul>
+        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.csdn.net/column/details/reage.html" target="_blank" rel="external">自己动手写web服务器</a></li>
 <li><a href="http://www.oschina.net/code/snippet_12_15602" target="_blank" rel="external">单个 C 文件实现的 Web 服务器</a></li>
 <li><a href="http://www.advancedlinuxprogramming.com/alp-folder/alp-ch11-sample-application.pdf" target="_blank" rel="external">web server of Advanced Linux Programming</a></li>
@@ -888,7 +838,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-22-implement-web-server-with-c-in-linux/" data-id="cin4f0h3p005il8izy5da1zns" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/04/22/implement-web-server-with-c-in-linux/" data-id="cin4qo6hg007h7ziz0qa5kf2r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -898,10 +848,10 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
 
 
   
-    <article id="post-2014-04-19-capture-images-using-v4l2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-network-camera" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-04-19-capture-images-using-v4l2/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.564Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/04/22/network-camera/" class="article-date">
+  <time datetime="2014-04-21T16:00:00.000Z" itemprop="datePublished">2014-04-22</time>
 </a>
     
   </div>
@@ -912,7 +862,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-19-capture-images-using-v4l2/">capture images using v4l2</a>
+      <a class="article-title" href="/2014/04/22/network-camera/">network camera</a>
     </h1>
   
 
@@ -920,8 +870,49 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Reference </p>
-<ul>
+        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://download.csdn.net/download/wanchangjiu123/3134157" target="_blank" rel="external">linux下 网络摄像头监控系统 服务器端(bug:修改设备打开方式为读写)</a></li>
+<li><a href="http://www.zoneminder.com/" target="_blank" rel="external">zone minder</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/linux/l-mdst/" target="_blank" rel="external">Linux下的实时流媒体编程</a></li>
+<li><a href="http://www.linuxsir.com/main/node/221" target="_blank" rel="external">摄像头（WebCam）在Linux中采用Spcaserv 架设网络视频监控服务器 (v0.1b)</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/04/22/network-camera/" data-id="cin4qo6hg007i7zizdz8pavr5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-capture-images-using-v4l2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/19/capture-images-using-v4l2/" class="article-date">
+  <time datetime="2014-04-18T16:00:00.000Z" itemprop="datePublished">2014-04-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/19/capture-images-using-v4l2/">capture images using v4l2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://linuxtv.org/downloads/v4l-dvb-apis/capture-example.html" target="_blank" rel="external"><strong>video capture example</strong></a></li>
 <li><a href="https://github.com/sensoray/drv-2226-linux/blob/master/capture.c" target="_blank" rel="external"><strong>capture.c</strong></a></li>
 <li><a href="http://www.oschina.net/code/snippet_12_368" target="_blank" rel="external"><strong>video4linux2编程实例</strong></a></li>
@@ -934,7 +925,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-19-capture-images-using-v4l2/" data-id="cin4f0h3o005hl8izlqdjqwo9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/04/19/capture-images-using-v4l2/" data-id="cin4qo6hf007g7ziza6v2abr3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -944,10 +935,10 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
 
 
   
-    <article id="post-2014-04-16-linux-server-performance-tools" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-server-performance-tools" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-04-16-linux-server-performance-tools/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.563Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/04/16/linux-server-performance-tools/" class="article-date">
+  <time datetime="2014-04-15T16:00:00.000Z" itemprop="datePublished">2014-04-16</time>
 </a>
     
   </div>
@@ -958,7 +949,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-04-16-linux-server-performance-tools/">linux server performance tools</a>
+      <a class="article-title" href="/2014/04/16/linux-server-performance-tools/">linux server performance tools</a>
     </h1>
   
 
@@ -966,8 +957,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###web server performance test tools</p>
-<ul>
+        <h3 id="web-server-performance-test-tools"><a href="#web-server-performance-test-tools" class="headerlink" title="web server performance test tools"></a>web server performance test tools</h3><ul>
 <li><p>AB(Apache Bench) </p>
 <p>  ab -r -k -n 100000 -c 500 url</p>
 <p>  -r 表示遇到错误继续<br>  -k 表示keepalive<br>  -n 表示总共请求的次数<br>  -c 表示每次请求的数量（即并发数）<br>  url即要请求的地址</p>
@@ -999,8 +989,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
 <li><p>iftop </p>
 </li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://os.51cto.com/art/201205/337302.htm" target="_blank" rel="external">三大开源工具监控Apache Web服务器性能</a></li>
 <li><a href="http://www.vpser.net/opt/webserver-test.html" target="_blank" rel="external">Web服务器性能/压力测试工具http_load、webbench、ab、Siege使用教程</a></li>
 <li><a href="http://www.drupal001.com/2012/07/linux-server-monitor/" target="_blank" rel="external">Linux服务器性能追踪以及服务器监控常用命令</a></li>
@@ -1009,7 +998,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-04-16-linux-server-performance-tools/" data-id="cin4f0h3n005gl8izu7puwvlq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/04/16/linux-server-performance-tools/" data-id="cin4qo6he007f7zizqym6fn2j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1061,7 +1050,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -1074,23 +1063,23 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -1105,7 +1094,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1116,6 +1105,8 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/page/6/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2014-09-02-mbr" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mbr" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-09-02-mbr/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.598Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/09/02/mbr/" class="article-date">
+  <time datetime="2014-09-01T16:00:00.000Z" itemprop="datePublished">2014-09-02</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-09-02-mbr/">mbr</a>
+      <a class="article-title" href="/2014/09/02/mbr/">mbr</a>
     </h1>
   
 
@@ -86,13 +88,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Introduce</p>
-<p><strong>MBR</strong>, is abbreviate from <strong>M</strong>aster <strong>B</strong>oot <strong>R</strong>ecord.</p>
+        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p><strong>MBR</strong>, is abbreviate from <strong>M</strong>aster <strong>B</strong>oot <strong>R</strong>ecord.</p>
 <p>MBR(512Bytes) = </p>
 <p>partition entry</p>
 <p> 0     1byte   partition flag<br> 1~3   3bytes  CHS address<br> 4     1bytes  File system flag<br> 5~7   3bytes  CHS address<br> 8~11  4bytes  start of sector<br>12~15  4bytes  count of sector </p>
 <p>File system flag:<br>00H<br>01H  FAT12<br>04H  FAT16 small than 32MB<br>05H  Extended<br>06H  FAT16 large than 32MB<br>07H  HPES or NTFS<br>0BH  Windows95 FAT32<br>0CH  Windows95 FAT32<br>0EH  Windows95 FAT16<br>0FH  Windows95 Extended(large than 8G)<br>82H  Linux swap<br>83H  Linux<br>85H  Linux extended<br>86H  NTFS volume set<br>87H  NTFS volume set  </p>
-<p>###A case<br>The current os is CentOS 6.4 X86_64, running on /dev/sdb, which is a SSD disk.</p>
+<h3 id="A-case"><a href="#A-case" class="headerlink" title="A case"></a>A case</h3><p>The current os is CentOS 6.4 X86_64, running on /dev/sdb, which is a SSD disk.</p>
 <pre><code>[root@localhost ~]# dd if=/dev/sdb of=/root/ssd.dat bs=1 count=512
 512+0 records in
 512+0 records out
@@ -200,12 +201,10 @@
 000001e0  ff ff 82 fe ff ff 00 48  06 01 00 20 80 00 00 fe  |.......H... ....|
 000001f0  ff ff 05 fe ff ff 00 68  86 01 00 d0 2d e7 55 aa  |.......h....-.U.|
 00000200
-</code></pre><p>###Questions</p>
-<ol>
+</code></pre><h3 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h3><ol>
 <li>Why maximum of partitions is 4 primary or 3 primary with another extended?<br>Because for MBR, there only 64 bytes for partition, and each partition used 16<br>bytes.</li>
 </ol>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://en.wikipedia.org/wiki/Master_boot_record" target="_blank" rel="external">Master Boot Record</a></li>
 <li><a href="http://www.blogfshare.com/mbr-dpt-ebr.html" target="_blank" rel="external">MBR分区结构、DPT分区表、EBR扩展引导</a></li>
 <li><a href="http://dengqi.blog.51cto.com/5685776/1348951" target="_blank" rel="external">详解MBR分区结构以及GPT分区结构</a></li>
@@ -214,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-09-02-mbr/" data-id="cin4f0h4m006jl8izev3yjfn8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/02/mbr/" data-id="cin4qo6if008i7zizecfvcaip" class="article-share-link">Share</a>
       
       
     </footer>
@@ -224,10 +223,10 @@
 
 
   
-    <article id="post-2014-08-22-sed" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sed" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-08-22-sed/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.597Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/08/22/sed/" class="article-date">
+  <time datetime="2014-08-21T16:00:00.000Z" itemprop="datePublished">2014-08-22</time>
 </a>
     
   </div>
@@ -238,7 +237,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-08-22-sed/">sed</a>
+      <a class="article-title" href="/2014/08/22/sed/">sed</a>
     </h1>
   
 
@@ -246,8 +245,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Basic</p>
-<ul>
+        <h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
 <li><p>Syntax</p>
 <ul>
 <li>-i edit file</li>
@@ -281,8 +279,7 @@
 </ul>
 </li>
 </ul>
-<p>###Skills</p>
-<ul>
+<h3 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
 <li><code>sed [options] &#39;command&#39; file(s)</code>  </li>
 <li><code>sed [options] -f scriptfile file(s)</code>  </li>
 <li><code>sed -i &#39;/&#39;$prj&#39;/{s/\(.*#.*#\)[0-9]\+/\1&#39;$rev_new&#39;/}&#39; $conf_file</code>, replace revision with new revision</li>
@@ -291,8 +288,7 @@
 <li><code>echo -e &quot;11\n22\n33\n&quot; | sed -n &#39;/22/{n;p}&#39;</code>, print next line after match  </li>
 <li><code>sed &#39;:a;N;s/\n/ /;ba;&#39; file</code>, join all lines (set label <code>a</code>, put the next to<br>operate buffer, substitute <code>\n</code> to space symbol, goto lable <code>a</code>, job continue.</li>
 </ul>
-<p>###sample</p>
-<ul>
+<h3 id="sample"><a href="#sample" class="headerlink" title="sample"></a>sample</h3><ul>
 <li><ol>
 <li><p>delete tags from html, using <code>sed &#39;s/&lt;[^&gt;]*//g&#39; test.html</code></p>
 <p><b>This</b> is what <span style="text-decoration: underline;">I</span> meant. Understand?</p>
@@ -300,8 +296,7 @@
 </ol>
 </li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">sed 简明教程</a></li>
 <li><a href="http://www.cnblogs.com/51linux/archive/2011/09/24/2189420.html" target="_blank" rel="external">sed 高级用法</a></li>
 <li><a href="http://kodango.com/tag/sed-and-awk/" target="_blank" rel="external">Sed and awk 笔记</a></li>
@@ -310,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-08-22-sed/" data-id="cin4f0h4l006il8iz9jlwi6hf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/22/sed/" data-id="cin4qo6ie008h7ziz4zmlvr8s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -320,10 +315,10 @@
 
 
   
-    <article id="post-2014-08-22-grep" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-grep" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-08-22-grep/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.596Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/08/22/grep/" class="article-date">
+  <time datetime="2014-08-21T16:00:00.000Z" itemprop="datePublished">2014-08-22</time>
 </a>
     
   </div>
@@ -334,7 +329,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-08-22-grep/">grep</a>
+      <a class="article-title" href="/2014/08/22/grep/">grep</a>
     </h1>
   
 
@@ -342,8 +337,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###syntax</p>
-<ul>
+        <h3 id="syntax"><a href="#syntax" class="headerlink" title="syntax"></a>syntax</h3><ul>
 <li><p>grep [OPTIONS] PATTERN [FILE…]<br>grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]</p>
 <ul>
 <li>-A get the above line with match lines</li>
@@ -384,8 +378,7 @@
 </ul>
 </li>
 </ul>
-<p>###skills</p>
-<ul>
+<h3 id="skills"><a href="#skills" class="headerlink" title="skills"></a>skills</h3><ul>
 <li><p>count the selected lines, we can do as: <code>dmesg |grep -i error |wc -l</code>, or like<br>this <code>dmesg |grep -i error -c</code> </p>
 </li>
 <li><p>search by match whole word <code>dmesg |grep -w &#39;error&#39;</code></p>
@@ -399,15 +392,14 @@
 <li><p><code>grep -r &quot;abc&quot; /root/source</code><br><code>grep -r --include &quot;*.h&quot; &quot;date&quot; path</code><br><code>grep -m 1 &quot;model name&quot; /proc/cpuinfo</code> only display the first match line<br><code>grep -i -E &quot;abc|123&quot;</code> match abc or 123, -i ignore, -E extended regular expression.<br><code>grep -r -l &quot;main&quot; .</code> search all files under each directory, -l files-with-match, -L files-withou-match<br><code>grep -w &quot;linux&quot; *.md</code> match word<br><code>grep -rl --include=*.{h,cpp} &quot;socket&quot; .</code> search socket only with <em>.h </em>.cpp files<br><code>grep --exclude-dir=&quot;_posts&quot; --exclude-dir=&quot;_site&quot;  -r &quot;Dennis&quot; ./</code>  exclude specify directory  </p>
 </li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://kukuruku.co/hub/nix/what-is-grep-and-how-do-we-use-it" target="_blank" rel="external">What is grep and how do we use it</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-08-22-grep/" data-id="cin4f0h4k006hl8izmdnrchgb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/22/grep/" data-id="cin4qo6id008g7zizwis9kuo6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -417,10 +409,10 @@
 
 
   
-    <article id="post-2014-08-22-awk" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-awk" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-08-22-awk/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.595Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/08/22/awk/" class="article-date">
+  <time datetime="2014-08-21T16:00:00.000Z" itemprop="datePublished">2014-08-22</time>
 </a>
     
   </div>
@@ -431,7 +423,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-08-22-awk/">awk</a>
+      <a class="article-title" href="/2014/08/22/awk/">awk</a>
     </h1>
   
 
@@ -439,8 +431,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Basic</p>
-<ul>
+        <h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
 <li>build-in variables<ul>
 <li>$0       当前记录（这个变量中存放着整个行的内容）</li>
 <li>$1~$n    当前记录的第n个字段，字段间由FS分隔</li>
@@ -455,12 +446,10 @@
 </ul>
 </li>
 </ul>
-<p>###reg</p>
-<ul>
+<h3 id="reg"><a href="#reg" class="headerlink" title="reg"></a>reg</h3><ul>
 <li>[:alnum:] 字母数字字符 [:alpha:] 字母字符</li>
 </ul>
-<p>###Skills</p>
-<ul>
+<h3 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
 <li><p><code>awk FS&#39;&#39; &#39;condition1{operator1}condition2{operator2}...&#39; filename</code>  </p>
 </li>
 <li><p><code>awk &#39;NR==1{print $0}&#39;</code>  </p>
@@ -535,15 +524,13 @@ AVERAGE:     63.80    78.60    70.00
 <li><code>cat /tmp/.nic |awk &#39;{print $1,$2}&#39;|awk &#39;{aa[$1]=aa[$1]&quot;,&quot;$2;asorti(aa,tA);}END{for(i in tA)print aa[tA[i]]}&#39;|sed &#39;s/^,//&#39;</code></li>
 <li><code>echo -e &quot;12345\na25\nt123&quot; | awk &#39;/a25/{print a;}{a=$0}&#39;</code> print the previous line of match line</li>
 </ul>
-<p>###For more</p>
-<ul>
+<h3 id="For-more"><a href="#For-more" class="headerlink" title="For more"></a>For more</h3><ul>
 <li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Built_002din-Variables" target="_blank" rel="external">内建变量</a></li>
 <li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Statements" target="_blank" rel="external">流控方面</a></li>
 <li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Built_002din" target="_blank" rel="external">内建函数</a></li>
 <li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Regexp" target="_blank" rel="external">正则表达式</a></li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://coolshell.cn/articles/9070.html" target="_blank" rel="external">awk 简明教程</a></li>
 <li><a href="http://www.cnblogs.com/chengmo/archive/2010/10/09/1846696.html" target="_blank" rel="external">数组排序多种实现方法</a></li>
 </ul>
@@ -551,7 +538,7 @@ AVERAGE:     63.80    78.60    70.00
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-08-22-awk/" data-id="cin4f0h4j006gl8izs5idxkxl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/22/awk/" data-id="cin4qo6ic008f7zizyf2pokta" class="article-share-link">Share</a>
       
       
     </footer>
@@ -561,10 +548,10 @@ AVERAGE:     63.80    78.60    70.00
 
 
   
-    <article id="post-2014-08-08-speed-for-getting-info-from-pipe-and-proc-system" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-optimal-file-system-with-tune2fs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-08-08-speed-for-getting-info-from-pipe-and-proc-system/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.594Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/08/09/optimal-file-system-with-tune2fs/" class="article-date">
+  <time datetime="2014-08-08T16:00:00.000Z" itemprop="datePublished">2014-08-09</time>
 </a>
     
   </div>
@@ -575,7 +562,7 @@ AVERAGE:     63.80    78.60    70.00
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-08-08-speed-for-getting-info-from-pipe-and-proc-system/">speed for getting info from pipe and proc system</a>
+      <a class="article-title" href="/2014/08/09/optimal-file-system-with-tune2fs/">optimal file system with tune2fs</a>
     </h1>
   
 
@@ -583,7 +570,137 @@ AVERAGE:     63.80    78.60    70.00
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Test code<br>compile with <code>gcc -Wall -o test test.c</code></p>
+        <h3 id="view-filesystem-information"><a href="#view-filesystem-information" class="headerlink" title="view filesystem information"></a>view filesystem information</h3><pre><code>dennis@dennis:~$ sudo su
+[sudo] password for dennis: 
+root@dennis:/home/dennis# fdisk -l
+
+Disk /dev/sda: 1000.2 GB, 1000204886016 bytes
+255 heads, 63 sectors/track, 121601 cylinders, total 1953525168 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x000ee377
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *     1026048     1230847      102400    7  HPFS/NTFS/exFAT
+/dev/sda2         1230848   210741247   104755200    7  HPFS/NTFS/exFAT
+/dev/sda3       210741248   860366847   324812800    7  HPFS/NTFS/exFAT
+/dev/sda4       860368894  1953523711   546577409    5  Extended
+Partition 4 does not start on physical sector boundary.
+/dev/sda5       860368896  1937033215   538332160   83  Linux
+/dev/sda6      1937035264  1953523711     8244224   82  Linux swap / Solaris
+root@dennis:/home/dennis# tune2fs -l /dev/sda1
+tune2fs 1.42 (29-Nov-2011)
+tune2fs: Bad magic number in super-block while trying to open /dev/sda1
+Couldn&apos;t find valid filesystem superblock.
+root@dennis:/home/dennis# tune2fs -l /dev/sda6
+tune2fs 1.42 (29-Nov-2011)
+tune2fs: Bad magic number in super-block while trying to open /dev/sda6
+Couldn&apos;t find valid filesystem superblock.
+root@dennis:/home/dennis# tune2fs -l /dev/sda5
+tune2fs 1.42 (29-Nov-2011)
+Filesystem volume name:   &lt;none&gt;
+Last mounted on:          /
+Filesystem UUID:          cab5dcf8-904f-4f53-a2f8-25276e38f84d
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      has_journal ext_attr resize_inode dir_index filetype needs_recovery extent flex_bg sparse_super large_file huge_file uninit_bg dir_nlink extra_isize
+Filesystem flags:         signed_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              33652736
+Block count:              134583040
+Reserved block count:     6729152
+Free blocks:              112706967
+Free inodes:              33202652
+First block:              0
+Block size:               4096
+Fragment size:            4096
+Reserved GDT blocks:      991
+Blocks per group:         32768
+Fragments per group:      32768
+Inodes per group:         8192
+Inode blocks per group:   512
+Flex block group size:    16
+Filesystem created:       Thu Mar 27 19:19:17 2014
+Last mount time:          Sat Aug  9 13:51:31 2014
+Last write time:          Wed Apr  9 11:19:12 2014
+Mount count:              94
+Maximum mount count:      -1
+Last checked:             Thu Mar 27 19:19:17 2014
+Check interval:           0 (&lt;none&gt;)
+Lifetime writes:          174 GB
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:               256
+Required extra isize:     28
+Desired extra isize:      28
+Journal inode:            8
+First orphan inode:       18089038
+Default directory hash:   half_md4
+Directory Hash Seed:      d4c17cf0-bb57-4423-81ab-a8fc3df1bc13
+Journal backup:           inode blocks
+</code></pre><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><p>The block size is the unit of work for the file system. Every read and write is<br>done in full multiples of the block size. The block size is also the smallest<br>size on disk a file can have.</p>
+<h3 id="Optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h3><p>1.Inode block</p>
+<p>2.Reserved block</p>
+<pre><code>Mkfs.ext3 –b 4096 - i 8192 –m 2 /dev/sda5
+</code></pre><p>3.tune2fs</p>
+<pre><code>dennis@dennis:~$ tune2fs
+tune2fs 1.42 (29-Nov-2011)
+Usage: tune2fs [-c max_mounts_count] [-e errors_behavior] [-g group]
+    [-i interval[d|m|w]] [-j] [-J journal_options] [-l]
+    [-m reserved_blocks_percent] [-o [^]mount_options[,...]] [-p mmp_update_interval]
+    [-r reserved_blocks_count] [-u user] [-C mount_count] [-L volume_label]
+    [-M last_mounted_dir] [-O [^]feature[,...]]
+    [-E extended-option[,...]] [-T last_check_time] [-U UUID]
+    [ -I new_inode_size ] device
+</code></pre><p>use <code>tune2fs -l /dev/sda5</code> to view filesystem information</p>
+<p>use <code>tune2fs -c -1 /dev/sda5</code> to avoid selfcheck</p>
+<p>use <code>tune2fs -c -1 -i 0 /dev/sda5</code> to set the interval time</p>
+<p>use <code>tune2fs -m 3 /dev/sda5</code> to set the reserved_blocks_percent</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://linux.chinaitlab.com/administer/824245.html" target="_blank" rel="external">优化linux文件系统 提高读写速度</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/08/09/optimal-file-system-with-tune2fs/" data-id="cin4qo6ia008e7zizz6x6ie93" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-speed-for-getting-info-from-pipe-and-proc-system" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/08/speed-for-getting-info-from-pipe-and-proc-system/" class="article-date">
+  <time datetime="2014-08-07T16:00:00.000Z" itemprop="datePublished">2014-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/08/speed-for-getting-info-from-pipe-and-proc-system/">speed for getting info from pipe and proc system</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Test-code"><a href="#Test-code" class="headerlink" title="Test code"></a>Test code</h3><p>compile with <code>gcc -Wall -o test test.c</code></p>
 <p>The include file time_test.h, can be got frome<br><a href="https://github.com/matrix207/C/blob/master/util/time_test.h" target="_blank" rel="external">https://github.com/matrix207/C/blob/master/util/time_test.h</a></p>
 <pre><code>#include &lt;stdio.h&gt;  
 #include &lt;stdlib.h&gt;  
@@ -703,8 +820,7 @@ int main(int argc,char **argv)
     time_test(argc, argv);
     return 0;
 }
-</code></pre><p>###Test detail</p>
-<p>Using strace to log system calling time (output to file 1.log)</p>
+</code></pre><h3 id="Test-detail"><a href="#Test-detail" class="headerlink" title="Test detail"></a>Test detail</h3><p>Using strace to log system calling time (output to file 1.log)</p>
 <p><code>strace -tT -o 1.log ./test</code></p>
 <p>The log info we care list as below:</p>
 <pre><code>11:00:47 write(1, &quot;---------from proc system-------&quot;..., 35) = 35 &lt;0.000030&gt;
@@ -752,17 +868,15 @@ int main(int argc,char **argv)
 </code></pre><p>so, we know that the killer code is </p>
 <pre><code>fgets(result, size, fp);
 </code></pre><p>If we using much code for our programming, and time is what we should care about,<br>then avoid pipe code as possible as we can.</p>
-<p>###TODO</p>
-<ol>
+<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><ol>
 <li>Is each system call have fixed time?(ofcourse, there should be a litter<br>different for each testing)</li>
 <li>Sort the time elapse for all the system call</li>
 </ol>
-<p>###Reference</p>
-
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-08-08-speed-for-getting-info-from-pipe-and-proc-system/" data-id="cin4f0h4i006el8izbgmlixpy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/08/speed-for-getting-info-from-pipe-and-proc-system/" data-id="cin4qo6i9008d7zizx7t6dxsb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -772,10 +886,10 @@ int main(int argc,char **argv)
 
 
   
-    <article id="post-2014-08-09-optimal-file-system-with-tune2fs" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-megacli-common-command-and-procedures" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-08-09-optimal-file-system-with-tune2fs/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.594Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/08/07/megacli-common-command-and-procedures/" class="article-date">
+  <time datetime="2014-08-06T16:00:00.000Z" itemprop="datePublished">2014-08-07</time>
 </a>
     
   </div>
@@ -786,135 +900,7 @@ int main(int argc,char **argv)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-08-09-optimal-file-system-with-tune2fs/">optimal file system with tune2fs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###view filesystem information<br>    dennis@dennis:~$ sudo su<br>    [sudo] password for dennis:<br>    root@dennis:/home/dennis# fdisk -l</p>
-<pre><code>Disk /dev/sda: 1000.2 GB, 1000204886016 bytes
-255 heads, 63 sectors/track, 121601 cylinders, total 1953525168 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 4096 bytes
-I/O size (minimum/optimal): 4096 bytes / 4096 bytes
-Disk identifier: 0x000ee377
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sda1   *     1026048     1230847      102400    7  HPFS/NTFS/exFAT
-/dev/sda2         1230848   210741247   104755200    7  HPFS/NTFS/exFAT
-/dev/sda3       210741248   860366847   324812800    7  HPFS/NTFS/exFAT
-/dev/sda4       860368894  1953523711   546577409    5  Extended
-Partition 4 does not start on physical sector boundary.
-/dev/sda5       860368896  1937033215   538332160   83  Linux
-/dev/sda6      1937035264  1953523711     8244224   82  Linux swap / Solaris
-root@dennis:/home/dennis# tune2fs -l /dev/sda1
-tune2fs 1.42 (29-Nov-2011)
-tune2fs: Bad magic number in super-block while trying to open /dev/sda1
-Couldn&apos;t find valid filesystem superblock.
-root@dennis:/home/dennis# tune2fs -l /dev/sda6
-tune2fs 1.42 (29-Nov-2011)
-tune2fs: Bad magic number in super-block while trying to open /dev/sda6
-Couldn&apos;t find valid filesystem superblock.
-root@dennis:/home/dennis# tune2fs -l /dev/sda5
-tune2fs 1.42 (29-Nov-2011)
-Filesystem volume name:   &lt;none&gt;
-Last mounted on:          /
-Filesystem UUID:          cab5dcf8-904f-4f53-a2f8-25276e38f84d
-Filesystem magic number:  0xEF53
-Filesystem revision #:    1 (dynamic)
-Filesystem features:      has_journal ext_attr resize_inode dir_index filetype needs_recovery extent flex_bg sparse_super large_file huge_file uninit_bg dir_nlink extra_isize
-Filesystem flags:         signed_directory_hash 
-Default mount options:    user_xattr acl
-Filesystem state:         clean
-Errors behavior:          Continue
-Filesystem OS type:       Linux
-Inode count:              33652736
-Block count:              134583040
-Reserved block count:     6729152
-Free blocks:              112706967
-Free inodes:              33202652
-First block:              0
-Block size:               4096
-Fragment size:            4096
-Reserved GDT blocks:      991
-Blocks per group:         32768
-Fragments per group:      32768
-Inodes per group:         8192
-Inode blocks per group:   512
-Flex block group size:    16
-Filesystem created:       Thu Mar 27 19:19:17 2014
-Last mount time:          Sat Aug  9 13:51:31 2014
-Last write time:          Wed Apr  9 11:19:12 2014
-Mount count:              94
-Maximum mount count:      -1
-Last checked:             Thu Mar 27 19:19:17 2014
-Check interval:           0 (&lt;none&gt;)
-Lifetime writes:          174 GB
-Reserved blocks uid:      0 (user root)
-Reserved blocks gid:      0 (group root)
-First inode:              11
-Inode size:               256
-Required extra isize:     28
-Desired extra isize:      28
-Journal inode:            8
-First orphan inode:       18089038
-Default directory hash:   half_md4
-Directory Hash Seed:      d4c17cf0-bb57-4423-81ab-a8fc3df1bc13
-Journal backup:           inode blocks
-</code></pre><p>###Terminology<br>The block size is the unit of work for the file system. Every read and write is<br>done in full multiples of the block size. The block size is also the smallest<br>size on disk a file can have.</p>
-<p>###Optimal<br>1.Inode block</p>
-<p>2.Reserved block</p>
-<pre><code>Mkfs.ext3 –b 4096 - i 8192 –m 2 /dev/sda5
-</code></pre><p>3.tune2fs</p>
-<pre><code>dennis@dennis:~$ tune2fs
-tune2fs 1.42 (29-Nov-2011)
-Usage: tune2fs [-c max_mounts_count] [-e errors_behavior] [-g group]
-    [-i interval[d|m|w]] [-j] [-J journal_options] [-l]
-    [-m reserved_blocks_percent] [-o [^]mount_options[,...]] [-p mmp_update_interval]
-    [-r reserved_blocks_count] [-u user] [-C mount_count] [-L volume_label]
-    [-M last_mounted_dir] [-O [^]feature[,...]]
-    [-E extended-option[,...]] [-T last_check_time] [-U UUID]
-    [ -I new_inode_size ] device
-</code></pre><p>use <code>tune2fs -l /dev/sda5</code> to view filesystem information</p>
-<p>use <code>tune2fs -c -1 /dev/sda5</code> to avoid selfcheck</p>
-<p>use <code>tune2fs -c -1 -i 0 /dev/sda5</code> to set the interval time</p>
-<p>use <code>tune2fs -m 3 /dev/sda5</code> to set the reserved_blocks_percent</p>
-<p>###Reference</p>
-<ul>
-<li><a href="http://linux.chinaitlab.com/administer/824245.html" target="_blank" rel="external">优化linux文件系统 提高读写速度</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-08-09-optimal-file-system-with-tune2fs/" data-id="cin4f0h4i006fl8izfrhnlvkg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2014-08-07-megacli-common-command-and-procedures" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/17/2014-08-07-megacli-common-command-and-procedures/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.592Z" itemprop="datePublished">2016-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-08-07-megacli-common-command-and-procedures/">MegaCli Common Command and Procedures</a>
+      <a class="article-title" href="/2014/08/07/megacli-common-command-and-procedures/">MegaCli Common Command and Procedures</a>
     </h1>
   
 
@@ -923,11 +909,9 @@ Usage: tune2fs [-c max_mounts_count] [-e errors_behavior] [-g group]
     <div class="article-entry" itemprop="articleBody">
       
         <p>From <strong><a href="https://supportforums.cisco.com/document/62901/megacli-common-commands-and-procedures" target="_blank" rel="external">MegaCli Common Commands and Procedures</a></strong></p>
-<p>###Introduction</p>
-<p>MegaCli commands have presented a number of questions among our users for Cisco’s<br>Physical Security.  Here is an attempt to explain thier meaning and uses.</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>MegaCli commands have presented a number of questions among our users for Cisco’s<br>Physical Security.  Here is an attempt to explain thier meaning and uses.</p>
 <p>See also: Cisco VSM RAID Viewer</p>
-<p>###General Parameters</p>
-<pre><code>Adapter parameter -aN 
+<h3 id="General-Parameters"><a href="#General-Parameters" class="headerlink" title="General Parameters"></a>General Parameters</h3><pre><code>Adapter parameter -aN 
 </code></pre><p>The parameter -aN (where N is a number starting with zero or the string ALL)<br>specifies the adapter ID. If you have only one controller it’s safe to use ALL<br>instead of a specific ID, but you’re encouraged to use the ID for everything<br>that makes changes to your RAID configuration.</p>
 <pre><code>Physical drive parameter      -PhysDrv [E:S] 
 </code></pre><p>For commands that operate on one or more pysical drives, the -PhysDrv [E:S]<br>parameter is used, where E is the enclosure device ID in which the drive resides<br>and S the slot number (starting with zero). You can get the enclosure device ID<br>using MegaCli -EncInfo -aALL. The E:S syntax is also used for specifying the<br>physical drives when creating a new RAID virtual drive (see 5).</p>
@@ -938,8 +922,7 @@ Usage: tune2fs [-c max_mounts_count] [-e errors_behavior] [-g group]
 </code></pre><p>or</p>
 <pre><code>shell&gt; cd /opt/MegaRAID/MegaCli
 shell&gt; ./MegaCli &lt;cmd&gt;
-</code></pre><p>###Gather information</p>
-<p>Controller information </p>
+</code></pre><h3 id="Gather-information"><a href="#Gather-information" class="headerlink" title="Gather information"></a>Gather information</h3><p>Controller information </p>
 <pre><code>MegaCli -AdpAllInfo -aALL
 MegaCli -CfgDsply -aALL
 MegaCli -adpeventlog -getevents -f lsi-events.log -a0 -nolog
@@ -955,8 +938,7 @@ MegaCli -PDInfo -PhysDrv [E:S] -aALL
 <pre><code>MegaCli -AdpBbuCmd -aALL 
 </code></pre><p>Check Battery backup warning on boot.  If this is enabled on an MSP, it will<br>require manual intervention every time the system boots</p>
 <pre><code>MegaCli -AdpGetProp BatWarnDsbl -a0 
-</code></pre><p>###Controller management</p>
-<p>Silence active alarm </p>
+</code></pre><h3 id="Controller-management"><a href="#Controller-management" class="headerlink" title="Controller management"></a>Controller management</h3><p>Silence active alarm </p>
 <pre><code>MegaCli -AdpSetProp AlarmSilence -aALL
 </code></pre><p>Disable alarm </p>
 <pre><code>MegaCli -AdpSetProp AlarmDsbl -aALL
@@ -966,15 +948,13 @@ MegaCli -PDInfo -PhysDrv [E:S] -aALL
 <pre><code>MegaCli -AdpSetProp BatWarnDsbl -a0
 </code></pre><p>Change the adapter rebuild rate to 60%:</p>
 <pre><code>MegaCli -AdpSetProp {RebuildRate -60} -aALL
-</code></pre><p>###Virtual drive management</p>
-<p>Create RAID 0, 1, 5 drive </p>
+</code></pre><h3 id="Virtual-drive-management"><a href="#Virtual-drive-management" class="headerlink" title="Virtual drive management"></a>Virtual drive management</h3><p>Create RAID 0, 1, 5 drive </p>
 <pre><code>MegaCli -CfgLdAdd -r(0|1|5) [E:S, E:S, ...] -aN
 </code></pre><p>Create RAID 10 drive </p>
 <pre><code>MegaCli -CfgSpanAdd -r10 -Array0[E:S,E:S] -Array1[E:S,E:S] -aN
 </code></pre><p>Remove drive </p>
 <pre><code>MegaCli -CfgLdDel -Lx -aN 
-</code></pre><p>###Physical drive management</p>
-<p>Set state to offline </p>
+</code></pre><h3 id="Physical-drive-management"><a href="#Physical-drive-management" class="headerlink" title="Physical drive management"></a>Physical drive management</h3><p>Set state to offline </p>
 <pre><code>MegaCli -PDOffline -PhysDrv [E:S] -aN
 </code></pre><p>Set state to online </p>
 <pre><code>MegaCli -PDOnline -PhysDrv [E:S] -aN
@@ -997,15 +977,13 @@ MegaCli -PDClear -ShowProg -PhysDrv [E:S] -aN
 </code></pre><p>Bad to good </p>
 <pre><code>MegaCli -PDMakeGood -PhysDrv[E:S] -aN
 </code></pre><p>Changes drive in state Unconfigured-Bad to Unconfigured-Good.</p>
-<p>###Hot spare management</p>
-<p>Set global hot spare </p>
+<h3 id="Hot-spare-management"><a href="#Hot-spare-management" class="headerlink" title="Hot spare management"></a>Hot spare management</h3><p>Set global hot spare </p>
 <pre><code>MegaCli -PDHSP -Set -PhysDrv [E:S] -aN
 </code></pre><p>Remove hot spare </p>
 <pre><code>MegaCli -PDHSP -Rmv -PhysDrv [E:S] -aN
 </code></pre><p>Set dedicated hot spare </p>
 <pre><code>MegaCli -PDHSP -Set -Dedicated -ArrayN,M,... -PhysDrv [E:S] -aN 
-</code></pre><p>###Walkthrough: Rebuild a Drive that is marked ‘Foreign’ when Inserted:</p>
-<ul>
+</code></pre><h3 id="Walkthrough-Rebuild-a-Drive-that-is-marked-‘Foreign’-when-Inserted"><a href="#Walkthrough-Rebuild-a-Drive-that-is-marked-‘Foreign’-when-Inserted" class="headerlink" title="Walkthrough: Rebuild a Drive that is marked ‘Foreign’ when Inserted:"></a>Walkthrough: Rebuild a Drive that is marked ‘Foreign’ when Inserted:</h3><ul>
 <li><p>Bad to good </p>
 <p>  MegaCli -PDMakeGood -PhysDrv [E:S]  -aALL</p>
 </li>
@@ -1016,8 +994,7 @@ MegaCli -PDClear -ShowProg -PhysDrv [E:S] -aN
 <p>   MegaCli -PDHSP -Set -PhysDrv [E:S] -aN</p>
 </li>
 </ul>
-<p>###Walkthrough: Change/replace a drive</p>
-<p>1.Set the drive offline, if it is not already offline due to an error</p>
+<h3 id="Walkthrough-Change-replace-a-drive"><a href="#Walkthrough-Change-replace-a-drive" class="headerlink" title="Walkthrough: Change/replace a drive"></a>Walkthrough: Change/replace a drive</h3><p>1.Set the drive offline, if it is not already offline due to an error</p>
 <pre><code>MegaCli -PDOffline -PhysDrv [E:S] -aN
 </code></pre><p>2.Mark the drive as missing</p>
 <pre><code>MegaCli -PDMarkMissing -PhysDrv [E:S] -aN
@@ -1029,8 +1006,7 @@ MegaCli -PDClear -ShowProg -PhysDrv [E:S] -aN
 </code></pre><p>6.In case you’re not working with hot spares, you must re-add the new drive to<br>your RAID virtual drive and start the rebuilding</p>
 <pre><code>MegaCli -PdReplaceMissing -PhysDrv [E:S] -ArrayN -rowN -aN
 MegaCli -PDRbld -Start -PhysDrv [E:S] -aN
-</code></pre><p>###Gathering Standard logs</p>
-<p>On every instance of a hard drive problem with an MSP server, we need to run the<br>following commands to have any information about the problem:</p>
+</code></pre><h3 id="Gathering-Standard-logs"><a href="#Gathering-Standard-logs" class="headerlink" title="Gathering Standard logs"></a>Gathering Standard logs</h3><p>On every instance of a hard drive problem with an MSP server, we need to run the<br>following commands to have any information about the problem:</p>
 <pre><code>shell&gt; rm –f MegaSAS.log
 
 shell&gt; /opt/MegaRAID/MegaCli/MegaCli -adpallinfo -a0
@@ -1049,7 +1025,7 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-08-07-megacli-common-command-and-procedures/" data-id="cin4f0h4h006dl8izvcijf0k5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/07/megacli-common-command-and-procedures/" data-id="cin4qo6i8008c7ziz5ijh9xz1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1059,10 +1035,10 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
 
 
   
-    <article id="post-2014-07-30-linux-memory-performance-monitor" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-memory-performance-monitor" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-07-30-linux-memory-performance-monitor/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.591Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/07/30/linux-memory-performance-monitor/" class="article-date">
+  <time datetime="2014-07-29T16:00:00.000Z" itemprop="datePublished">2014-07-30</time>
 </a>
     
   </div>
@@ -1073,7 +1049,7 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-07-30-linux-memory-performance-monitor/">Linux Memory performance monitor</a>
+      <a class="article-title" href="/2014/07/30/linux-memory-performance-monitor/">Linux Memory performance monitor</a>
     </h1>
   
 
@@ -1081,20 +1057,17 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###What your should know</p>
-<p>###Tools</p>
-<ul>
+        <h3 id="What-your-should-know"><a href="#What-your-should-know" class="headerlink" title="What your should know"></a>What your should know</h3><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ul>
 <li>vmstat </li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://os.51cto.com/art/201012/239883.htm" target="_blank" rel="external">Linux性能监测：内存篇</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-07-30-linux-memory-performance-monitor/" data-id="cin4f0h4f006cl8izh4erjtz4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/30/linux-memory-performance-monitor/" data-id="cin4qo6i7008b7zizdrqqc48v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1104,10 +1077,10 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
 
 
   
-    <article id="post-2014-07-30-linux-io-performance-monitor" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-io-performance-monitor" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-07-30-linux-io-performance-monitor/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.590Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/07/30/linux-io-performance-monitor/" class="article-date">
+  <time datetime="2014-07-29T16:00:00.000Z" itemprop="datePublished">2014-07-30</time>
 </a>
     
   </div>
@@ -1118,7 +1091,7 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-07-30-linux-io-performance-monitor/">Linux IO performance monitor</a>
+      <a class="article-title" href="/2014/07/30/linux-io-performance-monitor/">Linux IO performance monitor</a>
     </h1>
   
 
@@ -1126,8 +1099,7 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###What your should know</p>
-<ul>
+        <h3 id="What-your-should-know"><a href="#What-your-should-know" class="headerlink" title="What your should know"></a>What your should know</h3><ul>
 <li><p>Your system parameters:</p>
 <ul>
 <li>storage device: HDD, SSD (which?), Raid (which?)</li>
@@ -1155,8 +1127,7 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
 <li><p>random io and sequential io</p>
 </li>
 </ul>
-<p>###Monitor</p>
-<ul>
+<h3 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h3><ul>
 <li><p>start from dd test (install centos 7 to u-disk)</p>
 <p>  [root@localhost Downloads]# dd if=/home/dennis/Downloads/CentOS-7.0-1406-x86_64-DVD.iso of=/dev/sdc</p>
 </li>
@@ -1279,8 +1250,7 @@ echo 0 &gt; /proc/sys/vm/block_dump
 /etc/init.d/syslog start
 </code></pre></li>
 </ul>
-<p>###Other tools</p>
-<ul>
+<h3 id="Other-tools"><a href="#Other-tools" class="headerlink" title="Other tools"></a>Other tools</h3><ul>
 <li><p>IOMeter, using for testing block device</p>
 <ul>
 <li>Test parameters<ul>
@@ -1335,8 +1305,7 @@ echo 0 &gt; /proc/sys/vm/block_dump
 </ul>
 </li>
 </ul>
-<p>###Example</p>
-<ul>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
 <li><p>Troubleshooting high <code>uitl</code> of <code>iostat</code> command</p>
 <ul>
 <li>using <code>iostat -x 2 5</code> to view the disk information</li>
@@ -1345,8 +1314,7 @@ echo 0 &gt; /proc/sys/vm/block_dump
 <li><p>Troubleshooting high <code>uitl</code> of <code>iostat</code> command</p>
 </li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://os.51cto.com/art/201012/239886.htm" target="_blank" rel="external">Linux性能监测：磁盘IO篇</a></li>
 <li><a href="http://www.tecmint.com/linux-performance-monitoring-with-vmstat-and-iostat-commands/" target="_blank" rel="external">Linux Performance Monitoring with Vmstat and Iostat Commands</a></li>
 <li><a href="http://www.cnblogs.com/mfryf/archive/2012/03/12/2392012.html" target="_blank" rel="external">查看linux服务器硬盘IO读写负载</a></li>
@@ -1370,7 +1338,7 @@ echo 0 &gt; /proc/sys/vm/block_dump
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-07-30-linux-io-performance-monitor/" data-id="cin4f0h4e006bl8izjft2r3v4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/30/linux-io-performance-monitor/" data-id="cin4qo6i6008a7zizsvzlcwlt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1380,10 +1348,10 @@ echo 0 &gt; /proc/sys/vm/block_dump
 
 
   
-    <article id="post-2014-07-28-data-structures-relation-to-image" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-data-structures-relation-to-image" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-07-28-data-structures-relation-to-image/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.589Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/07/28/data-structures-relation-to-image/" class="article-date">
+  <time datetime="2014-07-27T16:00:00.000Z" itemprop="datePublished">2014-07-28</time>
 </a>
     
   </div>
@@ -1394,7 +1362,7 @@ echo 0 &gt; /proc/sys/vm/block_dump
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-07-28-data-structures-relation-to-image/">data structures relation to image</a>
+      <a class="article-title" href="/2014/07/28/data-structures-relation-to-image/">data structures relation to image</a>
     </h1>
   
 
@@ -1402,10 +1370,9 @@ echo 0 &gt; /proc/sys/vm/block_dump
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###What it is<br><strong>ds2img</strong>.py (DataStructure To Image) </p>
+        <h3 id="What-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h3><p><strong>ds2img</strong>.py (DataStructure To Image) </p>
 <p>A python script transfer c header file which contains lots of data structures<br>to a dot script, and then use dot to convert to a image file</p>
-<p>###How to run</p>
-<pre><code>Usage: ds2imgpy -i INPUT_FILE -f png|svg -o OUTPUT_FILE [-d DOT_FILE]
+<h3 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run"></a>How to run</h3><pre><code>Usage: ds2imgpy -i INPUT_FILE -f png|svg -o OUTPUT_FILE [-d DOT_FILE]
 
 -i  input file which have structures&quot;
 -f  image fomat, only support png and svg&quot;
@@ -1415,13 +1382,12 @@ echo 0 &gt; /proc/sys/vm/block_dump
 e.g:
 
 python ds2img.py -i t.h -f png -o t.png 
-</code></pre><p>###TODO<br>Waiting for your advices</p>
-<p>###Warning</p>
-<ol>
+</code></pre><h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>Waiting for your advices</p>
+<h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><ol>
 <li>Not support structure contain other structure!</li>
 <li>Not support multi-lines comment</li>
 </ol>
-<p>###Source<br>You can get the latest version from:<br><a href="https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py" target="_blank" rel="external">https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py</a></p>
+<h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>You can get the latest version from:<br><a href="https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py" target="_blank" rel="external">https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py</a></p>
 <pre><code>#!/usr/bin/python
 #####################################################################
 # Generate dot script file from c file, which have lots of structures
@@ -1692,7 +1658,7 @@ if __name__ == &apos;__main__&apos;:
     dot2png(config[&quot;dotfile&quot;], config[&quot;output&quot;])
 
     print &quot;Done&quot;
-</code></pre><p>###example<br>transfer iscsitarget-1.4.20/kernel/iscsi.h </p>
+</code></pre><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><p>transfer iscsitarget-1.4.20/kernel/iscsi.h </p>
 <pre><code>[dennis@localhost kernel]$ pwd
 /home/dennis/work/git/iet/src/iscsitarget-1.4.20/kernel
 [dennis@localhost kernel]$ ds2img.py -i iscsi.h -f png -o iscsi.png
@@ -1700,8 +1666,7 @@ Done
 [dennis@localhost kernel]$ ds2img.py -i iscsi.h -f svg -o iscsi.svg
 Done
 </code></pre><p><img src="/assets/image/posts/iscsi_kernel_structs.png" alt=""></p>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://emacser.com/emacs_graphviz_ds.htm" target="_blank" rel="external">★★★使用graphviz画数据结构</a></li>
 <li><a href="http://www.graphviz.org/content/datastruct" target="_blank" rel="external">graphviz for Data Structures</a></li>
 <li><a href="http://gashero.iteye.com/blog/1748795" target="_blank" rel="external">使用graphviz dot来画图表</a></li>
@@ -1719,7 +1684,7 @@ Done
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-07-28-data-structures-relation-to-image/" data-id="cin4f0h4d006al8izfl7or5l6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/28/data-structures-relation-to-image/" data-id="cin4qo6i500897ziz6itxna6e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1771,7 +1736,7 @@ Done
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -1784,23 +1749,23 @@ Done
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -1815,7 +1780,7 @@ Done
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1826,6 +1791,8 @@ Done
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

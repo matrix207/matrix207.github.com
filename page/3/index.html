@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2015-10-24-rdtsc" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-10-24-rdtsc/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.633Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/10/24/mongodb/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-10-24-rdtsc/">rdtsc</a>
+      <a class="article-title" href="/2015/10/24/mongodb/">mongodb</a>
     </h1>
   
 
@@ -86,318 +88,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###What is rdtsc</p>
-<ul>
-<li>rdtsc is ReaD TimeStamp Count</li>
-<li>limition<ul>
-<li>only work on x86 platform</li>
-</ul>
-</li>
-</ul>
-<p>###simple implement use for x86_64 platform</p>
-<pre><code>uint64_t rdtsc()
-{
-   uint32_t hi, lo;
-   __asm__ __volatile__ (&quot;rdtsc&quot; : &quot;=a&quot;(lo), &quot;=d&quot;(hi));
-   return ( (uint64_t)lo)|( ((uint64_t)hi)&lt;&lt;32 );
-}
-</code></pre><p>###rdtsc.h</p>
-<pre><code>#ifndef __RDTSC_H_DEFINED__
-#define __RDTSC_H_DEFINED__
-
-
-#if defined(__i386__)
-
-static __inline__ unsigned long long rdtsc(void)
-{
-  unsigned long long int x;
-     __asm__ volatile (&quot;.byte 0x0f, 0x31&quot; : &quot;=A&quot; (x));
-     return x;
-}
-#elif defined(__x86_64__)
-
-static __inline__ unsigned long long rdtsc(void)
-{
-  unsigned hi, lo;
-  __asm__ __volatile__ (&quot;rdtsc&quot; : &quot;=a&quot;(lo), &quot;=d&quot;(hi));
-  return ( (unsigned long long)lo)|( ((unsigned long long)hi)&lt;&lt;32 );
-}
-
-#elif defined(__powerpc__)
-
-static __inline__ unsigned long long rdtsc(void)
-{
-  unsigned long long int result=0;
-  unsigned long int upper, lower,tmp;
-  __asm__ volatile(
-                &quot;0:                  \n&quot;
-                &quot;\tmftbu   %0           \n&quot;
-                &quot;\tmftb    %1           \n&quot;
-                &quot;\tmftbu   %2           \n&quot;
-                &quot;\tcmpw    %2,%0        \n&quot;
-                &quot;\tbne     0b         \n&quot;
-                : &quot;=r&quot;(upper),&quot;=r&quot;(lower),&quot;=r&quot;(tmp)
-                );
-  result = upper;
-  result = result&lt;&lt;32;
-  result = result|lower;
-
-  return(result);
-}
-
-#else
-
-#error &quot;No tick counter is available!&quot;
-
-#endif
-
-
-/*  $RCSfile:  $   $Author: kazutomo $
- *  $Revision: 1.6 $  $Date: 2005/04/13 18:49:58 $
- */
-
-#endif
-</code></pre><p>###Sample one</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &quot;rdtsc.h&quot;
-
-int main(int argc, char* argv[])
-{
-  unsigned long long a,b;
-
-  a = rdtsc();
-  b = rdtsc();
-
-  printf(&quot;%llu\n&quot;, b-a);
-  return 0;
-}
-</code></pre><p>###Sample two</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;assert.h&gt;
-#include &lt;stdint.h&gt;
-#include &lt;stdlib.h&gt;
-
-#include &quot;rdtsc.h&quot;
-
-#define N (1024*1024*2)
-
-int main(int argc, char* argv[])
-{
-  unsigned long long a,b;
-  unsigned long long min,max;
-  char* p;
-  int i;
-
-  p = (char*)malloc(N);
-  assert( p!=(char*)0 );
-
-  max = 0;
-  min = UINT64_MAX;
-
-  for(i=0; i&lt;N; i++ ) {
-    a = rdtsc();
-    p[i] = 0;
-    b = rdtsc() - a;
-    if( b &gt; max ) max = b;
-    else if( b &lt; min ) min = b;
-  }
-  printf(&quot;min=%llu\n&quot;, min);
-  printf(&quot;max=%llu\n&quot;, max);
-  return 0;
-}
-</code></pre><p>###TODO: translate CPU cycle to time</p>
-<ul>
-<li><code>time_in_seconds = number_of_clock_cycles / frequency</code></li>
-<li><code>cat /proc/cpuinfo |grep &#39;MHz&#39;</code></li>
-<li><code>gettimeofday</code> and <code>rdtsc</code></li>
-</ul>
-<p>###Something need to consider?</p>
-<ul>
-<li>Context switch?</li>
-<li>Multi-core processors</li>
-</ul>
-<p>###gettimeofday</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;sys/time.h&gt; // for gettimeofday()
-using namespace std;
-
-int main()
-{
-    struct timeval t1, t2;
-    double elapsedTime;
-
-    // start timer
-    gettimeofday(&amp;t1, NULL);
-
-    // do something
-    // ...
-
-    // stop timer
-    gettimeofday(&amp;t2, NULL);
-
-    // compute and print the elapsed time in millisec
-    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;    // sec to ms
-    elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0; // us to ms
-    cout &lt;&lt; elapsedTime &lt;&lt; &quot; ms.\n&quot;;
-
-    return 0;
-}
-</code></pre><p>###gettimeofday vs rdtsc, source code</p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;sys/time.h&gt; // for gettimeofday()
-#include &lt;stdlib.h&gt; // for malloc
-#include &lt;string.h&gt; // for memcpy
-#include &quot;rdtsc.h&quot;
-
-// cat /proc/cpuinfo |grep &apos;MHz&apos;
-#define CPUMHZ 1200.0f
-// frequency per micro second
-#define CPU_SPEED_US (CPUMHZ*1024*1024/1000/1000)
-
-using namespace std;
-int main()
-{
-    // test malloc
-    cout &lt;&lt; &quot;malloc:\n&quot;;
-    struct timeval t1, t2;
-    double elapsedTime;
-    gettimeofday(&amp;t1, NULL);
-    char* p = (char*)malloc(4);
-    gettimeofday(&amp;t2, NULL);
-    free(p);
-    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000000.0; // sec to us
-    elapsedTime += (t2.tv_usec - t1.tv_usec) ;
-    cout &lt;&lt; &quot;\t&quot; &lt;&lt; elapsedTime &lt;&lt; &quot; us (by gettimeofday)\n&quot;;
-
-    unsigned long long a,b;
-    a = rdtsc();
-    char* q = (char*)malloc(4);
-    b = rdtsc() - a;
-    free(q);
-    cout &lt;&lt; &quot;\ttimestamp count is &quot; &lt;&lt; b &lt;&lt; &quot;, elapsedTime &quot; &lt;&lt; b/CPU_SPEED_US &lt;&lt; &quot; us\n&quot;;
-
-    // test memcpy
-    cout &lt;&lt; &quot;memcpy:\n&quot;;
-    char tmp1[1024] = {0};
-    char tmp2[1024] = {&apos;a&apos;};
-    int count = 1000;
-
-    gettimeofday(&amp;t1, NULL);
-    for (int i=0; i&lt;count; i++) {
-        memcpy(tmp1, tmp2, sizeof(tmp1));
-    }
-    gettimeofday(&amp;t2, NULL);
-    elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000000.0; // sec to us
-    elapsedTime += (t2.tv_usec - t1.tv_usec) ;
-    cout &lt;&lt; &quot;\t&quot; &lt;&lt; elapsedTime &lt;&lt; &quot; us (by gettimeofday)\n&quot;;
-
-    a = rdtsc();
-    for (int i=0; i&lt;count; i++) {
-        memcpy(tmp1, tmp2, sizeof(tmp1));
-    }
-    b = (rdtsc()-a)/count;
-    cout &lt;&lt; &quot;\ttimestamp count is &quot; &lt;&lt; b &lt;&lt; &quot;, elapsedTime &quot; &lt;&lt; b/CPU_SPEED_US &lt;&lt; &quot; us\n&quot;;
-    return 0;
-}
-</code></pre><p>###output</p>
-<pre><code>dennis@dennis:~/tt$ g++ -O3 -o t t.cc
-dennis@dennis:~/tt$ ./t
-malloc:
-    0 us (by gettimeofday)
-    timestamp count is 58, elapsedTime 0.0460943 us
-memcpy:
-    0 us (by gettimeofday)
-    timestamp count is 0, elapsedTime 0 us
-dennis@dennis:~/tt$ g++ -O2 -o t t.cc
-dennis@dennis:~/tt$ ./t
-malloc:
-    0 us (by gettimeofday)
-    timestamp count is 69, elapsedTime 0.0548363 us
-memcpy:
-    0 us (by gettimeofday)
-    timestamp count is 0, elapsedTime 0 us
-dennis@dennis:~/tt$ g++ -O1 -o t t.cc
-dennis@dennis:~/tt$ ./t
-malloc:
-    0 us (by gettimeofday)
-    timestamp count is 58, elapsedTime 0.0460943 us
-memcpy:
-    2 us (by gettimeofday)
-    timestamp count is 3, elapsedTime 0.00238419 us
-dennis@dennis:~/tt$ g++ -o t t.cc
-dennis@dennis:~/tt$ ./t
-malloc:
-    80 us (by gettimeofday)
-    timestamp count is 1198, elapsedTime 0.952085 us
-memcpy:
-    102 us (by gettimeofday)
-    timestamp count is 295, elapsedTime 0.234445 us
-dennis@dennis:~/tt$ g++ -g -o t t.cc
-dennis@dennis:~/tt$ ./t
-malloc:
-    82 us (by gettimeofday)
-    timestamp count is 1421, elapsedTime 1.12931 us
-memcpy:
-
-    timestamp count is 295, elapsedTime 0.234445 us
-</code></pre><p>###Reference</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc" target="_blank" rel="external">http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc</a></li>
-<li><a href="http://www.mcs.anl.gov/~kazutomo/rdtsc.html" target="_blank" rel="external">Time-stamp Counter</a></li>
-<li><a href="http://www.cnblogs.com/cnmaizi/archive/2011/01/17/1937772.html" target="_blank" rel="external">X86平台采用rdtsc指令读取时间戳计数器完成高精度计时</a></li>
-<li><a href="http://www.strchr.com/performance_measurements_with_rdtsc" target="_blank" rel="external">Performance measurements with RDTSC</a></li>
-<li><a href="http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c" target="_blank" rel="external">http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-10-24-rdtsc/" data-id="cin4f0h5l007el8izwkygews8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-10-24-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/17/2015-10-24-mongodb/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.631Z" itemprop="datePublished">2016-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-10-24-mongodb/">mongodb</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###MongoDB</p>
-<p>###Install</p>
-<p>###Use</p>
-<p>###Analyze C++ driver</p>
-<ul>
+        <h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><h3 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><h3 id="Analyze-C-driver"><a href="#Analyze-C-driver" class="headerlink" title="Analyze C++ driver"></a>Analyze C++ driver</h3><ul>
 <li>download code from <a href="https://github.com/mongodb/mongo-cxx-driver" target="_blank" rel="external">https://github.com/mongodb/mongo-cxx-driver</a></li>
 <li>size, about 60000, too big.</li>
 </ul>
-<p>###Analyze source code</p>
-<ul>
+<h3 id="Analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
 <li>download code from <a href="https://github.com/mongodb/mongo" target="_blank" rel="external">https://github.com/mongodb/mongo</a></li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://www.mongodb.org" target="_blank" rel="external">MongoDB</a></li>
 <li><a href="https://www.mongodb.org/about/source-code/" target="_blank" rel="external">MongoDB source code</a></li>
 <li><a href="http://github.com/mongodb" target="_blank" rel="external">MongoDB on github</a></li>
@@ -406,7 +104,7 @@ memcpy:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-10-24-mongodb/" data-id="cin4f0h5j007dl8iz7jms6oi6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/24/mongodb/" data-id="cin4qo6ja009d7zizk8mrlrqf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -416,10 +114,10 @@ memcpy:
 
 
   
-    <article id="post-2015-10-22-unit-test" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-memory" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-10-22-unit-test/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.630Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/10/24/linux-memory/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
 </a>
     
   </div>
@@ -430,7 +128,7 @@ memcpy:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-10-22-unit-test/">unit test</a>
+      <a class="article-title" href="/2015/10/24/linux-memory/">linux memory</a>
     </h1>
   
 
@@ -438,79 +136,7 @@ memcpy:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###exception</p>
-<ul>
-<li>network exception, such as connection timeout, receive/send failure<ul>
-<li>connect refused<ul>
-<li>use exist IP, but port is not listened, then the connect operation will return error <code>connect refused</code></li>
-<li>hook connect function</li>
-<li>iptables,  <code>iptables -t filter -p tcp -A OUTPUT -d DEST_IP --dport DEST_PORT -j REJECT --reject-with tcp-reset</code></li>
-</ul>
-</li>
-<li>connect timeout</li>
-<li>read timeout</li>
-<li>write timeout</li>
-<li>disconnect when read/write</li>
-<li>connect slowly</li>
-<li>package dirty</li>
-</ul>
-</li>
-<li>memory exception, such as not enough memory, allocation failure<ul>
-<li>allocate fail<ul>
-<li>hook malloc function</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>disk exception, such as disk crash, not enough space</li>
-<li>program exception</li>
-</ul>
-<p>###reference</p>
-<ul>
-<li><a href="http://baidutech.blog.51cto.com/4114344/744429" target="_blank" rel="external">异常模拟测试–场景抽象及解决方案</a></li>
-<li><a href="http://www.sqlite.org/malloc.html#testing" target="_blank" rel="external">Test Dynamic Memory Allocation In SQLite</a></li>
-<li><a href="http://stackoverflow.com/questions/1711170/unit-testing-for-failed-malloc" target="_blank" rel="external">Unit testing for failed malloc</a></li>
-<li><a href="http://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html" target="_blank" rel="external">玩转Google开源C++单元测试框架Google Test系列(gtest)</a></li>
-<li><a href="http://www.cnblogs.com/anderslly/archive/2009/07/26/better-unit-tests.html" target="_blank" rel="external">更好的单元测试准则</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-10-22-unit-test/" data-id="cin4f0h5i007bl8izbpeajhh8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-10-24-linux-memory" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/17/2015-10-24-linux-memory/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.630Z" itemprop="datePublished">2016-04-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-10-24-linux-memory/">linux memory</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###process and memory</p>
-<ul>
+        <h3 id="process-and-memory"><a href="#process-and-memory" class="headerlink" title="process and memory"></a>process and memory</h3><ul>
 <li><p>how process use memory<br>There are 5 kinds of segment datas on process, which is code segment, data segment,<br>BSS segment, heap segment and stack segment.</p>
 <ul>
 <li>code, use for store execute instruction.</li>
@@ -585,15 +211,14 @@ Heap Location:
 <li>allocate and recover process memory </li>
 <li>system physic memory manager</li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.kerneltravel.net/journal/v/mem.htm" target="_blank" rel="external">Linux内存管理</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-10-24-linux-memory/" data-id="cin4f0h5i007cl8izm1blllny" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/24/linux-memory/" data-id="cin4qo6j9009c7zizhx17fbtz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -603,10 +228,10 @@ Heap Location:
 
 
   
-    <article id="post-2015-10-07-spf13-vim" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-10-07-spf13-vim/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.629Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/10/24/redis/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
 </a>
     
   </div>
@@ -617,7 +242,135 @@ Heap Location:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-10-07-spf13-vim/">spf13 vim</a>
+      <a class="article-title" href="/2015/10/24/redis/">redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>Redis is an in-memory database that persist on disk. The data model is key-value,<br>but many different kind of values are supported: String, Lists, Sets, Sorted Set,<br>Hashes, HyperLogLog, Bitmaps.<a href="http://redis.io" target="_blank" rel="external">http://redis.io</a></p>
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
+<li>Download, extract and compile Redis with:<br>  $ wget <a href="http://download.redis.io/releases/redis-3.0.5.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-3.0.5.tar.gz</a><br>  $ tar xzf redis-3.0.5.tar.gz<br>  $ cd redis-3.0.5<br>  $ make</li>
+</ul>
+<h3 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><ul>
+<li><p>Playing with Redis</p>
+<p>  % cd src<br>  % ./redis-cli<br>  redis&gt; ping<br>  PONG<br>  redis&gt; set foo bar<br>  OK<br>  redis&gt; get foo<br>  “bar”<br>  redis&gt; incr mycounter<br>  (integer) 1<br>  redis&gt; incr mycounter<br>  (integer) 2<br>  redis&gt;</p>
+</li>
+</ul>
+<h3 id="Analyze"><a href="#Analyze" class="headerlink" title="Analyze"></a>Analyze</h3><ul>
+<li>size of source code, 1.3MB</li>
+<li>total lines of code, 58185</li>
+<li>allocate double memory size when append string</li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://redis.io/" target="_blank" rel="external">redis</a></li>
+<li><a href="https://github.com/antirez/redis" target="_blank" rel="external">redis on github</a></li>
+<li><a href="http://origin.redisbook.com/" target="_blank" rel="external">redis book</a></li>
+<li><a href="https://github.com/huangz1990/redisbook" target="_blank" rel="external">redis book source</a></li>
+<li><a href="http://redisdoc.com/" target="_blank" rel="external">Redis 命令参考</a></li>
+<li><a href="https://github.com/huangz1990/annotated_redis_source" target="_blank" rel="external">带有详细注释的 Redis 2.6 源码</a></li>
+<li><a href="https://github.com/springside/springside4/wiki/redis" target="_blank" rel="external">关于Redis的常识</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/10/24/redis/" data-id="cin4qo6jc009f7ziz0dgco9hk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-unit-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/22/unit-test/" class="article-date">
+  <time datetime="2015-10-21T16:00:00.000Z" itemprop="datePublished">2015-10-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/22/unit-test/">unit test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="exception"><a href="#exception" class="headerlink" title="exception"></a>exception</h3><ul>
+<li>network exception, such as connection timeout, receive/send failure<ul>
+<li>connect refused<ul>
+<li>use exist IP, but port is not listened, then the connect operation will return error <code>connect refused</code></li>
+<li>hook connect function</li>
+<li>iptables,  <code>iptables -t filter -p tcp -A OUTPUT -d DEST_IP --dport DEST_PORT -j REJECT --reject-with tcp-reset</code></li>
+</ul>
+</li>
+<li>connect timeout</li>
+<li>read timeout</li>
+<li>write timeout</li>
+<li>disconnect when read/write</li>
+<li>connect slowly</li>
+<li>package dirty</li>
+</ul>
+</li>
+<li>memory exception, such as not enough memory, allocation failure<ul>
+<li>allocate fail<ul>
+<li>hook malloc function</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>disk exception, such as disk crash, not enough space</li>
+<li>program exception</li>
+</ul>
+<h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><ul>
+<li><a href="http://baidutech.blog.51cto.com/4114344/744429" target="_blank" rel="external">异常模拟测试–场景抽象及解决方案</a></li>
+<li><a href="http://www.sqlite.org/malloc.html#testing" target="_blank" rel="external">Test Dynamic Memory Allocation In SQLite</a></li>
+<li><a href="http://stackoverflow.com/questions/1711170/unit-testing-for-failed-malloc" target="_blank" rel="external">Unit testing for failed malloc</a></li>
+<li><a href="http://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html" target="_blank" rel="external">玩转Google开源C++单元测试框架Google Test系列(gtest)</a></li>
+<li><a href="http://www.cnblogs.com/anderslly/archive/2009/07/26/better-unit-tests.html" target="_blank" rel="external">更好的单元测试准则</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/10/22/unit-test/" data-id="cin4qo6j8009b7ziz2z7mzwwt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-spf13-vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/07/spf13-vim/" class="article-date">
+  <time datetime="2015-10-06T16:00:00.000Z" itemprop="datePublished">2015-10-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/07/spf13-vim/">spf13 vim</a>
     </h1>
   
 
@@ -781,8 +534,7 @@ tabular              vim-jst                   wildfire.vim
 </ul>
 </li>
 </ul>
-<p>###YouCompleteMe install offline</p>
-<ul>
+<h3 id="YouCompleteMe-install-offline"><a href="#YouCompleteMe-install-offline" class="headerlink" title="YouCompleteMe install offline"></a>YouCompleteMe install offline</h3><ul>
 <li><a href="http://pengblog.sinaapp.com/?cat=2" target="_blank" rel="external">http://pengblog.sinaapp.com/?cat=2</a></li>
 <li><a href="https://github.com/haoren3696/ycm_complete.git" target="_blank" rel="external">https://github.com/haoren3696/ycm_complete.git</a></li>
 </ul>
@@ -795,7 +547,7 @@ tabular              vim-jst                   wildfire.vim
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-10-07-spf13-vim/" data-id="cin4f0h5h007al8iz4svduzai" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/10/07/spf13-vim/" data-id="cin4qo6j7009a7zizz1ro6lsg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -805,10 +557,10 @@ tabular              vim-jst                   wildfire.vim
 
 
   
-    <article id="post-2015-09-10-how-to-export-a-specify-full-directory-by-shell-file" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-how-to-export-a-specify-full-directory-by-shell-file" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-09-10-how-to-export-a-specify-full-directory-by-shell-file/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.628Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" class="article-date">
+  <time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished">2015-09-10</time>
 </a>
     
   </div>
@@ -819,7 +571,7 @@ tabular              vim-jst                   wildfire.vim
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-09-10-how-to-export-a-specify-full-directory-by-shell-file/">How to export a specify full directory by shell file</a>
+      <a class="article-title" href="/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/">How to export a specify full directory by shell file</a>
     </h1>
   
 
@@ -827,8 +579,7 @@ tabular              vim-jst                   wildfire.vim
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Requirement</p>
-<ul>
+        <h3 id="Requirement"><a href="#Requirement" class="headerlink" title="Requirement"></a>Requirement</h3><ul>
 <li><p>project files</p>
 <pre><code>myprj
     build
@@ -862,16 +613,13 @@ tabular              vim-jst                   wildfire.vim
 </ul>
 </li>
 </ul>
-<p>###Test 1, using <code>export PRJ_HOME=$(dirname $(dirname $0))</code></p>
-<ul>
+<h3 id="Test-1-using-export-PRJ-HOME-dirname-dirname-0"><a href="#Test-1-using-export-PRJ-HOME-dirname-dirname-0" class="headerlink" title="Test 1, using export PRJ_HOME=$(dirname $(dirname $0))"></a>Test 1, using <code>export PRJ_HOME=$(dirname $(dirname $0))</code></h3><ul>
 <li>Failure case, when on suse release version, will failed to do <code>dirname $0</code>,<br>you will find that <code>echo $0</code> output <code>-bash</code>, not <code>bash</code> expected.</li>
 </ul>
-<p>###Test 2, using <code>export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))</code></p>
-<ul>
+<h3 id="Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0"><a href="#Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0" class="headerlink" title="Test 2, using export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))"></a>Test 2, using <code>export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))</code></h3><ul>
 <li>Failure case, when using relative directory.</li>
 </ul>
-<p>###Other test</p>
-<pre><code>echo &quot;working directory is &quot; $(pwd)
+<h3 id="Other-test"><a href="#Other-test" class="headerlink" title="Other test"></a>Other test</h3><pre><code>echo &quot;working directory is &quot; $(pwd)
 echo &quot;BASH_SOURCE is &quot; ${BASH_SOURCE}
 echo &quot;BASH_SOURCE[0] is &quot; ${BASH_SOURCE[0]}
 echo &quot;dirname BASH_SOURCE[0] is &quot; $(dirname ${BASH_SOURCE[0]})
@@ -879,20 +627,18 @@ echo &quot;2 dirname BASH_SOURCE[0] is &quot; $(dirname $(dirname ${BASH_SOURCE[
 PARENT_DIR=$(dirname $(dirname ${BASH_SOURCE[0]}))
 echo &quot;parent dir is &quot; ${PARENT_DIR}
 export GMDB_HOME=$(pwd ${PARENT_DIR})
-</code></pre><p>###TODO, find the effective method</p>
-<ul>
+</code></pre><h3 id="TODO-find-the-effective-method"><a href="#TODO-find-the-effective-method" class="headerlink" title="TODO, find the effective method"></a>TODO, find the effective method</h3><ul>
 <li>If we can get the bash file name?</li>
 <li>How to translate relative directory to be full directory?</li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.sina.com.cn/s/blog_60d6fadc01013k0k.html" target="_blank" rel="external">Difference of source , ./ , sh, bash</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-09-10-how-to-export-a-specify-full-directory-by-shell-file/" data-id="cin4f0h5g0079l8iz09gys9kf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" data-id="cin4qo6j600997ziz1slnzgdb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -902,10 +648,10 @@ export GMDB_HOME=$(pwd ${PARENT_DIR})
 
 
   
-    <article id="post-2015-09-03-makefile" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-makefile" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-09-03-makefile/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.627Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/09/03/makefile/" class="article-date">
+  <time datetime="2015-09-02T16:00:00.000Z" itemprop="datePublished">2015-09-03</time>
 </a>
     
   </div>
@@ -916,7 +662,7 @@ export GMDB_HOME=$(pwd ${PARENT_DIR})
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-09-03-makefile/">makefile</a>
+      <a class="article-title" href="/2015/09/03/makefile/">makefile</a>
     </h1>
   
 
@@ -924,8 +670,7 @@ export GMDB_HOME=$(pwd ${PARENT_DIR})
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Generate each source file to be one bin file</p>
-<ul>
+        <h3 id="Generate-each-source-file-to-be-one-bin-file"><a href="#Generate-each-source-file-to-be-one-bin-file" class="headerlink" title="Generate each source file to be one bin file"></a>Generate each source file to be one bin file</h3><ul>
 <li><p>Makefile</p>
 <pre><code>CC     = g++
 CFLAGS += -g -Wall
@@ -945,8 +690,7 @@ clean:
     rm -f *.o $(BINS)
 </code></pre></li>
 </ul>
-<p>###Generate all source files to be on bin file</p>
-<ul>
+<h3 id="Generate-all-source-files-to-be-on-bin-file"><a href="#Generate-all-source-files-to-be-on-bin-file" class="headerlink" title="Generate all source files to be on bin file"></a>Generate all source files to be on bin file</h3><ul>
 <li><p>Makefile</p>
 <pre><code>CC     = g++
 CFLAGS += -g -Wall
@@ -967,8 +711,7 @@ clean:
     rm -f *.o $(TARGET)
 </code></pre></li>
 </ul>
-<p>###Auto run all Makefile in all sub-directory</p>
-<ul>
+<h3 id="Auto-run-all-Makefile-in-all-sub-directory"><a href="#Auto-run-all-Makefile-in-all-sub-directory" class="headerlink" title="Auto run all Makefile in all sub-directory"></a>Auto run all Makefile in all sub-directory</h3><ul>
 <li><p>Makefile</p>
 <pre><code>########################################################
 # Makefile
@@ -1026,8 +769,7 @@ clean:
     rm -f *.o $(TARGET)
 </code></pre></li>
 </ul>
-<p>###Example</p>
-<ul>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>###########################################################
 # Makefile
@@ -1119,8 +861,7 @@ clean:
     rm -f *.o 
 </code></pre></li>
 </ul>
-<p>###An complex example </p>
-<ul>
+<h3 id="An-complex-example"><a href="#An-complex-example" class="headerlink" title="An complex example"></a>An complex example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>###########################################################
 # Makefile
@@ -1235,8 +976,7 @@ char __MYAPP_AUTO_DATE__[] = &quot;2014&quot;;
 #endif /* _VERSION_H_ */
 </code></pre></li>
 </ul>
-<p>###Another example</p>
-<ul>
+<h3 id="Another-example"><a href="#Another-example" class="headerlink" title="Another example"></a>Another example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>#################################################################
 # Copyright (C) 2014 All rights reserved.
@@ -1285,7 +1025,7 @@ clean:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-09-03-makefile/" data-id="cin4f0h5f0078l8iz5i5mhe2x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/03/makefile/" data-id="cin4qo6j500987zizyet6wkpy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1295,10 +1035,10 @@ clean:
 
 
   
-    <article id="post-2015-08-25-apache-avro-analyzed" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-apache-avro-analyzed" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-08-25-apache-avro-analyzed/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.623Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/08/25/apache-avro-analyzed/" class="article-date">
+  <time datetime="2015-08-24T16:00:00.000Z" itemprop="datePublished">2015-08-25</time>
 </a>
     
   </div>
@@ -1309,7 +1049,7 @@ clean:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-08-25-apache-avro-analyzed/">apache avro analyzed</a>
+      <a class="article-title" href="/2015/08/25/apache-avro-analyzed/">apache avro analyzed</a>
     </h1>
   
 
@@ -1317,8 +1057,7 @@ clean:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####analyzed apace avro c code</p>
-<pre><code>////////////////////////////////////////////////////////////
+        <h4 id="analyzed-apace-avro-c-code"><a href="#analyzed-apace-avro-c-code" class="headerlink" title="analyzed apace avro c code"></a>analyzed apace avro c code</h4><pre><code>////////////////////////////////////////////////////////////
 // Apache Avro c实现代码分析
 // 
 // By matrix207 2015-08-03 at home
@@ -1406,7 +1145,7 @@ static int write_long(avro_writer_t writer, int64_t l)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-08-25-apache-avro-analyzed/" data-id="cin4f0h5b0077l8iz5iwbb56p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/25/apache-avro-analyzed/" data-id="cin4qo6j400977zizdngh1qkh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1416,10 +1155,10 @@ static int write_long(avro_writer_t writer, int64_t l)
 
 
   
-    <article id="post-2015-08-24-core-dumped" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-core-dumped" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-08-24-core-dumped/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.622Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/08/24/core-dumped/" class="article-date">
+  <time datetime="2015-08-23T16:00:00.000Z" itemprop="datePublished">2015-08-24</time>
 </a>
     
   </div>
@@ -1430,7 +1169,7 @@ static int write_long(avro_writer_t writer, int64_t l)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-08-24-core-dumped/">core dumped</a>
+      <a class="article-title" href="/2015/08/24/core-dumped/">core dumped</a>
     </h1>
   
 
@@ -1438,18 +1177,14 @@ static int write_long(avro_writer_t writer, int64_t l)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###What is coredump</p>
-<p>###How to analyse coredump</p>
-<p>###Why program coredump</p>
-<ul>
+        <h3 id="What-is-coredump"><a href="#What-is-coredump" class="headerlink" title="What is coredump"></a>What is coredump</h3><h3 id="How-to-analyse-coredump"><a href="#How-to-analyse-coredump" class="headerlink" title="How to analyse coredump"></a>How to analyse coredump</h3><h3 id="Why-program-coredump"><a href="#Why-program-coredump" class="headerlink" title="Why program coredump"></a>Why program coredump</h3><ul>
 <li>memory overload</li>
 <li>using thread-unsafe functions on multi-thread</li>
 <li>not using lock when read-write data in multi-thread</li>
 <li>invalid point</li>
 <li>stack overload</li>
 </ul>
-<p>###How to use core file</p>
-<ul>
+<h3 id="How-to-use-core-file"><a href="#How-to-use-core-file" class="headerlink" title="How to use core file"></a>How to use core file</h3><ul>
 <li>allow to generate core file<ul>
 <li><code>ulimit –c unlimited</code></li>
 <li><code>echo /tmp/core.%e.%p &gt; /proc/sys/kernel/core_pattern</code></li>
@@ -1468,12 +1203,10 @@ static int write_long(avro_writer_t writer, int64_t l)
 </ul>
 </li>
 </ul>
-<p>###Signal of core</p>
-<ul>
+<h3 id="Signal-of-core"><a href="#Signal-of-core" class="headerlink" title="Signal of core"></a>Signal of core</h3><ul>
 <li><code>man 7 signal</code></li>
 </ul>
-<p>###Examples</p>
-<ul>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
 <li><p>write data to protected memory</p>
 <pre><code>#include &lt;stdio.h&gt;
 int main(){
@@ -1531,8 +1264,7 @@ int main(){
 </ul>
 </li>
 </ul>
-<p>###Auto start gdb when core occur</p>
-<pre><code>#include &lt;stdio.h&gt;
+<h3 id="Auto-start-gdb-when-core-occur"><a href="#Auto-start-gdb-when-core-occur" class="headerlink" title="Auto start gdb when core occur"></a>Auto start gdb when core occur</h3><pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;signal.h&gt;
 #include &lt;string.h&gt;
@@ -1572,8 +1304,7 @@ int main (void)
 
     return 0;
 }
-</code></pre><p>###Reference</p>
-<ul>
+</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.csdn.net/newnewman80/article/details/8173770" target="_blank" rel="external">coredump简介与coredump原因总结</a></li>
 <li><a href="http://www.cnblogs.com/hello--the-world/archive/2012/05/31/2528326.html" target="_blank" rel="external">C/C++中的段错误（Segmentation fault）</a></li>
 <li><a href="http://blog.csdn.net/freshman_fantom_ywj/article/details/6434074" target="_blank" rel="external">段错误bug的调试</a></li>
@@ -1582,7 +1313,7 @@ int main (void)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-08-24-core-dumped/" data-id="cin4f0h5a0076l8ize07nmzp8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/24/core-dumped/" data-id="cin4qo6j300967zize6t74uq0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1592,10 +1323,10 @@ int main (void)
 
 
   
-    <article id="post-2015-07-17-difference-between-stack-and-heap" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-difference-between-stack-and-heap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-07-17-difference-between-stack-and-heap/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.621Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2015/07/17/difference-between-stack-and-heap/" class="article-date">
+  <time datetime="2015-07-16T16:00:00.000Z" itemprop="datePublished">2015-07-17</time>
 </a>
     
   </div>
@@ -1606,7 +1337,7 @@ int main (void)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-07-17-difference-between-stack-and-heap/">difference between stack and heap</a>
+      <a class="article-title" href="/2015/07/17/difference-between-stack-and-heap/">difference between stack and heap</a>
     </h1>
   
 
@@ -1614,8 +1345,7 @@ int main (void)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Difference</p>
-<ul>
+        <h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><ul>
 <li>stack <ul>
 <li>allocate memory on stack by operate system</li>
 <li>Have limit size, and less than 1MB always</li>
@@ -1629,8 +1359,7 @@ int main (void)
 </ul>
 </li>
 </ul>
-<p>###What is memory fragments</p>
-<ul>
+<h3 id="What-is-memory-fragments"><a href="#What-is-memory-fragments" class="headerlink" title="What is memory fragments"></a>What is memory fragments</h3><ul>
 <li>Internal fragmentation <ul>
 <li>memory allocation provided memory to program in chunks divisible by 4, 8 or 16</li>
 <li>if application request 23 bytes, it actually get a chunk of 32 bytes. </li>
@@ -1643,9 +1372,7 @@ int main (void)
 </ul>
 </li>
 </ul>
-<p>###How to avoid memory fragments</p>
-<p>###Why memory overflow but not error occur?</p>
-<ul>
+<h3 id="How-to-avoid-memory-fragments"><a href="#How-to-avoid-memory-fragments" class="headerlink" title="How to avoid memory fragments"></a>How to avoid memory fragments</h3><h3 id="Why-memory-overflow-but-not-error-occur"><a href="#Why-memory-overflow-but-not-error-occur" class="headerlink" title="Why memory overflow but not error occur?"></a>Why memory overflow but not error occur?</h3><ul>
 <li><p>sample code</p>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -1683,8 +1410,7 @@ void main()
 }
 </code></pre></li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.csdn.net/xuzhonghai/article/details/7285821" target="_blank" rel="external">内存碎片</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Fragmentation_(computing" target="_blank" rel="external">Fragmentation</a>)</li>
 </ul>
@@ -1692,7 +1418,7 @@ void main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-07-17-difference-between-stack-and-heap/" data-id="cin4f0h590075l8izrr6phg05" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/07/17/difference-between-stack-and-heap/" data-id="cin4qo6j300957zizgbulyz4l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1744,7 +1470,7 @@ void main()
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -1757,23 +1483,23 @@ void main()
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -1788,7 +1514,7 @@ void main()
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1799,6 +1525,8 @@ void main()
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/page/5/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2015-01-21-linux-network-performance-monitor" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-checking-speed-of-network" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2015-01-21-linux-network-performance-monitor/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.611Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/12/31/checking-speed-of-network/" class="article-date">
+  <time datetime="2014-12-30T16:00:00.000Z" itemprop="datePublished">2014-12-31</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2015-01-21-linux-network-performance-monitor/">linux network performance monitor</a>
+      <a class="article-title" href="/2014/12/31/checking-speed-of-network/">checking network speed</a>
     </h1>
   
 
@@ -86,93 +88,689 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###ethtool</p>
-<p>###iptraf </p>
-<p>###netperf</p>
-<p>###iperf<br>Build from source:  </p>
-<pre><code>[root@localhost ~]# tar xvf iperf-2.0.5.tar.gz 
-...
-[root@localhost ~]# cd iperf-2.0.5
-[root@localhost iperf-2.0.5]# ./configure 
-...
-[root@localhost iperf-2.0.5]# make
-...
-</code></pre><p>On server machine:  </p>
-<pre><code>[root@Ustor iperf-2.0.5]# ./src/iperf -s
-------------------------------------------------------------
-Server listening on TCP port 5001
-TCP window size: 85.3 KByte (default)
-------------------------------------------------------------
-[  4] local 192.16.110.80 port 5001 connected with 192.16.110.50 port 43341
-[ ID] Interval       Transfer     Bandwidth
-[  4]  0.0-10.0 sec  9.20 GBytes  7.90 Gbits/sec
-[  5] local 192.16.110.80 port 5001 connected with 192.16.110.50 port 43342
-[  5]  0.0-10.0 sec  9.26 GBytes  7.95 Gbits/sec
-[  4] local 192.16.110.80 port 5001 connected with 192.16.110.50 port 43343
-[  4]  0.0-10.0 sec  8.98 GBytes  7.71 Gbits/sec
-</code></pre><p>On Client machine:  </p>
-<pre><code>[root@localhost iperf-2.0.5]# ./src/iperf -c 192.16.110.80 -f M -i 2
-------------------------------------------------------------
-Client connecting to 192.16.110.80, TCP port 5001
-TCP window size: 0.02 MByte (default)
-------------------------------------------------------------
-[  3] local 192.16.110.50 port 43343 connected with 192.16.110.80 port 5001
-[ ID] Interval       Transfer     Bandwidth
-[  3]  0.0- 2.0 sec  1598 MBytes   799 MBytes/sec
-[  3]  2.0- 4.0 sec  1919 MBytes   960 MBytes/sec
-[  3]  4.0- 6.0 sec  1892 MBytes   946 MBytes/sec
-[  3]  6.0- 8.0 sec  1894 MBytes   947 MBytes/sec
-[  3]  8.0-10.0 sec  1893 MBytes   947 MBytes/sec
-[  3]  0.0-10.0 sec  9196 MBytes   920 MBytes/sec
-</code></pre><ul>
-<li>通用参数<ul>
-<li>-f [k|m|K|M] 分别表示以Kbits, Mbits, KBytes, MBytes显示报告，默认以Mbits为单位,eg:iperf -c 222.35.11.23 -f K</li>
-<li>-i sec 以秒为单位显示报告间隔，eg:iperf -c 222.35.11.23 -i 2</li>
-<li>-l 缓冲区大小，默认是8KB,eg:iperf -c 222.35.11.23 -l 16</li>
-<li>-m 显示tcp最大mtu值</li>
-<li>-o 将报告和错误信息输出到文件eg:iperf -c 222.35.11.23 -o c:\iperflog.txt</li>
-<li>-p 指定服务器端使用的端口或客户端所连接的端口eg:iperf -s -p 9999;iperf -c 222.35.11.23 -p 9999</li>
-<li>-u 使用udp协议,测试htb的时候最好用udp，udp通信开销小，测试的带宽更准确</li>
-<li>-w 指定TCP窗口大小，默认是8KB.如果窗口太小，有可能丢包</li>
-<li>-B 绑定一个主机地址或接口（当主机有多个地址或接口时使用该参数）</li>
-<li>-C 兼容旧版本（当server端和client端版本不一样时使用）</li>
-<li>-M 设定TCP数据包的最大mtu值</li>
-<li>-N 设定TCP不延时</li>
-<li>-V 传输ipv6数据包</li>
-</ul>
-</li>
-<li>server专用参数<ul>
-<li>-D 以服务方式运行ipserf，eg:iperf -s -D</li>
-<li>-R 停止iperf服务，针对-D，eg:iperf -s -R</li>
-</ul>
-</li>
-<li>client端专用参数<ul>
-<li>-d 同时进行双向传输测试</li>
-<li>-n 指定传输的字节数，eg:iperf -c 222.35.11.23 -n 100000</li>
-<li>-r 单独进行双向传输测试</li>
-<li>-b 指定发送带宽，默认是1Mbit/s. 在测试qos的时候，这是最有用的参数。</li>
-<li>-t 测试时间，默认10秒,eg:iperf -c 222.35.11.23 -t 5.默认是10s</li>
-<li>-F 指定需要传输的文件</li>
-<li>-T 指定ttl值 </li>
-</ul>
-</li>
-</ul>
-<p>###tcpdump tcptrace</p>
-<ul>
-<li>tcpdump -i eth0</li>
-<li>tcpdump -i eth0 host 172.16.30.44 and port 80</li>
-<li>tcpdump -U port 3260 -w /tmp/tcpdump.pcap</li>
-</ul>
-<p>###Reference</p>
-<ul>
-<li><a href="http://www.vpsee.com/2009/11/linux-system-performance-monitoring-network/" target="_blank" rel="external">Linux性能监测：network</a></li>
-<li><a href="http://blog.chinaunix.net/uid-20778443-id-94533.html" target="_blank" rel="external">iperf 使用总结</a></li>
-</ul>
+        <h4 id="一次网络性能检查记录"><a href="#一次网络性能检查记录" class="headerlink" title="一次网络性能检查记录"></a>一次网络性能检查记录</h4><ul>
+<li><p>开始检查各种信息(网络、cpu,memory,io等)</p>
+<pre><code>[root@Ustor ~]# ifconfig
+eth0      Link encap:Ethernet  HWaddr 40:16:7E:35:C7:C2  
+          inet addr:172.16.130.158  Bcast:0.0.0.0  Mask:255.255.255.0
+          inet6 addr: fe80::4216:7eff:fe35:c7c2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:37825154 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:214565 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2321429968 (2.1 GiB)  TX bytes:226462903 (215.9 MiB)
+          Interrupt:16 Memory:dc400000-dc420000 
 
+eth1      Link encap:Ethernet  HWaddr 40:16:7E:35:C7:C3  
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+          Interrupt:17 Memory:dc300000-dc320000 
+
+eth2      Link encap:Ethernet  HWaddr 00:90:FA:6C:E4:0A  
+          inet addr:192.16.110.50  Bcast:0.0.0.0  Mask:255.255.255.0
+          inet6 addr: fe80::290:faff:fe6c:e40a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:775026147 errors:0 dropped:1576 overruns:0 frame:0
+          TX packets:1032091357 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:892065492548 (830.8 GiB)  TX bytes:1034532529750 (963.4 GiB)
+
+eth3      Link encap:Ethernet  HWaddr 00:90:FA:6C:E4:0E  
+          inet6 addr: fe80::290:faff:fe6c:e40e/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:6593 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5748 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:2011976 (1.9 MiB)  TX bytes:345000 (336.9 KiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:21995 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:21995 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:1234012 (1.1 MiB)  TX bytes:1234012 (1.1 MiB)
+
+[root@Ustor ~]# ping 192.16.110.60
+PING 192.16.110.60 (192.16.110.60) 56(84) bytes of data.
+64 bytes from 192.16.110.60: icmp_seq=1 ttl=128 time=0.147 ms
+64 bytes from 192.16.110.60: icmp_seq=2 ttl=128 time=0.197 ms
+64 bytes from 192.16.110.60: icmp_seq=3 ttl=128 time=0.195 ms
+64 bytes from 192.16.110.60: icmp_seq=4 ttl=128 time=0.173 ms
+64 bytes from 192.16.110.60: icmp_seq=5 ttl=128 time=0.197 ms
+^C
+--- 192.16.110.60 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4079ms
+rtt min/avg/max/mdev = 0.147/0.181/0.197/0.026 ms
+
+[root@Ustor ~]# route 
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+172.16.130.0    *               255.255.255.0   U     0      0        0 eth0
+192.16.110.0    *               255.255.255.0   U     0      0        0 eth2
+default         192.16.110.1    0.0.0.0         UG    0      0        0 eth2
+default         172.16.130.1    0.0.0.0         UG    0      0        0 eth0
+[root@Ustor ~]# ethtool -i eth2
+driver: be2net
+version: 4.1.307r
+firmware-version: 10.0.803.19
+bus-info: 0000:02:00.0
+[root@Ustor ~]# ethtool eth2
+Settings for eth2:
+    Supported ports: [ FIBRE ]
+    Supported link modes:   10000baseT/Full 
+    Supports auto-negotiation: No
+    Advertised link modes:  Not reported
+    Advertised pause frame use: No
+    Advertised auto-negotiation: No
+    Speed: 10000Mb/s
+    Duplex: Full
+    Port: FIBRE
+    PHYAD: 0
+    Transceiver: external
+    Auto-negotiation: off
+    Supports Wake-on: g
+    Wake-on: d
+    Link detected: yes
+[root@Ustor ~]# iostat 
+Linux 2.6.32-279.el6.x86_64 (Ustor)     12/31/2014     _x86_64_    (2 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.36    0.00    1.23    1.08    0.00   97.33
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               3.56        45.00        24.38   19491848   10557699
+sdb              28.76      1274.39      2100.99  551950065  909958848
+dm-0            224.75       639.32      1158.70  276896736  501843480
+dm-1            197.05       634.96       941.44  275005928  407746632
+dm-2              0.01         0.02         0.85      10001     368272
+
+[root@Ustor ~]# fdisk -l
+
+Disk /dev/sda: 8012 MB, 8012390400 bytes
+255 heads, 63 sectors/track, 974 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x53c628b9
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *           1          26      204800   83  Linux
+Partition 1 does not end on cylinder boundary.
+/dev/sda2              26         287     2097152   82  Linux swap / Solaris
+Partition 2 does not end on cylinder boundary.
+/dev/sda3             287         300      102400   83  Linux
+Partition 3 does not end on cylinder boundary.
+/dev/sda4             300         975     5419224    5  Extended
+Partition 4 does not end on cylinder boundary.
+/dev/sda5             300         313      102400   83  Linux
+/dev/sda6             313         975     5314560   83  Linux
+
+Disk /dev/sdb: 36002.0 GB, 36002026487808 bytes
+255 heads, 63 sectors/track, 4376997 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x00000000
+</code></pre></li>
+</ul>
+<pre><code>Disk /dev/mapper/r55-i01: 2097.2 GB, 2097152000000 bytes
+255 heads, 63 sectors/track, 254964 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x2c0893c9
+
+
+Disk /dev/mapper/r55-i02: 2097.2 GB, 2097152000000 bytes
+255 heads, 63 sectors/track, 254964 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0xcbbcf789
+
+
+Disk /dev/mapper/r55-ee: 349.5 GB, 349526032384 bytes
+255 heads, 63 sectors/track, 42494 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x00000000
+
+
+#### Hard Raid Card ####
+[root@Ustor ~]# lspci  
+00:00.0 Host bridge: Intel Corporation 2nd Generation Core Processor Family DRAM Controller (rev 09)
+00:01.0 PCI bridge: Intel Corporation Xeon E3-1200/2nd Generation Core Processor Family PCI Express Root Port (rev 09)
+00:1a.0 USB controller: Intel Corporation 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #2 (rev 05)
+00:1c.0 PCI bridge: Intel Corporation 6 Series/C200 Series Chipset Family PCI Express Root Port 1 (rev b5)
+00:1c.4 PCI bridge: Intel Corporation 6 Series/C200 Series Chipset Family PCI Express Root Port 5 (rev b5)
+00:1c.5 PCI bridge: Intel Corporation 6 Series/C200 Series Chipset Family PCI Express Root Port 6 (rev b5)
+00:1d.0 USB controller: Intel Corporation 6 Series/C200 Series Chipset Family USB Enhanced Host Controller #1 (rev 05)
+00:1e.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev a5)
+00:1f.0 ISA bridge: Intel Corporation C202 Chipset Family LPC Controller (rev 05)
+00:1f.2 SATA controller: Intel Corporation 6 Series/C200 Series Chipset Family SATA AHCI Controller (rev 05)
+00:1f.3 SMBus: Intel Corporation 6 Series/C200 Series Chipset Family SMBus Controller (rev 05)
+01:00.0 RAID bus controller: LSI Logic / Symbios Logic MegaRAID SAS 2108 [Liberator] (rev 05)
+02:00.0 Ethernet controller: Emulex Corporation OneConnect 10Gb NIC (be3) (rev 01)
+02:00.1 Ethernet controller: Emulex Corporation OneConnect 10Gb NIC (be3) (rev 01)
+03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection
+04:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection
+05:05.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 10)
+
+[root@Ustor ~]# MegaCli -LdPdInfo -aAll
+
+Adapter #0
+
+Number of Virtual Disks: 1
+Virtual Drive: 0 (Target Id: 0)
+Name                :r55
+RAID Level          : Primary-5, Secondary-0, RAID Level Qualifier-3
+Size                : 32.743 TB
+Parity Size         : 3.637 TB
+State               : Optimal
+Strip Size          : 64 KB
+Number Of Drives    : 10
+Span Depth          : 1
+Default Cache Policy: WriteBack, ReadAdaptive, Cached, Write Cache OK if Bad BBU
+Current Cache Policy: WriteBack, ReadAdaptive, Cached, Write Cache OK if Bad BBU
+Default Access Policy: Read/Write
+Current Access Policy: Read/Write
+Disk Cache Policy   : Enabled
+Encryption Type     : None
+Bad Blocks Exist: No
+Is VD Cached: No
+Number of Spans: 1
+Span: 0 - Number of PDs: 10
+
+[root@Ustor ~]# MegaCli -LdPdInfo -aAll |grep -i &apos;raw size&apos;
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
+
+#### /dev/sdb的大小是36002GB, 即 36002/1024=35.158TB ####
+#### 可是整个raid的大小应该时3.637TB * 9 = 32.733TB才对, 为什么下面/dev/sdb是35.158TB呢 ####
+[root@Ustor ~]# fdisk -l /dev/sdb
+
+Disk /dev/sdb: 36002.0 GB, 36002026487808 bytes
+255 heads, 63 sectors/track, 4376997 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x00000000
+
+[root@Ustor ~]# iostat 1
+Linux 2.6.32-279.el6.x86_64 (Ustor)     12/31/2014     _x86_64_    (2 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.37    0.00    1.25    1.08    0.00   97.30
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               3.57        46.38        24.39   20146336   10593379
+sdb              28.77      1270.72      2136.50  551950697  928014000
+dm-0            229.04       637.48      1194.85  276896840  518997016
+dm-1            196.74       633.13       940.80  275006032  408647752
+dm-2              0.01         0.02         0.85      10169     368768
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.00    0.00   18.59    0.00    0.00   81.41
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               0.00         0.00         0.00          0          0
+sdb              72.00         0.00     24584.00          0      24584
+dm-0              0.00         0.00         0.00          0          0
+dm-1           3072.00         0.00     24576.00          0      24576
+dm-2              1.00         0.00         8.00          0          8
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.00    0.00   11.50    0.00    0.00   88.50
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               0.00         0.00         0.00          0          0
+sdb              37.00         0.00     16400.00          0      16400
+dm-0              0.00         0.00         0.00          0          0
+dm-1           2048.00         0.00     16384.00          0      16384
+dm-2              2.00         0.00        16.00          0         16
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           5.05    0.00   18.69    0.00    0.00   76.26
+
+Device:            tps   Blk_read/s   Blk_wrtn/s   Blk_read   Blk_wrtn
+sda               0.00         0.00         0.00          0          0
+sdb              72.00         0.00     32768.00          0      32768
+dm-0              0.00         0.00         0.00          0          0
+dm-1           4096.00         0.00     32768.00          0      32768
+dm-2              0.00         0.00         0.00          0          0
+
+#### dd的速度达到1GB/s，说明瓶颈不在磁盘 ####
+[root@Ustor ~]# dd if=/dev/zero of=/dev/sdb bs=1M count=102400
+28309+0 records in
+28309+0 records out
+29684137984 bytes (30 GB) copied, 28.4613 s, 1.0 GB/s
+33270+0 records in
+33270+0 records out
+34886123520 bytes (35 GB) copied, 33.4982 s, 1.0 GB/s
+38234+0 records in
+38234+0 records out
+40091254784 bytes (40 GB) copied, 38.5252 s, 1.0 GB/s
+^C42879+0 records in
+42879+0 records out
+44961890304 bytes (45 GB) copied, 43.2484 s, 1.0 GB/s
+
+[root@Ustor ~]# ls /dev/r55/
+ee  i01  i02
+[root@Ustor ~]# ls /dev/r55/ee -l
+lrwxrwxrwx 1 root root 7 Dec 30 16:42 /dev/r55/ee -&gt; ../dm-2
+[root@Ustor ~]# dd if=/dev/zero of=/dev/r55/ee bs=1M count=1024000
+2552+0 records in
+2552+0 records out
+2675965952 bytes (2.7 GB) copied, 2.31478 s, 1.2 GB/s
+7516+0 records in
+7516+0 records out
+7881097216 bytes (7.9 GB) copied, 7.34263 s, 1.1 GB/s
+
+[root@Ustor ~]# dd if=/dev/zero of=/dev/r55/i01 bs=1M count=1024000
+2869+0 records in
+2869+0 records out
+3008364544 bytes (3.0 GB) copied, 2.73699 s, 1.1 GB/s
+7841+0 records in
+7841+0 records out
+8221884416 bytes (8.2 GB) copied, 7.76994 s, 1.1 GB/s
+
+[root@Ustor ~]# dd if=/dev/zero of=/dev/r55/i02 bs=1M count=1024000
+^[OH2751+0 records in
+2751+0 records out
+2884632576 bytes (2.9 GB) copied, 2.53248 s, 1.1 GB/s
+7704+1 records in
+7704+0 records out
+8078229504 bytes (8.1 GB) copied, 7.56027 s, 1.1 GB/s
+
+[root@Ustor ~]# blockdev --report /dev/sdb
+RO    RA   SSZ   BSZ   StartSec            Size   Device
+rw   256   512  4096          0  36002026487808   /dev/sdb
+[root@Ustor ~]# blockdev --report /dev/r55/ee 
+RO    RA   SSZ   BSZ   StartSec            Size   Device
+rw 16384   512  4096          0    349526032384   /dev/r55/ee
+[root@Ustor ~]# blockdev --report /dev/r55/i01
+RO    RA   SSZ   BSZ   StartSec            Size   Device
+rw   256   512  4096          0   2097152000000   /dev/r55/i01
+[root@Ustor ~]# blockdev --report /dev/r55/i02
+RO    RA   SSZ   BSZ   StartSec            Size   Device
+rw   256   512  4096          0   2097152000000   /dev/r55/i0
+
+[root@Ustor ~]# sysctl -a |grep ipv4.tcp
+net.ipv4.tcp_timestamps = 1
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_sack = 1
+net.ipv4.tcp_retrans_collapse = 1
+net.ipv4.tcp_syn_retries = 5
+net.ipv4.tcp_synack_retries = 5
+net.ipv4.tcp_max_orphans = 131072
+net.ipv4.tcp_max_tw_buckets = 131072
+net.ipv4.tcp_keepalive_time = 7200
+net.ipv4.tcp_keepalive_probes = 9
+net.ipv4.tcp_keepalive_intvl = 75
+net.ipv4.tcp_retries1 = 3
+net.ipv4.tcp_retries2 = 15
+net.ipv4.tcp_fin_timeout = 60
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_tw_recycle = 0
+net.ipv4.tcp_abort_on_overflow = 0
+net.ipv4.tcp_stdurg = 0
+net.ipv4.tcp_rfc1337 = 0
+net.ipv4.tcp_max_syn_backlog = 1024
+net.ipv4.tcp_orphan_retries = 0
+net.ipv4.tcp_fack = 1
+net.ipv4.tcp_reordering = 3
+net.ipv4.tcp_ecn = 2
+net.ipv4.tcp_dsack = 1
+net.ipv4.tcp_mem = 173856    231808    347712
+net.ipv4.tcp_wmem = 4096    16384    4194304
+net.ipv4.tcp_rmem = 4096    87380    4194304
+net.ipv4.tcp_app_win = 31
+net.ipv4.tcp_adv_win_scale = 2
+net.ipv4.tcp_tw_reuse = 0
+net.ipv4.tcp_frto = 2
+net.ipv4.tcp_frto_response = 0
+net.ipv4.tcp_low_latency = 0
+net.ipv4.tcp_no_metrics_save = 0
+net.ipv4.tcp_moderate_rcvbuf = 1
+net.ipv4.tcp_tso_win_divisor = 3
+net.ipv4.tcp_congestion_control = cubic
+net.ipv4.tcp_abc = 0
+net.ipv4.tcp_mtu_probing = 0
+net.ipv4.tcp_base_mss = 512
+net.ipv4.tcp_workaround_signed_windows = 0
+net.ipv4.tcp_dma_copybreak = 4096
+net.ipv4.tcp_slow_start_after_idle = 1
+net.ipv4.tcp_available_congestion_control = cubic reno
+net.ipv4.tcp_allowed_congestion_control = cubic reno
+net.ipv4.tcp_max_ssthresh = 0
+net.ipv4.tcp_thin_linear_timeouts = 0
+net.ipv4.tcp_thin_dupack = 0
+
+[root@Ustor ~]# ethtool -k eth2
+Offload parameters for eth2:
+rx-checksumming: on
+tx-checksumming: on
+scatter-gather: on
+tcp-segmentation-offload: on
+udp-fragmentation-offload: off
+generic-segmentation-offload: on
+generic-receive-offload: off
+large-receive-offload: off
+
+[root@Ustor ~]# tcpdump -i eth2 -w /tmp/tcpdump01.pcap
+tcpdump: listening on eth2, link-type EN10MB (Ethernet), capture size 65535 bytes
+^C154277 packets captured
+979189 packets received by filter
+824910 packets dropped by kernel
+[root@Ustor ~]# ls /tmp/tcpdump01.pcap -lh
+-rw-r--r-- 1 root root 187M Dec 31 10:47 /tmp/tcpdump01.pcap
+</code></pre><ul>
+<li><p>tshark 分析</p>
+<pre><code>#### scp下载包到本地，使用tshark分析 ####
+[dennis@localhost ~]$ scp root@172.16.130.158:/tmp/tcpdump01.pcap ./
+root@172.16.130.158&apos;s password: 
+tcpdump01.pcap                         100%  186MB  11.0MB/s   00:17 
+[dennis@localhost ~]$ capinfos tcpdump01.pcap 
+File name:           tcpdump01.pcap
+File type:           Wireshark/tcpdump/... - pcap
+File encapsulation:  Ethernet
+Packet size limit:   file hdr: 65535 bytes
+Number of packets:   154 k
+File size:           195 MB
+Data size:           192 MB
+Capture duration:    40 seconds
+Start time:          Wed Dec 31 10:47:13 2014
+End time:            Wed Dec 31 10:47:53 2014
+Data byte rate:      4,816 kBps
+Data bit rate:       38 Mbps
+Average packet size: 1249.82 bytes
+Average packet rate: 3,853 packets/sec
+SHA1:                b08cff272eb5b0d9aa64fb31343314603df44309
+RIPEMD160:           70123da08082954af0d91dde9d9766a61c0a93db
+MD5:                 0571ac4f35410047a13cdfbd3bf3bfe9
+Strict time order:   False
+
+#### 重传好像影响不大? ####
+[dennis@localhost ~]$ tshark -n -q -r tcpdump01.pcap  -z &quot;io,stat,0,tcp.analysis.retransmission&quot;
+
+=======================================================
+| IO Statistics                                       |
+|                                                     |
+| Interval size: 40.0 secs (dur)                      |
+| Col 1: Frames and bytes                             |
+|     2: tcp.analysis.retransmission                  |
+|-----------------------------------------------------|
+|              |1                   |2                |
+| Interval     | Frames |   Bytes   | Frames |  Bytes |
+|-----------------------------------------------------|
+|  0.0 &lt;&gt; 40.0 | 154277 | 192818724 |    141 | 191110 |
+=======================================================
+[dennis@localhost ~]$ tshark -n -q -r tcpdump01.pcap  -z &quot;io,stat,0,tcp.analysis.out_of_order&quot;
+
+=======================================================
+| IO Statistics                                       |
+|                                                     |
+| Interval size: 40.0 secs (dur)                      |
+| Col 1: Frames and bytes                             |
+|     2: tcp.analysis.out_of_order                    |
+|-----------------------------------------------------|
+|              |1                   |2                |
+| Interval     | Frames |   Bytes   | Frames |  Bytes |
+|-----------------------------------------------------|
+|  0.0 &lt;&gt; 40.0 | 154277 | 192818724 |    620 | 898920 |
+=======================================================
+[dennis@localhost ~]$ tshark -n -q -r tcpdump01.pcap  -z &quot;io,stat,5,tcp.analysis.out_of_order&quot;
+
+==================================================
+| IO Statistics                                  |
+|                                                |
+| Interval size: 5 secs                          |
+| Col 1: Frames and bytes                        |
+|     2: tcp.analysis.out_of_order               |
+|------------------------------------------------|
+|          |1                  |2                |
+| Interval | Frames |   Bytes  | Frames |  Bytes |
+|------------------------------------------------|
+|  0 &lt;&gt;  5 |  10837 | 14246599 |      1 |   1514 |
+|  5 &lt;&gt; 10 |  49803 | 61236860 |    184 | 264780 |
+| 10 &lt;&gt; 15 |  48890 | 61739426 |    186 | 271384 |
+| 15 &lt;&gt; 20 |  42976 | 55481613 |    249 | 361242 |
+| 20 &lt;&gt; 25 |    397 |    24870 |      0 |      0 |
+| 25 &lt;&gt; 30 |    461 |    29156 |      0 |      0 |
+| 30 &lt;&gt; 35 |    488 |    31931 |      0 |      0 |
+| 35 &lt;&gt; 40 |    421 |    28029 |      0 |      0 |
+| 40 &lt;&gt; 40 |      4 |      240 |      0 |      0 |
+==================================================
+[dennis@localhost ~]$ tshark -n -q -r tcpdump01.pcap  -z &quot;io,stat,5,tcp.analysis.retransmission&quot;
+
+=================================================
+| IO Statistics                                 |
+|                                               |
+| Interval size: 5 secs                         |
+| Col 1: Frames and bytes                       |
+|     2: tcp.analysis.retransmission            |
+|-----------------------------------------------|
+|          |1                  |2               |
+| Interval | Frames |   Bytes  | Frames | Bytes |
+|-----------------------------------------------|
+|  0 &lt;&gt;  5 |  10837 | 14246599 |      3 |  4542 |
+|  5 &lt;&gt; 10 |  49803 | 61236860 |     62 | 85484 |
+| 10 &lt;&gt; 15 |  48890 | 61739426 |     41 | 53682 |
+| 15 &lt;&gt; 20 |  42976 | 55481613 |     35 | 47402 |
+| 20 &lt;&gt; 25 |    397 |    24870 |      0 |     0 |
+| 25 &lt;&gt; 30 |    461 |    29156 |      0 |     0 |
+| 30 &lt;&gt; 35 |    488 |    31931 |      0 |     0 |
+| 35 &lt;&gt; 40 |    421 |    28029 |      0 |     0 |
+| 40 &lt;&gt; 40 |      4 |      240 |      0 |     0 |
+=================================================
+[dennis@localhost ~]$ 
+</code></pre></li>
+</ul>
+<ul>
+<li><p>会不会网卡驱动有问题?据说这个Emulex卡直接装就可以用，不用单独安装驱动</p>
+<pre><code>[root@Ustor ~]# modinfo be2net
+filename:       /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/be2net.ko
+license:        GPL
+author:         ServerEngines Corporation
+description:    ServerEngines BladeEngine 10Gbps NIC Driver 4.1.307r
+version:        4.1.307r
+srcversion:     7076CA6C80C3CD968BAFFFC
+alias:          pci:v000010DFd00000720sv*sd*bc*sc*i*
+alias:          pci:v000010DFd0000E228sv*sd*bc*sc*i*
+alias:          pci:v000010DFd0000E220sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000710sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000700sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000221sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000211sv*sd*bc*sc*i*
+depends:        
+vermagic:       2.6.32-279.el6.x86_64 SMP mod_unload modversions 
+parm:           num_vfs:Number of PCI VFs to initialize (uint)
+parm:           multi_rxq:Obsolete and used only for compatibility (bool)
+parm:           rx_frag_size:Size of a fragment that holds rcvd data. (ushort)
+[root@Ustor ~]# lspci -nn |grep Emulex
+02:00.0 Ethernet controller [0200]: Emulex Corporation OneConnect 10Gb NIC (be3) [19a2:0710] (rev 01)
+02:00.1 Ethernet controller [0200]: Emulex Corporation OneConnect 10Gb NIC (be3) [19a2:0710] (rev 01)
+型号是19a2:0710
+[root@Ustor ~]# grep -irn &apos;19a2.*0710&apos; /lib/modules/2.6.32-279.el6.x86_64/modules.alias
+3732:alias pci:v000019A2d00000710sv*sd*bc*sc*i* be2net
+</code></pre></li>
+<li><p>修改磁盘预读大小，性能没什么提升，依然再100MB/s左右，查看windows下的网络曲线，不够平整</p>
+<pre><code>[root@Ustor SOURCES]# blockdev --report
+RO    RA   SSZ   BSZ   StartSec            Size   Device
+rw 16384   512  4096          0      8012390400   /dev/sda
+rw 16384   512  1024       2048       209715200   /dev/sda1
+rw 16384   512  4096     411648      2147483648   /dev/sda2
+rw 16384   512  1024    4605952       104857600   /dev/sda3
+rw 16384   512  1024    4810752            1024   /dev/sda4
+rw 16384   512  1024    4812800       104857600   /dev/sda5
+rw 16384   512  4096    5019648      5442109440   /dev/sda6
+rw   256   512  4096          0  36002026487808   /dev/sdb
+rw   256   512  4096          0   2097152000000   /dev/dm-0
+rw   256   512  4096          0   2097152000000   /dev/dm-1
+rw 16384   512  4096          0    349526032384   /dev/dm-2
+[root@Ustor SOURCES]# blockdev --setra 16384 /dev/dm-1
+[root@Ustor SOURCES]# blockdev --setra 16384 /dev/dm-0
+[root@Ustor SOURCES]# blockdev --setra 16384 /dev/sdb
+[root@Ustor SOURCES]# blockdev --report
+RO    RA   SSZ   BSZ   StartSec            Size   Device
+rw 16384   512  4096          0      8012390400   /dev/sda
+rw 16384   512  1024       2048       209715200   /dev/sda1
+rw 16384   512  4096     411648      2147483648   /dev/sda2
+rw 16384   512  1024    4605952       104857600   /dev/sda3
+rw 16384   512  1024    4810752            1024   /dev/sda4
+rw 16384   512  1024    4812800       104857600   /dev/sda5
+rw 16384   512  4096    5019648      5442109440   /dev/sda6
+rw 16384   512  4096          0  36002026487808   /dev/sdb
+rw 16384   512  4096          0   2097152000000   /dev/dm-0
+rw 16384   512  4096          0   2097152000000   /dev/dm-1
+rw 16384   512  4096          0    349526032384   /dev/dm-2
+</code></pre></li>
+</ul>
+<p>发现4k;0% read;0% random的速度比1M;0%read;0%random的快，<br>通常都是1M的快。。。<br>4k有10G的25%左右速度，速度曲线相对平整；而1M只有8%左右，而且速度曲线极其不平整；</p>
+<ul>
+<li><p>使用rmp source编译驱动</p>
+<pre><code>rpm -ivh be2net-10.2.470.14-1.src.rpm
+cd rpmbuild/SOURCES
+tar xvf be2net-10.2.470.14.tar.gz 
+cd be2net-10.2.470.14 
+make
+cp /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/be2net.ko{,.bak}
+cp ./be2net.ko /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/be2net.ko
+modinfo be2net
+reboot
+ethtool -i be2net
+
+[root@Ustor be2net-10.2.470.14]# modinfo ./be2net.ko
+filename:       ./be2net.ko
+supported:      external
+license:        GPL
+author:         Emulex Corporation
+description:    Emulex OneConnect NIC Driver 10.2.470.14
+version:        10.2.470.14
+srcversion:     DE6CC9D92A3CE9C042DA005
+alias:          pci:v000010DFd00000728sv*sd*bc*sc*i*
+alias:          pci:v000010DFd00000730sv*sd*bc*sc*i*
+alias:          pci:v000010DFd00000720sv*sd*bc*sc*i*
+alias:          pci:v000010DFd0000E228sv*sd*bc*sc*i*
+alias:          pci:v000010DFd0000E220sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000710sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000700sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000221sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000211sv*sd*bc*sc*i*
+depends:        
+vermagic:       2.6.32-279.el6.x86_64 SMP mod_unload modversions 
+parm:           rss_on_mc:Enable RSS in multi-channel functions with the capability. Disabled by default. (ushort)
+parm:           tx_prio:Create priority based TX queues. Disabled by default (uint)
+parm:           num_vfs:Number of PCI VFs to initialize (uint)
+parm:           rx_frag_size:Size of receive fragment buffer - 2048 (default), 4096 or 8192 (ushort)
+parm:           gro:Enable or Disable GRO. Enabled by default (uint)
+parm:           emi_canceller:Enable or Disable EMI Canceller. Disabled by default (uint)
+</code></pre></li>
+<li><p>更新驱动，重启机器</p>
+<pre><code>[root@Ustor be2net-10.2.470.14]# cp be2net.ko /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/
+[root@Ustor be2net-10.2.470.14]# ls /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/
+be2net.ko  be2net.ko.bak
+[root@Ustor be2net-10.2.470.14]# modinfo be2net
+filename:       /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/be2net.ko
+supported:      external
+license:        GPL
+author:         Emulex Corporation
+description:    Emulex OneConnect NIC Driver 10.2.470.14
+version:        10.2.470.14
+srcversion:     DE6CC9D92A3CE9C042DA005
+alias:          pci:v000010DFd00000728sv*sd*bc*sc*i*
+alias:          pci:v000010DFd00000730sv*sd*bc*sc*i*
+alias:          pci:v000010DFd00000720sv*sd*bc*sc*i*
+alias:          pci:v000010DFd0000E228sv*sd*bc*sc*i*
+alias:          pci:v000010DFd0000E220sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000710sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000700sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000221sv*sd*bc*sc*i*
+alias:          pci:v000019A2d00000211sv*sd*bc*sc*i*
+depends:        
+vermagic:       2.6.32-279.el6.x86_64 SMP mod_unload modversions 
+parm:           rss_on_mc:Enable RSS in multi-channel functions with the capability. Disabled by default. (ushort)
+parm:           tx_prio:Create priority based TX queues. Disabled by default (uint)
+parm:           num_vfs:Number of PCI VFs to initialize (uint)
+parm:           rx_frag_size:Size of receive fragment buffer - 2048 (default), 4096 or 8192 (ushort)
+parm:           gro:Enable or Disable GRO. Enabled by default (uint)
+parm:           emi_canceller:Enable or Disable EMI Canceller. Disabled by default (uint)
+[root@Ustor be2net-10.2.470.14]# modprobe be2net
+[root@Ustor be2net-10.2.470.14]# ethtool eth2
+Settings for eth2:
+    Supported ports: [ FIBRE ]
+    Supported link modes:   10000baseT/Full 
+    Supports auto-negotiation: No
+    Advertised link modes:  Not reported
+    Advertised pause frame use: No
+    Advertised auto-negotiation: No
+    Speed: 10000Mb/s
+    Duplex: Full
+    Port: FIBRE
+    PHYAD: 0
+    Transceiver: external
+    Auto-negotiation: off
+    Supports Wake-on: g
+    Wake-on: d
+    Link detected: yes
+[root@Ustor be2net-10.2.470.14]# ethtool -i eth2
+driver: be2net
+version: 4.1.307r
+firmware-version: 10.0.803.19
+bus-info: 0000:02:00.0
+[root@Ustor be2net-10.2.470.14]# reboot
+
+Broadcast message from root@Ustor
+    (/dev/pts/1) at 15:50 ...
+[dennis@localhost ~]$ ssh root@172.16.130.158
+root@172.16.130.158&apos;s password: 
+Last login: Wed Dec 31 09:32:07 2014 from 172.16.50.39
+[root@Ustor ~]# 
+[root@Ustor ~]# ethtool -i eth2
+driver: be2net
+version: 10.2.470.14
+firmware-version: 10.0.803.19
+bus-info: 0000:02:00.0
+[root@Ustor ~]# 
+</code></pre></li>
+</ul>
+<p>重新使用iometer测试看看，是否换了驱动性能有所提升<br>10G网络使用率为65%，速度达到780MB/s左右, 网络速度曲线还算平整  </p>
+<p>把驱动还原为旧的版本，在测试一下，如果速度又是100MB/s左右，说明确实是驱动问题。  </p>
+<p>经过测试，速度确实又回到100MB/s左右了，看来是驱动问题了。  </p>
+<h4 id="关于Emulex万兆网卡测试，性能比较低-只有约100MB-s"><a href="#关于Emulex万兆网卡测试，性能比较低-只有约100MB-s" class="headerlink" title="关于Emulex万兆网卡测试，性能比较低(只有约100MB/s)"></a>关于Emulex万兆网卡测试，性能比较低(只有约100MB/s)</h4><ol>
+<li>硬RAID，10块磁盘建raid5，建iscsi卷</li>
+<li>windows使用iometer，1M;0%Read;0%Random</li>
+<li>网卡驱动be2net从4.1.307r升级到10.2.470.14</li>
+</ol>
+<p>经检查测试，更新存储机器(172.16.130.158)的驱动版本(网卡驱动be2net从 4.1.307r升级到10.2.470.14) 后</p>
+<p>使用iometer(1M;0%Read;0%Random)测试，速度从100MB/s左右提升到780MB/s左右</p>
+<p>看起来原系统的Emulex万兆网卡驱动有问题，升级就好了.</p>
+<p>驱动下载地址:</p>
+<ul>
+<li><p><a href="http://www.emulex.cn/downloads/emulex/drivers/linux/rhel-6-centos-6/drivers/" target="_blank" rel="external">http://www.emulex.cn/downloads/emulex/drivers/linux/rhel-6-centos-6/drivers/</a></p>
+</li>
+<li><p><code>wget http://www-dl.emulex.com/support/elx/rt10.2.9/ga/Linux/driver-source/be2net-10.2.470.14-1.src.rpm</code></p>
+</li>
+</ul>
+<h4 id="总结-很多时候，复杂问题的背后隐藏的是简单的解决方法"><a href="#总结-很多时候，复杂问题的背后隐藏的是简单的解决方法" class="headerlink" title="总结: 很多时候，复杂问题的背后隐藏的是简单的解决方法"></a>总结: 很多时候，复杂问题的背后隐藏的是简单的解决方法</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2015-01-21-linux-network-performance-monitor/" data-id="cin4f0h4z006vl8iztklu8d2m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/31/checking-speed-of-network/" data-id="cin4qo6is008u7ziz0c13ne2s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,10 +780,10 @@ TCP window size: 0.02 MByte (default)
 
 
   
-    <article id="post-2014-12-26-network-analyze-with-wireshark" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-network-analyze-with-wireshark" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-12-26-network-analyze-with-wireshark/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.610Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/12/26/network-analyze-with-wireshark/" class="article-date">
+  <time datetime="2014-12-25T16:00:00.000Z" itemprop="datePublished">2014-12-26</time>
 </a>
     
   </div>
@@ -196,7 +794,7 @@ TCP window size: 0.02 MByte (default)
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-12-26-network-analyze-with-wireshark/">network analyze with wireshark</a>
+      <a class="article-title" href="/2014/12/26/network-analyze-with-wireshark/">network analyze with wireshark</a>
     </h1>
   
 
@@ -204,7 +802,7 @@ TCP window size: 0.02 MByte (default)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####Filter<br>1.过滤IP，如来源IP或者目标IP等于某个IP</p>
+        <h4 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h4><p>1.过滤IP，如来源IP或者目标IP等于某个IP</p>
 <pre><code>例子:
 ip.src eq 192.168.1.107 or ip.dst eq 192.168.1.107
 或者
@@ -339,8 +937,7 @@ tcp.port == 1863 || tcp.port == 80
   tcp[20:1] &gt;= 41 &amp;&amp; tcp[20:1] &lt;= 5A &amp;&amp; tcp[21:1] &gt;= 41 &amp;&amp; tcp[21:1] &lt;= 5A &amp;&amp; tcp[22:1] &gt;= 41 &amp;&amp; tcp[22:1] &lt;= 5A
 3)第四个为0×20,如:tcp[23:1] == 20
 4)msn是属于TCP协议的,如tcp
-</code></pre><p>####case 1</p>
-<ul>
+</code></pre><h4 id="case-1"><a href="#case-1" class="headerlink" title="case 1"></a>case 1</h4><ul>
 <li>1， “业务突然变慢，客户端（确定）和服务端（应该）都没有改动。”  </li>
 </ul>
 <p>[沛满]：如果怀疑是网络有问题，可以在业务慢的时候抓个500MB左右的网络包分析一下。<br>论坛可以上传的话我也可以帮忙分析。</p>
@@ -357,8 +954,7 @@ tcp.port == 1863 || tcp.port == 80
 <li>4，“有没有技巧可以方便的统计丢包的情况，例如某时间段中，发出去的包没收到ack的有多少？”</li>
 </ul>
 <p>[沛满]：还是那句话，没有收到ack不一定是丢包了。如果是想看丢包重传的统计，那就<br>Analyze–&gt;Expert Info，然后看warnings or notes tab. 虽然要统计出结果很容易，不过<br>使用者需要理解tcp的基础知识才能解读这个结果，比如一个超时重传，导致的后果远远超过<br>一个快速重传。有启用SACK的时候，处理多个丢包的效率远高于没有启用SACK的……这个说起来太复杂了</p>
-<p>####Reference</p>
-<ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="https://community.emc.com/thread/194901" target="_blank" rel="external">一站式学习Wireshark</a></li>
 <li><a href="http://ninecmd.com/archives/97?replytocom=5" target="_blank" rel="external">WireShark 过滤语法</a></li>
 </ul>
@@ -366,7 +962,7 @@ tcp.port == 1863 || tcp.port == 80
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-12-26-network-analyze-with-wireshark/" data-id="cin4f0h4y006tl8iz4iwy17oj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/26/network-analyze-with-wireshark/" data-id="cin4qo6ir008t7zizadsn406l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,10 +972,10 @@ tcp.port == 1863 || tcp.port == 80
 
 
   
-    <article id="post-2014-12-12-how-to-implement-a-netdisk" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-how-to-implement-a-netdisk" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-12-12-how-to-implement-a-netdisk/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.609Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/12/12/how-to-implement-a-netdisk/" class="article-date">
+  <time datetime="2014-12-11T16:00:00.000Z" itemprop="datePublished">2014-12-12</time>
 </a>
     
   </div>
@@ -390,7 +986,7 @@ tcp.port == 1863 || tcp.port == 80
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-12-12-how-to-implement-a-netdisk/">how to implement a netdisk</a>
+      <a class="article-title" href="/2014/12/12/how-to-implement-a-netdisk/">how to implement a netdisk</a>
     </h1>
   
 
@@ -398,9 +994,7 @@ tcp.port == 1863 || tcp.port == 80
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Introduce</p>
-<p>###Function list</p>
-<ol>
+        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="Function-list"><a href="#Function-list" class="headerlink" title="Function list"></a>Function list</h3><ol>
 <li>File upload</li>
 <li>File download</li>
 <li>File list</li>
@@ -408,15 +1002,10 @@ tcp.port == 1863 || tcp.port == 80
 <li>File classification</li>
 <li>offline download</li>
 </ol>
-<p>###Architecture</p>
-<p>###Component implement</p>
-<p>###Features</p>
-<ol>
+<h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><h3 id="Component-implement"><a href="#Component-implement" class="headerlink" title="Component implement"></a>Component implement</h3><h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ol>
 <li>File Reduplication</li>
 </ol>
-<p>###TODO</p>
-<p>###Reference</p>
-<ul>
+<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://open.qiniudn.com/my-road-of-cloud-storage.pdf" target="_blank" rel="external">我的存储之路</a></li>
 <li><a href="http://www.zhihu.com/question/21591490" target="_blank" rel="external">网盘(云盘)的大空间是如何实现的?</a></li>
 <li><a href="http://www.zte.com.cn/cn/products/cocloud/application/201208/t20120810_341895.html" target="_blank" rel="external">云盘 ZXCLOUD iSpace</a></li>
@@ -429,7 +1018,7 @@ tcp.port == 1863 || tcp.port == 80
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-12-12-how-to-implement-a-netdisk/" data-id="cin4f0h4x006sl8iz5uktsovs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/12/how-to-implement-a-netdisk/" data-id="cin4qo6ir008s7zizwilfa43b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -439,10 +1028,10 @@ tcp.port == 1863 || tcp.port == 80
 
 
   
-    <article id="post-2014-12-08-how-to-fix-nic-name-confusion" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-how-to-fix-nic-name-confusion" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-12-08-how-to-fix-nic-name-confusion/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.608Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/12/08/how-to-fix-nic-name-confusion/" class="article-date">
+  <time datetime="2014-12-07T16:00:00.000Z" itemprop="datePublished">2014-12-08</time>
 </a>
     
   </div>
@@ -453,7 +1042,7 @@ tcp.port == 1863 || tcp.port == 80
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-12-08-how-to-fix-nic-name-confusion/">how to fix NIC name confusion</a>
+      <a class="article-title" href="/2014/12/08/how-to-fix-nic-name-confusion/">how to fix NIC name confusion</a>
     </h1>
   
 
@@ -461,8 +1050,7 @@ tcp.port == 1863 || tcp.port == 80
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####Description</p>
-<p>list some text from command <code>dmesg</code>:  </p>
+        <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>list some text from command <code>dmesg</code>:  </p>
 <pre><code>792 igb 0000:02:00.0: Intel(R) Gigabit Ethernet Network Connection
 793 igb 0000:02:00.0: eth0: (PCIe:2.5GT/s:Width x1)
 794 igb 0000:02:00.0: eth0: MAC: 00:1e:67:58:cc:b8
@@ -487,8 +1075,7 @@ tcp.port == 1863 || tcp.port == 80
 813 udev: renamed network interface eth1 to eth3
 </code></pre><p>we can see that, interface name is eth0 and eth1 at the begin, then udev rename them.  </p>
 <p>why?</p>
-<p>####Checking and fix</p>
-<p>check the rule of udev:</p>
+<h4 id="Checking-and-fix"><a href="#Checking-and-fix" class="headerlink" title="Checking and fix"></a>Checking and fix</h4><p>check the rule of udev:</p>
 <pre><code>[root@Ustor network]# cat /etc/udev/rules.d/70-persistent-net.rules
 SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, ATTR{address}==&quot;00:25:90:d7:be:b4&quot;, ATTR{type}==&quot;1&quot;, KERNEL==&quot;eth*&quot;, NAME=&quot;eth0&quot;
 SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, ATTR{address}==&quot;00:25:90:d7:be:b5&quot;, ATTR{type}==&quot;1&quot;, KERNEL==&quot;eth*&quot;, NAME=&quot;eth1&quot;
@@ -516,12 +1103,11 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
 <li>update mac address to /etc/udev/rules.d/70-persistent-net.rules.mb2  </li>
 <li>reboot  </li>
 </ol>
-<p>####Reference</p>
-
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-12-08-how-to-fix-nic-name-confusion/" data-id="cin4f0h4w006rl8izn0ubtkyx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cin4qo6iq008r7zizsrgjcq88" class="article-share-link">Share</a>
       
       
     </footer>
@@ -531,10 +1117,10 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
 
 
   
-    <article id="post-2014-12-04-ssd-cache-and-implementation" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ssd-cache-and-implementation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-12-04-ssd-cache-and-implementation/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.605Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/12/04/ssd-cache-and-implementation/" class="article-date">
+  <time datetime="2014-12-03T16:00:00.000Z" itemprop="datePublished">2014-12-04</time>
 </a>
     
   </div>
@@ -545,7 +1131,7 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-12-04-ssd-cache-and-implementation/">ssd cache and implementation</a>
+      <a class="article-title" href="/2014/12/04/ssd-cache-and-implementation/">ssd cache and implementation</a>
     </h1>
   
 
@@ -553,8 +1139,7 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####Introduce</p>
-<ul>
+        <h4 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ul>
 <li><p>SSD缓存技术</p>
 <ul>
 <li>SSD的特性是读速高于写，因此在无盘领域应用SSD时多用作读缓存来使用，SSD缓存源自<br>PXD无盘的SSD二级缓存技术。这里的二级缓存不是指CPU的二级CACHE，而是指应用于无<br>盘架构的第二级读缓存功能。 </li>
@@ -569,7 +1154,7 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
 </ul>
 </li>
 </ul>
-<p>####Facebook flashcache<br>Flashcache是Facebook技术团队的一个开源项目，最初是为加速MySQL设计。Flashcache通过<br>在文件系统（VFS）和设备驱动之间新增了一次缓存层，来实现对热门数据的缓存。</p>
+<h4 id="Facebook-flashcache"><a href="#Facebook-flashcache" class="headerlink" title="Facebook flashcache"></a>Facebook flashcache</h4><p>Flashcache是Facebook技术团队的一个开源项目，最初是为加速MySQL设计。Flashcache通过<br>在文件系统（VFS）和设备驱动之间新增了一次缓存层，来实现对热门数据的缓存。</p>
 <p>Flashcache在内核的层次：<br>VFS -&gt; Block层 -&gt; DM层 -&gt; flashcache -&gt; DeviceDriver -&gt; Disk</p>
 <p>Flashcache最初的实现是write backup机制cache，后来又加入了write through和write around机制</p>
 <pre><code>write backup: 先写入到cahce，然后cache中的脏块会由后台定期刷到持久存储。
@@ -581,10 +1166,7 @@ write around: 只写入到持久存储。
 <li><a href="http://oldblog.donghao.org/2012/12/flashcacheoaiaoippt.html" target="_blank" rel="external">flashcache原理及改造（PPT）</a>  </li>
 <li><a href="http://wenku.baidu.com/view/4c37447131b765ce0508142b?refer=&amp;clickSort=download" target="_blank" rel="external">flashcache原理及改造</a>  </li>
 </ul>
-<p>####What skills need to master</p>
-<p>####Implementation</p>
-<p>####Reference</p>
-<ul>
+<h4 id="What-skills-need-to-master"><a href="#What-skills-need-to-master" class="headerlink" title="What skills need to master"></a>What skills need to master</h4><h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://blog.csdn.net/column/details/flashcache.html" target="_blank" rel="external">linux内核源码阅读之facebook硬盘加速利器flashcache</a></li>
 <li><a href="http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;tid=1917560&amp;page=1#pid13842158" target="_blank" rel="external">发几个自己做的关于内核IO方面的ppt</a></li>
 <li><a href="https://github.com/facebook/flashcache/" target="_blank" rel="external">flashcache</a>  </li>
@@ -599,7 +1181,7 @@ write around: 只写入到持久存储。
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-12-04-ssd-cache-and-implementation/" data-id="cin4f0h4t006ql8izr5w8bzpb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/04/ssd-cache-and-implementation/" data-id="cin4qo6in008q7zizl52fud1u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -609,10 +1191,10 @@ write around: 只写入到持久存储。
 
 
   
-    <article id="post-2014-11-26-lio" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-lio" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-11-26-lio/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.604Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/11/26/lio/" class="article-date">
+  <time datetime="2014-11-25T16:00:00.000Z" itemprop="datePublished">2014-11-26</time>
 </a>
     
   </div>
@@ -623,7 +1205,7 @@ write around: 只写入到持久存储。
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-11-26-lio/">LIO</a>
+      <a class="article-title" href="/2014/11/26/lio/">LIO</a>
     </h1>
   
 
@@ -631,19 +1213,16 @@ write around: 只写入到持久存储。
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####历史</p>
-<ul>
+        <h4 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h4><ul>
 <li>Linux 2.6.38 为分界线，此前的标准是 Linux SCSI Target , STGT 之后迄今为止的<br>标准是 Linux-IO Target , LIO 确切的说 Linus Torvalds 在 2011年1月15日将<br>LIO SCSI Target engine merge 到 Linux 2.6.38 中</li>
 <li>暂时使用LIO作为IET替代，因为IET当前已不更新，最新版2010年。而LIO已进入内核，<br>怎么说这几年应该都会持续发展,属于主流应用。</li>
 </ul>
-<p>####LIO代码量  </p>
-<ul>
+<h4 id="LIO代码量"><a href="#LIO代码量" class="headerlink" title="LIO代码量"></a>LIO代码量</h4><ul>
 <li><code>/home/dennis/work/kernel/linux-3.2.63/drivers/target</code></li>
 <li><code>[dennis@localhost target]$ find ./* -name &quot;*.*&quot; |xargs wc -l |awk &#39;END{print $1}&#39;</code><br>52187  </li>
 <li><code>[dennis@localhost target]$ find iscsi/ -name &quot;*.*&quot; |xargs wc -l |awk &#39;END{print $1}&#39;</code><br>21801  </li>
 </ul>
-<p>####开源iSCSI Target调研</p>
-<ul>
+<h4 id="开源iSCSI-Target调研"><a href="#开源iSCSI-Target调研" class="headerlink" title="开源iSCSI Target调研"></a>开源iSCSI Target调研</h4><ul>
 <li>SCST与LIO  <ul>
 <li>SCST是一个相对较早且比较成熟的SCSI Target开源实现。  </li>
 <li>LIO相比SCST是一个更晚的SCSI Target开源实现，但在与SCST竞争进入Linux内核中，<br>却以LIO胜出告终。关于二者之间进入Linux内核时的争论，LWN上一篇很 有趣的文章，<br>A tale of two SCSI Targets，中文翻译为“SCSI Target之 双城记”。  </li>
@@ -675,8 +1254,7 @@ write around: 只写入到持久存储。
 </ul>
 </li>
 </ul>
-<p>###targetcli</p>
-<ul>
+<h3 id="targetcli"><a href="#targetcli" class="headerlink" title="targetcli"></a>targetcli</h3><ul>
 <li>root权限运行targetcli</li>
 <li>浏览存储对象, ls查看目录树信息，cd到执行目录</li>
 <li>创建文件存储对象<ul>
@@ -731,8 +1309,7 @@ write around: 只写入到持久存储。
 </ul>
 </li>
 </ul>
-<p>###测试脚本</p>
-<pre><code>mkdir -p /lio/
+<h3 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h3><pre><code>mkdir -p /lio/
 targetcli /backstores/fileio create disk0 /lio/disk0.img 1024MB
 targetcli /iscsi create iqn.2007-10.lio.com:lio.test
 targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/luns/ create /backstores/fileio/disk0
@@ -742,8 +1319,7 @@ targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/acls/ create iqn.2007-10.lio.
 targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/acls/iqn.2007-10.lio.com:acl01/ set auth userid=dennis
 targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/acls/iqn.2007-10.lio.com:acl01/ set auth password=Dennis@123456
 targetcli saveconfig
-</code></pre><p>###其他操作</p>
-<ul>
+</code></pre><h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><ul>
 <li><p>增加本地监听ip地址和端口</p>
 <p>  /iscsi/iqn.20…/tpg1/portals&gt; create 172.16.110.11 8089<br>  Created network portal 172.16.110.11:8089.<br>  /iscsi/iqn.20…/tpg1/portals&gt; ls<br>  o- portals …………………………………………… [Portals: 2]</p>
 <pre><code>o- 0.0.0.0:3260 .................................................... [OK]
@@ -770,8 +1346,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
 </ul>
 </li>
 </ul>
-<p>###配置检查</p>
-<ul>
+<h3 id="配置检查"><a href="#配置检查" class="headerlink" title="配置检查"></a>配置检查</h3><ul>
 <li><p>/sys/kernel/config/target/iscsi/ </p>
 <p>  [root@localhost ~]# ls -l /sys/kernel/config/target/iscsi<br>  total 0<br>  drwxr-xr-x. 2 root root    0 Dec 15 15:59 discovery_auth<br>  drwxr-xr-x. 4 root root    0 Dec 15 15:58 iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.f264093a034e<br>  drwxr-xr-x. 4 root root    0 Dec 15 15:59 iqn.2014-12.org.linux-iscsi.localhost.x8664:sn.f3849a0b356e<br>  -r–r–r–. 1 root root 4096 Dec 15 16:05 lio_version</p>
 </li>
@@ -786,8 +1361,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
 </ul>
 </li>
 </ul>
-<p>####需要验证测试的特性</p>
-<ul>
+<h4 id="需要验证测试的特性"><a href="#需要验证测试的特性" class="headerlink" title="需要验证测试的特性"></a>需要验证测试的特性</h4><ul>
 <li>各中类型的性能比较<ul>
 <li>FILEIO 性能</li>
 <li>Block 性能</li>
@@ -801,8 +1375,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
 <li>相比IET，有哪些新特性</li>
 <li>对比所有TARGET的开源实现，有哪些优势，有无缺点</li>
 </ul>
-<p>####参考</p>
-<ul>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
 <li><a href="https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/linux_io_target%e4%bb%8b%e7%bb%8d_%e4%b8%80?lang=en" target="_blank" rel="external">Linux-IO Target介绍(一)</a></li>
 <li><a href="https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/april_11_2014_12_58_am?lang=en" target="_blank" rel="external">Linux-IO Target介绍(二)</a></li>
 <li><a href="http://blog.csdn.net/load2006/article/details/18088445" target="_blank" rel="external">LIO target</a></li>
@@ -815,7 +1388,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-11-26-lio/" data-id="cin4f0h4s006pl8izc7t1sby8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/lio/" data-id="cin4qo6il008p7zizct4zb4r4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -825,10 +1398,10 @@ o- 172.16.110.11:8089 .............................................. [OK]
 
 
   
-    <article id="post-2014-09-15-rapidly-method-for-clean-directory-with-rsync" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-rapidly-method-for-clean-directory-with-rsync" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-09-15-rapidly-method-for-clean-directory-with-rsync/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.603Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" class="article-date">
+  <time datetime="2014-09-14T16:00:00.000Z" itemprop="datePublished">2014-09-15</time>
 </a>
     
   </div>
@@ -839,7 +1412,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-09-15-rapidly-method-for-clean-directory-with-rsync/">Rapidly method for clean directory with rsync</a>
+      <a class="article-title" href="/2014/09/15/rapidly-method-for-clean-directory-with-rsync/">Rapidly method for clean directory with rsync</a>
     </h1>
   
 
@@ -847,13 +1420,15 @@ o- 172.16.110.11:8089 .............................................. [OK]
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Methods</p>
-<ul>
+        <h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><ul>
 <li>rm</li>
 <li>rsync</li>
 </ul>
-<p>###Test<br>    [dennis@localhost ttt]$ mkdir empty<br>    [dennis@localhost ttt]$ mkdir tmp/; seq 1 40000 | xargs -I{} touch tmp/file<em>{}<br>    [dennis@localhost ttt]$ mkdir tmp1/; time seq 1 40000 | xargs -I{} touch tmp1/file</em>{} </p>
-<pre><code>real    0m28.781s
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><pre><code>[dennis@localhost ttt]$ mkdir empty
+[dennis@localhost ttt]$ mkdir tmp/; seq 1 40000 | xargs -I{} touch tmp/file_{} 
+[dennis@localhost ttt]$ mkdir tmp1/; time seq 1 40000 | xargs -I{} touch tmp1/file_{} 
+
+real    0m28.781s
 user    0m0.361s
 sys    0m3.091s
 [dennis@localhost ttt]$ ls -ld *
@@ -922,19 +1497,16 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
   0.00    0.000000           0         1           newfstatat
 ------ ----------- ----------- --------- --------- ----------------
 100.00    0.044580                 40307         9 total
-</code></pre><p>###Analyze system call</p>
-<ul>
+</code></pre><h3 id="Analyze-system-call"><a href="#Analyze-system-call" class="headerlink" title="Analyze system call"></a>Analyze system call</h3><ul>
 <li><p>rm<br>Do so many system calls, special of unlinkat, it take of 79.25% of time,   </p>
 </li>
 <li><p>rsync  </p>
 </li>
 </ul>
-<p>###Analyze source code</p>
-<ul>
+<h3 id="Analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
 <li><a href="http://rsync.samba.org/" target="_blank" rel="external">rsync</a></li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.quora.com/How-can-someone-rapidly-delete-400-000-files" target="_blank" rel="external">How can someone rapidly delete 400,000 files?</a></li>
 <li><a href="http://blog.chinaunix.net/uid-10705106-id-3879288.html" target="_blank" rel="external">为什么rsync能够快速删除400000文件</a></li>
 </ul>
@@ -942,7 +1514,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-09-15-rapidly-method-for-clean-directory-with-rsync/" data-id="cin4f0h4r006ol8izfp1fn6ek" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cin4qo6ik008o7ziz2jnl1uha" class="article-share-link">Share</a>
       
       
     </footer>
@@ -952,10 +1524,10 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 
 
   
-    <article id="post-2014-09-08-linux-performace-tools" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux-performace-tools" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-09-08-linux-performace-tools/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.601Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/09/08/linux-performace-tools/" class="article-date">
+  <time datetime="2014-09-07T16:00:00.000Z" itemprop="datePublished">2014-09-08</time>
 </a>
     
   </div>
@@ -966,7 +1538,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-09-08-linux-performace-tools/">linux performace tools</a>
+      <a class="article-title" href="/2014/09/08/linux-performace-tools/">linux performace tools</a>
     </h1>
   
 
@@ -978,8 +1550,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 <p><img src="/assets/image/posts/perf/linux_benchmarking_tools.png" alt="linux benchmarking tools"></p>
 <p><img src="/assets/image/posts/perf/linux_observability_sar.png" alt="linux observability sar"></p>
 <p><img src="/assets/image/posts/perf/linux_tuning_tools.png" alt="linux tuning tools"></p>
-<p>###Tools: Basic</p>
-<ul>
+<h3 id="Tools-Basic"><a href="#Tools-Basic" class="headerlink" title="Tools: Basic"></a>Tools: Basic</h3><ul>
 <li>uptime</li>
 <li>top or htop</li>
 <li>mpstat</li>
@@ -990,8 +1561,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 <li>nicstat</li>
 <li>dstat</li>
 </ul>
-<p>###Tools: Intermediate</p>
-<ul>
+<h3 id="Tools-Intermediate"><a href="#Tools-Intermediate" class="headerlink" title="Tools: Intermediate"></a>Tools: Intermediate</h3><ul>
 <li>sar</li>
 <li>netstat</li>
 <li>pidstat</li>
@@ -1003,8 +1573,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 <li>sysctl</li>
 <li>/proc</li>
 </ul>
-<p>###Tools: Advanced</p>
-<ul>
+<h3 id="Tools-Advanced"><a href="#Tools-Advanced" class="headerlink" title="Tools: Advanced"></a>Tools: Advanced</h3><ul>
 <li>perf<ul>
 <li><code>perf record program [program_option]</code></li>
 <li><code>perf report</code></li>
@@ -1033,8 +1602,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 </ul>
 </li>
 </ul>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.brendangregg.com/linuxperf.html" target="_blank" rel="external">Linux Performance</a></li>
 <li><a href="http://www.slideshare.net/brendangregg/linux-performance-analysis-and-tools" target="_blank" rel="external">Linux performance analysis and tools</a></li>
 <li><a href="http://www.vpsee.com/tag/performance/" target="_blank" rel="external">Tag: performance</a></li>
@@ -1044,7 +1612,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-09-08-linux-performace-tools/" data-id="cin4f0h4p006ml8izd4hp2qz6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/08/linux-performace-tools/" data-id="cin4qo6ii008l7ziz3f9ag57n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/valgrind/">valgrind</a></li></ul>
@@ -1056,10 +1624,10 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 
 
   
-    <article id="post-2014-09-07-sync" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sync" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-09-07-sync/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.600Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/09/07/sync/" class="article-date">
+  <time datetime="2014-09-06T16:00:00.000Z" itemprop="datePublished">2014-09-07</time>
 </a>
     
   </div>
@@ -1070,7 +1638,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-09-07-sync/">sync</a>
+      <a class="article-title" href="/2014/09/07/sync/">sync</a>
     </h1>
   
 
@@ -1078,10 +1646,10 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Introduce<br>sync, linux command, using to write any data buffer in memory out to disk.</p>
+        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>sync, linux command, using to write any data buffer in memory out to disk.</p>
 <p>It do nothing, but exercise the ‘sync’ system call</p>
 <p>So, if we want to study what the ‘sync’ really do, go in the kernel.</p>
-<p>###sync command<br>File: coreutils-8.9/src/sync.c</p>
+<h3 id="sync-command"><a href="#sync-command" class="headerlink" title="sync command"></a>sync command</h3><p>File: coreutils-8.9/src/sync.c</p>
 <pre><code>int
 main (int argc, char **argv)
 {
@@ -1105,8 +1673,7 @@ main (int argc, char **argv)
   exit (EXIT_SUCCESS);
 }
 </code></pre><p>Do nothing, but do system call <code>sync()</code></p>
-<p>###sync architecture in kernel</p>
-<p>system call <code>sync()</code> is defined in fs/sync.c</p>
+<h3 id="sync-architecture-in-kernel"><a href="#sync-architecture-in-kernel" class="headerlink" title="sync architecture in kernel"></a>sync architecture in kernel</h3><p>system call <code>sync()</code> is defined in fs/sync.c</p>
 <pre><code>/*
  * sync everything.  Start out by waking pdflush, because that writes back
  * all queues in parallel.
@@ -1175,25 +1742,21 @@ restart:
     return __sync_blockdev(sb-&gt;s_bdev, wait);
 }
 </code></pre><p><code>__sync_filesystem</code> call <code>sb-&gt;s_op-&gt;sync_fs(sb, wait)</code>, each filesystem should<br>implement the sync_fs()</p>
-<p>###when to use</p>
-<ol>
+<h3 id="when-to-use"><a href="#when-to-use" class="headerlink" title="when to use"></a>when to use</h3><ol>
 <li>before shutdown computer, using <code>sync</code> more than twice</li>
 <li>after write big file to disk, such as using command <code>cp</code></li>
 <li>to be continue</li>
 </ol>
-<p>###sync,fsync,fdatasync</p>
-<ul>
+<h3 id="sync-fsync-fdatasync"><a href="#sync-fsync-fdatasync" class="headerlink" title="sync,fsync,fdatasync"></a>sync,fsync,fdatasync</h3><ul>
 <li>sync, add the modified buffer to write_queue, then return immediately, not wait<br>for the reality disk writed.</li>
 <li>fsync, used for single file with specify file description,and wait the disk write finish.</li>
 <li>fdatasync, similar to fsync, but just do effect to the data part. fsync make<br>effect to data and file property.</li>
 </ul>
-<p>###special application</p>
-<ol>
+<h3 id="special-application"><a href="#special-application" class="headerlink" title="special application"></a>special application</h3><ol>
 <li>How if I want to sync from serval Virtual Disks, and ignore serval VDs</li>
 <li>To be continue</li>
 </ol>
-<p>###Reference</p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li>man sync</li>
 <li>info coreutils ‘sync invocation’ </li>
 <li>kernel code</li>
@@ -1205,7 +1768,7 @@ restart:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-09-07-sync/" data-id="cin4f0h4o006ll8iznza8azok" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/07/sync/" data-id="cin4qo6ih008k7ziz2thcuiy7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1215,10 +1778,10 @@ restart:
 
 
   
-    <article id="post-2014-09-06-bash-trap" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-bash-trap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-09-06-bash-trap/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.599Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/09/06/bash-trap/" class="article-date">
+  <time datetime="2014-09-05T16:00:00.000Z" itemprop="datePublished">2014-09-06</time>
 </a>
     
   </div>
@@ -1229,7 +1792,7 @@ restart:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-09-06-bash-trap/">bash trap</a>
+      <a class="article-title" href="/2014/09/06/bash-trap/">bash trap</a>
     </h1>
   
 
@@ -1473,7 +2036,7 @@ parameter: &apos;arg3&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-09-06-bash-trap/" data-id="cin4f0h4n006kl8izrxbruq11" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/06/bash-trap/" data-id="cin4qo6ig008j7zizw5t186bt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1525,7 +2088,7 @@ parameter: &apos;arg3&apos;
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -1538,23 +2101,23 @@ parameter: &apos;arg3&apos;
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -1569,7 +2132,7 @@ parameter: &apos;arg3&apos;
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1580,6 +2143,8 @@ parameter: &apos;arg3&apos;
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     

@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Matrix207's Blog">
 <meta property="og:url" content="http://yoursite.com/page/8/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Matrix207's Blog">
 <meta name="twitter:description">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +36,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
       </h1>
       
     </div>
@@ -47,6 +47,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -64,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-2014-06-17-sms-develop" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-sms-develop" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-06-17-sms-develop/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.579Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/06/17/sms-develop/" class="article-date">
+  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
 </a>
     
   </div>
@@ -78,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-06-17-sms-develop/">sms develop</a>
+      <a class="article-title" href="/2014/06/17/sms-develop/">sms develop</a>
     </h1>
   
 
@@ -86,15 +88,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####Introduce</p>
-<ol>
+        <h4 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ol>
 <li><p>Different between RS232 and USB interface<br> For RS232, use serial operation directory, not need driver.<br> For USB, should intall driver.</p>
 </li>
 <li><p>OS support<br> Both windows and Linux will be supported, if the device support RS232, and<br> most of it support AT command, customer develop application with AT mostly.</p>
 </li>
 </ol>
-<p>####Installation</p>
-<ol>
+<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
 <li>Minicom</li>
 </ol>
 <p>Ref:  </p>
@@ -105,10 +105,9 @@
 <ol>
 <li>Gnokii</li>
 </ol>
-<p>####Issue<br>minicom, not response for input<br>Serial port setup –&gt;Hardware Flow Contorl : NO<br>Local on/off  </p>
+<h4 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h4><p>minicom, not response for input<br>Serial port setup –&gt;Hardware Flow Contorl : NO<br>Local on/off  </p>
 <p><a href="http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html</a></p>
-<p>####AT</p>
-<ul>
+<h4 id="AT"><a href="#AT" class="headerlink" title="AT"></a>AT</h4><ul>
 <li><p>get SIM ID</p>
 <p>  at+ccid</p>
 </li>
@@ -201,18 +200,15 @@ OK
 </code></pre></li>
 </ul>
 <p>Ref <a href="http://www.sendsms.cn/download/js1.pdf" target="_blank" rel="external">http://www.sendsms.cn/download/js1.pdf</a></p>
-<p>####Features</p>
-<ol>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ol>
 <li>auto detect device by baut-rate </li>
 <li>simple interface<br> 1). send message<br> 2). recv message</li>
 </ol>
-<p>####FAQ</p>
-<ol>
+<h4 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><ol>
 <li>Fail to find device</li>
 <li>Fail to send message<br>there are many reasons to cause this, list the main reasons as below:<br>1). device error<br>1). baut-rate error<br>1). signal too weak</li>
 </ol>
-<p>####Reference</p>
-<ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://bbs.chinaunix.net/thread-1793815-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1793815-1-1.html</a></li>
 <li><a href="http://blog.csdn.net/lyserver/article/details/3007090" target="_blank" rel="external">http://blog.csdn.net/lyserver/article/details/3007090</a></li>
 <li><a href="http://blog.chinaunix.net/uid-27717657-id-3378194.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-27717657-id-3378194.html</a></li>
@@ -223,7 +219,7 @@ OK
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-06-17-sms-develop/" data-id="cin4f0h43005zl8izazav9djv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/06/17/sms-develop/" data-id="cin4qo6hu007y7zizwtg1m1em" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,10 +229,10 @@ OK
 
 
   
-    <article id="post-2014-06-17-moosefs-source-code-analysis" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-moosefs-source-code-analysis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-06-17-moosefs-source-code-analysis/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.578Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/06/17/moosefs-source-code-analysis/" class="article-date">
+  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
 </a>
     
   </div>
@@ -247,7 +243,7 @@ OK
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-06-17-moosefs-source-code-analysis/">moosefs source code analysis</a>
+      <a class="article-title" href="/2014/06/17/moosefs-source-code-analysis/">moosefs source code analysis</a>
     </h1>
   
 
@@ -255,8 +251,7 @@ OK
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###mfs-1.5.9</p>
-<ol>
+        <h3 id="mfs-1-5-9"><a href="#mfs-1-5-9" class="headerlink" title="mfs-1.5.9"></a>mfs-1.5.9</h3><ol>
 <li><p>Files</p>
 <p> main.c —&gt; Init,<br> init.c —&gt; defined a <code>RunTab</code>, use for mainloop<br> changelog.c  changelog_init change log<br> random.c rndinit  random generator<br> matocsserv.c matocsserv_init  communication with chunkserver<br> matocuserv.c matocuserv_init  communication with customer<br> filesystem.c fs_init  file system manager<br> stats.c stats_init  statistics module</p>
 <p> [dennis@localhost mfs-1.5.9]$ ls<br> aclocal.m4    config.sub    COPYING  INSTALL      Makefile.in<br> config.guess  configure     depcomp  install-sh   mfschunkserver<br> config.h.in   configure.ac  doc      Makefile.am  MFSCommunication.h<br> mfsdata       mfsmount      README   mfsmaster    missing mfsmetarestore<br> NEWS</p>
@@ -264,22 +259,18 @@ OK
 <li><p>TODO</p>
 </li>
 </ol>
-<p>####master server</p>
-<ol>
+<h4 id="master-server"><a href="#master-server" class="headerlink" title="master server"></a>master server</h4><ol>
 <li><p>Files</p>
 <p> [dennis@localhost mfs-1.5.9]$ ls mfsmaster/<br> cfg.c        changelog.h  filesystem.h  lempelziv.h  Makefile.am<br> matocsserv.h random.c     sockets.h     cfg.h        chunks.c<br> datapack.h   init.h       main.c        Makefile.in   matocuserv.c<br> changelog.c  chunks.h     filesystem.c  lempelziv.c   main.h<br> matocsserv.c  matocuserv.h  sockets.c  stats.h        random.h   stats.c</p>
 </li>
 </ol>
-<p>####chunk  server</p>
-<ol>
+<h4 id="chunk-server"><a href="#chunk-server" class="headerlink" title="chunk  server"></a>chunk  server</h4><ol>
 <li>TODO</li>
 </ol>
-<p>####client</p>
-<ol>
+<h4 id="client"><a href="#client" class="headerlink" title="client"></a>client</h4><ol>
 <li>TODO</li>
 </ol>
-<p>###Reference </p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.moosefs.org/download.html" target="_blank" rel="external">MooseFS HomePage</a></li>
 <li><a href="http://sourceforge.net/projects/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/</a></li>
 <li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
@@ -291,7 +282,7 @@ OK
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-06-17-moosefs-source-code-analysis/" data-id="cin4f0h42005yl8izvmxnlyz9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/06/17/moosefs-source-code-analysis/" data-id="cin4qo6ht007x7zizdgseiwel" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,10 +292,10 @@ OK
 
 
   
-    <article id="post-2014-06-07-use-protobuf" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-use-protobuf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-06-07-use-protobuf/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.577Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/06/07/use-protobuf/" class="article-date">
+  <time datetime="2014-06-06T16:00:00.000Z" itemprop="datePublished">2014-06-07</time>
 </a>
     
   </div>
@@ -315,7 +306,7 @@ OK
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-06-07-use-protobuf/">use protobuf</a>
+      <a class="article-title" href="/2014/06/07/use-protobuf/">use protobuf</a>
     </h1>
   
 
@@ -584,7 +575,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-06-07-use-protobuf/" data-id="cin4f0h41005xl8izxy4mpibj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/06/07/use-protobuf/" data-id="cin4qo6ht007w7zizde0y4lcs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -594,10 +585,10 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
 
 
   
-    <article id="post-2014-06-07-solution-of-error-while-loading-shared-libraries" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-solution-of-error-while-loading-shared-libraries" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-06-07-solution-of-error-while-loading-shared-libraries/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.576Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/06/07/solution-of-error-while-loading-shared-libraries/" class="article-date">
+  <time datetime="2014-06-06T16:00:00.000Z" itemprop="datePublished">2014-06-07</time>
 </a>
     
   </div>
@@ -608,7 +599,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-06-07-solution-of-error-while-loading-shared-libraries/">solution of error while loading shared libraries</a>
+      <a class="article-title" href="/2014/06/07/solution-of-error-while-loading-shared-libraries/">solution of error while loading shared libraries</a>
     </h1>
   
 
@@ -687,7 +678,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-06-07-solution-of-error-while-loading-shared-libraries/" data-id="cin4f0h41005wl8izv92uojfi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/06/07/solution-of-error-while-loading-shared-libraries/" data-id="cin4qo6hr007v7ziz22ugkud1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -697,10 +688,10 @@ Password:
 
 
   
-    <article id="post-2014-06-06-open-source-need-to-master" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-open-source-need-to-master" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-06-06-open-source-need-to-master/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.576Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/06/06/open-source-need-to-master/" class="article-date">
+  <time datetime="2014-06-05T16:00:00.000Z" itemprop="datePublished">2014-06-06</time>
 </a>
     
   </div>
@@ -711,7 +702,7 @@ Password:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-06-06-open-source-need-to-master/">Open source need to master</a>
+      <a class="article-title" href="/2014/06/06/open-source-need-to-master/">Open source need to master</a>
     </h1>
   
 
@@ -719,8 +710,7 @@ Password:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Google open source</p>
-<ul>
+        <h3 id="Google-open-source"><a href="#Google-open-source" class="headerlink" title="Google open source"></a>Google open source</h3><ul>
 <li><p><a href="https://code.google.com/p/google-breakpad/" target="_blank" rel="external">breakpad</a><br>  Crash reporting</p>
 </li>
 <li><p><a href="https://code.google.com/p/gflags/" target="_blank" rel="external">gflags</a><br>  Commandline flags module for C++</p>
@@ -736,8 +726,7 @@ Password:
 <li><p><a href="https://code.google.com/p/protobuf/" target="_blank" rel="external">protobuf</a><br>  Protocol Buffers - Google’s data interchange format</p>
 </li>
 </ul>
-<p>###Other</p>
-<ul>
+<h3 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h3><ul>
 <li><p><a href="http://libevent.org/" target="_blank" rel="external">libevent</a><br>  an event notification library </p>
 </li>
 <li><p><a href="http://www.carisma.slowglass.com/~tgr/libnl/" target="_blank" rel="external">libnl</a><br>  The libnl suite is a collection of libraries providing APIs to netlink protocol based Linux kernel interfaces. </p>
@@ -760,7 +749,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-06-06-open-source-need-to-master/" data-id="cin4f0h40005vl8izy7ak9f4v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/06/06/open-source-need-to-master/" data-id="cin4qo6hq007u7zizxy328o0b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -770,10 +759,10 @@ Password:
 
 
   
-    <article id="post-2014-05-24-software-debugging-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-software-debugging-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-05-24-software-debugging-on-windows/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.575Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/05/24/software-debugging-on-windows/" class="article-date">
+  <time datetime="2014-05-23T16:00:00.000Z" itemprop="datePublished">2014-05-24</time>
 </a>
     
   </div>
@@ -784,7 +773,7 @@ Password:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-05-24-software-debugging-on-windows/">Software debugging on windows</a>
+      <a class="article-title" href="/2014/05/24/software-debugging-on-windows/">Software debugging on windows</a>
     </h1>
   
 
@@ -792,21 +781,16 @@ Password:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####User mode and kernel mode debugger</p>
-<p>####Basic Debug methods</p>
-<ul>
+        <h4 id="User-mode-and-kernel-mode-debugger"><a href="#User-mode-and-kernel-mode-debugger" class="headerlink" title="User mode and kernel mode debugger"></a>User mode and kernel mode debugger</h4><h4 id="Basic-Debug-methods"><a href="#Basic-Debug-methods" class="headerlink" title="Basic Debug methods"></a>Basic Debug methods</h4><ul>
 <li>Run with IDE directory, and use breakpoint and single step to check the problem</li>
 <li>Using OutputDebugString, and capture the message with debugview</li>
 <li>Write debugging information to a log file</li>
 </ul>
-<p>####Advanced method</p>
-<ul>
+<h4 id="Advanced-method"><a href="#Advanced-method" class="headerlink" title="Advanced method"></a>Advanced method</h4><ul>
 <li>dump file</li>
 <li>windbg</li>
 </ul>
-<p>####Memory leak detect tools</p>
-<p>####Reference</p>
-<ul>
+<h4 id="Memory-leak-detect-tools"><a href="#Memory-leak-detect-tools" class="headerlink" title="Memory leak detect tools"></a>Memory leak detect tools</h4><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://msdn.microsoft.com/en-us/windows/hardware/hh852365" target="_blank" rel="external">WDK and WinDbg</a></li>
 <li><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ee416349(v=vs.85" target="_blank" rel="external">Crash Dump Analysis</a>.aspx)</li>
 <li><a href="http://www.cnitblog.com/cc682/archive/2008/11/27/51945.html" target="_blank" rel="external">Windows调试工具入门 1</a></li>
@@ -819,7 +803,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-05-24-software-debugging-on-windows/" data-id="cin4f0h3z005ul8iz7bqakmmz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/05/24/software-debugging-on-windows/" data-id="cin4qo6hq007t7zizclgei4yi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -829,10 +813,10 @@ Password:
 
 
   
-    <article id="post-2014-05-22-bat-technology-and-salary-level" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-bat-technology-and-salary-level" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-05-22-bat-technology-and-salary-level/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.574Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/05/22/bat-technology-and-salary-level/" class="article-date">
+  <time datetime="2014-05-21T16:00:00.000Z" itemprop="datePublished">2014-05-22</time>
 </a>
     
   </div>
@@ -843,7 +827,7 @@ Password:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-05-22-bat-technology-and-salary-level/">bat technology and salary level</a>
+      <a class="article-title" href="/2014/05/22/bat-technology-and-salary-level/">bat technology and salary level</a>
     </h1>
   
 
@@ -851,8 +835,7 @@ Password:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###company</p>
-<ul>
+        <h3 id="company"><a href="#company" class="headerlink" title="company"></a>company</h3><ul>
 <li>Baidu, T3-T4: 10~18k, T5:18~28k, T6:23~33k, T7:33k+</li>
 <li>Alipapa, p4-p5:,p6:13~20k,p7:20~30k,p8:30~40k</li>
 <li>Tecent, T1.3-T2.1-T2.2::, T2.3:13~20k, T3.1-T3.2:20~30k, T3.3-T4+:30k+</li>
@@ -860,15 +843,14 @@ Password:
 <li>IBM</li>
 <li>Microsoft</li>
 </ul>
-<p>###Reference </p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.zhihu.com/question/19683731" target="_blank" rel="external">1</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-05-22-bat-technology-and-salary-level/" data-id="cin4f0h3y005tl8iz2x89avrq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/05/22/bat-technology-and-salary-level/" data-id="cin4qo6hp007s7zizsvfytkqe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -878,10 +860,10 @@ Password:
 
 
   
-    <article id="post-2014-05-15-web-server-design-patterns" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-web-server-design-patterns" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-05-15-web-server-design-patterns/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.573Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/05/15/web-server-design-patterns/" class="article-date">
+  <time datetime="2014-05-14T16:00:00.000Z" itemprop="datePublished">2014-05-15</time>
 </a>
     
   </div>
@@ -892,7 +874,7 @@ Password:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-05-15-web-server-design-patterns/">web server design patterns</a>
+      <a class="article-title" href="/2014/05/15/web-server-design-patterns/">web server design patterns</a>
     </h1>
   
 
@@ -900,9 +882,7 @@ Password:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>####Continue </p>
-<p>####Reference </p>
-<ul>
+        <h4 id="Continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h4><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="https://www.dre.vanderbilt.edu/~schmidt/PDF/cpd-www4.pdf" target="_blank" rel="external">Using Design Patterns and Frameworks to Develop Object-Oriented Communication Systems</a></li>
 <li><a href="http://www.jos.org.cn/ch/reader/create_pdf.aspx?file_no=20030614&amp;flag=1&amp;journal_id=jos" target="_blank" rel="external">基于流水线的高性能Web服务器</a></li>
 <li><a href="http://docs.huihoo.com/ace_tao/ACE-2002-12/Part-Three/Chapter-2.htm" target="_blank" rel="external">JAWS：高性能Web服务器构架</a></li>
@@ -911,7 +891,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-05-15-web-server-design-patterns/" data-id="cin4f0h3x005sl8iznc42ur6o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/05/15/web-server-design-patterns/" data-id="cin4qo6ho007r7ziz4m90v5pq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -921,10 +901,10 @@ Password:
 
 
   
-    <article id="post-2014-05-15-ace" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ace" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-05-15-ace/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.572Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/05/15/ace/" class="article-date">
+  <time datetime="2014-05-14T16:00:00.000Z" itemprop="datePublished">2014-05-15</time>
 </a>
     
   </div>
@@ -935,7 +915,7 @@ Password:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-05-15-ace/">ACE</a>
+      <a class="article-title" href="/2014/05/15/ace/">ACE</a>
     </h1>
   
 
@@ -951,7 +931,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-05-15-ace/" data-id="cin4f0h3w005rl8izunm7gahd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/05/15/ace/" data-id="cin4qo6hn007q7zize7xqrbn9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -961,10 +941,10 @@ Password:
 
 
   
-    <article id="post-2014-05-14-markdown-with-mathjax" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-markdown-with-mathjax" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/17/2014-05-14-markdown-with-mathjax/" class="article-date">
-  <time datetime="2016-04-17T10:13:48.571Z" itemprop="datePublished">2016-04-17</time>
+    <a href="/2014/05/14/markdown-with-mathjax/" class="article-date">
+  <time datetime="2014-05-13T16:00:00.000Z" itemprop="datePublished">2014-05-14</time>
 </a>
     
   </div>
@@ -975,7 +955,7 @@ Password:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/2014-05-14-markdown-with-mathjax/">markdown with MathJax</a>
+      <a class="article-title" href="/2014/05/14/markdown-with-mathjax/">markdown with MathJax</a>
     </h1>
   
 
@@ -983,11 +963,9 @@ Password:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###Sample</p>
-<p></p><p><br>When $a \ne 0$, there are two solutions to (ax^2 + bx + c = 0) and they are<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
+        <h3 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h3><p></p><p><br>When $a \ne 0$, there are two solutions to (ax^2 + bx + c = 0) and they are<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p></p><p>The Lorenz Equations</p><br>[\begin{matrix}<br>\dot{x} &#038; = &#038; \sigma(y-x) \<br>\dot{y} &#038; = &#038; \rho x - y - xz \<br>\dot{z} &#038; = &#038; -\beta z + xy<br>\end{matrix} ]<p></p>
-<p>###Reference </p>
-<ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.mathjax.org/" target="_blank" rel="external">MathJax</a></li>
 <li><a href="http://lilydjwg.is-programmer.com/2011/5/23/mathjax-a-good-formula-display-engine.26966.html" target="_blank" rel="external">MathJax a good formula display engineer</a></li>
 </ul>
@@ -995,7 +973,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/17/2014-05-14-markdown-with-mathjax/" data-id="cin4f0h3v005ql8iziymsbha6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/05/14/markdown-with-mathjax/" data-id="cin4qo6hm007p7zizfco23dv0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1047,7 +1025,7 @@ Password:
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
   </div>
 
@@ -1060,23 +1038,23 @@ Password:
       <ul>
         
           <li>
-            <a href="/2016/04/17/2016-04-13-malloc/">malloc</a>
+            <a href="/2016/04/13/malloc/">malloc</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-12-performance-optimization-of-cplusplus/">performance optimization of C++</a>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-stack-trace-when-program-crash/">stack trace when program crash</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
           <li>
-            <a href="/2016/04/17/2016-03-09-check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
@@ -1091,7 +1069,7 @@ Password:
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Matrix207<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -1102,6 +1080,8 @@ Password:
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     
