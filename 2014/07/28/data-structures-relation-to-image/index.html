@@ -16,7 +16,7 @@ How to runUsage:">
 A python script transfer c header file which contains lots of data structuresto a dot script, and then use dot to convert to a image file
 How to runUsage:">
 <meta property="og:image" content="http://matrix207.github.com/assets/image/posts/iscsi_kernel_structs.png">
-<meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
+<meta property="og:updated_time" content="2016-04-18T17:02:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="data structures relation to image">
 <meta name="twitter:description" content="What it isds2img.py (DataStructure To Image) 
@@ -95,9 +95,9 @@ How to runUsage:">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h3><p><strong>ds2img</strong>.py (DataStructure To Image) </p>
+        <h3 id="what-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h3><p><strong>ds2img</strong>.py (DataStructure To Image) </p>
 <p>A python script transfer c header file which contains lots of data structures<br>to a dot script, and then use dot to convert to a image file</p>
-<h3 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run"></a>How to run</h3><pre><code>Usage: ds2imgpy -i INPUT_FILE -f png|svg -o OUTPUT_FILE [-d DOT_FILE]
+<h3 id="how-to-run"><a href="#How-to-run" class="headerlink" title="How to run"></a>How to run</h3><pre><code>Usage: ds2imgpy -i INPUT_FILE -f png|svg -o OUTPUT_FILE [-d DOT_FILE]
 
 -i  input file which have structures&quot;
 -f  image fomat, only support png and svg&quot;
@@ -107,12 +107,12 @@ How to runUsage:">
 e.g:
 
 python ds2img.py -i t.h -f png -o t.png 
-</code></pre><h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>Waiting for your advices</p>
-<h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><ol>
+</code></pre><h3 id="todo"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>Waiting for your advices</p>
+<h3 id="warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><ol>
 <li>Not support structure contain other structure!</li>
 <li>Not support multi-lines comment</li>
 </ol>
-<h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>You can get the latest version from:<br><a href="https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py" target="_blank" rel="external">https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py</a></p>
+<h3 id="source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>You can get the latest version from:<br><a href="https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py" target="_blank" rel="external">https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py</a></p>
 <pre><code>#!/usr/bin/python
 #####################################################################
 # Generate dot script file from c file, which have lots of structures
@@ -391,46 +391,48 @@ Done
 [dennis@localhost kernel]$ ds2img.py -i iscsi.h -f svg -o iscsi.svg
 Done
 </code></pre><p><img src="/assets/image/posts/iscsi_kernel_structs.png" alt=""></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://emacser.com/emacs_graphviz_ds.htm" target="_blank" rel="external">★★★使用graphviz画数据结构</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://emacser.com/emacs_graphviz_ds.htm" target="_blank" rel="external">&#x2605;&#x2605;&#x2605;&#x4F7F;&#x7528;graphviz&#x753B;&#x6570;&#x636E;&#x7ED3;&#x6784;</a></li>
 <li><a href="http://www.graphviz.org/content/datastruct" target="_blank" rel="external">graphviz for Data Structures</a></li>
-<li><a href="http://gashero.iteye.com/blog/1748795" target="_blank" rel="external">使用graphviz dot来画图表</a></li>
-<li><a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html" target="_blank" rel="external">Python正则表达式指南</a></li>
-<li><a href="http://blog.csdn.net/wangyezi19930928/article/details/25652295" target="_blank" rel="external">★★python文件操作字符串操作总结</a></li>
-<li><a href="http://zhidao.baidu.com/link?url=lwqlXGEAznkWAc26v929RcbA-TuG_McqeQ2BgRWWXaiNS2KQPfU4LR-QdmJkn3eWb5Bfn6qA_7wAboaFThjUkSznQi432soyDnXbd3vPxWO" target="_blank" rel="external">用python如何匹配注释</a></li>
-<li><a href="http://blog.csdn.net/xmnathan/article/details/4192821" target="_blank" rel="external">Python文件去除注释</a></li>
-<li><a href="http://5iqiong.blog.51cto.com/2999926/806230" target="_blank" rel="external">★★★遍历python字典几种方法</a></li>
-<li><a href="http://www.cnblogs.com/skyhacker/archive/2012/01/27/2330177.html" target="_blank" rel="external">python循环遍历字典元素</a></li>
-<li><a href="http://blog.csdn.net/nrs12345/article/details/4869272" target="_blank" rel="external">Python的字典操作</a></li>
-<li><a href="http://blog.csdn.net/feixin620/article/details/4209783" target="_blank" rel="external">★★★python解析ini文件</a></li>
-<li><a href="http://blog.csdn.net/xiaocaiju/article/details/7590106" target="_blank" rel="external">python_getopt解析命令行输入参数的使用</a></li>
+<li><a href="http://gashero.iteye.com/blog/1748795" target="_blank" rel="external">&#x4F7F;&#x7528;graphviz dot&#x6765;&#x753B;&#x56FE;&#x8868;</a></li>
+<li><a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html" target="_blank" rel="external">Python&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x6307;&#x5357;</a></li>
+<li><a href="http://blog.csdn.net/wangyezi19930928/article/details/25652295" target="_blank" rel="external">&#x2605;&#x2605;python&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x5B57;&#x7B26;&#x4E32;&#x64CD;&#x4F5C;&#x603B;&#x7ED3;</a></li>
+<li><a href="http://zhidao.baidu.com/link?url=lwqlXGEAznkWAc26v929RcbA-TuG_McqeQ2BgRWWXaiNS2KQPfU4LR-QdmJkn3eWb5Bfn6qA_7wAboaFThjUkSznQi432soyDnXbd3vPxWO" target="_blank" rel="external">&#x7528;python&#x5982;&#x4F55;&#x5339;&#x914D;&#x6CE8;&#x91CA;</a></li>
+<li><a href="http://blog.csdn.net/xmnathan/article/details/4192821" target="_blank" rel="external">Python&#x6587;&#x4EF6;&#x53BB;&#x9664;&#x6CE8;&#x91CA;</a></li>
+<li><a href="http://5iqiong.blog.51cto.com/2999926/806230" target="_blank" rel="external">&#x2605;&#x2605;&#x2605;&#x904D;&#x5386;python&#x5B57;&#x5178;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;</a></li>
+<li><a href="http://www.cnblogs.com/skyhacker/archive/2012/01/27/2330177.html" target="_blank" rel="external">python&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5B57;&#x5178;&#x5143;&#x7D20;</a></li>
+<li><a href="http://blog.csdn.net/nrs12345/article/details/4869272" target="_blank" rel="external">Python&#x7684;&#x5B57;&#x5178;&#x64CD;&#x4F5C;</a></li>
+<li><a href="http://blog.csdn.net/feixin620/article/details/4209783" target="_blank" rel="external">&#x2605;&#x2605;&#x2605;python&#x89E3;&#x6790;ini&#x6587;&#x4EF6;</a></li>
+<li><a href="http://blog.csdn.net/xiaocaiju/article/details/7590106" target="_blank" rel="external">python_getopt&#x89E3;&#x6790;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x7684;&#x4F7F;&#x7528;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/07/28/data-structures-relation-to-image/" data-id="cin61d0ka008gfyiz7p5nyt0h" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/07/28/data-structures-relation-to-image/" data-id="cin6917bc000lkmiz4gerkgy4" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphviz/">graphviz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2014/07/30/linux-memory-performance-monitor/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/07/30/linux-io-performance-monitor/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Linux Memory performance monitor
+          Linux IO performance monitor
         
       </div>
     </a>
   
   
-    <a href="/2014/07/18/jni-on-linux/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/07/18/storage-technology/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">jni on linux</div>
+      <div class="article-nav-title">storage technology</div>
     </a>
   
 </nav>
@@ -456,7 +458,7 @@ Done
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 12.5px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iscsi/" style="font-size: 20px;">iscsi</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -494,7 +496,7 @@ Done
           </li>
         
           <li>
-            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
       </ul>

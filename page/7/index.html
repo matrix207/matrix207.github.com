@@ -88,9 +88,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h3><p><strong>ds2img</strong>.py (DataStructure To Image) </p>
+        <h3 id="what-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h3><p><strong>ds2img</strong>.py (DataStructure To Image) </p>
 <p>A python script transfer c header file which contains lots of data structures<br>to a dot script, and then use dot to convert to a image file</p>
-<h3 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run"></a>How to run</h3><pre><code>Usage: ds2imgpy -i INPUT_FILE -f png|svg -o OUTPUT_FILE [-d DOT_FILE]
+<h3 id="how-to-run"><a href="#How-to-run" class="headerlink" title="How to run"></a>How to run</h3><pre><code>Usage: ds2imgpy -i INPUT_FILE -f png|svg -o OUTPUT_FILE [-d DOT_FILE]
 
 -i  input file which have structures&quot;
 -f  image fomat, only support png and svg&quot;
@@ -100,12 +100,12 @@
 e.g:
 
 python ds2img.py -i t.h -f png -o t.png 
-</code></pre><h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>Waiting for your advices</p>
-<h3 id="Warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><ol>
+</code></pre><h3 id="todo"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>Waiting for your advices</p>
+<h3 id="warning"><a href="#Warning" class="headerlink" title="Warning"></a>Warning</h3><ol>
 <li>Not support structure contain other structure!</li>
 <li>Not support multi-lines comment</li>
 </ol>
-<h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>You can get the latest version from:<br><a href="https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py" target="_blank" rel="external">https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py</a></p>
+<h3 id="source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><p>You can get the latest version from:<br><a href="https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py" target="_blank" rel="external">https://github.com/matrix207/scripts/blob/master/ds2img/ds2img.py</a></p>
 <pre><code>#!/usr/bin/python
 #####################################################################
 # Generate dot script file from c file, which have lots of structures
@@ -384,25 +384,146 @@ Done
 [dennis@localhost kernel]$ ds2img.py -i iscsi.h -f svg -o iscsi.svg
 Done
 </code></pre><p><img src="/assets/image/posts/iscsi_kernel_structs.png" alt=""></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://emacser.com/emacs_graphviz_ds.htm" target="_blank" rel="external">★★★使用graphviz画数据结构</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://emacser.com/emacs_graphviz_ds.htm" target="_blank" rel="external">&#x2605;&#x2605;&#x2605;&#x4F7F;&#x7528;graphviz&#x753B;&#x6570;&#x636E;&#x7ED3;&#x6784;</a></li>
 <li><a href="http://www.graphviz.org/content/datastruct" target="_blank" rel="external">graphviz for Data Structures</a></li>
-<li><a href="http://gashero.iteye.com/blog/1748795" target="_blank" rel="external">使用graphviz dot来画图表</a></li>
-<li><a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html" target="_blank" rel="external">Python正则表达式指南</a></li>
-<li><a href="http://blog.csdn.net/wangyezi19930928/article/details/25652295" target="_blank" rel="external">★★python文件操作字符串操作总结</a></li>
-<li><a href="http://zhidao.baidu.com/link?url=lwqlXGEAznkWAc26v929RcbA-TuG_McqeQ2BgRWWXaiNS2KQPfU4LR-QdmJkn3eWb5Bfn6qA_7wAboaFThjUkSznQi432soyDnXbd3vPxWO" target="_blank" rel="external">用python如何匹配注释</a></li>
-<li><a href="http://blog.csdn.net/xmnathan/article/details/4192821" target="_blank" rel="external">Python文件去除注释</a></li>
-<li><a href="http://5iqiong.blog.51cto.com/2999926/806230" target="_blank" rel="external">★★★遍历python字典几种方法</a></li>
-<li><a href="http://www.cnblogs.com/skyhacker/archive/2012/01/27/2330177.html" target="_blank" rel="external">python循环遍历字典元素</a></li>
-<li><a href="http://blog.csdn.net/nrs12345/article/details/4869272" target="_blank" rel="external">Python的字典操作</a></li>
-<li><a href="http://blog.csdn.net/feixin620/article/details/4209783" target="_blank" rel="external">★★★python解析ini文件</a></li>
-<li><a href="http://blog.csdn.net/xiaocaiju/article/details/7590106" target="_blank" rel="external">python_getopt解析命令行输入参数的使用</a></li>
+<li><a href="http://gashero.iteye.com/blog/1748795" target="_blank" rel="external">&#x4F7F;&#x7528;graphviz dot&#x6765;&#x753B;&#x56FE;&#x8868;</a></li>
+<li><a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html" target="_blank" rel="external">Python&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x6307;&#x5357;</a></li>
+<li><a href="http://blog.csdn.net/wangyezi19930928/article/details/25652295" target="_blank" rel="external">&#x2605;&#x2605;python&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x5B57;&#x7B26;&#x4E32;&#x64CD;&#x4F5C;&#x603B;&#x7ED3;</a></li>
+<li><a href="http://zhidao.baidu.com/link?url=lwqlXGEAznkWAc26v929RcbA-TuG_McqeQ2BgRWWXaiNS2KQPfU4LR-QdmJkn3eWb5Bfn6qA_7wAboaFThjUkSznQi432soyDnXbd3vPxWO" target="_blank" rel="external">&#x7528;python&#x5982;&#x4F55;&#x5339;&#x914D;&#x6CE8;&#x91CA;</a></li>
+<li><a href="http://blog.csdn.net/xmnathan/article/details/4192821" target="_blank" rel="external">Python&#x6587;&#x4EF6;&#x53BB;&#x9664;&#x6CE8;&#x91CA;</a></li>
+<li><a href="http://5iqiong.blog.51cto.com/2999926/806230" target="_blank" rel="external">&#x2605;&#x2605;&#x2605;&#x904D;&#x5386;python&#x5B57;&#x5178;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;</a></li>
+<li><a href="http://www.cnblogs.com/skyhacker/archive/2012/01/27/2330177.html" target="_blank" rel="external">python&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x5B57;&#x5178;&#x5143;&#x7D20;</a></li>
+<li><a href="http://blog.csdn.net/nrs12345/article/details/4869272" target="_blank" rel="external">Python&#x7684;&#x5B57;&#x5178;&#x64CD;&#x4F5C;</a></li>
+<li><a href="http://blog.csdn.net/feixin620/article/details/4209783" target="_blank" rel="external">&#x2605;&#x2605;&#x2605;python&#x89E3;&#x6790;ini&#x6587;&#x4EF6;</a></li>
+<li><a href="http://blog.csdn.net/xiaocaiju/article/details/7590106" target="_blank" rel="external">python_getopt&#x89E3;&#x6790;&#x547D;&#x4EE4;&#x884C;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x7684;&#x4F7F;&#x7528;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/07/28/data-structures-relation-to-image/" data-id="cin61d0ka008gfyiz7p5nyt0h" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/07/28/data-structures-relation-to-image/" data-id="cin6917bc000lkmiz4gerkgy4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/graphviz/">graphviz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-storage-technology" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/18/storage-technology/" class="article-date">
+  <time datetime="2014-07-17T16:00:00.000Z" itemprop="datePublished">2014-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/18/storage-technology/">storage technology</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###<a href="http://blog.csdn.net/liuaigui/article/details/5333752" target="_blank" rel="external">从研发角度谈存储技术的学习</a></p>
+<p>对于研发人员，存储技术的学习内容非常之多。我根据自己的理解，把它们大致分为以下8项内容：</p>
+<ol>
+<li>系统管理：UNIX/Linux/Windows操作系统管理，要求熟悉甚至精通。</li>
+<li>开发技术：C/C++，网络编程，多进程/多线程，进程间通信。如果能掌握内核开发、驱<br>动程序开发则更佳。</li>
+<li>存储基础：磁盘、RAID阵列、文件系统等存储相关硬件和软件的安装、配置、调试。</li>
+<li>存储系统：RAID, DAS, SAN, NAS, CAS等，对存储系统的原理以及实现技术熟悉。</li>
+<li>存储协议：TCP/IP, SCSI, iSCSI, NFS/CIFS等, 熟悉这些存储相关协议。</li>
+<li>文件系统：VFS, EXTx/NTFS/FAT32等磁盘文件系统, NFS/CIFS网络文件系统, Lustre/GFS/AFS<br>等分布式文件系统，掌握原理和实现技术，能够阅读源码则更好。</li>
+<li>存储技术：Deduplication, SSD, HSM, Virtualization, Snapshot, Replication, CDP<br>, VTL, Thin Provision等等，尽量多跟踪最新存储技术进展，多多益善。</li>
+<li>存储架构：掌握不同行业的存储需求，能够根据实际需求提出存储解决方案，并进行存<br>储系统架构、设计和实现。</li>
+</ol>
+<p>存储研发人员成长大致可分为四个级别：</p>
+<ol>
+<li>存储初级研发：掌握1、2、3项存储内容，在中高级存储研发指导下，可以进行存储研发工作。</li>
+<li>存储中级研发：掌握4、5项存储内容，可以带领团队进行研发工作，并指导初级研发。</li>
+<li>存储高级研发：掌握6、7项存储内容，可以进行存储新技术的研究，对现有存储系统优<br>化改进，原型系统开发。</li>
+<li>存储研发专家：掌握8项存储内容，存储前沿技术研究，存储系统规划与架构，对存储发<br>展趋势有着很好的理解和洞察。</li>
+</ol>
+<p>10000小时法则 (The 10,OOO Hour Rule)，简单地说，任何人要在任何领域出类拔萃，脱颖<br>而出，都需要认真投入10000小时以上。10000小时是一个突破的临界点。以每天10个小时算<br>，10000小时相当于三年。也就是说，要做成功一件事情，你就要每天10小时投入，持续3年<br>。如果每天只有5小时，那么需要6年。如果每天3小时，则需要10年。因此，如果想成为存<br>储领域的专家，没有什么捷径可走，只有坚持学习、实践、思考。3年、5年、8年、10年后<br>，只要你仍在追求既定目标，定会有所成就。</p>
+<p>“厚积而薄发”，与所有存储同行共勉！</p>
+<p>###<a href="http://blog.csdn.net/liuaigui/article/details/5368300" target="_blank" rel="external">存储学习之路</a></p>
+<ul>
+<li>0、存储入门</li>
+</ul>
+<p>　领路人的作用很大，这个人可能是你做研究生的导师，或者工作中的tutor，或者是朋友、<br>同事。指点迷津，学习和研究过程中将少走很多弯路，经验的价值这在这里体现。如果你是<br>存储初学者，赶快去寻找你的领路人。当然自学成才的例子举不胜举，还是靠自己来做权衡。</p>
+<ul>
+<li>1、存储图书</li>
+</ul>
+<p>　学习存储的基础理论最直接的方法就是读书。相对于计算与网络技术，存储技术发展是相<br>对落后的，因此图书方面也要少很多，国内的更少，而且大多是翻译或改编的。我读过的国<br>内存储图书有：</p>
+<ul>
+<li>网络存储技术    清华大学出版社</li>
+<li>网络存储技术导论    清华大学出版社</li>
+<li>SAN存储区域网络    机械工业出版社</li>
+<li>数据存储备份与灾难恢复    电子工业出版社</li>
+<li>基于对象的网络存储    电子工业出版社</li>
+<li>IPSAN权威指南    中国电力出版社</li>
+<li>成就存储专家之路    清华大学出版社</li>
+<li>信息存储与管理    人民邮电出版社</li>
+<li>大话存储    清华大学出版社    </li>
+<li>数据重现    清华大学出版社</li>
+</ul>
+<ul>
+<li>2、存储资源</li>
+</ul>
+<p>　网络资源也是学习存储的重要资源，而且能够很好地跟踪存储的最近发展动态。我常访问的URL有：</p>
+<ul>
+<li>InfoStor: <a href="http://www.infostor.com" target="_blank" rel="external">http://www.infostor.com</a>  </li>
+<li>SINA: <a href="http://www.snia.org/home" target="_blank" rel="external">http://www.snia.org/home</a>  </li>
+<li>Gartner: <a href="http://www.gartner.com/technology/home.jsp" target="_blank" rel="external">http://www.gartner.com/technology/home.jsp</a>  </li>
+<li>SanSky: <a href="http://www.sansky.net/" target="_blank" rel="external">http://www.sansky.net/</a>  </li>
+<li>DoStor: <a href="http://www.dostor.com/" target="_blank" rel="external">http://www.dostor.com/</a>  </li>
+<li>WatchStor: <a href="http://www.watchstor.com/" target="_blank" rel="external">http://www.watchstor.com/</a>  </li>
+</ul>
+<p>另外还有一些国际上存储会议，比如：</p>
+<ul>
+<li>SDC，Storage Developer Conference　(2009,<a href="http://www.snia.org/events/storage-developer2009/presentations" target="_blank" rel="external">http://www.snia.org/events/storage-developer2009/presentations</a>)</li>
+<li>FAST, File and Storage Technologies (<a href="http://www.usenix.org/events/fast/" target="_blank" rel="external">http://www.usenix.org/events/fast/</a>)</li>
+</ul>
+<ul>
+<li><p>3、存储实践</p>
+<p>大学中我们最缺是估计就是实践。实践可以帮助我们更深刻地理解和掌握理论，并且获得<br>将理论进行实现和应用的能力。实践有很多方式，比如自己动手进行存储软硬件的调试、存<br>储系统集优化改进、开发一些软件、阅读存储软件源码等等。实践这个东西，多多益善，尽<br>量找机会多做。源代码除了Linux kernel外，www.sourceforge.net是最好的去处，可以读<br>VFS、EXT2/3/4、Soft RAID、LVM、FDISK、NFS/CIFS、SCSI/iSCSI、FUSE、AFS、LUSTRE等等。</p>
+</li>
+<li><p>4、存储交流</p>
+</li>
+</ul>
+<p>　牛人大多都是喜欢与人分享的，你也不要担心分享自己的东西，别人就超越你了。能把自<br>己的东西说得让别人明白，实际上对自己也是一个提升。物以类聚，人以群分。现在网络不<br>要太方便，找一群兴趣相投的人，多多交流，大家共同进步就何等的好事。而且同时可以建<br>立人脉，说不定哪天志同道合的人，就一起做共事或创业了。</p>
+<ul>
+<li>5、存储思考</li>
+</ul>
+<p>　学而不思则罔，思而不学则贻。当已经掌握了一些存储理论和实践后，我们可能会遇到发<br>展的瓶颈，需要选择一两个方向进行深入学习和研究。这样我们才能有精力去分析和思考理<br>论和技术上优点与不足，继而不断实践和思考。从而就有可能达到一个更高的层次，并且可<br>能会发现一些机会。</p>
+<ul>
+<li>6、存储经验</li>
+</ul>
+<p>　我们常常看到招聘信息上要求8－10年的相关工作经验。不管是失败还是成功的经验，对<br>未来的工作都很有意义，尤其是失败的经验，将大大提成功的几率。对搞存储的来说，最好<br>能找机会进入存储行业的公司或研究机构工作，这对经验的提升非常重要。因为这是正规军<br>，是适应市场用户需求的，而自己的学习和研究，都是出自自身需求的。如果你在公司工作<br>，或者自己创业，用户需求是做产品的根本出发点，这个意识要尽早培养。</p>
+<ul>
+<li>7、存储趋势</li>
+</ul>
+<p>　熟悉历史，把握现在，预测未来。一旦我们对存储技术的过去和现在都非常熟悉和深入理<br>解，那么我们就有可能正确地对存储的未来趋势进行分析和预测，掌握先机和商机。这种人<br>是大牛，或许我们很难达到这个层次，但至少大牛提出很多新的观点和概念时，我们能很快<br>理解和认同。</p>
+<ul>
+<li>8、存储创新</li>
+</ul>
+<p>　创新是需要前提条件的，如果没有前面的学习、实践、思考，存储创新根本无从谈起。创<br>新可能是理论创新和技术创新，主要出发点就是要解决和改进目前理论或技术上存在的缺陷<br>与不足，这自然就要求我们对现有的东西非常熟悉。达到可以深入思考和寻求创新的层次，<br>我想大概规律性的东西就很少了。成功有时是需要点运气，但前期的功课是要做好的，成功<br>还是眷顾有充分准备的人的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/07/18/storage-technology/" data-id="cin61d0kh008lfyizhmxkssf3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -640,125 +761,6 @@ clean:
     </div>
     <footer class="article-footer">
       <a data-url="http://matrix207.github.com/2014/07/18/jni-on-linux/" data-id="cin61d0k7008efyiz2tghgl6n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-storage-technology" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/18/storage-technology/" class="article-date">
-  <time datetime="2014-07-17T16:00:00.000Z" itemprop="datePublished">2014-07-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/18/storage-technology/">storage technology</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###<a href="http://blog.csdn.net/liuaigui/article/details/5333752" target="_blank" rel="external">从研发角度谈存储技术的学习</a></p>
-<p>对于研发人员，存储技术的学习内容非常之多。我根据自己的理解，把它们大致分为以下8项内容：</p>
-<ol>
-<li>系统管理：UNIX/Linux/Windows操作系统管理，要求熟悉甚至精通。</li>
-<li>开发技术：C/C++，网络编程，多进程/多线程，进程间通信。如果能掌握内核开发、驱<br>动程序开发则更佳。</li>
-<li>存储基础：磁盘、RAID阵列、文件系统等存储相关硬件和软件的安装、配置、调试。</li>
-<li>存储系统：RAID, DAS, SAN, NAS, CAS等，对存储系统的原理以及实现技术熟悉。</li>
-<li>存储协议：TCP/IP, SCSI, iSCSI, NFS/CIFS等, 熟悉这些存储相关协议。</li>
-<li>文件系统：VFS, EXTx/NTFS/FAT32等磁盘文件系统, NFS/CIFS网络文件系统, Lustre/GFS/AFS<br>等分布式文件系统，掌握原理和实现技术，能够阅读源码则更好。</li>
-<li>存储技术：Deduplication, SSD, HSM, Virtualization, Snapshot, Replication, CDP<br>, VTL, Thin Provision等等，尽量多跟踪最新存储技术进展，多多益善。</li>
-<li>存储架构：掌握不同行业的存储需求，能够根据实际需求提出存储解决方案，并进行存<br>储系统架构、设计和实现。</li>
-</ol>
-<p>存储研发人员成长大致可分为四个级别：</p>
-<ol>
-<li>存储初级研发：掌握1、2、3项存储内容，在中高级存储研发指导下，可以进行存储研发工作。</li>
-<li>存储中级研发：掌握4、5项存储内容，可以带领团队进行研发工作，并指导初级研发。</li>
-<li>存储高级研发：掌握6、7项存储内容，可以进行存储新技术的研究，对现有存储系统优<br>化改进，原型系统开发。</li>
-<li>存储研发专家：掌握8项存储内容，存储前沿技术研究，存储系统规划与架构，对存储发<br>展趋势有着很好的理解和洞察。</li>
-</ol>
-<p>10000小时法则 (The 10,OOO Hour Rule)，简单地说，任何人要在任何领域出类拔萃，脱颖<br>而出，都需要认真投入10000小时以上。10000小时是一个突破的临界点。以每天10个小时算<br>，10000小时相当于三年。也就是说，要做成功一件事情，你就要每天10小时投入，持续3年<br>。如果每天只有5小时，那么需要6年。如果每天3小时，则需要10年。因此，如果想成为存<br>储领域的专家，没有什么捷径可走，只有坚持学习、实践、思考。3年、5年、8年、10年后<br>，只要你仍在追求既定目标，定会有所成就。</p>
-<p>“厚积而薄发”，与所有存储同行共勉！</p>
-<p>###<a href="http://blog.csdn.net/liuaigui/article/details/5368300" target="_blank" rel="external">存储学习之路</a></p>
-<ul>
-<li>0、存储入门</li>
-</ul>
-<p>　领路人的作用很大，这个人可能是你做研究生的导师，或者工作中的tutor，或者是朋友、<br>同事。指点迷津，学习和研究过程中将少走很多弯路，经验的价值这在这里体现。如果你是<br>存储初学者，赶快去寻找你的领路人。当然自学成才的例子举不胜举，还是靠自己来做权衡。</p>
-<ul>
-<li>1、存储图书</li>
-</ul>
-<p>　学习存储的基础理论最直接的方法就是读书。相对于计算与网络技术，存储技术发展是相<br>对落后的，因此图书方面也要少很多，国内的更少，而且大多是翻译或改编的。我读过的国<br>内存储图书有：</p>
-<ul>
-<li>网络存储技术    清华大学出版社</li>
-<li>网络存储技术导论    清华大学出版社</li>
-<li>SAN存储区域网络    机械工业出版社</li>
-<li>数据存储备份与灾难恢复    电子工业出版社</li>
-<li>基于对象的网络存储    电子工业出版社</li>
-<li>IPSAN权威指南    中国电力出版社</li>
-<li>成就存储专家之路    清华大学出版社</li>
-<li>信息存储与管理    人民邮电出版社</li>
-<li>大话存储    清华大学出版社    </li>
-<li>数据重现    清华大学出版社</li>
-</ul>
-<ul>
-<li>2、存储资源</li>
-</ul>
-<p>　网络资源也是学习存储的重要资源，而且能够很好地跟踪存储的最近发展动态。我常访问的URL有：</p>
-<ul>
-<li>InfoStor: <a href="http://www.infostor.com" target="_blank" rel="external">http://www.infostor.com</a>  </li>
-<li>SINA: <a href="http://www.snia.org/home" target="_blank" rel="external">http://www.snia.org/home</a>  </li>
-<li>Gartner: <a href="http://www.gartner.com/technology/home.jsp" target="_blank" rel="external">http://www.gartner.com/technology/home.jsp</a>  </li>
-<li>SanSky: <a href="http://www.sansky.net/" target="_blank" rel="external">http://www.sansky.net/</a>  </li>
-<li>DoStor: <a href="http://www.dostor.com/" target="_blank" rel="external">http://www.dostor.com/</a>  </li>
-<li>WatchStor: <a href="http://www.watchstor.com/" target="_blank" rel="external">http://www.watchstor.com/</a>  </li>
-</ul>
-<p>另外还有一些国际上存储会议，比如：</p>
-<ul>
-<li>SDC，Storage Developer Conference　(2009,<a href="http://www.snia.org/events/storage-developer2009/presentations" target="_blank" rel="external">http://www.snia.org/events/storage-developer2009/presentations</a>)</li>
-<li>FAST, File and Storage Technologies (<a href="http://www.usenix.org/events/fast/" target="_blank" rel="external">http://www.usenix.org/events/fast/</a>)</li>
-</ul>
-<ul>
-<li><p>3、存储实践</p>
-<p>大学中我们最缺是估计就是实践。实践可以帮助我们更深刻地理解和掌握理论，并且获得<br>将理论进行实现和应用的能力。实践有很多方式，比如自己动手进行存储软硬件的调试、存<br>储系统集优化改进、开发一些软件、阅读存储软件源码等等。实践这个东西，多多益善，尽<br>量找机会多做。源代码除了Linux kernel外，www.sourceforge.net是最好的去处，可以读<br>VFS、EXT2/3/4、Soft RAID、LVM、FDISK、NFS/CIFS、SCSI/iSCSI、FUSE、AFS、LUSTRE等等。</p>
-</li>
-<li><p>4、存储交流</p>
-</li>
-</ul>
-<p>　牛人大多都是喜欢与人分享的，你也不要担心分享自己的东西，别人就超越你了。能把自<br>己的东西说得让别人明白，实际上对自己也是一个提升。物以类聚，人以群分。现在网络不<br>要太方便，找一群兴趣相投的人，多多交流，大家共同进步就何等的好事。而且同时可以建<br>立人脉，说不定哪天志同道合的人，就一起做共事或创业了。</p>
-<ul>
-<li>5、存储思考</li>
-</ul>
-<p>　学而不思则罔，思而不学则贻。当已经掌握了一些存储理论和实践后，我们可能会遇到发<br>展的瓶颈，需要选择一两个方向进行深入学习和研究。这样我们才能有精力去分析和思考理<br>论和技术上优点与不足，继而不断实践和思考。从而就有可能达到一个更高的层次，并且可<br>能会发现一些机会。</p>
-<ul>
-<li>6、存储经验</li>
-</ul>
-<p>　我们常常看到招聘信息上要求8－10年的相关工作经验。不管是失败还是成功的经验，对<br>未来的工作都很有意义，尤其是失败的经验，将大大提成功的几率。对搞存储的来说，最好<br>能找机会进入存储行业的公司或研究机构工作，这对经验的提升非常重要。因为这是正规军<br>，是适应市场用户需求的，而自己的学习和研究，都是出自自身需求的。如果你在公司工作<br>，或者自己创业，用户需求是做产品的根本出发点，这个意识要尽早培养。</p>
-<ul>
-<li>7、存储趋势</li>
-</ul>
-<p>　熟悉历史，把握现在，预测未来。一旦我们对存储技术的过去和现在都非常熟悉和深入理<br>解，那么我们就有可能正确地对存储的未来趋势进行分析和预测，掌握先机和商机。这种人<br>是大牛，或许我们很难达到这个层次，但至少大牛提出很多新的观点和概念时，我们能很快<br>理解和认同。</p>
-<ul>
-<li>8、存储创新</li>
-</ul>
-<p>　创新是需要前提条件的，如果没有前面的学习、实践、思考，存储创新根本无从谈起。创<br>新可能是理论创新和技术创新，主要出发点就是要解决和改进目前理论或技术上存在的缺陷<br>与不足，这自然就要求我们对现有的东西非常熟悉。达到可以深入思考和寻求创新的层次，<br>我想大概规律性的东西就很少了。成功有时是需要点运气，但前期的功课是要做好的，成功<br>还是眷顾有充分准备的人的。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/07/18/storage-technology/" data-id="cin61d0kh008lfyizhmxkssf3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1355,19 +1357,19 @@ OpenGL Mesa 3D
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-is-ISCSI"><a href="#What-is-ISCSI" class="headerlink" title="What is ISCSI"></a>What is ISCSI</h3><p>iSCSI是由IEETF开发的网络存储标准，目的是为了用IP协议将存储设备连接在一起。</p>
-<h3 id="Why-need-iSCSI"><a href="#Why-need-iSCSI" class="headerlink" title="Why need iSCSI"></a>Why need iSCSI</h3><ol>
-<li>解决了SCSI协议在设备数目和连接距离上的限制;</li>
-<li>为SAN提供了一种高性价比的传输协议；</li>
-<li>与各种存储管理结合起来，提供灵活的备份、镜像、灾难恢复以及次级存储解决方案；</li>
+        <h3 id="what-is-iscsi"><a href="#What-is-ISCSI" class="headerlink" title="What is ISCSI"></a>What is ISCSI</h3><p>iSCSI&#x662F;&#x7531;IEETF&#x5F00;&#x53D1;&#x7684;&#x7F51;&#x7EDC;&#x5B58;&#x50A8;&#x6807;&#x51C6;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x7528;IP&#x534F;&#x8BAE;&#x5C06;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x8FDE;&#x63A5;&#x5728;&#x4E00;&#x8D77;&#x3002;</p>
+<h3 id="why-need-iscsi"><a href="#Why-need-iSCSI" class="headerlink" title="Why need iSCSI"></a>Why need iSCSI</h3><ol>
+<li>&#x89E3;&#x51B3;&#x4E86;SCSI&#x534F;&#x8BAE;&#x5728;&#x8BBE;&#x5907;&#x6570;&#x76EE;&#x548C;&#x8FDE;&#x63A5;&#x8DDD;&#x79BB;&#x4E0A;&#x7684;&#x9650;&#x5236;;</li>
+<li>&#x4E3A;SAN&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x9AD8;&#x6027;&#x4EF7;&#x6BD4;&#x7684;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF1B;</li>
+<li>&#x4E0E;&#x5404;&#x79CD;&#x5B58;&#x50A8;&#x7BA1;&#x7406;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x63D0;&#x4F9B;&#x7075;&#x6D3B;&#x7684;&#x5907;&#x4EFD;&#x3001;&#x955C;&#x50CF;&#x3001;&#x707E;&#x96BE;&#x6062;&#x590D;&#x4EE5;&#x53CA;&#x6B21;&#x7EA7;&#x5B58;&#x50A8;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1B;</li>
 </ol>
-<h3 id="iSCSI-的存储连接方式"><a href="#iSCSI-的存储连接方式" class="headerlink" title="iSCSI 的存储连接方式"></a>iSCSI 的存储连接方式</h3><ol>
-<li><p>iSCSI HBA卡连接方式（硬iSCSI）：<br>在主机上安装专业的iSCSI HBA适配卡，从而实现主机与交换机之间、主机与存储之间的<br>高效数据交换。传输性能好，价格高。</p>
+<h3 id="iscsi-&#x7684;&#x5B58;&#x50A8;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;"><a href="#iSCSI-&#x7684;&#x5B58;&#x50A8;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;" class="headerlink" title="iSCSI &#x7684;&#x5B58;&#x50A8;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;"></a>iSCSI &#x7684;&#x5B58;&#x50A8;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;</h3><ol>
+<li><p>iSCSI HBA&#x5361;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;&#xFF08;&#x786C;iSCSI&#xFF09;&#xFF1A;<br>&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x5B89;&#x88C5;&#x4E13;&#x4E1A;&#x7684;iSCSI HBA&#x9002;&#x914D;&#x5361;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x4E3B;&#x673A;&#x4E0E;&#x4EA4;&#x6362;&#x673A;&#x4E4B;&#x95F4;&#x3001;&#x4E3B;&#x673A;&#x4E0E;&#x5B58;&#x50A8;&#x4E4B;&#x95F4;&#x7684;<br>&#x9AD8;&#x6548;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x3002;&#x4F20;&#x8F93;&#x6027;&#x80FD;&#x597D;&#xFF0C;&#x4EF7;&#x683C;&#x9AD8;&#x3002;</p>
 </li>
-<li><p>以太网卡+initiator软件方式（软iSCSI）：<br>服务器、工作站等主机使用标准的以太网卡，通过以太网线直接与以太网交换机连接，<br>iSCSI存储也通过以太网线连接到以太网交换机上，或直接连接到主机的以太网卡上。<br>在主机上安装Initiator软件，Initiator软件可以将以太网卡虚拟为iSCSI卡，接受和发<br>送iSCSI数据报文，从而实现主机和iSCSI设备之间的iSCSI协议和TCP/IP协议传输功能。</p>
+<li><p>&#x4EE5;&#x592A;&#x7F51;&#x5361;+initiator&#x8F6F;&#x4EF6;&#x65B9;&#x5F0F;&#xFF08;&#x8F6F;iSCSI&#xFF09;&#xFF1A;<br>&#x670D;&#x52A1;&#x5668;&#x3001;&#x5DE5;&#x4F5C;&#x7AD9;&#x7B49;&#x4E3B;&#x673A;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x7684;&#x4EE5;&#x592A;&#x7F51;&#x5361;&#xFF0C;&#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x7EBF;&#x76F4;&#x63A5;&#x4E0E;&#x4EE5;&#x592A;&#x7F51;&#x4EA4;&#x6362;&#x673A;&#x8FDE;&#x63A5;&#xFF0C;<br>iSCSI&#x5B58;&#x50A8;&#x4E5F;&#x901A;&#x8FC7;&#x4EE5;&#x592A;&#x7F51;&#x7EBF;&#x8FDE;&#x63A5;&#x5230;&#x4EE5;&#x592A;&#x7F51;&#x4EA4;&#x6362;&#x673A;&#x4E0A;&#xFF0C;&#x6216;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#x5230;&#x4E3B;&#x673A;&#x7684;&#x4EE5;&#x592A;&#x7F51;&#x5361;&#x4E0A;&#x3002;<br>&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x5B89;&#x88C5;Initiator&#x8F6F;&#x4EF6;&#xFF0C;Initiator&#x8F6F;&#x4EF6;&#x53EF;&#x4EE5;&#x5C06;&#x4EE5;&#x592A;&#x7F51;&#x5361;&#x865A;&#x62DF;&#x4E3A;iSCSI&#x5361;&#xFF0C;&#x63A5;&#x53D7;&#x548C;&#x53D1;<br>&#x9001;iSCSI&#x6570;&#x636E;&#x62A5;&#x6587;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x4E3B;&#x673A;&#x548C;iSCSI&#x8BBE;&#x5907;&#x4E4B;&#x95F4;&#x7684;iSCSI&#x534F;&#x8BAE;&#x548C;TCP/IP&#x534F;&#x8BAE;&#x4F20;&#x8F93;&#x529F;&#x80FD;&#x3002;</p>
 </li>
 </ol>
-<h3 id="Compile-and-install"><a href="#Compile-and-install" class="headerlink" title="Compile and install"></a>Compile and install</h3><p>The iSCSI target consists of a kernel module (iscsi_trgt.ko) , daemon<br>(ietd) and control utility (ietadm).</p>
+<h3 id="compile-and-install"><a href="#Compile-and-install" class="headerlink" title="Compile and install"></a>Compile and install</h3><p>The iSCSI target consists of a kernel module (iscsi_trgt.ko) , daemon<br>(ietd) and control utility (ietadm).</p>
 <ul>
 <li>Compile</li>
 </ul>
@@ -1390,50 +1392,50 @@ OpenGL Mesa 3D
 <p>  /etc/init.d/iscsi-target start<br>  /etc/init.d/iscsi-target stop</p>
 </li>
 </ul>
-<h3 id="iet基本配置和命令"><a href="#iet基本配置和命令" class="headerlink" title="iet基本配置和命令"></a>iet基本配置和命令</h3><p><strong>iet主要配置</strong></p>
-<p>主要包括以下配置文件</p>
-<pre><code>/etc/ietd.conf ：iet的主配置文件
-/etc/initiators.allow：控制initiator对target的访问权限
-/etc/initiators.deny：控制initiator对target的访问权限
-/etc/targets.allow：控制不同target的被访问权限
-</code></pre><p>通过/etc/ietd.conf, iet实现iSCSI Target的基本功能.</p>
-<p>iSCSI Target的命名，命名在同一子网内应该是唯一。</p>
-<pre><code>Target  target名称
-其中：
-target 名称：是iSCSI Target名称。一般iSCSI Target命名采用
-    “iqn.yyyy-mm.&lt;reversed domain name&gt;: identifier 识别代号”的格式。
-</code></pre><p>将块设备、文件、LVM卷、RAID卷作为块设备映射给iSCSI initiator使用。 </p>
+<h3 id="iet&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x548C;&#x547D;&#x4EE4;"><a href="#iet&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x548C;&#x547D;&#x4EE4;" class="headerlink" title="iet&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x548C;&#x547D;&#x4EE4;"></a>iet&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x548C;&#x547D;&#x4EE4;</h3><p><strong>iet&#x4E3B;&#x8981;&#x914D;&#x7F6E;</strong></p>
+<p>&#x4E3B;&#x8981;&#x5305;&#x62EC;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code>/etc/ietd.conf &#xFF1A;iet&#x7684;&#x4E3B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
+/etc/initiators.allow&#xFF1A;&#x63A7;&#x5236;initiator&#x5BF9;target&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;
+/etc/initiators.deny&#xFF1A;&#x63A7;&#x5236;initiator&#x5BF9;target&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;
+/etc/targets.allow&#xFF1A;&#x63A7;&#x5236;&#x4E0D;&#x540C;target&#x7684;&#x88AB;&#x8BBF;&#x95EE;&#x6743;&#x9650;
+</code></pre><p>&#x901A;&#x8FC7;/etc/ietd.conf, iet&#x5B9E;&#x73B0;iSCSI Target&#x7684;&#x57FA;&#x672C;&#x529F;&#x80FD;.</p>
+<p>iSCSI Target&#x7684;&#x547D;&#x540D;&#xFF0C;&#x547D;&#x540D;&#x5728;&#x540C;&#x4E00;&#x5B50;&#x7F51;&#x5185;&#x5E94;&#x8BE5;&#x662F;&#x552F;&#x4E00;&#x3002;</p>
+<pre><code>Target  target&#x540D;&#x79F0;
+&#x5176;&#x4E2D;&#xFF1A;
+target &#x540D;&#x79F0;&#xFF1A;&#x662F;iSCSI Target&#x540D;&#x79F0;&#x3002;&#x4E00;&#x822C;iSCSI Target&#x547D;&#x540D;&#x91C7;&#x7528;
+    &#x201C;iqn.yyyy-mm.&lt;reversed domain name&gt;: identifier &#x8BC6;&#x522B;&#x4EE3;&#x53F7;&#x201D;&#x7684;&#x683C;&#x5F0F;&#x3002;
+</code></pre><p>&#x5C06;&#x5757;&#x8BBE;&#x5907;&#x3001;&#x6587;&#x4EF6;&#x3001;LVM&#x5377;&#x3001;RAID&#x5377;&#x4F5C;&#x4E3A;&#x5757;&#x8BBE;&#x5907;&#x6620;&#x5C04;&#x7ED9;iSCSI initiator&#x4F7F;&#x7528;&#x3002; </p>
 <pre><code>Lun  &lt;lunID&gt; Path=&lt;device&gt;,Type=fileio|blockio[,IOMode=(wb|ro)]
-其中：
-&lt;lunID&gt;：是Lun的编号从0开始，最大2^14-1。
-Path=&lt;device&gt;：指定块设备。可以使用dd命令生成一个文件。
-Type=fileio|blockio：指定块设备类型，分区及dd命令生成的文件使用fileio类型；
-    LVM卷、RAID卷使用blockio类型。
-IOMode=(wb|ro)：指定iSCSI initiator允许的操作，wb表示可读写；ro表示只读。
-</code></pre><p>配置完后重起iscsi-target，initiator即可连接使用.</p>
-<p><strong>iet其它配置</strong></p>
-<p>通过命令方式配置的iSCSI Target在重启后会失效。</p>
-<pre><code>添加一个新的Target。其中[id]为数字却必须唯一，Name需自定义，也要唯一。
+&#x5176;&#x4E2D;&#xFF1A;
+&lt;lunID&gt;&#xFF1A;&#x662F;Lun&#x7684;&#x7F16;&#x53F7;&#x4ECE;0&#x5F00;&#x59CB;&#xFF0C;&#x6700;&#x5927;2^14-1&#x3002;
+Path=&lt;device&gt;&#xFF1A;&#x6307;&#x5B9A;&#x5757;&#x8BBE;&#x5907;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;dd&#x547D;&#x4EE4;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x3002;
+Type=fileio|blockio&#xFF1A;&#x6307;&#x5B9A;&#x5757;&#x8BBE;&#x5907;&#x7C7B;&#x578B;&#xFF0C;&#x5206;&#x533A;&#x53CA;dd&#x547D;&#x4EE4;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x4F7F;&#x7528;fileio&#x7C7B;&#x578B;&#xFF1B;
+    LVM&#x5377;&#x3001;RAID&#x5377;&#x4F7F;&#x7528;blockio&#x7C7B;&#x578B;&#x3002;
+IOMode=(wb|ro)&#xFF1A;&#x6307;&#x5B9A;iSCSI initiator&#x5141;&#x8BB8;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;wb&#x8868;&#x793A;&#x53EF;&#x8BFB;&#x5199;&#xFF1B;ro&#x8868;&#x793A;&#x53EA;&#x8BFB;&#x3002;
+</code></pre><p>&#x914D;&#x7F6E;&#x5B8C;&#x540E;&#x91CD;&#x8D77;iscsi-target&#xFF0C;initiator&#x5373;&#x53EF;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;.</p>
+<p><strong>iet&#x5176;&#x5B83;&#x914D;&#x7F6E;</strong></p>
+<p>&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x65B9;&#x5F0F;&#x914D;&#x7F6E;&#x7684;iSCSI Target&#x5728;&#x91CD;&#x542F;&#x540E;&#x4F1A;&#x5931;&#x6548;&#x3002;</p>
+<pre><code>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Target&#x3002;&#x5176;&#x4E2D;[id]&#x4E3A;&#x6570;&#x5B57;&#x5374;&#x5FC5;&#x987B;&#x552F;&#x4E00;&#xFF0C;Name&#x9700;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C;&#x4E5F;&#x8981;&#x552F;&#x4E00;&#x3002;
 ietadm --op new --tid=[id] --params Name=iqn.zqin.example
 
-添加一个新的lun。其中[id]必须是一个已存在的tid号，[lun]从0开始。
+&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;lun&#x3002;&#x5176;&#x4E2D;[id]&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x5DF2;&#x5B58;&#x5728;&#x7684;tid&#x53F7;&#xFF0C;[lun]&#x4ECE;0&#x5F00;&#x59CB;&#x3002;
 ietadm --op new --tid=[id] --lun=[lun] --params Path=/path/exported/file,Type=fileio
-</code></pre><p><strong>iet常用命令</strong></p>
-<pre><code>查看当前iSCSI Target清单。 
+</code></pre><p><strong>iet&#x5E38;&#x7528;&#x547D;&#x4EE4;</strong></p>
+<pre><code>&#x67E5;&#x770B;&#x5F53;&#x524D;iSCSI Target&#x6E05;&#x5355;&#x3002; 
 cat /proc/net/iet/volume
 
-查看当前服务器iSCSI Target服务以及连接状态命令
+&#x67E5;&#x770B;&#x5F53;&#x524D;&#x670D;&#x52A1;&#x5668;iSCSI Target&#x670D;&#x52A1;&#x4EE5;&#x53CA;&#x8FDE;&#x63A5;&#x72B6;&#x6001;&#x547D;&#x4EE4;
 cat /proc/net/iet/sessions
 
-停止某个Target 的某个 Connection 的连接。
+&#x505C;&#x6B62;&#x67D0;&#x4E2A;Target &#x7684;&#x67D0;&#x4E2A; Connection &#x7684;&#x8FDE;&#x63A5;&#x3002;
 ietadm --op delete --tid=2 --sid=562950876233792 --cid=1  &amp;&amp; ietadm --op delete --tid=2
 
-停止所有Target 的连接。
+&#x505C;&#x6B62;&#x6240;&#x6709;Target &#x7684;&#x8FDE;&#x63A5;&#x3002;
 ietadm --op delete
 
-删除某个Target （已经没有 Session 连接的）。
+&#x5220;&#x9664;&#x67D0;&#x4E2A;Target &#xFF08;&#x5DF2;&#x7ECF;&#x6CA1;&#x6709; Session &#x8FDE;&#x63A5;&#x7684;&#xFF09;&#x3002;
 ietadm --op delete --tid= 1
-</code></pre><p><strong>完整操作如下</strong>:</p>
+</code></pre><p><strong>&#x5B8C;&#x6574;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;</strong>:</p>
 <pre><code>[root@ ~]# dd if=/dev/zero of=/root/iscsi.disk bs=1M count=1024
 1024+0 records in
 1024+0 records out
@@ -1461,28 +1463,28 @@ Stopping iSCSI Target:                                     [  OK  ]
 Starting iSCSI Target: FATAL: Error inserting crc32c_intel (/lib/modules/2.6
 .32-279.el6.x86_64/kernel/arch/x86/crypto/crc32c-intel.ko): No such device
                                                            [  OK  ]
-</code></pre><p>上面的错误是因为centos 6.3, kernel 2.6.32-279.el6.x86_64, 该版本已不需要<br>crc32c_intel.ko模块，可以过屏蔽脚本<code>/etc/init.d/iscsi-target</code>中的<br><code>modprobe -q crc32</code>来解决该错误信息。</p>
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x662F;&#x56E0;&#x4E3A;centos 6.3, kernel 2.6.32-279.el6.x86_64, &#x8BE5;&#x7248;&#x672C;&#x5DF2;&#x4E0D;&#x9700;&#x8981;<br>crc32c_intel.ko&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x8FC7;&#x5C4F;&#x853D;&#x811A;&#x672C;<code>/etc/init.d/iscsi-target</code>&#x4E2D;&#x7684;<br><code>modprobe -q crc32</code>&#x6765;&#x89E3;&#x51B3;&#x8BE5;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</p>
 <pre><code>[root@ ~]# /etc/init.d/iscsi-target restart
 Stopping iSCSI Target:                                     [  OK  ]
 Starting iSCSI Target:                                     [  OK  ]
 [root@ ~]# service iscsi-target status
 iSCSI Target (pid 12147) is running...
-</code></pre><h3 id="iSCSI-initiator"><a href="#iSCSI-initiator" class="headerlink" title="iSCSI initiator"></a>iSCSI initiator</h3><p>安装 <code>yum install iscsi-initiator-utils</code></p>
-<p>iscsiadm是基于命令行的iscsi管理工具，提供对iscsi节点、会话、连接以及发现记录的操作。<br>涉及的主要操作如下:</p>
+</code></pre><h3 id="iscsi-initiator"><a href="#iSCSI-initiator" class="headerlink" title="iSCSI initiator"></a>iSCSI initiator</h3><p>&#x5B89;&#x88C5; <code>yum install iscsi-initiator-utils</code></p>
+<p>iscsiadm&#x662F;&#x57FA;&#x4E8E;&#x547D;&#x4EE4;&#x884C;&#x7684;iscsi&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x63D0;&#x4F9B;&#x5BF9;iscsi&#x8282;&#x70B9;&#x3001;&#x4F1A;&#x8BDD;&#x3001;&#x8FDE;&#x63A5;&#x4EE5;&#x53CA;&#x53D1;&#x73B0;&#x8BB0;&#x5F55;&#x7684;&#x64CD;&#x4F5C;&#x3002;<br>&#x6D89;&#x53CA;&#x7684;&#x4E3B;&#x8981;&#x64CD;&#x4F5C;&#x5982;&#x4E0B;:</p>
 <ol>
-<li>发现iscsi存储: iscsiadm -m discovery -t st -p ISCSI_IP</li>
-<li>查看iscsi发现记录 iscsiadm -m node</li>
-<li>删除iscsi发现记录 iscsiadm -m node -o delete -T LUN_NAME -p ISCSI_IP</li>
-<li>登录iscsi存储 iscsiadm -m node -T LUN_NAME -p ISCSI_IP -l</li>
-<li>登出iscsi存储 iscsiadm -m node -T LUN_NAME -p ISCSI_IP -u</li>
-<li>登录全部iscsi存储 iscsiadm -m node -L all</li>
-<li>登出全部iscsi存储 iscsiadm -m node -U all</li>
-<li>查看session iscsiadm -m session</li>
-<li><p>设置CHAP, vim /etc/iscsi/iscsid.conf, 或这使用下面的命令设置: </p>
-<p>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 -o update –name node.session.auth.authmethod –value=CHAP<br>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 -o update –name node.session.auth.username –value=alan<br>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 -o update –name node.session.auth.password –value=123555<br>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 –login<br>注意:<br>要先使用发现discovery，然后才能登陆login，否则会出现错误“iscsiadm: No records found”</p>
+<li>&#x53D1;&#x73B0;iscsi&#x5B58;&#x50A8;: iscsiadm -m discovery -t st -p ISCSI_IP</li>
+<li>&#x67E5;&#x770B;iscsi&#x53D1;&#x73B0;&#x8BB0;&#x5F55; iscsiadm -m node</li>
+<li>&#x5220;&#x9664;iscsi&#x53D1;&#x73B0;&#x8BB0;&#x5F55; iscsiadm -m node -o delete -T LUN_NAME -p ISCSI_IP</li>
+<li>&#x767B;&#x5F55;iscsi&#x5B58;&#x50A8; iscsiadm -m node -T LUN_NAME -p ISCSI_IP -l</li>
+<li>&#x767B;&#x51FA;iscsi&#x5B58;&#x50A8; iscsiadm -m node -T LUN_NAME -p ISCSI_IP -u</li>
+<li>&#x767B;&#x5F55;&#x5168;&#x90E8;iscsi&#x5B58;&#x50A8; iscsiadm -m node -L all</li>
+<li>&#x767B;&#x51FA;&#x5168;&#x90E8;iscsi&#x5B58;&#x50A8; iscsiadm -m node -U all</li>
+<li>&#x67E5;&#x770B;session iscsiadm -m session</li>
+<li><p>&#x8BBE;&#x7F6E;CHAP, vim /etc/iscsi/iscsid.conf, &#x6216;&#x8FD9;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8BBE;&#x7F6E;: </p>
+<p>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 -o update &#x2013;name node.session.auth.authmethod &#x2013;value=CHAP<br>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 -o update &#x2013;name node.session.auth.username &#x2013;value=alan<br>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 -o update &#x2013;name node.session.auth.password &#x2013;value=123555<br>   [root@localhost ~]# iscsiadm -m node -T iqn.2007-10.lio.com:dg3.liolv1 -p 172.16.130.100 &#x2013;login<br>&#x6CE8;&#x610F;:<br>&#x8981;&#x5148;&#x4F7F;&#x7528;&#x53D1;&#x73B0;discovery&#xFF0C;&#x7136;&#x540E;&#x624D;&#x80FD;&#x767B;&#x9646;login&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#x201C;iscsiadm: No records found&#x201D;</p>
 </li>
 </ol>
-<p>下面是详细的操作：(<strong>注意:括号内容为注释说明</strong>)</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x8BE6;&#x7EC6;&#x7684;&#x64CD;&#x4F5C;&#xFF1A;(<strong>&#x6CE8;&#x610F;:&#x62EC;&#x53F7;&#x5185;&#x5BB9;&#x4E3A;&#x6CE8;&#x91CA;&#x8BF4;&#x660E;</strong>)</p>
 <pre><code>[root@localhost dennis]# fdisk -l
 
 Disk /dev/sda: 149 GiB, 160000000000 bytes, 312500000 sectors
@@ -1496,7 +1498,7 @@ Device    Boot     Start       End    Blocks  Id System
 /dev/sda1 *         2048   1026047    512000  83 Linux
 /dev/sda2        1026048 312498175 155736064  8e Linux LVM
 
-(...此处省略不必要的内容...)
+(...&#x6B64;&#x5904;&#x7701;&#x7565;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5185;&#x5BB9;...)
 [root@localhost dennis]# iscsiadm -m discovery -t st -p 172.16.110.10
 172.16.110.10:3260,1 iqn.2014-06.com.matrix:storage.515.disk
 [root@localhost dennis]# iscsiadm -m node -T iqn.2014-06.com.matrix:storage.515.disk -p 172.16.110.10 -l
@@ -1515,8 +1517,8 @@ Device    Boot     Start       End    Blocks  Id System
 /dev/sda1 *         2048   1026047    512000  83 Linux
 /dev/sda2        1026048 312498175 155736064  8e Linux LVM
 
-(...此处省略不必要的内容...)
-(成功连接后,多出一块磁盘/dev/sdb，大小刚好是前面dd创建的1G文件)
+(...&#x6B64;&#x5904;&#x7701;&#x7565;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5185;&#x5BB9;...)
+(&#x6210;&#x529F;&#x8FDE;&#x63A5;&#x540E;,&#x591A;&#x51FA;&#x4E00;&#x5757;&#x78C1;&#x76D8;/dev/sdb&#xFF0C;&#x5927;&#x5C0F;&#x521A;&#x597D;&#x662F;&#x524D;&#x9762;dd&#x521B;&#x5EFA;&#x7684;1G&#x6587;&#x4EF6;)
 Disk /dev/sdb: 1 GiB, 1073741824 bytes, 2097152 sectors
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -1526,12 +1528,12 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Logging out of session [sid: 1, target: iqn.2014-06.com.matrix:storage.515.disk, portal: 172.16.110.10,3260]
 Logout of [sid: 1, target: iqn.2014-06.com.matrix:storage.515.disk, portal: 172.16.110.10,3260] successful.
 [root@localhost dennis]# 
-</code></pre><p>连接成功后，iet端显示如下：</p>
+</code></pre><p>&#x8FDE;&#x63A5;&#x6210;&#x529F;&#x540E;&#xFF0C;iet&#x7AEF;&#x663E;&#x793A;&#x5982;&#x4E0B;&#xFF1A;</p>
 <pre><code>[root@ ~]# cat /proc/net/iet/session
 tid:1 name:iqn.2014-06.com.matrix:storage.515.disk
     sid:562949990973952 initiator:iqn.1994-05.com.redhat:7d366003913
         cid:0 ip:172.16.50.39 state:active hd:none dd:none    tip:172.16.110.10
-</code></pre><p>第一次连接时，磁盘是还没有分区化, 磁盘分区：</p>
+</code></pre><p>&#x7B2C;&#x4E00;&#x6B21;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x78C1;&#x76D8;&#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x5206;&#x533A;&#x5316;, &#x78C1;&#x76D8;&#x5206;&#x533A;&#xFF1A;</p>
 <pre><code>[root@localhost dennis]# fdisk /dev/sdb
 
 Welcome to fdisk (util-linux 2.24.2).
@@ -1615,7 +1617,7 @@ Device    Boot     Start       End    Blocks  Id System
 /dev/sda1 *         2048   1026047    512000  83 Linux
 /dev/sda2        1026048 312498175 155736064  8e Linux LVM
 
-(...此处省略不必要的内容...)
+(...&#x6B64;&#x5904;&#x7701;&#x7565;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5185;&#x5BB9;...)
 
 Disk /dev/sdb: 1 GiB, 1073741824 bytes, 2097152 sectors
 Units: sectors of 1 * 512 = 512 bytes
@@ -1626,7 +1628,7 @@ Disk identifier: 22C002F1-D9F7-4E4C-8F89-9EFEBB971A1D
 
 Device    Start          End   Size Type
 /dev/sdb1  2048      2097118  1023M Linux filesystem
-</code></pre><p>分区完毕后，对磁盘该分区进行格式化：</p>
+</code></pre><p>&#x5206;&#x533A;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x5BF9;&#x78C1;&#x76D8;&#x8BE5;&#x5206;&#x533A;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#xFF1A;</p>
 <pre><code>[root@localhost dennis]# mkfs.ext3 /dev/sdb1
 mke2fs 1.42.8 (20-Jun-2013)
 Filesystem label=
@@ -1648,7 +1650,7 @@ Allocating group tables: done
 Writing inode tables: done                            
 Creating journal (4096 blocks): done
 Writing superblocks and filesystem accounting information: done
-</code></pre><p>格式化完毕后,进行挂载，然后就可以像对待本地目录一样进行相关操作了(拷贝、删除等)<br><strong>注：下一次登陆iscsi卷后，不用进行分区、格式化了，直接挂载就可以使用了</strong></p>
+</code></pre><p>&#x683C;&#x5F0F;&#x5316;&#x5B8C;&#x6BD5;&#x540E;,&#x8FDB;&#x884C;&#x6302;&#x8F7D;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x5BF9;&#x5F85;&#x672C;&#x5730;&#x76EE;&#x5F55;&#x4E00;&#x6837;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#x4E86;(&#x62F7;&#x8D1D;&#x3001;&#x5220;&#x9664;&#x7B49;)<br><strong>&#x6CE8;&#xFF1A;&#x4E0B;&#x4E00;&#x6B21;&#x767B;&#x9646;iscsi&#x5377;&#x540E;&#xFF0C;&#x4E0D;&#x7528;&#x8FDB;&#x884C;&#x5206;&#x533A;&#x3001;&#x683C;&#x5F0F;&#x5316;&#x4E86;&#xFF0C;&#x76F4;&#x63A5;&#x6302;&#x8F7D;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;</strong></p>
 <pre><code>[root@localhost dennis]# mkdir /mnt/iscsi
 [root@localhost dennis]# mount /dev/sdb1 /mnt/iscsi
 [root@localhost dennis]# ls /mnt/iscsi/
@@ -1659,7 +1661,7 @@ total 74M
 drwx------. 2 root root 16K Jun 27 12:10 lost+found
 -rw-r--r--. 1 root root 74M Jun 27 12:13 VirtualBox-4.3-4.3.12_93733_fedora18-1.x86_64.rpm
 [root@localhost dennis]# 
-</code></pre><h3 id="Initiator-for-windows"><a href="#Initiator-for-windows" class="headerlink" title="Initiator for windows"></a>Initiator for windows</h3><p>login with batch script </p>
+</code></pre><h3 id="initiator-for-windows"><a href="#Initiator-for-windows" class="headerlink" title="Initiator for windows"></a>Initiator for windows</h3><p>login with batch script </p>
 <pre><code>@echo off
 for /l %%j in (1,1,2) do (
     for /l %%k in (0,1,49) do (
@@ -1667,10 +1669,10 @@ for /l %%j in (1,1,2) do (
     )
 )
 pause
-</code></pre><p>使用用户名(aa0~aa49)和密码(123456789012)登陆:</p>
+</code></pre><p>&#x4F7F;&#x7528;&#x7528;&#x6237;&#x540D;(aa0~aa49)&#x548C;&#x5BC6;&#x7801;(123456789012)&#x767B;&#x9646;:</p>
 <pre><code>iscsicli logintarget iqn.2007-10.cbxa.com:r5%%j.aa%%k T 192.168.166.100 3260 * * * * * * * * * aa%%k 123456789012  1 * 0
-</code></pre><h3 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h3><p><img src="/assets/image/posts/iscsi/iscsi_010.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_011.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_026.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_027.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_028.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_029.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_030.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_031.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_032.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_033.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_034.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_035.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_036.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_037.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_038.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_039.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_040.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_041.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_042.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_043.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_044.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_045.png" alt=""></p>
-<h3 id="iSCSI-initiator与iSCSI-target："><a href="#iSCSI-initiator与iSCSI-target：" class="headerlink" title="iSCSI initiator与iSCSI target："></a>iSCSI initiator与iSCSI target：</h3><ol>
+</code></pre><h3 id="protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h3><p><img src="/assets/image/posts/iscsi/iscsi_010.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_011.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_026.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_027.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_028.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_029.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_030.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_031.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_032.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_033.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_034.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_035.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_036.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_037.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_038.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_039.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_040.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_041.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_042.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_043.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_044.png" alt=""><br><img src="/assets/image/posts/iscsi/iscsi_045.png" alt=""></p>
+<h3 id="iscsi-initiator&#x4E0E;iscsi-target"><a href="#iSCSI-initiator&#x4E0E;iSCSI-target&#xFF1A;" class="headerlink" title="iSCSI initiator&#x4E0E;iSCSI target&#xFF1A;"></a>iSCSI initiator&#x4E0E;iSCSI target&#xFF1A;</h3><ol>
 <li><a href="http://unh-iscsi.sourceforge.net/" target="_blank" rel="external">UNH iSCSI</a></li>
 <li><a href="http://iscsitarget.sourceforge.net/" target="_blank" rel="external">iSCSI Enterprise Target</a></li>
 <li><a href="http://sourceforge.net/projects/intel-iscsi/" target="_blank" rel="external">intel iSCSI</a></li>
@@ -1680,38 +1682,38 @@ pause
 <li>Microsoft Storage 2003</li>
 <li><a href="http://www.starwindsoftware.com/" target="_blank" rel="external">StarWind</a></li>
 </ol>
-<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><ol>
-<li><p>防火墙链接限制，外界无法访问Target服务器3260端口。<br> 请在防火墙上手动放开3260端口，或者有条件的话干脆关闭防火墙。<br> 更改防火墙配置并重启生效<br> vi /etc/sysconfig/iptables<br> server iptable restart  </p>
+<h3 id="faq"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><ol>
+<li><p>&#x9632;&#x706B;&#x5899;&#x94FE;&#x63A5;&#x9650;&#x5236;&#xFF0C;&#x5916;&#x754C;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;Target&#x670D;&#x52A1;&#x5668;3260&#x7AEF;&#x53E3;&#x3002;<br> &#x8BF7;&#x5728;&#x9632;&#x706B;&#x5899;&#x4E0A;&#x624B;&#x52A8;&#x653E;&#x5F00;3260&#x7AEF;&#x53E3;&#xFF0C;&#x6216;&#x8005;&#x6709;&#x6761;&#x4EF6;&#x7684;&#x8BDD;&#x5E72;&#x8106;&#x5173;&#x95ED;&#x9632;&#x706B;&#x5899;&#x3002;<br> &#x66F4;&#x6539;&#x9632;&#x706B;&#x5899;&#x914D;&#x7F6E;&#x5E76;&#x91CD;&#x542F;&#x751F;&#x6548;<br> vi /etc/sysconfig/iptables<br> server iptable restart  </p>
 <p> service iptables stop<br> setenforce 0  </p>
 </li>
-<li><p>共享的路径都可以有哪些？<br> 在IET的技术文档中规定，以下几种路径是被支持的：  </p>
-<pre><code>1)一个完整的 block 磁盘，比如/dev/sdb 。  
-2)一个RAID设备或者是一个LVM.  
-3)一个虚拟的镜像文件, 如dd使用创建.  
+<li><p>&#x5171;&#x4EAB;&#x7684;&#x8DEF;&#x5F84;&#x90FD;&#x53EF;&#x4EE5;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;<br> &#x5728;IET&#x7684;&#x6280;&#x672F;&#x6587;&#x6863;&#x4E2D;&#x89C4;&#x5B9A;&#xFF0C;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x8DEF;&#x5F84;&#x662F;&#x88AB;&#x652F;&#x6301;&#x7684;&#xFF1A;  </p>
+<pre><code>1)&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684; block &#x78C1;&#x76D8;&#xFF0C;&#x6BD4;&#x5982;/dev/sdb &#x3002;  
+2)&#x4E00;&#x4E2A;RAID&#x8BBE;&#x5907;&#x6216;&#x8005;&#x662F;&#x4E00;&#x4E2A;LVM.  
+3)&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x7684;&#x955C;&#x50CF;&#x6587;&#x4EF6;, &#x5982;dd&#x4F7F;&#x7528;&#x521B;&#x5EFA;.  
 </code></pre></li>
-<li><p>“iscsiadm:No portals found”.   </p>
+<li><p>&#x201C;iscsiadm:No portals found&#x201D;.   </p>
 <ul>
-<li>可能服务没有启动：重启iscsid服务, <code>service iscsi start</code> </li>
-<li>可能存储端没有允许当前ip访问：</li>
+<li>&#x53EF;&#x80FD;&#x670D;&#x52A1;&#x6CA1;&#x6709;&#x542F;&#x52A8;&#xFF1A;&#x91CD;&#x542F;iscsid&#x670D;&#x52A1;, <code>service iscsi start</code> </li>
+<li>&#x53EF;&#x80FD;&#x5B58;&#x50A8;&#x7AEF;&#x6CA1;&#x6709;&#x5141;&#x8BB8;&#x5F53;&#x524D;ip&#x8BBF;&#x95EE;&#xFF1A;</li>
 </ul>
 </li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.cnblogs.com/yunnotes/archive/2013/04/19/3032488.html" target="_blank" rel="external">iSCSI学习总结</a></li>
-<li><a href="http://tech.watchstor.com/storage-network-130569.htm" target="_blank" rel="external">★★★如何正确使用iSCSI Enterprise Target</a></li>
-<li><a href="http://www.doc88.com/p-51666752050.html" target="_blank" rel="external">iSCSI协议解析★★★</a></li>
-<li><a href="http://www.h3c.com.cn/Solution/Multimedia_Communicate/Video_Surveillance_Storage/How_Do_I_Do_It/White_Paper/201008/686814_30004_0.htm" target="_blank" rel="external">iSCSI技术白皮书★★★</a></li>
-<li><a href="http://www.sansky.net/article/2007-12-03-iscsi-storage.html" target="_blank" rel="external">iSCSI存储技术全攻略</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_5c0153620100g7e2.html" target="_blank" rel="external">Linux下iSCSI安装步骤</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.cnblogs.com/yunnotes/archive/2013/04/19/3032488.html" target="_blank" rel="external">iSCSI&#x5B66;&#x4E60;&#x603B;&#x7ED3;</a></li>
+<li><a href="http://tech.watchstor.com/storage-network-130569.htm" target="_blank" rel="external">&#x2605;&#x2605;&#x2605;&#x5982;&#x4F55;&#x6B63;&#x786E;&#x4F7F;&#x7528;iSCSI Enterprise Target</a></li>
+<li><a href="http://www.doc88.com/p-51666752050.html" target="_blank" rel="external">iSCSI&#x534F;&#x8BAE;&#x89E3;&#x6790;&#x2605;&#x2605;&#x2605;</a></li>
+<li><a href="http://www.h3c.com.cn/Solution/Multimedia_Communicate/Video_Surveillance_Storage/How_Do_I_Do_It/White_Paper/201008/686814_30004_0.htm" target="_blank" rel="external">iSCSI&#x6280;&#x672F;&#x767D;&#x76AE;&#x4E66;&#x2605;&#x2605;&#x2605;</a></li>
+<li><a href="http://www.sansky.net/article/2007-12-03-iscsi-storage.html" target="_blank" rel="external">iSCSI&#x5B58;&#x50A8;&#x6280;&#x672F;&#x5168;&#x653B;&#x7565;</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_5c0153620100g7e2.html" target="_blank" rel="external">Linux&#x4E0B;iSCSI&#x5B89;&#x88C5;&#x6B65;&#x9AA4;</a></li>
 <li><a href="http://kissthink.com/archive/4379.html" target="_blank" rel="external">ET - iSCSI Enterprise Target</a></li>
-<li><a href="http://lynnkong.iteye.com/blog/1806470" target="_blank" rel="external">存储基础知识学习笔记</a></li>
-<li><a href="http://storage.cnw.com.cn/storage-virtualization/htm2012/20121210_260295.shtml" target="_blank" rel="external">解析iSCSI存储系统的未来发展</a></li>
-<li><a href="http://sunshyfangtian.blog.51cto.com/1405751/560162/" target="_blank" rel="external">CentOS5 iSCSI部署</a></li>
+<li><a href="http://lynnkong.iteye.com/blog/1806470" target="_blank" rel="external">&#x5B58;&#x50A8;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;</a></li>
+<li><a href="http://storage.cnw.com.cn/storage-virtualization/htm2012/20121210_260295.shtml" target="_blank" rel="external">&#x89E3;&#x6790;iSCSI&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x7684;&#x672A;&#x6765;&#x53D1;&#x5C55;</a></li>
+<li><a href="http://sunshyfangtian.blog.51cto.com/1405751/560162/" target="_blank" rel="external">CentOS5 iSCSI&#x90E8;&#x7F72;</a></li>
 <li><a href="http://www.storage-conference.org/2003/papers/19-Meth-Design.pdf" target="_blank" rel="external">Design of the ISCSI Protocol</a></li>
-<li><a href="http://pmghong.blog.163.com/blog/static/2146602802012111505853540/" target="_blank" rel="external">iSCSI 二 – 搭建基于iSCSI的IP SAN存储系统</a></li>
-<li><a href="http://blog.csdn.net/do2jiang/article/details/5144706" target="_blank" rel="external">ISCSI Target的常用配置和常用操作-备忘</a></li>
-<li><a href="http://blog.csdn.net/vah101/article/details/6300197" target="_blank" rel="external">Linux下应用tgtadm构建iSCSI Target–SAN</a></li>
-<li><a href="http://www.2cto.com/os/201202/119963.html" target="_blank" rel="external">详解Linux下挂载和格式化虚拟磁盘</a></li>
+<li><a href="http://pmghong.blog.163.com/blog/static/2146602802012111505853540/" target="_blank" rel="external">iSCSI &#x4E8C; &#x2013; &#x642D;&#x5EFA;&#x57FA;&#x4E8E;iSCSI&#x7684;IP SAN&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="http://blog.csdn.net/do2jiang/article/details/5144706" target="_blank" rel="external">ISCSI Target&#x7684;&#x5E38;&#x7528;&#x914D;&#x7F6E;&#x548C;&#x5E38;&#x7528;&#x64CD;&#x4F5C;-&#x5907;&#x5FD8;</a></li>
+<li><a href="http://blog.csdn.net/vah101/article/details/6300197" target="_blank" rel="external">Linux&#x4E0B;&#x5E94;&#x7528;tgtadm&#x6784;&#x5EFA;iSCSI Target&#x2013;SAN</a></li>
+<li><a href="http://www.2cto.com/os/201202/119963.html" target="_blank" rel="external">&#x8BE6;&#x89E3;Linux&#x4E0B;&#x6302;&#x8F7D;&#x548C;&#x683C;&#x5F0F;&#x5316;&#x865A;&#x62DF;&#x78C1;&#x76D8;</a></li>
 </ul>
 
       
@@ -1720,6 +1722,8 @@ pause
       <a data-url="http://matrix207.github.com/2014/06/24/iscsi/" data-id="cin61d0k4008bfyiz8o4ra43y" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
+
     </footer>
   </div>
   
@@ -1816,7 +1820,7 @@ pause
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="iSCSI-Enterprise-Target"><a href="#iSCSI-Enterprise-Target" class="headerlink" title="iSCSI Enterprise Target"></a>iSCSI Enterprise Target</h2><h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><pre><code>SCSI     : small computer system interface
+        <h2 id="iscsi-enterprise-target"><a href="#iSCSI-Enterprise-Target" class="headerlink" title="iSCSI Enterprise Target"></a>iSCSI Enterprise Target</h2><h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><pre><code>SCSI     : small computer system interface
 iSCSI    : Internet SCSI
 Initiator:
 Target   :
@@ -1853,7 +1857,7 @@ Target   :
 </ul>
 </li>
 </ol>
-<h3 id="Code-flow"><a href="#Code-flow" class="headerlink" title="Code flow"></a>Code flow</h3><ol>
+<h3 id="code-flow"><a href="#Code-flow" class="headerlink" title="Code flow"></a>Code flow</h3><ol>
 <li>Login phase</li>
 <li>Data execute of text phase</li>
 <li>logout pahse<ul>
@@ -1865,7 +1869,7 @@ Target   :
 </ul>
 </li>
 </ol>
-<h3 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h3><ul>
+<h3 id="source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h3><ul>
 <li><p>source:</p>
 </li>
 <li><p>build:</p>
@@ -1881,7 +1885,7 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_flow_control.patch
 patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
 </code></pre></li>
 </ul>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><h4 id="Kernel-module"><a href="#Kernel-module" class="headerlink" title="Kernel module"></a>Kernel module</h4><p>iscsi_trgt.ko</p>
+<h3 id="analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><h4 id="kernel-module"><a href="#Kernel-module" class="headerlink" title="Kernel module"></a>Kernel module</h4><p>iscsi_trgt.ko</p>
 <p>most of the work were done in kernel, such as data send and recv,<br>and the user mode do session create, author and login.</p>
 <p>sub-module list as below:</p>
 <ul>
@@ -1909,29 +1913,29 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
 </ul>
 </li>
 </ul>
-<h4 id="User-module"><a href="#User-module" class="headerlink" title="User module"></a>User module</h4><p>ietd daemon, manager tool for IET, function description:</p>
+<h4 id="user-module"><a href="#User-module" class="headerlink" title="User module"></a>User module</h4><p>ietd daemon, manager tool for IET, function description:</p>
 <ul>
 <li>configuration, such as port, uid, gid and so on.</li>
 <li>read config info from /etc/ietd.conf, and send to kernel module </li>
 </ul>
-<h4 id="iSCSI-mod"><a href="#iSCSI-mod" class="headerlink" title="iSCSI mod"></a>iSCSI mod</h4><ul>
+<h4 id="iscsi-mod"><a href="#iSCSI-mod" class="headerlink" title="iSCSI mod"></a>iSCSI mod</h4><ul>
 <li>blockio<br>translate network data to struct tio, then handle by<br>blockio_make_request from block_io.c, submit_bio to<br>common layer after generate bio </li>
 <li>fileio<br>still use VFS, and do system call read/write to operate data.</li>
 <li>functional description  </li>
 </ul>
-<h3 id="How-IET-add-lun"><a href="#How-IET-add-lun" class="headerlink" title="How IET add lun?"></a>How IET add lun?</h3><p>加入volume有两种方式:</p>
+<h3 id="how-iet-add-lun"><a href="#How-IET-add-lun" class="headerlink" title="How IET add lun?"></a>How IET add lun?</h3><p>&#x52A0;&#x5165;volume&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;:</p>
 <ol>
-<li>通过配置文件ietd.conf</li>
-<li>通过ietdadm命令，使用<code>--op new --tid=[id] --lun=[lun] --params Path=[path]</code>参数</li>
+<li>&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;ietd.conf</li>
+<li>&#x901A;&#x8FC7;ietdadm&#x547D;&#x4EE4;&#xFF0C;&#x4F7F;&#x7528;<code>--op new --tid=[id] --lun=[lun] --params Path=[path]</code>&#x53C2;&#x6570;</li>
 </ol>
-<p>第一种方式的流程如下: (用户态)<br><code>plain_init() -&gt; __plain_lunit_create -&gt; ki-&gt;lunit_create -&gt; iscsi_lunit_create -&gt; ioctl(ctrl_fd, ADD_VOLUME, &amp;info)</code></p>
-<p>第二种方式的流程如下: (用户态)<br><code>ietadm_request_exec -&gt; cops-&gt;lunit_add() -&gt; plain_lunit_create() -&gt; __plain_lunit_create</code>  后面同上</p>
-<p>核态部分相同:  </p>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;: (&#x7528;&#x6237;&#x6001;)<br><code>plain_init() -&gt; __plain_lunit_create -&gt; ki-&gt;lunit_create -&gt; iscsi_lunit_create -&gt; ioctl(ctrl_fd, ADD_VOLUME, &amp;info)</code></p>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;: (&#x7528;&#x6237;&#x6001;)<br><code>ietadm_request_exec -&gt; cops-&gt;lunit_add() -&gt; plain_lunit_create() -&gt; __plain_lunit_create</code>  &#x540E;&#x9762;&#x540C;&#x4E0A;</p>
+<p>&#x6838;&#x6001;&#x90E8;&#x5206;&#x76F8;&#x540C;:  </p>
 <ul>
 <li><code>config.c:add_volume -&gt; volume.c:volume_add -&gt; volume.c:parse_volume_params</code> </li>
-<li><code>volume.c:parse_volume_params</code> 函数检查发现是opt_iomode类型，  </li>
+<li><code>volume.c:parse_volume_params</code> &#x51FD;&#x6570;&#x68C0;&#x67E5;&#x53D1;&#x73B0;&#x662F;opt_iomode&#x7C7B;&#x578B;&#xFF0C;  </li>
 </ul>
-<h3 id="Type-IOMode-and-Sector-Setting"><a href="#Type-IOMode-and-Sector-Setting" class="headerlink" title="Type, IOMode and Sector Setting"></a>Type, IOMode and Sector Setting</h3><p>Run by the ietadm command as below:  </p>
+<h3 id="type-iomode-and-sector-setting"><a href="#Type-IOMode-and-Sector-Setting" class="headerlink" title="Type, IOMode and Sector Setting"></a>Type, IOMode and Sector Setting</h3><p>Run by the ietadm command as below:  </p>
 <ul>
 <li><code>ietadm --op new --tid=%d --lun=%d --params Path=/dev/%s/%s,IOMode=%s,Sector=%s,Type=%s</code><ul>
 <li><strong>IOMode</strong>: wb or wt or ro</li>
@@ -1956,38 +1960,38 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
 <p>Code analysis:  </p>
 <ul>
 <li><code>ietadm --op new --tid= --lun= --params</code><ul>
-<li>调用 ietadm.c:lunit_handle函数 -&gt;ietd_request函数 -&gt;ietd_request_send函数</li>
-<li>ietd.c的event_loop函数监听到有消息，执行message.c:ietadm_request_handle函数 </li>
-<li>message.c:ietadm_request_handle函数 -&gt; ietadm_request_exec函数<br>类型为C_LUNIT_NEW, 执行cops-&gt;lunit_add  </li>
+<li>&#x8C03;&#x7528; ietadm.c:lunit_handle&#x51FD;&#x6570; -&gt;ietd_request&#x51FD;&#x6570; -&gt;ietd_request_send&#x51FD;&#x6570;</li>
+<li>ietd.c&#x7684;event_loop&#x51FD;&#x6570;&#x76D1;&#x542C;&#x5230;&#x6709;&#x6D88;&#x606F;&#xFF0C;&#x6267;&#x884C;message.c:ietadm_request_handle&#x51FD;&#x6570; </li>
+<li>message.c:ietadm_request_handle&#x51FD;&#x6570; -&gt; ietadm_request_exec&#x51FD;&#x6570;<br>&#x7C7B;&#x578B;&#x4E3A;C_LUNIT_NEW, &#x6267;&#x884C;cops-&gt;lunit_add  </li>
 <li><code>plain.c:plain_lunit_create -&gt;__plain_lunit_create -&gt; ki-&gt;lunit_create</code> </li>
 <li><code>ctldev.c:iscsi_lunit_create -&gt; ioctl(ctrl_fd, ADD_VOLUME, &amp;info)</code> </li>
 <li><code>config.c:add_volume -&gt; volume.c:volume_add -&gt; volume.c:parse_volume_params</code> </li>
-<li><code>volume.c:parse_volume_params</code> 函数检查发现是opt_iomode类型，<br>如果是ro类型执行SetLUReadonly(volume);<br>如果是wb类型执行SetLUWCache(volume);<br>如果是wt类型则类型不可用  </li>
-<li>SetLUReadonly和SetLUWCache都在iscsi.h中定义，都只是修改struct iet_volume结构体中的flags的值。</li>
-<li>另外块大小blocksize保存在结构体struct iet_volume的blk_shift中,且块大小必须是<br>2的幂次方，大于等于512，小于4096. 注意保存的是2的幂的次数，即如果是1024，则blk_shift是10</li>
-<li>如果fileio,进入file-io.c:fileio_attach函数, 调用parse_fileio_params, 这里会忽略好些参数的值.<br>之用path参数会有处理。  </li>
-<li>如果blockio,进入block-io.c:blockio_attach函数, 调用parse_blockio_params, 这里会忽略好些参数的值.<br>之用path参数会有处理。  </li>
-<li>file-io.c 和 block-io.c要好好看看，这个逻辑卷到底怎么创建的.</li>
+<li><code>volume.c:parse_volume_params</code> &#x51FD;&#x6570;&#x68C0;&#x67E5;&#x53D1;&#x73B0;&#x662F;opt_iomode&#x7C7B;&#x578B;&#xFF0C;<br>&#x5982;&#x679C;&#x662F;ro&#x7C7B;&#x578B;&#x6267;&#x884C;SetLUReadonly(volume);<br>&#x5982;&#x679C;&#x662F;wb&#x7C7B;&#x578B;&#x6267;&#x884C;SetLUWCache(volume);<br>&#x5982;&#x679C;&#x662F;wt&#x7C7B;&#x578B;&#x5219;&#x7C7B;&#x578B;&#x4E0D;&#x53EF;&#x7528;  </li>
+<li>SetLUReadonly&#x548C;SetLUWCache&#x90FD;&#x5728;iscsi.h&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;&#x90FD;&#x53EA;&#x662F;&#x4FEE;&#x6539;struct iet_volume&#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x7684;flags&#x7684;&#x503C;&#x3002;</li>
+<li>&#x53E6;&#x5916;&#x5757;&#x5927;&#x5C0F;blocksize&#x4FDD;&#x5B58;&#x5728;&#x7ED3;&#x6784;&#x4F53;struct iet_volume&#x7684;blk_shift&#x4E2D;,&#x4E14;&#x5757;&#x5927;&#x5C0F;&#x5FC5;&#x987B;&#x662F;<br>2&#x7684;&#x5E42;&#x6B21;&#x65B9;&#xFF0C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;512&#xFF0C;&#x5C0F;&#x4E8E;4096. &#x6CE8;&#x610F;&#x4FDD;&#x5B58;&#x7684;&#x662F;2&#x7684;&#x5E42;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x5373;&#x5982;&#x679C;&#x662F;1024&#xFF0C;&#x5219;blk_shift&#x662F;10</li>
+<li>&#x5982;&#x679C;fileio,&#x8FDB;&#x5165;file-io.c:fileio_attach&#x51FD;&#x6570;, &#x8C03;&#x7528;parse_fileio_params, &#x8FD9;&#x91CC;&#x4F1A;&#x5FFD;&#x7565;&#x597D;&#x4E9B;&#x53C2;&#x6570;&#x7684;&#x503C;.<br>&#x4E4B;&#x7528;path&#x53C2;&#x6570;&#x4F1A;&#x6709;&#x5904;&#x7406;&#x3002;  </li>
+<li>&#x5982;&#x679C;blockio,&#x8FDB;&#x5165;block-io.c:blockio_attach&#x51FD;&#x6570;, &#x8C03;&#x7528;parse_blockio_params, &#x8FD9;&#x91CC;&#x4F1A;&#x5FFD;&#x7565;&#x597D;&#x4E9B;&#x53C2;&#x6570;&#x7684;&#x503C;.<br>&#x4E4B;&#x7528;path&#x53C2;&#x6570;&#x4F1A;&#x6709;&#x5904;&#x7406;&#x3002;  </li>
+<li>file-io.c &#x548C; block-io.c&#x8981;&#x597D;&#x597D;&#x770B;&#x770B;&#xFF0C;&#x8FD9;&#x4E2A;&#x903B;&#x8F91;&#x5377;&#x5230;&#x5E95;&#x600E;&#x4E48;&#x521B;&#x5EFA;&#x7684;.</li>
 </ul>
 </li>
 </ul>
 <p>Summary:</p>
 <ul>
-<li><strong>总结:</strong><ul>
-<li>Type: <strong>如果是fileio那么读写操作通过vfs请求完成，如果是blockio则读写操作直接构造bio请求</strong></li>
-<li>IOMode: <strong>如果是wb,    </strong></li>
+<li><strong>&#x603B;&#x7ED3;:</strong><ul>
+<li>Type: <strong>&#x5982;&#x679C;&#x662F;fileio&#x90A3;&#x4E48;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#x901A;&#x8FC7;vfs&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#xFF0C;&#x5982;&#x679C;&#x662F;blockio&#x5219;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x6784;&#x9020;bio&#x8BF7;&#x6C42;</strong></li>
+<li>IOMode: <strong>&#x5982;&#x679C;&#x662F;wb,    </strong></li>
 <li>Sector</li>
 </ul>
 </li>
 </ul>
-<h3 id="Other-iSCSI-implement"><a href="#Other-iSCSI-implement" class="headerlink" title="Other iSCSI implement"></a>Other iSCSI implement</h3><ul>
+<h3 id="other-iscsi-implement"><a href="#Other-iSCSI-implement" class="headerlink" title="Other iSCSI implement"></a>Other iSCSI implement</h3><ul>
 <li>open-iscsi, <a href="http://open-iscsi.org" target="_blank" rel="external">homepage</a>,<br><a href="https://github.com/mikechristie/open-iscsi" target="_blank" rel="external">source</a>,<br><a href="http://blog.chinaunix.net/uid-14518381-id-3237994.html" target="_blank" rel="external">code analysis</a></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://en.wikipedia.org/wiki/ISCSI" target="_blank" rel="external">ISCSI Wikipedia</a></li>
 <li><a href="http://iscsitarget.sourceforge.net" target="_blank" rel="external">iSCSITarget</a></li>
 <li><a href="http://sourceforge.net/projects/iscsitarget/files/iscsitarget/" target="_blank" rel="external">iSCSITarget download</a></li>
-<li><a href="http://blog.csdn.net/kidd_3/article/details/7670415" target="_blank" rel="external">iSCSI Enterprise Target的架构分析</a></li>
+<li><a href="http://blog.csdn.net/kidd_3/article/details/7670415" target="_blank" rel="external">iSCSI Enterprise Target&#x7684;&#x67B6;&#x6784;&#x5206;&#x6790;</a></li>
 </ul>
 
       
@@ -1996,6 +2000,8 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
       <a data-url="http://matrix207.github.com/2014/06/23/iscsi-enterprise-target/" data-id="cin61d0k5008cfyiztp1oujzf" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
+
     </footer>
   </div>
   
@@ -2075,7 +2081,7 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 12.5px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iscsi/" style="font-size: 20px;">iscsi</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -2113,7 +2119,7 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
           </li>
         
           <li>
-            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
       </ul>

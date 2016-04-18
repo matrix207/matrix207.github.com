@@ -1326,60 +1326,60 @@ write around: 只写入到持久存储。
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h4><ul>
-<li>Linux 2.6.38 为分界线，此前的标准是 Linux SCSI Target , STGT 之后迄今为止的<br>标准是 Linux-IO Target , LIO 确切的说 Linus Torvalds 在 2011年1月15日将<br>LIO SCSI Target engine merge 到 Linux 2.6.38 中</li>
-<li>暂时使用LIO作为IET替代，因为IET当前已不更新，最新版2010年。而LIO已进入内核，<br>怎么说这几年应该都会持续发展,属于主流应用。</li>
+        <h4 id="&#x5386;&#x53F2;"><a href="#&#x5386;&#x53F2;" class="headerlink" title="&#x5386;&#x53F2;"></a>&#x5386;&#x53F2;</h4><ul>
+<li>Linux 2.6.38 &#x4E3A;&#x5206;&#x754C;&#x7EBF;&#xFF0C;&#x6B64;&#x524D;&#x7684;&#x6807;&#x51C6;&#x662F; Linux SCSI Target , STGT &#x4E4B;&#x540E;&#x8FC4;&#x4ECA;&#x4E3A;&#x6B62;&#x7684;<br>&#x6807;&#x51C6;&#x662F; Linux-IO Target , LIO &#x786E;&#x5207;&#x7684;&#x8BF4; Linus Torvalds &#x5728; 2011&#x5E74;1&#x6708;15&#x65E5;&#x5C06;<br>LIO SCSI Target engine merge &#x5230; Linux 2.6.38 &#x4E2D;</li>
+<li>&#x6682;&#x65F6;&#x4F7F;&#x7528;LIO&#x4F5C;&#x4E3A;IET&#x66FF;&#x4EE3;&#xFF0C;&#x56E0;&#x4E3A;IET&#x5F53;&#x524D;&#x5DF2;&#x4E0D;&#x66F4;&#x65B0;&#xFF0C;&#x6700;&#x65B0;&#x7248;2010&#x5E74;&#x3002;&#x800C;LIO&#x5DF2;&#x8FDB;&#x5165;&#x5185;&#x6838;&#xFF0C;<br>&#x600E;&#x4E48;&#x8BF4;&#x8FD9;&#x51E0;&#x5E74;&#x5E94;&#x8BE5;&#x90FD;&#x4F1A;&#x6301;&#x7EED;&#x53D1;&#x5C55;,&#x5C5E;&#x4E8E;&#x4E3B;&#x6D41;&#x5E94;&#x7528;&#x3002;</li>
 </ul>
-<h4 id="LIO代码量"><a href="#LIO代码量" class="headerlink" title="LIO代码量"></a>LIO代码量</h4><ul>
+<h4 id="lio&#x4EE3;&#x7801;&#x91CF;"><a href="#LIO&#x4EE3;&#x7801;&#x91CF;" class="headerlink" title="LIO&#x4EE3;&#x7801;&#x91CF;"></a>LIO&#x4EE3;&#x7801;&#x91CF;</h4><ul>
 <li><code>/home/dennis/work/kernel/linux-3.2.63/drivers/target</code></li>
-<li><code>[dennis@localhost target]$ find ./* -name &quot;*.*&quot; |xargs wc -l |awk &#39;END{print $1}&#39;</code><br>52187  </li>
-<li><code>[dennis@localhost target]$ find iscsi/ -name &quot;*.*&quot; |xargs wc -l |awk &#39;END{print $1}&#39;</code><br>21801  </li>
+<li><code>[dennis@localhost target]$ find ./* -name &quot;*.*&quot; |xargs wc -l |awk &apos;END{print $1}&apos;</code><br>52187  </li>
+<li><code>[dennis@localhost target]$ find iscsi/ -name &quot;*.*&quot; |xargs wc -l |awk &apos;END{print $1}&apos;</code><br>21801  </li>
 </ul>
-<h4 id="开源iSCSI-Target调研"><a href="#开源iSCSI-Target调研" class="headerlink" title="开源iSCSI Target调研"></a>开源iSCSI Target调研</h4><ul>
-<li>SCST与LIO  <ul>
-<li>SCST是一个相对较早且比较成熟的SCSI Target开源实现。  </li>
-<li>LIO相比SCST是一个更晚的SCSI Target开源实现，但在与SCST竞争进入Linux内核中，<br>却以LIO胜出告终。关于二者之间进入Linux内核时的争论，LWN上一篇很 有趣的文章，<br>A tale of two SCSI Targets，中文翻译为“SCSI Target之 双城记”。  </li>
-<li>虽然LIO因为进入Linux内核而有了更好的发展前景，但SCST也不差，Fusion-io 公司<br>刚刚收购了SCST的商业支持公司ID7。</li>
+<h4 id="&#x5F00;&#x6E90;iscsi-target&#x8C03;&#x7814;"><a href="#&#x5F00;&#x6E90;iSCSI-Target&#x8C03;&#x7814;" class="headerlink" title="&#x5F00;&#x6E90;iSCSI Target&#x8C03;&#x7814;"></a>&#x5F00;&#x6E90;iSCSI Target&#x8C03;&#x7814;</h4><ul>
+<li>SCST&#x4E0E;LIO  <ul>
+<li>SCST&#x662F;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x8F83;&#x65E9;&#x4E14;&#x6BD4;&#x8F83;&#x6210;&#x719F;&#x7684;SCSI Target&#x5F00;&#x6E90;&#x5B9E;&#x73B0;&#x3002;  </li>
+<li>LIO&#x76F8;&#x6BD4;SCST&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x665A;&#x7684;SCSI Target&#x5F00;&#x6E90;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x5728;&#x4E0E;SCST&#x7ADE;&#x4E89;&#x8FDB;&#x5165;Linux&#x5185;&#x6838;&#x4E2D;&#xFF0C;<br>&#x5374;&#x4EE5;LIO&#x80DC;&#x51FA;&#x544A;&#x7EC8;&#x3002;&#x5173;&#x4E8E;&#x4E8C;&#x8005;&#x4E4B;&#x95F4;&#x8FDB;&#x5165;Linux&#x5185;&#x6838;&#x65F6;&#x7684;&#x4E89;&#x8BBA;&#xFF0C;LWN&#x4E0A;&#x4E00;&#x7BC7;&#x5F88; &#x6709;&#x8DA3;&#x7684;&#x6587;&#x7AE0;&#xFF0C;<br>A tale of two SCSI Targets&#xFF0C;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;&#x4E3A;&#x201C;SCSI Target&#x4E4B; &#x53CC;&#x57CE;&#x8BB0;&#x201D;&#x3002;  </li>
+<li>&#x867D;&#x7136;LIO&#x56E0;&#x4E3A;&#x8FDB;&#x5165;Linux&#x5185;&#x6838;&#x800C;&#x6709;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x53D1;&#x5C55;&#x524D;&#x666F;&#xFF0C;&#x4F46;SCST&#x4E5F;&#x4E0D;&#x5DEE;&#xFF0C;Fusion-io &#x516C;&#x53F8;<br>&#x521A;&#x521A;&#x6536;&#x8D2D;&#x4E86;SCST&#x7684;&#x5546;&#x4E1A;&#x652F;&#x6301;&#x516C;&#x53F8;ID7&#x3002;</li>
 </ul>
 </li>
 <li>Tgt  <ul>
-<li>Tgt也是一个通用的SCST Target开源实现，与前两者不同的是，在支持iSCSI协 议上，<br>Tgt的所有代码是完全工作在用户态的。  </li>
-<li>Tgt将LU视为backstore，支持backstore可以模块化，也就是说，你可以写一个模块来<br>支持你自己定义的LU。Tgt提供了多线程api接口，使得编写backstore时 ，可以使用多<br>个线程同时处理SCSI请求。  </li>
-<li>Tgt的主线程使用epoll LT模型，监听并接收Initiator发来<br>的读写请求与命令 ，而调用对应的backstore处理模块。</li>
+<li>Tgt&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;SCST Target&#x5F00;&#x6E90;&#x5B9E;&#x73B0;&#xFF0C;&#x4E0E;&#x524D;&#x4E24;&#x8005;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x652F;&#x6301;iSCSI&#x534F; &#x8BAE;&#x4E0A;&#xFF0C;<br>Tgt&#x7684;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x662F;&#x5B8C;&#x5168;&#x5DE5;&#x4F5C;&#x5728;&#x7528;&#x6237;&#x6001;&#x7684;&#x3002;  </li>
+<li>Tgt&#x5C06;LU&#x89C6;&#x4E3A;backstore&#xFF0C;&#x652F;&#x6301;backstore&#x53EF;&#x4EE5;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x6765;<br>&#x652F;&#x6301;&#x4F60;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x7684;LU&#x3002;Tgt&#x63D0;&#x4F9B;&#x4E86;&#x591A;&#x7EBF;&#x7A0B;api&#x63A5;&#x53E3;&#xFF0C;&#x4F7F;&#x5F97;&#x7F16;&#x5199;backstore&#x65F6; &#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x591A;<br>&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x5904;&#x7406;SCSI&#x8BF7;&#x6C42;&#x3002;  </li>
+<li>Tgt&#x7684;&#x4E3B;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;epoll LT&#x6A21;&#x578B;&#xFF0C;&#x76D1;&#x542C;&#x5E76;&#x63A5;&#x6536;Initiator&#x53D1;&#x6765;<br>&#x7684;&#x8BFB;&#x5199;&#x8BF7;&#x6C42;&#x4E0E;&#x547D;&#x4EE4; &#xFF0C;&#x800C;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;backstore&#x5904;&#x7406;&#x6A21;&#x5757;&#x3002;</li>
 </ul>
 </li>
-<li>iSCSI Target支持LU是分布式文件系统时的优化  <ul>
-<li>iSCSI Target与LU之间支持多连接并发读写请求，对于不要求排序的SCSI命令与数据，可以并发发给LU  </li>
-<li>iSCSI Target对SCSI命令与数据进行合并，然后发给LU。  </li>
+<li>iSCSI Target&#x652F;&#x6301;LU&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x65F6;&#x7684;&#x4F18;&#x5316;  <ul>
+<li>iSCSI Target&#x4E0E;LU&#x4E4B;&#x95F4;&#x652F;&#x6301;&#x591A;&#x8FDE;&#x63A5;&#x5E76;&#x53D1;&#x8BFB;&#x5199;&#x8BF7;&#x6C42;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0D;&#x8981;&#x6C42;&#x6392;&#x5E8F;&#x7684;SCSI&#x547D;&#x4EE4;&#x4E0E;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x5E76;&#x53D1;&#x53D1;&#x7ED9;LU  </li>
+<li>iSCSI Target&#x5BF9;SCSI&#x547D;&#x4EE4;&#x4E0E;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#xFF0C;&#x7136;&#x540E;&#x53D1;&#x7ED9;LU&#x3002;  </li>
 </ul>
 </li>
-<li>比较  <ul>
-<li>无论是SCST还是LIO，我都不认为它们是支持分布式文件系统的最佳选择。<br>首先，它们都是工作在内核态的，一旦出问题，会导致系统挂掉，直接影响跑在系统上的其他线上服务。<br>其次，SCSI与LIO作为通用的SCSI Target实现，在处理完iSCSI协议后，会把SCSI的<br>处理交给内核SCSI Driver去处理，这对支持分布式文件做二次开发来说，相对更加困难。</li>
-<li>LIO对于一个LU，分配一个recv线程与一个send线程，recv线程接收Initiator发来的<br>iSCSI PDU，解析成SCSI请求后交给send线程，send线程将请求发给LU，并将LU返回<br>的结果返回给Initiator。对于LU是分布式文件系统时，一个send线程的框架让支持<br>iSCSI Target与LU之间多连接并发读写相对比较困难。而且LIO对iSCSI协议的支持，<br>很难针对LU是分布式文件系统做优化。LIO的send线程 与recv线程使用一个队列进行<br>通信，该队列中的SCSI请求，有些不关心顺序，有些却关心，这些都是在send线程遍<br>历队列时才进行处理的。如果要支持LU的多连接并发读写，需要额外的队列来维护SCSI<br>请求，这个队列对SCSI请求到达LU的顺序没有要求。当然，也要额外支持多线程等处理。</li>
-<li>Tgt由于工作在用户态，没有缺点1，而且Tgt的backstore可以模块化，开发起来非常方便，<br>同时backstore支持多线程处理，而且Tgt交给backstore的多线程处理的 list已经对顺序不作要求了。</li>
-<li>从以上分析来看，使用Tgt让分布式文件系统支持iSCSI更加有优势，而且更加方便。<br>目前，开源分布式存储项目sheepdog与hlfs都是基于Tgt开发模块来支持 iSCSI协议的。</li>
+<li>&#x6BD4;&#x8F83;  <ul>
+<li>&#x65E0;&#x8BBA;&#x662F;SCST&#x8FD8;&#x662F;LIO&#xFF0C;&#x6211;&#x90FD;&#x4E0D;&#x8BA4;&#x4E3A;&#x5B83;&#x4EEC;&#x662F;&#x652F;&#x6301;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6700;&#x4F73;&#x9009;&#x62E9;&#x3002;<br>&#x9996;&#x5148;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x5DE5;&#x4F5C;&#x5728;&#x5185;&#x6838;&#x6001;&#x7684;&#xFF0C;&#x4E00;&#x65E6;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x6302;&#x6389;&#xFF0C;&#x76F4;&#x63A5;&#x5F71;&#x54CD;&#x8DD1;&#x5728;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x5176;&#x4ED6;&#x7EBF;&#x4E0A;&#x670D;&#x52A1;&#x3002;<br>&#x5176;&#x6B21;&#xFF0C;SCSI&#x4E0E;LIO&#x4F5C;&#x4E3A;&#x901A;&#x7528;&#x7684;SCSI Target&#x5B9E;&#x73B0;&#xFF0C;&#x5728;&#x5904;&#x7406;&#x5B8C;iSCSI&#x534F;&#x8BAE;&#x540E;&#xFF0C;&#x4F1A;&#x628A;SCSI&#x7684;<br>&#x5904;&#x7406;&#x4EA4;&#x7ED9;&#x5185;&#x6838;SCSI Driver&#x53BB;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x5BF9;&#x652F;&#x6301;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x505A;&#x4E8C;&#x6B21;&#x5F00;&#x53D1;&#x6765;&#x8BF4;&#xFF0C;&#x76F8;&#x5BF9;&#x66F4;&#x52A0;&#x56F0;&#x96BE;&#x3002;</li>
+<li>LIO&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;LU&#xFF0C;&#x5206;&#x914D;&#x4E00;&#x4E2A;recv&#x7EBF;&#x7A0B;&#x4E0E;&#x4E00;&#x4E2A;send&#x7EBF;&#x7A0B;&#xFF0C;recv&#x7EBF;&#x7A0B;&#x63A5;&#x6536;Initiator&#x53D1;&#x6765;&#x7684;<br>iSCSI PDU&#xFF0C;&#x89E3;&#x6790;&#x6210;SCSI&#x8BF7;&#x6C42;&#x540E;&#x4EA4;&#x7ED9;send&#x7EBF;&#x7A0B;&#xFF0C;send&#x7EBF;&#x7A0B;&#x5C06;&#x8BF7;&#x6C42;&#x53D1;&#x7ED9;LU&#xFF0C;&#x5E76;&#x5C06;LU&#x8FD4;&#x56DE;<br>&#x7684;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7ED9;Initiator&#x3002;&#x5BF9;&#x4E8E;LU&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x65F6;&#xFF0C;&#x4E00;&#x4E2A;send&#x7EBF;&#x7A0B;&#x7684;&#x6846;&#x67B6;&#x8BA9;&#x652F;&#x6301;<br>iSCSI Target&#x4E0E;LU&#x4E4B;&#x95F4;&#x591A;&#x8FDE;&#x63A5;&#x5E76;&#x53D1;&#x8BFB;&#x5199;&#x76F8;&#x5BF9;&#x6BD4;&#x8F83;&#x56F0;&#x96BE;&#x3002;&#x800C;&#x4E14;LIO&#x5BF9;iSCSI&#x534F;&#x8BAE;&#x7684;&#x652F;&#x6301;&#xFF0C;<br>&#x5F88;&#x96BE;&#x9488;&#x5BF9;LU&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x505A;&#x4F18;&#x5316;&#x3002;LIO&#x7684;send&#x7EBF;&#x7A0B; &#x4E0E;recv&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x8FDB;&#x884C;<br>&#x901A;&#x4FE1;&#xFF0C;&#x8BE5;&#x961F;&#x5217;&#x4E2D;&#x7684;SCSI&#x8BF7;&#x6C42;&#xFF0C;&#x6709;&#x4E9B;&#x4E0D;&#x5173;&#x5FC3;&#x987A;&#x5E8F;&#xFF0C;&#x6709;&#x4E9B;&#x5374;&#x5173;&#x5FC3;&#xFF0C;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x5728;send&#x7EBF;&#x7A0B;&#x904D;<br>&#x5386;&#x961F;&#x5217;&#x65F6;&#x624D;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x7684;&#x3002;&#x5982;&#x679C;&#x8981;&#x652F;&#x6301;LU&#x7684;&#x591A;&#x8FDE;&#x63A5;&#x5E76;&#x53D1;&#x8BFB;&#x5199;&#xFF0C;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x961F;&#x5217;&#x6765;&#x7EF4;&#x62A4;SCSI<br>&#x8BF7;&#x6C42;&#xFF0C;&#x8FD9;&#x4E2A;&#x961F;&#x5217;&#x5BF9;SCSI&#x8BF7;&#x6C42;&#x5230;&#x8FBE;LU&#x7684;&#x987A;&#x5E8F;&#x6CA1;&#x6709;&#x8981;&#x6C42;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x4E5F;&#x8981;&#x989D;&#x5916;&#x652F;&#x6301;&#x591A;&#x7EBF;&#x7A0B;&#x7B49;&#x5904;&#x7406;&#x3002;</li>
+<li>Tgt&#x7531;&#x4E8E;&#x5DE5;&#x4F5C;&#x5728;&#x7528;&#x6237;&#x6001;&#xFF0C;&#x6CA1;&#x6709;&#x7F3A;&#x70B9;1&#xFF0C;&#x800C;&#x4E14;Tgt&#x7684;backstore&#x53EF;&#x4EE5;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x5F00;&#x53D1;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#xFF0C;<br>&#x540C;&#x65F6;backstore&#x652F;&#x6301;&#x591A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#xFF0C;&#x800C;&#x4E14;Tgt&#x4EA4;&#x7ED9;backstore&#x7684;&#x591A;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x7684; list&#x5DF2;&#x7ECF;&#x5BF9;&#x987A;&#x5E8F;&#x4E0D;&#x4F5C;&#x8981;&#x6C42;&#x4E86;&#x3002;</li>
+<li>&#x4ECE;&#x4EE5;&#x4E0A;&#x5206;&#x6790;&#x6765;&#x770B;&#xFF0C;&#x4F7F;&#x7528;Tgt&#x8BA9;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x652F;&#x6301;iSCSI&#x66F4;&#x52A0;&#x6709;&#x4F18;&#x52BF;&#xFF0C;&#x800C;&#x4E14;&#x66F4;&#x52A0;&#x65B9;&#x4FBF;&#x3002;<br>&#x76EE;&#x524D;&#xFF0C;&#x5F00;&#x6E90;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x9879;&#x76EE;sheepdog&#x4E0E;hlfs&#x90FD;&#x662F;&#x57FA;&#x4E8E;Tgt&#x5F00;&#x53D1;&#x6A21;&#x5757;&#x6765;&#x652F;&#x6301; iSCSI&#x534F;&#x8BAE;&#x7684;&#x3002;</li>
 </ul>
 </li>
-<li>Tgt的缺点与改进<ul>
-<li>Tgt的backstore在使用多线程时，多个线程竞争一个list，开销较大。可以让 每个线程维护<br>一个list，主线程通过CAS无锁队列的方式，将SCSI请求根据rr算 法加入到每个线程的list中。</li>
-<li>Tgt的backstore与LU之间连接数与线程数，是1：1关系，且线程数为4，写死了的。<br>可以修改代码，将连接数改为可配置的。</li>
-<li>Tgt使用一个主线程通过epoll接受所有Initiator的读写请求，当登陆的Initiator较多时，<br>这里可能成为瓶颈。通常来说，这不是问题，因为会iSCSI Target会部署多个的。</li>
+<li>Tgt&#x7684;&#x7F3A;&#x70B9;&#x4E0E;&#x6539;&#x8FDB;<ul>
+<li>Tgt&#x7684;backstore&#x5728;&#x4F7F;&#x7528;&#x591A;&#x7EBF;&#x7A0B;&#x65F6;&#xFF0C;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x7ADE;&#x4E89;&#x4E00;&#x4E2A;list&#xFF0C;&#x5F00;&#x9500;&#x8F83;&#x5927;&#x3002;&#x53EF;&#x4EE5;&#x8BA9; &#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x7EF4;&#x62A4;<br>&#x4E00;&#x4E2A;list&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;CAS&#x65E0;&#x9501;&#x961F;&#x5217;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;SCSI&#x8BF7;&#x6C42;&#x6839;&#x636E;rr&#x7B97; &#x6CD5;&#x52A0;&#x5165;&#x5230;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;list&#x4E2D;&#x3002;</li>
+<li>Tgt&#x7684;backstore&#x4E0E;LU&#x4E4B;&#x95F4;&#x8FDE;&#x63A5;&#x6570;&#x4E0E;&#x7EBF;&#x7A0B;&#x6570;&#xFF0C;&#x662F;1&#xFF1A;1&#x5173;&#x7CFB;&#xFF0C;&#x4E14;&#x7EBF;&#x7A0B;&#x6570;&#x4E3A;4&#xFF0C;&#x5199;&#x6B7B;&#x4E86;&#x7684;&#x3002;<br>&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#xFF0C;&#x5C06;&#x8FDE;&#x63A5;&#x6570;&#x6539;&#x4E3A;&#x53EF;&#x914D;&#x7F6E;&#x7684;&#x3002;</li>
+<li>Tgt&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x4E3B;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;epoll&#x63A5;&#x53D7;&#x6240;&#x6709;Initiator&#x7684;&#x8BFB;&#x5199;&#x8BF7;&#x6C42;&#xFF0C;&#x5F53;&#x767B;&#x9646;&#x7684;Initiator&#x8F83;&#x591A;&#x65F6;&#xFF0C;<br>&#x8FD9;&#x91CC;&#x53EF;&#x80FD;&#x6210;&#x4E3A;&#x74F6;&#x9888;&#x3002;&#x901A;&#x5E38;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E0D;&#x662F;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x4F1A;iSCSI Target&#x4F1A;&#x90E8;&#x7F72;&#x591A;&#x4E2A;&#x7684;&#x3002;</li>
 </ul>
 </li>
 </ul>
 <h3 id="targetcli"><a href="#targetcli" class="headerlink" title="targetcli"></a>targetcli</h3><ul>
-<li>root权限运行targetcli</li>
-<li>浏览存储对象, ls查看目录树信息，cd到执行目录</li>
-<li>创建文件存储对象<ul>
+<li>root&#x6743;&#x9650;&#x8FD0;&#x884C;targetcli</li>
+<li>&#x6D4F;&#x89C8;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;, ls&#x67E5;&#x770B;&#x76EE;&#x5F55;&#x6811;&#x4FE1;&#x606F;&#xFF0C;cd&#x5230;&#x6267;&#x884C;&#x76EE;&#x5F55;</li>
+<li>&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x5BF9;&#x8C61;<ul>
 <li>cd /backstores/fileio</li>
 <li>create disk0 /tmp/disk0.img 10MB</li>
 <li>cd /backstores/ramdisk</li>
 <li>create rd0 10MB</li>
 </ul>
 </li>
-<li>创建iSCSI目标<ul>
+<li>&#x521B;&#x5EFA;iSCSI&#x76EE;&#x6807;<ul>
 <li>cd /iscsi </li>
-<li>create [这里可以加入自定义的WWN:WorldWide Name]</li>
+<li>create [&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x52A0;&#x5165;&#x81EA;&#x5B9A;&#x4E49;&#x7684;WWN:WorldWide Name]</li>
 <li>cd iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e/tpg1/</li>
 <li>luns/ create /backstores/fileio/disk0</li>
 <li>luns/ create /backstores/ramdisk/rd0</li>
@@ -1390,39 +1390,39 @@ write around: 只写入到持久存储。
 <li>saveconfig</li>
 </ul>
 </li>
-<li>当使用targetcli操作完毕后，记得使用saveconfig来保存配置，要不然重启target服务后，<br>刚才的配置将丢失.  <code>targetcli saveconfig</code><br>Last 10 configs saved in /etc/target/backup.<br>Configuration saved to /etc/target/saveconfig.json</li>
-<li>启动iscsi target服务<ul>
+<li>&#x5F53;&#x4F7F;&#x7528;targetcli&#x64CD;&#x4F5C;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x8BB0;&#x5F97;&#x4F7F;&#x7528;saveconfig&#x6765;&#x4FDD;&#x5B58;&#x914D;&#x7F6E;&#xFF0C;&#x8981;&#x4E0D;&#x7136;&#x91CD;&#x542F;target&#x670D;&#x52A1;&#x540E;&#xFF0C;<br>&#x521A;&#x624D;&#x7684;&#x914D;&#x7F6E;&#x5C06;&#x4E22;&#x5931;.  <code>targetcli saveconfig</code><br>Last 10 configs saved in /etc/target/backup.<br>Configuration saved to /etc/target/saveconfig.json</li>
+<li>&#x542F;&#x52A8;iscsi target&#x670D;&#x52A1;<ul>
 <li>[root@localhost ~]# service target start </li>
 <li>[root@localhost ~]# service target status</li>
 </ul>
 </li>
-<li>装载iSCSI Target <ul>
+<li>&#x88C5;&#x8F7D;iSCSI Target <ul>
 <li>[root@localhost ~]# iscsiadm -m discovery -t sendtargets -p 127.0.0.1<br>127.0.0.1:3260,1 iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e</li>
-<li>[root@localhost ~]# iscsiadm –mode node \  <blockquote>
-<p>–targetname iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e \<br>–portal 127.0.0.1 –login</p>
+<li>[root@localhost ~]# iscsiadm &#x2013;mode node \  <blockquote>
+<p>&#x2013;targetname iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e \<br>&#x2013;portal 127.0.0.1 &#x2013;login</p>
 </blockquote>
 </li>
-<li>上面的命令还可以使用简写模式: iscsiadm -m node -T \<blockquote>
+<li>&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7B80;&#x5199;&#x6A21;&#x5F0F;: iscsiadm -m node -T \<blockquote>
 <p>iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e \<br>-p 127.0.0.1 -l</p>
 </blockquote>
 </li>
 <li>[root@localhost dennis]# lsscsi<br>[2:0:0:0]    disk    ATA      ST3160815AS      A     /dev/sda<br>[6:0:0:0]    disk    LIO-ORG  disk0            4.0   /dev/sdb<br>[6:0:0:1]    disk    LIO-ORG  rd0              4.0   /dev/sdc  </li>
 </ul>
 </li>
-<li>卸载并删除iSCSI目标<ul>
-<li>iscsiadm –mode node –targetname iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e –portal 127.0.0.1 –logout</li>
-<li>或简写: iscsiadm -m node -T iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e -p 127.0.0.1 -u</li>
+<li>&#x5378;&#x8F7D;&#x5E76;&#x5220;&#x9664;iSCSI&#x76EE;&#x6807;<ul>
+<li>iscsiadm &#x2013;mode node &#x2013;targetname iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e &#x2013;portal 127.0.0.1 &#x2013;logout</li>
+<li>&#x6216;&#x7B80;&#x5199;: iscsiadm -m node -T iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e -p 127.0.0.1 -u</li>
 <li>targetcli iscsi/ delete iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e </li>
 </ul>
 </li>
 <li>Other operation<ul>
-<li>iscsiadm –mode node -U all</li>
-<li>iscsiadm –mode node -o delete</li>
-<li>iscsiadm –mode node</li>
+<li>iscsiadm &#x2013;mode node -U all</li>
+<li>iscsiadm &#x2013;mode node -o delete</li>
+<li>iscsiadm &#x2013;mode node</li>
 </ul>
 </li>
 </ul>
-<h3 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h3><pre><code>mkdir -p /lio/
+<h3 id="&#x6D4B;&#x8BD5;&#x811A;&#x672C;"><a href="#&#x6D4B;&#x8BD5;&#x811A;&#x672C;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x811A;&#x672C;"></a>&#x6D4B;&#x8BD5;&#x811A;&#x672C;</h3><pre><code>mkdir -p /lio/
 targetcli /backstores/fileio create disk0 /lio/disk0.img 1024MB
 targetcli /iscsi create iqn.2007-10.lio.com:lio.test
 targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/luns/ create /backstores/fileio/disk0
@@ -1432,19 +1432,19 @@ targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/acls/ create iqn.2007-10.lio.
 targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/acls/iqn.2007-10.lio.com:acl01/ set auth userid=dennis
 targetcli /iscsi/iqn.2007-10.lio.com:lio.test/tpg1/acls/iqn.2007-10.lio.com:acl01/ set auth password=Dennis@123456
 targetcli saveconfig
-</code></pre><h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><ul>
-<li><p>增加本地监听ip地址和端口</p>
-<p>  /iscsi/iqn.20…/tpg1/portals&gt; create 172.16.110.11 8089<br>  Created network portal 172.16.110.11:8089.<br>  /iscsi/iqn.20…/tpg1/portals&gt; ls<br>  o- portals …………………………………………… [Portals: 2]</p>
+</code></pre><h3 id="&#x5176;&#x4ED6;&#x64CD;&#x4F5C;"><a href="#&#x5176;&#x4ED6;&#x64CD;&#x4F5C;" class="headerlink" title="&#x5176;&#x4ED6;&#x64CD;&#x4F5C;"></a>&#x5176;&#x4ED6;&#x64CD;&#x4F5C;</h3><ul>
+<li><p>&#x589E;&#x52A0;&#x672C;&#x5730;&#x76D1;&#x542C;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;</p>
+<p>  /iscsi/iqn.20&#x2026;/tpg1/portals&gt; create 172.16.110.11 8089<br>  Created network portal 172.16.110.11:8089.<br>  /iscsi/iqn.20&#x2026;/tpg1/portals&gt; ls<br>  o- portals &#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026; [Portals: 2]</p>
 <pre><code>o- 0.0.0.0:3260 .................................................... [OK]
 o- 172.16.110.11:8089 .............................................. [OK]
-</code></pre><p>  /iscsi/iqn.20…/tpg1/portals&gt; status<br>  Status for /iscsi/iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e/tpg1/portals: Portals: 2</p>
+</code></pre><p>  /iscsi/iqn.20&#x2026;/tpg1/portals&gt; status<br>  Status for /iscsi/iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.6b448471ba5e/tpg1/portals: Portals: 2</p>
 </li>
-<li><p>Initiator访问IP限制? 目前找不到方法！原来的IET有限制指定IP访问的功能，但是并不表示<br>该功能是iscsi协议必须实现的，所以现在的LIO没有这样的功能也是合理的。</p>
+<li><p>Initiator&#x8BBF;&#x95EE;IP&#x9650;&#x5236;? &#x76EE;&#x524D;&#x627E;&#x4E0D;&#x5230;&#x65B9;&#x6CD5;&#xFF01;&#x539F;&#x6765;&#x7684;IET&#x6709;&#x9650;&#x5236;&#x6307;&#x5B9A;IP&#x8BBF;&#x95EE;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x8868;&#x793A;<br>&#x8BE5;&#x529F;&#x80FD;&#x662F;iscsi&#x534F;&#x8BAE;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x73B0;&#x5728;&#x7684;LIO&#x6CA1;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x529F;&#x80FD;&#x4E5F;&#x662F;&#x5408;&#x7406;&#x7684;&#x3002;</p>
 </li>
-<li><p>如何设置块设备的IO模式为write-back或write-through? 目前找不到方法。对于FILEIO是可以的.</p>
-<p>  [root@localhost src]# targetcli /backstores/fileio/ create fileio01.dat /tmp/fileio01.dat 10M write_back=False<br>  Created fileio fileio01.dat with size 10485760<br>  [root@localhost src]# ls /tmp/fileio01.dat -lh<br>  -rw-r–r–. 1 root root 10M Feb  3 15:01 /tmp/fileio01.dat<br>  [root@localhost src]# targetcli /backstores/fileio/ ls<br>  o- fileio ……………………………………………… [Storage Objects: 1]<br>  o- fileio01.dat ………….. [/tmp/fileio01.dat (10.0MiB) write-thru deactivated]<br>  [root@localhost src]# targetcli /backstores/fileio/ create fileio02.dat /tmp/fileio02.dat 10M write_back=True<br>  Created fileio fileio02.dat with size 10485760<br>  [root@localhost src]# targetcli /backstores/fileio/ ls<br>  o- fileio ……………………………………………… [Storage Objects: 2]<br>  o- fileio01.dat ………….. [/tmp/fileio01.dat (10.0MiB) write-thru deactivated]<br>  o- fileio02.dat ………….. [/tmp/fileio02.dat (10.0MiB) write-back deactivated]  </p>
+<li><p>&#x5982;&#x4F55;&#x8BBE;&#x7F6E;&#x5757;&#x8BBE;&#x5907;&#x7684;IO&#x6A21;&#x5F0F;&#x4E3A;write-back&#x6216;write-through? &#x76EE;&#x524D;&#x627E;&#x4E0D;&#x5230;&#x65B9;&#x6CD5;&#x3002;&#x5BF9;&#x4E8E;FILEIO&#x662F;&#x53EF;&#x4EE5;&#x7684;.</p>
+<p>  [root@localhost src]# targetcli /backstores/fileio/ create fileio01.dat /tmp/fileio01.dat 10M write_back=False<br>  Created fileio fileio01.dat with size 10485760<br>  [root@localhost src]# ls /tmp/fileio01.dat -lh<br>  -rw-r&#x2013;r&#x2013;. 1 root root 10M Feb  3 15:01 /tmp/fileio01.dat<br>  [root@localhost src]# targetcli /backstores/fileio/ ls<br>  o- fileio &#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026; [Storage Objects: 1]<br>  o- fileio01.dat &#x2026;&#x2026;&#x2026;&#x2026;.. [/tmp/fileio01.dat (10.0MiB) write-thru deactivated]<br>  [root@localhost src]# targetcli /backstores/fileio/ create fileio02.dat /tmp/fileio02.dat 10M write_back=True<br>  Created fileio fileio02.dat with size 10485760<br>  [root@localhost src]# targetcli /backstores/fileio/ ls<br>  o- fileio &#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026;&#x2026; [Storage Objects: 2]<br>  o- fileio01.dat &#x2026;&#x2026;&#x2026;&#x2026;.. [/tmp/fileio01.dat (10.0MiB) write-thru deactivated]<br>  o- fileio02.dat &#x2026;&#x2026;&#x2026;&#x2026;.. [/tmp/fileio02.dat (10.0MiB) write-back deactivated]  </p>
 </li>
-<li><p>targetcli 设置CHAP登陆: acls中创建wwn, 设置用户名和密码</p>
+<li><p>targetcli &#x8BBE;&#x7F6E;CHAP&#x767B;&#x9646;: acls&#x4E2D;&#x521B;&#x5EFA;wwn, &#x8BBE;&#x7F6E;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;</p>
 <ul>
 <li>/&gt; cd /iscsi/iqn.2007-10.lio.com:dg2.lv1/tpg1/</li>
 <li>set attribute authentication=1</li>
@@ -1459,38 +1459,38 @@ o- 172.16.110.11:8089 .............................................. [OK]
 </ul>
 </li>
 </ul>
-<h3 id="配置检查"><a href="#配置检查" class="headerlink" title="配置检查"></a>配置检查</h3><ul>
+<h3 id="&#x914D;&#x7F6E;&#x68C0;&#x67E5;"><a href="#&#x914D;&#x7F6E;&#x68C0;&#x67E5;" class="headerlink" title="&#x914D;&#x7F6E;&#x68C0;&#x67E5;"></a>&#x914D;&#x7F6E;&#x68C0;&#x67E5;</h3><ul>
 <li><p>/sys/kernel/config/target/iscsi/ </p>
-<p>  [root@localhost ~]# ls -l /sys/kernel/config/target/iscsi<br>  total 0<br>  drwxr-xr-x. 2 root root    0 Dec 15 15:59 discovery_auth<br>  drwxr-xr-x. 4 root root    0 Dec 15 15:58 iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.f264093a034e<br>  drwxr-xr-x. 4 root root    0 Dec 15 15:59 iqn.2014-12.org.linux-iscsi.localhost.x8664:sn.f3849a0b356e<br>  -r–r–r–. 1 root root 4096 Dec 15 16:05 lio_version</p>
+<p>  [root@localhost ~]# ls -l /sys/kernel/config/target/iscsi<br>  total 0<br>  drwxr-xr-x. 2 root root    0 Dec 15 15:59 discovery_auth<br>  drwxr-xr-x. 4 root root    0 Dec 15 15:58 iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.f264093a034e<br>  drwxr-xr-x. 4 root root    0 Dec 15 15:59 iqn.2014-12.org.linux-iscsi.localhost.x8664:sn.f3849a0b356e<br>  -r&#x2013;r&#x2013;r&#x2013;. 1 root root 4096 Dec 15 16:05 lio_version</p>
 </li>
-<li><p>当使用targetcli操作完毕后，记得使用saveconfig来保存配置，要不然重启target服务后，<br>刚才的配置将丢失.</p>
+<li><p>&#x5F53;&#x4F7F;&#x7528;targetcli&#x64CD;&#x4F5C;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x8BB0;&#x5F97;&#x4F7F;&#x7528;saveconfig&#x6765;&#x4FDD;&#x5B58;&#x914D;&#x7F6E;&#xFF0C;&#x8981;&#x4E0D;&#x7136;&#x91CD;&#x542F;target&#x670D;&#x52A1;&#x540E;&#xFF0C;<br>&#x521A;&#x624D;&#x7684;&#x914D;&#x7F6E;&#x5C06;&#x4E22;&#x5931;.</p>
 <p>  [root@localhost ~]# targetcli saveconfig<br>  Last 10 configs saved in /etc/target/backup.<br>  Configuration saved to /etc/target/saveconfig.json</p>
 </li>
-<li><p>关于配置文件 /etc/target/saveconfig.json的解析</p>
+<li><p>&#x5173;&#x4E8E;&#x914D;&#x7F6E;&#x6587;&#x4EF6; /etc/target/saveconfig.json&#x7684;&#x89E3;&#x6790;</p>
 <ul>
 <li>JSON (JavaScript Object Notation) is a lightweight data-interchange format</li>
-<li>JSON 一种轻量级的数据交换格式</li>
+<li>JSON &#x4E00;&#x79CD;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;</li>
 <li><a href="http://www.json.org/" target="_blank" rel="external">http://www.json.org/</a></li>
 </ul>
 </li>
 </ul>
-<h4 id="需要验证测试的特性"><a href="#需要验证测试的特性" class="headerlink" title="需要验证测试的特性"></a>需要验证测试的特性</h4><ul>
-<li>各中类型的性能比较<ul>
-<li>FILEIO 性能</li>
-<li>Block 性能</li>
+<h4 id="&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x6D4B;&#x8BD5;&#x7684;&#x7279;&#x6027;"><a href="#&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x6D4B;&#x8BD5;&#x7684;&#x7279;&#x6027;" class="headerlink" title="&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x6D4B;&#x8BD5;&#x7684;&#x7279;&#x6027;"></a>&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x6D4B;&#x8BD5;&#x7684;&#x7279;&#x6027;</h4><ul>
+<li>&#x5404;&#x4E2D;&#x7C7B;&#x578B;&#x7684;&#x6027;&#x80FD;&#x6BD4;&#x8F83;<ul>
+<li>FILEIO &#x6027;&#x80FD;</li>
+<li>Block &#x6027;&#x80FD;</li>
 </ul>
 </li>
-<li>增加或删除不用的lun是否需要重启服务，会不会影响正常业务</li>
-<li>破坏性测试<ul>
-<li>块设备异常是否影响其他iscsi卷的业务</li>
+<li>&#x589E;&#x52A0;&#x6216;&#x5220;&#x9664;&#x4E0D;&#x7528;&#x7684;lun&#x662F;&#x5426;&#x9700;&#x8981;&#x91CD;&#x542F;&#x670D;&#x52A1;&#xFF0C;&#x4F1A;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x6B63;&#x5E38;&#x4E1A;&#x52A1;</li>
+<li>&#x7834;&#x574F;&#x6027;&#x6D4B;&#x8BD5;<ul>
+<li>&#x5757;&#x8BBE;&#x5907;&#x5F02;&#x5E38;&#x662F;&#x5426;&#x5F71;&#x54CD;&#x5176;&#x4ED6;iscsi&#x5377;&#x7684;&#x4E1A;&#x52A1;</li>
 </ul>
 </li>
-<li>相比IET，有哪些新特性</li>
-<li>对比所有TARGET的开源实现，有哪些优势，有无缺点</li>
+<li>&#x76F8;&#x6BD4;IET&#xFF0C;&#x6709;&#x54EA;&#x4E9B;&#x65B0;&#x7279;&#x6027;</li>
+<li>&#x5BF9;&#x6BD4;&#x6240;&#x6709;TARGET&#x7684;&#x5F00;&#x6E90;&#x5B9E;&#x73B0;&#xFF0C;&#x6709;&#x54EA;&#x4E9B;&#x4F18;&#x52BF;&#xFF0C;&#x6709;&#x65E0;&#x7F3A;&#x70B9;</li>
 </ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/linux_io_target%e4%bb%8b%e7%bb%8d_%e4%b8%80?lang=en" target="_blank" rel="external">Linux-IO Target介绍(一)</a></li>
-<li><a href="https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/april_11_2014_12_58_am?lang=en" target="_blank" rel="external">Linux-IO Target介绍(二)</a></li>
+<h4 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h4><ul>
+<li><a href="https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/linux_io_target%e4%bb%8b%e7%bb%8d_%e4%b8%80?lang=en" target="_blank" rel="external">Linux-IO Target&#x4ECB;&#x7ECD;(&#x4E00;)</a></li>
+<li><a href="https://www.ibm.com/developerworks/community/blogs/5144904d-5d75-45ed-9d2b-cf1754ee936a/entry/april_11_2014_12_58_am?lang=en" target="_blank" rel="external">Linux-IO Target&#x4ECB;&#x7ECD;(&#x4E8C;)</a></li>
 <li><a href="http://blog.csdn.net/load2006/article/details/18088445" target="_blank" rel="external">LIO target</a></li>
 <li><a href="http://linux-iscsi.org/wiki/LIO" target="_blank" rel="external">LIO</a></li>
 <li><a href="http://linux-iscsi.org/wiki/ISCSI" target="_blank" rel="external">ISCSI</a></li>
@@ -1504,6 +1504,8 @@ o- 172.16.110.11:8089 .............................................. [OK]
       <a data-url="http://matrix207.github.com/2014/11/26/lio/" data-id="cin61d0kz008zfyizrf2ww084" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
+
     </footer>
   </div>
   
@@ -1914,7 +1916,7 @@ restart:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 12.5px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iscsi/" style="font-size: 20px;">iscsi</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1952,7 +1954,7 @@ restart:
           </li>
         
           <li>
-            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
+            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
           </li>
         
       </ul>
