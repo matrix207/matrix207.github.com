@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo | Matrix207&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Why leave jekyll and move to hexo
+Jekyll
+markdown syntax parsing change on github, and after my modify it not work asbefore (so sad ;( )
+Jekyll use ruby
+
+
+hexo
+Hexo use node.js
+Have good themes
+
+
+
+Wha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://matrix207.github.com/2016/04/18/hexo/index.html">
+<meta property="og:site_name" content="Matrix207's Blog">
+<meta property="og:description" content="Why leave jekyll and move to hexo
+Jekyll
+markdown syntax parsing change on github, and after my modify it not work asbefore (so sad ;( )
+Jekyll use ruby
+
+
+hexo
+Hexo use node.js
+Have good themes
+
+
+
+Wha">
+<meta property="og:updated_time" content="2016-04-18T16:18:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Why leave jekyll and move to hexo
+Jekyll
+markdown syntax parsing change on github, and after my modify it not work asbefore (so sad ;( )
+Jekyll use ruby
+
+
+hexo
+Hexo use node.js
+Have good themes
+
+
+
+Wha">
+  
+    <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Matrix207&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/18/hexo/" class="article-date">
+  <time datetime="2016-04-18T15:44:19.000Z" itemprop="datePublished">2016-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="why-leave-jekyll-and-move-to-hexo"><a href="#Why-leave-jekyll-and-move-to-hexo" class="headerlink" title="Why leave jekyll and move to hexo"></a>Why leave jekyll and move to hexo</h3><ul>
+<li>Jekyll<ul>
+<li>markdown syntax parsing change on github, and after my modify it not work as<br>before (so sad ;( )</li>
+<li>Jekyll use ruby</li>
+</ul>
+</li>
+<li>hexo<ul>
+<li>Hexo use node.js</li>
+<li>Have good themes</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-is-hexo"><a href="#What-is-hexo" class="headerlink" title="What is hexo"></a>What is hexo</h3><p>A fast, simple &amp; powerful blog framework<br>see <a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a> for more</p>
+<h3 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><ul>
+<li><code>mkdir hexo</code></li>
+<li><code>hexo init</code><ul>
+<li>if fail to install depenances auto, install them manually.<ul>
+<li><code>cat package.json</code>, and look at the object of dependencies, just install them</li>
+<li><code>npm install xxx --save</code></li>
+<li>you can list installed modules by <code>ls node_modules</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>modify _config.yml, here is my changes:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">diff --git a/_config.yml b/_config.yml</span><br><span class="line">index 26c27e9..9b0b32c 100644</span><br><span class="line">--- a/_config.yml</span><br><span class="line">+++ b/_config.yml</span><br><span class="line">@@ -3,11 +3,12 @@</span><br><span class="line"> ## Source: https://github.com/hexojs/hexo/</span><br><span class="line"> </span><br><span class="line"> # Site</span><br><span class="line">-title: Hexo</span><br><span class="line">+title: Matrix207&apos;s Blog</span><br><span class="line"> subtitle:</span><br><span class="line"> description:</span><br><span class="line">-author: John Doe</span><br><span class="line">-language:</span><br><span class="line">+author: Matrix207</span><br><span class="line">+language: zh-Hans</span><br><span class="line">+#language:</span><br><span class="line"> timezone:</span><br><span class="line"> </span><br><span class="line"> # URL</span><br><span class="line">@@ -28,7 +29,7 @@ i18n_dir: :lang</span><br><span class="line"> skip_render:</span><br><span class="line"> </span><br><span class="line"> # Writing</span><br><span class="line">-new_post_name: :title.md # File name of new posts</span><br><span class="line">+new_post_name: :year-:month-:day-:title.md # File name of new posts</span><br><span class="line"> default_layout: post</span><br><span class="line"> titlecase: false # Transform title into titlecase</span><br><span class="line"> external_link: true # Open external links in new tab</span><br><span class="line">@@ -63,9 +64,17 @@ pagination_dir: page</span><br><span class="line"> # Extensions</span><br><span class="line"> ## Plugins: https://hexo.io/plugins/</span><br><span class="line"> ## Themes: https://hexo.io/themes/</span><br><span class="line">-theme: landscape</span><br><span class="line">+#theme: landscape</span><br><span class="line">+theme: hexo-theme-next/</span><br><span class="line"> </span><br><span class="line"> # Deployment</span><br><span class="line"> ## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line"> deploy:</span><br><span class="line">-  type:</span><br><span class="line">+  type: git</span><br><span class="line">+  repository: github.com:matrix207/matrix207.github.com.git</span><br><span class="line">+  branch: master</span><br><span class="line">+</span><br><span class="line">+# Toc</span><br><span class="line">+toc:</span><br><span class="line">+  maxDepth: 3</span><br><span class="line">+</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="select-theme-hexo-theme-next-or-landscape"><a href="#Select-theme-hexo-theme-next-or-landscape" class="headerlink" title="Select theme: hexo-theme-next or landscape"></a>Select theme: hexo-theme-next or landscape</h3><ul>
+<li>compare these two themes, I like hexo-theme-next more than landscape. But </li>
+</ul>
+<h3 id="what-features-i-need"><a href="#What-features-I-need" class="headerlink" title="What features I need"></a>What features I need</h3><ul>
+<li>menus</li>
+</ul>
+<h3 id="tips-for-fixing-issues"><a href="#Tips-for-fixing-issues" class="headerlink" title="Tips for fixing issues"></a>Tips for fixing issues</h3><ul>
+<li>The <code>node</code> is not the real node, use command <code>sudo apt-get install nodejs-legacy</code><ul>
+<li>ref <a href="https://github.com/rauchg/slackin/issues/128" target="_blank" rel="external">https://github.com/rauchg/slackin/issues/128</a></li>
+</ul>
+</li>
+<li>Not found tags for hexo-theme-next <ul>
+<li>ref <a href="http://theme-next.iissnan.com/theme-settings.html#&#x6807;&#x7B7E;&#x4E91;&#x9875;&#x9762;" target="_blank" rel="external">http://theme-next.iissnan.com/theme-settings.html#&#x6807;&#x7B7E;&#x4E91;&#x9875;&#x9762;</a></li>
+<li>ref <a href="http://ijiaober.github.io/2014/08/05/hexo/hexo-04/" target="_blank" rel="external">http://ijiaober.github.io/2014/08/05/hexo/hexo-04/</a></li>
+</ul>
+</li>
+<li>Not found page directory<ul>
+<li>ref <a href="http://www.imys.net/20150514/hexo-toc.html" target="_blank" rel="external">http://www.imys.net/20150514/hexo-toc.html</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2016/04/18/hexo/" data-id="cin66ybkg0005c9izgeny47kb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/13/malloc/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">malloc</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/debug/">debug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 10px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/18/hexo/">Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/13/malloc/">malloc</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Matrix207<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
