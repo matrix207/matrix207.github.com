@@ -88,9 +88,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h3><p></p><p><br>When $a \ne 0$, there are two solutions to (ax^2 + bx + c = 0) and they are<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p></p><p>The Lorenz Equations</p><br>[\begin{matrix}<br>\dot{x} &#038; = &#038; \sigma(y-x) \<br>\dot{y} &#038; = &#038; \rho x - y - xz \<br>\dot{z} &#038; = &#038; -\beta z + xy<br>\end{matrix} ]<p></p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+        <h3 id="sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h3><p></p><p><br>When $a \ne 0$, there are two solutions to (ax^2 + bx + c = 0) and they are<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><p></p></h2><p></p><p>The Lorenz Equations</p><br>[\begin{matrix}<br>\dot{x} &amp; = &amp; \sigma(y-x) \<br>\dot{y} &amp; = &amp; \rho x - y - xz \<br>\dot{z} &amp; = &amp; -\beta z + xy<br>\end{matrix} ]<p></p>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.mathjax.org/" target="_blank" rel="external">MathJax</a></li>
 <li><a href="http://lilydjwg.is-programmer.com/2011/5/23/mathjax-a-good-formula-display-engine.26966.html" target="_blank" rel="external">MathJax a good formula display engineer</a></li>
 </ul>
@@ -98,7 +98,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/14/markdown-with-mathjax/" data-id="cin61d0jo007xfyizryhccqb0" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/14/markdown-with-mathjax/" data-id="cin6a5ujd007w3cizm4ru6whn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +130,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Terminology-list"><a href="#Terminology-list" class="headerlink" title="Terminology list"></a>Terminology list</h3><ul>
+        <h3 id="terminology-list"><a href="#Terminology-list" class="headerlink" title="Terminology list"></a>Terminology list</h3><ul>
 <li>argument </li>
 <li>block</li>
 <li>buffer</li>
@@ -192,14 +192,14 @@
 <li><code>&gt;=</code> operator </li>
 <li><code>&gt;</code>  operator </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="">C++ Primer, Fourth Edition</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/11/terminology-of-cpp/" data-id="cin61d0jn007wfyizxmtf7u3g" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/11/terminology-of-cpp/" data-id="cin6a5ujc007v3cizy771kc4a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -231,13 +231,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
+        <h3 id="features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
 <li>let program run by your order</li>
 <li>set breakpoints and let program stop</li>
 <li>check values when program stop</li>
 <li>change environment of program</li>
 </ul>
-<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ol>
+<h3 id="basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ol>
 <li><p><strong>add <code>-g</code> option to compile, e.g: <code>gcc -g -Wall -o test test.c</code></strong>  </p>
 </li>
 <li><p>run</p>
@@ -255,7 +255,7 @@ finish       &lt;--- exit function
 q            &lt;--- exit gdb
 </code></pre></li>
 </ol>
-<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ol>
+<h3 id="advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ol>
 <li><p>modify program running environment  </p>
 <pre><code>(gdb) set args -f -i /tmp/rssp.pid  
 (gdb) show args  
@@ -263,7 +263,7 @@ Argument list to give program being debugged when it is started is &quot;-f -i /
 </code></pre></li>
 <li><p>debug running programm  </p>
 <pre><code>find PID by command pgrep, then using `gdb &lt;program&gt; PID` start debugging  
-using command `gdb &lt;program&gt;`，then using `attach PID` to start debugging, `detach` to cancel.
+using command `gdb &lt;program&gt;`&#xFF0C;then using `attach PID` to start debugging, `detach` to cancel.
 </code></pre></li>
 <li><p>info command  </p>
 <pre><code>info address -- Describe where symbol SYM is stored  
@@ -335,31 +335,31 @@ info watchpoints
 <li><p>signal  </p>
 </li>
 <li><p>thread  </p>
-<pre><code>- info threads 显示当前可调试的所有线程，每个线程会有一个GDB为其分配的ID，后面操  
-               作线程的时候会用到这个ID。 前面有*的是当前调试的线程。
-- thread ID 切换当前调试的线程为指定ID的线程。
-- break thread_test.c:123 thread all 在所有线程中相应的行上设置断点
-- thread apply ID1 ID2 command 让一个或者多个线程执行GDB命令command。 
-- thread apply all command 让所有被调试线程执行GDB命令command。
+<pre><code>- info threads &#x663E;&#x793A;&#x5F53;&#x524D;&#x53EF;&#x8C03;&#x8BD5;&#x7684;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;GDB&#x4E3A;&#x5176;&#x5206;&#x914D;&#x7684;ID&#xFF0C;&#x540E;&#x9762;&#x64CD;  
+               &#x4F5C;&#x7EBF;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x7528;&#x5230;&#x8FD9;&#x4E2A;ID&#x3002; &#x524D;&#x9762;&#x6709;*&#x7684;&#x662F;&#x5F53;&#x524D;&#x8C03;&#x8BD5;&#x7684;&#x7EBF;&#x7A0B;&#x3002;
+- thread ID &#x5207;&#x6362;&#x5F53;&#x524D;&#x8C03;&#x8BD5;&#x7684;&#x7EBF;&#x7A0B;&#x4E3A;&#x6307;&#x5B9A;ID&#x7684;&#x7EBF;&#x7A0B;&#x3002;
+- break thread_test.c:123 thread all &#x5728;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x4E2D;&#x76F8;&#x5E94;&#x7684;&#x884C;&#x4E0A;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;
+- thread apply ID1 ID2 command &#x8BA9;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x6267;&#x884C;GDB&#x547D;&#x4EE4;command&#x3002; 
+- thread apply all command &#x8BA9;&#x6240;&#x6709;&#x88AB;&#x8C03;&#x8BD5;&#x7EBF;&#x7A0B;&#x6267;&#x884C;GDB&#x547D;&#x4EE4;command&#x3002;
 - set scheduler-locking off|on|step   
-  估计是实际使用过多线程调试的人都可以发现，在使用step或者continue命令调试当前被  
-  调试线程的时候，其他线程也是同时执行的，怎么只让被调试程序执行呢？通过这个命令  
-  就可以实现这个需求。
-  + off 不锁定任何线程，也就是所有线程都执行，这是默认值。   
-  + on只有当前被调试程序会执行。 
-  + step 在单步的时候，除了next过一个函数的情况(熟悉情况的人可能知道，这其实是一  
-    个设置断点然后continue的行为)以外，只有当前线程会执行。
+  &#x4F30;&#x8BA1;&#x662F;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x8FC7;&#x591A;&#x7EBF;&#x7A0B;&#x8C03;&#x8BD5;&#x7684;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x5728;&#x4F7F;&#x7528;step&#x6216;&#x8005;continue&#x547D;&#x4EE4;&#x8C03;&#x8BD5;&#x5F53;&#x524D;&#x88AB;  
+  &#x8C03;&#x8BD5;&#x7EBF;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E5F;&#x662F;&#x540C;&#x65F6;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x600E;&#x4E48;&#x53EA;&#x8BA9;&#x88AB;&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x5462;&#xFF1F;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;  
+  &#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x9700;&#x6C42;&#x3002;
+  + off &#x4E0D;&#x9501;&#x5B9A;&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x662F;&#x9ED8;&#x8BA4;&#x503C;&#x3002;   
+  + on&#x53EA;&#x6709;&#x5F53;&#x524D;&#x88AB;&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F;&#x4F1A;&#x6267;&#x884C;&#x3002; 
+  + step &#x5728;&#x5355;&#x6B65;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9664;&#x4E86;next&#x8FC7;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x60C5;&#x51B5;(&#x719F;&#x6089;&#x60C5;&#x51B5;&#x7684;&#x4EBA;&#x53EF;&#x80FD;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x5176;&#x5B9E;&#x662F;&#x4E00;  
+    &#x4E2A;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x7136;&#x540E;continue&#x7684;&#x884C;&#x4E3A;)&#x4EE5;&#x5916;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4F1A;&#x6267;&#x884C;&#x3002;
 </code></pre></li>
 </ol>
 <p>example:</p>
 <pre><code>(gdb) r
 Starting program: /root/thread
 [New Thread 1073951360 (LWP 12900)]
-[New Thread 1082342592 (LWP 12907)]---以下三个为新产生的线程
+[New Thread 1082342592 (LWP 12907)]---&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x4E3A;&#x65B0;&#x4EA7;&#x751F;&#x7684;&#x7EBF;&#x7A0B;
 [New Thread 1090731072 (LWP 12908)]
 [New Thread 1099119552 (LWP 12909)]
 
-查看线程：使用info threads可以查看运行的线程。 
+&#x67E5;&#x770B;&#x7EBF;&#x7A0B;&#xFF1A;&#x4F7F;&#x7528;info threads&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x8FD0;&#x884C;&#x7684;&#x7EBF;&#x7A0B;&#x3002; 
 
 (gdb) info threads
   4 Thread 1099119552 (LWP 12940)   0xffffe002 in ?? ()
@@ -368,13 +368,13 @@ Starting program: /root/thread
 * 1 Thread 1073951360 (LWP 12931)   main (argc=1, argv=0xbfffda04) at thread.c:21
 (gdb)
 
-注意，行首的蓝色文字为gdb分配的线程号，对线程进行切换时，使用该该号码，而不是
-上文标出的绿色数字。
+&#x6CE8;&#x610F;&#xFF0C;&#x884C;&#x9996;&#x7684;&#x84DD;&#x8272;&#x6587;&#x5B57;&#x4E3A;gdb&#x5206;&#x914D;&#x7684;&#x7EBF;&#x7A0B;&#x53F7;&#xFF0C;&#x5BF9;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5207;&#x6362;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x8BE5;&#x8BE5;&#x53F7;&#x7801;&#xFF0C;&#x800C;&#x4E0D;&#x662F;
+&#x4E0A;&#x6587;&#x6807;&#x51FA;&#x7684;&#x7EFF;&#x8272;&#x6570;&#x5B57;&#x3002;
 
-另外，行首的红色星号标识了当前活动的线程
+&#x53E6;&#x5916;&#xFF0C;&#x884C;&#x9996;&#x7684;&#x7EA2;&#x8272;&#x661F;&#x53F7;&#x6807;&#x8BC6;&#x4E86;&#x5F53;&#x524D;&#x6D3B;&#x52A8;&#x7684;&#x7EBF;&#x7A0B;
 
-切换线程：使用 thread THREADNUMBER 进行切换，THREADNUMBER 为上文提到的线程号。
-下例显示将活动线程从 1 切换至 4。 
+&#x5207;&#x6362;&#x7EBF;&#x7A0B;&#xFF1A;&#x4F7F;&#x7528; thread THREADNUMBER &#x8FDB;&#x884C;&#x5207;&#x6362;&#xFF0C;THREADNUMBER &#x4E3A;&#x4E0A;&#x6587;&#x63D0;&#x5230;&#x7684;&#x7EBF;&#x7A0B;&#x53F7;&#x3002;
+&#x4E0B;&#x4F8B;&#x663E;&#x793A;&#x5C06;&#x6D3B;&#x52A8;&#x7EBF;&#x7A0B;&#x4ECE; 1 &#x5207;&#x6362;&#x81F3; 4&#x3002; 
 
 (gdb) info threads
    4 Thread 1099119552 (LWP 12940)   0xffffe002 in ?? ()
@@ -389,12 +389,12 @@ Starting program: /root/thread
    2 Thread 1082342592 (LWP 12938)   0xffffe002 in ?? ()
    1 Thread 1073951360 (LWP 12931)   main (argc=1, argv=0xbfffda04) at thread.c:21
 (gdb)
-</code></pre><p>打印线程信息:</p>
+</code></pre><p>&#x6253;&#x5370;&#x7EBF;&#x7A0B;&#x4FE1;&#x606F;:</p>
 <pre><code>usage:
     break &lt;linespec&gt; thread &lt;threadno&gt;
     break &lt;linespec&gt; thread &lt;threadno&gt; if ...
 </code></pre><p>example:<br>    (gdb) break frik.c:13 thread 28 if bartab &gt; lim</p>
-<p>例子:</p>
+<p>&#x4F8B;&#x5B50;:</p>
 <pre><code>(gdb) r
 Starting program: /home/dennis/work/test/test 
 [Thread debugging using libthread_db enabled]
@@ -484,22 +484,22 @@ $1 = 97
 <li><p><code>dump binary memory filename start_addr end_addr</code> dump memory to files<br>ref : <a href="https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html" target="_blank" rel="external">https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html</a></p>
 </li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="external">用GDB调试程序 1</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2880" target="_blank" rel="external">用GDB调试程序 2</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2881" target="_blank" rel="external">用GDB调试程序 3</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2882" target="_blank" rel="external">用GDB调试程序 4</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2883" target="_blank" rel="external">用GDB调试程序 5</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2884" target="_blank" rel="external">用GDB调试程序 6</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2885" target="_blank" rel="external">用GDB调试程序 7</a></li>
-<li><a href="http://blog.csdn.net/xiajun07061225/article/details/8960332" target="_blank" rel="external">GDB调试器基本命令必知必会</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 1</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2880" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 2</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2881" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 3</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2882" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 4</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2883" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 5</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2884" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 6</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2885" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 7</a></li>
+<li><a href="http://blog.csdn.net/xiajun07061225/article/details/8960332" target="_blank" rel="external">GDB&#x8C03;&#x8BD5;&#x5668;&#x57FA;&#x672C;&#x547D;&#x4EE4;&#x5FC5;&#x77E5;&#x5FC5;&#x4F1A;</a></li>
 <li><a href="http://poormansprofiler.org/hpmp.txt" target="_blank" rel="external">http://poormansprofiler.org/hpmp.txt</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/05/debugging-programs-with-gdb/" data-id="cin61d0jm007vfyizhpd662ck" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/05/debugging-programs-with-gdb/" data-id="cin6a5ujb007u3cizjfm7qjya" class="article-share-link">Share</a>
       
       
     </footer>
@@ -531,17 +531,17 @@ $1 = 97
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>From : <a href="http://thesciencepundit.blogspot.com/2006/07/john-von-neumann-and-mathematicians.html" target="_blank" rel="external">John Von Neumann and the Mathematician’s Trap</a></p>
+        <p>From : <a href="http://thesciencepundit.blogspot.com/2006/07/john-von-neumann-and-mathematicians.html" target="_blank" rel="external">John Von Neumann and the Mathematician&#x2019;s Trap</a></p>
 <p>The story goes that someone once posed to Von Neumann the following problem:</p>
 <p>Two trains are 20 miles apart on the same track heading towards each other at 10<br>miles per hour, on a collision course. At the same time, a bee takes off from<br>the nose of one train at 20 miles per hour, towards the other train. As soon as<br>the bee reaches the other train, it bangs huwey and heads off at 20 miles per<br>hour back towards the first train. It continues to do this until the trains<br>collide, killing the bee.</p>
 <p>The question is, how far does the bee fly (d) before the collision?</p>
-<p>When posed with the above problem (or some variation of it), JVN took all of<br>five to ten seconds to come up with the correct solution. This floored the<br>questioner who said “I’m impressed that you didn’t fall for the Mathematician’s<br>Trap.” After getting a perplexed look from our genius, he asked “How did you<br>solve the problem?”</p>
-<p><strong><em>“By infinite series, of course!”</em></strong></p>
+<p>When posed with the above problem (or some variation of it), JVN took all of<br>five to ten seconds to come up with the correct solution. This floored the<br>questioner who said &#x201C;I&#x2019;m impressed that you didn&#x2019;t fall for the Mathematician&#x2019;s<br>Trap.&#x201D; After getting a perplexed look from our genius, he asked &#x201C;How did you<br>solve the problem?&#x201D;</p>
+<p><strong><em>&#x201C;By infinite series, of course!&#x201D;</em></strong></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/29/john-von-neumann-and-the-mathematicians-trap/" data-id="cin61d0jk007ufyizwqtzqel5" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/29/john-von-neumann-and-the-mathematicians-trap/" data-id="cin6a5uja007t3ciz81auxtvo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -573,19 +573,19 @@ $1 = 97
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>资深Linux服务端开发工程师（C/C++）</p>
-<p>工作职责<br>• 负责基础Web服务器软件设计与开发；<br>• 设计、优化Web平台与架构以满足日益增长的平台的性能要求；<br>• 直接参与到系统设计和核心代码开发；  </p>
-<p>职位要求<br>• 3年以上系统软件开发工作经验；<br>• 精通C/C++、HTTP协议；<br>• 精通高性能网络服务器编程，如异步、事件驱动；<br>• 具有良好的沟通能力，有较强的独立工作能力和解决问题的能力；<br>• 有4/7层负载均衡软件开发经验者优先；<br>• 熟悉开源的Web服务器（如Nginx、Apache、Lighttpd等），有分析其代码实现或模块编写经验者优先；<br>• 具有深厚算法及数据结构知识优先；<br>• 有大规模Web架构系统设计经验者优先；<br>• 开源社区成员优先；  </p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://tengine.taobao.org/book/" target="_blank" rel="external">Nginx开发从入门到精通</a></li>
+        <h3 id="target"><a href="#Target" class="headerlink" title="Target"></a>Target</h3><p>&#x8D44;&#x6DF1;Linux&#x670D;&#x52A1;&#x7AEF;&#x5F00;&#x53D1;&#x5DE5;&#x7A0B;&#x5E08;&#xFF08;C/C++&#xFF09;</p>
+<p>&#x5DE5;&#x4F5C;&#x804C;&#x8D23;<br>&#x2022; &#x8D1F;&#x8D23;&#x57FA;&#x7840;Web&#x670D;&#x52A1;&#x5668;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x4E0E;&#x5F00;&#x53D1;&#xFF1B;<br>&#x2022; &#x8BBE;&#x8BA1;&#x3001;&#x4F18;&#x5316;Web&#x5E73;&#x53F0;&#x4E0E;&#x67B6;&#x6784;&#x4EE5;&#x6EE1;&#x8DB3;&#x65E5;&#x76CA;&#x589E;&#x957F;&#x7684;&#x5E73;&#x53F0;&#x7684;&#x6027;&#x80FD;&#x8981;&#x6C42;&#xFF1B;<br>&#x2022; &#x76F4;&#x63A5;&#x53C2;&#x4E0E;&#x5230;&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x548C;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x5F00;&#x53D1;&#xFF1B;  </p>
+<p>&#x804C;&#x4F4D;&#x8981;&#x6C42;<br>&#x2022; 3&#x5E74;&#x4EE5;&#x4E0A;&#x7CFB;&#x7EDF;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#x7ECF;&#x9A8C;&#xFF1B;<br>&#x2022; &#x7CBE;&#x901A;C/C++&#x3001;HTTP&#x534F;&#x8BAE;&#xFF1B;<br>&#x2022; &#x7CBE;&#x901A;&#x9AD8;&#x6027;&#x80FD;&#x7F51;&#x7EDC;&#x670D;&#x52A1;&#x5668;&#x7F16;&#x7A0B;&#xFF0C;&#x5982;&#x5F02;&#x6B65;&#x3001;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#xFF1B;<br>&#x2022; &#x5177;&#x6709;&#x826F;&#x597D;&#x7684;&#x6C9F;&#x901A;&#x80FD;&#x529B;&#xFF0C;&#x6709;&#x8F83;&#x5F3A;&#x7684;&#x72EC;&#x7ACB;&#x5DE5;&#x4F5C;&#x80FD;&#x529B;&#x548C;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x80FD;&#x529B;&#xFF1B;<br>&#x2022; &#x6709;4/7&#x5C42;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#x8005;&#x4F18;&#x5148;&#xFF1B;<br>&#x2022; &#x719F;&#x6089;&#x5F00;&#x6E90;&#x7684;Web&#x670D;&#x52A1;&#x5668;&#xFF08;&#x5982;Nginx&#x3001;Apache&#x3001;Lighttpd&#x7B49;&#xFF09;&#xFF0C;&#x6709;&#x5206;&#x6790;&#x5176;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x6216;&#x6A21;&#x5757;&#x7F16;&#x5199;&#x7ECF;&#x9A8C;&#x8005;&#x4F18;&#x5148;&#xFF1B;<br>&#x2022; &#x5177;&#x6709;&#x6DF1;&#x539A;&#x7B97;&#x6CD5;&#x53CA;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x77E5;&#x8BC6;&#x4F18;&#x5148;&#xFF1B;<br>&#x2022; &#x6709;&#x5927;&#x89C4;&#x6A21;Web&#x67B6;&#x6784;&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x7ECF;&#x9A8C;&#x8005;&#x4F18;&#x5148;&#xFF1B;<br>&#x2022; &#x5F00;&#x6E90;&#x793E;&#x533A;&#x6210;&#x5458;&#x4F18;&#x5148;&#xFF1B;  </p>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://tengine.taobao.org/book/" target="_blank" rel="external">Nginx&#x5F00;&#x53D1;&#x4ECE;&#x5165;&#x95E8;&#x5230;&#x7CBE;&#x901A;</a></li>
 <li><a href="https://github.com/alibaba/tengine" target="_blank" rel="external">tengine</a></li>
-<li><a href="http://www.alidata.org/archives/tag/nginx" target="_blank" rel="external">Nginx源码分析</a></li>
+<li><a href="http://www.alidata.org/archives/tag/nginx" target="_blank" rel="external">Nginx&#x6E90;&#x7801;&#x5206;&#x6790;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/27/nginx/" data-id="cin61d0jj007tfyizhgms0cjx" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/27/nginx/" data-id="cin6a5uj9007s3ciz9mfo06r5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -617,23 +617,23 @@ $1 = 97
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、<a href="http://www.greenvpn.org/" target="_blank" rel="external">GreenVPN</a><br>    又称“Green网络加速器”，是2008年开始运营的一家香港老牌VPN服务商，特点是信誉口碑好。如果你是打算长期使用VPN的，推荐使用这个，没有跑路风险，售后支持方面也比较好。另外老牌商家各方面经验比较丰富，遇到问题容易解决。比如线路被屏蔽后的及时修复，这点很关键。线路方面有北美、亚洲和欧洲线路，支持多台终端同时使用。</p>
-<p>2、<a href="http://www.qjvpn.com/" target="_blank" rel="external">旗舰VPN</a><br>    新兴的专业vpn代理提供商，力争成为VPN行业的旗舰。免费vpn任意使用无限制，百兆独享的优质vpn服务器，覆盖了主流的美国、日本、韩国、台湾、香港和新加坡，包年套餐仅159元，性价比超高，windows客户端软件使用方便。</p>
-<p>3、<a href="http://www.nydus.info/" target="_blank" rel="external">NydusVPN</a><br>    2012年年底开始进入国内市场的VPN供应商，客户端软件方面做得比较有特色，线路以美国和东南亚线路为主。注册帐号可以免费试用7天时间，这个有点绕，其实是1天付费线路试用，6天免费线路试用，后者相对来说质量就比较差了。不过总的来说，还算慷慨的了。</p>
-<p>4、<a href="https://www.povpn.com/" target="_blank" rel="external">PoVPN</a><br>    PoVPN是一家09年开始运营的VPN服务商，包含多个国家地区VPN线路，如美国、日本、韩国、台湾、香港等线路，支持PPTP、L2TP、Cisco IPSec和OpenVPN四种连接模式。可定制在线终端数和独享IP。注册帐号可以无限制试用2小时VPN，完成新手任务后还可以获得免费1天VPN。</p>
-<p>5、<a href="https://www.shayunet.net/" target="_blank" rel="external">鲨鱼VPN</a><br>    近两年兴起的一家国内VPN服务商，各方面感觉有点像模仿GreenVPN，包括套餐定价之类的，总的来说还算不错。特点是协议支持丰富，除主流的PPTP、L2TP、OPENVPN连接协议外，还支持相对小众的SSTP、IKev2。线路主要是美国和亚洲线路，注册帐号可以试用300M流量。</p>
-<p>6、<a href="http://www.mxvpn.cc/" target="_blank" rel="external">MxVPN</a><br>    也是一个比较有名的VPN，07年就开始做了。特点是套餐多样，除了包月包年这些套餐，还有计时和流量套餐。客户端软件支持各主流操作系统平台，包括Mac OS X的，这个确实不多见，之前Mac系统下一般都是手动设置连接使用。注册验证帐号后可以每天试用100M流量。</p>
-<p>7、<a href="http://www.podvpn6.com/" target="_blank" rel="external">豆荚VPN</a><br>    2012年开始运营的一家国内VPN，线路以美国、韩国、日本线路为主，相对来说游戏用户使用比较多。套餐方面除了包月和流量计费外，还提供有独立IP套餐可定制。注册帐号可以试用800M流量，不过只能连接免费线路，刷刷简单网页还是可以的，看视频就略卡了。</p>
-<p>8、<a href="http://www.51vpn.mobi/" target="_blank" rel="external">51VPN</a><br>    51VPN，09年成立的一家服务商，也是比较靠谱的商家，线路包括美国、日本、香港、台湾、韩国这几个地区，优势是线路专一多选，注册即可每月免费使用2G流量，非常给力。购买包年仅需139元并且支持4个终端。</p>
-<p>9、<a href="http://www.6vpn.com/" target="_blank" rel="external">6VPN</a><br>    刚刚接触到6vpn，还以为是新开的商家，其实6vpn已经在代理行业从事了多年，以前主要提供proxy代理，2012年开始提供vpn代理的服务，也是一个经验丰富的老商家了。套餐可按时或按流量定制，并且也提供免费VPN，注册后可试用100M流量。</p>
-<p>10、<a href="http://www.ershixiongvpn2.com/" target="_blank" rel="external">二师兄VPN</a><br>    专注提供美国VPN线路的服务商，基本上都是美国线路，少量亚洲线路。使用的是对国内访问较好的洛杉矶机房，独立服务器。比较特别的是，这家提供终身套餐，性价比来看确实很吸引。不过考虑到服务的长久性，还是建议使用短期套餐看看稳定性如何先。  </p>
-<p>最后来说说免费VPN，可能很多朋友会问有没有免费的VPN呢？因为受VPN高昂的成本影响，现在真正意义上的免费VPN几乎没有，这也很好理解，没有商家愿意亏本免费提供。大多都是有着各种限制的，如使用流量、连接时间、帐号密码定期更新等，并不是真正意义上的免费VPN。如果你是经常需要使用VPN的，建议还是购买付费VPN使用靠谱。各方面都有一定的保障，使用起来也舒心的多。</p>
+        <p>1&#x3001;<a href="http://www.greenvpn.org/" target="_blank" rel="external">GreenVPN</a><br>    &#x53C8;&#x79F0;&#x201C;Green&#x7F51;&#x7EDC;&#x52A0;&#x901F;&#x5668;&#x201D;&#xFF0C;&#x662F;2008&#x5E74;&#x5F00;&#x59CB;&#x8FD0;&#x8425;&#x7684;&#x4E00;&#x5BB6;&#x9999;&#x6E2F;&#x8001;&#x724C;VPN&#x670D;&#x52A1;&#x5546;&#xFF0C;&#x7279;&#x70B9;&#x662F;&#x4FE1;&#x8A89;&#x53E3;&#x7891;&#x597D;&#x3002;&#x5982;&#x679C;&#x4F60;&#x662F;&#x6253;&#x7B97;&#x957F;&#x671F;&#x4F7F;&#x7528;VPN&#x7684;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#xFF0C;&#x6CA1;&#x6709;&#x8DD1;&#x8DEF;&#x98CE;&#x9669;&#xFF0C;&#x552E;&#x540E;&#x652F;&#x6301;&#x65B9;&#x9762;&#x4E5F;&#x6BD4;&#x8F83;&#x597D;&#x3002;&#x53E6;&#x5916;&#x8001;&#x724C;&#x5546;&#x5BB6;&#x5404;&#x65B9;&#x9762;&#x7ECF;&#x9A8C;&#x6BD4;&#x8F83;&#x4E30;&#x5BCC;&#xFF0C;&#x9047;&#x5230;&#x95EE;&#x9898;&#x5BB9;&#x6613;&#x89E3;&#x51B3;&#x3002;&#x6BD4;&#x5982;&#x7EBF;&#x8DEF;&#x88AB;&#x5C4F;&#x853D;&#x540E;&#x7684;&#x53CA;&#x65F6;&#x4FEE;&#x590D;&#xFF0C;&#x8FD9;&#x70B9;&#x5F88;&#x5173;&#x952E;&#x3002;&#x7EBF;&#x8DEF;&#x65B9;&#x9762;&#x6709;&#x5317;&#x7F8E;&#x3001;&#x4E9A;&#x6D32;&#x548C;&#x6B27;&#x6D32;&#x7EBF;&#x8DEF;&#xFF0C;&#x652F;&#x6301;&#x591A;&#x53F0;&#x7EC8;&#x7AEF;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x3002;</p>
+<p>2&#x3001;<a href="http://www.qjvpn.com/" target="_blank" rel="external">&#x65D7;&#x8230;VPN</a><br>    &#x65B0;&#x5174;&#x7684;&#x4E13;&#x4E1A;vpn&#x4EE3;&#x7406;&#x63D0;&#x4F9B;&#x5546;&#xFF0C;&#x529B;&#x4E89;&#x6210;&#x4E3A;VPN&#x884C;&#x4E1A;&#x7684;&#x65D7;&#x8230;&#x3002;&#x514D;&#x8D39;vpn&#x4EFB;&#x610F;&#x4F7F;&#x7528;&#x65E0;&#x9650;&#x5236;&#xFF0C;&#x767E;&#x5146;&#x72EC;&#x4EAB;&#x7684;&#x4F18;&#x8D28;vpn&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x8986;&#x76D6;&#x4E86;&#x4E3B;&#x6D41;&#x7684;&#x7F8E;&#x56FD;&#x3001;&#x65E5;&#x672C;&#x3001;&#x97E9;&#x56FD;&#x3001;&#x53F0;&#x6E7E;&#x3001;&#x9999;&#x6E2F;&#x548C;&#x65B0;&#x52A0;&#x5761;&#xFF0C;&#x5305;&#x5E74;&#x5957;&#x9910;&#x4EC5;159&#x5143;&#xFF0C;&#x6027;&#x4EF7;&#x6BD4;&#x8D85;&#x9AD8;&#xFF0C;windows&#x5BA2;&#x6237;&#x7AEF;&#x8F6F;&#x4EF6;&#x4F7F;&#x7528;&#x65B9;&#x4FBF;&#x3002;</p>
+<p>3&#x3001;<a href="http://www.nydus.info/" target="_blank" rel="external">NydusVPN</a><br>    2012&#x5E74;&#x5E74;&#x5E95;&#x5F00;&#x59CB;&#x8FDB;&#x5165;&#x56FD;&#x5185;&#x5E02;&#x573A;&#x7684;VPN&#x4F9B;&#x5E94;&#x5546;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x8F6F;&#x4EF6;&#x65B9;&#x9762;&#x505A;&#x5F97;&#x6BD4;&#x8F83;&#x6709;&#x7279;&#x8272;&#xFF0C;&#x7EBF;&#x8DEF;&#x4EE5;&#x7F8E;&#x56FD;&#x548C;&#x4E1C;&#x5357;&#x4E9A;&#x7EBF;&#x8DEF;&#x4E3A;&#x4E3B;&#x3002;&#x6CE8;&#x518C;&#x5E10;&#x53F7;&#x53EF;&#x4EE5;&#x514D;&#x8D39;&#x8BD5;&#x7528;7&#x5929;&#x65F6;&#x95F4;&#xFF0C;&#x8FD9;&#x4E2A;&#x6709;&#x70B9;&#x7ED5;&#xFF0C;&#x5176;&#x5B9E;&#x662F;1&#x5929;&#x4ED8;&#x8D39;&#x7EBF;&#x8DEF;&#x8BD5;&#x7528;&#xFF0C;6&#x5929;&#x514D;&#x8D39;&#x7EBF;&#x8DEF;&#x8BD5;&#x7528;&#xFF0C;&#x540E;&#x8005;&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x8D28;&#x91CF;&#x5C31;&#x6BD4;&#x8F83;&#x5DEE;&#x4E86;&#x3002;&#x4E0D;&#x8FC7;&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x8FD8;&#x7B97;&#x6177;&#x6168;&#x7684;&#x4E86;&#x3002;</p>
+<p>4&#x3001;<a href="https://www.povpn.com/" target="_blank" rel="external">PoVPN</a><br>    PoVPN&#x662F;&#x4E00;&#x5BB6;09&#x5E74;&#x5F00;&#x59CB;&#x8FD0;&#x8425;&#x7684;VPN&#x670D;&#x52A1;&#x5546;&#xFF0C;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x56FD;&#x5BB6;&#x5730;&#x533A;VPN&#x7EBF;&#x8DEF;&#xFF0C;&#x5982;&#x7F8E;&#x56FD;&#x3001;&#x65E5;&#x672C;&#x3001;&#x97E9;&#x56FD;&#x3001;&#x53F0;&#x6E7E;&#x3001;&#x9999;&#x6E2F;&#x7B49;&#x7EBF;&#x8DEF;&#xFF0C;&#x652F;&#x6301;PPTP&#x3001;L2TP&#x3001;Cisco IPSec&#x548C;OpenVPN&#x56DB;&#x79CD;&#x8FDE;&#x63A5;&#x6A21;&#x5F0F;&#x3002;&#x53EF;&#x5B9A;&#x5236;&#x5728;&#x7EBF;&#x7EC8;&#x7AEF;&#x6570;&#x548C;&#x72EC;&#x4EAB;IP&#x3002;&#x6CE8;&#x518C;&#x5E10;&#x53F7;&#x53EF;&#x4EE5;&#x65E0;&#x9650;&#x5236;&#x8BD5;&#x7528;2&#x5C0F;&#x65F6;VPN&#xFF0C;&#x5B8C;&#x6210;&#x65B0;&#x624B;&#x4EFB;&#x52A1;&#x540E;&#x8FD8;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x514D;&#x8D39;1&#x5929;VPN&#x3002;</p>
+<p>5&#x3001;<a href="https://www.shayunet.net/" target="_blank" rel="external">&#x9CA8;&#x9C7C;VPN</a><br>    &#x8FD1;&#x4E24;&#x5E74;&#x5174;&#x8D77;&#x7684;&#x4E00;&#x5BB6;&#x56FD;&#x5185;VPN&#x670D;&#x52A1;&#x5546;&#xFF0C;&#x5404;&#x65B9;&#x9762;&#x611F;&#x89C9;&#x6709;&#x70B9;&#x50CF;&#x6A21;&#x4EFF;GreenVPN&#xFF0C;&#x5305;&#x62EC;&#x5957;&#x9910;&#x5B9A;&#x4EF7;&#x4E4B;&#x7C7B;&#x7684;&#xFF0C;&#x603B;&#x7684;&#x6765;&#x8BF4;&#x8FD8;&#x7B97;&#x4E0D;&#x9519;&#x3002;&#x7279;&#x70B9;&#x662F;&#x534F;&#x8BAE;&#x652F;&#x6301;&#x4E30;&#x5BCC;&#xFF0C;&#x9664;&#x4E3B;&#x6D41;&#x7684;PPTP&#x3001;L2TP&#x3001;OPENVPN&#x8FDE;&#x63A5;&#x534F;&#x8BAE;&#x5916;&#xFF0C;&#x8FD8;&#x652F;&#x6301;&#x76F8;&#x5BF9;&#x5C0F;&#x4F17;&#x7684;SSTP&#x3001;IKev2&#x3002;&#x7EBF;&#x8DEF;&#x4E3B;&#x8981;&#x662F;&#x7F8E;&#x56FD;&#x548C;&#x4E9A;&#x6D32;&#x7EBF;&#x8DEF;&#xFF0C;&#x6CE8;&#x518C;&#x5E10;&#x53F7;&#x53EF;&#x4EE5;&#x8BD5;&#x7528;300M&#x6D41;&#x91CF;&#x3002;</p>
+<p>6&#x3001;<a href="http://www.mxvpn.cc/" target="_blank" rel="external">MxVPN</a><br>    &#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x6709;&#x540D;&#x7684;VPN&#xFF0C;07&#x5E74;&#x5C31;&#x5F00;&#x59CB;&#x505A;&#x4E86;&#x3002;&#x7279;&#x70B9;&#x662F;&#x5957;&#x9910;&#x591A;&#x6837;&#xFF0C;&#x9664;&#x4E86;&#x5305;&#x6708;&#x5305;&#x5E74;&#x8FD9;&#x4E9B;&#x5957;&#x9910;&#xFF0C;&#x8FD8;&#x6709;&#x8BA1;&#x65F6;&#x548C;&#x6D41;&#x91CF;&#x5957;&#x9910;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x8F6F;&#x4EF6;&#x652F;&#x6301;&#x5404;&#x4E3B;&#x6D41;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5E73;&#x53F0;&#xFF0C;&#x5305;&#x62EC;Mac OS X&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x786E;&#x5B9E;&#x4E0D;&#x591A;&#x89C1;&#xFF0C;&#x4E4B;&#x524D;Mac&#x7CFB;&#x7EDF;&#x4E0B;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x3002;&#x6CE8;&#x518C;&#x9A8C;&#x8BC1;&#x5E10;&#x53F7;&#x540E;&#x53EF;&#x4EE5;&#x6BCF;&#x5929;&#x8BD5;&#x7528;100M&#x6D41;&#x91CF;&#x3002;</p>
+<p>7&#x3001;<a href="http://www.podvpn6.com/" target="_blank" rel="external">&#x8C46;&#x835A;VPN</a><br>    2012&#x5E74;&#x5F00;&#x59CB;&#x8FD0;&#x8425;&#x7684;&#x4E00;&#x5BB6;&#x56FD;&#x5185;VPN&#xFF0C;&#x7EBF;&#x8DEF;&#x4EE5;&#x7F8E;&#x56FD;&#x3001;&#x97E9;&#x56FD;&#x3001;&#x65E5;&#x672C;&#x7EBF;&#x8DEF;&#x4E3A;&#x4E3B;&#xFF0C;&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x6E38;&#x620F;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x6BD4;&#x8F83;&#x591A;&#x3002;&#x5957;&#x9910;&#x65B9;&#x9762;&#x9664;&#x4E86;&#x5305;&#x6708;&#x548C;&#x6D41;&#x91CF;&#x8BA1;&#x8D39;&#x5916;&#xFF0C;&#x8FD8;&#x63D0;&#x4F9B;&#x6709;&#x72EC;&#x7ACB;IP&#x5957;&#x9910;&#x53EF;&#x5B9A;&#x5236;&#x3002;&#x6CE8;&#x518C;&#x5E10;&#x53F7;&#x53EF;&#x4EE5;&#x8BD5;&#x7528;800M&#x6D41;&#x91CF;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EA;&#x80FD;&#x8FDE;&#x63A5;&#x514D;&#x8D39;&#x7EBF;&#x8DEF;&#xFF0C;&#x5237;&#x5237;&#x7B80;&#x5355;&#x7F51;&#x9875;&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#xFF0C;&#x770B;&#x89C6;&#x9891;&#x5C31;&#x7565;&#x5361;&#x4E86;&#x3002;</p>
+<p>8&#x3001;<a href="http://www.51vpn.mobi/" target="_blank" rel="external">51VPN</a><br>    51VPN&#xFF0C;09&#x5E74;&#x6210;&#x7ACB;&#x7684;&#x4E00;&#x5BB6;&#x670D;&#x52A1;&#x5546;&#xFF0C;&#x4E5F;&#x662F;&#x6BD4;&#x8F83;&#x9760;&#x8C31;&#x7684;&#x5546;&#x5BB6;&#xFF0C;&#x7EBF;&#x8DEF;&#x5305;&#x62EC;&#x7F8E;&#x56FD;&#x3001;&#x65E5;&#x672C;&#x3001;&#x9999;&#x6E2F;&#x3001;&#x53F0;&#x6E7E;&#x3001;&#x97E9;&#x56FD;&#x8FD9;&#x51E0;&#x4E2A;&#x5730;&#x533A;&#xFF0C;&#x4F18;&#x52BF;&#x662F;&#x7EBF;&#x8DEF;&#x4E13;&#x4E00;&#x591A;&#x9009;&#xFF0C;&#x6CE8;&#x518C;&#x5373;&#x53EF;&#x6BCF;&#x6708;&#x514D;&#x8D39;&#x4F7F;&#x7528;2G&#x6D41;&#x91CF;&#xFF0C;&#x975E;&#x5E38;&#x7ED9;&#x529B;&#x3002;&#x8D2D;&#x4E70;&#x5305;&#x5E74;&#x4EC5;&#x9700;139&#x5143;&#x5E76;&#x4E14;&#x652F;&#x6301;4&#x4E2A;&#x7EC8;&#x7AEF;&#x3002;</p>
+<p>9&#x3001;<a href="http://www.6vpn.com/" target="_blank" rel="external">6VPN</a><br>    &#x521A;&#x521A;&#x63A5;&#x89E6;&#x5230;6vpn&#xFF0C;&#x8FD8;&#x4EE5;&#x4E3A;&#x662F;&#x65B0;&#x5F00;&#x7684;&#x5546;&#x5BB6;&#xFF0C;&#x5176;&#x5B9E;6vpn&#x5DF2;&#x7ECF;&#x5728;&#x4EE3;&#x7406;&#x884C;&#x4E1A;&#x4ECE;&#x4E8B;&#x4E86;&#x591A;&#x5E74;&#xFF0C;&#x4EE5;&#x524D;&#x4E3B;&#x8981;&#x63D0;&#x4F9B;proxy&#x4EE3;&#x7406;&#xFF0C;2012&#x5E74;&#x5F00;&#x59CB;&#x63D0;&#x4F9B;vpn&#x4EE3;&#x7406;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x7ECF;&#x9A8C;&#x4E30;&#x5BCC;&#x7684;&#x8001;&#x5546;&#x5BB6;&#x4E86;&#x3002;&#x5957;&#x9910;&#x53EF;&#x6309;&#x65F6;&#x6216;&#x6309;&#x6D41;&#x91CF;&#x5B9A;&#x5236;&#xFF0C;&#x5E76;&#x4E14;&#x4E5F;&#x63D0;&#x4F9B;&#x514D;&#x8D39;VPN&#xFF0C;&#x6CE8;&#x518C;&#x540E;&#x53EF;&#x8BD5;&#x7528;100M&#x6D41;&#x91CF;&#x3002;</p>
+<p>10&#x3001;<a href="http://www.ershixiongvpn2.com/" target="_blank" rel="external">&#x4E8C;&#x5E08;&#x5144;VPN</a><br>    &#x4E13;&#x6CE8;&#x63D0;&#x4F9B;&#x7F8E;&#x56FD;VPN&#x7EBF;&#x8DEF;&#x7684;&#x670D;&#x52A1;&#x5546;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x90FD;&#x662F;&#x7F8E;&#x56FD;&#x7EBF;&#x8DEF;&#xFF0C;&#x5C11;&#x91CF;&#x4E9A;&#x6D32;&#x7EBF;&#x8DEF;&#x3002;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x5BF9;&#x56FD;&#x5185;&#x8BBF;&#x95EE;&#x8F83;&#x597D;&#x7684;&#x6D1B;&#x6749;&#x77F6;&#x673A;&#x623F;&#xFF0C;&#x72EC;&#x7ACB;&#x670D;&#x52A1;&#x5668;&#x3002;&#x6BD4;&#x8F83;&#x7279;&#x522B;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x5BB6;&#x63D0;&#x4F9B;&#x7EC8;&#x8EAB;&#x5957;&#x9910;&#xFF0C;&#x6027;&#x4EF7;&#x6BD4;&#x6765;&#x770B;&#x786E;&#x5B9E;&#x5F88;&#x5438;&#x5F15;&#x3002;&#x4E0D;&#x8FC7;&#x8003;&#x8651;&#x5230;&#x670D;&#x52A1;&#x7684;&#x957F;&#x4E45;&#x6027;&#xFF0C;&#x8FD8;&#x662F;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x77ED;&#x671F;&#x5957;&#x9910;&#x770B;&#x770B;&#x7A33;&#x5B9A;&#x6027;&#x5982;&#x4F55;&#x5148;&#x3002;  </p>
+<p>&#x6700;&#x540E;&#x6765;&#x8BF4;&#x8BF4;&#x514D;&#x8D39;VPN&#xFF0C;&#x53EF;&#x80FD;&#x5F88;&#x591A;&#x670B;&#x53CB;&#x4F1A;&#x95EE;&#x6709;&#x6CA1;&#x6709;&#x514D;&#x8D39;&#x7684;VPN&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x53D7;VPN&#x9AD8;&#x6602;&#x7684;&#x6210;&#x672C;&#x5F71;&#x54CD;&#xFF0C;&#x73B0;&#x5728;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x514D;&#x8D39;VPN&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#xFF0C;&#x8FD9;&#x4E5F;&#x5F88;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x6CA1;&#x6709;&#x5546;&#x5BB6;&#x613F;&#x610F;&#x4E8F;&#x672C;&#x514D;&#x8D39;&#x63D0;&#x4F9B;&#x3002;&#x5927;&#x591A;&#x90FD;&#x662F;&#x6709;&#x7740;&#x5404;&#x79CD;&#x9650;&#x5236;&#x7684;&#xFF0C;&#x5982;&#x4F7F;&#x7528;&#x6D41;&#x91CF;&#x3001;&#x8FDE;&#x63A5;&#x65F6;&#x95F4;&#x3001;&#x5E10;&#x53F7;&#x5BC6;&#x7801;&#x5B9A;&#x671F;&#x66F4;&#x65B0;&#x7B49;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x514D;&#x8D39;VPN&#x3002;&#x5982;&#x679C;&#x4F60;&#x662F;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x4F7F;&#x7528;VPN&#x7684;&#xFF0C;&#x5EFA;&#x8BAE;&#x8FD8;&#x662F;&#x8D2D;&#x4E70;&#x4ED8;&#x8D39;VPN&#x4F7F;&#x7528;&#x9760;&#x8C31;&#x3002;&#x5404;&#x65B9;&#x9762;&#x90FD;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x4FDD;&#x969C;&#xFF0C;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x4E5F;&#x8212;&#x5FC3;&#x7684;&#x591A;&#x3002;</p>
 <p>From <a href="http://ilvpn.com/vpn-tuijian/" target="_blank" rel="external">http://ilvpn.com/vpn-tuijian/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/25/vpn-list/" data-id="cin61d0ji007sfyizy6uaiwvd" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/25/vpn-list/" data-id="cin6a5uj8007r3ciz3uurcmkp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -665,7 +665,7 @@ $1 = 97
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ol>
+        <h3 id="analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ol>
 <li><p>Generally, when using <code>ssh -vT git@github.com</code>, it would show as below:</p>
 <pre><code>[dennis@localhost ~]$ ssh -vT git@github.com
 OpenSSH_6.1p1, OpenSSL 1.0.1e-fips 11 Feb 2013
@@ -829,7 +829,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
 <li><p><strong><em>CONTINUE</em></strong></p>
 </li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://stackoverflow.com/questions/757432/git-push-pull-times-out/757462#757462" target="_blank" rel="external">git push/pull times out</a></li>
 <li><a href="https://help.github.com/articles/using-ssh-over-the-https-port" target="_blank" rel="external">Using SSH over the HTTPS port</a></li>
 </ul>
@@ -837,7 +837,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/25/how-to-do-git-push-under-vpn/" data-id="cin61d0jh007rfyizwjpwqzlb" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/25/how-to-do-git-push-under-vpn/" data-id="cin6a5uj7007q3cizjzl5ixsw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -869,9 +869,9 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.csdn.net/column/details/reage.html" target="_blank" rel="external">自己动手写web服务器</a></li>
-<li><a href="http://www.oschina.net/code/snippet_12_15602" target="_blank" rel="external">单个 C 文件实现的 Web 服务器</a></li>
+        <h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/column/details/reage.html" target="_blank" rel="external">&#x81EA;&#x5DF1;&#x52A8;&#x624B;&#x5199;web&#x670D;&#x52A1;&#x5668;</a></li>
+<li><a href="http://www.oschina.net/code/snippet_12_15602" target="_blank" rel="external">&#x5355;&#x4E2A; C &#x6587;&#x4EF6;&#x5B9E;&#x73B0;&#x7684; Web &#x670D;&#x52A1;&#x5668;</a></li>
 <li><a href="http://www.advancedlinuxprogramming.com/alp-folder/alp-ch11-sample-application.pdf" target="_blank" rel="external">web server of Advanced Linux Programming</a></li>
 <li><a href="http://www.advancedlinuxprogramming.com/ALP-listings.tar.gz" target="_blank" rel="external">Advanced Linux Programming source code</a></li>
 <li><a href="http://sourceforge.net/apps/trac/elpi/wiki/AlpASampleGNULinuxApplication" target="_blank" rel="external">web server of Advanced Linux Programming - chinese</a></li>
@@ -880,7 +880,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/22/implement-web-server-with-c-in-linux/" data-id="cin61d0jd007pfyiz4obsjv2w" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/22/implement-web-server-with-c-in-linux/" data-id="cin6a5uj5007o3cizc2cenoyd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -912,17 +912,17 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://download.csdn.net/download/wanchangjiu123/3134157" target="_blank" rel="external">linux下 网络摄像头监控系统 服务器端(bug:修改设备打开方式为读写)</a></li>
+        <h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://download.csdn.net/download/wanchangjiu123/3134157" target="_blank" rel="external">linux&#x4E0B; &#x7F51;&#x7EDC;&#x6444;&#x50CF;&#x5934;&#x76D1;&#x63A7;&#x7CFB;&#x7EDF; &#x670D;&#x52A1;&#x5668;&#x7AEF;(bug:&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x6253;&#x5F00;&#x65B9;&#x5F0F;&#x4E3A;&#x8BFB;&#x5199;)</a></li>
 <li><a href="http://www.zoneminder.com/" target="_blank" rel="external">zone minder</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-mdst/" target="_blank" rel="external">Linux下的实时流媒体编程</a></li>
-<li><a href="http://www.linuxsir.com/main/node/221" target="_blank" rel="external">摄像头（WebCam）在Linux中采用Spcaserv 架设网络视频监控服务器 (v0.1b)</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/linux/l-mdst/" target="_blank" rel="external">Linux&#x4E0B;&#x7684;&#x5B9E;&#x65F6;&#x6D41;&#x5A92;&#x4F53;&#x7F16;&#x7A0B;</a></li>
+<li><a href="http://www.linuxsir.com/main/node/221" target="_blank" rel="external">&#x6444;&#x50CF;&#x5934;&#xFF08;WebCam&#xFF09;&#x5728;Linux&#x4E2D;&#x91C7;&#x7528;Spcaserv &#x67B6;&#x8BBE;&#x7F51;&#x7EDC;&#x89C6;&#x9891;&#x76D1;&#x63A7;&#x670D;&#x52A1;&#x5668; (v0.1b)</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/22/network-camera/" data-id="cin61d0je007qfyizyxh2f2d8" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/22/network-camera/" data-id="cin6a5uj6007p3cizc3cstltm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -954,20 +954,20 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+        <h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://linuxtv.org/downloads/v4l-dvb-apis/capture-example.html" target="_blank" rel="external"><strong>video capture example</strong></a></li>
 <li><a href="https://github.com/sensoray/drv-2226-linux/blob/master/capture.c" target="_blank" rel="external"><strong>capture.c</strong></a></li>
-<li><a href="http://www.oschina.net/code/snippet_12_368" target="_blank" rel="external"><strong>video4linux2编程实例</strong></a></li>
+<li><a href="http://www.oschina.net/code/snippet_12_368" target="_blank" rel="external"><strong>video4linux2&#x7F16;&#x7A0B;&#x5B9E;&#x4F8B;</strong></a></li>
 <li><a href="https://gist.githubusercontent.com/Circuitsoft/1126411/raw/f8131727d3ff4526c4dc4ac2e20c188295e54f19/vidtest.c" target="_blank" rel="external">vidtest.c</a></li>
 <li><a href="http://lwn.net/Articles/203924/" target="_blank" rel="external">The Video4Linux2 API: an introduction</a></li>
-<li><a href="http://blog.csdn.net/d_south/article/details/4288836" target="_blank" rel="external">video4linux(v4l)使用摄像头的实例基础教程与体会</a></li>
-<li><a href="http://blog.chinaunix.net/attachment/attach/20/54/36/7220543672a6e6f227f097f8db3fbe3f900c099717.pdf" target="_blank" rel="external">Video for Linux Two (V4L2) —— 驱动编写指南</a></li>
+<li><a href="http://blog.csdn.net/d_south/article/details/4288836" target="_blank" rel="external">video4linux(v4l)&#x4F7F;&#x7528;&#x6444;&#x50CF;&#x5934;&#x7684;&#x5B9E;&#x4F8B;&#x57FA;&#x7840;&#x6559;&#x7A0B;&#x4E0E;&#x4F53;&#x4F1A;</a></li>
+<li><a href="http://blog.chinaunix.net/attachment/attach/20/54/36/7220543672a6e6f227f097f8db3fbe3f900c099717.pdf" target="_blank" rel="external">Video for Linux Two (V4L2) &#x2014;&#x2014; &#x9A71;&#x52A8;&#x7F16;&#x5199;&#x6307;&#x5357;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/19/capture-images-using-v4l2/" data-id="cin61d0jc007ofyizno10n3up" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/19/capture-images-using-v4l2/" data-id="cin6a5uj5007n3cizrz3kuw3m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1038,7 +1038,7 @@ ip1d-lb3-prd.ia *               255.255.255.255 UH    0      0        0 wlan0
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -5,22 +5,22 @@
   
   <title>MAC address swap with two network cards | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. Problem1.1 When network setting is normal, found that MAC address was swapped.eth0 –&amp;gt; 00:25:90:70:51:f1eth1 –&amp;gt; 00:25:90:70:51:f0
+  <meta name="description" content="1. Problem1.1 When network setting is normal, found that MAC address was swapped.eth0 &amp;#x2013;&amp;gt; 00:25:90:70:51:f1eth1 &amp;#x2013;&amp;gt; 00:25:90:70:51:f0
 [root@localhost ~]# ip a
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; m">
+1: lo: &amp;lt;LOOPBACK,UP,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MAC address swap with two network cards">
 <meta property="og:url" content="http://matrix207.github.com/2013/07/19/mac-address-swap-with-two-network-cards/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
-<meta property="og:description" content="1. Problem1.1 When network setting is normal, found that MAC address was swapped.eth0 –&amp;gt; 00:25:90:70:51:f1eth1 –&amp;gt; 00:25:90:70:51:f0
+<meta property="og:description" content="1. Problem1.1 When network setting is normal, found that MAC address was swapped.eth0 &amp;#x2013;&amp;gt; 00:25:90:70:51:f1eth1 &amp;#x2013;&amp;gt; 00:25:90:70:51:f0
 [root@localhost ~]# ip a
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; m">
+1: lo: &amp;lt;LOOPBACK,UP,">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MAC address swap with two network cards">
-<meta name="twitter:description" content="1. Problem1.1 When network setting is normal, found that MAC address was swapped.eth0 –&amp;gt; 00:25:90:70:51:f1eth1 –&amp;gt; 00:25:90:70:51:f0
+<meta name="twitter:description" content="1. Problem1.1 When network setting is normal, found that MAC address was swapped.eth0 &amp;#x2013;&amp;gt; 00:25:90:70:51:f1eth1 &amp;#x2013;&amp;gt; 00:25:90:70:51:f0
 [root@localhost ~]# ip a
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; m">
+1: lo: &amp;lt;LOOPBACK,UP,">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -97,7 +97,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-Problem"><a href="#1-Problem" class="headerlink" title="1. Problem"></a>1. Problem</h3><h4 id="1-1-When-network-setting-is-normal-found-that-MAC-address-was-swapped"><a href="#1-1-When-network-setting-is-normal-found-that-MAC-address-was-swapped" class="headerlink" title="1.1 When network setting is normal, found that MAC address was swapped."></a>1.1 When network setting is normal, found that MAC address was swapped.</h4><p>eth0 –&gt; 00:25:90:70:51:f1<br>eth1 –&gt; 00:25:90:70:51:f0</p>
+        <h3 id="1-problem"><a href="#1-Problem" class="headerlink" title="1. Problem"></a>1. Problem</h3><h4 id="11-when-network-setting-is-normal-found-that-mac-address-was-swapped"><a href="#1-1-When-network-setting-is-normal-found-that-MAC-address-was-swapped" class="headerlink" title="1.1 When network setting is normal, found that MAC address was swapped."></a>1.1 When network setting is normal, found that MAC address was swapped.</h4><p>eth0 &#x2013;&gt; 00:25:90:70:51:f1<br>eth1 &#x2013;&gt; 00:25:90:70:51:f0</p>
 <pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -113,7 +113,7 @@
     link/ether 00:25:90:70:51:f0 brd ff:ff:ff:ff:ff:ff
     inet6 fe80::225:90ff:fe70:51f0/64 scope link 
        valid_lft forever preferred_lft forever
-</code></pre><h4 id="1-2-But-when-made-a-bind-to-the-two-interface-it-was-correct"><a href="#1-2-But-when-made-a-bind-to-the-two-interface-it-was-correct" class="headerlink" title="1.2 But when made a bind to the two interface, it was correct."></a>1.2 But when made a bind to the two interface, it was correct.</h4><pre><code>[root@localhost ~]# ip a
+</code></pre><h4 id="12-but-when-made-a-bind-to-the-two-interface-it-was-correct"><a href="#1-2-But-when-made-a-bind-to-the-two-interface-it-was-correct" class="headerlink" title="1.2 But when made a bind to the two interface, it was correct."></a>1.2 But when made a bind to the two interface, it was correct.</h4><pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -129,7 +129,7 @@
     inet6 fe80::225:90ff:fe70:51f1/64 scope link 
        valid_lft forever preferred_lft forever
 </code></pre><p><strong>What had done when making the bind?</strong></p>
-<p>Use command <code>dmesg</code>, we found that if there were words like “udev: renamed XXX to XXX”,<br>the MAC addree was correct matched to the interface. If not it was error.</p>
+<p>Use command <code>dmesg</code>, we found that if there were words like &#x201C;udev: renamed XXX to XXX&#x201D;,<br>the MAC addree was correct matched to the interface. If not it was error.</p>
 <p>before changed:</p>
 <pre><code>[root@localhost ~]# dmesg | grep &quot;PCI Express&quot;
 pciehp: PCI Express Hot Plug Controller Driver version: 0.4
@@ -247,7 +247,7 @@ ONBOOT=&quot;no&quot;
 TYPE=&quot;Ethernet&quot;
 UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
 [root@localhost ~]#
-</code></pre><h4 id="1-3-make-a-bind-to-the-network-MAC-is-correct-also"><a href="#1-3-make-a-bind-to-the-network-MAC-is-correct-also" class="headerlink" title="1.3 make a bind to the network, MAC is correct also."></a>1.3 make a bind to the network, MAC is correct also.</h4><pre><code>[root@localhost ~]# ip a
+</code></pre><h4 id="13-make-a-bind-to-the-network-mac-is-correct-also"><a href="#1-3-make-a-bind-to-the-network-MAC-is-correct-also" class="headerlink" title="1.3 make a bind to the network, MAC is correct also."></a>1.3 make a bind to the network, MAC is correct also.</h4><pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -264,7 +264,7 @@ UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
        valid_lft forever preferred_lft forever
 [root@localhost ~]# 
 </code></pre><p>delete the bind, still ok.</p>
-<h4 id="1-4-How-for-group-ip"><a href="#1-4-How-for-group-ip" class="headerlink" title="1.4 How for group ip?"></a>1.4 How for group ip?</h4><p>group set to 172.16.110.233<br>eth0 set to 172.16.110.230<br>eth1 set to 172.16.110.231<br>from below we found the MAC was ok as hoped.</p>
+<h4 id="14-how-for-group-ip"><a href="#1-4-How-for-group-ip" class="headerlink" title="1.4 How for group ip?"></a>1.4 How for group ip?</h4><p>group set to 172.16.110.233<br>eth0 set to 172.16.110.230<br>eth1 set to 172.16.110.231<br>from below we found the MAC was ok as hoped.</p>
 <pre><code>[root@localhost ~]# ip a
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -283,14 +283,14 @@ UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
     inet 172.16.110.233/24 scope global secondary eth0
     inet6 fe80::225:90ff:fe70:51f0/64 scope link 
        valid_lft forever preferred_lft forever
-</code></pre><h3 id="2-The-steps-to-modify-MAC-of-eth-look-like-as-below"><a href="#2-The-steps-to-modify-MAC-of-eth-look-like-as-below" class="headerlink" title="2. The steps to modify MAC of eth* look like as below"></a>2. The steps to modify MAC of eth* look like as below</h3><ol>
+</code></pre><h3 id="2-the-steps-to-modify-mac-of-eth-look-like-as-below"><a href="#2-The-steps-to-modify-MAC-of-eth-look-like-as-below" class="headerlink" title="2. The steps to modify MAC of eth* look like as below"></a>2. The steps to modify MAC of eth* look like as below</h3><ol>
 <li>OS boot </li>
 <li>udev start </li>
 <li>e1000e start, get eth* and MAC </li>
 <li>check /etc/sysconfig/network-scripts/ifcfg-XXX, call shell script<br>/lib/udev/write_net_rules to generate rule file to /etc/udev/rules.d/70-persistent-net.rules<br>if MAC was not match with what got from e1000e (view udev source, you wil find udev)</li>
-<li>udev rename eth* if there have “add” action in rule file /etc/udev/rules.d/70-persistent-net.rules</li>
+<li>udev rename eth* if there have &#x201C;add&#x201D; action in rule file /etc/udev/rules.d/70-persistent-net.rules</li>
 </ol>
-<h4 id="2-1-Check-lib-udev-write-net-rules"><a href="#2-1-Check-lib-udev-write-net-rules" class="headerlink" title="2.1 Check /lib/udev/write_net_rules"></a>2.1 Check /lib/udev/write_net_rules</h4><pre><code>36 RULES_FILE=&apos;/etc/udev/rules.d/70-persistent-net.rules&apos;
+<h4 id="21-check-libudevwrite_net_rules"><a href="#2-1-Check-lib-udev-write-net-rules" class="headerlink" title="2.1 Check /lib/udev/write_net_rules"></a>2.1 Check /lib/udev/write_net_rules</h4><pre><code>36 RULES_FILE=&apos;/etc/udev/rules.d/70-persistent-net.rules&apos;
 37 
 38 . /lib/udev/rule_generator.functions
 39 
@@ -330,7 +330,7 @@ UUID=&quot;151c6203-2172-41b1-bd58-9bf03a2731e7&quot;
 89 }
 
 153 write_rule &quot;$match&quot; &quot;$INTERFACE&quot; &quot;$COMMENT&quot;
-</code></pre><h4 id="2-1-Check-udev-source"><a href="#2-1-Check-udev-source" class="headerlink" title="2.1 Check udev source"></a>2.1 Check udev source</h4><p>search the string we found in dmesg:</p>
+</code></pre><h4 id="21-check-udev-source"><a href="#2-1-Check-udev-source" class="headerlink" title="2.1 Check udev source"></a>2.1 Check udev source</h4><p>search the string we found in dmesg:</p>
 <pre><code>[dennis@localhost udev]$ pwd
 /home/dennis/Downloads/udev-174/udev
 [dennis@localhost udev]$ grep -r -i --include &quot;*.c&quot; &quot;renamed&quot; .
@@ -379,8 +379,8 @@ if (udev_device_get_ifindex(dev) &gt; 0 &amp;&amp; strcmp(udev_device_get_action
 
     err = rename_netif(event);
 ....
-</code></pre><p>from the name of function <code>udev_event_execute_rules</code> and cod segment, we can say,<br>udev rename ethXXX by the rules, where should have action like as “add”.</p>
-<h4 id="2-2-Check-e1000e-source-found-nothing"><a href="#2-2-Check-e1000e-source-found-nothing" class="headerlink" title="2.2 Check e1000e source, found nothing"></a>2.2 Check e1000e source, found nothing</h4><h4 id="2-3-Check-dmesg-source-found-nothing"><a href="#2-3-Check-dmesg-source-found-nothing" class="headerlink" title="2.3 Check dmesg source, found nothing"></a>2.3 Check dmesg source, found nothing</h4><h4 id="2-4-Check-system-config-network-source-found-nothing"><a href="#2-4-Check-system-config-network-source-found-nothing" class="headerlink" title="2.4 Check system-config-network source, found nothing"></a>2.4 Check system-config-network source, found nothing</h4><h3 id="3-How-to-fix"><a href="#3-How-to-fix" class="headerlink" title="3. How to fix"></a>3. How to fix</h3><p>Use this shell scripts to check MAC</p>
+</code></pre><p>from the name of function <code>udev_event_execute_rules</code> and cod segment, we can say,<br>udev rename ethXXX by the rules, where should have action like as &#x201C;add&#x201D;.</p>
+<h4 id="22-check-e1000e-source-found-nothing"><a href="#2-2-Check-e1000e-source-found-nothing" class="headerlink" title="2.2 Check e1000e source, found nothing"></a>2.2 Check e1000e source, found nothing</h4><h4 id="23-check-dmesg-source-found-nothing"><a href="#2-3-Check-dmesg-source-found-nothing" class="headerlink" title="2.3 Check dmesg source, found nothing"></a>2.3 Check dmesg source, found nothing</h4><h4 id="24-check-system-config-network-source-found-nothing"><a href="#2-4-Check-system-config-network-source-found-nothing" class="headerlink" title="2.4 Check system-config-network source, found nothing"></a>2.4 Check system-config-network source, found nothing</h4><h3 id="3-how-to-fix"><a href="#3-How-to-fix" class="headerlink" title="3. How to fix"></a>3. How to fix</h3><p>Use this shell scripts to check MAC</p>
 <pre><code>#!/bin/sh
 
 # check MAC address, if not match the correct interface, fix it.
@@ -414,10 +414,10 @@ if [ -e $file_eth0 ] &amp;&amp; [ -e $file_eth1 ]; then
         fi
     fi
 fi
-</code></pre><h3 id="4-Question"><a href="#4-Question" class="headerlink" title="4. Question"></a>4. Question</h3><ol>
+</code></pre><h3 id="4-question"><a href="#4-Question" class="headerlink" title="4. Question"></a>4. Question</h3><ol>
 <li>/etc/sysconfig/network-scripts/ifcfg-XXX were generated by who? system-config-network?</li>
 </ol>
-<h3 id="5-Reference"><a href="#5-Reference" class="headerlink" title="5. Reference"></a>5. Reference</h3><ul>
+<h3 id="5-reference"><a href="#5-Reference" class="headerlink" title="5. Reference"></a>5. Reference</h3><ul>
 <li><a href="http://www.linuxfromscratch.org/lfs/view/development/chapter07/network.html" target="_blank" rel="external">7.2. General Network Configuration</a></li>
 <li><a href="http://muzso.hu/2012/10/29/how-to-regenerate-the-etc-udev-rules.d-70-persistent-net.rules-file-on-debian-ubuntu" target="_blank" rel="external">How to regenerate the /etc/udev/rules.d/70-persistent-net.rules file on Debian/Ubuntu</a></li>
 <li><a href="http://blog.csdn.net/gangban_lau/article/details/7209123" target="_blank" rel="external">udev is renaming my ethernet devices</a></li>
@@ -430,7 +430,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/19/mac-address-swap-with-two-network-cards/" data-id="cin61d0ic006pfyiz7z0ha8nt" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/07/19/mac-address-swap-with-two-network-cards/" data-id="cin6a5uii006n3cizxp8yvy2b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -515,7 +515,7 @@ fi
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

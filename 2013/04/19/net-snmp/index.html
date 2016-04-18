@@ -8,8 +8,8 @@
   <meta name="description" content="1.Architecture1.1 Agent ArchitectureUpon starting, the agent goes through the following steps (in SnmpDaemonMain()):
 
 reads command line options
-decides whether it’s a master or subagent
-calls init_ag">
+decides whether it&amp;#x2019;s a master or subagent
+calls">
 <meta property="og:type" content="article">
 <meta property="og:title" content="net snmp">
 <meta property="og:url" content="http://matrix207.github.com/2013/04/19/net-snmp/index.html">
@@ -17,16 +17,16 @@ calls init_ag">
 <meta property="og:description" content="1.Architecture1.1 Agent ArchitectureUpon starting, the agent goes through the following steps (in SnmpDaemonMain()):
 
 reads command line options
-decides whether it’s a master or subagent
-calls init_ag">
+decides whether it&amp;#x2019;s a master or subagent
+calls">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="net snmp">
 <meta name="twitter:description" content="1.Architecture1.1 Agent ArchitectureUpon starting, the agent goes through the following steps (in SnmpDaemonMain()):
 
 reads command line options
-decides whether it’s a master or subagent
-calls init_ag">
+decides whether it&amp;#x2019;s a master or subagent
+calls">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -99,10 +99,10 @@ calls init_ag">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-Architecture"><a href="#1-Architecture" class="headerlink" title="1.Architecture"></a>1.Architecture</h2><h4 id="1-1-Agent-Architecture"><a href="#1-1-Agent-Architecture" class="headerlink" title="1.1 Agent Architecture"></a>1.1 Agent Architecture</h4><p>Upon starting, the agent goes through the following steps (in SnmpDaemonMain()):</p>
+        <h2 id="1architecture"><a href="#1-Architecture" class="headerlink" title="1.Architecture"></a>1.Architecture</h2><h4 id="11-agent-architecture"><a href="#1-1-Agent-Architecture" class="headerlink" title="1.1 Agent Architecture"></a>1.1 Agent Architecture</h4><p>Upon starting, the agent goes through the following steps (in SnmpDaemonMain()):</p>
 <ul>
 <li>reads command line options</li>
-<li>decides whether it’s a master or subagent</li>
+<li>decides whether it&#x2019;s a master or subagent</li>
 <li>calls init_agent()<ul>
 <li>initializes the mib-module registration tree</li>
 <li>registers its own configuration file tokens and callbacks</li>
@@ -113,12 +113,12 @@ calls init_ag">
 <li>initializes the base libnetsnmp library</li>
 <li>opens all the required ports to listen on</li>
 <li>forks</li>
-<li>saves persistent data (it’s likely at least something has changed already)</li>
+<li>saves persistent data (it&#x2019;s likely at least something has changed already)</li>
 <li>sends a coldStart trap</li>
 <li>invokes receive() to perform the main packet handling </li>
 </ul>
 <p>Reference: <a href="http://www.net-snmp.org/wiki/index.php/Agent_Architecture" target="_blank" rel="external">Agent_Architecture</a></p>
-<h4 id="1-2-snmpget-snmpset-snmpwalk-snmptrap"><a href="#1-2-snmpget-snmpset-snmpwalk-snmptrap" class="headerlink" title="1.2 snmpget snmpset snmpwalk snmptrap"></a>1.2 snmpget snmpset snmpwalk snmptrap</h4><p>Reference: <a href="http://www.net-snmp.org/wiki/index.php/TUT:mib2c_General_Overview" target="_blank" rel="external">mib2c_General_Overview</a></p>
+<h4 id="12-snmpget-snmpset-snmpwalk-snmptrap"><a href="#1-2-snmpget-snmpset-snmpwalk-snmptrap" class="headerlink" title="1.2 snmpget snmpset snmpwalk snmptrap"></a>1.2 snmpget snmpset snmpwalk snmptrap</h4><p>Reference: <a href="http://www.net-snmp.org/wiki/index.php/TUT:mib2c_General_Overview" target="_blank" rel="external">mib2c_General_Overview</a></p>
 <pre><code>* snmptranslate: learning about the MIB tree.
 * snmpget:       retrieving data from a host.
 * snmpgetnext:   retrieving unknown indexed data.
@@ -177,20 +177,20 @@ NET-SNMP version 5.7.2
 
 root:~# snmptrap -v 2c -c public 192.168.50.63 1 .1.3.6.1.4.1.50369.1.3.0.1 .1.3.6.1.4.1.50369.1.1.2 i 1
 root:~# snmptrap -v 2c -c public 192.168.50.63 &quot;abc&quot; .1.3.6.1.4.1.50369 .1.3.6.1.4.1.50369.1.1.2 s &quot;string value test&quot;
-</code></pre><h2 id="2-Install"><a href="#2-Install" class="headerlink" title="2. Install"></a>2. Install</h2><h4 id="2-1-Yum"><a href="#2-1-Yum" class="headerlink" title="2.1 Yum"></a>2.1 Yum</h4><p><strong>install snmp</strong><br><code>su -c &#39;yum install net-snmp&#39;</code></p>
-<p><strong>install mib2c</strong><br><code>su -c &#39;yum install net-snmp-perl&#39;</code></p>
-<p><strong>install utils tools</strong>:snmpwalk, snmpget,…<br><code>su -c &#39;yum install net-snmp-utils&#39;</code></p>
-<h2 id="3-Steps"><a href="#3-Steps" class="headerlink" title="3. Steps"></a>3. Steps</h2><h4 id="3-1-net-snmp中如何加自定义的mib库"><a href="#3-1-net-snmp中如何加自定义的mib库" class="headerlink" title="3.1 net-snmp中如何加自定义的mib库"></a>3.1 <a href="http://bbs.csdn.net/topics/300080590" target="_blank" rel="external">net-snmp中如何加自定义的mib库</a></h4><ul>
+</code></pre><h2 id="2-install"><a href="#2-Install" class="headerlink" title="2. Install"></a>2. Install</h2><h4 id="21-yum"><a href="#2-1-Yum" class="headerlink" title="2.1 Yum"></a>2.1 Yum</h4><p><strong>install snmp</strong><br><code>su -c &apos;yum install net-snmp&apos;</code></p>
+<p><strong>install mib2c</strong><br><code>su -c &apos;yum install net-snmp-perl&apos;</code></p>
+<p><strong>install utils tools</strong>:snmpwalk, snmpget,&#x2026;<br><code>su -c &apos;yum install net-snmp-utils&apos;</code></p>
+<h2 id="3-steps"><a href="#3-Steps" class="headerlink" title="3. Steps"></a>3. Steps</h2><h4 id="31-net-snmp&#x4E2D;&#x5982;&#x4F55;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;&#x7684;mib&#x5E93;"><a href="#3-1-net-snmp&#x4E2D;&#x5982;&#x4F55;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;&#x7684;mib&#x5E93;" class="headerlink" title="3.1 net-snmp&#x4E2D;&#x5982;&#x4F55;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;&#x7684;mib&#x5E93;"></a>3.1 <a href="http://bbs.csdn.net/topics/300080590" target="_blank" rel="external">net-snmp&#x4E2D;&#x5982;&#x4F55;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;&#x7684;mib&#x5E93;</a></h4><ul>
 <li>Write your self-defined mibs</li>
 <li>Copy to /usr/local/share/snmp/mibs</li>
-<li>用snmptranslate -Ts -m ALL 就可以看到所以OID的输出了，当然也包括你新加的。<br>如果写的mib文件不正确，应该不能输出，你可以找第三方工具来验证你的文件格式是否正确。</li>
-<li>编写相关的函数。<ul>
-<li>为你的mib新建一个c文件，可以使用mib2c这样的工具来完成。</li>
-<li>如果该OID是只读的，那就在该文件里编写一个只读的函数（mib2c应该会生成的）；如果可写，也应该有一个写的函数（相样是生成的）</li>
+<li>&#x7528;snmptranslate -Ts -m ALL &#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6240;&#x4EE5;OID&#x7684;&#x8F93;&#x51FA;&#x4E86;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x5305;&#x62EC;&#x4F60;&#x65B0;&#x52A0;&#x7684;&#x3002;<br>&#x5982;&#x679C;&#x5199;&#x7684;mib&#x6587;&#x4EF6;&#x4E0D;&#x6B63;&#x786E;&#xFF0C;&#x5E94;&#x8BE5;&#x4E0D;&#x80FD;&#x8F93;&#x51FA;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x627E;&#x7B2C;&#x4E09;&#x65B9;&#x5DE5;&#x5177;&#x6765;&#x9A8C;&#x8BC1;&#x4F60;&#x7684;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x662F;&#x5426;&#x6B63;&#x786E;&#x3002;</li>
+<li>&#x7F16;&#x5199;&#x76F8;&#x5173;&#x7684;&#x51FD;&#x6570;&#x3002;<ul>
+<li>&#x4E3A;&#x4F60;&#x7684;mib&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;c&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mib2c&#x8FD9;&#x6837;&#x7684;&#x5DE5;&#x5177;&#x6765;&#x5B8C;&#x6210;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x8BE5;OID&#x662F;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;&#x90A3;&#x5C31;&#x5728;&#x8BE5;&#x6587;&#x4EF6;&#x91CC;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x53EA;&#x8BFB;&#x7684;&#x51FD;&#x6570;&#xFF08;mib2c&#x5E94;&#x8BE5;&#x4F1A;&#x751F;&#x6210;&#x7684;&#xFF09;&#xFF1B;&#x5982;&#x679C;&#x53EF;&#x5199;&#xFF0C;&#x4E5F;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x5199;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x76F8;&#x6837;&#x662F;&#x751F;&#x6210;&#x7684;&#xFF09;</li>
 </ul>
 </li>
 </ul>
-<h4 id="3-2-Self-defined-Mib"><a href="#3-2-Self-defined-Mib" class="headerlink" title="3.2 Self-defined Mib"></a>3.2 Self-defined Mib</h4><p>I don’t find any good tools for generate mibs, what I do is hacking by hand; if<br>you know some good tool, don’t forget to tell me.</p>
+<h4 id="32-self-defined-mib"><a href="#3-2-Self-defined-Mib" class="headerlink" title="3.2 Self-defined Mib"></a>3.2 Self-defined Mib</h4><p>I don&#x2019;t find any good tools for generate mibs, what I do is hacking by hand; if<br>you know some good tool, don&#x2019;t forget to tell me.</p>
 <pre><code>--============================================================
 -- Dennis Sample Management Information Base (MIB)
 --============================================================
@@ -377,7 +377,7 @@ dennisShutdownType OBJECT-TYPE
 -- End Definition
 --============================================================
 END
-</code></pre><h4 id="3-3-Check-mib"><a href="#3-3-Check-mib" class="headerlink" title="3.3 Check mib"></a>3.3 Check mib</h4><pre><code>[root@localhost mib]# snmptranslate -Tp -m DENNIS-MIB
+</code></pre><h4 id="33-check-mib"><a href="#3-3-Check-mib" class="headerlink" title="3.3 Check mib"></a>3.3 Check mib</h4><pre><code>[root@localhost mib]# snmptranslate -Tp -m DENNIS-MIB
 +--iso(1)
    |
    +--anonymous#0(3)
@@ -423,9 +423,9 @@ END
                         +--dennisAccessObject(3)
                            |
                            +-- -RW- Integer32 dennisShutdownType(1)
-</code></pre><h2 id="4-Use-mib2c"><a href="#4-Use-mib2c" class="headerlink" title="4. Use mib2c"></a>4. Use mib2c</h2><h4 id="4-1-mib-object"><a href="#4-1-mib-object" class="headerlink" title="4.1 mib object"></a>4.1 mib object</h4><p>scalar: int,  string,  time and so on.<br>table : table has row and column, like table in database.  </p>
-<h4 id="4-2-use-mib2c-to-create-source-file"><a href="#4-2-use-mib2c-to-create-source-file" class="headerlink" title="4.2 use mib2c to create source file"></a>4.2 use mib2c to create source file</h4><p><strong>append string “DENNIS-MIB” to config file: snmpd.conf</strong><br><code>su -c &#39;vim /etc/snmp/snmpd.conf&#39;</code>  </p>
-<p><strong>copy mib file to mibs directory(depend on which directory mib2c installed)</strong><br><code>su -c &#39;cp DENNIS-MIB.txt /usr/local/share/snmp/mibs/&#39;</code>  </p>
+</code></pre><h2 id="4-use-mib2c"><a href="#4-Use-mib2c" class="headerlink" title="4. Use mib2c"></a>4. Use mib2c</h2><h4 id="41-mib-object"><a href="#4-1-mib-object" class="headerlink" title="4.1 mib object"></a>4.1 mib object</h4><p>scalar: int,  string,  time and so on.<br>table : table has row and column, like table in database.  </p>
+<h4 id="42-use-mib2c-to-create-source-file"><a href="#4-2-use-mib2c-to-create-source-file" class="headerlink" title="4.2 use mib2c to create source file"></a>4.2 use mib2c to create source file</h4><p><strong>append string &#x201C;DENNIS-MIB&#x201D; to config file: snmpd.conf</strong><br><code>su -c &apos;vim /etc/snmp/snmpd.conf&apos;</code>  </p>
+<p><strong>copy mib file to mibs directory(depend on which directory mib2c installed)</strong><br><code>su -c &apos;cp DENNIS-MIB.txt /usr/local/share/snmp/mibs/&apos;</code>  </p>
 <p><strong>generate c source file by mib2c</strong><br><code>mib2c -c mib2c.scalar.conf DENNIS-MIB::dennis</code>  for scalar object<br><code>mib2c -c mib2c.old-api.conf DENNIS-MIB::dennis</code> for scalar  object<br><code>mib2c -c mib2c.iterate.conf DENNIS-MIB::dennis</code> for table  object (choise 2)<br><code>mib2c -c mib2c.notify.conf DENNIS-MIB::dennis</code> for trapping message<br>if failed to translate, check the mibs directory again, or look the output message.</p>
 <p>more configure files, look as below:  </p>
 <pre><code>[dennis@localhost net-snmp-5.4.2]$ ls /usr/local/share/snmp/*.conf
@@ -451,79 +451,79 @@ END
 /usr/local/share/snmp/mib2c.table_data.conf
 /usr/local/share/snmp/mib2c.genhtml.conf             
 /usr/local/share/snmp/snmptrapd.conf
-</code></pre><h2 id="5-Add-self-defined-mib-library"><a href="#5-Add-self-defined-mib-library" class="headerlink" title="5. Add self-defined mib library"></a>5. Add self-defined mib library</h2><h4 id="5-1-steps"><a href="#5-1-steps" class="headerlink" title="5.1 steps:"></a>5.1 steps:</h4><p>使用net-snmp扩展私有MIB的大致方法<br>参考： <a href="http://net-snmp.sourceforge.net/tutorial/tutorial-5/toolkit/mib_module/index.html" target="_blank" rel="external">net-snmp tutorial</a></p>
-<p>step 1. 首先需要使用net-snmp的相关API编写MIB相关C代码，</p>
-<pre><code>1. MFD/mib2c：这是一种通过net-snmp提供的mib2c程序自动生成相关代码的方式
-2. A simple scalar attached to a variable：适合于简单变量类型的object
-3. A simple scalar with the value returned from code：适用于任何变量类型的object
-</code></pre><p>step 2. 然后将刚写的MIB C code编译进net-snmp，有几种方法：</p>
-<pre><code>1. compile it into master agent：
-  1）将刚编写的码加入net-snmp的src目录，
-  2）通过configure的option指示make编译该mib，
-     如./configure --with-mib-modules=&quot;myobject&quot; 
-  3）make
-  4）make install
-  这样，你的MIB就已经被内置如snmp服务程序中了，MIB的生效也就理所当然
+</code></pre><h2 id="5-add-self-defined-mib-library"><a href="#5-Add-self-defined-mib-library" class="headerlink" title="5. Add self-defined mib library"></a>5. Add self-defined mib library</h2><h4 id="51-steps"><a href="#5-1-steps" class="headerlink" title="5.1 steps:"></a>5.1 steps:</h4><p>&#x4F7F;&#x7528;net-snmp&#x6269;&#x5C55;&#x79C1;&#x6709;MIB&#x7684;&#x5927;&#x81F4;&#x65B9;&#x6CD5;<br>&#x53C2;&#x8003;&#xFF1A; <a href="http://net-snmp.sourceforge.net/tutorial/tutorial-5/toolkit/mib_module/index.html" target="_blank" rel="external">net-snmp tutorial</a></p>
+<p>step 1. &#x9996;&#x5148;&#x9700;&#x8981;&#x4F7F;&#x7528;net-snmp&#x7684;&#x76F8;&#x5173;API&#x7F16;&#x5199;MIB&#x76F8;&#x5173;C&#x4EE3;&#x7801;&#xFF0C;</p>
+<pre><code>1. MFD/mib2c&#xFF1A;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x901A;&#x8FC7;net-snmp&#x63D0;&#x4F9B;&#x7684;mib2c&#x7A0B;&#x5E8F;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x7684;&#x65B9;&#x5F0F;
+2. A simple scalar attached to a variable&#xFF1A;&#x9002;&#x5408;&#x4E8E;&#x7B80;&#x5355;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x7684;object
+3. A simple scalar with the value returned from code&#xFF1A;&#x9002;&#x7528;&#x4E8E;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x7684;object
+</code></pre><p>step 2. &#x7136;&#x540E;&#x5C06;&#x521A;&#x5199;&#x7684;MIB C code&#x7F16;&#x8BD1;&#x8FDB;net-snmp&#xFF0C;&#x6709;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code>1. compile it into master agent&#xFF1A;
+  1&#xFF09;&#x5C06;&#x521A;&#x7F16;&#x5199;&#x7684;&#x7801;&#x52A0;&#x5165;net-snmp&#x7684;src&#x76EE;&#x5F55;&#xFF0C;
+  2&#xFF09;&#x901A;&#x8FC7;configure&#x7684;option&#x6307;&#x793A;make&#x7F16;&#x8BD1;&#x8BE5;mib&#xFF0C;
+     &#x5982;./configure --with-mib-modules=&quot;myobject&quot; 
+  3&#xFF09;make
+  4&#xFF09;make install
+  &#x8FD9;&#x6837;&#xFF0C;&#x4F60;&#x7684;MIB&#x5C31;&#x5DF2;&#x7ECF;&#x88AB;&#x5185;&#x7F6E;&#x5982;snmp&#x670D;&#x52A1;&#x7A0B;&#x5E8F;&#x4E2D;&#x4E86;&#xFF0C;MIB&#x7684;&#x751F;&#x6548;&#x4E5F;&#x5C31;&#x7406;&#x6240;&#x5F53;&#x7136;
 
-2. compile your code into a “subagent”：
-  这种方式可以将subagent通过agentx协议与master agent通信，
-  参考： http://net-snmp.sourceforge.net/tutorial/tutorial-5/toolkit/demon/index.html
-  这种情况subagent最终是一个独立的application，包含两种生成方式，
-  1).是通过net-snmp-config工具生成；
-  2).是自己编写程序控制调用；
-  后者更为灵活，subagent功能可以被集成在其它application中。
+2. compile your code into a &#x201C;subagent&#x201D;&#xFF1A;
+  &#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x5C06;subagent&#x901A;&#x8FC7;agentx&#x534F;&#x8BAE;&#x4E0E;master agent&#x901A;&#x4FE1;&#xFF0C;
+  &#x53C2;&#x8003;&#xFF1A; http://net-snmp.sourceforge.net/tutorial/tutorial-5/toolkit/demon/index.html
+  &#x8FD9;&#x79CD;&#x60C5;&#x51B5;subagent&#x6700;&#x7EC8;&#x662F;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;application&#xFF0C;&#x5305;&#x542B;&#x4E24;&#x79CD;&#x751F;&#x6210;&#x65B9;&#x5F0F;&#xFF0C;
+  1).&#x662F;&#x901A;&#x8FC7;net-snmp-config&#x5DE5;&#x5177;&#x751F;&#x6210;&#xFF1B;
+  2).&#x662F;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x7A0B;&#x5E8F;&#x63A7;&#x5236;&#x8C03;&#x7528;&#xFF1B;
+  &#x540E;&#x8005;&#x66F4;&#x4E3A;&#x7075;&#x6D3B;&#xFF0C;subagent&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x88AB;&#x96C6;&#x6210;&#x5728;&#x5176;&#x5B83;application&#x4E2D;&#x3002;
 
 3. compile your code into pluggable shared object and tell the snmpd agent to load it
-  这种方式最后生成一个.so的共享库，用户启动snmpd服务时可以通过指定参数的方式
-  加载该共享库以扩展MIB，
-  参考： http://net-snmp.sourceforge.net/tutorial/tutorial-5/toolkit/dlmod/index.html 
-</code></pre><h4 id="5-2-compile-net-snmp-by-shell-script"><a href="#5-2-compile-net-snmp-by-shell-script" class="headerlink" title="5.2 compile net-snmp by shell script"></a>5.2 compile net-snmp by shell script</h4><pre><code>cd /home/dennis/net-snmp-5.4.2/
+  &#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6700;&#x540E;&#x751F;&#x6210;&#x4E00;&#x4E2A;.so&#x7684;&#x5171;&#x4EAB;&#x5E93;&#xFF0C;&#x7528;&#x6237;&#x542F;&#x52A8;snmpd&#x670D;&#x52A1;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x53C2;&#x6570;&#x7684;&#x65B9;&#x5F0F;
+  &#x52A0;&#x8F7D;&#x8BE5;&#x5171;&#x4EAB;&#x5E93;&#x4EE5;&#x6269;&#x5C55;MIB&#xFF0C;
+  &#x53C2;&#x8003;&#xFF1A; http://net-snmp.sourceforge.net/tutorial/tutorial-5/toolkit/dlmod/index.html 
+</code></pre><h4 id="52-compile-net-snmp-by-shell-script"><a href="#5-2-compile-net-snmp-by-shell-script" class="headerlink" title="5.2 compile net-snmp by shell script"></a>5.2 compile net-snmp by shell script</h4><pre><code>cd /home/dennis/net-snmp-5.4.2/
 cp -f /home/dennis/dennis.{h,c} ./agent/mibgroup
 ./configure --prefix=/usr --with-mib-modules=&quot;dennis&quot;
 make clean
 make
 make install
-</code></pre><h4 id="5-3-update-mib"><a href="#5-3-update-mib" class="headerlink" title="5.3 update mib"></a>5.3 update mib</h4><pre><code>copy &quot;net-snmp-5.4.2/agent/.libs/libnetsnmpmibs.so&quot; to &quot;/usr/lib/&quot;,  
+</code></pre><h4 id="53-update-mib"><a href="#5-3-update-mib" class="headerlink" title="5.3 update mib"></a>5.3 update mib</h4><pre><code>copy &quot;net-snmp-5.4.2/agent/.libs/libnetsnmpmibs.so&quot; to &quot;/usr/lib/&quot;,  
 64bit system is to &quot;/usr/lib64/&quot;
-</code></pre><h4 id="5-4-check-the-so-had-have-the-interfaces-which-you-implement"><a href="#5-4-check-the-so-had-have-the-interfaces-which-you-implement" class="headerlink" title="5.4 check the so had have the interfaces which you implement"></a>5.4 check the so had have the interfaces which you implement</h4><pre><code>[root@ ~]# which snmpd
+</code></pre><h4 id="54-check-the-so-had-have-the-interfaces-which-you-implement"><a href="#5-4-check-the-so-had-have-the-interfaces-which-you-implement" class="headerlink" title="5.4 check the so had have the interfaces which you implement"></a>5.4 check the so had have the interfaces which you implement</h4><pre><code>[root@ ~]# which snmpd
 /usr/sbin/snmpd
 [root@ ~]# ldd /usr/sbin/snmpd | grep libnetsnmpmib
     libnetsnmpmibs.so.15 =&gt; /usr/lib64/libnetsnmpmibs.so.15 (0x0000003655600000)
 [root@ ~]# nm /usr/lib64/libnetsnmpmibs.so.15 | grep &quot;YOUR_INTERFACE_KEY&quot;
-</code></pre><h4 id="5-5-check-config-file"><a href="#5-5-check-config-file" class="headerlink" title="5.5 check config file"></a>5.5 check config file</h4><pre><code>check the file /etc/snmp/snmpd.conf, append `rwcommunity private` to it to 
+</code></pre><h4 id="55-check-config-file"><a href="#5-5-check-config-file" class="headerlink" title="5.5 check config file"></a>5.5 check config file</h4><pre><code>check the file /etc/snmp/snmpd.conf, append `rwcommunity private` to it to 
 make access authority for `snmpset`.
-</code></pre><h4 id="5-6-restart-snmp"><a href="#5-6-restart-snmp" class="headerlink" title="5.6 restart snmp"></a>5.6 restart snmp</h4><pre><code>/usr/sbin/snmpd -c /etc/snmp/snmpd.conf -Le
-</code></pre><h2 id="6-Improve-speed"><a href="#6-Improve-speed" class="headerlink" title="6. Improve speed"></a>6. Improve speed</h2><p>When snmp agent receive lots of request, and if do some I/O operation of each<br>request, that will show a low performance.<br>One not-bad solution is use a thread do the I/O job, and store the information<br>to memory (using global variable, array, structure …), then fill info and<br>return to client when get the request.</p>
-<h4 id="6-1-add-thread-function-to-mib-file"><a href="#6-1-add-thread-function-to-mib-file" class="headerlink" title="6.1 add thread function to mib file"></a>6.1 add thread function to mib file</h4><p>Add include <code>#include &lt;pthread.h&gt;</code> to the mib file<br>Write thread function like this: <code>void *update_all_info (void *parm);</code></p>
-<h4 id="6-2-modify-Makefile"><a href="#6-2-modify-Makefile" class="headerlink" title="6.2 modify Makefile"></a>6.2 modify Makefile</h4><p>Add link library(<code>-lpthread</code>) to agent/Makefile (line:199):<br><code>LOCAL_LIBS    = -L../snmplib/.libs -L../snmplib -L./.libs -L./helpers/.libs -L./helpers -lpthread</code></p>
-<h2 id="7-Reference"><a href="#7-Reference" class="headerlink" title="7. Reference"></a>7. Reference</h2><h4 id="7-1-network-link"><a href="#7-1-network-link" class="headerlink" title="7.1 network link"></a>7.1 network link</h4><ul>
-<li><a href="http://imxie.net/2011/07/use_pass_for_snmp_get_and_set.htm" target="_blank" rel="external">net-snmp之利用pass做snmpget和snmpset</a></li>
-<li><a href="http://www.linuxfly.org/post/556/" target="_blank" rel="external">自定义SNMP Agent</a></li>
-<li><a href="http://bbs.csdn.net/topics/300080590" target="_blank" rel="external">net-snmp中如何加自定义的mib</a></li>
+</code></pre><h4 id="56-restart-snmp"><a href="#5-6-restart-snmp" class="headerlink" title="5.6 restart snmp"></a>5.6 restart snmp</h4><pre><code>/usr/sbin/snmpd -c /etc/snmp/snmpd.conf -Le
+</code></pre><h2 id="6-improve-speed"><a href="#6-Improve-speed" class="headerlink" title="6. Improve speed"></a>6. Improve speed</h2><p>When snmp agent receive lots of request, and if do some I/O operation of each<br>request, that will show a low performance.<br>One not-bad solution is use a thread do the I/O job, and store the information<br>to memory (using global variable, array, structure &#x2026;), then fill info and<br>return to client when get the request.</p>
+<h4 id="61-add-thread-function-to-mib-file"><a href="#6-1-add-thread-function-to-mib-file" class="headerlink" title="6.1 add thread function to mib file"></a>6.1 add thread function to mib file</h4><p>Add include <code>#include &lt;pthread.h&gt;</code> to the mib file<br>Write thread function like this: <code>void *update_all_info (void *parm);</code></p>
+<h4 id="62-modify-makefile"><a href="#6-2-modify-Makefile" class="headerlink" title="6.2 modify Makefile"></a>6.2 modify Makefile</h4><p>Add link library(<code>-lpthread</code>) to agent/Makefile (line:199):<br><code>LOCAL_LIBS    = -L../snmplib/.libs -L../snmplib -L./.libs -L./helpers/.libs -L./helpers -lpthread</code></p>
+<h2 id="7-reference"><a href="#7-Reference" class="headerlink" title="7. Reference"></a>7. Reference</h2><h4 id="71-network-link"><a href="#7-1-network-link" class="headerlink" title="7.1 network link"></a>7.1 network link</h4><ul>
+<li><a href="http://imxie.net/2011/07/use_pass_for_snmp_get_and_set.htm" target="_blank" rel="external">net-snmp&#x4E4B;&#x5229;&#x7528;pass&#x505A;snmpget&#x548C;snmpset</a></li>
+<li><a href="http://www.linuxfly.org/post/556/" target="_blank" rel="external">&#x81EA;&#x5B9A;&#x4E49;SNMP Agent</a></li>
+<li><a href="http://bbs.csdn.net/topics/300080590" target="_blank" rel="external">net-snmp&#x4E2D;&#x5982;&#x4F55;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;&#x7684;mib</a></li>
 <li><a href="http://blog.csdn.net/linyt/article/details/2842244" target="_blank" rel="external">Extending the UCD-SNMP(net-snmp)agent</a></li>
 <li><a href="http://www.net-snmp.org/wiki/index.php/Tutorials" target="_blank" rel="external">Tutorial</a></li>
 <li><a href="http://www.net-snmp.org/wiki/index.php/TUT:Writing_a_MIB_Module" target="_blank" rel="external">Writing a MIB Module</a></li>
 <li><a href="http://net-snmp.sourceforge.net/tutorial/tutorial-5/toolkit/mib_module/index.html" target="_blank" rel="external">Writing a net-snmp MIB Modul</a></li>
-<li><a href="http://blog.csdn.net/bearfig/article/details/2080421" target="_blank" rel="external">在net-snmp agent中扩展自己的mib</a></li>
-<li><a href="http://bibu.bokee.com/inc/net_snmp_doc.htm" target="_blank" rel="external">用NET-SNMP软件包开发简单客户端代理★★★★</a></li>
-<li><a href="http://bibu.bokee.com/inc/net_snmp_doc.htm#_Toc116812027" target="_blank" rel="external">利用NET-SNMP开发代理(原创</a></li>
-<li><a href="http://www.tonylin.idv.tw/dokuwiki/doku.php/snmp:snmp:mibhelloworld" target="_blank" rel="external">第一次寫MIB就上手★★★★</a></li>
-<li><a href="http://blog.csdn.net/dumeifang/article/details/4201860" target="_blank" rel="external">FreeBSD snmptrapd.conf配置详解</a></li>
-<li><a href="http://velep.com/archives/585.html" target="_blank" rel="external">snmptrap、snmpinform和snmptrapd的详细介绍及其用法</a></li>
+<li><a href="http://blog.csdn.net/bearfig/article/details/2080421" target="_blank" rel="external">&#x5728;net-snmp agent&#x4E2D;&#x6269;&#x5C55;&#x81EA;&#x5DF1;&#x7684;mib</a></li>
+<li><a href="http://bibu.bokee.com/inc/net_snmp_doc.htm" target="_blank" rel="external">&#x7528;NET-SNMP&#x8F6F;&#x4EF6;&#x5305;&#x5F00;&#x53D1;&#x7B80;&#x5355;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7406;&#x2605;&#x2605;&#x2605;&#x2605;</a></li>
+<li><a href="http://bibu.bokee.com/inc/net_snmp_doc.htm#_Toc116812027" target="_blank" rel="external">&#x5229;&#x7528;NET-SNMP&#x5F00;&#x53D1;&#x4EE3;&#x7406;(&#x539F;&#x521B;</a></li>
+<li><a href="http://www.tonylin.idv.tw/dokuwiki/doku.php/snmp:snmp:mibhelloworld" target="_blank" rel="external">&#x7B2C;&#x4E00;&#x6B21;&#x5BEB;MIB&#x5C31;&#x4E0A;&#x624B;&#x2605;&#x2605;&#x2605;&#x2605;</a></li>
+<li><a href="http://blog.csdn.net/dumeifang/article/details/4201860" target="_blank" rel="external">FreeBSD snmptrapd.conf&#x914D;&#x7F6E;&#x8BE6;&#x89E3;</a></li>
+<li><a href="http://velep.com/archives/585.html" target="_blank" rel="external">snmptrap&#x3001;snmpinform&#x548C;snmptrapd&#x7684;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x53CA;&#x5176;&#x7528;&#x6CD5;</a></li>
 <li><a href="http://www.net-snmp.org/wiki/index.php/TUT:Writing_a_Subagent" target="_blank" rel="external">Writing a subagent</a></li>
-<li><a href="http://blog.csdn.net/BeyondHaven/article/details/10575601" target="_blank" rel="external">windows下使用net-snmp实现agent扩展 一</a></li>
-<li><a href="http://wenku.baidu.com/view/4da5e14df7ec4afe04a1df66.html?from_page=view&amp;from_mod=download###" target="_blank" rel="external">net-snmp在windows上的配置开发及详细的代码流程</a></li>
-<li><a href="http://wendang.baidu.com/view/83ee071cfc4ffe473368ab8c.html" target="_blank" rel="external">Windows下使用net-snmp所遇问题及解决</a></li>
-<li><a href="http://blog.csdn.net/jxzxm1_2/article/details/2948522" target="_blank" rel="external">VS2005下编译、安装Net-snmp 5.4.1.2手记</a></li>
-<li><a href="http://hi.baidu.com/lieyu063/item/e00625c245ee2544a9ba94a0" target="_blank" rel="external">Net-SNMP的第一个agent实现</a></li>
-<li><a href="http://blog.csdn.net/sstower/article/details/4791844" target="_blank" rel="external">net-snmp中自定义snmp table的实现</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_8f3de3250100xhao.html" target="_blank" rel="external">net-snmp代理开发——自定义table实现</a></li>
+<li><a href="http://blog.csdn.net/BeyondHaven/article/details/10575601" target="_blank" rel="external">windows&#x4E0B;&#x4F7F;&#x7528;net-snmp&#x5B9E;&#x73B0;agent&#x6269;&#x5C55; &#x4E00;</a></li>
+<li><a href="http://wenku.baidu.com/view/4da5e14df7ec4afe04a1df66.html?from_page=view&amp;from_mod=download###" target="_blank" rel="external">net-snmp&#x5728;windows&#x4E0A;&#x7684;&#x914D;&#x7F6E;&#x5F00;&#x53D1;&#x53CA;&#x8BE6;&#x7EC6;&#x7684;&#x4EE3;&#x7801;&#x6D41;&#x7A0B;</a></li>
+<li><a href="http://wendang.baidu.com/view/83ee071cfc4ffe473368ab8c.html" target="_blank" rel="external">Windows&#x4E0B;&#x4F7F;&#x7528;net-snmp&#x6240;&#x9047;&#x95EE;&#x9898;&#x53CA;&#x89E3;&#x51B3;</a></li>
+<li><a href="http://blog.csdn.net/jxzxm1_2/article/details/2948522" target="_blank" rel="external">VS2005&#x4E0B;&#x7F16;&#x8BD1;&#x3001;&#x5B89;&#x88C5;Net-snmp 5.4.1.2&#x624B;&#x8BB0;</a></li>
+<li><a href="http://hi.baidu.com/lieyu063/item/e00625c245ee2544a9ba94a0" target="_blank" rel="external">Net-SNMP&#x7684;&#x7B2C;&#x4E00;&#x4E2A;agent&#x5B9E;&#x73B0;</a></li>
+<li><a href="http://blog.csdn.net/sstower/article/details/4791844" target="_blank" rel="external">net-snmp&#x4E2D;&#x81EA;&#x5B9A;&#x4E49;snmp table&#x7684;&#x5B9E;&#x73B0;</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_8f3de3250100xhao.html" target="_blank" rel="external">net-snmp&#x4EE3;&#x7406;&#x5F00;&#x53D1;&#x2014;&#x2014;&#x81EA;&#x5B9A;&#x4E49;table&#x5B9E;&#x73B0;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/19/net-snmp/" data-id="cin61d0hp005ufyiz9kyu47qn" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/04/19/net-snmp/" data-id="cin6a5ui0005r3cizd1yustas" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-snmp/">net-snmp</a></li></ul>
@@ -534,11 +534,11 @@ make access authority for `snmpset`.
     
 <nav id="article-nav">
   
-    <a href="/2013/04/28/opennebula/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2013/04/28/nodejs/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          opennebula
+          node.js
         
       </div>
     </a>
@@ -610,7 +610,7 @@ make access authority for `snmpset`.
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

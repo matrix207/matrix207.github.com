@@ -6,33 +6,33 @@
   <title>grep | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="syntax
-grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
+grep [OPTIONS] PATTERN [FILE&amp;#x2026;]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE&amp;#x2026;]
 
 -A get the above line with match lines
 -B get the below line with match lines
 -c count the lines
--E regular expressi">
+-E re">
 <meta property="og:type" content="article">
 <meta property="og:title" content="grep">
 <meta property="og:url" content="http://matrix207.github.com/2014/08/22/grep/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description" content="syntax
-grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
+grep [OPTIONS] PATTERN [FILE&amp;#x2026;]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE&amp;#x2026;]
 
 -A get the above line with match lines
 -B get the below line with match lines
 -c count the lines
--E regular expressi">
+-E re">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="grep">
 <meta name="twitter:description" content="syntax
-grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
+grep [OPTIONS] PATTERN [FILE&amp;#x2026;]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE&amp;#x2026;]
 
 -A get the above line with match lines
 -B get the below line with match lines
 -c count the lines
--E regular expressi">
+-E re">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -106,14 +106,14 @@ grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="syntax"><a href="#syntax" class="headerlink" title="syntax"></a>syntax</h3><ul>
-<li><p>grep [OPTIONS] PATTERN [FILE…]<br>grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]</p>
+<li><p>grep [OPTIONS] PATTERN [FILE&#x2026;]<br>grep [OPTIONS] [-e PATTERN | -f FILE] [FILE&#x2026;]</p>
 <ul>
 <li>-A get the above line with match lines</li>
 <li>-B get the below line with match lines</li>
 <li>-c count the lines</li>
 <li>-E regular expression</li>
 <li>-i ignore case</li>
-<li>–include=”*.c” only search c files</li>
+<li>&#x2013;include=&#x201D;*.c&#x201D; only search c files</li>
 <li>-l file with matches</li>
 <li>-L file without matches</li>
 <li>-n line number</li>
@@ -135,7 +135,7 @@ grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
 <li>[:digit:] Any numerical character</li>
 <li>[:alnum:] Any alphabetical or numerical character</li>
 <li>[:blank:] Space or tab characters</li>
-<li>[:xdigit:] Hexadecimal characters; any number or A–F or a–f</li>
+<li>[:xdigit:] Hexadecimal characters; any number or A&#x2013;F or a&#x2013;f</li>
 <li>[:punct:] Any punctuation symbol</li>
 <li>[:print:] Any printable character (not control characters)</li>
 <li>[:space:] Any whitespace character</li>
@@ -149,7 +149,7 @@ grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
 <h3 id="skills"><a href="#skills" class="headerlink" title="skills"></a>skills</h3><ul>
 <li><p>count the selected lines, we can do as: <code>dmesg |grep -i error |wc -l</code>, or like<br>this <code>dmesg |grep -i error -c</code> </p>
 </li>
-<li><p>search by match whole word <code>dmesg |grep -w &#39;error&#39;</code></p>
+<li><p>search by match whole word <code>dmesg |grep -w &apos;error&apos;</code></p>
 </li>
 <li><p><code>grep -rl --include=&quot;*.c&quot; MSG_QUEUE ./</code></p>
 </li>
@@ -160,14 +160,14 @@ grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
 <li><p><code>grep -r &quot;abc&quot; /root/source</code><br><code>grep -r --include &quot;*.h&quot; &quot;date&quot; path</code><br><code>grep -m 1 &quot;model name&quot; /proc/cpuinfo</code> only display the first match line<br><code>grep -i -E &quot;abc|123&quot;</code> match abc or 123, -i ignore, -E extended regular expression.<br><code>grep -r -l &quot;main&quot; .</code> search all files under each directory, -l files-with-match, -L files-withou-match<br><code>grep -w &quot;linux&quot; *.md</code> match word<br><code>grep -rl --include=*.{h,cpp} &quot;socket&quot; .</code> search socket only with <em>.h </em>.cpp files<br><code>grep --exclude-dir=&quot;_posts&quot; --exclude-dir=&quot;_site&quot;  -r &quot;Dennis&quot; ./</code>  exclude specify directory  </p>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://kukuruku.co/hub/nix/what-is-grep-and-how-do-we-use-it" target="_blank" rel="external">What is grep and how do we use it</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/08/22/grep/" data-id="cin61d0ki008mfyizc2zw08k7" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/08/22/grep/" data-id="cin6a5uk4008t3ciz8tutejtc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,19 +176,19 @@ grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
     
 <nav id="article-nav">
   
-    <a href="/2014/08/22/awk/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/08/22/sed/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          awk
+          sed
         
       </div>
     </a>
   
   
-    <a href="/2014/08/09/optimal-file-system-with-tune2fs/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/08/22/awk/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">optimal file system with tune2fs</div>
+      <div class="article-nav-title">awk</div>
     </a>
   
 </nav>
@@ -252,7 +252,7 @@ grep [OPTIONS] PATTERN [FILE…]grep [OPTIONS] [-e PATTERN | -f FILE] [FILE…]
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

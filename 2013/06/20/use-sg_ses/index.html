@@ -6,18 +6,18 @@
   <title>use sg_ses | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="##1.Introduction
-The sg_ses utility enables a user “to manage and sense the state of the powersupplies, cooling devices, displays, indicators, individual drives, and othernon-SCSI elements installed i">
+The sg_ses utility enables a user &amp;#x201C;to manage and sense the state of the powersupplies, cooling devices, displays, indicators, individual drives, and othernon-SCSI elements inst">
 <meta property="og:type" content="article">
 <meta property="og:title" content="use sg_ses">
 <meta property="og:url" content="http://matrix207.github.com/2013/06/20/use-sg_ses/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description" content="##1.Introduction
-The sg_ses utility enables a user “to manage and sense the state of the powersupplies, cooling devices, displays, indicators, individual drives, and othernon-SCSI elements installed i">
+The sg_ses utility enables a user &amp;#x201C;to manage and sense the state of the powersupplies, cooling devices, displays, indicators, individual drives, and othernon-SCSI elements inst">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="use sg_ses">
 <meta name="twitter:description" content="##1.Introduction
-The sg_ses utility enables a user “to manage and sense the state of the powersupplies, cooling devices, displays, indicators, individual drives, and othernon-SCSI elements installed i">
+The sg_ses utility enables a user &amp;#x201C;to manage and sense the state of the powersupplies, cooling devices, displays, indicators, individual drives, and othernon-SCSI elements inst">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -91,7 +91,7 @@ The sg_ses utility enables a user “to manage and sense the state of the powers
     <div class="article-entry" itemprop="articleBody">
       
         <p>##1.Introduction</p>
-<p>The sg_ses utility enables a user “to manage and sense the state of the power<br>supplies, cooling devices, displays, indicators, individual drives, and other<br>non-SCSI elements installed in an enclosure”.<br>The SCSI Enclosure Services standards (most recent is SES-2 ANSI INCITS 448-2008<br>) and the latest draft (ses3r03.pdf at www.t10.org) describe the format that the<br>sg_ses utility expects to find in a SES device (“logical unit” or “process”)</p>
+<p>The sg_ses utility enables a user &#x201C;to manage and sense the state of the power<br>supplies, cooling devices, displays, indicators, individual drives, and other<br>non-SCSI elements installed in an enclosure&#x201D;.<br>The SCSI Enclosure Services standards (most recent is SES-2 ANSI INCITS 448-2008<br>) and the latest draft (ses3r03.pdf at www.t10.org) describe the format that the<br>sg_ses utility expects to find in a SES device (&#x201C;logical unit&#x201D; or &#x201C;process&#x201D;)</p>
 <p>##2.Command Tools</p>
 <p>sg_map - displays mapping between linux sg and other SCSI devices </p>
 <p>sg_ses - send controls and fetch status from a SCSI EnclosureServices (SES) device </p>
@@ -402,7 +402,7 @@ Additional element status diagnostic page:
 25 0x500148500018fba0
 27 0x500148500018fba0
 </code></pre><p>##4.Control LED</p>
-<p>Table 72 – Array Device Slot control element<br>(Taken from <a href="http://sg.danny.cz/sg/sg_ses.html" target="_blank" rel="external">http://sg.danny.cz/sg/sg_ses.html</a>)</p>
+<p>Table 72 &#x2013; Array Device Slot control element<br>(Taken from <a href="http://sg.danny.cz/sg/sg_ses.html" target="_blank" rel="external">http://sg.danny.cz/sg/sg_ses.html</a>)</p>
 <pre><code>+-Byte\Bit-+---7----+---6----+---5----+---4----+---3----+---2----+---1----+---0----+
 +     0    +                           COMMON CONTROL                              +
 +----------+--------+--------+--------+--------+--------+--------+--------+--------+
@@ -458,50 +458,50 @@ sg_ses --index 27 --clear=3:5 /dev/sg5
 <li>Is there exist one command that can clear all status? (I do not want to use the<br>clear command again and again, it is too ugly. or it is not need to do these?)</li>
 </ul>
 <p>##5.Other command tools</p>
-<p>获取磁盘信息的命令工具:</p>
-<pre><code>磁盘所包含的信息
+<p>&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x4FE1;&#x606F;&#x7684;&#x547D;&#x4EE4;&#x5DE5;&#x5177;:</p>
+<pre><code>&#x78C1;&#x76D8;&#x6240;&#x5305;&#x542B;&#x7684;&#x4FE1;&#x606F;
 
-硬件信息:型号、物理类型、序列号、温度、转速、工作速率、磁盘LU、
-         磁盘端口SAS地址、厂商、固件、LED灯状态等
-位置信息:Enclosure、slot
-逻辑信息:运行状态(在线、空闲热备盘、重构盘)、逻辑类型(成员盘、空闲热备盘、
-         空闲盘)、所属RAID组、所属卷组
-SMART信息
+&#x786C;&#x4EF6;&#x4FE1;&#x606F;:&#x578B;&#x53F7;&#x3001;&#x7269;&#x7406;&#x7C7B;&#x578B;&#x3001;&#x5E8F;&#x5217;&#x53F7;&#x3001;&#x6E29;&#x5EA6;&#x3001;&#x8F6C;&#x901F;&#x3001;&#x5DE5;&#x4F5C;&#x901F;&#x7387;&#x3001;&#x78C1;&#x76D8;LU&#x3001;
+         &#x78C1;&#x76D8;&#x7AEF;&#x53E3;SAS&#x5730;&#x5740;&#x3001;&#x5382;&#x5546;&#x3001;&#x56FA;&#x4EF6;&#x3001;LED&#x706F;&#x72B6;&#x6001;&#x7B49;
+&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;:Enclosure&#x3001;slot
+&#x903B;&#x8F91;&#x4FE1;&#x606F;:&#x8FD0;&#x884C;&#x72B6;&#x6001;(&#x5728;&#x7EBF;&#x3001;&#x7A7A;&#x95F2;&#x70ED;&#x5907;&#x76D8;&#x3001;&#x91CD;&#x6784;&#x76D8;)&#x3001;&#x903B;&#x8F91;&#x7C7B;&#x578B;(&#x6210;&#x5458;&#x76D8;&#x3001;&#x7A7A;&#x95F2;&#x70ED;&#x5907;&#x76D8;&#x3001;
+         &#x7A7A;&#x95F2;&#x76D8;)&#x3001;&#x6240;&#x5C5E;RAID&#x7EC4;&#x3001;&#x6240;&#x5C5E;&#x5377;&#x7EC4;
+SMART&#x4FE1;&#x606F;
 
 
 #sg_map
-显示sg设备和sd设备的映射关系
+&#x663E;&#x793A;sg&#x8BBE;&#x5907;&#x548C;sd&#x8BBE;&#x5907;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;
 
-#sginfo –l
-获取sg设备的信息
+#sginfo &#x2013;l
+&#x83B7;&#x53D6;sg&#x8BBE;&#x5907;&#x7684;&#x4FE1;&#x606F;
 
-#sg_ses –p 0xa /dev/sg18
-获取磁盘槽位号、磁盘端口SAS地址
+#sg_ses &#x2013;p 0xa /dev/sg18
+&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x69FD;&#x4F4D;&#x53F7;&#x3001;&#x78C1;&#x76D8;&#x7AEF;&#x53E3;SAS&#x5730;&#x5740;
 
 #ll  /dev/disk/by-path
-获取磁盘端口SAS地址、磁盘盘符
+&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x7AEF;&#x53E3;SAS&#x5730;&#x5740;&#x3001;&#x78C1;&#x76D8;&#x76D8;&#x7B26;
 
 #sg_inq  -p  0x83  /dev/sdq
-磁盘LU、磁盘端口SAS地址
+&#x78C1;&#x76D8;LU&#x3001;&#x78C1;&#x76D8;&#x7AEF;&#x53E3;SAS&#x5730;&#x5740;
 
-#udevinfo –a –p /block/sdq
-获取磁盘的信息
+#udevinfo &#x2013;a &#x2013;p /block/sdq
+&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x7684;&#x4FE1;&#x606F;
 
-#udevinfo –q all –n /dev/sdq
-获取磁盘的详细信息
+#udevinfo &#x2013;q all &#x2013;n /dev/sdq
+&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;
 
-#scsi_id  -x –g –s /block/sdq 
-获取磁盘详细信息
+#scsi_id  -x &#x2013;g &#x2013;s /block/sdq 
+&#x83B7;&#x53D6;&#x78C1;&#x76D8;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;
 
 #smartctl  -H /dev/sdb
-查看磁盘健康状态
+&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x5065;&#x5EB7;&#x72B6;&#x6001;
 
 #smartctl -a  /dev/sdb
 #smartctl -A /dev/sdb
-查看磁盘SMART信息和温度
+&#x67E5;&#x770B;&#x78C1;&#x76D8;SMART&#x4FE1;&#x606F;&#x548C;&#x6E29;&#x5EA6;
 
 #smartctl -x  /dev/sdb
-显示磁盘所有信息，包括SAS地址等
+&#x663E;&#x793A;&#x78C1;&#x76D8;&#x6240;&#x6709;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x62EC;SAS&#x5730;&#x5740;&#x7B49;
 </code></pre><p>output status in raw format:</p>
 <pre><code>[root@ ~]# sg_ses -p 0x2 /dev/sg7 -r
     00 00 00 00 00 00 00 00  05 04 00 00 01 04 00 00
@@ -533,12 +533,12 @@ Notice that the frist byte 11 is equal to 01, look at Table 63, we can see
 that element status code only depends on low 4 bits (0~3th bits for ELEMENT 
 STATUS CODE, 4th bit is SWAP, 5th is DISABLED, 6th is PRDFAIL, 7th is Reserved)
 </code></pre><p>look ses3r05.pdf for more details:</p>
-<pre><code>Table 12 — Enclosure Status diagnostic page -- Page 30
-Table 13 — Status descriptor                -- Page 32
-Table 62 — Status element format            -- Page 70
-Table 63 — ELEMENT STATUS CODE field        -- Page 70
-Table 72 — Array Device Slot control element-- Page 76
-Table 73 — Array Device Slot status element -- Page 77
+<pre><code>Table 12 &#x2014; Enclosure Status diagnostic page -- Page 30
+Table 13 &#x2014; Status descriptor                -- Page 32
+Table 62 &#x2014; Status element format            -- Page 70
+Table 63 &#x2014; ELEMENT STATUS CODE field        -- Page 70
+Table 72 &#x2014; Array Device Slot control element-- Page 76
+Table 73 &#x2014; Array Device Slot status element -- Page 77
 </code></pre><p>##7.Reference</p>
 <ul>
 <li><a href="http://linux.die.net/man/8/sg_map" target="_blank" rel="external">man sg_map</a></li>
@@ -546,8 +546,8 @@ Table 73 — Array Device Slot status element -- Page 77
 <li><a href="http://rpm.pbone.net/index.php3/stat/45/idpl/9494420/numer/8/nazwa/sg_ses" target="_blank" rel="external">man sg_ses howto</a></li>
 <li><a href="http://sg.danny.cz/sg/sg3_utils.html" target="_blank" rel="external">The Linux sg3_utils package</a></li>
 <li><a href="http://sg.danny.cz/sg/" target="_blank" rel="external">The Linux SCSI Generic (sg) Driver</a></li>
-<li><a href="https://github.com/zhurongze/notes/blob/master/hardware/使用SES协议实现磁盘定位.md" target="_blank" rel="external"><em><strong>使用SES协议实现磁盘定位</strong></em></a></li>
-<li><a href="http://way4ever.com/?p=324" target="_blank" rel="external">磁盘信息管理所需要的技术</a></li>
+<li><a href="https://github.com/zhurongze/notes/blob/master/hardware/&#x4F7F;&#x7528;SES&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x78C1;&#x76D8;&#x5B9A;&#x4F4D;.md" target="_blank" rel="external"><em><strong>&#x4F7F;&#x7528;SES&#x534F;&#x8BAE;&#x5B9E;&#x73B0;&#x78C1;&#x76D8;&#x5B9A;&#x4F4D;</strong></em></a></li>
+<li><a href="http://way4ever.com/?p=324" target="_blank" rel="external">&#x78C1;&#x76D8;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x6240;&#x9700;&#x8981;&#x7684;&#x6280;&#x672F;</a></li>
 <li><a href="http://www.t10.org/" target="_blank" rel="external">T10 technical Committee</a></li>
 <li><a href="http://www.t10.org/cgi-bin/ac.pl?t=f&amp;f=ses3r05.pdf" target="_blank" rel="external">SCSI Enclosure Services - 3 (SES-3) ses3r05.pdf</a></li>
 <li><a href="https://github.com/bvanassche/sg3_utils/blob/master/src/sg_ses.c" target="_blank" rel="external">sg_ses github source</a></li>
@@ -557,7 +557,7 @@ Table 73 — Array Device Slot status element -- Page 77
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/06/20/use-sg_ses/" data-id="cin61d0i3006jfyizppysut0a" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/06/20/use-sg_ses/" data-id="cin6a5uif006h3cizjirjgv1s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -642,7 +642,7 @@ Table 73 — Array Device Slot status element -- Page 77
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

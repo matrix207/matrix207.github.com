@@ -114,7 +114,7 @@ user and defined the size">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><ul>
+        <h3 id="difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><ul>
 <li>stack <ul>
 <li>allocate memory on stack by operate system</li>
 <li>Have limit size, and less than 1MB always</li>
@@ -128,7 +128,7 @@ user and defined the size">
 </ul>
 </li>
 </ul>
-<h3 id="What-is-memory-fragments"><a href="#What-is-memory-fragments" class="headerlink" title="What is memory fragments"></a>What is memory fragments</h3><ul>
+<h3 id="what-is-memory-fragments"><a href="#What-is-memory-fragments" class="headerlink" title="What is memory fragments"></a>What is memory fragments</h3><ul>
 <li>Internal fragmentation <ul>
 <li>memory allocation provided memory to program in chunks divisible by 4, 8 or 16</li>
 <li>if application request 23 bytes, it actually get a chunk of 32 bytes. </li>
@@ -137,11 +137,11 @@ user and defined the size">
 </li>
 <li>External fragmentation <ul>
 <li>cause by <code>free</code> called</li>
-<li>An example, first, you allocate 9 bytes memory, then allocate another 5 bytes,<br>and later you free the first 9 bytes, but now, you want to allocate 10 bytes,<br>this time the first 9 bytes memory can’t be used, because it is not enough.<br>Allocation must using continues memory, so it would allocate another 10 bytes<br>behind the 5 bytes position. Now the first block memory is memory fragments.</li>
+<li>An example, first, you allocate 9 bytes memory, then allocate another 5 bytes,<br>and later you free the first 9 bytes, but now, you want to allocate 10 bytes,<br>this time the first 9 bytes memory can&#x2019;t be used, because it is not enough.<br>Allocation must using continues memory, so it would allocate another 10 bytes<br>behind the 5 bytes position. Now the first block memory is memory fragments.</li>
 </ul>
 </li>
 </ul>
-<h3 id="How-to-avoid-memory-fragments"><a href="#How-to-avoid-memory-fragments" class="headerlink" title="How to avoid memory fragments"></a>How to avoid memory fragments</h3><h3 id="Why-memory-overflow-but-not-error-occur"><a href="#Why-memory-overflow-but-not-error-occur" class="headerlink" title="Why memory overflow but not error occur?"></a>Why memory overflow but not error occur?</h3><ul>
+<h3 id="how-to-avoid-memory-fragments"><a href="#How-to-avoid-memory-fragments" class="headerlink" title="How to avoid memory fragments"></a>How to avoid memory fragments</h3><h3 id="why-memory-overflow-but-not-error-occur"><a href="#Why-memory-overflow-but-not-error-occur" class="headerlink" title="Why memory overflow but not error occur?"></a>Why memory overflow but not error occur?</h3><ul>
 <li><p>sample code</p>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -179,15 +179,15 @@ void main()
 }
 </code></pre></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.csdn.net/xuzhonghai/article/details/7285821" target="_blank" rel="external">内存碎片</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/xuzhonghai/article/details/7285821" target="_blank" rel="external">&#x5185;&#x5B58;&#x788E;&#x7247;</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Fragmentation_(computing" target="_blank" rel="external">Fragmentation</a>)</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/17/difference-between-stack-and-heap/" data-id="cin61d0lf009cfyizmdb2wlhj" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/17/difference-between-stack-and-heap/" data-id="cin6a5ukt009j3ciz57cy5qps" class="article-share-link">Share</a>
       
       
     </footer>
@@ -206,9 +206,9 @@ void main()
     </a>
   
   
-    <a href="/2015/07/12/key-technology-for-database/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/07/12/schema-data-mode/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">key technology for database</div>
+      <div class="article-nav-title">schema data mode</div>
     </a>
   
 </nav>
@@ -272,7 +272,7 @@ void main()
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

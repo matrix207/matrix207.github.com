@@ -175,10 +175,10 @@ First orphan inode:       18089038
 Default directory hash:   half_md4
 Directory Hash Seed:      d4c17cf0-bb57-4423-81ab-a8fc3df1bc13
 Journal backup:           inode blocks
-</code></pre><h3 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><p>The block size is the unit of work for the file system. Every read and write is<br>done in full multiples of the block size. The block size is also the smallest<br>size on disk a file can have.</p>
-<h3 id="Optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h3><p>1.Inode block</p>
+</code></pre><h3 id="terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h3><p>The block size is the unit of work for the file system. Every read and write is<br>done in full multiples of the block size. The block size is also the smallest<br>size on disk a file can have.</p>
+<h3 id="optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h3><p>1.Inode block</p>
 <p>2.Reserved block</p>
-<pre><code>Mkfs.ext3 –b 4096 - i 8192 –m 2 /dev/sda5
+<pre><code>Mkfs.ext3 &#x2013;b 4096 - i 8192 &#x2013;m 2 /dev/sda5
 </code></pre><p>3.tune2fs</p>
 <pre><code>dennis@dennis:~$ tune2fs
 tune2fs 1.42 (29-Nov-2011)
@@ -193,14 +193,14 @@ Usage: tune2fs [-c max_mounts_count] [-e errors_behavior] [-g group]
 <p>use <code>tune2fs -c -1 /dev/sda5</code> to avoid selfcheck</p>
 <p>use <code>tune2fs -c -1 -i 0 /dev/sda5</code> to set the interval time</p>
 <p>use <code>tune2fs -m 3 /dev/sda5</code> to set the reserved_blocks_percent</p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://linux.chinaitlab.com/administer/824245.html" target="_blank" rel="external">优化linux文件系统 提高读写速度</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://linux.chinaitlab.com/administer/824245.html" target="_blank" rel="external">&#x4F18;&#x5316;linux&#x6587;&#x4EF6;&#x7CFB;&#x7EDF; &#x63D0;&#x9AD8;&#x8BFB;&#x5199;&#x901F;&#x5EA6;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/08/09/optimal-file-system-with-tune2fs/" data-id="cin61d0ke008jfyizcezt7t7m" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/08/09/optimal-file-system-with-tune2fs/" data-id="cin6a5uk2008r3ciz86zooij0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -209,11 +209,11 @@ Usage: tune2fs [-c max_mounts_count] [-e errors_behavior] [-g group]
     
 <nav id="article-nav">
   
-    <a href="/2014/08/22/grep/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/08/22/awk/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          grep
+          awk
         
       </div>
     </a>
@@ -285,7 +285,7 @@ Usage: tune2fs [-c max_mounts_count] [-e errors_behavior] [-g group]
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

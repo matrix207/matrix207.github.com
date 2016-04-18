@@ -124,35 +124,35 @@ TCP window size: 0.02 MByte (default)
 [  3]  8.0-10.0 sec  1893 MBytes   947 MBytes/sec
 [  3]  0.0-10.0 sec  9196 MBytes   920 MBytes/sec
 </code></pre><ul>
-<li>通用参数<ul>
-<li>-f [k|m|K|M] 分别表示以Kbits, Mbits, KBytes, MBytes显示报告，默认以Mbits为单位,eg:iperf -c 222.35.11.23 -f K</li>
-<li>-i sec 以秒为单位显示报告间隔，eg:iperf -c 222.35.11.23 -i 2</li>
-<li>-l 缓冲区大小，默认是8KB,eg:iperf -c 222.35.11.23 -l 16</li>
-<li>-m 显示tcp最大mtu值</li>
-<li>-o 将报告和错误信息输出到文件eg:iperf -c 222.35.11.23 -o c:\iperflog.txt</li>
-<li>-p 指定服务器端使用的端口或客户端所连接的端口eg:iperf -s -p 9999;iperf -c 222.35.11.23 -p 9999</li>
-<li>-u 使用udp协议,测试htb的时候最好用udp，udp通信开销小，测试的带宽更准确</li>
-<li>-w 指定TCP窗口大小，默认是8KB.如果窗口太小，有可能丢包</li>
-<li>-B 绑定一个主机地址或接口（当主机有多个地址或接口时使用该参数）</li>
-<li>-C 兼容旧版本（当server端和client端版本不一样时使用）</li>
-<li>-M 设定TCP数据包的最大mtu值</li>
-<li>-N 设定TCP不延时</li>
-<li>-V 传输ipv6数据包</li>
+<li>&#x901A;&#x7528;&#x53C2;&#x6570;<ul>
+<li>-f [k|m|K|M] &#x5206;&#x522B;&#x8868;&#x793A;&#x4EE5;Kbits, Mbits, KBytes, MBytes&#x663E;&#x793A;&#x62A5;&#x544A;&#xFF0C;&#x9ED8;&#x8BA4;&#x4EE5;Mbits&#x4E3A;&#x5355;&#x4F4D;,eg:iperf -c 222.35.11.23 -f K</li>
+<li>-i sec &#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x663E;&#x793A;&#x62A5;&#x544A;&#x95F4;&#x9694;&#xFF0C;eg:iperf -c 222.35.11.23 -i 2</li>
+<li>-l &#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;8KB,eg:iperf -c 222.35.11.23 -l 16</li>
+<li>-m &#x663E;&#x793A;tcp&#x6700;&#x5927;mtu&#x503C;</li>
+<li>-o &#x5C06;&#x62A5;&#x544A;&#x548C;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;eg:iperf -c 222.35.11.23 -o c:\iperflog.txt</li>
+<li>-p &#x6307;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;&#x7684;&#x7AEF;&#x53E3;&#x6216;&#x5BA2;&#x6237;&#x7AEF;&#x6240;&#x8FDE;&#x63A5;&#x7684;&#x7AEF;&#x53E3;eg:iperf -s -p 9999;iperf -c 222.35.11.23 -p 9999</li>
+<li>-u &#x4F7F;&#x7528;udp&#x534F;&#x8BAE;,&#x6D4B;&#x8BD5;htb&#x7684;&#x65F6;&#x5019;&#x6700;&#x597D;&#x7528;udp&#xFF0C;udp&#x901A;&#x4FE1;&#x5F00;&#x9500;&#x5C0F;&#xFF0C;&#x6D4B;&#x8BD5;&#x7684;&#x5E26;&#x5BBD;&#x66F4;&#x51C6;&#x786E;</li>
+<li>-w &#x6307;&#x5B9A;TCP&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;8KB.&#x5982;&#x679C;&#x7A97;&#x53E3;&#x592A;&#x5C0F;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4E22;&#x5305;</li>
+<li>-B &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x4E3B;&#x673A;&#x5730;&#x5740;&#x6216;&#x63A5;&#x53E3;&#xFF08;&#x5F53;&#x4E3B;&#x673A;&#x6709;&#x591A;&#x4E2A;&#x5730;&#x5740;&#x6216;&#x63A5;&#x53E3;&#x65F6;&#x4F7F;&#x7528;&#x8BE5;&#x53C2;&#x6570;&#xFF09;</li>
+<li>-C &#x517C;&#x5BB9;&#x65E7;&#x7248;&#x672C;&#xFF08;&#x5F53;server&#x7AEF;&#x548C;client&#x7AEF;&#x7248;&#x672C;&#x4E0D;&#x4E00;&#x6837;&#x65F6;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>-M &#x8BBE;&#x5B9A;TCP&#x6570;&#x636E;&#x5305;&#x7684;&#x6700;&#x5927;mtu&#x503C;</li>
+<li>-N &#x8BBE;&#x5B9A;TCP&#x4E0D;&#x5EF6;&#x65F6;</li>
+<li>-V &#x4F20;&#x8F93;ipv6&#x6570;&#x636E;&#x5305;</li>
 </ul>
 </li>
-<li>server专用参数<ul>
-<li>-D 以服务方式运行ipserf，eg:iperf -s -D</li>
-<li>-R 停止iperf服务，针对-D，eg:iperf -s -R</li>
+<li>server&#x4E13;&#x7528;&#x53C2;&#x6570;<ul>
+<li>-D &#x4EE5;&#x670D;&#x52A1;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;ipserf&#xFF0C;eg:iperf -s -D</li>
+<li>-R &#x505C;&#x6B62;iperf&#x670D;&#x52A1;&#xFF0C;&#x9488;&#x5BF9;-D&#xFF0C;eg:iperf -s -R</li>
 </ul>
 </li>
-<li>client端专用参数<ul>
-<li>-d 同时进行双向传输测试</li>
-<li>-n 指定传输的字节数，eg:iperf -c 222.35.11.23 -n 100000</li>
-<li>-r 单独进行双向传输测试</li>
-<li>-b 指定发送带宽，默认是1Mbit/s. 在测试qos的时候，这是最有用的参数。</li>
-<li>-t 测试时间，默认10秒,eg:iperf -c 222.35.11.23 -t 5.默认是10s</li>
-<li>-F 指定需要传输的文件</li>
-<li>-T 指定ttl值 </li>
+<li>client&#x7AEF;&#x4E13;&#x7528;&#x53C2;&#x6570;<ul>
+<li>-d &#x540C;&#x65F6;&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x4F20;&#x8F93;&#x6D4B;&#x8BD5;</li>
+<li>-n &#x6307;&#x5B9A;&#x4F20;&#x8F93;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF0C;eg:iperf -c 222.35.11.23 -n 100000</li>
+<li>-r &#x5355;&#x72EC;&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x4F20;&#x8F93;&#x6D4B;&#x8BD5;</li>
+<li>-b &#x6307;&#x5B9A;&#x53D1;&#x9001;&#x5E26;&#x5BBD;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;1Mbit/s. &#x5728;&#x6D4B;&#x8BD5;qos&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x662F;&#x6700;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
+<li>-t &#x6D4B;&#x8BD5;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;10&#x79D2;,eg:iperf -c 222.35.11.23 -t 5.&#x9ED8;&#x8BA4;&#x662F;10s</li>
+<li>-F &#x6307;&#x5B9A;&#x9700;&#x8981;&#x4F20;&#x8F93;&#x7684;&#x6587;&#x4EF6;</li>
+<li>-T &#x6307;&#x5B9A;ttl&#x503C; </li>
 </ul>
 </li>
 </ul>
@@ -161,15 +161,15 @@ TCP window size: 0.02 MByte (default)
 <li>tcpdump -i eth0 host 172.16.30.44 and port 80</li>
 <li>tcpdump -U port 3260 -w /tmp/tcpdump.pcap</li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.vpsee.com/2009/11/linux-system-performance-monitoring-network/" target="_blank" rel="external">Linux性能监测：network</a></li>
-<li><a href="http://blog.chinaunix.net/uid-20778443-id-94533.html" target="_blank" rel="external">iperf 使用总结</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.vpsee.com/2009/11/linux-system-performance-monitoring-network/" target="_blank" rel="external">Linux&#x6027;&#x80FD;&#x76D1;&#x6D4B;&#xFF1A;network</a></li>
+<li><a href="http://blog.chinaunix.net/uid-20778443-id-94533.html" target="_blank" rel="external">iperf &#x4F7F;&#x7528;&#x603B;&#x7ED3;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cin61d0l30092fyiz1m1ibc81" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cin6a5ukk00993cizk4y2qw21" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,8 +201,8 @@ TCP window size: 0.02 MByte (default)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一次网络性能检查记录"><a href="#一次网络性能检查记录" class="headerlink" title="一次网络性能检查记录"></a>一次网络性能检查记录</h4><ul>
-<li><p>开始检查各种信息(网络、cpu,memory,io等)</p>
+        <h4 id="&#x4E00;&#x6B21;&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x68C0;&#x67E5;&#x8BB0;&#x5F55;"><a href="#&#x4E00;&#x6B21;&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x68C0;&#x67E5;&#x8BB0;&#x5F55;" class="headerlink" title="&#x4E00;&#x6B21;&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x68C0;&#x67E5;&#x8BB0;&#x5F55;"></a>&#x4E00;&#x6B21;&#x7F51;&#x7EDC;&#x6027;&#x80FD;&#x68C0;&#x67E5;&#x8BB0;&#x5F55;</h4><ul>
+<li><p>&#x5F00;&#x59CB;&#x68C0;&#x67E5;&#x5404;&#x79CD;&#x4FE1;&#x606F;(&#x7F51;&#x7EDC;&#x3001;cpu,memory,io&#x7B49;)</p>
 <pre><code>[root@Ustor ~]# ifconfig
 eth0      Link encap:Ethernet  HWaddr 40:16:7E:35:C7:C2  
           inet addr:172.16.130.158  Bcast:0.0.0.0  Mask:255.255.255.0
@@ -412,8 +412,8 @@ Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
 Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
 Raw Size: 3.638 TB [0x1d1c0beb0 Sectors]
 
-#### /dev/sdb的大小是36002GB, 即 36002/1024=35.158TB ####
-#### 可是整个raid的大小应该时3.637TB * 9 = 32.733TB才对, 为什么下面/dev/sdb是35.158TB呢 ####
+#### /dev/sdb&#x7684;&#x5927;&#x5C0F;&#x662F;36002GB, &#x5373; 36002/1024=35.158TB ####
+#### &#x53EF;&#x662F;&#x6574;&#x4E2A;raid&#x7684;&#x5927;&#x5C0F;&#x5E94;&#x8BE5;&#x65F6;3.637TB * 9 = 32.733TB&#x624D;&#x5BF9;, &#x4E3A;&#x4EC0;&#x4E48;&#x4E0B;&#x9762;/dev/sdb&#x662F;35.158TB&#x5462; ####
 [root@Ustor ~]# fdisk -l /dev/sdb
 
 Disk /dev/sdb: 36002.0 GB, 36002026487808 bytes
@@ -466,7 +466,7 @@ dm-0              0.00         0.00         0.00          0          0
 dm-1           4096.00         0.00     32768.00          0      32768
 dm-2              0.00         0.00         0.00          0          0
 
-#### dd的速度达到1GB/s，说明瓶颈不在磁盘 ####
+#### dd&#x7684;&#x901F;&#x5EA6;&#x8FBE;&#x5230;1GB/s&#xFF0C;&#x8BF4;&#x660E;&#x74F6;&#x9888;&#x4E0D;&#x5728;&#x78C1;&#x76D8; ####
 [root@Ustor ~]# dd if=/dev/zero of=/dev/sdb bs=1M count=102400
 28309+0 records in
 28309+0 records out
@@ -592,8 +592,8 @@ tcpdump: listening on eth2, link-type EN10MB (Ethernet), capture size 65535 byte
 [root@Ustor ~]# ls /tmp/tcpdump01.pcap -lh
 -rw-r--r-- 1 root root 187M Dec 31 10:47 /tmp/tcpdump01.pcap
 </code></pre><ul>
-<li><p>tshark 分析</p>
-<pre><code>#### scp下载包到本地，使用tshark分析 ####
+<li><p>tshark &#x5206;&#x6790;</p>
+<pre><code>#### scp&#x4E0B;&#x8F7D;&#x5305;&#x5230;&#x672C;&#x5730;&#xFF0C;&#x4F7F;&#x7528;tshark&#x5206;&#x6790; ####
 [dennis@localhost ~]$ scp root@172.16.130.158:/tmp/tcpdump01.pcap ./
 root@172.16.130.158&apos;s password: 
 tcpdump01.pcap                         100%  186MB  11.0MB/s   00:17 
@@ -617,7 +617,7 @@ RIPEMD160:           70123da08082954af0d91dde9d9766a61c0a93db
 MD5:                 0571ac4f35410047a13cdfbd3bf3bfe9
 Strict time order:   False
 
-#### 重传好像影响不大? ####
+#### &#x91CD;&#x4F20;&#x597D;&#x50CF;&#x5F71;&#x54CD;&#x4E0D;&#x5927;? ####
 [dennis@localhost ~]$ tshark -n -q -r tcpdump01.pcap  -z &quot;io,stat,0,tcp.analysis.retransmission&quot;
 
 =======================================================
@@ -694,7 +694,7 @@ Strict time order:   False
 </code></pre></li>
 </ul>
 <ul>
-<li><p>会不会网卡驱动有问题?据说这个Emulex卡直接装就可以用，不用单独安装驱动</p>
+<li><p>&#x4F1A;&#x4E0D;&#x4F1A;&#x7F51;&#x5361;&#x9A71;&#x52A8;&#x6709;&#x95EE;&#x9898;?&#x636E;&#x8BF4;&#x8FD9;&#x4E2A;Emulex&#x5361;&#x76F4;&#x63A5;&#x88C5;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#xFF0C;&#x4E0D;&#x7528;&#x5355;&#x72EC;&#x5B89;&#x88C5;&#x9A71;&#x52A8;</p>
 <pre><code>[root@Ustor ~]# modinfo be2net
 filename:       /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/be2net.ko
 license:        GPL
@@ -717,11 +717,11 @@ parm:           rx_frag_size:Size of a fragment that holds rcvd data. (ushort)
 [root@Ustor ~]# lspci -nn |grep Emulex
 02:00.0 Ethernet controller [0200]: Emulex Corporation OneConnect 10Gb NIC (be3) [19a2:0710] (rev 01)
 02:00.1 Ethernet controller [0200]: Emulex Corporation OneConnect 10Gb NIC (be3) [19a2:0710] (rev 01)
-型号是19a2:0710
+&#x578B;&#x53F7;&#x662F;19a2:0710
 [root@Ustor ~]# grep -irn &apos;19a2.*0710&apos; /lib/modules/2.6.32-279.el6.x86_64/modules.alias
 3732:alias pci:v000019A2d00000710sv*sd*bc*sc*i* be2net
 </code></pre></li>
-<li><p>修改磁盘预读大小，性能没什么提升，依然再100MB/s左右，查看windows下的网络曲线，不够平整</p>
+<li><p>&#x4FEE;&#x6539;&#x78C1;&#x76D8;&#x9884;&#x8BFB;&#x5927;&#x5C0F;&#xFF0C;&#x6027;&#x80FD;&#x6CA1;&#x4EC0;&#x4E48;&#x63D0;&#x5347;&#xFF0C;&#x4F9D;&#x7136;&#x518D;100MB/s&#x5DE6;&#x53F3;&#xFF0C;&#x67E5;&#x770B;windows&#x4E0B;&#x7684;&#x7F51;&#x7EDC;&#x66F2;&#x7EBF;&#xFF0C;&#x4E0D;&#x591F;&#x5E73;&#x6574;</p>
 <pre><code>[root@Ustor SOURCES]# blockdev --report
 RO    RA   SSZ   BSZ   StartSec            Size   Device
 rw 16384   512  4096          0      8012390400   /dev/sda
@@ -753,9 +753,9 @@ rw 16384   512  4096          0   2097152000000   /dev/dm-1
 rw 16384   512  4096          0    349526032384   /dev/dm-2
 </code></pre></li>
 </ul>
-<p>发现4k;0% read;0% random的速度比1M;0%read;0%random的快，<br>通常都是1M的快。。。<br>4k有10G的25%左右速度，速度曲线相对平整；而1M只有8%左右，而且速度曲线极其不平整；</p>
+<p>&#x53D1;&#x73B0;4k;0% read;0% random&#x7684;&#x901F;&#x5EA6;&#x6BD4;1M;0%read;0%random&#x7684;&#x5FEB;&#xFF0C;<br>&#x901A;&#x5E38;&#x90FD;&#x662F;1M&#x7684;&#x5FEB;&#x3002;&#x3002;&#x3002;<br>4k&#x6709;10G&#x7684;25%&#x5DE6;&#x53F3;&#x901F;&#x5EA6;&#xFF0C;&#x901F;&#x5EA6;&#x66F2;&#x7EBF;&#x76F8;&#x5BF9;&#x5E73;&#x6574;&#xFF1B;&#x800C;1M&#x53EA;&#x6709;8%&#x5DE6;&#x53F3;&#xFF0C;&#x800C;&#x4E14;&#x901F;&#x5EA6;&#x66F2;&#x7EBF;&#x6781;&#x5176;&#x4E0D;&#x5E73;&#x6574;&#xFF1B;</p>
 <ul>
-<li><p>使用rmp source编译驱动</p>
+<li><p>&#x4F7F;&#x7528;rmp source&#x7F16;&#x8BD1;&#x9A71;&#x52A8;</p>
 <pre><code>rpm -ivh be2net-10.2.470.14-1.src.rpm
 cd rpmbuild/SOURCES
 tar xvf be2net-10.2.470.14.tar.gz 
@@ -793,7 +793,7 @@ parm:           rx_frag_size:Size of receive fragment buffer - 2048 (default), 4
 parm:           gro:Enable or Disable GRO. Enabled by default (uint)
 parm:           emi_canceller:Enable or Disable EMI Canceller. Disabled by default (uint)
 </code></pre></li>
-<li><p>更新驱动，重启机器</p>
+<li><p>&#x66F4;&#x65B0;&#x9A71;&#x52A8;&#xFF0C;&#x91CD;&#x542F;&#x673A;&#x5668;</p>
 <pre><code>[root@Ustor be2net-10.2.470.14]# cp be2net.ko /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/
 [root@Ustor be2net-10.2.470.14]# ls /lib/modules/2.6.32-279.el6.x86_64/kernel/drivers/net/benet/
 be2net.ko  be2net.ko.bak
@@ -861,29 +861,29 @@ bus-info: 0000:02:00.0
 [root@Ustor ~]# 
 </code></pre></li>
 </ul>
-<p>重新使用iometer测试看看，是否换了驱动性能有所提升<br>10G网络使用率为65%，速度达到780MB/s左右, 网络速度曲线还算平整  </p>
-<p>把驱动还原为旧的版本，在测试一下，如果速度又是100MB/s左右，说明确实是驱动问题。  </p>
-<p>经过测试，速度确实又回到100MB/s左右了，看来是驱动问题了。  </p>
-<h4 id="关于Emulex万兆网卡测试，性能比较低-只有约100MB-s"><a href="#关于Emulex万兆网卡测试，性能比较低-只有约100MB-s" class="headerlink" title="关于Emulex万兆网卡测试，性能比较低(只有约100MB/s)"></a>关于Emulex万兆网卡测试，性能比较低(只有约100MB/s)</h4><ol>
-<li>硬RAID，10块磁盘建raid5，建iscsi卷</li>
-<li>windows使用iometer，1M;0%Read;0%Random</li>
-<li>网卡驱动be2net从4.1.307r升级到10.2.470.14</li>
+<p>&#x91CD;&#x65B0;&#x4F7F;&#x7528;iometer&#x6D4B;&#x8BD5;&#x770B;&#x770B;&#xFF0C;&#x662F;&#x5426;&#x6362;&#x4E86;&#x9A71;&#x52A8;&#x6027;&#x80FD;&#x6709;&#x6240;&#x63D0;&#x5347;<br>10G&#x7F51;&#x7EDC;&#x4F7F;&#x7528;&#x7387;&#x4E3A;65%&#xFF0C;&#x901F;&#x5EA6;&#x8FBE;&#x5230;780MB/s&#x5DE6;&#x53F3;, &#x7F51;&#x7EDC;&#x901F;&#x5EA6;&#x66F2;&#x7EBF;&#x8FD8;&#x7B97;&#x5E73;&#x6574;  </p>
+<p>&#x628A;&#x9A71;&#x52A8;&#x8FD8;&#x539F;&#x4E3A;&#x65E7;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5728;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x901F;&#x5EA6;&#x53C8;&#x662F;100MB/s&#x5DE6;&#x53F3;&#xFF0C;&#x8BF4;&#x660E;&#x786E;&#x5B9E;&#x662F;&#x9A71;&#x52A8;&#x95EE;&#x9898;&#x3002;  </p>
+<p>&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF0C;&#x901F;&#x5EA6;&#x786E;&#x5B9E;&#x53C8;&#x56DE;&#x5230;100MB/s&#x5DE6;&#x53F3;&#x4E86;&#xFF0C;&#x770B;&#x6765;&#x662F;&#x9A71;&#x52A8;&#x95EE;&#x9898;&#x4E86;&#x3002;  </p>
+<h4 id="&#x5173;&#x4E8E;emulex&#x4E07;&#x5146;&#x7F51;&#x5361;&#x6D4B;&#x8BD5;&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x4F4E;&#x53EA;&#x6709;&#x7EA6;100mbs"><a href="#&#x5173;&#x4E8E;Emulex&#x4E07;&#x5146;&#x7F51;&#x5361;&#x6D4B;&#x8BD5;&#xFF0C;&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x4F4E;-&#x53EA;&#x6709;&#x7EA6;100MB-s" class="headerlink" title="&#x5173;&#x4E8E;Emulex&#x4E07;&#x5146;&#x7F51;&#x5361;&#x6D4B;&#x8BD5;&#xFF0C;&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x4F4E;(&#x53EA;&#x6709;&#x7EA6;100MB/s)"></a>&#x5173;&#x4E8E;Emulex&#x4E07;&#x5146;&#x7F51;&#x5361;&#x6D4B;&#x8BD5;&#xFF0C;&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x4F4E;(&#x53EA;&#x6709;&#x7EA6;100MB/s)</h4><ol>
+<li>&#x786C;RAID&#xFF0C;10&#x5757;&#x78C1;&#x76D8;&#x5EFA;raid5&#xFF0C;&#x5EFA;iscsi&#x5377;</li>
+<li>windows&#x4F7F;&#x7528;iometer&#xFF0C;1M;0%Read;0%Random</li>
+<li>&#x7F51;&#x5361;&#x9A71;&#x52A8;be2net&#x4ECE;4.1.307r&#x5347;&#x7EA7;&#x5230;10.2.470.14</li>
 </ol>
-<p>经检查测试，更新存储机器(172.16.130.158)的驱动版本(网卡驱动be2net从 4.1.307r升级到10.2.470.14) 后</p>
-<p>使用iometer(1M;0%Read;0%Random)测试，速度从100MB/s左右提升到780MB/s左右</p>
-<p>看起来原系统的Emulex万兆网卡驱动有问题，升级就好了.</p>
-<p>驱动下载地址:</p>
+<p>&#x7ECF;&#x68C0;&#x67E5;&#x6D4B;&#x8BD5;&#xFF0C;&#x66F4;&#x65B0;&#x5B58;&#x50A8;&#x673A;&#x5668;(172.16.130.158)&#x7684;&#x9A71;&#x52A8;&#x7248;&#x672C;(&#x7F51;&#x5361;&#x9A71;&#x52A8;be2net&#x4ECE; 4.1.307r&#x5347;&#x7EA7;&#x5230;10.2.470.14) &#x540E;</p>
+<p>&#x4F7F;&#x7528;iometer(1M;0%Read;0%Random)&#x6D4B;&#x8BD5;&#xFF0C;&#x901F;&#x5EA6;&#x4ECE;100MB/s&#x5DE6;&#x53F3;&#x63D0;&#x5347;&#x5230;780MB/s&#x5DE6;&#x53F3;</p>
+<p>&#x770B;&#x8D77;&#x6765;&#x539F;&#x7CFB;&#x7EDF;&#x7684;Emulex&#x4E07;&#x5146;&#x7F51;&#x5361;&#x9A71;&#x52A8;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5347;&#x7EA7;&#x5C31;&#x597D;&#x4E86;.</p>
+<p>&#x9A71;&#x52A8;&#x4E0B;&#x8F7D;&#x5730;&#x5740;:</p>
 <ul>
 <li><p><a href="http://www.emulex.cn/downloads/emulex/drivers/linux/rhel-6-centos-6/drivers/" target="_blank" rel="external">http://www.emulex.cn/downloads/emulex/drivers/linux/rhel-6-centos-6/drivers/</a></p>
 </li>
 <li><p><code>wget http://www-dl.emulex.com/support/elx/rt10.2.9/ga/Linux/driver-source/be2net-10.2.470.14-1.src.rpm</code></p>
 </li>
 </ul>
-<h4 id="总结-很多时候，复杂问题的背后隐藏的是简单的解决方法"><a href="#总结-很多时候，复杂问题的背后隐藏的是简单的解决方法" class="headerlink" title="总结: 很多时候，复杂问题的背后隐藏的是简单的解决方法"></a>总结: 很多时候，复杂问题的背后隐藏的是简单的解决方法</h4>
+<h4 id="&#x603B;&#x7ED3;-&#x5F88;&#x591A;&#x65F6;&#x5019;&#x590D;&#x6742;&#x95EE;&#x9898;&#x7684;&#x80CC;&#x540E;&#x9690;&#x85CF;&#x7684;&#x662F;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;"><a href="#&#x603B;&#x7ED3;-&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;&#x590D;&#x6742;&#x95EE;&#x9898;&#x7684;&#x80CC;&#x540E;&#x9690;&#x85CF;&#x7684;&#x662F;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;" class="headerlink" title="&#x603B;&#x7ED3;: &#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;&#x590D;&#x6742;&#x95EE;&#x9898;&#x7684;&#x80CC;&#x540E;&#x9690;&#x85CF;&#x7684;&#x662F;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;"></a>&#x603B;&#x7ED3;: &#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;&#x590D;&#x6742;&#x95EE;&#x9898;&#x7684;&#x80CC;&#x540E;&#x9690;&#x85CF;&#x7684;&#x662F;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/31/checking-speed-of-network/" data-id="cin61d0l80096fyiztrd89ho4" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/31/checking-speed-of-network/" data-id="cin6a5ukj00983cizj9k0orvq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -915,24 +915,24 @@ bus-info: 0000:02:00.0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h4><p>1.过滤IP，如来源IP或者目标IP等于某个IP</p>
-<pre><code>例子:
+        <h4 id="filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h4><p>1.&#x8FC7;&#x6EE4;IP&#xFF0C;&#x5982;&#x6765;&#x6E90;IP&#x6216;&#x8005;&#x76EE;&#x6807;IP&#x7B49;&#x4E8E;&#x67D0;&#x4E2A;IP</p>
+<pre><code>&#x4F8B;&#x5B50;:
 ip.src eq 192.168.1.107 or ip.dst eq 192.168.1.107
-或者
-ip.addr eq 192.168.1.107 // 都能显示来源IP和目标IP
-</code></pre><p>2.过滤端口</p>
-<pre><code>例子:
-tcp.port eq 80 // 不管端口是来源的还是目标的都显示
+&#x6216;&#x8005;
+ip.addr eq 192.168.1.107 // &#x90FD;&#x80FD;&#x663E;&#x793A;&#x6765;&#x6E90;IP&#x548C;&#x76EE;&#x6807;IP
+</code></pre><p>2.&#x8FC7;&#x6EE4;&#x7AEF;&#x53E3;</p>
+<pre><code>&#x4F8B;&#x5B50;:
+tcp.port eq 80 // &#x4E0D;&#x7BA1;&#x7AEF;&#x53E3;&#x662F;&#x6765;&#x6E90;&#x7684;&#x8FD8;&#x662F;&#x76EE;&#x6807;&#x7684;&#x90FD;&#x663E;&#x793A;
 tcp.port == 80
 tcp.port eq 2722
 tcp.port eq 80 or udp.port eq 80
-tcp.dstport == 80 // 只显tcp协议的目标端口80
-tcp.srcport == 80 // 只显tcp协议的来源端口80
+tcp.dstport == 80 // &#x53EA;&#x663E;tcp&#x534F;&#x8BAE;&#x7684;&#x76EE;&#x6807;&#x7AEF;&#x53E3;80
+tcp.srcport == 80 // &#x53EA;&#x663E;tcp&#x534F;&#x8BAE;&#x7684;&#x6765;&#x6E90;&#x7AEF;&#x53E3;80
 udp.port eq 15000
-过滤端口范围
+&#x8FC7;&#x6EE4;&#x7AEF;&#x53E3;&#x8303;&#x56F4;
 tcp.port &gt;= 1 and tcp.port &lt;= 80
-</code></pre><p>3.过滤协议</p>
-<pre><code>例子:
+</code></pre><p>3.&#x8FC7;&#x6EE4;&#x534F;&#x8BAE;</p>
+<pre><code>&#x4F8B;&#x5B50;:
 tcp
 udp
 arp
@@ -946,136 +946,136 @@ ip
 ssl
 oicq
 bootp
-等等
-排除arp包，如!arp  或者  not arp
-</code></pre><p>4.过滤MAC</p>
-<pre><code>太以网头过滤
-eth.dst == A0:00:00:04:C5:84 // 过滤目标mac
-eth.src eq A0:00:00:04:C5:84 // 过滤来源mac
+&#x7B49;&#x7B49;
+&#x6392;&#x9664;arp&#x5305;&#xFF0C;&#x5982;!arp  &#x6216;&#x8005;  not arp
+</code></pre><p>4.&#x8FC7;&#x6EE4;MAC</p>
+<pre><code>&#x592A;&#x4EE5;&#x7F51;&#x5934;&#x8FC7;&#x6EE4;
+eth.dst == A0:00:00:04:C5:84 // &#x8FC7;&#x6EE4;&#x76EE;&#x6807;mac
+eth.src eq A0:00:00:04:C5:84 // &#x8FC7;&#x6EE4;&#x6765;&#x6E90;mac
 eth.dst==A0:00:00:04:C5:84
 eth.dst==A0-00-00-04-C5-84
-eth.addr eq A0:00:00:04:C5:84 // 过滤来源MAC和目标MAC都等于A0:00:00:04:C5:84的
-less than 小于 &lt; lt
-小于等于 le
-等于 eq
-大于 gt
-大于等于 ge
-不等 ne
-</code></pre><p>5.包长度过滤</p>
-<pre><code>例子:
-udp.length == 26 这个长度是指udp本身固定长度8加上udp下面那块数据包之和
-tcp.len &gt;= 7  指的是ip数据包(tcp下面那块数据),不包括tcp本身
-ip.len == 94 除了以太网头固定长度14,其它都算是ip.len,即从ip本身到最后
-frame.len == 119 整个数据包长度,从eth开始到最后
-eth —&gt; ip or arp —&gt; tcp or udp —&gt; data
-</code></pre><p>6.http模式过滤</p>
-<pre><code>例子:
+eth.addr eq A0:00:00:04:C5:84 // &#x8FC7;&#x6EE4;&#x6765;&#x6E90;MAC&#x548C;&#x76EE;&#x6807;MAC&#x90FD;&#x7B49;&#x4E8E;A0:00:00:04:C5:84&#x7684;
+less than &#x5C0F;&#x4E8E; &lt; lt
+&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E; le
+&#x7B49;&#x4E8E; eq
+&#x5927;&#x4E8E; gt
+&#x5927;&#x4E8E;&#x7B49;&#x4E8E; ge
+&#x4E0D;&#x7B49; ne
+</code></pre><p>5.&#x5305;&#x957F;&#x5EA6;&#x8FC7;&#x6EE4;</p>
+<pre><code>&#x4F8B;&#x5B50;:
+udp.length == 26 &#x8FD9;&#x4E2A;&#x957F;&#x5EA6;&#x662F;&#x6307;udp&#x672C;&#x8EAB;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;8&#x52A0;&#x4E0A;udp&#x4E0B;&#x9762;&#x90A3;&#x5757;&#x6570;&#x636E;&#x5305;&#x4E4B;&#x548C;
+tcp.len &gt;= 7  &#x6307;&#x7684;&#x662F;ip&#x6570;&#x636E;&#x5305;(tcp&#x4E0B;&#x9762;&#x90A3;&#x5757;&#x6570;&#x636E;),&#x4E0D;&#x5305;&#x62EC;tcp&#x672C;&#x8EAB;
+ip.len == 94 &#x9664;&#x4E86;&#x4EE5;&#x592A;&#x7F51;&#x5934;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;14,&#x5176;&#x5B83;&#x90FD;&#x7B97;&#x662F;ip.len,&#x5373;&#x4ECE;ip&#x672C;&#x8EAB;&#x5230;&#x6700;&#x540E;
+frame.len == 119 &#x6574;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x957F;&#x5EA6;,&#x4ECE;eth&#x5F00;&#x59CB;&#x5230;&#x6700;&#x540E;
+eth &#x2014;&gt; ip or arp &#x2014;&gt; tcp or udp &#x2014;&gt; data
+</code></pre><p>6.http&#x6A21;&#x5F0F;&#x8FC7;&#x6EE4;</p>
+<pre><code>&#x4F8B;&#x5B50;:
 http.request.method == GET
 http.request.method == POST
 http.request.uri == /img/logo-edu.gif
 http contains GET
 http contains HTTP/1.
-// GET包
+// GET&#x5305;
 http.request.method == GET &amp;&amp; http contains Host:
 http.request.method == GET &amp;&amp; http contains User-Agent:
-// POST包
+// POST&#x5305;
 http.request.method == POST &amp;&amp; http contains Host:
 http.request.method == POST &amp;&amp; http contains User-Agent:
-// 响应包
+// &#x54CD;&#x5E94;&#x5305;
 http contains HTTP/1.1 200 OK &amp;&amp; http contains Content-Type:
 http contains HTTP/1.0 200 OK &amp;&amp; http contains Content-Type:
-一定包含如下
+&#x4E00;&#x5B9A;&#x5305;&#x542B;&#x5982;&#x4E0B;
 Content-Type:
-</code></pre><p>7.TCP参数过滤</p>
-<pre><code>tcp.flags 显示包含TCP标志的封包。
-tcp.flags.syn == 0×02    显示包含TCP SYN标志的封包。
+</code></pre><p>7.TCP&#x53C2;&#x6570;&#x8FC7;&#x6EE4;</p>
+<pre><code>tcp.flags &#x663E;&#x793A;&#x5305;&#x542B;TCP&#x6807;&#x5FD7;&#x7684;&#x5C01;&#x5305;&#x3002;
+tcp.flags.syn == 0&#xD7;02    &#x663E;&#x793A;&#x5305;&#x542B;TCP SYN&#x6807;&#x5FD7;&#x7684;&#x5C01;&#x5305;&#x3002;
 tcp.window_size == 0 &amp;&amp; tcp.flags.reset != 1
-</code></pre><p>8.过滤内容</p>
-<pre><code>tcp[20]表示从20开始，取1个字符
-tcp[20:]表示从20开始，取1个字符以上
-tcp[20:8]表示从20开始，取8个字符
+</code></pre><p>8.&#x8FC7;&#x6EE4;&#x5185;&#x5BB9;</p>
+<pre><code>tcp[20]&#x8868;&#x793A;&#x4ECE;20&#x5F00;&#x59CB;&#xFF0C;&#x53D6;1&#x4E2A;&#x5B57;&#x7B26;
+tcp[20:]&#x8868;&#x793A;&#x4ECE;20&#x5F00;&#x59CB;&#xFF0C;&#x53D6;1&#x4E2A;&#x5B57;&#x7B26;&#x4EE5;&#x4E0A;
+tcp[20:8]&#x8868;&#x793A;&#x4ECE;20&#x5F00;&#x59CB;&#xFF0C;&#x53D6;8&#x4E2A;&#x5B57;&#x7B26;
 tcp[offset,n]
-udp[8:3]==81:60:03 // 偏移8个bytes,再取3个数，是否与==后面的数据相等？
-udp[8:1]==32  如果我猜的没有错的话，应该是udp[offset:截取个数]=nValue
+udp[8:3]==81:60:03 // &#x504F;&#x79FB;8&#x4E2A;bytes,&#x518D;&#x53D6;3&#x4E2A;&#x6570;&#xFF0C;&#x662F;&#x5426;&#x4E0E;==&#x540E;&#x9762;&#x7684;&#x6570;&#x636E;&#x76F8;&#x7B49;&#xFF1F;
+udp[8:1]==32  &#x5982;&#x679C;&#x6211;&#x731C;&#x7684;&#x6CA1;&#x6709;&#x9519;&#x7684;&#x8BDD;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;udp[offset:&#x622A;&#x53D6;&#x4E2A;&#x6570;]=nValue
 eth.addr[0:3]==00:06:5B
 
-例子:
-判断upd下面那块数据包前三个是否等于0×20 0×21 0×22
-我们都知道udp固定长度为8
+&#x4F8B;&#x5B50;:
+&#x5224;&#x65AD;upd&#x4E0B;&#x9762;&#x90A3;&#x5757;&#x6570;&#x636E;&#x5305;&#x524D;&#x4E09;&#x4E2A;&#x662F;&#x5426;&#x7B49;&#x4E8E;0&#xD7;20 0&#xD7;21 0&#xD7;22
+&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;udp&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x4E3A;8
 udp[8:3]==20:21:22
-判断tcp那块数据包前三个是否等于0×20 0×21 0×22
-tcp一般情况下，长度为20,但也有不是20的时候
+&#x5224;&#x65AD;tcp&#x90A3;&#x5757;&#x6570;&#x636E;&#x5305;&#x524D;&#x4E09;&#x4E2A;&#x662F;&#x5426;&#x7B49;&#x4E8E;0&#xD7;20 0&#xD7;21 0&#xD7;22
+tcp&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;20,&#x4F46;&#x4E5F;&#x6709;&#x4E0D;&#x662F;20&#x7684;&#x65F6;&#x5019;
 tcp[8:3]==20:21:22
-如果想得到最准确的，应该先知道tcp长度
-matches(匹配)和contains(包含某字符串)语法
+&#x5982;&#x679C;&#x60F3;&#x5F97;&#x5230;&#x6700;&#x51C6;&#x786E;&#x7684;&#xFF0C;&#x5E94;&#x8BE5;&#x5148;&#x77E5;&#x9053;tcp&#x957F;&#x5EA6;
+matches(&#x5339;&#x914D;)&#x548C;contains(&#x5305;&#x542B;&#x67D0;&#x5B57;&#x7B26;&#x4E32;)&#x8BED;&#x6CD5;
 ip.src==192.168.1.107 and udp[8:5] matches x02x12x21x00x22
 ip.src==192.168.1.107 and udp contains 02:12:21:00:22
 ip.src==192.168.1.107 and tcp contains GET
-udp contains 7c:7c:7d:7d 匹配payload中含有0x7c7c7d7d的UDP数据包，不一定是从第一字节匹配。
+udp contains 7c:7c:7d:7d &#x5339;&#x914D;payload&#x4E2D;&#x542B;&#x6709;0x7c7c7d7d&#x7684;UDP&#x6570;&#x636E;&#x5305;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x4ECE;&#x7B2C;&#x4E00;&#x5B57;&#x8282;&#x5339;&#x914D;&#x3002;
 
-例子:
-得到本地qq登陆数据包(判断条件是第一个包==0×02,第四和第五个包等于0x00x22,最后一个包等于0×03)
-0×02 xx xx 0×00 0×22 … 0×03
-正确
+&#x4F8B;&#x5B50;:
+&#x5F97;&#x5230;&#x672C;&#x5730;qq&#x767B;&#x9646;&#x6570;&#x636E;&#x5305;(&#x5224;&#x65AD;&#x6761;&#x4EF6;&#x662F;&#x7B2C;&#x4E00;&#x4E2A;&#x5305;==0&#xD7;02,&#x7B2C;&#x56DB;&#x548C;&#x7B2C;&#x4E94;&#x4E2A;&#x5305;&#x7B49;&#x4E8E;0x00x22,&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5305;&#x7B49;&#x4E8E;0&#xD7;03)
+0&#xD7;02 xx xx 0&#xD7;00 0&#xD7;22 &#x2026; 0&#xD7;03
+&#x6B63;&#x786E;
 oicq and udp[8:] matches ^x02[x00-xff][x00-xff]x00x22[x00-xff]+x03$
-oicq and udp[8:] matches ^x02[x00-xff]{2}x00x22[x00-xff]+x03$ // 登陆包
+oicq and udp[8:] matches ^x02[x00-xff]{2}x00x22[x00-xff]+x03$ // &#x767B;&#x9646;&#x5305;
 oicq and (udp[8:] matches ^x02[x00-xff]{2}x03$ or tcp[8:] matches ^x02[x00-xff]{2}x03$)
 oicq and (udp[8:] matches ^x02[x00-xff]{2}x00x22[x00-xff]+x03$ or tcp[20:] matches ^x02[x00-xff]{2}x00x22[x00-xff]+x03$)
-不单单是00:22才有QQ号码,其它的包也有,要满足下面条件(tcp也有，但没有做):
+&#x4E0D;&#x5355;&#x5355;&#x662F;00:22&#x624D;&#x6709;QQ&#x53F7;&#x7801;,&#x5176;&#x5B83;&#x7684;&#x5305;&#x4E5F;&#x6709;,&#x8981;&#x6EE1;&#x8DB3;&#x4E0B;&#x9762;&#x6761;&#x4EF6;(tcp&#x4E5F;&#x6709;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x505A;):
 oicq and udp[8:] matches ^x02[x00-xff]+x03$ and !(udp[11:2]==00:00) and !(udp[11:2]==00:80)
 oicq and udp[8:] matches ^x02[x00-xff]+x03$ and !(udp[11:2]==00:00) and !(udp[15:4]==00:00:00:00)
-说明:
-udp[15:4]==00:00:00:00 表示QQ号码为空
-udp[11:2]==00:00 表示命令编号为00:00
-udp[11:2]==00:80 表示命令编号为00:80
-当命令编号为00:80时，QQ号码为00:00:00:00
-得到msn登陆成功账号(判断条件是USR 7 OK ,即前三个等于USR，再通过两个0×20，就到OK,OK后面是一个字符0×20,后面就是mail了)
+&#x8BF4;&#x660E;:
+udp[15:4]==00:00:00:00 &#x8868;&#x793A;QQ&#x53F7;&#x7801;&#x4E3A;&#x7A7A;
+udp[11:2]==00:00 &#x8868;&#x793A;&#x547D;&#x4EE4;&#x7F16;&#x53F7;&#x4E3A;00:00
+udp[11:2]==00:80 &#x8868;&#x793A;&#x547D;&#x4EE4;&#x7F16;&#x53F7;&#x4E3A;00:80
+&#x5F53;&#x547D;&#x4EE4;&#x7F16;&#x53F7;&#x4E3A;00:80&#x65F6;&#xFF0C;QQ&#x53F7;&#x7801;&#x4E3A;00:00:00:00
+&#x5F97;&#x5230;msn&#x767B;&#x9646;&#x6210;&#x529F;&#x8D26;&#x53F7;(&#x5224;&#x65AD;&#x6761;&#x4EF6;&#x662F;USR 7 OK ,&#x5373;&#x524D;&#x4E09;&#x4E2A;&#x7B49;&#x4E8E;USR&#xFF0C;&#x518D;&#x901A;&#x8FC7;&#x4E24;&#x4E2A;0&#xD7;20&#xFF0C;&#x5C31;&#x5230;OK,OK&#x540E;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;0&#xD7;20,&#x540E;&#x9762;&#x5C31;&#x662F;mail&#x4E86;)
 USR xx OK mail@hotmail.com
-正确
+&#x6B63;&#x786E;
 msnms and tcp and ip.addr==192.168.1.107 and tcp[20:] matches ^USRx20[x30-x39]+x20OKx20[x00-xff]+
-</code></pre><p>9.dns模式过滤</p>
+</code></pre><p>9.dns&#x6A21;&#x5F0F;&#x8FC7;&#x6EE4;</p>
 <p>10.DHCP</p>
-<pre><code>以寻找伪造DHCP服务器为例，介绍Wireshark的用法。在显示过滤器中加入过滤规则，
-显示所有非来自DHCP服务器并且bootp.type==0×02（Offer/Ack）的信息：
-bootp.type==0×02 and not ip.src==192.168.1.1
+<pre><code>&#x4EE5;&#x5BFB;&#x627E;&#x4F2A;&#x9020;DHCP&#x670D;&#x52A1;&#x5668;&#x4E3A;&#x4F8B;&#xFF0C;&#x4ECB;&#x7ECD;Wireshark&#x7684;&#x7528;&#x6CD5;&#x3002;&#x5728;&#x663E;&#x793A;&#x8FC7;&#x6EE4;&#x5668;&#x4E2D;&#x52A0;&#x5165;&#x8FC7;&#x6EE4;&#x89C4;&#x5219;&#xFF0C;
+&#x663E;&#x793A;&#x6240;&#x6709;&#x975E;&#x6765;&#x81EA;DHCP&#x670D;&#x52A1;&#x5668;&#x5E76;&#x4E14;bootp.type==0&#xD7;02&#xFF08;Offer/Ack&#xFF09;&#x7684;&#x4FE1;&#x606F;&#xFF1A;
+bootp.type==0&#xD7;02 and not ip.src==192.168.1.1
 </code></pre><p>11.msn</p>
-<pre><code>msnms &amp;&amp; tcp[23:1] == 20 // 第四个是0×20的msn数据包
+<pre><code>msnms &amp;&amp; tcp[23:1] == 20 // &#x7B2C;&#x56DB;&#x4E2A;&#x662F;0&#xD7;20&#x7684;msn&#x6570;&#x636E;&#x5305;
 msnms &amp;&amp; tcp[20:1] &gt;= 41 &amp;&amp; tcp[20:1] &lt;= 5A &amp;&amp; tcp[21:1] &gt;= 41 &amp;&amp; tcp[21:1] &lt;= 5A &amp;&amp; tcp[22:1] &gt;= 41 &amp;&amp; tcp[22:1] &lt;= 5A
-msnms &amp;&amp; tcp[20:3]==USR // 找到命令编码是USR的数据包
-msnms &amp;&amp; tcp[20:3]==MSG // 找到命令编码是MSG的数据包
+msnms &amp;&amp; tcp[20:3]==USR // &#x627E;&#x5230;&#x547D;&#x4EE4;&#x7F16;&#x7801;&#x662F;USR&#x7684;&#x6570;&#x636E;&#x5305;
+msnms &amp;&amp; tcp[20:3]==MSG // &#x627E;&#x5230;&#x547D;&#x4EE4;&#x7F16;&#x7801;&#x662F;MSG&#x7684;&#x6570;&#x636E;&#x5305;
 tcp.port == 1863 || tcp.port == 80
-如何判断数据包是含有命令编码的MSN数据包?
-1)端口为1863或者80,如:tcp.port == 1863 || tcp.port == 80
-2)数据这段前三个是大写字母,如:
+&#x5982;&#x4F55;&#x5224;&#x65AD;&#x6570;&#x636E;&#x5305;&#x662F;&#x542B;&#x6709;&#x547D;&#x4EE4;&#x7F16;&#x7801;&#x7684;MSN&#x6570;&#x636E;&#x5305;?
+1)&#x7AEF;&#x53E3;&#x4E3A;1863&#x6216;&#x8005;80,&#x5982;:tcp.port == 1863 || tcp.port == 80
+2)&#x6570;&#x636E;&#x8FD9;&#x6BB5;&#x524D;&#x4E09;&#x4E2A;&#x662F;&#x5927;&#x5199;&#x5B57;&#x6BCD;,&#x5982;:
   tcp[20:1] &gt;= 41 &amp;&amp; tcp[20:1] &lt;= 5A &amp;&amp; tcp[21:1] &gt;= 41 &amp;&amp; tcp[21:1] &lt;= 5A &amp;&amp; tcp[22:1] &gt;= 41 &amp;&amp; tcp[22:1] &lt;= 5A
-3)第四个为0×20,如:tcp[23:1] == 20
-4)msn是属于TCP协议的,如tcp
+3)&#x7B2C;&#x56DB;&#x4E2A;&#x4E3A;0&#xD7;20,&#x5982;:tcp[23:1] == 20
+4)msn&#x662F;&#x5C5E;&#x4E8E;TCP&#x534F;&#x8BAE;&#x7684;,&#x5982;tcp
 </code></pre><h4 id="case-1"><a href="#case-1" class="headerlink" title="case 1"></a>case 1</h4><ul>
-<li>1， “业务突然变慢，客户端（确定）和服务端（应该）都没有改动。”  </li>
+<li>1&#xFF0C; &#x201C;&#x4E1A;&#x52A1;&#x7A81;&#x7136;&#x53D8;&#x6162;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#xFF08;&#x786E;&#x5B9A;&#xFF09;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#xFF08;&#x5E94;&#x8BE5;&#xFF09;&#x90FD;&#x6CA1;&#x6709;&#x6539;&#x52A8;&#x3002;&#x201D;  </li>
 </ul>
-<p>[沛满]：如果怀疑是网络有问题，可以在业务慢的时候抓个500MB左右的网络包分析一下。<br>论坛可以上传的话我也可以帮忙分析。</p>
+<p>[&#x6C9B;&#x6EE1;]&#xFF1A;&#x5982;&#x679C;&#x6000;&#x7591;&#x662F;&#x7F51;&#x7EDC;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E1A;&#x52A1;&#x6162;&#x7684;&#x65F6;&#x5019;&#x6293;&#x4E2A;500MB&#x5DE6;&#x53F3;&#x7684;&#x7F51;&#x7EDC;&#x5305;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x3002;<br>&#x8BBA;&#x575B;&#x53EF;&#x4EE5;&#x4E0A;&#x4F20;&#x7684;&#x8BDD;&#x6211;&#x4E5F;&#x53EF;&#x4EE5;&#x5E2E;&#x5FD9;&#x5206;&#x6790;&#x3002;</p>
 <ul>
-<li>2，“在wireshark上，如何方便查一个tcp报对应的响应包（或响应包对应的原始包）。可<br>以手工根据sequence id和ack id来判断，但是wireshark提供方便的工具么？—-我们的业<br>务是在一个tcp长连接中发很多包。”</li>
+<li>2&#xFF0C;&#x201C;&#x5728;wireshark&#x4E0A;&#xFF0C;&#x5982;&#x4F55;&#x65B9;&#x4FBF;&#x67E5;&#x4E00;&#x4E2A;tcp&#x62A5;&#x5BF9;&#x5E94;&#x7684;&#x54CD;&#x5E94;&#x5305;&#xFF08;&#x6216;&#x54CD;&#x5E94;&#x5305;&#x5BF9;&#x5E94;&#x7684;&#x539F;&#x59CB;&#x5305;&#xFF09;&#x3002;&#x53EF;<br>&#x4EE5;&#x624B;&#x5DE5;&#x6839;&#x636E;sequence id&#x548C;ack id&#x6765;&#x5224;&#x65AD;&#xFF0C;&#x4F46;&#x662F;wireshark&#x63D0;&#x4F9B;&#x65B9;&#x4FBF;&#x7684;&#x5DE5;&#x5177;&#x4E48;&#xFF1F;&#x2014;-&#x6211;&#x4EEC;&#x7684;&#x4E1A;<br>&#x52A1;&#x662F;&#x5728;&#x4E00;&#x4E2A;tcp&#x957F;&#x8FDE;&#x63A5;&#x4E2D;&#x53D1;&#x5F88;&#x591A;&#x5305;&#x3002;&#x201D;</li>
 </ul>
-<p>[沛满]：这个要从基本原理讲起。TCP的工作方式不是逐个包发送的，而是一口气发出多个包<br>，从而提高传输效率。就像快递员会一次性携带很多包裹到我司前台一样，为的是减少消耗<br>在路上的往返时间。接收方收到这些包之后有两个选择，既可以每个包都确认（也就是你提<br>到的响应），也可以只确认最后一个来暗示所有包都收到了。举个例子，发送方发出了10个<br>包，编号1至10，且没有一个丢失的，那接收方既可以回复10个确认包，也可以只回复“ack 11”，<br>表示10以及10之前的所有包都收到了。当有丢包发生时，比如还是发送了10个包的情况，编号<br>也是1至10，但其中10号包丢失了，那接收方可以回复9个确认包，也可以只回复“ack 10”，<br>表示9以及9之前的包都收到了。</p>
-<p>了解了这个原理，我们就知道在Wireshark上没有必要去对应每个ack和seq，因为大多数包即<br>便正常收到后也不会有ack。</p>
+<p>[&#x6C9B;&#x6EE1;]&#xFF1A;&#x8FD9;&#x4E2A;&#x8981;&#x4ECE;&#x57FA;&#x672C;&#x539F;&#x7406;&#x8BB2;&#x8D77;&#x3002;TCP&#x7684;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#x4E0D;&#x662F;&#x9010;&#x4E2A;&#x5305;&#x53D1;&#x9001;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x53E3;&#x6C14;&#x53D1;&#x51FA;&#x591A;&#x4E2A;&#x5305;<br>&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x4F20;&#x8F93;&#x6548;&#x7387;&#x3002;&#x5C31;&#x50CF;&#x5FEB;&#x9012;&#x5458;&#x4F1A;&#x4E00;&#x6B21;&#x6027;&#x643A;&#x5E26;&#x5F88;&#x591A;&#x5305;&#x88F9;&#x5230;&#x6211;&#x53F8;&#x524D;&#x53F0;&#x4E00;&#x6837;&#xFF0C;&#x4E3A;&#x7684;&#x662F;&#x51CF;&#x5C11;&#x6D88;&#x8017;<br>&#x5728;&#x8DEF;&#x4E0A;&#x7684;&#x5F80;&#x8FD4;&#x65F6;&#x95F4;&#x3002;&#x63A5;&#x6536;&#x65B9;&#x6536;&#x5230;&#x8FD9;&#x4E9B;&#x5305;&#x4E4B;&#x540E;&#x6709;&#x4E24;&#x4E2A;&#x9009;&#x62E9;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x6BCF;&#x4E2A;&#x5305;&#x90FD;&#x786E;&#x8BA4;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x4F60;&#x63D0;<br>&#x5230;&#x7684;&#x54CD;&#x5E94;&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x53EA;&#x786E;&#x8BA4;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6765;&#x6697;&#x793A;&#x6240;&#x6709;&#x5305;&#x90FD;&#x6536;&#x5230;&#x4E86;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x53D1;&#x9001;&#x65B9;&#x53D1;&#x51FA;&#x4E86;10&#x4E2A;<br>&#x5305;&#xFF0C;&#x7F16;&#x53F7;1&#x81F3;10&#xFF0C;&#x4E14;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x4E22;&#x5931;&#x7684;&#xFF0C;&#x90A3;&#x63A5;&#x6536;&#x65B9;&#x65E2;&#x53EF;&#x4EE5;&#x56DE;&#x590D;10&#x4E2A;&#x786E;&#x8BA4;&#x5305;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x53EA;&#x56DE;&#x590D;&#x201C;ack 11&#x201D;&#xFF0C;<br>&#x8868;&#x793A;10&#x4EE5;&#x53CA;10&#x4E4B;&#x524D;&#x7684;&#x6240;&#x6709;&#x5305;&#x90FD;&#x6536;&#x5230;&#x4E86;&#x3002;&#x5F53;&#x6709;&#x4E22;&#x5305;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x6BD4;&#x5982;&#x8FD8;&#x662F;&#x53D1;&#x9001;&#x4E86;10&#x4E2A;&#x5305;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x7F16;&#x53F7;<br>&#x4E5F;&#x662F;1&#x81F3;10&#xFF0C;&#x4F46;&#x5176;&#x4E2D;10&#x53F7;&#x5305;&#x4E22;&#x5931;&#x4E86;&#xFF0C;&#x90A3;&#x63A5;&#x6536;&#x65B9;&#x53EF;&#x4EE5;&#x56DE;&#x590D;9&#x4E2A;&#x786E;&#x8BA4;&#x5305;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x53EA;&#x56DE;&#x590D;&#x201C;ack 10&#x201D;&#xFF0C;<br>&#x8868;&#x793A;9&#x4EE5;&#x53CA;9&#x4E4B;&#x524D;&#x7684;&#x5305;&#x90FD;&#x6536;&#x5230;&#x4E86;&#x3002;</p>
+<p>&#x4E86;&#x89E3;&#x4E86;&#x8FD9;&#x4E2A;&#x539F;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x77E5;&#x9053;&#x5728;Wireshark&#x4E0A;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x53BB;&#x5BF9;&#x5E94;&#x6BCF;&#x4E2A;ack&#x548C;seq&#xFF0C;&#x56E0;&#x4E3A;&#x5927;&#x591A;&#x6570;&#x5305;&#x5373;<br>&#x4FBF;&#x6B63;&#x5E38;&#x6536;&#x5230;&#x540E;&#x4E5F;&#x4E0D;&#x4F1A;&#x6709;ack&#x3002;</p>
 <ul>
-<li>3，“有没有技巧可以方便的统计延时的情况，例如某时间段中，发包到收到ack的延时超过1s的数据包数量？”</li>
+<li>3&#xFF0C;&#x201C;&#x6709;&#x6CA1;&#x6709;&#x6280;&#x5DE7;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x7EDF;&#x8BA1;&#x5EF6;&#x65F6;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F8B;&#x5982;&#x67D0;&#x65F6;&#x95F4;&#x6BB5;&#x4E2D;&#xFF0C;&#x53D1;&#x5305;&#x5230;&#x6536;&#x5230;ack&#x7684;&#x5EF6;&#x65F6;&#x8D85;&#x8FC7;1s&#x7684;&#x6570;&#x636E;&#x5305;&#x6570;&#x91CF;&#xFF1F;&#x201D;</li>
 </ul>
-<p>[沛满]：如果你只是想了解网络延时状况，那用ping最简单准确了，没有必要用Wireshark。<br>一般我们在乎的是应用层的延时，比如向一个服务器发送读请求，到收到读响应的时间差究竟<br>有多少。Wireshark上有提供这个功能，比如CIFS协议那就可以用“smb.time &gt; 1”来过滤出所<br>有超过一秒钟的延时的CIFS操作。如果是NFS，就用rpc.time（因为NFS是基于RPC的协议）。<br>HTTP也有http.time。</p>
+<p>[&#x6C9B;&#x6EE1;]&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x53EA;&#x662F;&#x60F3;&#x4E86;&#x89E3;&#x7F51;&#x7EDC;&#x5EF6;&#x65F6;&#x72B6;&#x51B5;&#xFF0C;&#x90A3;&#x7528;ping&#x6700;&#x7B80;&#x5355;&#x51C6;&#x786E;&#x4E86;&#xFF0C;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x7528;Wireshark&#x3002;<br>&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x5728;&#x4E4E;&#x7684;&#x662F;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x5EF6;&#x65F6;&#xFF0C;&#x6BD4;&#x5982;&#x5411;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;&#x8BFB;&#x8BF7;&#x6C42;&#xFF0C;&#x5230;&#x6536;&#x5230;&#x8BFB;&#x54CD;&#x5E94;&#x7684;&#x65F6;&#x95F4;&#x5DEE;&#x7A76;&#x7ADF;<br>&#x6709;&#x591A;&#x5C11;&#x3002;Wireshark&#x4E0A;&#x6709;&#x63D0;&#x4F9B;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x6BD4;&#x5982;CIFS&#x534F;&#x8BAE;&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x201C;smb.time &gt; 1&#x201D;&#x6765;&#x8FC7;&#x6EE4;&#x51FA;&#x6240;<br>&#x6709;&#x8D85;&#x8FC7;&#x4E00;&#x79D2;&#x949F;&#x7684;&#x5EF6;&#x65F6;&#x7684;CIFS&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x662F;NFS&#xFF0C;&#x5C31;&#x7528;rpc.time&#xFF08;&#x56E0;&#x4E3A;NFS&#x662F;&#x57FA;&#x4E8E;RPC&#x7684;&#x534F;&#x8BAE;&#xFF09;&#x3002;<br>HTTP&#x4E5F;&#x6709;http.time&#x3002;</p>
 <ul>
-<li>4，“有没有技巧可以方便的统计丢包的情况，例如某时间段中，发出去的包没收到ack的有多少？”</li>
+<li>4&#xFF0C;&#x201C;&#x6709;&#x6CA1;&#x6709;&#x6280;&#x5DE7;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x7EDF;&#x8BA1;&#x4E22;&#x5305;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4F8B;&#x5982;&#x67D0;&#x65F6;&#x95F4;&#x6BB5;&#x4E2D;&#xFF0C;&#x53D1;&#x51FA;&#x53BB;&#x7684;&#x5305;&#x6CA1;&#x6536;&#x5230;ack&#x7684;&#x6709;&#x591A;&#x5C11;&#xFF1F;&#x201D;</li>
 </ul>
-<p>[沛满]：还是那句话，没有收到ack不一定是丢包了。如果是想看丢包重传的统计，那就<br>Analyze–&gt;Expert Info，然后看warnings or notes tab. 虽然要统计出结果很容易，不过<br>使用者需要理解tcp的基础知识才能解读这个结果，比如一个超时重传，导致的后果远远超过<br>一个快速重传。有启用SACK的时候，处理多个丢包的效率远高于没有启用SACK的……这个说起来太复杂了</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="https://community.emc.com/thread/194901" target="_blank" rel="external">一站式学习Wireshark</a></li>
-<li><a href="http://ninecmd.com/archives/97?replytocom=5" target="_blank" rel="external">WireShark 过滤语法</a></li>
+<p>[&#x6C9B;&#x6EE1;]&#xFF1A;&#x8FD8;&#x662F;&#x90A3;&#x53E5;&#x8BDD;&#xFF0C;&#x6CA1;&#x6709;&#x6536;&#x5230;ack&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x4E22;&#x5305;&#x4E86;&#x3002;&#x5982;&#x679C;&#x662F;&#x60F3;&#x770B;&#x4E22;&#x5305;&#x91CD;&#x4F20;&#x7684;&#x7EDF;&#x8BA1;&#xFF0C;&#x90A3;&#x5C31;<br>Analyze&#x2013;&gt;Expert Info&#xFF0C;&#x7136;&#x540E;&#x770B;warnings or notes tab. &#x867D;&#x7136;&#x8981;&#x7EDF;&#x8BA1;&#x51FA;&#x7ED3;&#x679C;&#x5F88;&#x5BB9;&#x6613;&#xFF0C;&#x4E0D;&#x8FC7;<br>&#x4F7F;&#x7528;&#x8005;&#x9700;&#x8981;&#x7406;&#x89E3;tcp&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x624D;&#x80FD;&#x89E3;&#x8BFB;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x8D85;&#x65F6;&#x91CD;&#x4F20;&#xFF0C;&#x5BFC;&#x81F4;&#x7684;&#x540E;&#x679C;&#x8FDC;&#x8FDC;&#x8D85;&#x8FC7;<br>&#x4E00;&#x4E2A;&#x5FEB;&#x901F;&#x91CD;&#x4F20;&#x3002;&#x6709;&#x542F;&#x7528;SACK&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x4E22;&#x5305;&#x7684;&#x6548;&#x7387;&#x8FDC;&#x9AD8;&#x4E8E;&#x6CA1;&#x6709;&#x542F;&#x7528;SACK&#x7684;&#x2026;&#x2026;&#x8FD9;&#x4E2A;&#x8BF4;&#x8D77;&#x6765;&#x592A;&#x590D;&#x6742;&#x4E86;</p>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="https://community.emc.com/thread/194901" target="_blank" rel="external">&#x4E00;&#x7AD9;&#x5F0F;&#x5B66;&#x4E60;Wireshark</a></li>
+<li><a href="http://ninecmd.com/archives/97?replytocom=5" target="_blank" rel="external">WireShark &#x8FC7;&#x6EE4;&#x8BED;&#x6CD5;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/26/network-analyze-with-wireshark/" data-id="cin61d0l10091fyiz96lxdqg6" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/26/network-analyze-with-wireshark/" data-id="cin6a5uki00973ciz6kbqnryt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1107,7 +1107,7 @@ tcp.port == 1863 || tcp.port == 80
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="Function-list"><a href="#Function-list" class="headerlink" title="Function list"></a>Function list</h3><ol>
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="function-list"><a href="#Function-list" class="headerlink" title="Function list"></a>Function list</h3><ol>
 <li>File upload</li>
 <li>File download</li>
 <li>File list</li>
@@ -1115,23 +1115,23 @@ tcp.port == 1863 || tcp.port == 80
 <li>File classification</li>
 <li>offline download</li>
 </ol>
-<h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><h3 id="Component-implement"><a href="#Component-implement" class="headerlink" title="Component implement"></a>Component implement</h3><h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ol>
+<h3 id="architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><h3 id="component-implement"><a href="#Component-implement" class="headerlink" title="Component implement"></a>Component implement</h3><h3 id="features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ol>
 <li>File Reduplication</li>
 </ol>
-<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://open.qiniudn.com/my-road-of-cloud-storage.pdf" target="_blank" rel="external">我的存储之路</a></li>
-<li><a href="http://www.zhihu.com/question/21591490" target="_blank" rel="external">网盘(云盘)的大空间是如何实现的?</a></li>
-<li><a href="http://www.zte.com.cn/cn/products/cocloud/application/201208/t20120810_341895.html" target="_blank" rel="external">云盘 ZXCLOUD iSpace</a></li>
+<h3 id="todo"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://open.qiniudn.com/my-road-of-cloud-storage.pdf" target="_blank" rel="external">&#x6211;&#x7684;&#x5B58;&#x50A8;&#x4E4B;&#x8DEF;</a></li>
+<li><a href="http://www.zhihu.com/question/21591490" target="_blank" rel="external">&#x7F51;&#x76D8;(&#x4E91;&#x76D8;)&#x7684;&#x5927;&#x7A7A;&#x95F4;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;?</a></li>
+<li><a href="http://www.zte.com.cn/cn/products/cocloud/application/201208/t20120810_341895.html" target="_blank" rel="external">&#x4E91;&#x76D8; ZXCLOUD iSpace</a></li>
 <li><a href="http://u.wems.net/index.html" target="_blank" rel="external">USpace</a></li>
-<li><a href="http://wenku.baidu.com/link?url=TN-CFldzfea0lwlY-j6cnpgfzuJlA31AV2td16qFni_0BvIea-_izUSroc5sd-4xxRv2HriEQbcYsa8xb8XiHDxzlr4kMZPwkdaYe_vt63m" target="_blank" rel="external">USpace产品介绍</a></li>
-<li><a href="http://501565246-qq-com.iteye.com/blog/1738716" target="_blank" rel="external">云存储之网盘浅析</a></li>
-<li><a href="http://developer.baidu.com/wiki/index.php?title=docs/cplat/bcs/sdk" target="_blank" rel="external">百度云存储SDK及工具</a></li>
+<li><a href="http://wenku.baidu.com/link?url=TN-CFldzfea0lwlY-j6cnpgfzuJlA31AV2td16qFni_0BvIea-_izUSroc5sd-4xxRv2HriEQbcYsa8xb8XiHDxzlr4kMZPwkdaYe_vt63m" target="_blank" rel="external">USpace&#x4EA7;&#x54C1;&#x4ECB;&#x7ECD;</a></li>
+<li><a href="http://501565246-qq-com.iteye.com/blog/1738716" target="_blank" rel="external">&#x4E91;&#x5B58;&#x50A8;&#x4E4B;&#x7F51;&#x76D8;&#x6D45;&#x6790;</a></li>
+<li><a href="http://developer.baidu.com/wiki/index.php?title=docs/cplat/bcs/sdk" target="_blank" rel="external">&#x767E;&#x5EA6;&#x4E91;&#x5B58;&#x50A8;SDK&#x53CA;&#x5DE5;&#x5177;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/12/how-to-implement-a-netdisk/" data-id="cin61d0l00090fyizsa52bq4w" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/12/how-to-implement-a-netdisk/" data-id="cin6a5ukh00963cizh556q967" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1163,7 +1163,7 @@ tcp.port == 1863 || tcp.port == 80
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>list some text from command <code>dmesg</code>:  </p>
+        <h4 id="description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>list some text from command <code>dmesg</code>:  </p>
 <pre><code>792 igb 0000:02:00.0: Intel(R) Gigabit Ethernet Network Connection
 793 igb 0000:02:00.0: eth0: (PCIe:2.5GT/s:Width x1)
 794 igb 0000:02:00.0: eth0: MAC: 00:1e:67:58:cc:b8
@@ -1188,7 +1188,7 @@ tcp.port == 1863 || tcp.port == 80
 813 udev: renamed network interface eth1 to eth3
 </code></pre><p>we can see that, interface name is eth0 and eth1 at the begin, then udev rename them.  </p>
 <p>why?</p>
-<h4 id="Checking-and-fix"><a href="#Checking-and-fix" class="headerlink" title="Checking and fix"></a>Checking and fix</h4><p>check the rule of udev:</p>
+<h4 id="checking-and-fix"><a href="#Checking-and-fix" class="headerlink" title="Checking and fix"></a>Checking and fix</h4><p>check the rule of udev:</p>
 <pre><code>[root@Ustor network]# cat /etc/udev/rules.d/70-persistent-net.rules
 SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, ATTR{address}==&quot;00:25:90:d7:be:b4&quot;, ATTR{type}==&quot;1&quot;, KERNEL==&quot;eth*&quot;, NAME=&quot;eth0&quot;
 SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, ATTR{address}==&quot;00:25:90:d7:be:b5&quot;, ATTR{type}==&quot;1&quot;, KERNEL==&quot;eth*&quot;, NAME=&quot;eth1&quot;
@@ -1216,11 +1216,11 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
 <li>update mac address to /etc/udev/rules.d/70-persistent-net.rules.mb2  </li>
 <li>reboot  </li>
 </ol>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cin61d0kw008yfyiz7ml86slm" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cin6a5ukg00953ciz56j5i9tk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1252,49 +1252,49 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ul>
-<li><p>SSD缓存技术</p>
+        <h4 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ul>
+<li><p>SSD&#x7F13;&#x5B58;&#x6280;&#x672F;</p>
 <ul>
-<li>SSD的特性是读速高于写，因此在无盘领域应用SSD时多用作读缓存来使用，SSD缓存源自<br>PXD无盘的SSD二级缓存技术。这里的二级缓存不是指CPU的二级CACHE，而是指应用于无<br>盘架构的第二级读缓存功能。 </li>
+<li>SSD&#x7684;&#x7279;&#x6027;&#x662F;&#x8BFB;&#x901F;&#x9AD8;&#x4E8E;&#x5199;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x65E0;&#x76D8;&#x9886;&#x57DF;&#x5E94;&#x7528;SSD&#x65F6;&#x591A;&#x7528;&#x4F5C;&#x8BFB;&#x7F13;&#x5B58;&#x6765;&#x4F7F;&#x7528;&#xFF0C;SSD&#x7F13;&#x5B58;&#x6E90;&#x81EA;<br>PXD&#x65E0;&#x76D8;&#x7684;SSD&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x6280;&#x672F;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x4E0D;&#x662F;&#x6307;CPU&#x7684;&#x4E8C;&#x7EA7;CACHE&#xFF0C;&#x800C;&#x662F;&#x6307;&#x5E94;&#x7528;&#x4E8E;&#x65E0;<br>&#x76D8;&#x67B6;&#x6784;&#x7684;&#x7B2C;&#x4E8C;&#x7EA7;&#x8BFB;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#x3002; </li>
 <li><a href="http://baike.baidu.com/view/3967982.htm" target="_blank" rel="external">http://baike.baidu.com/view/3967982.htm</a></li>
 <li><a href="http://www.searchstorage.com.cn/showcontent_66616.htm" target="_blank" rel="external">http://www.searchstorage.com.cn/showcontent_66616.htm</a></li>
 </ul>
 </li>
-<li><p>快速块设备为较慢的块设备提供缓存</p>
+<li><p>&#x5FEB;&#x901F;&#x5757;&#x8BBE;&#x5907;&#x4E3A;&#x8F83;&#x6162;&#x7684;&#x5757;&#x8BBE;&#x5907;&#x63D0;&#x4F9B;&#x7F13;&#x5B58;</p>
 <ul>
-<li>Red Hat Enterprise Linux 7.0 中引进让快速块设备作为较慢块设备的缓存的功能作为<br>技术预览。这个功能可让 PCIe SSD 设备作为直接附加存储（DAS）或者存储局域网（SAN）<br>存储的缓存使用，以便提高文件系统性能</li>
+<li>Red Hat Enterprise Linux 7.0 &#x4E2D;&#x5F15;&#x8FDB;&#x8BA9;&#x5FEB;&#x901F;&#x5757;&#x8BBE;&#x5907;&#x4F5C;&#x4E3A;&#x8F83;&#x6162;&#x5757;&#x8BBE;&#x5907;&#x7684;&#x7F13;&#x5B58;&#x7684;&#x529F;&#x80FD;&#x4F5C;&#x4E3A;<br>&#x6280;&#x672F;&#x9884;&#x89C8;&#x3002;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x53EF;&#x8BA9; PCIe SSD &#x8BBE;&#x5907;&#x4F5C;&#x4E3A;&#x76F4;&#x63A5;&#x9644;&#x52A0;&#x5B58;&#x50A8;&#xFF08;DAS&#xFF09;&#x6216;&#x8005;&#x5B58;&#x50A8;&#x5C40;&#x57DF;&#x7F51;&#xFF08;SAN&#xFF09;<br>&#x5B58;&#x50A8;&#x7684;&#x7F13;&#x5B58;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x4FBF;&#x63D0;&#x9AD8;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;</li>
 <li><a href="https://access.redhat.com/documentation/zh-CN/Red_Hat_Enterprise_Linux/7/html/7.0_Release_Notes/chap-storage.html" target="_blank" rel="external">Reference</a></li>
 </ul>
 </li>
 </ul>
-<h4 id="Facebook-flashcache"><a href="#Facebook-flashcache" class="headerlink" title="Facebook flashcache"></a>Facebook flashcache</h4><p>Flashcache是Facebook技术团队的一个开源项目，最初是为加速MySQL设计。Flashcache通过<br>在文件系统（VFS）和设备驱动之间新增了一次缓存层，来实现对热门数据的缓存。</p>
-<p>Flashcache在内核的层次：<br>VFS -&gt; Block层 -&gt; DM层 -&gt; flashcache -&gt; DeviceDriver -&gt; Disk</p>
-<p>Flashcache最初的实现是write backup机制cache，后来又加入了write through和write around机制</p>
-<pre><code>write backup: 先写入到cahce，然后cache中的脏块会由后台定期刷到持久存储。
-write through: 同步写入到cache和持久存储。
-write around: 只写入到持久存储。
-</code></pre><p>参考:   </p>
+<h4 id="facebook-flashcache"><a href="#Facebook-flashcache" class="headerlink" title="Facebook flashcache"></a>Facebook flashcache</h4><p>Flashcache&#x662F;Facebook&#x6280;&#x672F;&#x56E2;&#x961F;&#x7684;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#xFF0C;&#x6700;&#x521D;&#x662F;&#x4E3A;&#x52A0;&#x901F;MySQL&#x8BBE;&#x8BA1;&#x3002;Flashcache&#x901A;&#x8FC7;<br>&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF08;VFS&#xFF09;&#x548C;&#x8BBE;&#x5907;&#x9A71;&#x52A8;&#x4E4B;&#x95F4;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x6B21;&#x7F13;&#x5B58;&#x5C42;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x70ED;&#x95E8;&#x6570;&#x636E;&#x7684;&#x7F13;&#x5B58;&#x3002;</p>
+<p>Flashcache&#x5728;&#x5185;&#x6838;&#x7684;&#x5C42;&#x6B21;&#xFF1A;<br>VFS -&gt; Block&#x5C42; -&gt; DM&#x5C42; -&gt; flashcache -&gt; DeviceDriver -&gt; Disk</p>
+<p>Flashcache&#x6700;&#x521D;&#x7684;&#x5B9E;&#x73B0;&#x662F;write backup&#x673A;&#x5236;cache&#xFF0C;&#x540E;&#x6765;&#x53C8;&#x52A0;&#x5165;&#x4E86;write through&#x548C;write around&#x673A;&#x5236;</p>
+<pre><code>write backup: &#x5148;&#x5199;&#x5165;&#x5230;cahce&#xFF0C;&#x7136;&#x540E;cache&#x4E2D;&#x7684;&#x810F;&#x5757;&#x4F1A;&#x7531;&#x540E;&#x53F0;&#x5B9A;&#x671F;&#x5237;&#x5230;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#x3002;
+write through: &#x540C;&#x6B65;&#x5199;&#x5165;&#x5230;cache&#x548C;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#x3002;
+write around: &#x53EA;&#x5199;&#x5165;&#x5230;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#x3002;
+</code></pre><p>&#x53C2;&#x8003;:   </p>
 <ul>
-<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache初探</a>  </li>
-<li><a href="http://oldblog.donghao.org/2012/12/flashcacheoaiaoippt.html" target="_blank" rel="external">flashcache原理及改造（PPT）</a>  </li>
-<li><a href="http://wenku.baidu.com/view/4c37447131b765ce0508142b?refer=&amp;clickSort=download" target="_blank" rel="external">flashcache原理及改造</a>  </li>
+<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache&#x521D;&#x63A2;</a>  </li>
+<li><a href="http://oldblog.donghao.org/2012/12/flashcacheoaiaoippt.html" target="_blank" rel="external">flashcache&#x539F;&#x7406;&#x53CA;&#x6539;&#x9020;&#xFF08;PPT&#xFF09;</a>  </li>
+<li><a href="http://wenku.baidu.com/view/4c37447131b765ce0508142b?refer=&amp;clickSort=download" target="_blank" rel="external">flashcache&#x539F;&#x7406;&#x53CA;&#x6539;&#x9020;</a>  </li>
 </ul>
-<h4 id="What-skills-need-to-master"><a href="#What-skills-need-to-master" class="headerlink" title="What skills need to master"></a>What skills need to master</h4><h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="http://blog.csdn.net/column/details/flashcache.html" target="_blank" rel="external">linux内核源码阅读之facebook硬盘加速利器flashcache</a></li>
-<li><a href="http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;tid=1917560&amp;page=1#pid13842158" target="_blank" rel="external">发几个自己做的关于内核IO方面的ppt</a></li>
+<h4 id="what-skills-need-to-master"><a href="#What-skills-need-to-master" class="headerlink" title="What skills need to master"></a>What skills need to master</h4><h4 id="implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://blog.csdn.net/column/details/flashcache.html" target="_blank" rel="external">linux&#x5185;&#x6838;&#x6E90;&#x7801;&#x9605;&#x8BFB;&#x4E4B;facebook&#x786C;&#x76D8;&#x52A0;&#x901F;&#x5229;&#x5668;flashcache</a></li>
+<li><a href="http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;tid=1917560&amp;page=1#pid13842158" target="_blank" rel="external">&#x53D1;&#x51E0;&#x4E2A;&#x81EA;&#x5DF1;&#x505A;&#x7684;&#x5173;&#x4E8E;&#x5185;&#x6838;IO&#x65B9;&#x9762;&#x7684;ppt</a></li>
 <li><a href="https://github.com/facebook/flashcache/" target="_blank" rel="external">flashcache</a>  </li>
-<li><a href="http://www.haiyun.me/archives/centos-flashcache.html" target="_blank" rel="external">Centos安装Flashcache使用SSD缓存</a>  </li>
-<li><a href="http://blog.csdn.net/kidd_3/article/details/6984822" target="_blank" rel="external">flashcache的实现与分析</a>  </li>
-<li><a href="https://awk.so/patents/CN103744624A?cl=zh" target="_blank" rel="external">一种实现存储系统ssd缓存数据选择性升级的系统架构</a>  </li>
-<li><a href="http://www.csdn.net/article/2013-10-31/2817357-facebook-flashcache-2010-2013" target="_blank" rel="external">命中率80%，磁盘I/O减半，Flashcache的发展史</a>  </li>
+<li><a href="http://www.haiyun.me/archives/centos-flashcache.html" target="_blank" rel="external">Centos&#x5B89;&#x88C5;Flashcache&#x4F7F;&#x7528;SSD&#x7F13;&#x5B58;</a>  </li>
+<li><a href="http://blog.csdn.net/kidd_3/article/details/6984822" target="_blank" rel="external">flashcache&#x7684;&#x5B9E;&#x73B0;&#x4E0E;&#x5206;&#x6790;</a>  </li>
+<li><a href="https://awk.so/patents/CN103744624A?cl=zh" target="_blank" rel="external">&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;ssd&#x7F13;&#x5B58;&#x6570;&#x636E;&#x9009;&#x62E9;&#x6027;&#x5347;&#x7EA7;&#x7684;&#x7CFB;&#x7EDF;&#x67B6;&#x6784;</a>  </li>
+<li><a href="http://www.csdn.net/article/2013-10-31/2817357-facebook-flashcache-2010-2013" target="_blank" rel="external">&#x547D;&#x4E2D;&#x7387;80%&#xFF0C;&#x78C1;&#x76D8;I/O&#x51CF;&#x534A;&#xFF0C;Flashcache&#x7684;&#x53D1;&#x5C55;&#x53F2;</a>  </li>
 <li><a href="http://cdn.oreillystatic.com/en/assets/1/event/45/Flashcache%20Presentation.pdf" target="_blank" rel="external">FlashCache at Facebook</a>  </li>
-<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache初探</a>  </li>
+<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache&#x521D;&#x63A2;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cin61d0ku008xfyiz3wgtzsfy" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cin6a5uke00943ciza92lgne1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1501,7 +1501,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/11/26/lio/" data-id="cin61d0kz008zfyizrf2ww084" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/11/26/lio/" data-id="cin6a5ukc00923cizrfff1ols" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
@@ -1535,11 +1535,11 @@ o- 172.16.110.11:8089 .............................................. [OK]
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><ul>
+        <h3 id="methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><ul>
 <li>rm</li>
 <li>rsync</li>
 </ul>
-<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><pre><code>[dennis@localhost ttt]$ mkdir empty
+<h3 id="test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><pre><code>[dennis@localhost ttt]$ mkdir empty
 [dennis@localhost ttt]$ mkdir tmp/; seq 1 40000 | xargs -I{} touch tmp/file_{} 
 [dennis@localhost ttt]$ mkdir tmp1/; time seq 1 40000 | xargs -I{} touch tmp1/file_{} 
 
@@ -1612,24 +1612,24 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
   0.00    0.000000           0         1           newfstatat
 ------ ----------- ----------- --------- --------- ----------------
 100.00    0.044580                 40307         9 total
-</code></pre><h3 id="Analyze-system-call"><a href="#Analyze-system-call" class="headerlink" title="Analyze system call"></a>Analyze system call</h3><ul>
+</code></pre><h3 id="analyze-system-call"><a href="#Analyze-system-call" class="headerlink" title="Analyze system call"></a>Analyze system call</h3><ul>
 <li><p>rm<br>Do so many system calls, special of unlinkat, it take of 79.25% of time,   </p>
 </li>
 <li><p>rsync  </p>
 </li>
 </ul>
-<h3 id="Analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
+<h3 id="analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
 <li><a href="http://rsync.samba.org/" target="_blank" rel="external">rsync</a></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.quora.com/How-can-someone-rapidly-delete-400-000-files" target="_blank" rel="external">How can someone rapidly delete 400,000 files?</a></li>
-<li><a href="http://blog.chinaunix.net/uid-10705106-id-3879288.html" target="_blank" rel="external">为什么rsync能够快速删除400000文件</a></li>
+<li><a href="http://blog.chinaunix.net/uid-10705106-id-3879288.html" target="_blank" rel="external">&#x4E3A;&#x4EC0;&#x4E48;rsync&#x80FD;&#x591F;&#x5FEB;&#x901F;&#x5220;&#x9664;400000&#x6587;&#x4EF6;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cin61d0kr008sfyizsk38a9u9" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cin6a5ukb00913cizrgca6pzi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1665,7 +1665,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 <p><img src="/assets/image/posts/perf/linux_benchmarking_tools.png" alt="linux benchmarking tools"></p>
 <p><img src="/assets/image/posts/perf/linux_observability_sar.png" alt="linux observability sar"></p>
 <p><img src="/assets/image/posts/perf/linux_tuning_tools.png" alt="linux tuning tools"></p>
-<h3 id="Tools-Basic"><a href="#Tools-Basic" class="headerlink" title="Tools: Basic"></a>Tools: Basic</h3><ul>
+<h3 id="tools-basic"><a href="#Tools-Basic" class="headerlink" title="Tools: Basic"></a>Tools: Basic</h3><ul>
 <li>uptime</li>
 <li>top or htop</li>
 <li>mpstat</li>
@@ -1676,7 +1676,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 <li>nicstat</li>
 <li>dstat</li>
 </ul>
-<h3 id="Tools-Intermediate"><a href="#Tools-Intermediate" class="headerlink" title="Tools: Intermediate"></a>Tools: Intermediate</h3><ul>
+<h3 id="tools-intermediate"><a href="#Tools-Intermediate" class="headerlink" title="Tools: Intermediate"></a>Tools: Intermediate</h3><ul>
 <li>sar</li>
 <li>netstat</li>
 <li>pidstat</li>
@@ -1688,7 +1688,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 <li>sysctl</li>
 <li>/proc</li>
 </ul>
-<h3 id="Tools-Advanced"><a href="#Tools-Advanced" class="headerlink" title="Tools: Advanced"></a>Tools: Advanced</h3><ul>
+<h3 id="tools-advanced"><a href="#Tools-Advanced" class="headerlink" title="Tools: Advanced"></a>Tools: Advanced</h3><ul>
 <li>perf<ul>
 <li><code>perf record program [program_option]</code></li>
 <li><code>perf report</code></li>
@@ -1696,7 +1696,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 </li>
 <li>DTrace</li>
 <li>SystemTap</li>
-<li>and more…<ul>
+<li>and more&#x2026;<ul>
 <li>ps</li>
 <li>pmap</li>
 <li>traceroute</li>
@@ -1717,7 +1717,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
 </ul>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.brendangregg.com/linuxperf.html" target="_blank" rel="external">Linux Performance</a></li>
 <li><a href="http://www.slideshare.net/brendangregg/linux-performance-analysis-and-tools" target="_blank" rel="external">Linux performance analysis and tools</a></li>
 <li><a href="http://www.vpsee.com/tag/performance/" target="_blank" rel="external">Tag: performance</a></li>
@@ -1727,7 +1727,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/08/linux-performace-tools/" data-id="cin61d0ks008tfyizrnhfrj06" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/09/08/linux-performace-tools/" data-id="cin6a5uka008y3cizdirxwnty" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/valgrind/">valgrind</a></li></ul>
@@ -1761,9 +1761,9 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>sync, linux command, using to write any data buffer in memory out to disk.</p>
-<p>It do nothing, but exercise the ‘sync’ system call</p>
-<p>So, if we want to study what the ‘sync’ really do, go in the kernel.</p>
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>sync, linux command, using to write any data buffer in memory out to disk.</p>
+<p>It do nothing, but exercise the &#x2018;sync&#x2019; system call</p>
+<p>So, if we want to study what the &#x2018;sync&#x2019; really do, go in the kernel.</p>
 <h3 id="sync-command"><a href="#sync-command" class="headerlink" title="sync command"></a>sync command</h3><p>File: coreutils-8.9/src/sync.c</p>
 <pre><code>int
 main (int argc, char **argv)
@@ -1862,7 +1862,7 @@ restart:
 <li>after write big file to disk, such as using command <code>cp</code></li>
 <li>to be continue</li>
 </ol>
-<h3 id="sync-fsync-fdatasync"><a href="#sync-fsync-fdatasync" class="headerlink" title="sync,fsync,fdatasync"></a>sync,fsync,fdatasync</h3><ul>
+<h3 id="syncfsyncfdatasync"><a href="#sync-fsync-fdatasync" class="headerlink" title="sync,fsync,fdatasync"></a>sync,fsync,fdatasync</h3><ul>
 <li>sync, add the modified buffer to write_queue, then return immediately, not wait<br>for the reality disk writed.</li>
 <li>fsync, used for single file with specify file description,and wait the disk write finish.</li>
 <li>fdatasync, similar to fsync, but just do effect to the data part. fsync make<br>effect to data and file property.</li>
@@ -1871,19 +1871,19 @@ restart:
 <li>How if I want to sync from serval Virtual Disks, and ignore serval VDs</li>
 <li>To be continue</li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li>man sync</li>
-<li>info coreutils ‘sync invocation’ </li>
+<li>info coreutils &#x2018;sync invocation&#x2019; </li>
 <li>kernel code</li>
 <li><a href="ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.9.tar.xz" target="_blank" rel="external">coreutils-8.9</a></li>
-<li><a href="http://jesserei.blog.163.com/blog/static/121411689201032015129673/" target="_blank" rel="external">sync、fsync和fdatasync函数</a></li>
-<li><a href="http://www.2cto.com/os/201204/126687.html" target="_blank" rel="external">缓存同步操作–sys_sync系统调用</a></li>
+<li><a href="http://jesserei.blog.163.com/blog/static/121411689201032015129673/" target="_blank" rel="external">sync&#x3001;fsync&#x548C;fdatasync&#x51FD;&#x6570;</a></li>
+<li><a href="http://www.2cto.com/os/201204/126687.html" target="_blank" rel="external">&#x7F13;&#x5B58;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x2013;sys_sync&#x7CFB;&#x7EDF;&#x8C03;&#x7528;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/07/sync/" data-id="cin61d0ko008qfyiz6zxq3olv" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/09/07/sync/" data-id="cin6a5uk9008x3cizrwh8f509" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1954,7 +1954,7 @@ restart:
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

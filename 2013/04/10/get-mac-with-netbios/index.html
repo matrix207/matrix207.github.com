@@ -103,7 +103,7 @@ Host is up (0.00023s la">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Find-port-139-open-machine"><a href="#Find-port-139-open-machine" class="headerlink" title="Find port 139 open machine:"></a>Find port 139 open machine:</h3><pre><code>[root@localhost netbios]# nmap -p139 192.168.50.22
+        <h3 id="find-port-139-open-machine"><a href="#Find-port-139-open-machine" class="headerlink" title="Find port 139 open machine:"></a>Find port 139 open machine:</h3><pre><code>[root@localhost netbios]# nmap -p139 192.168.50.22
 
 Starting Nmap 6.25 ( http://nmap.org ) at 2013-04-10 20:49 CST
 Nmap scan report for 192.168.50.22
@@ -113,7 +113,7 @@ PORT    STATE SERVICE
 MAC Address: 00:**:09:**:3a:** (Dell)
 
 Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
-</code></pre><h3 id="Search-all"><a href="#Search-all" class="headerlink" title="Search all:"></a>Search all:</h3><pre><code>Linux shell command : 
+</code></pre><h3 id="search-all"><a href="#Search-all" class="headerlink" title="Search all:"></a>Search all:</h3><pre><code>Linux shell command : 
     nmap -p139 192.168.50.1/24 | sed &apos;/./{H;$!d};x;/open/!d&apos; | grep &apos;scan&apos; | awk &apos;{print $NF}&apos;
 or
     nmap -p139 192.168.50.1/24 | grep -B 3 &apos;open&apos; | grep &apos;scan&apos; | awk &apos;{print $NF}&apos;
@@ -147,7 +147,7 @@ sys    0m0.024s
  192.168.50.39 : 00-**-9b-**-b9-**
 ...
 192.168.50.238 : b8-**-6f-**-28-**
-</code></pre><h3 id="netbios-c-source-code"><a href="#netbios-c-source-code" class="headerlink" title="netbios.c source code:"></a>netbios.c source code:</h3><pre><code>// netbios.c
+</code></pre><h3 id="netbiosc-source-code"><a href="#netbios-c-source-code" class="headerlink" title="netbios.c source code:"></a>netbios.c source code:</h3><pre><code>// netbios.c
 // Get mac address with NetBIOS protocol
 // compile with gcc on linux: gcc -o netbios netbios.c
 // Create by Dennis
@@ -173,11 +173,11 @@ unsigned char bs[50]={
     0x21,0x0,0x1
 };
 
-// 通过NbtStat获取计算机名字信息的结构体  
+// &#x901A;&#x8FC7;NbtStat&#x83B7;&#x53D6;&#x8BA1;&#x7B97;&#x673A;&#x540D;&#x5B57;&#x4FE1;&#x606F;&#x7684;&#x7ED3;&#x6784;&#x4F53;  
 struct names  
 {  
-    unsigned char nb_name[16];  // 表示接收到的名字  
-    unsigned short name_flags;  // 标识名字的含义  
+    unsigned char nb_name[16];  // &#x8868;&#x793A;&#x63A5;&#x6536;&#x5230;&#x7684;&#x540D;&#x5B57;  
+    unsigned short name_flags;  // &#x6807;&#x8BC6;&#x540D;&#x5B57;&#x7684;&#x542B;&#x4E49;  
 }; 
 
 void print_buf(unsigned char* buf, int len)
@@ -196,21 +196,21 @@ void parse_netbios(char* buf, int len)
     //print_buf(buf, len);
     char* respuesta = buf;
 
-    // 定义名字数组  
+    // &#x5B9A;&#x4E49;&#x540D;&#x5B57;&#x6570;&#x7EC4;  
     struct names Names[20*sizeof(struct names)]; 
 
     int count = 0;
 
-    // 将count定位到名字表中名字的数量。在NetBIOS回应包中，前面56位是网络适配器的状态信息  
+    // &#x5C06;count&#x5B9A;&#x4F4D;&#x5230;&#x540D;&#x5B57;&#x8868;&#x4E2D;&#x540D;&#x5B57;&#x7684;&#x6570;&#x91CF;&#x3002;&#x5728;NetBIOS&#x56DE;&#x5E94;&#x5305;&#x4E2D;&#xFF0C;&#x524D;&#x9762;56&#x4F4D;&#x662F;&#x7F51;&#x7EDC;&#x9002;&#x914D;&#x5668;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;  
     memcpy(&amp;count, respuesta+56, 1);  
-    if(count &gt; 20){      // 最多有20个名字，超出则错误  
+    if(count &gt; 20){      // &#x6700;&#x591A;&#x6709;20&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x8D85;&#x51FA;&#x5219;&#x9519;&#x8BEF;  
         return;  
     }  
 
-    // 将名字表内在复制到Names数组中  
+    // &#x5C06;&#x540D;&#x5B57;&#x8868;&#x5185;&#x5728;&#x590D;&#x5236;&#x5230;Names&#x6570;&#x7EC4;&#x4E2D;  
     memcpy(Names,(respuesta+57), count*sizeof(struct names));  
 
-    // 将空格字符替换成空  
+    // &#x5C06;&#x7A7A;&#x683C;&#x5B57;&#x7B26;&#x66FF;&#x6362;&#x6210;&#x7A7A;  
     unsigned int i,j;
     for(i = 0; i &lt; count;i++) {  
         for(j = 0;j &lt; 15;j++){  
@@ -221,11 +221,11 @@ void parse_netbios(char* buf, int len)
 
 #if 0
     for(i=0;i&lt;count;i++){  
-        // 如果最后一位是0x00，则表示当前名字表项为保存计算机名或者工作组  
+        // &#x5982;&#x679C;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#x662F;0x00&#xFF0C;&#x5219;&#x8868;&#x793A;&#x5F53;&#x524D;&#x540D;&#x5B57;&#x8868;&#x9879;&#x4E3A;&#x4FDD;&#x5B58;&#x8BA1;&#x7B97;&#x673A;&#x540D;&#x6216;&#x8005;&#x5DE5;&#x4F5C;&#x7EC4;  
         if(Names[i].nb_name[15] == 0x00){  
             char buffers[17] = {0};  
             memcpy(buffers, Names[i].nb_name, 16);  
-            // 使用name_flags字段来区分当前名字是计算机名还是工作组  
+            // &#x4F7F;&#x7528;name_flags&#x5B57;&#x6BB5;&#x6765;&#x533A;&#x5206;&#x5F53;&#x524D;&#x540D;&#x5B57;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x540D;&#x8FD8;&#x662F;&#x5DE5;&#x4F5C;&#x7EC4;  
             if((Names[i].name_flags &amp; 128) == 0) {  
                 printf(&quot; name: %s\n&quot;, buffers);
             }  
@@ -237,7 +237,7 @@ void parse_netbios(char* buf, int len)
 #endif
 
     unsigned char mac[6];
-    // 名字表后面是MAC地址  
+    // &#x540D;&#x5B57;&#x8868;&#x540E;&#x9762;&#x662F;MAC&#x5730;&#x5740;  
     memcpy(mac,(respuesta+57+count*sizeof(struct names)),6);  
     printf(&quot;: %02x-%02x-%02x-%02x-%02x-%02x\n&quot;, 
         mac[0],mac[1],mac[2],mac[3],mac[4],mac[5]);
@@ -311,19 +311,19 @@ int main(int argc,char*argv[]) {
 
     return 0;
 }
-</code></pre><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><ul>
-<li><a href="http://blog.csdn.net/neicole/article/details/7587414" target="_blank" rel="external">NetBIOS网络编程</a></li>
-<li><a href="http://www.2cto.com/kf/201209/155950.html" target="_blank" rel="external">netbios协议探测主机信息</a></li>
-<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap扫描原理与用法</a></li>
+</code></pre><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><ul>
+<li><a href="http://blog.csdn.net/neicole/article/details/7587414" target="_blank" rel="external">NetBIOS&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;</a></li>
+<li><a href="http://www.2cto.com/kf/201209/155950.html" target="_blank" rel="external">netbios&#x534F;&#x8BAE;&#x63A2;&#x6D4B;&#x4E3B;&#x673A;&#x4FE1;&#x606F;</a></li>
+<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap&#x626B;&#x63CF;&#x539F;&#x7406;&#x4E0E;&#x7528;&#x6CD5;</a></li>
 <li><a href="http://tools.ietf.org/html/rfc1002" target="_blank" rel="external">NetBIOS Working Group</a></li>
 <li><a href="http://en.wikipedia.org/wiki/NetBIOS" target="_blank" rel="external">NetBIOS WikiPedia</a></li>
-<li><a href="http://tech.ddvip.com/2009-06/1244885786123662_2.html" target="_blank" rel="external">精解局域网访问及共享</a></li>
+<li><a href="http://tech.ddvip.com/2009-06/1244885786123662_2.html" target="_blank" rel="external">&#x7CBE;&#x89E3;&#x5C40;&#x57DF;&#x7F51;&#x8BBF;&#x95EE;&#x53CA;&#x5171;&#x4EAB;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/10/get-mac-with-netbios/" data-id="cin61d0hn005ofyizernj6y3w" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/04/10/get-mac-with-netbios/" data-id="cin6a5uhy005l3cizjzd69di1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netbios/">netbios</a></li></ul>
@@ -410,7 +410,7 @@ int main(int argc,char*argv[]) {
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

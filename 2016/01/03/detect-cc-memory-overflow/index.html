@@ -111,7 +111,7 @@ heap (malloc and free)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Understand-the-process-address-space"><a href="#Understand-the-process-address-space" class="headerlink" title="Understand the process address space"></a>Understand the process address space</h4><ul>
+        <h4 id="understand-the-process-address-space"><a href="#Understand-the-process-address-space" class="headerlink" title="Understand the process address space"></a>Understand the process address space</h4><ul>
 <li>0 to 0x08048000, keep for OS, not used.</li>
 <li>0x08048000 to 0x40000000<ul>
 <li>read only of code and data</li>
@@ -129,7 +129,7 @@ heap (malloc and free)
 </li>
 <li>0xC0000000 to 0xFFFFFFFF, use for kernel space</li>
 </ul>
-<h4 id="Stack-and-heap"><a href="#Stack-and-heap" class="headerlink" title="Stack and heap"></a>Stack and heap</h4><p>For multiple threads program, OS will allocate a stack for every threads.</p>
+<h4 id="stack-and-heap"><a href="#Stack-and-heap" class="headerlink" title="Stack and heap"></a>Stack and heap</h4><p>For multiple threads program, OS will allocate a stack for every threads.</p>
 <ul>
 <li>Stack<ul>
 <li>ESP register point to the top of stack</li>
@@ -138,14 +138,14 @@ heap (malloc and free)
 <li>Return big data structure</li>
 <li>Stack [from high to low]<ul>
 <li>Parameter N</li>
-<li>Parameter …</li>
+<li>Parameter &#x2026;</li>
 <li>Parameter 2</li>
 <li>Parameter 1</li>
 <li>EIP (Next instruction address)</li>
 <li>EBP</li>
 <li>local variable 1</li>
 <li>local variable 2</li>
-<li>local variable …</li>
+<li>local variable &#x2026;</li>
 </ul>
 </li>
 </ul>
@@ -160,7 +160,7 @@ heap (malloc and free)
 </ul>
 </li>
 </ul>
-<h4 id="Failures"><a href="#Failures" class="headerlink" title="Failures"></a>Failures</h4><ul>
+<h4 id="failures"><a href="#Failures" class="headerlink" title="Failures"></a>Failures</h4><ul>
 <li>stack overflow<ul>
 <li>failures<ul>
 <li>changed global variable</li>
@@ -186,7 +186,7 @@ heap (malloc and free)
 </ul>
 </li>
 </ul>
-<h4 id="Detect-tools"><a href="#Detect-tools" class="headerlink" title="Detect tools"></a>Detect tools</h4><ul>
+<h4 id="detect-tools"><a href="#Detect-tools" class="headerlink" title="Detect tools"></a>Detect tools</h4><ul>
 <li><code>mprotect</code>, set protection on a region of memory. For more see <code>man mprotect</code></li>
 <li><code>electric-fence</code><ul>
 <li><a href="http://packages.debian.org/sid/electric-fence" target="_blank" rel="external">http://packages.debian.org/sid/electric-fence</a></li>
@@ -195,17 +195,17 @@ heap (malloc and free)
 <li><code>backtrac</code></li>
 <li><code>libsigsegv</code></li>
 </ul>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="http://m.blog.csdn.net/blog/pecywang/22799705" target="_blank" rel="external">C++编译器越界检查机制</a></li>
-<li><a href="http://www.cnblogs.com/djinmusic/archive/2013/02/04/2891753.html" target="_blank" rel="external">定位多线程内存越界问题实践总结</a></li>
-<li><a href="http://blog.codingnow.com/2014/01/out_of_range_bug.html" target="_blank" rel="external">一次内存越界的 bug</a></li>
-<li><a href="http://m.blog.csdn.net/blog/ring0lyy/8279286" target="_blank" rel="external">Linux C语言 内存越界问题总结</a></li>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://m.blog.csdn.net/blog/pecywang/22799705" target="_blank" rel="external">C++&#x7F16;&#x8BD1;&#x5668;&#x8D8A;&#x754C;&#x68C0;&#x67E5;&#x673A;&#x5236;</a></li>
+<li><a href="http://www.cnblogs.com/djinmusic/archive/2013/02/04/2891753.html" target="_blank" rel="external">&#x5B9A;&#x4F4D;&#x591A;&#x7EBF;&#x7A0B;&#x5185;&#x5B58;&#x8D8A;&#x754C;&#x95EE;&#x9898;&#x5B9E;&#x8DF5;&#x603B;&#x7ED3;</a></li>
+<li><a href="http://blog.codingnow.com/2014/01/out_of_range_bug.html" target="_blank" rel="external">&#x4E00;&#x6B21;&#x5185;&#x5B58;&#x8D8A;&#x754C;&#x7684; bug</a></li>
+<li><a href="http://m.blog.csdn.net/blog/ring0lyy/8279286" target="_blank" rel="external">Linux C&#x8BED;&#x8A00; &#x5185;&#x5B58;&#x8D8A;&#x754C;&#x95EE;&#x9898;&#x603B;&#x7ED3;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/01/03/detect-cc-memory-overflow/" data-id="cin61d0m700a2fyizkoh085yy" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/01/03/detect-cc-memory-overflow/" data-id="cin6a5ulb00a73cizoezrx6of" class="article-share-link">Share</a>
       
       
     </footer>
@@ -290,7 +290,7 @@ heap (malloc and free)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

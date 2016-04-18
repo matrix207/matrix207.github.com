@@ -5,49 +5,34 @@
   
   <title>use rsync | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="rsync 文件同步
+  <meta name="description" content="rsync &amp;#x6587;&amp;#x4EF6;&amp;#x540C;&amp;#x6B65;
 Linux Server : 192.168.1.63
 vim /etc/rsyncd.conf
 # /etc/rsyncd.conf
-#全局配置部分
+#&amp;#x5168;&amp;#x5C40;&amp;#x914D;&amp;#x7F6E;&amp;#x90E8;&amp;#x5206;
 secrets file = /etc/rsyncd.secrets
-read only = no
-write only = no
-list = yes
-uid = root
-gid = root
-charset=UTF-8">
+read onl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="use rsync">
 <meta property="og:url" content="http://matrix207.github.com/2013/03/06/use-rsync/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
-<meta property="og:description" content="rsync 文件同步
+<meta property="og:description" content="rsync &amp;#x6587;&amp;#x4EF6;&amp;#x540C;&amp;#x6B65;
 Linux Server : 192.168.1.63
 vim /etc/rsyncd.conf
 # /etc/rsyncd.conf
-#全局配置部分
+#&amp;#x5168;&amp;#x5C40;&amp;#x914D;&amp;#x7F6E;&amp;#x90E8;&amp;#x5206;
 secrets file = /etc/rsyncd.secrets
-read only = no
-write only = no
-list = yes
-uid = root
-gid = root
-charset=UTF-8">
+read onl">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="use rsync">
-<meta name="twitter:description" content="rsync 文件同步
+<meta name="twitter:description" content="rsync &amp;#x6587;&amp;#x4EF6;&amp;#x540C;&amp;#x6B65;
 Linux Server : 192.168.1.63
 vim /etc/rsyncd.conf
 # /etc/rsyncd.conf
-#全局配置部分
+#&amp;#x5168;&amp;#x5C40;&amp;#x914D;&amp;#x7F6E;&amp;#x90E8;&amp;#x5206;
 secrets file = /etc/rsyncd.secrets
-read only = no
-write only = no
-list = yes
-uid = root
-gid = root
-charset=UTF-8">
+read onl">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -120,11 +105,11 @@ charset=UTF-8">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="rsync-文件同步"><a href="#rsync-文件同步" class="headerlink" title="rsync 文件同步"></a>rsync 文件同步</h3><hr>
-<h2 id="Linux-Server-192-168-1-63"><a href="#Linux-Server-192-168-1-63" class="headerlink" title="Linux Server : 192.168.1.63"></a>Linux Server : 192.168.1.63</h2><ol>
+        <h3 id="rsync-&#x6587;&#x4EF6;&#x540C;&#x6B65;"><a href="#rsync-&#x6587;&#x4EF6;&#x540C;&#x6B65;" class="headerlink" title="rsync &#x6587;&#x4EF6;&#x540C;&#x6B65;"></a>rsync &#x6587;&#x4EF6;&#x540C;&#x6B65;</h3><hr>
+<h2 id="linux-server-192168163"><a href="#Linux-Server-192-168-1-63" class="headerlink" title="Linux Server : 192.168.1.63"></a>Linux Server : 192.168.1.63</h2><ol>
 <li><p>vim /etc/rsyncd.conf</p>
 <pre><code># /etc/rsyncd.conf
-#全局配置部分
+#&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x90E8;&#x5206;
 secrets file = /etc/rsyncd.secrets
 read only = no
 write only = no
@@ -133,13 +118,13 @@ uid = root
 gid = root
 charset=UTF-8
 
-#允许指定的主机连接
+#&#x5141;&#x8BB8;&#x6307;&#x5B9A;&#x7684;&#x4E3B;&#x673A;&#x8FDE;&#x63A5;
 #hosts allow = 192.168.1.52 172.18.1.50
 
-#允许任何主机
+#&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x4E3B;&#x673A;
 host allow = * 
 
-#禁止指定的主机连接
+#&#x7981;&#x6B62;&#x6307;&#x5B9A;&#x7684;&#x4E3B;&#x673A;&#x8FDE;&#x63A5;
 #hosts deny = 192.168.1.1/24
 
 use chroot = no
@@ -148,7 +133,7 @@ log file = /var/log/rsyncd.log
 pid file = /var/run/rsyncd.pid
 lock file = /var/run/rsync.lock
 
-#模块配置
+#&#x6A21;&#x5757;&#x914D;&#x7F6E;
 [rsynctest]
 comment = sync directory
 path = /home/dennis/Documents
@@ -161,37 +146,37 @@ chown root:root /etc/rsyncd.secrets
 chmod 600 /etc/rsyncd.secrets    
 </code></pre></li>
 <li><p>start rsync</p>
-<pre><code># 查询是否存在rsync进程
+<pre><code># &#x67E5;&#x8BE2;&#x662F;&#x5426;&#x5B58;&#x5728;rsync&#x8FDB;&#x7A0B;
 ps aux | grep rsync
-# 启动rsync
+# &#x542F;&#x52A8;rsync
 rsync --daemon
-# 检查 rsync 使用的873端口正常监听
+# &#x68C0;&#x67E5; rsync &#x4F7F;&#x7528;&#x7684;873&#x7AEF;&#x53E3;&#x6B63;&#x5E38;&#x76D1;&#x542C;
 netstat -an | grep 873
 </code></pre></li>
 </ol>
-<h2 id="Linux-Clint-192-168-1-52"><a href="#Linux-Clint-192-168-1-52" class="headerlink" title="Linux Clint : 192.168.1.52"></a>Linux Clint : 192.168.1.52</h2><ol>
+<h2 id="linux-clint-192168152"><a href="#Linux-Clint-192-168-1-52" class="headerlink" title="Linux Clint : 192.168.1.52"></a>Linux Clint : 192.168.1.52</h2><ol>
 <li><p>create password file</p>
-<pre><code># 该步骤主要用于解决同步过程需要手动输入密码问题
+<pre><code># &#x8BE5;&#x6B65;&#x9AA4;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x540C;&#x6B65;&#x8FC7;&#x7A0B;&#x9700;&#x8981;&#x624B;&#x52A8;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x95EE;&#x9898;
 echo &quot;rsync&quot; &gt; /etc/rsyncd.secrets
 chown root:root /etc/rsyncd.secrets
 chmod 600 /etc/rsyncd.secrets
 </code></pre></li>
 <li><p>download</p>
-<pre><code># 需要手动输入密码
+<pre><code># &#x9700;&#x8981;&#x624B;&#x52A8;&#x8F93;&#x5165;&#x5BC6;&#x7801;
 rsync -vzrtopg --delete --progress rsync@192.168.1.63::rsynctest /root/rsyntest/
 
-# 不需要输入密码
+# &#x4E0D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5BC6;&#x7801;
 rsync -vzrtopg --delete --progress --password-file=/etc/rsyncd.secrets rsync@192.168.1.63::rsynctest /root/rsyntest/
 </code></pre></li>
 <li><p>upload</p>
-<pre><code># 需要手动输入密码
+<pre><code># &#x9700;&#x8981;&#x624B;&#x52A8;&#x8F93;&#x5165;&#x5BC6;&#x7801;
 rsync -vzrtopg --delete --progress ./*.log rsync@192.168.1.63::rsynctest
 
-# 不需要输入密码
+# &#x4E0D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5BC6;&#x7801;
 rsync -vzrtopg --delete --progress --password-file=/etc/rsyncd.secrets ./*.log rsync@192.168.1.63::rsynctest
 </code></pre></li>
 </ol>
-<h2 id="Windows-Clint-192-168-1-42"><a href="#Windows-Clint-192-168-1-42" class="headerlink" title="Windows Clint : 192.168.1.42"></a>Windows Clint : 192.168.1.42</h2><ol>
+<h2 id="windows-clint-192168142"><a href="#Windows-Clint-192-168-1-42" class="headerlink" title="Windows Clint : 192.168.1.42"></a>Windows Clint : 192.168.1.42</h2><ol>
 <li><p>Install cwRsync_2.0.10 </p>
 </li>
 <li><p>create password file</p>
@@ -205,14 +190,14 @@ echo &quot;rsync&quot; &gt; d:/rsync/rsyncd.secrets
 <pre><code>rsync -vzrtopg --progress --delete --password-file=/cygdrive/d/rsync/rsyncd.secrets rsync@192.168.1.63::rsynctest /cygdrive/d/rsync
 </code></pre></li>
 <li><p>upload</p>
-<pre><code>rsync -vzrtopg --progress --delete --password-file=/cygdrive/d/rsync/rsyncd.secrets /cygdrive/d/rsync rsync@192.168.1.63::rsynctest 
+<pre><code>rsync -vzrtopg --progress --delete --password-file=/cygdrive/d/rsync/rsyncd.secrets /cygdrive/d/rsync rsync@192.168.1.63::rsynctest
 </code></pre></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/06/use-rsync/" data-id="cin61d0h6004jfyizvaqvilav" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/06/use-rsync/" data-id="cin6a5uhj004g3cizdvlnzh1s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/">rsync</a></li></ul>
@@ -223,11 +208,11 @@ echo &quot;rsync&quot; &gt; d:/rsync/rsyncd.secrets
     
 <nav id="article-nav">
   
-    <a href="/2013/03/12/install-skype-on-fedora18-x86_64/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2013/03/12/skype-api-for-linux/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          install skype on fedora18 x86_64
+          skype api for linux
         
       </div>
     </a>
@@ -299,7 +284,7 @@ echo &quot;rsync&quot; &gt; d:/rsync/rsyncd.secrets
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

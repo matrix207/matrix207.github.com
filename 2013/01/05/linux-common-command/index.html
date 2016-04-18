@@ -117,13 +117,13 @@
 </li>
 <li><p><code>free   bg   kill pid    killall proc    chmod 777 (r:4,w:2,x:1)(user,group,all)</code></p>
 </li>
-<li><p><code>find / -name &quot;***&quot;</code><br><code>find path \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec grep -in &quot;***&quot; {} \;</code><br><code>find ./ -name &quot;*.*&quot; -exec ls -l {} \; |awk &#39;{print $5,$9}&#39; |sort -n |tail</code> find the 10 biggest files.<br><code>find / -type d -name &quot;gedit&quot;</code> search direactorys<br><code>find . \( -path ./.git -o -path dir2 \) -prune -o -type d -print</code> search sub-dir, except .git and dir2<br><code>find /usr/include/ -path /usr/include/boost -prune -o -name &#39;*.h&#39; -print &gt;1.txt</code><br><code>find . -name &quot;.svn&quot; | xargs rm -rf</code> find .svn folder in current directory, and remove it.<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec wc -l {} \; | awk &#39;{s+=$1} END {print s}&#39;</code> count lines of specify files<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) | xargs wc -l | tail -n 1</code> count lines of specify files<br>the upon two command can count lines of specify files, but what is the<br>difference of them, look this<br><a href="http://stackoverflow.com/questions/13651212/unix-difference-xargs-and-exec" target="_blank" rel="external">Difference xargs and exec</a><br>you will find the answer.<br><code>find ./ -path ./perl -prune -o -name &quot;*.so&quot; -exec cp {} ../net-snmp-5.4.4-sdk/lib/ \;</code><br>copy files which search by find, search exclude ./perl path<br><code>find /usr -size +100M</code>  find file size larger than 100M<br><code>find /home -mtime +120</code><br><code>find /var \! -atime -90</code><br><code>find &lt;dir&gt; -executable -type f</code> only find executable files  </p>
+<li><p><code>find / -name &quot;***&quot;</code><br><code>find path \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec grep -in &quot;***&quot; {} \;</code><br><code>find ./ -name &quot;*.*&quot; -exec ls -l {} \; |awk &apos;{print $5,$9}&apos; |sort -n |tail</code> find the 10 biggest files.<br><code>find / -type d -name &quot;gedit&quot;</code> search direactorys<br><code>find . \( -path ./.git -o -path dir2 \) -prune -o -type d -print</code> search sub-dir, except .git and dir2<br><code>find /usr/include/ -path /usr/include/boost -prune -o -name &apos;*.h&apos; -print &gt;1.txt</code><br><code>find . -name &quot;.svn&quot; | xargs rm -rf</code> find .svn folder in current directory, and remove it.<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec wc -l {} \; | awk &apos;{s+=$1} END {print s}&apos;</code> count lines of specify files<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) | xargs wc -l | tail -n 1</code> count lines of specify files<br>the upon two command can count lines of specify files, but what is the<br>difference of them, look this<br><a href="http://stackoverflow.com/questions/13651212/unix-difference-xargs-and-exec" target="_blank" rel="external">Difference xargs and exec</a><br>you will find the answer.<br><code>find ./ -path ./perl -prune -o -name &quot;*.so&quot; -exec cp {} ../net-snmp-5.4.4-sdk/lib/ \;</code><br>copy files which search by find, search exclude ./perl path<br><code>find /usr -size +100M</code>  find file size larger than 100M<br><code>find /home -mtime +120</code><br><code>find /var \! -atime -90</code><br><code>find &lt;dir&gt; -executable -type f</code> only find executable files  </p>
 </li>
-<li><p><code>grep -r &quot;abc&quot; /root/source</code><br><code>grep -r --include &quot;*.h&quot; &quot;date&quot; path</code><br><code>grep -m 1 &quot;model name&quot; /proc/cpuinfo</code> only display the first match line<br><code>grep -i -E &quot;abc|123&quot;</code> match abc or 123, -i ignore, -E extended regular expression.<br><code>grep -r -l &quot;main&quot; .</code> search all files under each directory, -l files-with-match, -L files-withou-match<br><code>grep -w &quot;linux&quot; *.md</code> match word<br><code>grep -rl --include=*.{h,cpp} &quot;socket&quot; .</code> search socket only with <em>.h </em>.cpp files<br><code>grep --exclude-dir=&quot;_posts&quot; --exclude-dir=&quot;_site&quot;  -r &quot;Dennis&quot; ./</code>  exclude specify directory<br><code>grep -rni &#39;[^a-zA-Z]abc[^a-zA-Z]&#39; ./</code>  match like “tt.abc.1234”, not match like “ttabccd”</p>
+<li><p><code>grep -r &quot;abc&quot; /root/source</code><br><code>grep -r --include &quot;*.h&quot; &quot;date&quot; path</code><br><code>grep -m 1 &quot;model name&quot; /proc/cpuinfo</code> only display the first match line<br><code>grep -i -E &quot;abc|123&quot;</code> match abc or 123, -i ignore, -E extended regular expression.<br><code>grep -r -l &quot;main&quot; .</code> search all files under each directory, -l files-with-match, -L files-withou-match<br><code>grep -w &quot;linux&quot; *.md</code> match word<br><code>grep -rl --include=*.{h,cpp} &quot;socket&quot; .</code> search socket only with <em>.h </em>.cpp files<br><code>grep --exclude-dir=&quot;_posts&quot; --exclude-dir=&quot;_site&quot;  -r &quot;Dennis&quot; ./</code>  exclude specify directory<br><code>grep -rni &apos;[^a-zA-Z]abc[^a-zA-Z]&apos; ./</code>  match like &#x201C;tt.abc.1234&#x201D;, not match like &#x201C;ttabccd&#x201D;</p>
 </li>
-<li><p><code>cut -d&quot;&quot; -f1</code><br>e.g:<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot;</code><br>Core 0:       +30.0°C  (high = +76.0°C, crit = +100.0°C)<br>Core 1:       +37.0°C  (high = +76.0°C, crit = +100.0°C)<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot; |cut -d&quot;+&quot; -f2 |cut -d&quot; &quot; -f1</code><br>30.0°C<br>37.0°C  </p>
+<li><p><code>cut -d&quot;&quot; -f1</code><br>e.g:<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot;</code><br>Core 0:       +30.0&#xB0;C  (high = +76.0&#xB0;C, crit = +100.0&#xB0;C)<br>Core 1:       +37.0&#xB0;C  (high = +76.0&#xB0;C, crit = +100.0&#xB0;C)<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot; |cut -d&quot;+&quot; -f2 |cut -d&quot; &quot; -f1</code><br>30.0&#xB0;C<br>37.0&#xB0;C  </p>
 </li>
-<li><p><code>history|awk &#39;{print $2}&#39;|awk &#39;begin {FS=&quot;|&quot;} {print $1}&#39;|sort|uniq -c|sort -rn|head -10</code></p>
+<li><p><code>history|awk &apos;{print $2}&apos;|awk &apos;begin {FS=&quot;|&quot;} {print $1}&apos;|sort|uniq -c|sort -rn|head -10</code></p>
 </li>
 <li><p><code>ps aux | sort -nk +4 | tail</code><br><code>ps -eo pid,lstart,etime | grep 3208</code> view the start and running time of specify process.<br><code>ps axjf</code> print process tree<br><code>ps -ef</code> see every process<br><code>ps -eLf</code> get about thread info<br><code>ps -U root -u root u</code> see every process running as root<br><code>pgrep firefox</code> print the procee id of firefox  </p>
 </li>
@@ -140,9 +140,9 @@
 <li><code>wget ftp://IP:PORT/* --ftp-user=xxx --ftp-password=xxx -r</code> support download<br>multiple files and directories, good to replace <code>ftp</code></li>
 </ul>
 <h4 id="awk-and-sed"><a href="#awk-and-sed" class="headerlink" title="awk and sed"></a>awk and sed</h4><ul>
-<li><p>awk<br><code>awk FS&#39;&#39; &#39;condition1{operator1}condition2{operator2}...&#39; filename</code><br>NR:number row, NF:number field<br><code>awk &#39;NR==1{print $0}&#39;</code><br><code>arr=($(awk -F&#39;#&#39; &#39;{print $1,$2,$3,$4}&#39; $conf_file))</code><br><code>ps aux | awk &#39;NR==1{print $0}$3&gt;10{print $0}&#39;</code><br><code>awk -F&#39;&lt;|&gt;&#39; &#39;{if(NF&gt;3){print $2 &quot;:&quot; $3}}&#39; /tmp/test.xml</code> parse xml file<br><code>awk -F&#39;=&#39; &#39;/HWADDR/{print $2}&#39; /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
+<li><p>awk<br><code>awk FS&apos;&apos; &apos;condition1{operator1}condition2{operator2}...&apos; filename</code><br>NR:number row, NF:number field<br><code>awk &apos;NR==1{print $0}&apos;</code><br><code>arr=($(awk -F&apos;#&apos; &apos;{print $1,$2,$3,$4}&apos; $conf_file))</code><br><code>ps aux | awk &apos;NR==1{print $0}$3&gt;10{print $0}&apos;</code><br><code>awk -F&apos;&lt;|&gt;&apos; &apos;{if(NF&gt;3){print $2 &quot;:&quot; $3}}&apos; /tmp/test.xml</code> parse xml file<br><code>awk -F&apos;=&apos; &apos;/HWADDR/{print $2}&apos; /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
 </li>
-<li><p>sed<br><code>sed [options] &#39;command&#39; file(s)</code><br><code>sed [options] -f scriptfile file(s)</code><br><code>sed -i &#39;/&#39;$prj&#39;/{s/\(.*#.*#\)[0-9]\+/\1&#39;$rev_new&#39;/}&#39; $conf_file</code><br><code>sed -n 10,23p filepath</code> -n print the specific lines<br><code>sed &#39;N;s/\n/ /&#39; filepath</code> join two line into one<br><code>echo -e &quot;11\n22\n33\n&quot; | sed -n &#39;/22/{n;p}&#39;</code> print next line after match<br><code>sed &#39;:a;N;s/\n/ /;ba;&#39; file</code> join all lines  </p>
+<li><p>sed<br><code>sed [options] &apos;command&apos; file(s)</code><br><code>sed [options] -f scriptfile file(s)</code><br><code>sed -i &apos;/&apos;$prj&apos;/{s/\(.*#.*#\)[0-9]\+/\1&apos;$rev_new&apos;/}&apos; $conf_file</code><br><code>sed -n 10,23p filepath</code> -n print the specific lines<br><code>sed &apos;N;s/\n/ /&apos; filepath</code> join two line into one<br><code>echo -e &quot;11\n22\n33\n&quot; | sed -n &apos;/22/{n;p}&apos;</code> print next line after match<br><code>sed &apos;:a;N;s/\n/ /;ba;&apos; file</code> join all lines  </p>
 </li>
 </ul>
 <h4 id="git-and-svn"><a href="#git-and-svn" class="headerlink" title="git and svn"></a>git and svn</h4><ul>
@@ -160,7 +160,7 @@
 <li><code>ssh root@172.168.1.101</code>  </li>
 <li><code>ssh -f -NC -D7070 user@shell.cjb.net</code> ssh tunnel<br><code>ssh -f -NC -D7070 user@216.194.70.6</code> ssh tunnel </li>
 <li><code>scp abc.sh root@172.168.1.101:/root/test</code> upload file<br><code>scp root@172.168.1.101:/root/test/abc.sh /root/mytest</code> download file<br><code>sshpass -p passwd scp abc.sh root@172.168.1.101:/root/test</code></li>
-<li><code>nmap ip</code><br><code>nmap 192.168.1.1 -p 8000</code>  check the port is open or not<br><code>nmap -v -sn 192.168.1.1/24</code><br><code>nmap -v -sn 192.168.1.1/24 |grep &#39;report&#39; |grep -v &#39;down&#39; |awk &#39;{print $NF}&#39;</code> scan local alive ip  </li>
+<li><code>nmap ip</code><br><code>nmap 192.168.1.1 -p 8000</code>  check the port is open or not<br><code>nmap -v -sn 192.168.1.1/24</code><br><code>nmap -v -sn 192.168.1.1/24 |grep &apos;report&apos; |grep -v &apos;down&apos; |awk &apos;{print $NF}&apos;</code> scan local alive ip  </li>
 <li><code>nc -z -w 1 IP PORT</code><br><code>nc -z -w 1 192.168.1.1 100</code><br><code>nc -z -w 1 -u 192.168.1.1 100</code><br><code>nc -z -w 1 192.168.1.100 1-65535</code> scan all ports from 1 to 65535  </li>
 <li><code>lsof -i:111</code><br><code>netstat -apn | grep 111</code><br><code>iptables -L</code> list rules<br><code>iptables -L INPUT --line-numbers</code><br><code>iptables -A INPUT -p tcp --dport 111 -j DROP</code> forbid specific port<br><code>iptables -A OUTPUT -p tcp --dport 111 -j DROP</code><br><code>iptables -A INPUT -p tcp --dport 8024 -j ACCEPT</code> all rule, allow port 8024<br><code>iptables -I INPUT 5 -p tcp --dport 8024 -j ACCEPT</code> add rule to specify position(5)<br><code>iptables -D INPUT -p tcp --dport 8024 -j ACCEPT</code> delete rule<br><code>service iptables save</code><br><code>service iptables stop</code><br><code>service iptables start</code>  </li>
 <li><code>curl ifconfig.me</code><br><code>curl ipinfo.io/IP_ADDRESS</code> get geographic location of an IP address  </li>
@@ -168,7 +168,7 @@
 <li><code>dig domain</code>   <code>dig -x host</code></li>
 <li><code>netstat -nlp</code> view service and listen ports<br><code>netstat -npt</code> view tcp connections<br><code>netstat -s</code> display networking statistics  </li>
 <li><code>wget url</code> download file<br><code>wget -m -p -np -k -E http://site/path/</code> mirror the site<br><code>wget -A pdf,jpg -m -p -np -k -E http://site/path/</code> only download pdf and jpg file<br><code>wget url_file -O new_name.file</code> rename  </li>
-<li><code>tcpdump -D</code> list available device(run as root)<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 80 -n</code> use specify interface “p4p1”<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 3260 -w tcpdump.pcap</code><br><code>tcpdump -l | tee dat</code><br><code>tcpdump -U host 172.16.130.88 and port 3260 -w tcpdump.pcap</code> flush each packet to packet-buffered<br><code>tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</code><br><code>tcpdump -i eth0 src host hostname</code><br><code>tcpdump -i eth0 dst host hostname</code><br><code>tcpdump -n -e -i eth0 icmp</code><br><code>tcpdump -n -e icmp</code><br><code>tcpdump -n -e arp</code>  </li>
+<li><code>tcpdump -D</code> list available device(run as root)<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 80 -n</code> use specify interface &#x201C;p4p1&#x201D;<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 3260 -w tcpdump.pcap</code><br><code>tcpdump -l | tee dat</code><br><code>tcpdump -U host 172.16.130.88 and port 3260 -w tcpdump.pcap</code> flush each packet to packet-buffered<br><code>tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</code><br><code>tcpdump -i eth0 src host hostname</code><br><code>tcpdump -i eth0 dst host hostname</code><br><code>tcpdump -n -e -i eth0 icmp</code><br><code>tcpdump -n -e icmp</code><br><code>tcpdump -n -e arp</code>  </li>
 <li><code>telnet 172.16.50.39 3128</code> check port is available or not</li>
 <li><code>arp -a</code>  </li>
 <li><code>squid -CNd1</code>  </li>
@@ -178,28 +178,28 @@
 <li>Fedora<br><code>Alt+Tab</code> switch windows<br><code>Alt+` </code>  switch sub-windows<br><code>Win</code> windows key, use to show all application<br><code>Win</code> -&gt; <code>Space</code> , search application  </li>
 <li>yum use local repository  <ul>
 <li>mount iso file to /mnt/cdrom</li>
-<li>modify /etc/yum.repos.d/CentOS-Media.repo, add text “file:///mnt/cdrom/“<br>[c6-media]<br>name=CentOS-$releasever - Media<br>baseurl=file:///media/CentOS/  <pre><code>file:///media/cdrom/  
+<li>modify /etc/yum.repos.d/CentOS-Media.repo, add text &#x201C;file:///mnt/cdrom/&#x201C;<br>[c6-media]<br>name=CentOS-$releasever - Media<br>baseurl=file:///media/CentOS/  <pre><code>file:///media/cdrom/  
 file:///media/cdrecorder/  
 file:///mnt/cdrom/  
 </code></pre>gdgcheck=1<br>enabled=1<br>gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6  </li>
 </ul>
 </li>
 <li><code>yum install XXX -y</code><br><code>yum search XXX</code><br><code>yum remove XXX</code><br><code>yum clean all</code><br><code>yum makecache</code>  </li>
-<li>Ubuntu<br>reset root password, press ‘e’ to edit grub boot option, change ‘ro quiet splash’<br>to ‘rw init=/bin/bash’, then login terminal with root, use ‘passwd’ to reset.</li>
+<li>Ubuntu<br>reset root password, press &#x2018;e&#x2019; to edit grub boot option, change &#x2018;ro quiet splash&#x2019;<br>to &#x2018;rw init=/bin/bash&#x2019;, then login terminal with root, use &#x2018;passwd&#x2019; to reset.</li>
 <li>Ubuntu remove software<ul>
-<li>dpkg –get-selections | grep ‘software-name’</li>
-<li>sudo apt-get remove –purge software_name</li>
-<li>dpkg -l |grep ^rc|awk ‘{print $2}’ |sudo xargs dpkg -P  </li>
+<li>dpkg &#x2013;get-selections | grep &#x2018;software-name&#x2019;</li>
+<li>sudo apt-get remove &#x2013;purge software_name</li>
+<li>dpkg -l |grep ^rc|awk &#x2018;{print $2}&#x2019; |sudo xargs dpkg -P  </li>
 </ul>
 </li>
 </ul>
-<h4 id="vimperator-Firfox-plugin"><a href="#vimperator-Firfox-plugin" class="headerlink" title="vimperator(Firfox plugin)"></a>vimperator(Firfox plugin)</h4><ul>
+<h4 id="vimperatorfirfox-plugin"><a href="#vimperator-Firfox-plugin" class="headerlink" title="vimperator(Firfox plugin)"></a>vimperator(Firfox plugin)</h4><ul>
 <li>vimperator<br><code>:help</code>  Open help page<br><code>:helpall</code>  Show all help on one page<br><code>C-[</code>    cancel command mode<br><code>d</code>      close current page<br><code>u</code>      undo close current page<br><code>/</code>      search<br><code>H</code>      Go back in the browser history<br><code>gg</code>     Go to the top of the page<br><code>G</code>      Go to the bottom of the page<br><code>C-f</code>    forward page<br><code>C-b</code>    backward page<br><code>y</code>      Copy the current URL to clipboad<br><code>p</code>      Open the URL from current clipboad contents in current buffer<br><code>P</code>      Open the URL from current clipboad contents in a new tab buffer<br><code>r</code>      Reload current page<br><code>ZZ</code>     Quit and save the session<br><code>C-n</code>    Go to the next buffer<br><code>C-p</code>    Go to the previous buffer<br><code>gi</code>     Go to input field<br><code>g-u</code>    Go to the parent directory<br><code>g-U</code>    Go to the root of the website<br><code>c</code>      Start caret mode.Like normal mode of vim, use <code>h j k l</code> to move, and<br>press <code>v</code> to start visual mode, then press <code>y</code> to copy select text<br><code>gi</code>     Use [count]gi to Focus to the [count]th input field<br><code>C-l</code>    Go to URL editor and select it<br><code>C-t</code>    Open a new tab  </li>
 </ul>
 <h4 id="program"><a href="#program" class="headerlink" title="program"></a>program</h4><ul>
 <li><code>man 2 sys_call_name</code> view system call function description<br><code>man 2 open</code>, <code>man 2 read</code>, <code>man 2 write</code>, <code>man 2 fork</code><br><code>man 3 errno</code> view error number description<br><code>man 3 printf</code><br><code>man ascii</code>  </li>
 </ul>
-<h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><ul>
+<h4 id="others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><ul>
 <li><code>vimdiff a.log b.log</code> diff two files<br><code>vim -b file</code> edit binary file, use <code>:%!xxd</code> and <code>:%!xxd -r</code>  </li>
 <li><code>diff /tmp/test01 /tmp/test02</code> compare file in two directory<br><code>diff -r /tmp/test01 /tmp/test02</code> compare file in directory and subdirectory<br><code>diff /tmp/test01/1.c /tmp/test02/2.c</code> compare two files  </li>
 <li>patch<br><code>diff a.c b.c &gt; c.patch</code><br><code>patch a.c c.patch</code>  </li>
@@ -210,7 +210,7 @@ file:///mnt/cdrom/
 <li><code>chroot .</code></li>
 <li><code>date &quot;+%F %R:%S&quot;</code><br><code>date &quot;+%y%m%d%H%M%S&quot;</code><br><code>date +%s</code> print timestamp of current time<br><code>date -d @1420210697</code> translate timestamp to datetime<br><code>date +%s -d&quot;Jan 1, 1970 00:00:01&quot;</code> translate datetime to timestamp   </li>
 <li><code>which executefile</code> print directory of executefile<br><code>ldd /usr/bin/executefile</code> print shared library dependencies<br><code>nm /usr/lib64/libXXX.so</code> print interface  </li>
-<li><code>cat /proc/uptime | awk -F. &#39;{d=($1/86400);h=($1%86400)/3600;m=($1%3600)/60;s=($1%60);printf(&quot;system had run %d day %d hours %d mins %d secs\n&quot;,d,h,m,s)}&#39;</code></li>
+<li><code>cat /proc/uptime | awk -F. &apos;{d=($1/86400);h=($1%86400)/3600;m=($1%3600)/60;s=($1%60);printf(&quot;system had run %d day %d hours %d mins %d secs\n&quot;,d,h,m,s)}&apos;</code></li>
 <li><code>fuser -u /home</code><br><code>fuser -v -n tcp 7070</code>  </li>
 <li><code>echo 1 &gt; /proc/sys/kernel/sysrq</code> enable sysrq<br><code>echo &quot;b&quot; &gt; /proc/sysrq-trigger</code>  reboot<br><code>echo &quot;o&quot; &gt; /proc/sysrq-trigger</code>  shutdown<br><code>shutdown -h now</code>                 shutdown<br><code>shutdown -h +10</code> shutdown 10 minutes later<br><code>shutdown -h 10:00</code> shutdown at ten clock  </li>
 <li><code>dmidecode | more</code>    : view mainboard info<br><code>cat /proc/cpuinfo</code>   : view CPU info<br><code>cat /proc/pci</code>       : view pci info<br><code>lspci</code>              : view PCI info<br><code>cat /proc/meminfo</code>   : view memory info<br><code>fdisk -l</code>            : view disk info<br><code>df</code>                  : view disk space useage<br><code>cat /proc/interrupts</code>: view interrupt request<br><code>dmesg | more</code>        : view device debug message  </li>
@@ -218,45 +218,45 @@ file:///mnt/cdrom/
 <li><code>vi -e -s -c &quot;:%s/pattern/string/g&quot; -c &quot;:wq&quot; file</code> execute vi comand in shell</li>
 <li>format u disk<br><code>fdisk -l</code>            : find u disk<br><code>umount /dev/sdb1</code>    : umount u disk<br><code>mkfs.vfat /dev/sdb1</code> : format as fat  </li>
 <li><code>history -c</code> clean<br><code>history -d offset</code> delete specify command  </li>
-<li><code>convert -resize 1024x768 input.svg output.png</code> convert svg to png<br><code>convert file.pdf file.png</code> convert pdf to images(file-XX.png)<br><code>convert *.png file.pdf</code> convert images to one pdf<br><code>convert -fill green -pointsize 40 -draw &#39;text 10,50 &quot;funny day&quot;&#39; foo.png comment.png</code> add text to picture  </li>
+<li><code>convert -resize 1024x768 input.svg output.png</code> convert svg to png<br><code>convert file.pdf file.png</code> convert pdf to images(file-XX.png)<br><code>convert *.png file.pdf</code> convert images to one pdf<br><code>convert -fill green -pointsize 40 -draw &apos;text 10,50 &quot;funny day&quot;&apos; foo.png comment.png</code> add text to picture  </li>
 <li><code>import foo.png</code> capture a select rectangular  </li>
-<li><code>for i in</code>ls<code>; do mv -f $i</code>echo $i | sed ‘s/^………/iscsi/‘<code>; done</code> rename<br>  files, replace the first 5 characters with <code>iscsi</code>  </li>
+<li><code>for i in</code>ls<code>; do mv -f $i</code>echo $i | sed &#x2018;s/^&#x2026;&#x2026;&#x2026;/iscsi/&#x2018;<code>; done</code> rename<br>  files, replace the first 5 characters with <code>iscsi</code>  </li>
 <li><code>fc-list</code> list fonts  </li>
 <li><code>strace -o 1.log -s 1024 -T -tt -p 1234</code> print the system call and time used for process 1234</li>
-<li><code>printf</code> format and print data<br><code>printf &#39;%x\n&#39; 1550</code> convert octal value 1550 to hex, output 60e<br><code>printf &#39;%d\n&#39; 0x99</code> convert hex value 0x99 to octal, output 153   </li>
-<li><code>echo &quot;51200000/64/3“ |bc -l</code> calculate</li>
-<li><code>echo &#39;abc 123dd   3xxx tt&#39; |tr -s &#39;[:space:]&#39; &#39;\n&#39;</code> translate spaces to be line break symbol<br><code>echo &#39;abc 123dT 3xXX tt&#39; |tr &#39;[:upper:]&#39; &#39;[:lower:]&#39;</code><br><code>cat test.md |tr -s &#39;[:space:]&#39; &#39;\n&#39; |tr &#39;[:upper:]&#39; &#39;[:lower:]&#39; |sort |uniq -c| sort -nr |head -10</code><br> find the top hot words for text document.</li>
-<li><code>zip -Phq.hzy.zf.xf.hx.l@123 test.zip test</code> zip “test” file to be test.zip using password<br><code>unzip -Phq.hzy.zf.xf.hx.l@123 test.zip</code> unzip zip file with password<br><code>unzip -Z test.zip</code> unzip file without password<br><code>cat abc.zip.00* &gt;abc.zip</code> merge zip files  </li>
+<li><code>printf</code> format and print data<br><code>printf &apos;%x\n&apos; 1550</code> convert octal value 1550 to hex, output 60e<br><code>printf &apos;%d\n&apos; 0x99</code> convert hex value 0x99 to octal, output 153   </li>
+<li><code>echo &quot;51200000/64/3&#x201C; |bc -l</code> calculate</li>
+<li><code>echo &apos;abc 123dd   3xxx tt&apos; |tr -s &apos;[:space:]&apos; &apos;\n&apos;</code> translate spaces to be line break symbol<br><code>echo &apos;abc 123dT 3xXX tt&apos; |tr &apos;[:upper:]&apos; &apos;[:lower:]&apos;</code><br><code>cat test.md |tr -s &apos;[:space:]&apos; &apos;\n&apos; |tr &apos;[:upper:]&apos; &apos;[:lower:]&apos; |sort |uniq -c| sort -nr |head -10</code><br> find the top hot words for text document.</li>
+<li><code>zip -Phq.hzy.zf.xf.hx.l@123 test.zip test</code> zip &#x201C;test&#x201D; file to be test.zip using password<br><code>unzip -Phq.hzy.zf.xf.hx.l@123 test.zip</code> unzip zip file with password<br><code>unzip -Z test.zip</code> unzip file without password<br><code>cat abc.zip.00* &gt;abc.zip</code> merge zip files  </li>
 <li><code>pkill -9 -t pts/1</code>  </li>
-<li><code>setenforce 0</code>  forbid Selinux temporary<br><code>sed -i &#39;s/SELINUX=.*/SELINUX=disabled/g&#39; /etc/selinux/config</code> forbid Selinux, need reboot  </li>
+<li><code>setenforce 0</code>  forbid Selinux temporary<br><code>sed -i &apos;s/SELINUX=.*/SELINUX=disabled/g&apos; /etc/selinux/config</code> forbid Selinux, need reboot  </li>
 <li><code>kill PID</code><br><code>kill -9 PID</code><br><code>kill -kill PID</code>  </li>
 <li><code>vgchange -ay</code>  </li>
-<li><code>lsof |grep &#39;/core/messages&#39;</code> find which application open the specify file</li>
-<li><code>for x in</code>seq 1 1 10<code>; do ps -eo state,pid,cmd | grep &quot;^D&quot;; echo &quot;----&quot;; sleep 5; done</code><br>print the processes in a “D” state every 5 seconds for 10 intervals </li>
+<li><code>lsof |grep &apos;/core/messages&apos;</code> find which application open the specify file</li>
+<li><code>for x in</code>seq 1 1 10<code>; do ps -eo state,pid,cmd | grep &quot;^D&quot;; echo &quot;----&quot;; sleep 5; done</code><br>print the processes in a &#x201C;D&#x201D; state every 5 seconds for 10 intervals </li>
 <li><code>echo export LANG=en_US.utf8 &gt;&gt;~/.profile</code>, set lang for os,  and checking with <code>echo $LANG</code> or <code>locale</code></li>
 <li><code>gstack threadID</code></li>
 <li><code>rm !(*.pdf)</code> remove files except pdf</li>
 <li><code>[! -d /temp/test] &amp;&amp; mkdir /tmp/test</code> if folder not exist, create it.</li>
 </ul>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">你可能不知道的Shell</a></li>
-<li><a href="http://ahei.info/bash.htm" target="_blank" rel="external">高效操作Bash</a></li>
-<li><a href="http://docs.huihoo.com/homepage/shredderyin/readline.html" target="_blank" rel="external">Bash readline 使用技巧</a></li>
-<li><a href="http://floss.zoomquiet.org/item20051011211622-frameset.html" target="_blank" rel="external">Shell大杂烩</a></li>
-<li><a href="http://blog.jobbole.com/54425/" target="_blank" rel="external">每个Linux用户都应该知道的命令行技巧</a></li>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">&#x4F60;&#x53EF;&#x80FD;&#x4E0D;&#x77E5;&#x9053;&#x7684;Shell</a></li>
+<li><a href="http://ahei.info/bash.htm" target="_blank" rel="external">&#x9AD8;&#x6548;&#x64CD;&#x4F5C;Bash</a></li>
+<li><a href="http://docs.huihoo.com/homepage/shredderyin/readline.html" target="_blank" rel="external">Bash readline &#x4F7F;&#x7528;&#x6280;&#x5DE7;</a></li>
+<li><a href="http://floss.zoomquiet.org/item20051011211622-frameset.html" target="_blank" rel="external">Shell&#x5927;&#x6742;&#x70E9;</a></li>
+<li><a href="http://blog.jobbole.com/54425/" target="_blank" rel="external">&#x6BCF;&#x4E2A;Linux&#x7528;&#x6237;&#x90FD;&#x5E94;&#x8BE5;&#x77E5;&#x9053;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x6280;&#x5DE7;</a></li>
 <li><a href="http://www.cyberciti.biz/faq/check-network-connection-linux/" target="_blank" rel="external">Check network connection command</a></li>
 <li><a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/" target="_blank" rel="external">50 Most Frequently Used UNIX / Linux Commands (With Examples)</a></li>
-<li><a href="http://albanianwizard.org/tcpdump-how-to-the-linux-troubleshooter.albanianwizard" target="_blank" rel="external">Tcpdump how to – the linux network troubleshooter</a></li>
-<li><a href="http://linux.cn/article-4790-1.html" target="_blank" rel="external">20条Linux命令面试问答</a></li>
-<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump命令详解</a></li>
-<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap扫描原理与用法</a></li>
-<li><a href="http://easwy.com/blog/archives/change-rpm-package-installation-directories/" target="_blank" rel="external">Linux使用笔记: 更改RPM包的安装目录</a></li>
+<li><a href="http://albanianwizard.org/tcpdump-how-to-the-linux-troubleshooter.albanianwizard" target="_blank" rel="external">Tcpdump how to &#x2013; the linux network troubleshooter</a></li>
+<li><a href="http://linux.cn/article-4790-1.html" target="_blank" rel="external">20&#x6761;Linux&#x547D;&#x4EE4;&#x9762;&#x8BD5;&#x95EE;&#x7B54;</a></li>
+<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump&#x547D;&#x4EE4;&#x8BE6;&#x89E3;</a></li>
+<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap&#x626B;&#x63CF;&#x539F;&#x7406;&#x4E0E;&#x7528;&#x6CD5;</a></li>
+<li><a href="http://easwy.com/blog/archives/change-rpm-package-installation-directories/" target="_blank" rel="external">Linux&#x4F7F;&#x7528;&#x7B14;&#x8BB0;: &#x66F4;&#x6539;RPM&#x5305;&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/05/linux-common-command/" data-id="cin61d0gr003dfyizmjdrt6wd" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/01/05/linux-common-command/" data-id="cin6a5ugj002b3cizgrptxd1x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -343,7 +343,7 @@ file:///mnt/cdrom/
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

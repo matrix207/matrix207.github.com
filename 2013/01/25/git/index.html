@@ -6,29 +6,29 @@
   <title>git | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="what you should know
-status of files, “untracked, unmodified, modified, staged”
+status of files, &amp;#x201C;untracked, unmodified, modified, staged&amp;#x201D;
 branch include master, brance A, brance B, and so on
 
-helpwhen you don’t know what to do first, you can use the help co">
+helpwhen you don&amp;#x2019;t know what to do first, yo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git">
 <meta property="og:url" content="http://matrix207.github.com/2013/01/25/git/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description" content="what you should know
-status of files, “untracked, unmodified, modified, staged”
+status of files, &amp;#x201C;untracked, unmodified, modified, staged&amp;#x201D;
 branch include master, brance A, brance B, and so on
 
-helpwhen you don’t know what to do first, you can use the help co">
+helpwhen you don&amp;#x2019;t know what to do first, yo">
 <meta property="og:image" content="http://matrix207.github.com/assets/image/posts/git-branch-model.png">
 <meta property="og:image" content="http://git-scm.com/book/en/v2/book/05-distributed-git/images/small-team-flow.png">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git">
 <meta name="twitter:description" content="what you should know
-status of files, “untracked, unmodified, modified, staged”
+status of files, &amp;#x201C;untracked, unmodified, modified, staged&amp;#x201D;
 branch include master, brance A, brance B, and so on
 
-helpwhen you don’t know what to do first, you can use the help co">
+helpwhen you don&amp;#x2019;t know what to do first, yo">
 <meta name="twitter:image" content="http://matrix207.github.com/assets/image/posts/git-branch-model.png">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
@@ -108,10 +108,10 @@ helpwhen you don’t know what to do first, you can use the help co">
       
         <p><img src="/assets/image/posts/git-branch-model.png" alt="Git Branching Model"></p>
 <h3 id="what-you-should-know"><a href="#what-you-should-know" class="headerlink" title="what you should know"></a>what you should know</h3><ul>
-<li>status of files, “untracked, unmodified, modified, staged”</li>
+<li>status of files, &#x201C;untracked, unmodified, modified, staged&#x201D;</li>
 <li>branch include master, brance A, brance B, and so on</li>
 </ul>
-<h3 id="help"><a href="#help" class="headerlink" title="help"></a>help</h3><p>when you don’t know what to do first, you can use the <code>help</code> command.</p>
+<h3 id="help"><a href="#help" class="headerlink" title="help"></a>help</h3><p>when you don&#x2019;t know what to do first, you can use the <code>help</code> command.</p>
 <ul>
 <li><code>git --help</code></li>
 <li><code>git sub-command --help</code>, e.g: <code>git commit --help</code>, <code>git checkout --help</code></li>
@@ -131,7 +131,7 @@ helpwhen you don’t know what to do first, you can use the help co">
 <li>cat ~/.gitconfig</li>
 <li>git auto completion, git-completion.bash<br><a href="https://github.com/git/git/blob/master/contrib/completion/git-completion.bash" target="_blank" rel="external">https://github.com/git/git/blob/master/contrib/completion/git-completion.bash</a></li>
 </ul>
-<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+<h3 id="basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
 <li><code>git clone url</code></li>
 <li><code>git pull</code> fetch data and try to merge it the working code</li>
 <li><code>git fetch</code> only fetch data</li>
@@ -150,7 +150,7 @@ helpwhen you don’t know what to do first, you can use the help co">
 </li>
 <li><code>git mv path_fileA path_fileB</code></li>
 <li><code>git checkout featureA</code> switch to branch featureA</li>
-<li><code>git checkout a.h</code> restore file, if you also have a branch named a.h, should use git checkout – a.h”</li>
+<li><code>git checkout a.h</code> restore file, if you also have a branch named a.h, should use git checkout &#x2013; a.h&#x201D;</li>
 <li><code>git reset file</code> unstage file (remove from staged to modified status)</li>
 <li><code>git commit</code> commit message with specify editor<br><code>git commit file -m &quot;comment here&quot;</code></li>
 <li><code>git remote -v</code></li>
@@ -159,7 +159,7 @@ helpwhen you don’t know what to do first, you can use the help co">
 <li><code>git log --stat</code> show detail of changed files</li>
 <li><code>git log --author=&quot;dennis&quot;</code> filter log by author</li>
 <li><code>git log commit_version</code> </li>
-<li><code>git log -S &#39;XXX&#39; file</code> view commit info of specify code of file</li>
+<li><code>git log -S &apos;XXX&apos; file</code> view commit info of specify code of file</li>
 <li><code>git log --no-merges</code> not show merge log</li>
 </ul>
 </li>
@@ -172,7 +172,7 @@ helpwhen you don’t know what to do first, you can use the help co">
 </ul>
 </li>
 </ul>
-<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ul>
+<h3 id="advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ul>
 <li><code>git reset file</code> undo git add<br><code>git checkout HEAD /path/file</code> undo git operation(rm/modify and so on) on file<br><code>git rm $(git ls-files --deleted)</code> undo git rm multiple files<br><code>git reset --hard origin/master</code> cancel local modify<br><code>git reset --soft HEAD~1</code><br><code>git help reset</code></li>
 <li><code>git merge</code><ul>
 <li><code>git merge --squash</code> merge code without commit</li>
@@ -185,9 +185,9 @@ helpwhen you don’t know what to do first, you can use the help co">
 <li><code>git blame file</code> view all change info of each line</li>
 <li><code>git push origin :branch_name</code> delete remote branch</li>
 <li><code>git remote update --prune</code> update remote branch information on local</li>
-<li><code>git for-each-ref --format=&#39;%(committerdate) %09 %(authorname) %09 %(refname)&#39;\
+<li><code>git for-each-ref --format=&apos;%(committerdate) %09 %(authorname) %09 %(refname)&apos;\
  |sort -k5n -k2M -k3n -k4n</code> list remote git branches by author</li>
-<li><code>git status --short |awk &#39;$1 ~/^M|A|U/ {print $2}&#39;</code> only show modified files<br><code>vim $(git status --short |awk &#39;$1 ~/^M|A|U/ {print $2}&#39;)</code> editor all modified files by vim</li>
+<li><code>git status --short |awk &apos;$1 ~/^M|A|U/ {print $2}&apos;</code> only show modified files<br><code>vim $(git status --short |awk &apos;$1 ~/^M|A|U/ {print $2}&apos;)</code> editor all modified files by vim</li>
 <li><code>git rev-parse</code><ul>
 <li><code>git rev-parse HEAD</code> show commit SHA1 of HEAD</li>
 </ul>
@@ -195,13 +195,13 @@ helpwhen you don’t know what to do first, you can use the help co">
 <li><code>git log -L</code> show lines history</li>
 </ul>
 <h3 id="other-command"><a href="#other-command" class="headerlink" title="other command"></a>other command</h3><ul>
-<li>git commit –fix-up</li>
+<li>git commit &#x2013;fix-up</li>
 </ul>
 <h3 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h3><ul>
-<li><code>git tag -a v0.1 -m &#39;new tag version 0.1&#39;</code> add tag</li>
+<li><code>git tag -a v0.1 -m &apos;new tag version 0.1&apos;</code> add tag</li>
 <li><code>git push origin master v0.1</code> push tag to origin</li>
 </ul>
-<h3 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
+<h3 id="skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
 <li>reset repository to specify commit version<ul>
 <li><code>git clone [remote_address_here] my_repo</code></li>
 <li><code>cd my_repo</code></li>
@@ -240,14 +240,14 @@ Date:   Fri Aug 1 09:02:52 2014 +0800
 </code></pre></li>
 <li><p>merge commit history</p>
 <ul>
-<li><code>git rebase -i HEAD~2</code>, modify the second ‘pick’ to ‘squash’ to merge the<br>last two commit into one; If want merge more, just modify 2 to other digit.</li>
+<li><code>git rebase -i HEAD~2</code>, modify the second &#x2018;pick&#x2019; to &#x2018;squash&#x2019; to merge the<br>last two commit into one; If want merge more, just modify 2 to other digit.</li>
 <li><code>git push --force origin LOCAL-branch:REMOTE-branch</code>, push to remote repository</li>
 </ul>
 </li>
 <li><p>modify the latest commit (or using for merge commit history)</p>
 <ul>
 <li><code>git reset --soft HEAD~1</code>, or <code>git reset --soft &lt;commit id&gt;</code> to edit last<br>serval commits.</li>
-<li>… do something else for the modification …</li>
+<li>&#x2026; do something else for the modification &#x2026;</li>
 <li><code>git commit -c ORIG_HEAD</code> to changed the commit message, or use<br><code>git commit -C ORIG_HEAD</code> to reuse the previous message</li>
 <li>reference <code>git help commit</code>, see the <code>--amend</code></li>
 </ul>
@@ -255,10 +255,10 @@ Date:   Fri Aug 1 09:02:52 2014 +0800
 <li><p>summary statics</p>
 <ul>
 <li><code>git log --author=&quot;$(git config --get user.name)&quot; --pretty=tformat: --numstat \
-|awk &#39;{add+=$1;subs+=$2;loc+=$1-$2} END{printf &quot;added lines: %s removed lines \
-: %s total lines: %s\n&quot;,add,subs,loc}&#39; -</code> count total submit lines of code by author</li>
+|awk &apos;{add+=$1;subs+=$2;loc+=$1-$2} END{printf &quot;added lines: %s removed lines \
+: %s total lines: %s\n&quot;,add,subs,loc}&apos; -</code> count total submit lines of code by author</li>
 <li><code>git shortlog -s -n</code> count summary commits by author and sort</li>
-<li><code>git log --pretty=&#39;%aN&#39; | sort | uniq -c | sort -k1 -n -r | head -n 5</code> List top 5 commiter</li>
+<li><code>git log --pretty=&apos;%aN&apos; | sort | uniq -c | sort -k1 -n -r | head -n 5</code> List top 5 commiter</li>
 </ul>
 </li>
 <li><p>add local repository to remote</p>
@@ -269,7 +269,7 @@ Date:   Fri Aug 1 09:02:52 2014 +0800
 </ul>
 </li>
 </ul>
-<h3 id="Find-the-modified-commit-quickly"><a href="#Find-the-modified-commit-quickly" class="headerlink" title="Find the modified commit quickly"></a>Find the modified commit quickly</h3><p>Assume you find that a function was delete in the current commit, and want to<br>find which commit changed this.</p>
+<h3 id="find-the-modified-commit-quickly"><a href="#Find-the-modified-commit-quickly" class="headerlink" title="Find the modified commit quickly"></a>Find the modified commit quickly</h3><p>Assume you find that a function was delete in the current commit, and want to<br>find which commit changed this.</p>
 <p>Normally, you will work as below:</p>
 <ol>
 <li><code>git log FILE-INCLUDE-THE-FUNCTION</code> to list the commit history of the file<br>which function belong to.</li>
@@ -278,16 +278,16 @@ Date:   Fri Aug 1 09:02:52 2014 +0800
 <p>The disadvantage of this method:</p>
 <ol>
 <li>If there lots commit history it would be hard to find.</li>
-<li>It depend the human eyes, ;）, which easy to make mistake sometimes.</li>
+<li>It depend the human eyes, ;&#xFF09;, which easy to make mistake sometimes.</li>
 </ol>
 <p>So, we want a script to execute this task:</p>
 <ol>
 <li>Use <code>git log --pretty=tformat:%h --after 2015-01-05 FILE</code> filter by date, and<br>only show commit hash. <code>git rev-list --all --after 2013-03 FILE</code> work as well<br>too.</li>
-<li>Use <code>git show COMMIT-SHA |grep &#39;KEY-WORDS&#39;</code> to do searching.</li>
+<li>Use <code>git show COMMIT-SHA |grep &apos;KEY-WORDS&apos;</code> to do searching.</li>
 </ol>
 <p>With such two skills, we can write bash command as below:<br><code>git log --pretty=tformat:%h --after 2013-01 FILE |xargs git show |grep -i KEY-WORDS</code></p>
-<h3 id="Conflict-handle"><a href="#Conflict-handle" class="headerlink" title="Conflict handle"></a>Conflict handle</h3><ul>
-<li>git config –global mergetool=vimdiff</li>
+<h3 id="conflict-handle"><a href="#Conflict-handle" class="headerlink" title="Conflict handle"></a>Conflict handle</h3><ul>
+<li>git config &#x2013;global mergetool=vimdiff</li>
 <li>fugitive</li>
 <li>reference<ul>
 <li><a href="http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/" target="_blank" rel="external">http://vimcasts.org/episodes/fugitive-vim-resolving-merge-conflicts-with-vimdiff/</a></li>
@@ -297,7 +297,7 @@ Date:   Fri Aug 1 09:02:52 2014 +0800
 </ul>
 </li>
 </ul>
-<h3 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h3><p>Auto pull project, bash script</p>
+<h3 id="other"><a href="#Other" class="headerlink" title="Other"></a>Other</h3><p>Auto pull project, bash script</p>
 <pre><code>#!/bin/bash
 
 exclude_dir=&quot;-I test -I hello&quot;
@@ -374,39 +374,39 @@ Further paragraphs come after blank lines.
    single space, with blank lines in between, but conventions vary here
 
  - Use a hanging indent 
-</code></pre><h3 id="Team-work-A"><a href="#Team-work-A" class="headerlink" title="Team work A"></a>Team work A</h3><ul>
+</code></pre><h3 id="team-work-a"><a href="#Team-work-A" class="headerlink" title="Team work A"></a>Team work A</h3><ul>
 <li>git clone url</li>
-<li>git checkout -b featureA  // create a branch, named “featureA”</li>
+<li>git checkout -b featureA  // create a branch, named &#x201C;featureA&#x201D;</li>
 <li>coding</li>
-<li>git commit -am “ADD COMMENT HERE”</li>
+<li>git commit -am &#x201C;ADD COMMENT HERE&#x201D;</li>
 <li>git rebase -i  // make all commit to be one </li>
 <li>git push origin featureA  // push your branch to origin<br><img src="http://git-scm.com/book/en/v2/book/05-distributed-git/images/small-team-flow.png" alt="The general sequence is something like this"></li>
 </ul>
-<h3 id="Team-work-B"><a href="#Team-work-B" class="headerlink" title="Team work B"></a>Team work B</h3><ul>
-<li>step 1: git check -b branchT1 remotes/origin/branchT1 (you can change your local branch “branchT1” other name if you want)</li>
+<h3 id="team-work-b"><a href="#Team-work-B" class="headerlink" title="Team work B"></a>Team work B</h3><ul>
+<li>step 1: git check -b branchT1 remotes/origin/branchT1 (you can change your local branch &#x201C;branchT1&#x201D; other name if you want)</li>
 <li>step 2: do your coding</li>
-<li>step 3: commit your changeds code to your local branch “branchT1”</li>
+<li>step 3: commit your changeds code to your local branch &#x201C;branchT1&#x201D;</li>
 <li>step 4: loop step 2 and step 3</li>
 <li>step 5: git pull origin branchT1 (fetch and merge code, if you not mean do merge, using fetch instead?)</li>
 <li>step 6: git push remotes/origin/branchT1</li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://git-scm.com/book/zh" target="_blank" rel="external">Pro Git</a></li>
 <li><a href="http://www.worldhello.net/gotgithub/index.html" target="_blank" rel="external">GotGitHub</a></li>
 <li><a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">A successful Git branching model</a></li>
 <li><a href="http://git-scm.com/book/ch5-2.html#Commit-Guidelines" target="_blank" rel="external">Commit guidelines</a></li>
-<li><a href="http://www.fwolf.com/blog/post/14" target="_blank" rel="external">Git commit 注释格式</a></li>
+<li><a href="http://www.fwolf.com/blog/post/14" target="_blank" rel="external">Git commit &#x6CE8;&#x91CA;&#x683C;&#x5F0F;</a></li>
 <li><a href="https://github.com/github/gitignore" target="_blank" rel="external">gitignore</a></li>
 <li><a href="http://stackoverflow.com/questions/3555107/git-clone-particular-version-of-remote-repository" target="_blank" rel="external">Git clone particular version of remote repository</a></li>
-<li><a href="http://blog.csdn.net/yihui823/article/details/6681214" target="_blank" rel="external">GIT入门之二：版本历史/回溯</a></li>
+<li><a href="http://blog.csdn.net/yihui823/article/details/6681214" target="_blank" rel="external">GIT&#x5165;&#x95E8;&#x4E4B;&#x4E8C;&#xFF1A;&#x7248;&#x672C;&#x5386;&#x53F2;/&#x56DE;&#x6EAF;</a></li>
 <li><a href="http://gitready.com/about.html" target="_blank" rel="external">git ready</a></li>
-<li><a href="http://backlogtool.com/git-guide/cn" target="_blank" rel="external">猴子都能懂的GIT入门</a></li>
+<li><a href="http://backlogtool.com/git-guide/cn" target="_blank" rel="external">&#x7334;&#x5B50;&#x90FD;&#x80FD;&#x61C2;&#x7684;GIT&#x5165;&#x95E8;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/25/git/" data-id="cin61d0gt003kfyizqulcdsww" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/01/25/git/" data-id="cin6a5uh2003h3cizld0vb518" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
@@ -493,7 +493,7 @@ Further paragraphs come after blank lines.
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -5,52 +5,25 @@
   
   <title>convert mysql to sqlite | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装 mysqlyum install mysql
-安装 sqliteyum install sqlite-devel
-MySql常用命令登陆数据库
-[root@localhost ~] mysql -uroot -p123456 mysql
-
-显示已有数据库
-mysql&amp;gt; show databases;
-
-进入数据库
-mysql&amp;gt; use mytest;
-
-数据库中的表
-mysql&amp;">
+  <meta name="description" content="&amp;#x5B89;&amp;#x88C5; mysqlyum install mysql
+&amp;#x5B89;&amp;#x88C5; sqliteyum install sqlite-devel
+MySql&amp;#x5E38;&amp;#x7528;&amp;#x547D;&amp;#x4EE4;&amp;#x767B;&amp;#x9646;&amp;#x6570;&amp;#x636E;&amp;#x5E93;
+[root@localhost ~] mysql -uroot -p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="convert mysql to sqlite">
 <meta property="og:url" content="http://matrix207.github.com/2013/04/02/convert-mysql-to-sqlite/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
-<meta property="og:description" content="安装 mysqlyum install mysql
-安装 sqliteyum install sqlite-devel
-MySql常用命令登陆数据库
-[root@localhost ~] mysql -uroot -p123456 mysql
-
-显示已有数据库
-mysql&amp;gt; show databases;
-
-进入数据库
-mysql&amp;gt; use mytest;
-
-数据库中的表
-mysql&amp;">
+<meta property="og:description" content="&amp;#x5B89;&amp;#x88C5; mysqlyum install mysql
+&amp;#x5B89;&amp;#x88C5; sqliteyum install sqlite-devel
+MySql&amp;#x5E38;&amp;#x7528;&amp;#x547D;&amp;#x4EE4;&amp;#x767B;&amp;#x9646;&amp;#x6570;&amp;#x636E;&amp;#x5E93;
+[root@localhost ~] mysql -uroot -p">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="convert mysql to sqlite">
-<meta name="twitter:description" content="安装 mysqlyum install mysql
-安装 sqliteyum install sqlite-devel
-MySql常用命令登陆数据库
-[root@localhost ~] mysql -uroot -p123456 mysql
-
-显示已有数据库
-mysql&amp;gt; show databases;
-
-进入数据库
-mysql&amp;gt; use mytest;
-
-数据库中的表
-mysql&amp;">
+<meta name="twitter:description" content="&amp;#x5B89;&amp;#x88C5; mysqlyum install mysql
+&amp;#x5B89;&amp;#x88C5; sqliteyum install sqlite-devel
+MySql&amp;#x5E38;&amp;#x7528;&amp;#x547D;&amp;#x4EE4;&amp;#x767B;&amp;#x9646;&amp;#x6570;&amp;#x636E;&amp;#x5E93;
+[root@localhost ~] mysql -uroot -p">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -123,27 +96,27 @@ mysql&amp;">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h3><pre><code>yum install mysql
-</code></pre><h3 id="安装-sqlite"><a href="#安装-sqlite" class="headerlink" title="安装 sqlite"></a>安装 sqlite</h3><pre><code>yum install sqlite-devel
-</code></pre><h3 id="MySql常用命令"><a href="#MySql常用命令" class="headerlink" title="MySql常用命令"></a>MySql常用命令</h3><pre><code>登陆数据库
+        <h3 id="&#x5B89;&#x88C5;-mysql"><a href="#&#x5B89;&#x88C5;-mysql" class="headerlink" title="&#x5B89;&#x88C5; mysql"></a>&#x5B89;&#x88C5; mysql</h3><pre><code>yum install mysql
+</code></pre><h3 id="&#x5B89;&#x88C5;-sqlite"><a href="#&#x5B89;&#x88C5;-sqlite" class="headerlink" title="&#x5B89;&#x88C5; sqlite"></a>&#x5B89;&#x88C5; sqlite</h3><pre><code>yum install sqlite-devel
+</code></pre><h3 id="mysql&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a href="#MySql&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="headerlink" title="MySql&#x5E38;&#x7528;&#x547D;&#x4EE4;"></a>MySql&#x5E38;&#x7528;&#x547D;&#x4EE4;</h3><pre><code>&#x767B;&#x9646;&#x6570;&#x636E;&#x5E93;
 [root@localhost ~] mysql -uroot -p123456 mysql
 
-显示已有数据库
+&#x663E;&#x793A;&#x5DF2;&#x6709;&#x6570;&#x636E;&#x5E93;
 mysql&gt; show databases;
 
-进入数据库
+&#x8FDB;&#x5165;&#x6570;&#x636E;&#x5E93;
 mysql&gt; use mytest;
 
-数据库中的表
+&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;
 mysql&gt; show tables;
-</code></pre><h3 id="脚本实现-mysql-转为-sqlite"><a href="#脚本实现-mysql-转为-sqlite" class="headerlink" title="脚本实现: mysql 转为 sqlite"></a>脚本实现: mysql 转为 sqlite</h3><p><a href="https://gist.github.com/esperlu/943776/" target="_blank" rel="external">mysql2sqlite.sh</a></p>
-<h3 id="终端操作记录"><a href="#终端操作记录" class="headerlink" title="终端操作记录"></a>终端操作记录</h3><pre><code># 上传脚本
+</code></pre><h3 id="&#x811A;&#x672C;&#x5B9E;&#x73B0;-mysql-&#x8F6C;&#x4E3A;-sqlite"><a href="#&#x811A;&#x672C;&#x5B9E;&#x73B0;-mysql-&#x8F6C;&#x4E3A;-sqlite" class="headerlink" title="&#x811A;&#x672C;&#x5B9E;&#x73B0;: mysql &#x8F6C;&#x4E3A; sqlite"></a>&#x811A;&#x672C;&#x5B9E;&#x73B0;: mysql &#x8F6C;&#x4E3A; sqlite</h3><p><a href="https://gist.github.com/esperlu/943776/" target="_blank" rel="external">mysql2sqlite.sh</a></p>
+<h3 id="&#x7EC8;&#x7AEF;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;"><a href="#&#x7EC8;&#x7AEF;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;" class="headerlink" title="&#x7EC8;&#x7AEF;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;"></a>&#x7EC8;&#x7AEF;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;</h3><pre><code># &#x4E0A;&#x4F20;&#x811A;&#x672C;
 [root@localhost sqlite]# sshpass -p 1234 scp mysql2sqlite.sh 192.168.1.103:/root
 [root@localhost sqlite]# ssh 172.16.50.117
 [root@localhost ~]# ls
 mysql2sqlite.sh
 
-# 执行转换mysql数据库到sqlite数据库,转换后的文件为database.sqlite
+# &#x6267;&#x884C;&#x8F6C;&#x6362;mysql&#x6570;&#x636E;&#x5E93;&#x5230;sqlite&#x6570;&#x636E;&#x5E93;,&#x8F6C;&#x6362;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x4E3A;database.sqlite
 [root@localhost ~]# ./mysql2sqlite.sh -u root -p123456 mysql | sqlite3 database.sqlite
 memory
 [root@localhost ~]# ls -lh
@@ -151,16 +124,16 @@ total 632K
 -rw-r--r-- 1 root root 629K 2013-04-02 09:08 database.sqlite
 -rwxr-xr-x 1 root root 3.0K 2013-04-02 08:49 mysql2sqlite.sh
 
-# 打开数据库文件
+# &#x6253;&#x5F00;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;
 [root@localhost ~]# sqlite3 database.sqlite  
 SQLite version 3.6.17
 Enter &quot;.help&quot; for instructions
 Enter SQL statements terminated with a &quot;;&quot;
-sqlite&gt; .database                   # 显示数据库
+sqlite&gt; .database                   # &#x663E;&#x793A;&#x6570;&#x636E;&#x5E93;
 seq  name             file                                                      
 ---  ---------------  ----------------------------------------------------------
 0    main             /root/database.sqlite                                     
-sqlite&gt; .tables                     # 显示表格
+sqlite&gt; .tables                     # &#x663E;&#x793A;&#x8868;&#x683C;
 columns_priv               proc                     
 db                         procs_priv               
 event                      servers                  
@@ -172,12 +145,12 @@ help_topic                 time_zone_transition
 host                       time_zone_transition_type
 ndb_binlog_index           user                     
 plugin                   
-sqlite&gt; select * from user;         # 查询表格信息
-....                                # 此处省略输出
-sqlite&gt; .exit                       # 退出
+sqlite&gt; select * from user;         # &#x67E5;&#x8BE2;&#x8868;&#x683C;&#x4FE1;&#x606F;
+....                                # &#x6B64;&#x5904;&#x7701;&#x7565;&#x8F93;&#x51FA;
+sqlite&gt; .exit                       # &#x9000;&#x51FA;
 [root@localhost ~]#
 
-# 导出其他数据库mytest, 这里出现了错误,待解决.
+# &#x5BFC;&#x51FA;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x5E93;mytest, &#x8FD9;&#x91CC;&#x51FA;&#x73B0;&#x4E86;&#x9519;&#x8BEF;,&#x5F85;&#x89E3;&#x51B3;.
 [root@localhost ~]# ./mysql2sqlite.sh -u root -p123456 mytest | sqlite3 mytest.sqlite
 memory
 SQL error near line 746: near &quot;COMMENT&quot;: syntax error
@@ -187,24 +160,24 @@ SQL error near line 809: no such table: main.user_log
 </code></pre><p>reference:</p>
 <ul>
 <li><a href="https://gist.github.com/esperlu/943776/" target="_blank" rel="external">mysql2sqlite.sh</a></li>
-<li><a href="http://my.oschina.net/chunquedong/blog/25913" target="_blank" rel="external">MySQL命令</a></li>
-<li><a href="http://my.oschina.net/ncu033/blog/103540" target="_blank" rel="external">MYSQL命令大全</a></li>
+<li><a href="http://my.oschina.net/chunquedong/blog/25913" target="_blank" rel="external">MySQL&#x547D;&#x4EE4;</a></li>
+<li><a href="http://my.oschina.net/ncu033/blog/103540" target="_blank" rel="external">MYSQL&#x547D;&#x4EE4;&#x5927;&#x5168;</a></li>
 <li><a href="http://stackoverflow.com/questions/5164033/export-a-mysql-database-to-sqlite-database" target="_blank" rel="external">Export a MySQL Database to SQLite Database</a></li>
 <li><a href="http://www.sqlite.org/cvstrac/wiki?p=ConverterTools" target="_blank" rel="external">sqlite - Converter Tools</a></li>
-<li><a href="www.cnblogs.com/lwm-1988/archive/2011/08/20/2147573.html">sqlite3 命令行操作</a></li>
-<li><a href="www.cnblogs.com/zeroone/archive/2010/05/11/1732834.html">mysqldump备份还原</a> </li>
+<li><a href="www.cnblogs.com/lwm-1988/archive/2011/08/20/2147573.html">sqlite3 &#x547D;&#x4EE4;&#x884C;&#x64CD;&#x4F5C;</a></li>
+<li><a href="www.cnblogs.com/zeroone/archive/2010/05/11/1732834.html">mysqldump&#x5907;&#x4EFD;&#x8FD8;&#x539F;</a> </li>
 <li><a href="http://www.jbip.net/content/how-convert-mysql-sqlite" target="_blank" rel="external">How-to: Convert mysql to sqlite</a></li>
 <li><a href="http://blog.sina.com.cn/s/blog_a9ec688101019m8i.html" target="_blank" rel="external">mysql to sqlite database</a></li>
 <li><a href="http://radicallyrails.blogspot.com/2011/05/how-to-install-sqlite3-on-fedora.html" target="_blank" rel="external">How to install SQLite3 on Fedora</a></li>
 <li><a href="https://github.com/athlite/sqlite3-to-mysql/blob/master/sqlite3-to-mysql" target="_blank" rel="external">sqlite3-to-mysql</a></li>
 <li><a href="www.stat.berkeley.edu/~statcur/Workshop2/Assignments/Baseball/instructions.html">Shell scripts for converting MySQL dump into SQLite</a></li>
-<li><a href="http://mifunny.info/convert-mysql-to-sqlite-script-330.html" target="_blank" rel="external">MySQL转SQLite Shell脚本</a></li>
+<li><a href="http://mifunny.info/convert-mysql-to-sqlite-script-330.html" target="_blank" rel="external">MySQL&#x8F6C;SQLite Shell&#x811A;&#x672C;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/02/convert-mysql-to-sqlite/" data-id="cin61d0he0051fyiz30xi3g16" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/04/02/convert-mysql-to-sqlite/" data-id="cin6a5uhs00523cizfbnphy47" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sqlite/">sqlite</a></li></ul>
@@ -215,11 +188,11 @@ SQL error near line 809: no such table: main.user_log
     
 <nav id="article-nav">
   
-    <a href="/2013/04/07/kvm/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2013/04/07/arp-on-windows/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          kvm
+          arp on windows
         
       </div>
     </a>
@@ -291,7 +264,7 @@ SQL error near line 809: no such table: main.user_log
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

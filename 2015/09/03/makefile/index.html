@@ -120,7 +120,7 @@ all:$(BINS)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Generate-each-source-file-to-be-one-bin-file"><a href="#Generate-each-source-file-to-be-one-bin-file" class="headerlink" title="Generate each source file to be one bin file"></a>Generate each source file to be one bin file</h3><ul>
+        <h3 id="generate-each-source-file-to-be-one-bin-file"><a href="#Generate-each-source-file-to-be-one-bin-file" class="headerlink" title="Generate each source file to be one bin file"></a>Generate each source file to be one bin file</h3><ul>
 <li><p>Makefile</p>
 <pre><code>CC     = g++
 CFLAGS += -g -Wall
@@ -140,7 +140,7 @@ clean:
     rm -f *.o $(BINS)
 </code></pre></li>
 </ul>
-<h3 id="Generate-all-source-files-to-be-on-bin-file"><a href="#Generate-all-source-files-to-be-on-bin-file" class="headerlink" title="Generate all source files to be on bin file"></a>Generate all source files to be on bin file</h3><ul>
+<h3 id="generate-all-source-files-to-be-on-bin-file"><a href="#Generate-all-source-files-to-be-on-bin-file" class="headerlink" title="Generate all source files to be on bin file"></a>Generate all source files to be on bin file</h3><ul>
 <li><p>Makefile</p>
 <pre><code>CC     = g++
 CFLAGS += -g -Wall
@@ -161,7 +161,7 @@ clean:
     rm -f *.o $(TARGET)
 </code></pre></li>
 </ul>
-<h3 id="Auto-run-all-Makefile-in-all-sub-directory"><a href="#Auto-run-all-Makefile-in-all-sub-directory" class="headerlink" title="Auto run all Makefile in all sub-directory"></a>Auto run all Makefile in all sub-directory</h3><ul>
+<h3 id="auto-run-all-makefile-in-all-sub-directory"><a href="#Auto-run-all-Makefile-in-all-sub-directory" class="headerlink" title="Auto run all Makefile in all sub-directory"></a>Auto run all Makefile in all sub-directory</h3><ul>
 <li><p>Makefile</p>
 <pre><code>########################################################
 # Makefile
@@ -219,7 +219,7 @@ clean:
     rm -f *.o $(TARGET)
 </code></pre></li>
 </ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<h3 id="example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>###########################################################
 # Makefile
@@ -311,7 +311,7 @@ clean:
     rm -f *.o 
 </code></pre></li>
 </ul>
-<h3 id="An-complex-example"><a href="#An-complex-example" class="headerlink" title="An complex example"></a>An complex example</h3><ul>
+<h3 id="an-complex-example"><a href="#An-complex-example" class="headerlink" title="An complex example"></a>An complex example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>###########################################################
 # Makefile
@@ -367,7 +367,7 @@ tail -n+$ARCHIVE $0 | tar xzv -C $TMPDIR
 CDIR=`pwd`
 cd $TMPDIR
 
-#./installer   # 改为压缩包中安装程序的地址
+#./installer   # &#x6539;&#x4E3A;&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x7684;&#x5730;&#x5740;
 
 # Make sure we are root
 if [ `id | sed -e &apos;s/(.*//&apos;` != &quot;uid=0&quot; ]; then
@@ -410,12 +410,12 @@ sh -c &quot;sed -i -e &apos;/__MYAPP_AUTO_DATE__/ {
 <pre><code>/*===============================================================
  * Copyright (C) 2014 All rights reserved.
  * 
- * 文件名称：version.h
- * 创 建 者：Matrix207
- * 创建日期：2014年07月12日
- * 描    述：
+ * &#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF1A;version.h
+ * &#x521B; &#x5EFA; &#x8005;&#xFF1A;Matrix207
+ * &#x521B;&#x5EFA;&#x65E5;&#x671F;&#xFF1A;2014&#x5E74;07&#x6708;12&#x65E5;
+ * &#x63CF;    &#x8FF0;&#xFF1A;
  *
- * 更新日志：
+ * &#x66F4;&#x65B0;&#x65E5;&#x5FD7;&#xFF1A;
  *
  ================================================================*/
 #ifndef _VERSION_H_
@@ -426,18 +426,18 @@ char __MYAPP_AUTO_DATE__[] = &quot;2014&quot;;
 #endif /* _VERSION_H_ */
 </code></pre></li>
 </ul>
-<h3 id="Another-example"><a href="#Another-example" class="headerlink" title="Another example"></a>Another example</h3><ul>
+<h3 id="another-example"><a href="#Another-example" class="headerlink" title="Another example"></a>Another example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>#################################################################
 # Copyright (C) 2014 All rights reserved.
 # 
-# 文件名称：Makefile
-# 创 建 者：Dennis
-# 创建日期：2014年12月11日
-# 描    述：
+# &#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF1A;Makefile
+# &#x521B; &#x5EFA; &#x8005;&#xFF1A;Dennis
+# &#x521B;&#x5EFA;&#x65E5;&#x671F;&#xFF1A;2014&#x5E74;12&#x6708;11&#x65E5;
+# &#x63CF;    &#x8FF0;&#xFF1A;
 #
-# 更新日志：
-#   v0.1  20141211  Dennis  创建
+# &#x66F4;&#x65B0;&#x65E5;&#x5FD7;&#xFF1A;
+#   v0.1  20141211  Dennis  &#x521B;&#x5EFA;
 ##################################################################
 DATE_TIME=$(shell date &apos;+%y%m%d%H%M%S&apos;)
 DATE_TIME2=$(shell date &apos;+%Y-%m-%d %H:%M&apos;)
@@ -475,7 +475,7 @@ clean:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/09/03/makefile/" data-id="cin61d0ll009hfyiz9r5wps8w" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/09/03/makefile/" data-id="cin6a5ukw009m3cizl0n9y167" class="article-share-link">Share</a>
       
       
     </footer>
@@ -560,7 +560,7 @@ clean:
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -105,11 +105,11 @@ Test[dennis@localhost ttt]$ mkdir empty
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><ul>
+        <h3 id="methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><ul>
 <li>rm</li>
 <li>rsync</li>
 </ul>
-<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><pre><code>[dennis@localhost ttt]$ mkdir empty
+<h3 id="test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><pre><code>[dennis@localhost ttt]$ mkdir empty
 [dennis@localhost ttt]$ mkdir tmp/; seq 1 40000 | xargs -I{} touch tmp/file_{} 
 [dennis@localhost ttt]$ mkdir tmp1/; time seq 1 40000 | xargs -I{} touch tmp1/file_{} 
 
@@ -182,24 +182,24 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
   0.00    0.000000           0         1           newfstatat
 ------ ----------- ----------- --------- --------- ----------------
 100.00    0.044580                 40307         9 total
-</code></pre><h3 id="Analyze-system-call"><a href="#Analyze-system-call" class="headerlink" title="Analyze system call"></a>Analyze system call</h3><ul>
+</code></pre><h3 id="analyze-system-call"><a href="#Analyze-system-call" class="headerlink" title="Analyze system call"></a>Analyze system call</h3><ul>
 <li><p>rm<br>Do so many system calls, special of unlinkat, it take of 79.25% of time,   </p>
 </li>
 <li><p>rsync  </p>
 </li>
 </ul>
-<h3 id="Analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
+<h3 id="analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
 <li><a href="http://rsync.samba.org/" target="_blank" rel="external">rsync</a></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.quora.com/How-can-someone-rapidly-delete-400-000-files" target="_blank" rel="external">How can someone rapidly delete 400,000 files?</a></li>
-<li><a href="http://blog.chinaunix.net/uid-10705106-id-3879288.html" target="_blank" rel="external">为什么rsync能够快速删除400000文件</a></li>
+<li><a href="http://blog.chinaunix.net/uid-10705106-id-3879288.html" target="_blank" rel="external">&#x4E3A;&#x4EC0;&#x4E48;rsync&#x80FD;&#x591F;&#x5FEB;&#x901F;&#x5220;&#x9664;400000&#x6587;&#x4EF6;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cin61d0kr008sfyizsk38a9u9" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cin6a5ukb00913cizrgca6pzi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -284,7 +284,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

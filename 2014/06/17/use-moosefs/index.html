@@ -111,7 +111,7 @@ cd mfs-1.6.15
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Master-server-installation"><a href="#Master-server-installation" class="headerlink" title="Master server installation"></a>Master server installation</h3><ul>
+        <h3 id="master-server-installation"><a href="#Master-server-installation" class="headerlink" title="Master server installation"></a>Master server installation</h3><ul>
 <li><p><strong>Installation</strong></p>
 <pre><code>groupadd mfs
 useradd -g mfs mfs
@@ -153,7 +153,7 @@ cp metadata.mfs.empty metadata.mfs
 /usr/sbin/mfscgiserv 
 </code></pre></li>
 </ul>
-<h3 id="Install-Backup-Server-metalogger"><a href="#Install-Backup-Server-metalogger" class="headerlink" title="Install Backup Server (metalogger)"></a>Install Backup Server (metalogger)</h3><p>Metalogger installation is very similar to that of the master server.<br>We issue the following commands:</p>
+<h3 id="install-backup-server-metalogger"><a href="#Install-Backup-Server-metalogger" class="headerlink" title="Install Backup Server (metalogger)"></a>Install Backup Server (metalogger)</h3><p>Metalogger installation is very similar to that of the master server.<br>We issue the following commands:</p>
 <pre><code>groupadd mfs
 useradd -g mfs mfs
 cd /usr/src
@@ -172,7 +172,7 @@ cp mfsmetalogger.cfg.dist mfsmetalogger.cfg
 </code></pre><p>Now we are ready to start the backup server process :</p>
 <pre><code>/usr/sbin/mfsmetalogger start
 </code></pre><p>In a production environment you should set up automatic start of mfsmetalogger. </p>
-<h3 id="Chunk-servers-installation"><a href="#Chunk-servers-installation" class="headerlink" title="Chunk servers installation"></a>Chunk servers installation</h3><p>We issue the following commands on the machines which are to be chunks servers:</p>
+<h3 id="chunk-servers-installation"><a href="#Chunk-servers-installation" class="headerlink" title="Chunk servers installation"></a>Chunk servers installation</h3><p>We issue the following commands on the machines which are to be chunks servers:</p>
 <pre><code>groupadd mfs
 useradd -g mfs mfs
 cd /usr/src
@@ -196,7 +196,7 @@ chown -R mfs:mfs /mnt/mfschunks2
 <pre><code>192.168.1.1 mfsmaster
 </code></pre><p>Now we are ready to start the chunk server:</p>
 <pre><code>/usr/sbin/mfschunkserver start 
-</code></pre><h3 id="Users’-computers-installation"><a href="#Users’-computers-installation" class="headerlink" title="Users’ computers installation"></a>Users’ computers installation</h3><p>Install FUSE</p>
+</code></pre><h3 id="users-computers-installation"><a href="#Users&#x2019;-computers-installation" class="headerlink" title="Users&#x2019; computers installation"></a>Users&#x2019; computers installation</h3><p>Install FUSE</p>
 <pre><code>cd /usr/src
 tar -zxvf fuse-2.8.3.tar.gz
 cd fuse-2.8.3
@@ -214,7 +214,7 @@ make
 make install
 </code></pre><p>In a /etc/hosts file we add this line:</p>
 <pre><code>192.168.1.1 mfsmaster
-</code></pre><p>Let’s assume that we will mount the system in a /mnt/mfs folder on a client’s<br>machine. We issue the following commands:</p>
+</code></pre><p>Let&#x2019;s assume that we will mount the system in a /mnt/mfs folder on a client&#x2019;s<br>machine. We issue the following commands:</p>
 <pre><code>mkdir -p /mnt/mfs
 /usr/bin/mfsmount /mnt/mfs -H mfsmaster
 </code></pre><p>Now after issuing the <code>df -h | grep mfs</code> command we should get information<br>similar to this:</p>
@@ -223,11 +223,11 @@ make install
 /storage/mfschunks/mfschunks2
     2.0G 69M 1.9G 4% /mnt/mfschunks2
 mfs#mfsmaster:9421 3.2G 0 3.2G 0% /mnt/mfs 
-</code></pre><h3 id="Installing-MooseFS-on-one-server"><a href="#Installing-MooseFS-on-one-server" class="headerlink" title="Installing MooseFS on one server"></a>Installing MooseFS on one server</h3><ul>
+</code></pre><h3 id="installing-moosefs-on-one-server"><a href="#Installing-MooseFS-on-one-server" class="headerlink" title="Installing MooseFS on one server"></a>Installing MooseFS on one server</h3><ul>
 <li>Install <code>FUSE</code></li>
 <li>Install <code>Moosefs</code></li>
 </ul>
-<h3 id="Basic-MooseFS-Usage"><a href="#Basic-MooseFS-Usage" class="headerlink" title="Basic MooseFS Usage"></a>Basic MooseFS Usage</h3><p>The number of copies for the folder is set with the <code>mfssetgoal –r</code> command: </p>
+<h3 id="basic-moosefs-usage"><a href="#Basic-MooseFS-Usage" class="headerlink" title="Basic MooseFS Usage"></a>Basic MooseFS Usage</h3><p>The number of copies for the folder is set with the <code>mfssetgoal &#x2013;r</code> command: </p>
 <pre><code>mfssetgoal -r 1 /mnt/mfs/folder1
 /mnt/mfs/folder1:
 inodes with goal changed: 0
@@ -239,7 +239,7 @@ inodes with goal changed: 0
 inodes with goal not changed: 1
 inodes with permission denied: 0 
 </code></pre><p>The command <code>mfscheckfile</code> is used for checking in how many copies the given<br>file is stored. </p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-v.1.1.pdf" target="_blank" rel="external">http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-v.1.1.pdf</a></li>
 <li><a href="http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-cn-v.1.1.pdf" target="_blank" rel="external">http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-cn-v.1.1.pdf</a></li>
 <li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
@@ -251,7 +251,7 @@ inodes with permission denied: 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cin61d0jx0085fyizeh1r49l5" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cin6a5ujn00863cizr4bbewwa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,19 +260,19 @@ inodes with permission denied: 0
     
 <nav id="article-nav">
   
-    <a href="/2014/06/17/moosefs-source-code-analysis/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/06/21/software-agent/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          moosefs source code analysis
+          software agent
         
       </div>
     </a>
   
   
-    <a href="/2014/06/07/solution-of-error-while-loading-shared-libraries/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/06/17/sms-develop/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">solution of error while loading shared libraries</div>
+      <div class="article-nav-title">sms develop</div>
     </a>
   
 </nav>
@@ -336,7 +336,7 @@ inodes with permission denied: 0
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

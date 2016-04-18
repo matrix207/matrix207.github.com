@@ -6,21 +6,21 @@
   <title>sync | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Introducesync, linux command, using to write any data buffer in memory out to disk.
-It do nothing, but exercise the ‘sync’ system call
-So, if we want to study what the ‘sync’ really do, go in the kern">
+It do nothing, but exercise the &amp;#x2018;sync&amp;#x2019; system call
+So, if we want to study what the &amp;#x2018;sync&amp;#x201">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sync">
 <meta property="og:url" content="http://matrix207.github.com/2014/09/07/sync/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description" content="Introducesync, linux command, using to write any data buffer in memory out to disk.
-It do nothing, but exercise the ‘sync’ system call
-So, if we want to study what the ‘sync’ really do, go in the kern">
+It do nothing, but exercise the &amp;#x2018;sync&amp;#x2019; system call
+So, if we want to study what the &amp;#x2018;sync&amp;#x201">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sync">
 <meta name="twitter:description" content="Introducesync, linux command, using to write any data buffer in memory out to disk.
-It do nothing, but exercise the ‘sync’ system call
-So, if we want to study what the ‘sync’ really do, go in the kern">
+It do nothing, but exercise the &amp;#x2018;sync&amp;#x2019; system call
+So, if we want to study what the &amp;#x2018;sync&amp;#x201">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -93,9 +93,9 @@ So, if we want to study what the ‘sync’ really do, go in the kern">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>sync, linux command, using to write any data buffer in memory out to disk.</p>
-<p>It do nothing, but exercise the ‘sync’ system call</p>
-<p>So, if we want to study what the ‘sync’ really do, go in the kernel.</p>
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>sync, linux command, using to write any data buffer in memory out to disk.</p>
+<p>It do nothing, but exercise the &#x2018;sync&#x2019; system call</p>
+<p>So, if we want to study what the &#x2018;sync&#x2019; really do, go in the kernel.</p>
 <h3 id="sync-command"><a href="#sync-command" class="headerlink" title="sync command"></a>sync command</h3><p>File: coreutils-8.9/src/sync.c</p>
 <pre><code>int
 main (int argc, char **argv)
@@ -194,7 +194,7 @@ restart:
 <li>after write big file to disk, such as using command <code>cp</code></li>
 <li>to be continue</li>
 </ol>
-<h3 id="sync-fsync-fdatasync"><a href="#sync-fsync-fdatasync" class="headerlink" title="sync,fsync,fdatasync"></a>sync,fsync,fdatasync</h3><ul>
+<h3 id="syncfsyncfdatasync"><a href="#sync-fsync-fdatasync" class="headerlink" title="sync,fsync,fdatasync"></a>sync,fsync,fdatasync</h3><ul>
 <li>sync, add the modified buffer to write_queue, then return immediately, not wait<br>for the reality disk writed.</li>
 <li>fsync, used for single file with specify file description,and wait the disk write finish.</li>
 <li>fdatasync, similar to fsync, but just do effect to the data part. fsync make<br>effect to data and file property.</li>
@@ -203,19 +203,19 @@ restart:
 <li>How if I want to sync from serval Virtual Disks, and ignore serval VDs</li>
 <li>To be continue</li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li>man sync</li>
-<li>info coreutils ‘sync invocation’ </li>
+<li>info coreutils &#x2018;sync invocation&#x2019; </li>
 <li>kernel code</li>
 <li><a href="ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.9.tar.xz" target="_blank" rel="external">coreutils-8.9</a></li>
-<li><a href="http://jesserei.blog.163.com/blog/static/121411689201032015129673/" target="_blank" rel="external">sync、fsync和fdatasync函数</a></li>
-<li><a href="http://www.2cto.com/os/201204/126687.html" target="_blank" rel="external">缓存同步操作–sys_sync系统调用</a></li>
+<li><a href="http://jesserei.blog.163.com/blog/static/121411689201032015129673/" target="_blank" rel="external">sync&#x3001;fsync&#x548C;fdatasync&#x51FD;&#x6570;</a></li>
+<li><a href="http://www.2cto.com/os/201204/126687.html" target="_blank" rel="external">&#x7F13;&#x5B58;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x2013;sys_sync&#x7CFB;&#x7EDF;&#x8C03;&#x7528;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/07/sync/" data-id="cin61d0ko008qfyiz6zxq3olv" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/09/07/sync/" data-id="cin6a5uk9008x3cizrwh8f509" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +300,7 @@ restart:
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

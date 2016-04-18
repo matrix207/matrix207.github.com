@@ -118,11 +118,11 @@ Deeply understand point
 <li><strong>Deeply understand point</strong></li>
 </ul>
 <p>##2. math</p>
-<h3 id="2-1-mod"><a href="#2-1-mod" class="headerlink" title="2.1 mod"></a>2.1 mod</h3><pre><code>if n%2k=x, then x=n&amp;(2k-1)
-</code></pre><h3 id="2-2-even-odd-check"><a href="#2-2-even-odd-check" class="headerlink" title="2.2 even odd check"></a>2.2 even odd check</h3><p>if the lowest bit of binary mode is 0, even number, otherwise odd.</p>
-<h3 id="2-3-multi"><a href="#2-3-multi" class="headerlink" title="2.3 multi"></a>2.3 multi</h3><pre><code>a*5 = a&lt;&lt;2+a
+<h3 id="21-mod"><a href="#2-1-mod" class="headerlink" title="2.1 mod"></a>2.1 mod</h3><pre><code>if n%2k=x, then x=n&amp;(2k-1)
+</code></pre><h3 id="22-even-odd-check"><a href="#2-2-even-odd-check" class="headerlink" title="2.2 even odd check"></a>2.2 even odd check</h3><p>if the lowest bit of binary mode is 0, even number, otherwise odd.</p>
+<h3 id="23-multi"><a href="#2-3-multi" class="headerlink" title="2.3 multi"></a>2.3 multi</h3><pre><code>a*5 = a&lt;&lt;2+a
 </code></pre><p>##3.structure</p>
-<h3 id="3-1-size"><a href="#3-1-size" class="headerlink" title="3.1 size"></a>3.1 size</h3><pre><code>int arr[] = {1, 5, 3, 18, 107, 21, 88};
+<h3 id="31-size"><a href="#3-1-size" class="headerlink" title="3.1 size"></a>3.1 size</h3><pre><code>int arr[] = {1, 5, 3, 18, 107, 21, 88};
 
 size of arr is sizeof(arr)/sizeof(arr[0])
 
@@ -134,32 +134,32 @@ struct _test_ {
 
 size of _test_ is sizeof(_test_)
 </code></pre><p>##4. Puzzle</p>
-<h3 id="4-1-Print-the-numbers-between-1-and-1000"><a href="#4-1-Print-the-numbers-between-1-and-1000" class="headerlink" title="4.1 Print the numbers between 1 and 1000."></a>4.1 Print the numbers between 1 and 1000.</h3><ul>
-<li>Add a rule: Don’t use any loops.</li>
+<h3 id="41-print-the-numbers-between-1-and-1000"><a href="#4-1-Print-the-numbers-between-1-and-1000" class="headerlink" title="4.1 Print the numbers between 1 and 1000."></a>4.1 Print the numbers between 1 and 1000.</h3><ul>
+<li>Add a rule: Don&#x2019;t use any loops.</li>
 <li>Add another rule: No recursions.</li>
-<li>We can’t do that? OK. Please look at this one.</li>
+<li>We can&#x2019;t do that? OK. Please look at this one.</li>
 </ul>
 <pre>
-#include "stdio.h"
+#include &quot;stdio.h&quot;
 #define A(x) x;x;x;x;x;x;x;x;x;x;
 int main (void){
   int n = 1;
-  A(A(A(printf ("%d ", n++))));
+  A(A(A(printf (&quot;%d &quot;, n++))));
   return 0;
 }
 </pre>
 
-<h3 id="4-2-swap-two-variables"><a href="#4-2-swap-two-variables" class="headerlink" title="4.2 swap two variables"></a>4.2 swap two variables</h3><pre><code>a = a^b;
+<h3 id="42-swap-two-variables"><a href="#4-2-swap-two-variables" class="headerlink" title="4.2 swap two variables"></a>4.2 swap two variables</h3><pre><code>a = a^b;
 b = a^b;
 a = a^b;
 </code></pre><p>##5. What we need to avoid using?</p>
 <ul>
-<li>gets –&gt; fgets</li>
-<li>scanf –&gt; scanf_s sscanf</li>
-<li>sprintf –&gt; snprintf sprintf_s</li>
-<li>strcpy –&gt; strlcpy</li>
-<li>strcat –&gt; strlcat</li>
-<li>strtok –&gt; strtok_r</li>
+<li>gets &#x2013;&gt; fgets</li>
+<li>scanf &#x2013;&gt; scanf_s sscanf</li>
+<li>sprintf &#x2013;&gt; snprintf sprintf_s</li>
+<li>strcpy &#x2013;&gt; strlcpy</li>
+<li>strcat &#x2013;&gt; strlcat</li>
+<li>strtok &#x2013;&gt; strtok_r</li>
 </ul>
 <p>##6. v[index] and index[v] are the same</p>
 <p>##7. use _Generic macro</p>
@@ -183,7 +183,7 @@ int main()
     print((char)&apos;a&apos;);
     return 0;
 }
-</code></pre><p>GCC version don’t support _Generic macro currently, but clang work.<br>Compile this code with clang as <code>clang test.c</code></p>
+</code></pre><p>GCC version don&#x2019;t support _Generic macro currently, but clang work.<br>Compile this code with clang as <code>clang test.c</code></p>
 <p>##8. Reference  </p>
 <ul>
 <li><a href="https://www.kernel.org/" target="_blank" rel="external">Linux kernel source</a></li>
@@ -194,7 +194,7 @@ int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/21/skill-of-c/" data-id="cin61d0hy006cfyizu2bo3614" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/05/21/skill-of-c/" data-id="cin6a5uia006b3cizsqs76zy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,9 +213,9 @@ int main()
     </a>
   
   
-    <a href="/2013/05/09/network-client-server-model/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/05/09/windows-event-log/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">network client server model</div>
+      <div class="article-nav-title">windows event log</div>
     </a>
   
 </nav>
@@ -279,7 +279,7 @@ int main()
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

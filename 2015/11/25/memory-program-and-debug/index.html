@@ -12,8 +12,8 @@ dangling pointers
 
 how to detect memory error
 ps -aux, check VSZ, e.g:
-ps -aux |grep -E &amp;#39;VSZ|2892.*firefox&amp;#39; |grep -v grep
-watch -n 5 &amp;#39">
+ps -aux |grep -E &amp;apos;VSZ|2892.*firefox&amp;apos; |grep -v grep
+watch -n 5 &amp;a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="memory program and debug">
 <meta property="og:url" content="http://matrix207.github.com/2015/11/25/memory-program-and-debug/index.html">
@@ -25,8 +25,8 @@ dangling pointers
 
 how to detect memory error
 ps -aux, check VSZ, e.g:
-ps -aux |grep -E &amp;#39;VSZ|2892.*firefox&amp;#39; |grep -v grep
-watch -n 5 &amp;#39">
+ps -aux |grep -E &amp;apos;VSZ|2892.*firefox&amp;apos; |grep -v grep
+watch -n 5 &amp;a">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="memory program and debug">
@@ -37,8 +37,8 @@ dangling pointers
 
 how to detect memory error
 ps -aux, check VSZ, e.g:
-ps -aux |grep -E &amp;#39;VSZ|2892.*firefox&amp;#39; |grep -v grep
-watch -n 5 &amp;#39">
+ps -aux |grep -E &amp;apos;VSZ|2892.*firefox&amp;apos; |grep -v grep
+watch -n 5 &amp;a">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -122,8 +122,8 @@ watch -n 5 &amp;#39">
 </ul>
 <h4 id="how-to-detect-memory-error"><a href="#how-to-detect-memory-error" class="headerlink" title="how to detect memory error"></a>how to detect memory error</h4><ul>
 <li>ps -aux, check VSZ, e.g:<ul>
-<li><code>ps -aux |grep -E &#39;VSZ|2892.*firefox&#39; |grep -v grep</code></li>
-<li><code>watch -n 5 &#39;ps -aux |grep -E &quot;VSZ|2892.*firefox&quot; |grep -v grep&#39;</code></li>
+<li><code>ps -aux |grep -E &apos;VSZ|2892.*firefox&apos; |grep -v grep</code></li>
+<li><code>watch -n 5 &apos;ps -aux |grep -E &quot;VSZ|2892.*firefox&quot; |grep -v grep&apos;</code></li>
 </ul>
 </li>
 </ul>
@@ -136,16 +136,16 @@ watch -n 5 &amp;#39">
 <li>valgrind</li>
 </ul>
 <h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><ul>
-<li><a href="https://www.ibm.com/developerworks/cn/aix/library/au-memorytechniques.html" target="_blank" rel="external">内存调试技巧</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/aix/library/au-memorytechniques.html" target="_blank" rel="external">&#x5185;&#x5B58;&#x8C03;&#x8BD5;&#x6280;&#x5DE7;</a></li>
 <li><a href="http://www.ibm.com/developerworks/aix/library/au-memorytechniques.html?S_TACT=105AGX52&amp;S_CMP=cn-a-au" target="_blank" rel="external">techniques for memory debugging</a></li>
-<li><a href="http://www.cnblogs.com/lanxuezaipiao/p/3604533.html" target="_blank" rel="external">C/C++的内存泄漏检测工具Valgrind memcheck的使用经历</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-mleak/" target="_blank" rel="external">如何在linux下检测内存泄漏</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-valgrind/" target="_blank" rel="external">应用 Valgrind 发现 Linux 程序的内存问题 </a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-memory/" target="_blank" rel="external">内存管理内幕</a></li>
+<li><a href="http://www.cnblogs.com/lanxuezaipiao/p/3604533.html" target="_blank" rel="external">C/C++&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;Valgrind memcheck&#x7684;&#x4F7F;&#x7528;&#x7ECF;&#x5386;</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-mleak/" target="_blank" rel="external">&#x5982;&#x4F55;&#x5728;linux&#x4E0B;&#x68C0;&#x6D4B;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-valgrind/" target="_blank" rel="external">&#x5E94;&#x7528; Valgrind &#x53D1;&#x73B0; Linux &#x7A0B;&#x5E8F;&#x7684;&#x5185;&#x5B58;&#x95EE;&#x9898; </a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/linux/l-memory/" target="_blank" rel="external">&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x5185;&#x5E55;</a></li>
 <li><a href="http://www.ibm.com/developerworks/cn/linux/l-memory/" target="_blank" rel="external">Inside memory management</a></li>
 <li><a href="http://es.gnu.org/~aleksander/valgrind/valgrind-memcheck.pdf" target="_blank" rel="external">Understanding Valgrind memory leak reports</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-memleak/" target="_blank" rel="external">在 Linux 平台中调试 C/C++ 内存泄漏方法</a></li>
-<li><a href="http://www.cnblogs.com/bangerlee/archive/2011/09/07/2166593.html" target="_blank" rel="external">代码静态分析工具——splint的学习与使用</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-memleak/" target="_blank" rel="external">&#x5728; Linux &#x5E73;&#x53F0;&#x4E2D;&#x8C03;&#x8BD5; C/C++ &#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x65B9;&#x6CD5;</a></li>
+<li><a href="http://www.cnblogs.com/bangerlee/archive/2011/09/07/2166593.html" target="_blank" rel="external">&#x4EE3;&#x7801;&#x9759;&#x6001;&#x5206;&#x6790;&#x5DE5;&#x5177;&#x2014;&#x2014;splint&#x7684;&#x5B66;&#x4E60;&#x4E0E;&#x4F7F;&#x7528;</a></li>
 <li><a href="http://www.splint.org/" target="_blank" rel="external">spint</a></li>
 <li><a href="http://www.gimpel.com/html/lintinfo.htm" target="_blank" rel="external">pc-lint</a></li>
 </ul>
@@ -153,7 +153,7 @@ watch -n 5 &amp;#39">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/11/25/memory-program-and-debug/" data-id="cin61d0m4009vfyiz7oyl4188" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/11/25/memory-program-and-debug/" data-id="cin6a5ul900a13cizkt798n53" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mtrace/">mtrace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/valgrind/">valgrind</a></li></ul>
@@ -240,7 +240,7 @@ watch -n 5 &amp;#39">
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -91,16 +91,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="文件列表"><a href="#文件列表" class="headerlink" title="文件列表"></a>文件列表</h3><ul>
-<li>主程序 <code>main.bat</code></li>
-<li>配置文件 <code>project.cfg</code></li>
-<li>编译器环境设置 <code>vsvars.bat</code></li>
+        <h3 id="&#x6587;&#x4EF6;&#x5217;&#x8868;"><a href="#&#x6587;&#x4EF6;&#x5217;&#x8868;" class="headerlink" title="&#x6587;&#x4EF6;&#x5217;&#x8868;"></a>&#x6587;&#x4EF6;&#x5217;&#x8868;</h3><ul>
+<li>&#x4E3B;&#x7A0B;&#x5E8F; <code>main.bat</code></li>
+<li>&#x914D;&#x7F6E;&#x6587;&#x4EF6; <code>project.cfg</code></li>
+<li>&#x7F16;&#x8BD1;&#x5668;&#x73AF;&#x5883;&#x8BBE;&#x7F6E; <code>vsvars.bat</code></li>
 </ul>
-<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><ul>
-<li>配置 <code>project.cfg</code> 文件</li>
-<li>执行 <code>main.bat</code></li>
+<h3 id="&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;"><a href="#&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;" class="headerlink" title="&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;"></a>&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;</h3><ul>
+<li>&#x914D;&#x7F6E; <code>project.cfg</code> &#x6587;&#x4EF6;</li>
+<li>&#x6267;&#x884C; <code>main.bat</code></li>
 </ul>
-<h3 id="文件源码"><a href="#文件源码" class="headerlink" title="文件源码"></a>文件源码</h3><p><strong>project.cfg</strong></p>
+<h3 id="&#x6587;&#x4EF6;&#x6E90;&#x7801;"><a href="#&#x6587;&#x4EF6;&#x6E90;&#x7801;" class="headerlink" title="&#x6587;&#x4EF6;&#x6E90;&#x7801;"></a>&#x6587;&#x4EF6;&#x6E90;&#x7801;</h3><p><strong>project.cfg</strong></p>
 <pre><code>compiler:2008
 pri_name:SampleProject
 prj_dir:../SampleProject
@@ -200,7 +200,7 @@ ECHO. __________________________________________________
 ECHO.
 
 SET choice=
-SET /p choice= Please select project type(EXIT IF enter)：
+SET /p choice= Please select project type(EXIT IF enter)&#xFF1A;
 IF &quot;%choice%&quot;==&quot;1&quot; ( SET prj_type=&quot;Release&quot; &amp; GOTO Next_Choise )
 IF &quot;%choice%&quot;==&quot;2&quot; ( SET prj_type=&quot;Debug&quot; &amp; GOTO Next_Choise )
 IF DEFINED choice GOTO Main
@@ -208,7 +208,7 @@ EXIT
 
 :Next_Choise
 ECHO Your selected is %prj_type%
-SET /p choice= Please select operate type(EXIT IF enter)：
+SET /p choice= Please select operate type(EXIT IF enter)&#xFF1A;
 IF &quot;%choice%&quot;==&quot;1&quot; GOTO Case_Operate_%choice%
 IF &quot;%choice%&quot;==&quot;2&quot; GOTO Case_Operate_%choice%
 IF DEFINED choice GOTO Main
@@ -231,7 +231,7 @@ PAUSE
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/19/MSVS-auto-compile/" data-id="cin61d0fj000nfyiz9z0vt0am" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/19/MSVS-auto-compile/" data-id="cin6a5uft000j3cizy1uhvlva" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Auto-Compile/">Auto Compile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Batch-File/">Batch File</a></li></ul>
@@ -318,7 +318,7 @@ PAUSE
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

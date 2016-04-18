@@ -111,16 +111,16 @@ If Condition">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Tools-for-detect-time-killer"><a href="#Tools-for-detect-time-killer" class="headerlink" title="Tools for detect time killer"></a>Tools for detect time killer</h3><ul>
+        <h3 id="tools-for-detect-time-killer"><a href="#Tools-for-detect-time-killer" class="headerlink" title="Tools for detect time killer"></a>Tools for detect time killer</h3><ul>
 <li><a href="http://oprofile.sourceforge.net/news/" target="_blank" rel="external">OProfile</a></li>
 <li><a href="http://icl.cs.utk.edu/papi/" target="_blank" rel="external">PAPI</a></li>
 </ul>
-<h3 id="Tips-for-Performance-Improvement-Code-Optimization"><a href="#Tips-for-Performance-Improvement-Code-Optimization" class="headerlink" title="Tips for Performance Improvement Code Optimization"></a>Tips for Performance Improvement Code Optimization</h3><ul>
+<h3 id="tips-for-performance-improvement-code-optimization"><a href="#Tips-for-Performance-Improvement-Code-Optimization" class="headerlink" title="Tips for Performance Improvement Code Optimization"></a>Tips for Performance Improvement Code Optimization</h3><ul>
 <li>Optimize Your Code using Appropriate Algorithm</li>
 <li>Optimize Your Code for Memory</li>
 <li>Using operators</li>
 <li>If Condition Optimization<ul>
-<li><code>if (a &amp;&amp; b)</code>， place <code>b</code> first if <code>b</code> is more likely to be false</li>
+<li><code>if (a &amp;&amp; b)</code>&#xFF0C; place <code>b</code> first if <code>b</code> is more likely to be false</li>
 </ul>
 </li>
 <li>Problems with Functions</li>
@@ -160,7 +160,7 @@ If Condition">
 </ul>
 </li>
 </ul>
-<h3 id="Use-the-right-container"><a href="#Use-the-right-container" class="headerlink" title="Use the right container"></a>Use the right container</h3><ul>
+<h3 id="use-the-right-container"><a href="#Use-the-right-container" class="headerlink" title="Use the right container"></a>Use the right container</h3><ul>
 <li>more container compare and select<ul>
 <li>vector is good at read data</li>
 <li>list is good at insert and remove data</li>
@@ -173,7 +173,7 @@ If Condition">
 </ul>
 </li>
 </ul>
-<h3 id="Some-tips-when-using-C"><a href="#Some-tips-when-using-C" class="headerlink" title="Some tips when using C++"></a>Some tips when using C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Foo</span><br><span class="line">&#123;</span><br><span class="line">    const BigObject &amp; bar();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">BigObject obj = foo.bar();  // OOPS!  This creates a copy!</span><br><span class="line">const BigOject &amp;obj = foo.bar();  // does not create a copy</span><br></pre></td></tr></table></figure>
+<h3 id="some-tips-when-using-c"><a href="#Some-tips-when-using-C" class="headerlink" title="Some tips when using C++"></a>Some tips when using C++</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Foo</span><br><span class="line">{</span><br><span class="line">    const BigObject &amp; bar();</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">BigObject obj = foo.bar();  // OOPS!  This creates a copy!</span><br><span class="line">const BigOject &amp;obj = foo.bar();  // does not create a copy</span><br></pre></td></tr></table></figure>
 <h3 id="some-books"><a href="#some-books" class="headerlink" title="some books"></a>some books</h3><ul>
 <li>Effective C++</li>
 <li>More Effective C++</li>
@@ -181,9 +181,9 @@ If Condition">
 <li>C++ Coding Standards</li>
 <li>Efficient C++: Performance Programming Techniques</li>
 </ul>
-<h3 id="Know-some-compile-and-linker-options"><a href="#Know-some-compile-and-linker-options" class="headerlink" title="Know some compile and linker options"></a>Know some compile and linker options</h3><h3 id="Speed-up-for-compiling-time"><a href="#Speed-up-for-compiling-time" class="headerlink" title="Speed up for compiling time"></a>Speed up for compiling time</h3><ul>
+<h3 id="know-some-compile-and-linker-options"><a href="#Know-some-compile-and-linker-options" class="headerlink" title="Know some compile and linker options"></a>Know some compile and linker options</h3><h3 id="speed-up-for-compiling-time"><a href="#Speed-up-for-compiling-time" class="headerlink" title="Speed up for compiling time"></a>Speed up for compiling time</h3><ul>
 <li>check code<ul>
-<li>Don’t include not needed headers, use forward declaration for class if possible</li>
+<li>Don&#x2019;t include not needed headers, use forward declaration for class if possible</li>
 <li>Pimpl (pointer to implementation), interface and implement do their job clear</li>
 <li>Reduce interdependency</li>
 <li>Clean not needed headers</li>
@@ -204,13 +204,13 @@ If Condition">
 </ul>
 </li>
 <li>Reference<ul>
-<li><a href="www.cnblogs.com/baiyanhuang/archive/2010/01/17/1730717.html">如何加快C++代码的编译速度</a></li>
-<li>Book: [大规模C++程序设计]</li>
+<li><a href="www.cnblogs.com/baiyanhuang/archive/2010/01/17/1730717.html">&#x5982;&#x4F55;&#x52A0;&#x5FEB;C++&#x4EE3;&#x7801;&#x7684;&#x7F16;&#x8BD1;&#x901F;&#x5EA6;</a></li>
+<li>Book: [&#x5927;&#x89C4;&#x6A21;C++&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;]</li>
 <li><a href="http://stackoverflow.com/questions/373142/what-techniques-can-be-used-to-speed-up-c-compilation-times" target="_blank" rel="external">http://stackoverflow.com/questions/373142/what-techniques-can-be-used-to-speed-up-c-compilation-times</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><strong><a href="https://en.wikibooks.org/wiki/Optimizing_C++" target="_blank" rel="external">https://en.wikibooks.org/wiki/Optimizing_C++</a></strong></li>
 <li><strong><a href="http://agner.org/optimize/optimizing_cpp.pdf" target="_blank" rel="external">http://agner.org/optimize/optimizing_cpp.pdf</a></strong></li>
 <li><a href="http://www.artima.com/cppsource/how_to_go_slow.html" target="_blank" rel="external">http://www.artima.com/cppsource/how_to_go_slow.html</a></li>
@@ -222,7 +222,7 @@ If Condition">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/12/performance-optimization-of-cplusplus/" data-id="cin61d0mh00abfyiznh8utw51" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/03/12/performance-optimization-of-cplusplus/" data-id="cin6a5ulk00ai3cizl45vzzc3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +307,7 @@ If Condition">
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

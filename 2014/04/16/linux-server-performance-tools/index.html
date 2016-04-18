@@ -8,11 +8,7 @@
   <meta name="description" content="web server performance test tools
 AB(Apache Bench) 
   ab -r -k -n 100000 -c 500 url
-  -r 表示遇到错误继续  -k 表示keepalive  -n 表示总共请求的次数  -c 表示每次请求的数量（即并发数）  url即要请求的地址
-
-
-以上命令表示请求总数达到10万后就停止
-执行上面的命令前先使用ulimit">
+  -r &amp;#x8868;&amp;#x793A;&amp;#x9047;&amp;#x5230;&amp;#x9519;&amp;#x8BEF;&amp;#x7EE7;&amp;#x7EED;  -k &amp;#x8868;&amp;#x793A;keepalive  -n &amp;#x8868;&amp;#x7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux server performance tools">
 <meta property="og:url" content="http://matrix207.github.com/2014/04/16/linux-server-performance-tools/index.html">
@@ -20,22 +16,14 @@ AB(Apache Bench)
 <meta property="og:description" content="web server performance test tools
 AB(Apache Bench) 
   ab -r -k -n 100000 -c 500 url
-  -r 表示遇到错误继续  -k 表示keepalive  -n 表示总共请求的次数  -c 表示每次请求的数量（即并发数）  url即要请求的地址
-
-
-以上命令表示请求总数达到10万后就停止
-执行上面的命令前先使用ulimit">
+  -r &amp;#x8868;&amp;#x793A;&amp;#x9047;&amp;#x5230;&amp;#x9519;&amp;#x8BEF;&amp;#x7EE7;&amp;#x7EED;  -k &amp;#x8868;&amp;#x793A;keepalive  -n &amp;#x8868;&amp;#x7">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux server performance tools">
 <meta name="twitter:description" content="web server performance test tools
 AB(Apache Bench) 
   ab -r -k -n 100000 -c 500 url
-  -r 表示遇到错误继续  -k 表示keepalive  -n 表示总共请求的次数  -c 表示每次请求的数量（即并发数）  url即要请求的地址
-
-
-以上命令表示请求总数达到10万后就停止
-执行上面的命令前先使用ulimit">
+  -r &amp;#x8868;&amp;#x793A;&amp;#x9047;&amp;#x5230;&amp;#x9519;&amp;#x8BEF;&amp;#x7EE7;&amp;#x7EED;  -k &amp;#x8868;&amp;#x793A;keepalive  -n &amp;#x8868;&amp;#x7">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -111,17 +99,17 @@ AB(Apache Bench)
         <h3 id="web-server-performance-test-tools"><a href="#web-server-performance-test-tools" class="headerlink" title="web server performance test tools"></a>web server performance test tools</h3><ul>
 <li><p>AB(Apache Bench) </p>
 <p>  ab -r -k -n 100000 -c 500 url</p>
-<p>  -r 表示遇到错误继续<br>  -k 表示keepalive<br>  -n 表示总共请求的次数<br>  -c 表示每次请求的数量（即并发数）<br>  url即要请求的地址</p>
+<p>  -r &#x8868;&#x793A;&#x9047;&#x5230;&#x9519;&#x8BEF;&#x7EE7;&#x7EED;<br>  -k &#x8868;&#x793A;keepalive<br>  -n &#x8868;&#x793A;&#x603B;&#x5171;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;<br>  -c &#x8868;&#x793A;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x91CF;&#xFF08;&#x5373;&#x5E76;&#x53D1;&#x6570;&#xFF09;<br>  url&#x5373;&#x8981;&#x8BF7;&#x6C42;&#x7684;&#x5730;&#x5740;</p>
 </li>
 </ul>
-<p>以上命令表示请求总数达到10万后就停止</p>
-<p>执行上面的命令前先使用ulimit -n 100000解除操作系统内的并发限制</p>
+<p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x603B;&#x6570;&#x8FBE;&#x5230;10&#x4E07;&#x540E;&#x5C31;&#x505C;&#x6B62;</p>
+<p>&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x524D;&#x5148;&#x4F7F;&#x7528;ulimit -n 100000&#x89E3;&#x9664;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x7684;&#x5E76;&#x53D1;&#x9650;&#x5236;</p>
 <pre><code>watch ab -r -k -n 100000 -c 500 url
-</code></pre><p>watch命令会自动重复执行，每次执行时，自动间隔2秒</p>
-<p>以上命令表示请求达到10万次后，自动休息2秒，然后重新请求</p>
-<p>设置watch的间隔时间</p>
+</code></pre><p>watch&#x547D;&#x4EE4;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x590D;&#x6267;&#x884C;&#xFF0C;&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x95F4;&#x9694;2&#x79D2;</p>
+<p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x8FBE;&#x5230;10&#x4E07;&#x6B21;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x4F11;&#x606F;2&#x79D2;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;</p>
+<p>&#x8BBE;&#x7F6E;watch&#x7684;&#x95F4;&#x9694;&#x65F6;&#x95F4;</p>
 <pre><code>watch -d 3 ab -r -k -n 100000 -c 500 url
-</code></pre><p>以上命令表示请求达到10万次后，自动休息3秒，然后重新请求 </p>
+</code></pre><p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x8FBE;&#x5230;10&#x4E07;&#x6B21;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x4F11;&#x606F;3&#x79D2;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8BF7;&#x6C42; </p>
 <ul>
 <li><p>Nikto </p>
 </li>
@@ -140,16 +128,16 @@ AB(Apache Bench)
 <li><p>iftop </p>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://os.51cto.com/art/201205/337302.htm" target="_blank" rel="external">三大开源工具监控Apache Web服务器性能</a></li>
-<li><a href="http://www.vpser.net/opt/webserver-test.html" target="_blank" rel="external">Web服务器性能/压力测试工具http_load、webbench、ab、Siege使用教程</a></li>
-<li><a href="http://www.drupal001.com/2012/07/linux-server-monitor/" target="_blank" rel="external">Linux服务器性能追踪以及服务器监控常用命令</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://os.51cto.com/art/201205/337302.htm" target="_blank" rel="external">&#x4E09;&#x5927;&#x5F00;&#x6E90;&#x5DE5;&#x5177;&#x76D1;&#x63A7;Apache Web&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;</a></li>
+<li><a href="http://www.vpser.net/opt/webserver-test.html" target="_blank" rel="external">Web&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;/&#x538B;&#x529B;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;http_load&#x3001;webbench&#x3001;ab&#x3001;Siege&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
+<li><a href="http://www.drupal001.com/2012/07/linux-server-monitor/" target="_blank" rel="external">Linux&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x8FFD;&#x8E2A;&#x4EE5;&#x53CA;&#x670D;&#x52A1;&#x5668;&#x76D1;&#x63A7;&#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/16/linux-server-performance-tools/" data-id="cin61d0jb007nfyiz7ddat388" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/16/linux-server-performance-tools/" data-id="cin6a5uj4007m3ciz5l3i1zxz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +222,7 @@ AB(Apache Bench)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

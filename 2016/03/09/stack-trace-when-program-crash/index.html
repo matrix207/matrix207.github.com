@@ -111,7 +111,7 @@ void handler(int sig) {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h4><pre><code>#include &lt;stdio.h&gt;
+        <h4 id="source"><a href="#Source" class="headerlink" title="Source"></a>Source</h4><pre><code>#include &lt;stdio.h&gt;
 #include &lt;execinfo.h&gt;
 #include &lt;signal.h&gt;
 #include &lt;stdlib.h&gt;
@@ -142,7 +142,7 @@ int main(int argc, char **argv) {
     signal(SIGSEGV, handler);   // install our handler
     foo(); // this will call foo, bar, and baz.  baz segfaults.
 }
-</code></pre><h4 id="Compile-and-test"><a href="#Compile-and-test" class="headerlink" title="Compile and test"></a>Compile and test</h4><pre><code>[dennis@localhost code]$ gcc -g -rdynamic -o t stacktrace.c
+</code></pre><h4 id="compile-and-test"><a href="#Compile-and-test" class="headerlink" title="Compile and test"></a>Compile and test</h4><pre><code>[dennis@localhost code]$ gcc -g -rdynamic -o t stacktrace.c
 [dennis@localhost code]$ ./t
 Error: signal 11:
 ./t(handler+0x1c)[0x400a32]
@@ -153,14 +153,14 @@ Error: signal 11:
 ./t(main+0x28)[0x400ae8]
 /lib64/libc.so.6(__libc_start_main+0xf0)[0x7fa03d2f8fe0]
 ./t[0x400949]
-</code></pre><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+</code></pre><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes" target="_blank" rel="external">http://stackoverflow.com/questions/77005/how-to-generate-a-stacktrace-when-my-gcc-c-app-crashes</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/09/stack-trace-when-program-crash/" data-id="cin61d0md00a8fyiz2cvrxq8x" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/03/09/stack-trace-when-program-crash/" data-id="cin6a5ulj00ah3cizn6rl8t1y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -179,9 +179,9 @@ Error: signal 11:
     </a>
   
   
-    <a href="/2016/03/09/check-pow-overflow/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/03/09/database-knowledges/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">check pow overflow</div>
+      <div class="article-nav-title">Database knowledges</div>
     </a>
   
 </nav>
@@ -245,7 +245,7 @@ Error: signal 11:
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

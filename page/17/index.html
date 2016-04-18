@@ -92,7 +92,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Copy-file-with-progress-bar"><a href="#Copy-file-with-progress-bar" class="headerlink" title="Copy file with progress bar"></a>Copy file with progress bar</h4><pre><code>#!/usr/bin/bash
+        <h4 id="copy-file-with-progress-bar"><a href="#Copy-file-with-progress-bar" class="headerlink" title="Copy file with progress bar"></a>Copy file with progress bar</h4><pre><code>#!/usr/bin/bash
 
 print_bar() {        # print the bar 
 
@@ -164,14 +164,14 @@ do
 #    print_bar ${BytesLoadNow} ${BytesLoadMax} ${TimeRemain} ${TimeElapsed} ${Speed} ${LenBar}
 done
 echo
-</code></pre><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+</code></pre><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://sourceforge.net/projects/raider/files/?source=navbar" target="_blank" rel="external">raider: src/lib/progbar</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/04/copy-file-with-progress-bar/" data-id="cin61d0g80029fyiz6i8n7mrd" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/01/04/copy-file-with-progress-bar/" data-id="cin6a5ugi00283cizd1otnrr9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -209,14 +209,14 @@ echo
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Monitor-revision-of-SVN-repository-auto-send-change-log-to-user-by-mail"><a href="#Monitor-revision-of-SVN-repository-auto-send-change-log-to-user-by-mail" class="headerlink" title="Monitor revision of SVN repository, auto send change log to user by mail"></a>Monitor revision of SVN repository, auto send change log to user by mail</h3><p><strong>pmt.sh</strong>  </p>
+        <h3 id="monitor-revision-of-svn-repository-auto-send-change-log-to-user-by-mail"><a href="#Monitor-revision-of-SVN-repository-auto-send-change-log-to-user-by-mail" class="headerlink" title="Monitor revision of SVN repository, auto send change log to user by mail"></a>Monitor revision of SVN repository, auto send change log to user by mail</h3><p><strong>pmt.sh</strong>  </p>
 <pre><code>#!/usr/bin/bash
 ################################################################################
-# 自动获取SVN版更新信息,并发送邮件通知
-# 历史记录:
+# &#x81EA;&#x52A8;&#x83B7;&#x53D6;SVN&#x7248;&#x66F4;&#x65B0;&#x4FE1;&#x606F;,&#x5E76;&#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x901A;&#x77E5;
+# &#x5386;&#x53F2;&#x8BB0;&#x5F55;:
 #   2012-12-20    v1.0    Dennis  Create
-#   2012-12-21    v1.1    Dennis  增加注释,加入文件存在判断和写日志
-#   2012-12-24    v1.2    Dennis  增加log日期注释,加入文件存在判断和写日志
+#   2012-12-21    v1.1    Dennis  &#x589E;&#x52A0;&#x6CE8;&#x91CA;,&#x52A0;&#x5165;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5224;&#x65AD;&#x548C;&#x5199;&#x65E5;&#x5FD7;
+#   2012-12-24    v1.2    Dennis  &#x589E;&#x52A0;log&#x65E5;&#x671F;&#x6CE8;&#x91CA;,&#x52A0;&#x5165;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x5224;&#x65AD;&#x548C;&#x5199;&#x65E5;&#x5FD7;
 ################################################################################
 
 conf_file=/etc/pmt.conf
@@ -225,7 +225,7 @@ log_file=/tmp/pmt.log
 cur_time=`date &quot;+%F %R:%S&quot;`
 echo $cur_time &quot;pmt start&quot; &gt;&gt; $log_file
 
-# 如果配置文件不存在, 退出程序
+# &#x5982;&#x679C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;, &#x9000;&#x51FA;&#x7A0B;&#x5E8F;
 if [ ! -f $conf_file ]
 then
     echo &quot;Not found $conf_file&quot; &gt;&gt; $log_file
@@ -233,16 +233,16 @@ then
 fi
 
 # Fields: project#url#revision#mail
-# 每行列数目为4,使用#号作为分割符号提取行信息到数组arr 
+# &#x6BCF;&#x884C;&#x5217;&#x6570;&#x76EE;&#x4E3A;4,&#x4F7F;&#x7528;#&#x53F7;&#x4F5C;&#x4E3A;&#x5206;&#x5272;&#x7B26;&#x53F7;&#x63D0;&#x53D6;&#x884C;&#x4FE1;&#x606F;&#x5230;&#x6570;&#x7EC4;arr 
 field_size=4
 arr=($(awk -F&apos;#&apos; &apos;{print $1,$2,$3,$4}&apos; $conf_file))
 
-# 以4个元素为一个单位，获取数组大小, 以模仿二维数组
+# &#x4EE5;4&#x4E2A;&#x5143;&#x7D20;&#x4E3A;&#x4E00;&#x4E2A;&#x5355;&#x4F4D;&#xFF0C;&#x83B7;&#x53D6;&#x6570;&#x7EC4;&#x5927;&#x5C0F;, &#x4EE5;&#x6A21;&#x4EFF;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;
 item_size=$[${#arr[@]}/$field_size]
 
 while true 
 do
-    # 循环二维数组(模仿)
+    # &#x5FAA;&#x73AF;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;(&#x6A21;&#x4EFF;)
     for ((i=0;i&lt;$item_size;i++))
     do
     {
@@ -251,25 +251,25 @@ do
     prj=${arr[$[index+0]]}
     url=${arr[$[index+1]]}
     rev_old=${arr[$[index+2]]}
-    # 提取最新版本号
+    # &#x63D0;&#x53D6;&#x6700;&#x65B0;&#x7248;&#x672C;&#x53F7;
     rev_new=$(svn info $url | awk &apos;NR==8{print $NF}&apos;)
 
     if (( $rev_new &gt; $rev_old ))
     then
-        # 更新版本号到数组
+        # &#x66F4;&#x65B0;&#x7248;&#x672C;&#x53F7;&#x5230;&#x6570;&#x7EC4;
         arr[$[index+2]]=$rev_new
 
-        # 提取log信息
+        # &#x63D0;&#x53D6;log&#x4FE1;&#x606F;
         svn log $url -r $rev_new:$rev_old &gt; svn.log
 
         subject=&quot;[svn monitor]&quot;${arr[$[index+0]]}&quot; update&quot;
         to=${arr[$[index+3]]}
 
-        # 发送邮件通知
+        # &#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x901A;&#x77E5;
         mail -s &quot;$subject&quot; $to &lt; svn.log
 
-        # 修改为最新版本号
-        # sed中使用变量要加上单引号
+        # &#x4FEE;&#x6539;&#x4E3A;&#x6700;&#x65B0;&#x7248;&#x672C;&#x53F7;
+        # sed&#x4E2D;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x8981;&#x52A0;&#x4E0A;&#x5355;&#x5F15;&#x53F7;
         sed -i &apos;/&apos;$prj&apos;/{s/\(.*#.*#\)[0-9]\+/\1&apos;$rev_new&apos;/}&apos; $conf_file
 
         cur_time=`date &quot;+%F %R:%S&quot;`
@@ -291,10 +291,94 @@ project02#http://172.168.1.122/repos/dev/project02#18635#usr02@gmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cin61d0g3001tfyiz3bvxzwhc" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cin6a5ugf001w3ciz7ikg8eg8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mail/">mail</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-visual-studio-project-atuo-compile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/12/17/visual-studio-project-atuo-compile/" class="article-date">
+  <time datetime="2012-12-16T16:00:00.000Z" itemprop="datePublished">2012-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/12/17/visual-studio-project-atuo-compile/">Viusal studio project auto compile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="windows-requirements"><a href="#Windows-Requirements" class="headerlink" title="Windows Requirements"></a>Windows Requirements</h3><pre><code>microsoft visual studio 2005 or newer
+subversion 1.7.7 or newer
+
+add the path of command tool &quot;svn&quot; and &quot;devenv&quot; to environment path
+</code></pre><h3 id="check-out-project-by-svn"><a href="#check-out-project-by-svn" class="headerlink" title="check out project by svn"></a>check out project by svn</h3><p><code>svn co project_svn_url output_path -r revision</code>  </p>
+<p><strong>svn_co.bat</strong>  </p>
+<pre><code>@ECHO off&amp;SETlocal enabledelayedexpansion 
+
+REM Useage: svn_co.bat svn_src_url out_path revision log_file
+
+SET func=&quot;check out project&quot;
+
+SET src_url=%1
+SET out_path=%2
+SET src_rev=%3
+SET log_file=%4
+SET parameters=%src_url%
+
+IF NOT &quot;%out_path%&quot;==&quot;&quot; SET parameters=!parameters! %out_path%
+
+IF NOT &quot;%src_rev%&quot;==&quot;&quot; SET parameters=!parameters! -r %src_rev%
+
+SET log_file_tmp=NUL
+IF NOT &quot;%log_file%&quot;==&quot;&quot; SET log_file_tmp=%log_file%
+
+svn co !parameters!
+
+SET /a ret_code=%ERRORLEVEL%
+IF %ret_code% EQU 0 (
+    @ECHO svn checkout success
+) ELSE (
+    @ECHO svn checkout fail
+)
+</code></pre><h3 id="use-devenv-for-compile"><a href="#use-devenv-for-compile" class="headerlink" title="use devenv for compile"></a>use devenv for compile</h3><p><code>devenv solution_file /build &quot;release|win32&quot;</code>  </p>
+<p><strong>compile.bat</strong>  </p>
+<pre><code>@ECHO off
+
+REM Useage: compile.bat solution_file
+
+SET sln_file=%1
+SET cfg_build=&quot;Release|Win32&quot;
+
+devenv %sln_file% /build %cfg_build%
+
+SET /A retval=%ERRORLEVEL%
+EXIT /B %retval%
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cin6a5uge001s3cizf61osr63" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auto-compile/">auto compile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
 
     </footer>
   </div>
@@ -331,9 +415,9 @@ project02#http://172.168.1.122/repos/dev/project02#18635#usr02@gmail.com
       
         <p>Most of the motherboard can monitor hardware right now, what they can support is<br>depends on the sensor used. So, if you want to known how monitor, you should<br>get the type of sensor chip. I know supermicro x9scl use Nuvoton NCT6776F  and<br>X8SIL use Winbond W83627DHG-P. Once get this message, you can search the<br>datasheet, and get the method how to do it.</p>
 <p>On different operation system, have different method to read/write I/O port. I<br>know <a href="http://www.internals.com/" target="_blank" rel="external">WinIO</a> on windows, IoWrite8/16/32 on Linux.</p>
-<p>There is a good open source software “Open Hardware Monitor”, which develop by<br>C# language. It support almost all the motherboard.</p>
+<p>There is a good open source software &#x201C;Open Hardware Monitor&#x201D;, which develop by<br>C# language. It support almost all the motherboard.</p>
 <hr>
-<h1 id="1-Datasheet-of-chips"><a href="#1-Datasheet-of-chips" class="headerlink" title="1. Datasheet of chips"></a>1. Datasheet of chips</h1><p>Look the access channels on file <a href="http://webshop.atlantikelektronik.de/Mailings/NCT6776F_NCT6776D_Datasheet_V1_2.pdf" target="_blank" rel="external">NCT6776F_NCT6776D_Datasheet_V1_2</a><br> page 275</p>
+<h1 id="1-datasheet-of-chips"><a href="#1-Datasheet-of-chips" class="headerlink" title="1. Datasheet of chips"></a>1. Datasheet of chips</h1><p>Look the access channels on file <a href="http://webshop.atlantikelektronik.de/Mailings/NCT6776F_NCT6776D_Datasheet_V1_2.pdf" target="_blank" rel="external">NCT6776F_NCT6776D_Datasheet_V1_2</a><br> page 275</p>
 <pre><code>19.2 ACCESS CHANNELS
 There are two different channels to set up/access the GPIO ports. The first one is the indirect access via register
 2E/2F (4E/4F, it depends by HEFRAS trapping). The registers can be read / written only when the respective
@@ -392,11 +476,11 @@ MOV DX, 2EH
 MOV AL, AAH
 OUT DX, AL
 </code></pre><hr>
-<h1 id="2-Open-Hardware-Monitor"><a href="#2-Open-Hardware-Monitor" class="headerlink" title="2. Open Hardware Monitor"></a>2. Open Hardware Monitor</h1><p><a href="http://openhardwaremonitor.org/" target="_blank" rel="external">Homepage</a><br><a href="http://code.google.com/p/open-hardware-monitor/" target="_blank" rel="external">source code</a>  </p>
+<h1 id="2-open-hardware-monitor"><a href="#2-Open-Hardware-Monitor" class="headerlink" title="2. Open Hardware Monitor"></a>2. Open Hardware Monitor</h1><p><a href="http://openhardwaremonitor.org/" target="_blank" rel="external">Homepage</a><br><a href="http://code.google.com/p/open-hardware-monitor/" target="_blank" rel="external">source code</a>  </p>
 <p>The Open Hardware Monitor is a free open source software that monitors<br>temperature sensors, fan speeds, voltages, load and clock speeds of a computer.  </p>
 <p>As below, introduct how to use VC++ to monitor HW status on windows: </p>
-<p>1). modify computer.cs，add some interface like GetFanSpeed(). if have problem , look report function .<br>2). set the project properity to output class library.<br>3). Reference <a href="http://matrix207.github.com/2012/09/16/VC++-Use-CSharp-Dll/" target="_blank" rel="external">VC++ use C# DLL</a>  </p>
-<h2 id="1-1-Analyze-open-hardware-monitor"><a href="#1-1-Analyze-open-hardware-monitor" class="headerlink" title="1.1 Analyze open-hardware-monitor"></a>1.1 Analyze open-hardware-monitor</h2><p>Use Winbond W83627DHG-P chip as example.  </p>
+<p>1). modify computer.cs&#xFF0C;add some interface like GetFanSpeed(). if have problem , look report function .<br>2). set the project properity to output class library.<br>3). Reference <a href="http://matrix207.github.com/2012/09/16/VC++-Use-CSharp-Dll/">VC++ use C# DLL</a>  </p>
+<h2 id="11-analyze-open-hardware-monitor"><a href="#1-1-Analyze-open-hardware-monitor" class="headerlink" title="1.1 Analyze open-hardware-monitor"></a>1.1 Analyze open-hardware-monitor</h2><p>Use Winbond W83627DHG-P chip as example.  </p>
 <p>A description about how to monitor hardware, see this<br><a href="http://www.supermicro.com/support/faqs/faq.cfm?faq=12015" target="_blank" rel="external">http://www.supermicro.com/support/faqs/faq.cfm?faq=12015</a></p>
 <pre><code>Question
   I&apos;m trying to access the Winbond 83627DHG-P IO chip on the motherboard X8SIL. 
@@ -438,7 +522,7 @@ Answer
 
   Power Supply Failure, GP23(From W83627DHG-P) 1 = Good, 0 = Bad
 </code></pre><hr>
-<h3 id="1-1-1-File-Hardware-LPC-LPCIO-cs"><a href="#1-1-1-File-Hardware-LPC-LPCIO-cs" class="headerlink" title="1.1.1 File: Hardware/LPC/LPCIO.cs"></a>1.1.1 File: Hardware/LPC/LPCIO.cs</h3><p>IO Ports</p>
+<h3 id="111-file-hardwarelpclpciocs"><a href="#1-1-1-File-Hardware-LPC-LPCIO-cs" class="headerlink" title="1.1.1 File: Hardware/LPC/LPCIO.cs"></a>1.1.1 File: Hardware/LPC/LPCIO.cs</h3><p>IO Ports</p>
 <pre><code>// I/O Ports
 private readonly ushort[] REGISTER_PORTS = new ushort[] { 0x2E, 0x4E };
 private readonly ushort[] VALUE_PORTS = new ushort[] { 0x2F, 0x4F };
@@ -484,7 +568,7 @@ private void IT87Exit() {
 private void SMSCExit() {
   Ring0.WriteIoPort(registerPort, 0xAA);
 }
-</code></pre><h4 id="How-to-get-value"><a href="#How-to-get-value" class="headerlink" title="How to get value:"></a>How to get value:</h4><p>call ReadByte to get value:  </p>
+</code></pre><h4 id="how-to-get-value"><a href="#How-to-get-value" class="headerlink" title="How to get value:"></a>How to get value:</h4><p>call ReadByte to get value:  </p>
 <pre><code>byte id = ReadByte(CHIP_ID_REGISTER);
 byte revision = ReadByte(CHIP_REVISION_REGISTER);
 </code></pre><p>look at function ReadByte:</p>
@@ -494,7 +578,7 @@ byte revision = ReadByte(CHIP_REVISION_REGISTER);
 }
 </code></pre><p>first, write register value to registerPort;<br>second, read value from valueport. </p>
 <hr>
-<h3 id="1-1-2-File-Hardware-LPC-W836XX-cs"><a href="#1-1-2-File-Hardware-LPC-W836XX-cs" class="headerlink" title="1.1.2 File: Hardware/LPC/W836XX.cs"></a>1.1.2 File: Hardware/LPC/W836XX.cs</h3><h4 id="How-to-get-value-1"><a href="#How-to-get-value-1" class="headerlink" title="How to get value:"></a>How to get value:</h4><pre><code>// Hardware Monitor
+<h3 id="112-file-hardwarelpcw836xxcs"><a href="#1-1-2-File-Hardware-LPC-W836XX-cs" class="headerlink" title="1.1.2 File: Hardware/LPC/W836XX.cs"></a>1.1.2 File: Hardware/LPC/W836XX.cs</h3><h4 id="how-to-get-value"><a href="#How-to-get-value-1" class="headerlink" title="How to get value:"></a>How to get value:</h4><pre><code>// Hardware Monitor
 private const byte ADDRESS_REGISTER_OFFSET = 0x05;
 private const byte DATA_REGISTER_OFFSET = 0x06;
 
@@ -511,7 +595,7 @@ private byte ReadByte(byte bank, byte register) {
   return Ring0.ReadIoPort(
     (ushort)(address + DATA_REGISTER_OFFSET));
 } 
-</code></pre><h4 id="What-is-the-value-of-“address”"><a href="#What-is-the-value-of-“address”" class="headerlink" title="What is the value of “address”:"></a>What is the value of “address”:</h4><p>set value by construction</p>
+</code></pre><h4 id="what-is-the-value-of-address"><a href="#What-is-the-value-of-&#x201C;address&#x201D;" class="headerlink" title="What is the value of &#x201C;address&#x201D;:"></a>What is the value of &#x201C;address&#x201D;:</h4><p>set value by construction</p>
 <pre><code>public W836XX(Chip chip, byte revision, ushort address) {
   this.address = address;
   this.revision = revision;
@@ -536,7 +620,7 @@ switch (chip) {
     break;
   ...
 }
-</code></pre><h4 id="Get-temperature"><a href="#Get-temperature" class="headerlink" title="Get temperature:"></a>Get temperature:</h4><pre><code>private readonly byte[] TEMPERATURE_REG = new byte[] { 0x50, 0x50, 0x27 };
+</code></pre><h4 id="get-temperature"><a href="#Get-temperature" class="headerlink" title="Get temperature:"></a>Get temperature:</h4><pre><code>private readonly byte[] TEMPERATURE_REG = new byte[] { 0x50, 0x50, 0x27 };
 private readonly byte[] TEMPERATURE_BANK = new byte[] { 1, 2, 0 };
 
 for (int i = 0; i &lt; temperatures.Length; i++) {
@@ -553,7 +637,7 @@ for (int i = 0; i &lt; temperatures.Length; i++) {
     temperatures[i] = null;
   }
 }
-</code></pre><h4 id="Get-fan-speed"><a href="#Get-fan-speed" class="headerlink" title="Get fan speed:"></a>Get fan speed:</h4><p>call ReadByte(FAN_TACHO_BANK[i], FAN_TACHO_REG[i]) to get speed value to “count”<br>, then set real fan spee to array variable “fans[]“.</p>
+</code></pre><h4 id="get-fan-speed"><a href="#Get-fan-speed" class="headerlink" title="Get fan speed:"></a>Get fan speed:</h4><p>call ReadByte(FAN_TACHO_BANK[i], FAN_TACHO_REG[i]) to get speed value to &#x201C;count&#x201D;<br>, then set real fan spee to array variable &#x201C;fans[]&#x201C;.</p>
 <pre><code>private readonly byte[] FAN_TACHO_REG = 
   new byte[] { 0x28, 0x29, 0x2A, 0x3F, 0x53 };
 private readonly byte[] FAN_TACHO_BANK = 
@@ -598,7 +682,7 @@ for (int i = 0; i &lt; fans.Length; i++) {
 <ul>
 <li><a href="http://www.lm-sensors.org/wiki/Download" target="_blank" rel="external">source code download</a>  </li>
 <li><a href="http://www.lm-sensors.org/browser/lm-sensors/trunk/doc/developers" target="_blank" rel="external">developer</a>  </li>
-<li><a href="http://blog.csdn.net/zhenwenxian/article/details/5331079" target="_blank" rel="external">Lm_sensors和相关技术介绍</a>  </li>
+<li><a href="http://blog.csdn.net/zhenwenxian/article/details/5331079" target="_blank" rel="external">Lm_sensors&#x548C;&#x76F8;&#x5173;&#x6280;&#x672F;&#x4ECB;&#x7ECD;</a>  </li>
 </ul>
 <p><strong>lm-sensors configurations</strong>  </p>
 <ul>
@@ -611,7 +695,7 @@ for (int i = 0; i &lt; fans.Length; i++) {
 <p><strong>Install</strong></p>
 <p>install: <code>yum install lm_sensors</code><br>monitor: <code>sensors</code>  </p>
 <hr>
-<h1 id="4-Use-WinIO"><a href="#4-Use-WinIO" class="headerlink" title="4. Use WinIO"></a>4. Use WinIO</h1><h2 id="watchdog"><a href="#watchdog" class="headerlink" title="watchdog"></a>watchdog</h2><p>reset Watchdog timeout</p>
+<h1 id="4-use-winio"><a href="#4-Use-WinIO" class="headerlink" title="4. Use WinIO"></a>4. Use WinIO</h1><h2 id="watchdog"><a href="#watchdog" class="headerlink" title="watchdog"></a>watchdog</h2><p>reset Watchdog timeout</p>
 <p>Assembly code:</p>
 <pre><code>mov    dx, 2eh
 mov    al, 87h
@@ -644,9 +728,9 @@ IoWrite8(0x2F,0x0A); //write time-out value 0x0A to Data Port
 
 IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
 </code></pre><p>Want more, visit my windows watchdog project <a href="https://github.com/matrix207/VC/tree/master/watchdog" target="_blank" rel="external">here</a></p>
-<p><a href="http://matrix207.github.com/2012/09/16/winio-sample/" target="_blank" rel="external">WinIO sample</a></p>
+<p><a href="http://matrix207.github.com/2012/09/16/winio-sample/">WinIO sample</a></p>
 <hr>
-<h1 id="5-Reference"><a href="#5-Reference" class="headerlink" title="5. Reference:"></a>5. Reference:</h1><ul>
+<h1 id="5-reference"><a href="#5-Reference" class="headerlink" title="5. Reference:"></a>5. Reference:</h1><ul>
 <li><a href="http://www.nuvoton.com/hq/enu/ProductAndSales/ProductLines/CloudAndComputingIC/SuperIO/SuperIOforDesktopandIPC/Documents/W83627DHG-P_W83627DHG-PT.pdf" target="_blank" rel="external">W83627DHG-P W83627DHG-PT NUVOTON LPC I/O</a></li>
 <li><a href="http://webshop.atlantikelektronik.de/Mailings/NCT6776F_NCT6776D_Datasheet_V1_2.pdf" target="_blank" rel="external">NCT6776F_NCT6776D_Datasheet_V1_2</a></li>
 <li><a href="http://lxr.free-electrons.com/source/drivers/watchdog/w83627hf_wdt.c" target="_blank" rel="external">linux/drivers/watchdog/w83627hf_wdt.c</a></li>
@@ -658,94 +742,10 @@ IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cin61d0g60025fyizj15bsx3p" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cin6a5ugc001o3cizyyah7t0k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hardware-monitor/">hardware monitor</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-visual-studio-project-atuo-compile" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/12/17/visual-studio-project-atuo-compile/" class="article-date">
-  <time datetime="2012-12-16T16:00:00.000Z" itemprop="datePublished">2012-12-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/17/visual-studio-project-atuo-compile/">Viusal studio project auto compile</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Windows-Requirements"><a href="#Windows-Requirements" class="headerlink" title="Windows Requirements"></a>Windows Requirements</h3><pre><code>microsoft visual studio 2005 or newer
-subversion 1.7.7 or newer
-
-add the path of command tool &quot;svn&quot; and &quot;devenv&quot; to environment path
-</code></pre><h3 id="check-out-project-by-svn"><a href="#check-out-project-by-svn" class="headerlink" title="check out project by svn"></a>check out project by svn</h3><p><code>svn co project_svn_url output_path -r revision</code>  </p>
-<p><strong>svn_co.bat</strong>  </p>
-<pre><code>@ECHO off&amp;SETlocal enabledelayedexpansion 
-
-REM Useage: svn_co.bat svn_src_url out_path revision log_file
-
-SET func=&quot;check out project&quot;
-
-SET src_url=%1
-SET out_path=%2
-SET src_rev=%3
-SET log_file=%4
-SET parameters=%src_url%
-
-IF NOT &quot;%out_path%&quot;==&quot;&quot; SET parameters=!parameters! %out_path%
-
-IF NOT &quot;%src_rev%&quot;==&quot;&quot; SET parameters=!parameters! -r %src_rev%
-
-SET log_file_tmp=NUL
-IF NOT &quot;%log_file%&quot;==&quot;&quot; SET log_file_tmp=%log_file%
-
-svn co !parameters!
-
-SET /a ret_code=%ERRORLEVEL%
-IF %ret_code% EQU 0 (
-    @ECHO svn checkout success
-) ELSE (
-    @ECHO svn checkout fail
-)
-</code></pre><h3 id="use-devenv-for-compile"><a href="#use-devenv-for-compile" class="headerlink" title="use devenv for compile"></a>use devenv for compile</h3><p><code>devenv solution_file /build &quot;release|win32&quot;</code>  </p>
-<p><strong>compile.bat</strong>  </p>
-<pre><code>@ECHO off
-
-REM Useage: compile.bat solution_file
-
-SET sln_file=%1
-SET cfg_build=&quot;Release|Win32&quot;
-
-devenv %sln_file% /build %cfg_build%
-
-SET /A retval=%ERRORLEVEL%
-EXIT /B %retval%
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cin61d0g1001pfyiz2zotrcmx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auto-compile/">auto compile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
 
     </footer>
   </div>
@@ -780,18 +780,18 @@ EXIT /B %retval%
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Monitor-revision-change-of-SVN-repository"><a href="#Monitor-revision-change-of-SVN-repository" class="headerlink" title="Monitor revision change of SVN repository"></a>Monitor revision change of SVN repository</h3><p><strong>pmt.bat</strong></p>
+        <h3 id="monitor-revision-change-of-svn-repository"><a href="#Monitor-revision-change-of-SVN-repository" class="headerlink" title="Monitor revision change of SVN repository"></a>Monitor revision change of SVN repository</h3><p><strong>pmt.bat</strong></p>
 <pre><code>@echo off
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: 功能: 监控SVN版本库项目,发现更新自动发送邮件通知 
-:: 工具: 
+:: &#x529F;&#x80FD;: &#x76D1;&#x63A7;SVN&#x7248;&#x672C;&#x5E93;&#x9879;&#x76EE;,&#x53D1;&#x73B0;&#x66F4;&#x65B0;&#x81EA;&#x52A8;&#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x901A;&#x77E5; 
+:: &#x5DE5;&#x5177;: 
 ::            subversion    www.sourceforge.net/projects/win32svn
 ::            blat        www.blat.net
-:: 历史:
+:: &#x5386;&#x53F2;:
 ::        v1.00    2012-12-12    Dennis    create project
-::        v1.01    2012-12-13    Dennis    修改邮件附件发送为文本内容发送 
-::                                    增加自动更新配置文件中的版本号 
-::        v1.02    2012-12-14    Dennis    增加单件实现
+::        v1.01    2012-12-13    Dennis    &#x4FEE;&#x6539;&#x90AE;&#x4EF6;&#x9644;&#x4EF6;&#x53D1;&#x9001;&#x4E3A;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x53D1;&#x9001; 
+::                                    &#x589E;&#x52A0;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x7248;&#x672C;&#x53F7; 
+::        v1.02    2012-12-14    Dennis    &#x589E;&#x52A0;&#x5355;&#x4EF6;&#x5B9E;&#x73B0;
 ::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 setlocal enabledelayedexpansion
@@ -802,7 +802,7 @@ set &quot;app_title=pmt&quot;
 tasklist /v | find &quot;%app_title%&quot;&gt;nul &amp;&amp; goto _EXIT
 title %app_title%
 
-:: 切换到批处理文件所在目录 
+:: &#x5207;&#x6362;&#x5230;&#x6279;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x76EE;&#x5F55; 
 cd /d %~dp0
 
 set app_log=pmt.log
@@ -846,9 +846,9 @@ for /l %%i in (1,1,%prj_count%) do (
         blat %log_file% !s! %f% !t! %c%
         set prj_%%i_rev=!last_rev!
 
-        :: 更新配置文件版本号 
-        :: sed的组括号为批处理特殊字符,需使用^转义 
-        :: 如果不转义, 可以采用call的方式 
+        :: &#x66F4;&#x65B0;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7248;&#x672C;&#x53F7; 
+        :: sed&#x7684;&#x7EC4;&#x62EC;&#x53F7;&#x4E3A;&#x6279;&#x5904;&#x7406;&#x7279;&#x6B8A;&#x5B57;&#x7B26;,&#x9700;&#x4F7F;&#x7528;^&#x8F6C;&#x4E49; 
+        :: &#x5982;&#x679C;&#x4E0D;&#x8F6C;&#x4E49;, &#x53EF;&#x4EE5;&#x91C7;&#x7528;call&#x7684;&#x65B9;&#x5F0F; 
         :: call :_UPDATE_REV !prj_%%i_file! !last_rev!
         sed -i &apos;/rev=/{s/\^(rev=\^)[0-9]\+/\1!last_rev!/}&apos; !prj_%%i_file!
     )
@@ -869,7 +869,7 @@ exit /b 0
 
 :_CONF_INFO &lt;config file&gt; &lt;project index&gt;
 :: Get configure info
-:: usebackq 用以解决文件路径中包含空格的情况 
+:: usebackq &#x7528;&#x4EE5;&#x89E3;&#x51B3;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E2D;&#x5305;&#x542B;&#x7A7A;&#x683C;&#x7684;&#x60C5;&#x51B5; 
 FOR /F &quot;usebackq tokens=1,2* delims==&quot; %%i in (%1) do (
     set &quot;prj_%2_%%i=%%j&quot;
 )
@@ -895,7 +895,7 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cin61d0g0001kfyizmzhihppm" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cin6a5uga001j3cizpbq5lvgv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blat/">blat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
@@ -933,18 +933,18 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="What-is-blat"><a href="#What-is-blat" class="headerlink" title="What is blat?"></a>What is blat?</h4><p>Blat is a Windows (32 &amp; 64 bit) command line utility that sends eMail using SMTP or post to usenet using NNTP.  </p>
+        <h4 id="what-is-blat"><a href="#What-is-blat" class="headerlink" title="What is blat?"></a>What is blat?</h4><p>Blat is a Windows (32 &amp; 64 bit) command line utility that sends eMail using SMTP or post to usenet using NNTP.  </p>
 <p>Home: <a href="www.blat.net">www.blat.net</a><br>syntax: <a href="www.blat.net/syntax/syntax.html">www.blat.net/syntax/syntax.html</a><br>ref: <a href="www.cybergav.in/2010/10/28/how-to-send-emails-using-blat/">how to send emails using blat</a>  </p>
-<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p><code>blat -installSMTP smtp.gmail.com abc@gmail.com -u username -pw yourpasswd</code></p>
-<h4 id="Send-mail"><a href="#Send-mail" class="headerlink" title="Send mail"></a>Send mail</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test body&quot;</code></p>
-<h4 id="Send-email-with-body-from-a-file"><a href="#Send-email-with-body-from-a-file" class="headerlink" title="Send email with body from a file"></a>Send email with body from a file</h4><p><code>blat test.txt -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com</code></p>
+<h4 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p><code>blat -installSMTP smtp.gmail.com abc@gmail.com -u username -pw yourpasswd</code></p>
+<h4 id="send-mail"><a href="#Send-mail" class="headerlink" title="Send mail"></a>Send mail</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test body&quot;</code></p>
+<h4 id="send-email-with-body-from-a-file"><a href="#Send-email-with-body-from-a-file" class="headerlink" title="Send email with body from a file"></a>Send email with body from a file</h4><p><code>blat test.txt -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com</code></p>
 <h4 id="specify-charset-of-body-file"><a href="#specify-charset-of-body-file" class="headerlink" title="specify charset of body file"></a>specify charset of body file</h4><p><code>blat utf8.txt -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -charset GBK</code></p>
-<h4 id="Send-attachment"><a href="#Send-attachment" class="headerlink" title="Send attachment"></a>Send attachment</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test attach&quot; -attach 1.txt</code></p>
+<h4 id="send-attachment"><a href="#Send-attachment" class="headerlink" title="Send attachment"></a>Send attachment</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test attach&quot; -attach 1.txt</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cin61d0fu0018fyizjvu0khc0" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cin6a5ug7001c3cizyoadnx4d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blat/">blat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
@@ -982,7 +982,7 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Clean-visual-studio-project"><a href="#Clean-visual-studio-project" class="headerlink" title="Clean visual studio project"></a>Clean visual studio project</h3><pre><code>@ECHO off
+        <h3 id="clean-visual-studio-project"><a href="#Clean-visual-studio-project" class="headerlink" title="Clean visual studio project"></a>Clean visual studio project</h3><pre><code>@ECHO off
 setlocal enabledelayedexpansion
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Clean Visual studio project
@@ -1017,7 +1017,7 @@ pause
 goto _LOOP
 
 :_DEL_TYPE_2
-::使用*号做分隔符,解决路径中出现空格导致无法获取完整路径问题 
+::&#x4F7F;&#x7528;*&#x53F7;&#x505A;&#x5206;&#x9694;&#x7B26;,&#x89E3;&#x51B3;&#x8DEF;&#x5F84;&#x4E2D;&#x51FA;&#x73B0;&#x7A7A;&#x683C;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#x95EE;&#x9898; 
 @for /f &quot;delims=*&quot; %%i in (&apos;dir /s /b /ad&apos;) do (
     if /i &quot;%%~ni&quot;==&quot;debug&quot; rmdir /s /q &quot;%%i&quot;
     if /i &quot;%%~ni&quot;==&quot;release&quot; rmdir /s /q &quot;%%i&quot;
@@ -1032,7 +1032,7 @@ pause&amp;exit /B 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cin61d0ft0015fyizznwlba3g" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cin6a5ug600193cizdbjumnik" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1070,18 +1070,18 @@ pause&amp;exit /B 0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Batch-skills"><a href="#Batch-skills" class="headerlink" title="Batch skills"></a>Batch skills</h3><p>1.<strong>获取当前日期时间</strong><br>    set date<em>time=%date:~,10%</em>%time:~,2%<em>%time:~3,2%</em>%time:~6,2%</p>
-<p>2.<strong>获取当前路径</strong><br>    set pwd=%CD%</p>
-<p>3.<strong>延时</strong>  </p>
+        <h3 id="batch-skills"><a href="#Batch-skills" class="headerlink" title="Batch skills"></a>Batch skills</h3><p>1.<strong>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;&#x65F6;&#x95F4;</strong><br>    set date<em>time=%date:~,10%</em>%time:~,2%<em>%time:~3,2%</em>%time:~6,2%</p>
+<p>2.<strong>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8DEF;&#x5F84;</strong><br>    set pwd=%CD%</p>
+<p>3.<strong>&#x5EF6;&#x65F6;</strong>  </p>
 <pre><code>`ping -n 11 127.0.0.1 &gt;nul`  
 
-ping 本机 11 次，可用于批处理延时 10 秒。命令中的&gt;nul 为屏蔽输出。  
-_简短式可以写成:_  
+ping &#x672C;&#x673A; 11 &#x6B21;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x6279;&#x5904;&#x7406;&#x5EF6;&#x65F6; 10 &#x79D2;&#x3002;&#x547D;&#x4EE4;&#x4E2D;&#x7684;&gt;nul &#x4E3A;&#x5C4F;&#x853D;&#x8F93;&#x51FA;&#x3002;  
+_&#x7B80;&#x77ED;&#x5F0F;&#x53EF;&#x4EE5;&#x5199;&#x6210;:_  
 `ping -n 11 127.1 &gt;nul`
-</code></pre><p>4.<strong>计算运行时间</strong>  </p>
+</code></pre><p>4.<strong>&#x8BA1;&#x7B97;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</strong>  </p>
 <pre><code>    @ECHO off&amp;setlocal enabledelayedexpansion
     CALL :TIME_START
-    REM 修改这里的 ping 为你需要写的代码
+    REM &#x4FEE;&#x6539;&#x8FD9;&#x91CC;&#x7684; ping &#x4E3A;&#x4F60;&#x9700;&#x8981;&#x5199;&#x7684;&#x4EE3;&#x7801;
     ping 127.1 -n 2 &gt;nul
     CALL :TIME_END
     PAUSE&amp;exit /B 0
@@ -1098,26 +1098,26 @@ _简短式可以写成:_
     @ECHO Elapsed time: %total% sec
     GOTO :EOF
 
-_运行效果:_  
+_&#x8FD0;&#x884C;&#x6548;&#x679C;:_  
 
     D:\work\project\tmp&gt;test.bat
     Start  time: 13:52:00.43
     End  time: 13:52:01.48
     Elapsed time: 1 sec
-    请按任意键继续. . .
-</code></pre><p>5.<strong>罗列当前目录所有 txt 文件</strong>  </p>
+    &#x8BF7;&#x6309;&#x4EFB;&#x610F;&#x952E;&#x7EE7;&#x7EED;. . .
+</code></pre><p>5.<strong>&#x7F57;&#x5217;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x6240;&#x6709; txt &#x6587;&#x4EF6;</strong>  </p>
 <pre><code>@echo off
 for %%i in (*.txt) do echo &quot;%%i&quot;
 pause
-</code></pre><p>6.<strong>罗列当前和子目录所有 cfg 文件</strong>  </p>
-<pre><code>for /r 参数 遍历搜索  
-格式：`FOR /R [[drive:]path] %%variable IN (set) DO command [command-parameters]`  
+</code></pre><p>6.<strong>&#x7F57;&#x5217;&#x5F53;&#x524D;&#x548C;&#x5B50;&#x76EE;&#x5F55;&#x6240;&#x6709; cfg &#x6587;&#x4EF6;</strong>  </p>
+<pre><code>for /r &#x53C2;&#x6570; &#x904D;&#x5386;&#x641C;&#x7D22;  
+&#x683C;&#x5F0F;&#xFF1A;`FOR /R [[drive:]path] %%variable IN (set) DO command [command-parameters]`  
 
-举例:  
-命令:(注意，该命令在 dos 窗口运行)  
+&#x4E3E;&#x4F8B;:  
+&#x547D;&#x4EE4;:(&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x547D;&#x4EE4;&#x5728; dos &#x7A97;&#x53E3;&#x8FD0;&#x884C;)  
     `D:\work\project\tmp\CI&gt;for /r %i in (*.cfg) do @echo %i`  
 
-输出:  
+&#x8F93;&#x51FA;:  
 
     D:\work\project\tmp\CI\ci_cfg\ci_scm_trunk.cfg
     D:\work\project\tmp\CI\ci_cfg\ci_ubackup.cfg
@@ -1126,16 +1126,16 @@ pause
     D:\work\project\tmp\CI\zd15_lcd\src\service\apprun.cfg
     D:\work\project\tmp\CI\zd15_lcd\src\service\service.cfg  
 
-方法二:(注意，该命令在批处理文件中运行)  
+&#x65B9;&#x6CD5;&#x4E8C;:(&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x547D;&#x4EE4;&#x5728;&#x6279;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x4E2D;&#x8FD0;&#x884C;)  
     `for /f %%i in (&apos;dir /s /b /a-d *.cfg&apos;) do @ECHO %%i`  
 
-解决路径中出现空格  
-    `for /f “delims=*”%%i in (&apos;dir /s /b /a-d *.cfg&apos;) do @ECHO %%`  
+&#x89E3;&#x51B3;&#x8DEF;&#x5F84;&#x4E2D;&#x51FA;&#x73B0;&#x7A7A;&#x683C;  
+    `for /f &#x201C;delims=*&#x201D;%%i in (&apos;dir /s /b /a-d *.cfg&apos;) do @ECHO %%`
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cin61d0fr0011fyizpe9f13ux" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cin6a5ug400153ciznuynjkeg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1169,7 +1169,7 @@ pause
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Log-of-study-wget-source-code"><a href="#Log-of-study-wget-source-code" class="headerlink" title="Log of study wget source code"></a>Log of study wget source code</h3><p><strong>2012-9-27 00:04:30</strong></p>
+        <h3 id="log-of-study-wget-source-code"><a href="#Log-of-study-wget-source-code" class="headerlink" title="Log of study wget source code"></a>Log of study wget source code</h3><p><strong>2012-9-27 00:04:30</strong></p>
 <ol>
 <li>config<br> <code>./configure</code></li>
 <li>compile<br> <code>make</code></li>
@@ -1203,7 +1203,7 @@ Binary file &quot;wget&quot; will be generated at wget-1.9/src/
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cin61d0fw001ffyizlaylupbq" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cin6a5ug200103ciz3ltbmly0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/source-analyze/">source analyze</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wget/">wget</a></li></ul>
@@ -1237,15 +1237,15 @@ Binary file &quot;wget&quot; will be generated at wget-1.9/src/
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I use a variety of vi(m) commands for my job, so many that I can’t always<br>remember how to do something that I have done before. Therefore I keep notes<br>them here, for my bad memory.</p>
-<h3 id="What-is-the-difference-between-Vi-and-Vim"><a href="#What-is-the-difference-between-Vi-and-Vim" class="headerlink" title="What is the difference between Vi and Vim"></a>What is the difference between Vi and Vim</h3><p>Vim is Vi improve, everything that in vi is available in vim.<br>Here is some of the extended vim features:<a href="http://askubuntu.com/questions/418396/what-is-the-difference-between-vi-and-vim" target="_blank" rel="external">ref</a>  </p>
+        <p>I use a variety of vi(m) commands for my job, so many that I can&#x2019;t always<br>remember how to do something that I have done before. Therefore I keep notes<br>them here, for my bad memory.</p>
+<h3 id="what-is-the-difference-between-vi-and-vim"><a href="#What-is-the-difference-between-Vi-and-Vim" class="headerlink" title="What is the difference between Vi and Vim"></a>What is the difference between Vi and Vim</h3><p>Vim is Vi improve, everything that in vi is available in vim.<br>Here is some of the extended vim features:<a href="http://askubuntu.com/questions/418396/what-is-the-difference-between-vi-and-vim" target="_blank" rel="external">ref</a>  </p>
 <ol>
 <li>Vim support syntax highlighting, code folding, etc.  </li>
 <li>Vim allows the screen to be split for editing multiple files.  </li>
 <li>Vim includes a built in diff for comparing files (vimdiff)  </li>
 <li>Vim support plugins  </li>
 </ol>
-<h3 id="General-command-use-in-VIM"><a href="#General-command-use-in-VIM" class="headerlink" title="General command use in VIM"></a>General command use in VIM</h3><pre><code>### insert mode
+<h3 id="general-command-use-in-vim"><a href="#General-command-use-in-VIM" class="headerlink" title="General command use in VIM"></a>General command use in VIM</h3><pre><code>### insert mode
 i -&gt; insert mode at cursor
 I -&gt; insert mode at the beginning of Line
 a -&gt; append after the cursor
@@ -1254,7 +1254,7 @@ o -&gt; insert bank line below current line
 O -&gt; insert bank line above current line
 
 ### Cursor move
-h,j,k,l ←, ↓, ↑, →
+h,j,k,l &#x2190;, &#x2193;, &#x2191;, &#x2192;
 w      -&gt; jump to the head of next word
 W      -&gt; jump to the head of next word which begin with bank
 e      -&gt; jump to the end of next word
@@ -1546,13 +1546,13 @@ vi -e -s -c &quot;:%s/pattern/string/g&quot; -c &quot;:wq&quot; file-name
 </li>
 <li><p>delete all comments<br> <code>:%s/\/\*\_.\{-}\*\//g</code> or <code>:%s#\M/*\m\_.\{-}\M*/##g</code></p>
 </li>
-<li><p>delete match/unmatch lines<br> <code>:g/.*patternSearch.*/d</code><br> <code>:v/#include/d</code> Delete all lines except “#include” lines  </p>
+<li><p>delete match/unmatch lines<br> <code>:g/.*patternSearch.*/d</code><br> <code>:v/#include/d</code> Delete all lines except &#x201C;#include&#x201D; lines  </p>
 </li>
-<li><p>more substitution<br> Substituting all lines with its line number<br> <code>:%s/^/\=line(&quot;.&quot;) . &quot;. &quot;/g</code><br> Resort numeric<br> <code>:4,$s/\d\+/\=submatch(0) + 1/</code><br> Insert sequence number to column position<br> <code>:%s/table\[\]/\=&#39;table[&#39; . printf(&quot;%d&quot;,line(&quot;.&quot;)) . &#39;]&#39;/g</code><br> <code>:%s/table\[\]/\=&#39;table[&#39; . printf(&quot;%d&quot;,line(&quot;.&quot;)+9) . &#39;]&#39;/g</code> start from 10  </p>
+<li><p>more substitution<br> Substituting all lines with its line number<br> <code>:%s/^/\=line(&quot;.&quot;) . &quot;. &quot;/g</code><br> Resort numeric<br> <code>:4,$s/\d\+/\=submatch(0) + 1/</code><br> Insert sequence number to column position<br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)) . &apos;]&apos;/g</code><br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)+9) . &apos;]&apos;/g</code> start from 10  </p>
 </li>
 <li><p>delete bank line<br> <code>:g/^$/d</code><br> <code>:g/^ *$/d</code> delete lines only contain space   </p>
 </li>
-<li><p>add “inline” to all function<br> <code>:%s/\(.*(\)/inline \1/g</code>  this can work, but not perfect!!<br> <code>%s/\(^[□tab]*\)\(.*(.*\)/\1inline \2/g</code>  </p>
+<li><p>add &#x201C;inline&#x201D; to all function<br> <code>:%s/\(.*(\)/inline \1/g</code>  this can work, but not perfect!!<br> <code>%s/\(^[&#x25A1;tab]*\)\(.*(.*\)/\1inline \2/g</code>  </p>
 </li>
 <li><p>delete all spaces at the end of every line:<br><code>:%s/\(.*\)  *$/\1/</code></p>
 </li>
@@ -1571,7 +1571,7 @@ function Inc(...)
   let g:i += a:0 &gt; 0 ? a:1 : 1
   return result
 endfunction
-</code></pre><p>then type <code>:so ~/.vimrc</code> to make it effective, and use command<br><code>:let i = 1 | %s/ /\=&#39; &#39; . Inc() . &#39;.&#39;/</code></p>
+</code></pre><p>then type <code>:so ~/.vimrc</code> to make it effective, and use command<br><code>:let i = 1 | %s/ /\=&apos; &apos; . Inc() . &apos;.&apos;/</code></p>
 <p>before:  </p>
 <pre><code>* How do you write a fast network server?
 * How do you write a network server that can handle 10000 clients?
@@ -1580,7 +1580,7 @@ endfunction
 <pre><code>* 10.How do you write a fast network server?
 * 11.How do you write a network server that can handle 10000 clients?
 * 12.What bottlenecks are there and how do you avoid them?
-</code></pre><p>Test command <code>:let i = 0 | %s/f0/\=&#39;f&#39; . Inc()/</code></p>
+</code></pre><p>Test command <code>:let i = 0 | %s/f0/\=&apos;f&apos; . Inc()/</code></p>
 <p>before:</p>
 <pre><code>&lt;f0&gt;int state;\l|\
 &lt;f0&gt;int iostate;\l|\
@@ -1598,7 +1598,7 @@ endfunction
 </li>
 <li><p><code>:%TOhtml</code> translate to html format</p>
 </li>
-<li><p>Encrypt<br>method one <code>:set key=123456</code>, then save and quit <code>:wq</code><br>method two <code>:X</code>, type the passwd twice，save and quit <code>:wq</code><br>clean passwd <code>:set key=</code>, save and quit <code>:wq</code></p>
+<li><p>Encrypt<br>method one <code>:set key=123456</code>, then save and quit <code>:wq</code><br>method two <code>:X</code>, type the passwd twice&#xFF0C;save and quit <code>:wq</code><br>clean passwd <code>:set key=</code>, save and quit <code>:wq</code></p>
 </li>
 <li><p><code>autocmd FileType c,cpp set shiftwidth=4 | set expandtab</code> add to .vimrc, expand tab to be four space</p>
 </li>
@@ -1623,8 +1623,8 @@ endfunction
 <h3 id="other-version"><a href="#other-version" class="headerlink" title="other version"></a>other version</h3><ul>
 <li><a href="https://neovim.io/" target="_blank" rel="external">neovim</a></li>
 </ul>
-<h3 id="Vundle-plugin-manager"><a href="#Vundle-plugin-manager" class="headerlink" title="Vundle, plugin manager"></a>Vundle, plugin manager</h3><ul>
-<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git时代的VIM不完全使用教程</a></li>
+<h3 id="vundle-plugin-manager"><a href="#Vundle-plugin-manager" class="headerlink" title="Vundle, plugin manager"></a>Vundle, plugin manager</h3><ul>
+<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git&#x65F6;&#x4EE3;&#x7684;VIM&#x4E0D;&#x5B8C;&#x5168;&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
 <li>install<ul>
 <li><code>git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</code></li>
 </ul>
@@ -1654,19 +1654,19 @@ filetype plugin indent on &quot; required!
 </ul>
 </li>
 <li>powerful plugin<ul>
-<li>Bundle ‘ag.vim’</li>
-<li>Bundle ‘ctrlp.vim’</li>
-<li>Bundle ‘EasyMotion’</li>
-<li>Bundle ‘The-NERD-tree’</li>
-<li>Bundle ‘The-NERD-Commenter’</li>
-<li>Bundle ‘UltiSnips’</li>
-<li>Bundle ‘Tabular’</li>
-<li>Bundle ‘Valloric/YouCompleteMe’</li>
+<li>Bundle &#x2018;ag.vim&#x2019;</li>
+<li>Bundle &#x2018;ctrlp.vim&#x2019;</li>
+<li>Bundle &#x2018;EasyMotion&#x2019;</li>
+<li>Bundle &#x2018;The-NERD-tree&#x2019;</li>
+<li>Bundle &#x2018;The-NERD-Commenter&#x2019;</li>
+<li>Bundle &#x2018;UltiSnips&#x2019;</li>
+<li>Bundle &#x2018;Tabular&#x2019;</li>
+<li>Bundle &#x2018;Valloric/YouCompleteMe&#x2019;</li>
 </ul>
 </li>
 </ul>
 <h3 id="install-vim-by-source"><a href="#install-vim-by-source" class="headerlink" title="install vim by source"></a>install vim by source</h3><ul>
-<li>./configure –prefix=path-to-install</li>
+<li>./configure &#x2013;prefix=path-to-install</li>
 <li>make &amp;&amp; make install</li>
 <li>export PATH=path-to-install:PATH</li>
 </ul>
@@ -1682,7 +1682,7 @@ filetype plugin indent on &quot; required!
 <h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><ul>
 <li><a href="http://www.moolenaar.net/" target="_blank" rel="external">vim author</a></li>
 <li><a href="http://wiki.hotoo.me/Vim.html" target="_blank" rel="external">vim fans</a></li>
-<li><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">简明 Vim 练级攻略</a></li>
+<li><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">&#x7B80;&#x660E; Vim &#x7EC3;&#x7EA7;&#x653B;&#x7565;</a></li>
 <li><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/" target="_blank" rel="external">Learn Vim Progressively</a></li>
 <li><a href="http://vim.wikia.com/wiki/Power_of_g" target="_blank" rel="external">Power of g</a></li>
 <li><a href="http://michael.peopleofhonoronly.com/vim/" target="_blank" rel="external">vim cheat sheet for programmers</a></li>
@@ -1693,7 +1693,7 @@ filetype plugin indent on &quot; required!
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cin61d0gq003bfyizd4vwyedp" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cin6a5ug1000y3cizo9tch7fi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -1766,7 +1766,7 @@ filetype plugin indent on &quot; required!
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

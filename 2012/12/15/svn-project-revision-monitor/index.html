@@ -91,18 +91,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Monitor-revision-change-of-SVN-repository"><a href="#Monitor-revision-change-of-SVN-repository" class="headerlink" title="Monitor revision change of SVN repository"></a>Monitor revision change of SVN repository</h3><p><strong>pmt.bat</strong></p>
+        <h3 id="monitor-revision-change-of-svn-repository"><a href="#Monitor-revision-change-of-SVN-repository" class="headerlink" title="Monitor revision change of SVN repository"></a>Monitor revision change of SVN repository</h3><p><strong>pmt.bat</strong></p>
 <pre><code>@echo off
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: 功能: 监控SVN版本库项目,发现更新自动发送邮件通知 
-:: 工具: 
+:: &#x529F;&#x80FD;: &#x76D1;&#x63A7;SVN&#x7248;&#x672C;&#x5E93;&#x9879;&#x76EE;,&#x53D1;&#x73B0;&#x66F4;&#x65B0;&#x81EA;&#x52A8;&#x53D1;&#x9001;&#x90AE;&#x4EF6;&#x901A;&#x77E5; 
+:: &#x5DE5;&#x5177;: 
 ::            subversion    www.sourceforge.net/projects/win32svn
 ::            blat        www.blat.net
-:: 历史:
+:: &#x5386;&#x53F2;:
 ::        v1.00    2012-12-12    Dennis    create project
-::        v1.01    2012-12-13    Dennis    修改邮件附件发送为文本内容发送 
-::                                    增加自动更新配置文件中的版本号 
-::        v1.02    2012-12-14    Dennis    增加单件实现
+::        v1.01    2012-12-13    Dennis    &#x4FEE;&#x6539;&#x90AE;&#x4EF6;&#x9644;&#x4EF6;&#x53D1;&#x9001;&#x4E3A;&#x6587;&#x672C;&#x5185;&#x5BB9;&#x53D1;&#x9001; 
+::                                    &#x589E;&#x52A0;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x7248;&#x672C;&#x53F7; 
+::        v1.02    2012-12-14    Dennis    &#x589E;&#x52A0;&#x5355;&#x4EF6;&#x5B9E;&#x73B0;
 ::
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 setlocal enabledelayedexpansion
@@ -113,7 +113,7 @@ set &quot;app_title=pmt&quot;
 tasklist /v | find &quot;%app_title%&quot;&gt;nul &amp;&amp; goto _EXIT
 title %app_title%
 
-:: 切换到批处理文件所在目录 
+:: &#x5207;&#x6362;&#x5230;&#x6279;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x76EE;&#x5F55; 
 cd /d %~dp0
 
 set app_log=pmt.log
@@ -157,9 +157,9 @@ for /l %%i in (1,1,%prj_count%) do (
         blat %log_file% !s! %f% !t! %c%
         set prj_%%i_rev=!last_rev!
 
-        :: 更新配置文件版本号 
-        :: sed的组括号为批处理特殊字符,需使用^转义 
-        :: 如果不转义, 可以采用call的方式 
+        :: &#x66F4;&#x65B0;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7248;&#x672C;&#x53F7; 
+        :: sed&#x7684;&#x7EC4;&#x62EC;&#x53F7;&#x4E3A;&#x6279;&#x5904;&#x7406;&#x7279;&#x6B8A;&#x5B57;&#x7B26;,&#x9700;&#x4F7F;&#x7528;^&#x8F6C;&#x4E49; 
+        :: &#x5982;&#x679C;&#x4E0D;&#x8F6C;&#x4E49;, &#x53EF;&#x4EE5;&#x91C7;&#x7528;call&#x7684;&#x65B9;&#x5F0F; 
         :: call :_UPDATE_REV !prj_%%i_file! !last_rev!
         sed -i &apos;/rev=/{s/\^(rev=\^)[0-9]\+/\1!last_rev!/}&apos; !prj_%%i_file!
     )
@@ -180,7 +180,7 @@ exit /b 0
 
 :_CONF_INFO &lt;config file&gt; &lt;project index&gt;
 :: Get configure info
-:: usebackq 用以解决文件路径中包含空格的情况 
+:: usebackq &#x7528;&#x4EE5;&#x89E3;&#x51B3;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E2D;&#x5305;&#x542B;&#x7A7A;&#x683C;&#x7684;&#x60C5;&#x51B5; 
 FOR /F &quot;usebackq tokens=1,2* delims==&quot; %%i in (%1) do (
     set &quot;prj_%2_%%i=%%j&quot;
 )
@@ -206,7 +206,7 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cin61d0g0001kfyizmzhihppm" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cin6a5uga001j3cizpbq5lvgv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blat/">blat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
@@ -217,11 +217,11 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
     
 <nav id="article-nav">
   
-    <a href="/2012/12/17/visual-studio-project-atuo-compile/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2012/12/17/monitor-hardware-status/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Viusal studio project auto compile
+          hardware monitor
         
       </div>
     </a>
@@ -293,7 +293,7 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

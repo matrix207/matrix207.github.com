@@ -87,30 +87,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-Adobe-Flash-Player-11-2-on-Fedora-18-17"><a href="#1-Adobe-Flash-Player-11-2-on-Fedora-18-17" class="headerlink" title="1. Adobe Flash Player 11.2 on Fedora 18/17"></a>1. Adobe Flash Player 11.2 on Fedora 18/17</h3><p>1). Install Adobe YUM Repository RPM package<br><code>rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm</code><br><code>rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux</code>  </p>
+        <h3 id="1-adobe-flash-player-112-on-fedora-1817"><a href="#1-Adobe-Flash-Player-11-2-on-Fedora-18-17" class="headerlink" title="1. Adobe Flash Player 11.2 on Fedora 18/17"></a>1. Adobe Flash Player 11.2 on Fedora 18/17</h3><p>1). Install Adobe YUM Repository RPM package<br><code>rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm</code><br><code>rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux</code>  </p>
 <p>2). Update Repositories<br><code>yum check-update</code></p>
 <p>3). Install<br><code>yum install flash-plugin nspluginwrapper alsa-plugins-pulseaudio libcurl</code></p>
 <p>Reference:  </p>
 <ul>
 <li><a href="http://www.if-not-true-then-false.com/2010/install-adobe-flash-player-10-on-fedora-centos-red-hat-rhel/" target="_blank" rel="external">Install flash on fedora</a>  </li>
 </ul>
-<h3 id="2-Play-music-and-movies"><a href="#2-Play-music-and-movies" class="headerlink" title="2. Play music and movies"></a>2. Play music and movies</h3><p>1). add yum repository<br><code>su -c &#39;yum localinstall --nogpgcheck http://mirrors.163.com/rpmfusion/free/fedora/rpmfusion-free-release-stable.noarch.rpm http://mirrors.163.com/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm&#39;</code></p>
-<p>2). install mp3 and other audio support<br><code>su -c &#39;yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly libtunepimp-extras-freeworld xine-lib-extras-freeworld&#39;</code></p>
-<p>3). install video support<br><code>su -c &#39;yum install ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidcore&#39;</code></p>
+<h3 id="2-play-music-and-movies"><a href="#2-Play-music-and-movies" class="headerlink" title="2. Play music and movies"></a>2. Play music and movies</h3><p>1). add yum repository<br><code>su -c &apos;yum localinstall --nogpgcheck http://mirrors.163.com/rpmfusion/free/fedora/rpmfusion-free-release-stable.noarch.rpm http://mirrors.163.com/rpmfusion/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm&apos;</code></p>
+<p>2). install mp3 and other audio support<br><code>su -c &apos;yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly libtunepimp-extras-freeworld xine-lib-extras-freeworld&apos;</code></p>
+<p>3). install video support<br><code>su -c &apos;yum install ffmpeg ffmpeg-libs gstreamer-ffmpeg libmatroska xvidcore&apos;</code></p>
 <p>question:<br>    Appear erro message as below when install:<br>    <code>GPG key retrieval failed: [Errno 14] Could not open/read file:///etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-18-x86_64</code><br>    Check file<br>    <code>ls /etc/pki/rpm-gpg/RPM-GPG-KEY-*</code><br>    Can not found /etc/pki/rpm-gpg/RPM-GPG-KEY-rpmfusion-free-fedora-18-x86_64  </p>
-<p>Solution:<br>    <code>su -c &#39;yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-18.noarch.rpm&#39;</code></p>
+<p>Solution:<br>    <code>su -c &apos;yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-18.noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-18.noarch.rpm&apos;</code></p>
 <p>Reference:  </p>
 <ul>
-<li><a href="http://www.linuxidc.com/Linux/2012-06/62112.htm" target="_blank" rel="external">Fedora 17 无法播放mp3 rmvb</a>  </li>
+<li><a href="http://www.linuxidc.com/Linux/2012-06/62112.htm" target="_blank" rel="external">Fedora 17 &#x65E0;&#x6CD5;&#x64AD;&#x653E;mp3 rmvb</a>  </li>
 <li><a href="https://ask.fedoraproject.org/question/7439/gpg-key-retrieval-failed/" target="_blank" rel="external">GPG key retrieval failed</a></li>
 </ul>
 <p><strong>Update:</strong><br>Install gnome-mplayer-common rpm</p>
-<h3 id="3-How-to-create-and-use-Live-USB"><a href="#3-How-to-create-and-use-Live-USB" class="headerlink" title="3. How to create and use Live USB"></a>3. How to create and use Live USB</h3><p>Reference link: <a href="http://fedoraproject.org/wiki/How_to_create_and_use_Live_USB" target="_blank" rel="external">http://fedoraproject.org/wiki/How_to_create_and_use_Live_USB</a></p>
+<h3 id="3-how-to-create-and-use-live-usb"><a href="#3-How-to-create-and-use-Live-USB" class="headerlink" title="3. How to create and use Live USB"></a>3. How to create and use Live USB</h3><p>Reference link: <a href="http://fedoraproject.org/wiki/How_to_create_and_use_Live_USB" target="_blank" rel="external">http://fedoraproject.org/wiki/How_to_create_and_use_Live_USB</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/02/15/frequently-questions/" data-id="cin61d0gw003sfyizbx077zop" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/02/15/frequently-questions/" data-id="cin6a5uh8003t3ciz0666hadn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FAQ/">FAQ</a></li></ul>
@@ -197,7 +197,7 @@
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

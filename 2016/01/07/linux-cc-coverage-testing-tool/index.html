@@ -93,21 +93,21 @@ step 1: add optional in Makefile, and build with make coverage=yes  ifeq ($(cove
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="gcov-amp-lcov"><a href="#gcov-amp-lcov" class="headerlink" title="gcov &amp; lcov"></a>gcov &amp; lcov</h4><ul>
+        <h4 id="gcov-lcov"><a href="#gcov-amp-lcov" class="headerlink" title="gcov &amp; lcov"></a>gcov &amp; lcov</h4><ul>
 <li>Reference <a href="http://sdet.org/?p=212" target="_blank" rel="external">http://sdet.org/?p=212</a></li>
 <li>step 1: add optional in Makefile, and build with <code>make coverage=yes</code><br>  ifeq ($(coverage), yes)<br>  CXXFLAGS  += -fprofile-arcs -ftest-coverage<br>  LINKERCXX += -fprofile-arcs -ftest-coverage<br>  OPT_FLAGS  = -g3<br>  endif</li>
 <li>step 2: run test files</li>
 <li>step 3: generate text result by <code>gcov source_file.cc</code>, see result with <code>vim source_file.cc.gcov</code></li>
 <li>step 4: generate html result by <code>lcov -c -d ./ -o app.info</code> and <code>genhtml app.info -o cc_result</code></li>
 </ul>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="http://sdet.org/?p=212" target="_blank" rel="external">Linux下c/c++项目代码覆盖率的产生方法</a></li>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://sdet.org/?p=212" target="_blank" rel="external">Linux&#x4E0B;c/c++&#x9879;&#x76EE;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x7684;&#x4EA7;&#x751F;&#x65B9;&#x6CD5;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/01/07/linux-cc-coverage-testing-tool/" data-id="cin61d0m600a1fyizh7dvp0kr" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/01/07/linux-cc-coverage-testing-tool/" data-id="cin6a5ulb00a83ciz9a2q9srp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -192,7 +192,7 @@ step 1: add optional in Makefile, and build with make coverage=yes  ifeq ($(cove
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

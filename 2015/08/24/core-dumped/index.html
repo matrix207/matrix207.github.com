@@ -102,18 +102,18 @@ stack overlo">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-is-coredump"><a href="#What-is-coredump" class="headerlink" title="What is coredump"></a>What is coredump</h3><h3 id="How-to-analyse-coredump"><a href="#How-to-analyse-coredump" class="headerlink" title="How to analyse coredump"></a>How to analyse coredump</h3><h3 id="Why-program-coredump"><a href="#Why-program-coredump" class="headerlink" title="Why program coredump"></a>Why program coredump</h3><ul>
+        <h3 id="what-is-coredump"><a href="#What-is-coredump" class="headerlink" title="What is coredump"></a>What is coredump</h3><h3 id="how-to-analyse-coredump"><a href="#How-to-analyse-coredump" class="headerlink" title="How to analyse coredump"></a>How to analyse coredump</h3><h3 id="why-program-coredump"><a href="#Why-program-coredump" class="headerlink" title="Why program coredump"></a>Why program coredump</h3><ul>
 <li>memory overload</li>
 <li>using thread-unsafe functions on multi-thread</li>
 <li>not using lock when read-write data in multi-thread</li>
 <li>invalid point</li>
 <li>stack overload</li>
 </ul>
-<h3 id="How-to-use-core-file"><a href="#How-to-use-core-file" class="headerlink" title="How to use core file"></a>How to use core file</h3><ul>
+<h3 id="how-to-use-core-file"><a href="#How-to-use-core-file" class="headerlink" title="How to use core file"></a>How to use core file</h3><ul>
 <li>allow to generate core file<ul>
-<li><code>ulimit –c unlimited</code></li>
+<li><code>ulimit &#x2013;c unlimited</code></li>
 <li><code>echo /tmp/core.%e.%p &gt; /proc/sys/kernel/core_pattern</code></li>
-<li><code>gcc –g core_dump_test.c -o core_dump_test</code>, must used <code>-g</code> to build.</li>
+<li><code>gcc &#x2013;g core_dump_test.c -o core_dump_test</code>, must used <code>-g</code> to build.</li>
 </ul>
 </li>
 <li>get core file<ul>
@@ -128,10 +128,10 @@ stack overlo">
 </ul>
 </li>
 </ul>
-<h3 id="Signal-of-core"><a href="#Signal-of-core" class="headerlink" title="Signal of core"></a>Signal of core</h3><ul>
+<h3 id="signal-of-core"><a href="#Signal-of-core" class="headerlink" title="Signal of core"></a>Signal of core</h3><ul>
 <li><code>man 7 signal</code></li>
 </ul>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<h3 id="examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
 <li><p>write data to protected memory</p>
 <pre><code>#include &lt;stdio.h&gt;
 int main(){
@@ -173,13 +173,13 @@ int main(){
      char c=&apos;c&apos;;
      int i=10;
      char buf[100];
-     printf(&quot;%s&quot;, c); //试图把char型按照字符串格式输出，这里的字符会解释成整数，
-                           //再解释成地址，所以原因同上面那个例子
-     printf(&quot;%s&quot;, i); //试图把int型按照字符串输出
+     printf(&quot;%s&quot;, c); //&#x8BD5;&#x56FE;&#x628A;char&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x5B57;&#x7B26;&#x4F1A;&#x89E3;&#x91CA;&#x6210;&#x6574;&#x6570;&#xFF0C;
+                           //&#x518D;&#x89E3;&#x91CA;&#x6210;&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x539F;&#x56E0;&#x540C;&#x4E0A;&#x9762;&#x90A3;&#x4E2A;&#x4F8B;&#x5B50;
+     printf(&quot;%s&quot;, i); //&#x8BD5;&#x56FE;&#x628A;int&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x8F93;&#x51FA;
      memset(buf, 0, 100);
-     sprintf(buf, &quot;%s&quot;, c);  试图把char型按照字符串格式转换
+     sprintf(buf, &quot;%s&quot;, c);  &#x8BD5;&#x56FE;&#x628A;char&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x8F6C;&#x6362;
      memset(buf, 0, 100);
-     sprintf(buf, &quot;%s&quot;, i);//试图把int型按照字符串转换
+     sprintf(buf, &quot;%s&quot;, i);//&#x8BD5;&#x56FE;&#x628A;int&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;
 }
 </code></pre><ul>
 <li>Other, likes:<ul>
@@ -189,7 +189,7 @@ int main(){
 </ul>
 </li>
 </ul>
-<h3 id="Auto-start-gdb-when-core-occur"><a href="#Auto-start-gdb-when-core-occur" class="headerlink" title="Auto start gdb when core occur"></a>Auto start gdb when core occur</h3><pre><code>#include &lt;stdio.h&gt;
+<h3 id="auto-start-gdb-when-core-occur"><a href="#Auto-start-gdb-when-core-occur" class="headerlink" title="Auto start gdb when core occur"></a>Auto start gdb when core occur</h3><pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;signal.h&gt;
 #include &lt;string.h&gt;
@@ -229,16 +229,16 @@ int main (void)
 
     return 0;
 }
-</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.csdn.net/newnewman80/article/details/8173770" target="_blank" rel="external">coredump简介与coredump原因总结</a></li>
-<li><a href="http://www.cnblogs.com/hello--the-world/archive/2012/05/31/2528326.html" target="_blank" rel="external">C/C++中的段错误（Segmentation fault）</a></li>
-<li><a href="http://blog.csdn.net/freshman_fantom_ywj/article/details/6434074" target="_blank" rel="external">段错误bug的调试</a></li>
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/newnewman80/article/details/8173770" target="_blank" rel="external">coredump&#x7B80;&#x4ECB;&#x4E0E;coredump&#x539F;&#x56E0;&#x603B;&#x7ED3;</a></li>
+<li><a href="http://www.cnblogs.com/hello--the-world/archive/2012/05/31/2528326.html" target="_blank" rel="external">C/C++&#x4E2D;&#x7684;&#x6BB5;&#x9519;&#x8BEF;&#xFF08;Segmentation fault&#xFF09;</a></li>
+<li><a href="http://blog.csdn.net/freshman_fantom_ywj/article/details/6434074" target="_blank" rel="external">&#x6BB5;&#x9519;&#x8BEF;bug&#x7684;&#x8C03;&#x8BD5;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/08/24/core-dumped/" data-id="cin61d0lh009efyizdwwh6crn" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/08/24/core-dumped/" data-id="cin6a5uku009k3cizlysnqfv8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -323,7 +323,7 @@ int main (void)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

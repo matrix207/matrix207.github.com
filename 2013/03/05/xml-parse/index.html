@@ -5,34 +5,16 @@
   
   <title>xml parse | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里贴一个xml解析到shell脚本，主要使用了sed，awk，vi等命令的正则表达式。
-xml.sh
-#!/bin/sh
-################################################################################
-# 解析xml配置文件
-# 历史记录:
-#   2013-03-05    v1.0    Dennis  Cre">
+  <meta name="description" content="&amp;#x8FD9;&amp;#x91CC;&amp;#x8D34;&amp;#x4E00;&amp;#x4E2A;xml&amp;#x89E3;&amp;#x6790;&amp;#x5230;shell&amp;#x811A;&amp;#x672C;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;sed&amp;#xFF0C;awk&amp;#xFF0C;vi&amp;#x7B49;&amp;#x547D;&amp;#x4EE4;&amp;#x7684;&amp;#x6B63;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xml parse">
 <meta property="og:url" content="http://matrix207.github.com/2013/03/05/xml-parse/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
-<meta property="og:description" content="这里贴一个xml解析到shell脚本，主要使用了sed，awk，vi等命令的正则表达式。
-xml.sh
-#!/bin/sh
-################################################################################
-# 解析xml配置文件
-# 历史记录:
-#   2013-03-05    v1.0    Dennis  Cre">
+<meta property="og:description" content="&amp;#x8FD9;&amp;#x91CC;&amp;#x8D34;&amp;#x4E00;&amp;#x4E2A;xml&amp;#x89E3;&amp;#x6790;&amp;#x5230;shell&amp;#x811A;&amp;#x672C;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;sed&amp;#xFF0C;awk&amp;#xFF0C;vi&amp;#x7B49;&amp;#x547D;&amp;#x4EE4;&amp;#x7684;&amp;#x6B63;">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xml parse">
-<meta name="twitter:description" content="这里贴一个xml解析到shell脚本，主要使用了sed，awk，vi等命令的正则表达式。
-xml.sh
-#!/bin/sh
-################################################################################
-# 解析xml配置文件
-# 历史记录:
-#   2013-03-05    v1.0    Dennis  Cre">
+<meta name="twitter:description" content="&amp;#x8FD9;&amp;#x91CC;&amp;#x8D34;&amp;#x4E00;&amp;#x4E2A;xml&amp;#x89E3;&amp;#x6790;&amp;#x5230;shell&amp;#x811A;&amp;#x672C;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;sed&amp;#xFF0C;awk&amp;#xFF0C;vi&amp;#x7B49;&amp;#x547D;&amp;#x4EE4;&amp;#x7684;&amp;#x6B63;">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -105,12 +87,12 @@ xml.sh
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里贴一个xml解析到shell脚本，主要使用了sed，awk，vi等命令的正则表达式。</p>
+        <p>&#x8FD9;&#x91CC;&#x8D34;&#x4E00;&#x4E2A;xml&#x89E3;&#x6790;&#x5230;shell&#x811A;&#x672C;&#xFF0C;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x4E86;sed&#xFF0C;awk&#xFF0C;vi&#x7B49;&#x547D;&#x4EE4;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
 <p>xml.sh</p>
 <pre><code>#!/bin/sh
 ################################################################################
-# 解析xml配置文件
-# 历史记录:
+# &#x89E3;&#x6790;xml&#x914D;&#x7F6E;&#x6587;&#x4EF6;
+# &#x5386;&#x53F2;&#x8BB0;&#x5F55;:
 #   2013-03-05    v1.0    Dennis  Create
 ################################################################################
 
@@ -124,13 +106,13 @@ setitemvalue ()
         return 1
     fi
 
-    # sed 中使用变量，要用单引号围起来
+    # sed &#x4E2D;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#xFF0C;&#x8981;&#x7528;&#x5355;&#x5F15;&#x53F7;&#x56F4;&#x8D77;&#x6765;
     case $1 in
         &quot;name&quot; | &quot;ip&quot; | &quot;port&quot;)
             #vi -e -s -c &quot;:%s#$1=\&quot;\S*\&quot;#$1=\&quot;$2\&quot;#g&quot; -c &quot;:wq&quot; $xml_file
-            # 修改所有匹配行
+            # &#x4FEE;&#x6539;&#x6240;&#x6709;&#x5339;&#x914D;&#x884C;
             #sed -i &apos;s#&apos;$1&apos;=\&quot;\S*\&quot;#&apos;$1&apos;=&quot;&apos;$2&apos;&quot;#g&apos; $xml_file
-            # 只修改第一个匹配行
+            # &#x53EA;&#x4FEE;&#x6539;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x884C;
             sed -i &apos;1,/&apos;$1&apos;/{s#&apos;$1&apos;=\&quot;\S*\&quot;#&apos;$1&apos;=&quot;&apos;$2&apos;&quot;#g}&apos; $xml_file 
             ;;
         *)
@@ -145,13 +127,13 @@ setitemvalue ()
 show()
 {
     # parse special item
-    # 方式1, 可能出现重复行, 命令过长
+    # &#x65B9;&#x5F0F;1, &#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x884C;, &#x547D;&#x4EE4;&#x8FC7;&#x957F;
       #name=`grep &quot;Remote name&quot; $xml_file | head -n 1 | awk &apos;{print $2}&apos; | cut -d&quot;=&quot; -f2 | cut -d&apos;&quot;&apos; -f2`
-    # 方式2, 使用 -m 参数解决重复行问题，但整个命令比较长
+    # &#x65B9;&#x5F0F;2, &#x4F7F;&#x7528; -m &#x53C2;&#x6570;&#x89E3;&#x51B3;&#x91CD;&#x590D;&#x884C;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x6574;&#x4E2A;&#x547D;&#x4EE4;&#x6BD4;&#x8F83;&#x957F;
       #name=`grep -m 1 &quot;Remote name&quot; $xml_file | awk &apos;{print $2}&apos; | cut -d&quot;=&quot; -f2 | cut -d&apos;&quot;&apos; -f2`
-    # 方式3, 可能出现重复行
+    # &#x65B9;&#x5F0F;3, &#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x91CD;&#x590D;&#x884C;
       #name=`sed -n &apos;/Remote name/p&apos; $xml_file | cut -d&apos;&quot;&apos; -f2`
-    # 方式4, 解决重复行,并且简化命令
+    # &#x65B9;&#x5F0F;4, &#x89E3;&#x51B3;&#x91CD;&#x590D;&#x884C;,&#x5E76;&#x4E14;&#x7B80;&#x5316;&#x547D;&#x4EE4;
     name=`grep -m 1 &quot;Remote name&quot; $xml_file | cut -d&apos;&quot;&apos; -f2`
       ip=`grep -m 1 &quot;Remote name&quot; $xml_file | cut -d&apos;&quot;&apos; -f4`
     port=`grep -m 1 &quot;Remote name&quot; $xml_file | cut -d&apos;&quot;&apos; -f6`
@@ -182,9 +164,9 @@ else
             show
             ;;
         &quot;--set&quot;)
-            # 删掉第一个参数
+            # &#x5220;&#x6389;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;
             shift
-            # 循环所有参数
+            # &#x5FAA;&#x73AF;&#x6240;&#x6709;&#x53C2;&#x6570;
             for i in $* ; do
                 item=`echo $i | cut -d&quot;=&quot; -f1`
                 value=`echo $i | cut -d&quot;=&quot; -f2`
@@ -217,7 +199,7 @@ exit 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/05/xml-parse/" data-id="cin61d0h5004bfyizk6zeddqi" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/05/xml-parse/" data-id="cin6a5uhh00483cizajptayoo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vi/">vi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml/">xml</a></li></ul>
@@ -304,7 +286,7 @@ exit 0
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

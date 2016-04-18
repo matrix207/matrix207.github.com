@@ -141,35 +141,35 @@ TCP window size: 0.02 MByte (default)
 [  3]  8.0-10.0 sec  1893 MBytes   947 MBytes/sec
 [  3]  0.0-10.0 sec  9196 MBytes   920 MBytes/sec
 </code></pre><ul>
-<li>通用参数<ul>
-<li>-f [k|m|K|M] 分别表示以Kbits, Mbits, KBytes, MBytes显示报告，默认以Mbits为单位,eg:iperf -c 222.35.11.23 -f K</li>
-<li>-i sec 以秒为单位显示报告间隔，eg:iperf -c 222.35.11.23 -i 2</li>
-<li>-l 缓冲区大小，默认是8KB,eg:iperf -c 222.35.11.23 -l 16</li>
-<li>-m 显示tcp最大mtu值</li>
-<li>-o 将报告和错误信息输出到文件eg:iperf -c 222.35.11.23 -o c:\iperflog.txt</li>
-<li>-p 指定服务器端使用的端口或客户端所连接的端口eg:iperf -s -p 9999;iperf -c 222.35.11.23 -p 9999</li>
-<li>-u 使用udp协议,测试htb的时候最好用udp，udp通信开销小，测试的带宽更准确</li>
-<li>-w 指定TCP窗口大小，默认是8KB.如果窗口太小，有可能丢包</li>
-<li>-B 绑定一个主机地址或接口（当主机有多个地址或接口时使用该参数）</li>
-<li>-C 兼容旧版本（当server端和client端版本不一样时使用）</li>
-<li>-M 设定TCP数据包的最大mtu值</li>
-<li>-N 设定TCP不延时</li>
-<li>-V 传输ipv6数据包</li>
+<li>&#x901A;&#x7528;&#x53C2;&#x6570;<ul>
+<li>-f [k|m|K|M] &#x5206;&#x522B;&#x8868;&#x793A;&#x4EE5;Kbits, Mbits, KBytes, MBytes&#x663E;&#x793A;&#x62A5;&#x544A;&#xFF0C;&#x9ED8;&#x8BA4;&#x4EE5;Mbits&#x4E3A;&#x5355;&#x4F4D;,eg:iperf -c 222.35.11.23 -f K</li>
+<li>-i sec &#x4EE5;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x663E;&#x793A;&#x62A5;&#x544A;&#x95F4;&#x9694;&#xFF0C;eg:iperf -c 222.35.11.23 -i 2</li>
+<li>-l &#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;8KB,eg:iperf -c 222.35.11.23 -l 16</li>
+<li>-m &#x663E;&#x793A;tcp&#x6700;&#x5927;mtu&#x503C;</li>
+<li>-o &#x5C06;&#x62A5;&#x544A;&#x548C;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;eg:iperf -c 222.35.11.23 -o c:\iperflog.txt</li>
+<li>-p &#x6307;&#x5B9A;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4F7F;&#x7528;&#x7684;&#x7AEF;&#x53E3;&#x6216;&#x5BA2;&#x6237;&#x7AEF;&#x6240;&#x8FDE;&#x63A5;&#x7684;&#x7AEF;&#x53E3;eg:iperf -s -p 9999;iperf -c 222.35.11.23 -p 9999</li>
+<li>-u &#x4F7F;&#x7528;udp&#x534F;&#x8BAE;,&#x6D4B;&#x8BD5;htb&#x7684;&#x65F6;&#x5019;&#x6700;&#x597D;&#x7528;udp&#xFF0C;udp&#x901A;&#x4FE1;&#x5F00;&#x9500;&#x5C0F;&#xFF0C;&#x6D4B;&#x8BD5;&#x7684;&#x5E26;&#x5BBD;&#x66F4;&#x51C6;&#x786E;</li>
+<li>-w &#x6307;&#x5B9A;TCP&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;8KB.&#x5982;&#x679C;&#x7A97;&#x53E3;&#x592A;&#x5C0F;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4E22;&#x5305;</li>
+<li>-B &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x4E3B;&#x673A;&#x5730;&#x5740;&#x6216;&#x63A5;&#x53E3;&#xFF08;&#x5F53;&#x4E3B;&#x673A;&#x6709;&#x591A;&#x4E2A;&#x5730;&#x5740;&#x6216;&#x63A5;&#x53E3;&#x65F6;&#x4F7F;&#x7528;&#x8BE5;&#x53C2;&#x6570;&#xFF09;</li>
+<li>-C &#x517C;&#x5BB9;&#x65E7;&#x7248;&#x672C;&#xFF08;&#x5F53;server&#x7AEF;&#x548C;client&#x7AEF;&#x7248;&#x672C;&#x4E0D;&#x4E00;&#x6837;&#x65F6;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>-M &#x8BBE;&#x5B9A;TCP&#x6570;&#x636E;&#x5305;&#x7684;&#x6700;&#x5927;mtu&#x503C;</li>
+<li>-N &#x8BBE;&#x5B9A;TCP&#x4E0D;&#x5EF6;&#x65F6;</li>
+<li>-V &#x4F20;&#x8F93;ipv6&#x6570;&#x636E;&#x5305;</li>
 </ul>
 </li>
-<li>server专用参数<ul>
-<li>-D 以服务方式运行ipserf，eg:iperf -s -D</li>
-<li>-R 停止iperf服务，针对-D，eg:iperf -s -R</li>
+<li>server&#x4E13;&#x7528;&#x53C2;&#x6570;<ul>
+<li>-D &#x4EE5;&#x670D;&#x52A1;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;ipserf&#xFF0C;eg:iperf -s -D</li>
+<li>-R &#x505C;&#x6B62;iperf&#x670D;&#x52A1;&#xFF0C;&#x9488;&#x5BF9;-D&#xFF0C;eg:iperf -s -R</li>
 </ul>
 </li>
-<li>client端专用参数<ul>
-<li>-d 同时进行双向传输测试</li>
-<li>-n 指定传输的字节数，eg:iperf -c 222.35.11.23 -n 100000</li>
-<li>-r 单独进行双向传输测试</li>
-<li>-b 指定发送带宽，默认是1Mbit/s. 在测试qos的时候，这是最有用的参数。</li>
-<li>-t 测试时间，默认10秒,eg:iperf -c 222.35.11.23 -t 5.默认是10s</li>
-<li>-F 指定需要传输的文件</li>
-<li>-T 指定ttl值 </li>
+<li>client&#x7AEF;&#x4E13;&#x7528;&#x53C2;&#x6570;<ul>
+<li>-d &#x540C;&#x65F6;&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x4F20;&#x8F93;&#x6D4B;&#x8BD5;</li>
+<li>-n &#x6307;&#x5B9A;&#x4F20;&#x8F93;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF0C;eg:iperf -c 222.35.11.23 -n 100000</li>
+<li>-r &#x5355;&#x72EC;&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x4F20;&#x8F93;&#x6D4B;&#x8BD5;</li>
+<li>-b &#x6307;&#x5B9A;&#x53D1;&#x9001;&#x5E26;&#x5BBD;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;1Mbit/s. &#x5728;&#x6D4B;&#x8BD5;qos&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x662F;&#x6700;&#x6709;&#x7528;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
+<li>-t &#x6D4B;&#x8BD5;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;10&#x79D2;,eg:iperf -c 222.35.11.23 -t 5.&#x9ED8;&#x8BA4;&#x662F;10s</li>
+<li>-F &#x6307;&#x5B9A;&#x9700;&#x8981;&#x4F20;&#x8F93;&#x7684;&#x6587;&#x4EF6;</li>
+<li>-T &#x6307;&#x5B9A;ttl&#x503C; </li>
 </ul>
 </li>
 </ul>
@@ -178,15 +178,15 @@ TCP window size: 0.02 MByte (default)
 <li>tcpdump -i eth0 host 172.16.30.44 and port 80</li>
 <li>tcpdump -U port 3260 -w /tmp/tcpdump.pcap</li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.vpsee.com/2009/11/linux-system-performance-monitoring-network/" target="_blank" rel="external">Linux性能监测：network</a></li>
-<li><a href="http://blog.chinaunix.net/uid-20778443-id-94533.html" target="_blank" rel="external">iperf 使用总结</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.vpsee.com/2009/11/linux-system-performance-monitoring-network/" target="_blank" rel="external">Linux&#x6027;&#x80FD;&#x76D1;&#x6D4B;&#xFF1A;network</a></li>
+<li><a href="http://blog.chinaunix.net/uid-20778443-id-94533.html" target="_blank" rel="external">iperf &#x4F7F;&#x7528;&#x603B;&#x7ED3;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cin61d0l30092fyiz1m1ibc81" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cin6a5ukk00993cizk4y2qw21" class="article-share-link">Share</a>
       
       
     </footer>
@@ -271,7 +271,7 @@ TCP window size: 0.02 MByte (default)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -120,7 +120,7 @@ a, append, using for a">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+        <h3 id="basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
 <li><p>Syntax</p>
 <ul>
 <li>-i edit file</li>
@@ -135,52 +135,52 @@ a, append, using for a">
 <li>i, insert, using for add line</li>
 <li>d, delete, using for delete line</li>
 <li>p, print</li>
-<li><code>: b t</code>, flow control, “<code>:</code>“ is a label, “<code>b</code>“ means branch and “<code>t</code>“ is test</li>
+<li><code>: b t</code>, flow control, &#x201C;<code>:</code>&#x201C; is a label, &#x201C;<code>b</code>&#x201C; means branch and &#x201C;<code>t</code>&#x201C; is test</li>
 <li>H,h,G,g,x: put patter space content to storage space</li>
 </ul>
 </li>
 <li><p>regular express</p>
 <ul>
-<li>^ 表示一行的开头。如：/^#/ 以#开头的匹配。</li>
-<li>$ 表示一行的结尾。如：/}$/ 以}结尾的匹配。</li>
-<li>\&lt; 表示词首。 如 \&lt;abc 表示以 abc 为首的詞。</li>
-<li>> 表示词尾。 如 abc> 表示以 abc 結尾的詞。</li>
-<li>. 表示任何单个字符。</li>
+<li>^ &#x8868;&#x793A;&#x4E00;&#x884C;&#x7684;&#x5F00;&#x5934;&#x3002;&#x5982;&#xFF1A;/^#/ &#x4EE5;#&#x5F00;&#x5934;&#x7684;&#x5339;&#x914D;&#x3002;</li>
+<li>$ &#x8868;&#x793A;&#x4E00;&#x884C;&#x7684;&#x7ED3;&#x5C3E;&#x3002;&#x5982;&#xFF1A;/}$/ &#x4EE5;}&#x7ED3;&#x5C3E;&#x7684;&#x5339;&#x914D;&#x3002;</li>
+<li>\&lt; &#x8868;&#x793A;&#x8BCD;&#x9996;&#x3002; &#x5982; \&lt;abc &#x8868;&#x793A;&#x4EE5; abc &#x4E3A;&#x9996;&#x7684;&#x8A5E;&#x3002;</li>
+<li>&gt; &#x8868;&#x793A;&#x8BCD;&#x5C3E;&#x3002; &#x5982; abc&gt; &#x8868;&#x793A;&#x4EE5; abc &#x7D50;&#x5C3E;&#x7684;&#x8A5E;&#x3002;</li>
+<li>. &#x8868;&#x793A;&#x4EFB;&#x4F55;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x3002;</li>
 <li><ul>
-<li>表示某个字符出现了0次或多次。</li>
+<li>&#x8868;&#x793A;&#x67D0;&#x4E2A;&#x5B57;&#x7B26;&#x51FA;&#x73B0;&#x4E86;0&#x6B21;&#x6216;&#x591A;&#x6B21;&#x3002;</li>
 </ul>
 </li>
-<li>[ ] 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的26个字符。如果其中有^表示反，如[^a]表示非a的字符</li>
+<li>[ ] &#x5B57;&#x7B26;&#x96C6;&#x5408;&#x3002; &#x5982;&#xFF1A;[abc]&#x8868;&#x793A;&#x5339;&#x914D;a&#x6216;b&#x6216;c&#xFF0C;&#x8FD8;&#x6709;[a-zA-Z]&#x8868;&#x793A;&#x5339;&#x914D;&#x6240;&#x6709;&#x7684;26&#x4E2A;&#x5B57;&#x7B26;&#x3002;&#x5982;&#x679C;&#x5176;&#x4E2D;&#x6709;^&#x8868;&#x793A;&#x53CD;&#xFF0C;&#x5982;[^a]&#x8868;&#x793A;&#x975E;a&#x7684;&#x5B57;&#x7B26;</li>
 </ul>
 </li>
 </ul>
-<h3 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
-<li><code>sed [options] &#39;command&#39; file(s)</code>  </li>
+<h3 id="skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
+<li><code>sed [options] &apos;command&apos; file(s)</code>  </li>
 <li><code>sed [options] -f scriptfile file(s)</code>  </li>
-<li><code>sed -i &#39;/&#39;$prj&#39;/{s/\(.*#.*#\)[0-9]\+/\1&#39;$rev_new&#39;/}&#39; $conf_file</code>, replace revision with new revision</li>
+<li><code>sed -i &apos;/&apos;$prj&apos;/{s/\(.*#.*#\)[0-9]\+/\1&apos;$rev_new&apos;/}&apos; $conf_file</code>, replace revision with new revision</li>
 <li><code>sed -n 10,23p filepath</code>, -n print the specific lines  </li>
-<li><code>sed &#39;N;s/\n/ /&#39; filepath</code>, join two line into one  </li>
-<li><code>echo -e &quot;11\n22\n33\n&quot; | sed -n &#39;/22/{n;p}&#39;</code>, print next line after match  </li>
-<li><code>sed &#39;:a;N;s/\n/ /;ba;&#39; file</code>, join all lines (set label <code>a</code>, put the next to<br>operate buffer, substitute <code>\n</code> to space symbol, goto lable <code>a</code>, job continue.</li>
+<li><code>sed &apos;N;s/\n/ /&apos; filepath</code>, join two line into one  </li>
+<li><code>echo -e &quot;11\n22\n33\n&quot; | sed -n &apos;/22/{n;p}&apos;</code>, print next line after match  </li>
+<li><code>sed &apos;:a;N;s/\n/ /;ba;&apos; file</code>, join all lines (set label <code>a</code>, put the next to<br>operate buffer, substitute <code>\n</code> to space symbol, goto lable <code>a</code>, job continue.</li>
 </ul>
 <h3 id="sample"><a href="#sample" class="headerlink" title="sample"></a>sample</h3><ul>
 <li><ol>
-<li><p>delete tags from html, using <code>sed &#39;s/&lt;[^&gt;]*//g&#39; test.html</code></p>
+<li><p>delete tags from html, using <code>sed &apos;s/&lt;[^&gt;]*//g&apos; test.html</code></p>
 <p><b>This</b> is what <span style="text-decoration: underline;">I</span> meant. Understand?</p>
 </li>
 </ol>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">sed 简明教程</a></li>
-<li><a href="http://www.cnblogs.com/51linux/archive/2011/09/24/2189420.html" target="_blank" rel="external">sed 高级用法</a></li>
-<li><a href="http://kodango.com/tag/sed-and-awk/" target="_blank" rel="external">Sed and awk 笔记</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">sed &#x7B80;&#x660E;&#x6559;&#x7A0B;</a></li>
+<li><a href="http://www.cnblogs.com/51linux/archive/2011/09/24/2189420.html" target="_blank" rel="external">sed &#x9AD8;&#x7EA7;&#x7528;&#x6CD5;</a></li>
+<li><a href="http://kodango.com/tag/sed-and-awk/" target="_blank" rel="external">Sed and awk &#x7B14;&#x8BB0;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/08/22/sed/" data-id="cin61d0km008pfyizylwe07vt" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/08/22/sed/" data-id="cin6a5uk5008u3ciz5y4b8ozr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,9 +199,9 @@ a, append, using for a">
     </a>
   
   
-    <a href="/2014/08/22/awk/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/08/22/grep/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">awk</div>
+      <div class="article-nav-title">grep</div>
     </a>
   
 </nav>
@@ -265,7 +265,7 @@ a, append, using for a">
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

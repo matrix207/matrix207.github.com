@@ -103,7 +103,7 @@ gcc cursesapp.c -lncurse -static -o cursesapp
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h3 id="Part-1-Linux-program-tools"><a href="#Part-1-Linux-program-tools" class="headerlink" title="Part 1 Linux program tools"></a>Part 1 Linux program tools</h3><h4 id="GNU-cc"><a href="#GNU-cc" class="headerlink" title="GNU cc"></a>GNU cc</h4><pre><code>gcc myapp.c -L/home/fred/lib -I/home/fred/include -lnew -o myapp
+<h3 id="part-1-linux-program-tools"><a href="#Part-1-Linux-program-tools" class="headerlink" title="Part 1 Linux program tools"></a>Part 1 Linux program tools</h3><h4 id="gnu-cc"><a href="#GNU-cc" class="headerlink" title="GNU cc"></a>GNU cc</h4><pre><code>gcc myapp.c -L/home/fred/lib -I/home/fred/include -lnew -o myapp
 
 gcc cursesapp.c -lncurse -static -o cursesapp
 
@@ -126,14 +126,14 @@ int main(void)
 
     return 0;
 }
-</code></pre><h4 id="GNU-make"><a href="#GNU-make" class="headerlink" title="GNU make"></a>GNU make</h4><pre><code>auto variable
+</code></pre><h4 id="gnu-make"><a href="#GNU-make" class="headerlink" title="GNU make"></a>GNU make</h4><pre><code>auto variable
 $@
 $&lt;
 $^
 $?
 $(@D)
 $(@F)
-</code></pre><h4 id="GNU-autoconf"><a href="#GNU-autoconf" class="headerlink" title="GNU autoconf"></a>GNU autoconf</h4><pre><code>configure.in
+</code></pre><h4 id="gnu-autoconf"><a href="#GNU-autoconf" class="headerlink" title="GNU autoconf"></a>GNU autoconf</h4><pre><code>configure.in
 AC_INIT(unique_file_in_source_dir)
 AC_OUTPUT([file...[,extra_cmds[,init_cmds]]])
 
@@ -155,7 +155,7 @@ patch
 
 diff -c sigrot.1 sigrot.2 &gt; sigrot.path
 patch -p0 &lt; sigrot.patch
-</code></pre><h4 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h4><h4 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h4><pre><code>#include &lt;assert.h&gt;
+</code></pre><h4 id="gdb"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h4><h4 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h4><pre><code>#include &lt;assert.h&gt;
 void assert (int expression);
 </code></pre><h4 id="macro"><a href="#macro" class="headerlink" title="macro"></a>macro</h4><pre><code>__LINE__
 __FILE__
@@ -196,7 +196,7 @@ int dlclose(void *handle);
 
 gcc -g -Wall dltest.c -o dltest -ldl
 </code></pre><hr>
-<h3 id="Part-2-System-Program"><a href="#Part-2-System-Program" class="headerlink" title="Part 2 System Program"></a>Part 2 System Program</h3><h4 id="File-I-O"><a href="#File-I-O" class="headerlink" title="File I/O"></a>File I/O</h4><pre><code>open
+<h3 id="part-2-system-program"><a href="#Part-2-System-Program" class="headerlink" title="Part 2 System Program"></a>Part 2 System Program</h3><h4 id="file-io"><a href="#File-I-O" class="headerlink" title="File I/O"></a>File I/O</h4><pre><code>open
 create
 close
 read
@@ -272,7 +272,7 @@ opendir
 readdir
 rewinddir
 closedir
-</code></pre><h4 id="Process-control"><a href="#Process-control" class="headerlink" title="Process control"></a>Process control</h4><pre><code>system
+</code></pre><h4 id="process-control"><a href="#Process-control" class="headerlink" title="Process control"></a>Process control</h4><pre><code>system
 fork
 exec
 popen
@@ -305,7 +305,7 @@ sched_get_priority_min
 getpriority
 setpriority
 nice
-</code></pre><h4 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h4><pre><code>_clone
+</code></pre><h4 id="thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h4><pre><code>_clone
 
 pthread_create
 pthread_exit
@@ -347,7 +347,7 @@ munlock
 mlockall
 munlockall
 </code></pre><hr>
-<h4 id="Part-3-IPC-and-Network-program"><a href="#Part-3-IPC-and-Network-program" class="headerlink" title="Part 3 IPC and Network program"></a>Part 3 IPC and Network program</h4><h4 id="IPC"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h4><pre><code>pipe
+<h4 id="part-3-ipc-and-network-program"><a href="#Part-3-IPC-and-Network-program" class="headerlink" title="Part 3 IPC and Network program"></a>Part 3 IPC and Network program</h4><h4 id="ipc"><a href="#IPC" class="headerlink" title="IPC"></a>IPC</h4><pre><code>pipe
 popen
 pclose
 
@@ -371,7 +371,7 @@ setsid
 openlog
 closelog
 syslog
-</code></pre><h4 id="Netwrok"><a href="#Netwrok" class="headerlink" title="Netwrok"></a>Netwrok</h4><pre><code>socket
+</code></pre><h4 id="netwrok"><a href="#Netwrok" class="headerlink" title="Netwrok"></a>Netwrok</h4><pre><code>socket
 bind
 listen
 connect
@@ -389,7 +389,7 @@ tcpdump
 
 multicast
 </code></pre><hr>
-<h3 id="Part-4-GUI"><a href="#Part-4-GUI" class="headerlink" title="Part 4 GUI"></a>Part 4 GUI</h3><pre><code>terminal
+<h3 id="part-4-gui"><a href="#Part-4-GUI" class="headerlink" title="Part 4 GUI"></a>Part 4 GUI</h3><pre><code>terminal
 
 ncurses
 
@@ -401,14 +401,14 @@ Qt GUI
 
 OpenGL Mesa 3D
 </code></pre><hr>
-<h3 id="Part-5-Special-program-technology"><a href="#Part-5-Special-program-technology" class="headerlink" title="Part 5 Special program technology"></a>Part 5 Special program technology</h3><h4 id="GNU-Bash"><a href="#GNU-Bash" class="headerlink" title="GNU Bash"></a>GNU Bash</h4><h4 id="Device-Driver"><a href="#Device-Driver" class="headerlink" title="Device Driver"></a>Device Driver</h4><hr>
-<h3 id="Part-6"><a href="#Part-6" class="headerlink" title="Part 6"></a>Part 6</h3><h4 id="RPM"><a href="#RPM" class="headerlink" title="RPM"></a>RPM</h4><h4 id="Licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h4><ol>
+<h3 id="part-5-special-program-technology"><a href="#Part-5-Special-program-technology" class="headerlink" title="Part 5 Special program technology"></a>Part 5 Special program technology</h3><h4 id="gnu-bash"><a href="#GNU-Bash" class="headerlink" title="GNU Bash"></a>GNU Bash</h4><h4 id="device-driver"><a href="#Device-Driver" class="headerlink" title="Device Driver"></a>Device Driver</h4><hr>
+<h3 id="part-6"><a href="#Part-6" class="headerlink" title="Part 6"></a>Part 6</h3><h4 id="rpm"><a href="#RPM" class="headerlink" title="RPM"></a>RPM</h4><h4 id="licence"><a href="#Licence" class="headerlink" title="Licence"></a>Licence</h4><ol>
 <li>MIT</li>
 <li>BSD</li>
 <li>GNU</li>
 </ol>
 <hr>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="">GNU Linux program</a></li>
 <li><a href="http://www.advancedlinuxprogramming.com/alp-folder/advanced-linux-programming.pdf" target="_blank" rel="external">Advanced linux program</a></li>
 </ul>
@@ -416,7 +416,7 @@ OpenGL Mesa 3D
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/28/gnu-linux-program/" data-id="cin61d0k6008dfyiz5f8c36wi" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/28/gnu-linux-program/" data-id="cin6a5ujt008e3cizd8xsz67v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -501,7 +501,7 @@ OpenGL Mesa 3D
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

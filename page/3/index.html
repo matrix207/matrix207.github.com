@@ -66,179 +66,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-linux-memory" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/24/linux-memory/" class="article-date">
-  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/24/linux-memory/">linux memory</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="process-and-memory"><a href="#process-and-memory" class="headerlink" title="process and memory"></a>process and memory</h3><ul>
-<li><p>how process use memory<br>There are 5 kinds of segment datas on process, which is code segment, data segment,<br>BSS segment, heap segment and stack segment.</p>
-<ul>
-<li>code, use for store execute instruction.</li>
-<li>data, store global variable, which had been initialized.</li>
-<li>BSS, uninitialized global variable, all would be setted to zero.</li>
-<li>heap, memory be allocated dynamic</li>
-<li>stack, use for store local variable</li>
-</ul>
-</li>
-<li><p>how these segments look like</p>
-<ul>
-<li>|stack address … heap address … BSS … data … code|</li>
-<li>stack address is on high address, and code is on low.</li>
-<li><p>here is an example to tell the ture  </p>
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;malloc.h&gt;
-#include&lt;unistd.h&gt;
-int bss_var;
-int data_var0=1;
-int main(int argc,char **argv)
-{
-  printf(&quot;below are addresses of types of process&apos;s mem\n&quot;);
-  printf(&quot;Text location:\n&quot;);
-  printf(&quot;\tAddress of main(Code Segment):%p\n&quot;,main);
-  printf(&quot;____________________________\n&quot;);
-  int stack_var0=2;
-  printf(&quot;Stack Location:\n&quot;);
-  printf(&quot;\tInitial end of stack:%p\n&quot;,&amp;stack_var0);
-  int stack_var1=3;
-  printf(&quot;\tnew end of stack:%p\n&quot;,&amp;stack_var1);
-  printf(&quot;____________________________\n&quot;);
-  printf(&quot;Data Location:\n&quot;);
-  printf(&quot;\tAddress of data_var(Data Segment):%p\n&quot;,&amp;data_var0);
-  static int data_var1=4;
-  printf(&quot;\tNew end of data_var(Data Segment):%p\n&quot;,&amp;data_var1);
-  printf(&quot;____________________________\n&quot;);
-  printf(&quot;BSS Location:\n&quot;);
-  printf(&quot;\tAddress of bss_var:%p\n&quot;,&amp;bss_var);
-  printf(&quot;____________________________\n&quot;);
-  char *b = sbrk((ptrdiff_t)0);
-  printf(&quot;Heap Location:\n&quot;);
-  printf(&quot;\tInitial end of heap:%p\n&quot;,b);
-  brk(b+4);
-  b=sbrk((ptrdiff_t)0);
-  printf(&quot;\tNew end of heap:%p\n&quot;,b);
-  return 0;
-}
-</code></pre></li>
-<li>output as below  <pre><code>below are addresses of types of process&apos;s mem
-Text location:
-    Address of main(Code Segment):0x400606
-____________________________
-Stack Location:
-    Initial end of stack:0x7fff8b4d1b5c
-    new end of stack:0x7fff8b4d1b58
-____________________________
-Data Location:
-    Address of data_var(Data Segment):0x601050
-    New end of data_var(Data Segment):0x60104c
-____________________________
-BSS Location:
-    Address of bss_var:0x601058
-____________________________
-Heap Location:
-    Initial end of heap:0x203c000
-    New end of heap:0x203c004
-</code></pre></li>
-</ul>
-</li>
-<li>memory space of process<br>Linux use virtual memory address to express the process memory space, it make<br>all the process have isolate physic memory space, they will not interfere with<br>each other.</li>
-<li>process memory manager<br>Use command <code>cat /proc/[pid]/maps</code> can show the memory information of process.</li>
-<li>allocate and recover process memory </li>
-<li>system physic memory manager</li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.kerneltravel.net/journal/v/mem.htm" target="_blank" rel="external">Linux内存管理</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/linux-memory/" data-id="cin61d0lr009mfyizv1tn240y" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/24/redis/" class="article-date">
-  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/24/redis/">redis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>Redis is an in-memory database that persist on disk. The data model is key-value,<br>but many different kind of values are supported: String, Lists, Sets, Sorted Set,<br>Hashes, HyperLogLog, Bitmaps.<a href="http://redis.io" target="_blank" rel="external">http://redis.io</a></p>
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>Download, extract and compile Redis with:<br>  $ wget <a href="http://download.redis.io/releases/redis-3.0.5.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-3.0.5.tar.gz</a><br>  $ tar xzf redis-3.0.5.tar.gz<br>  $ cd redis-3.0.5<br>  $ make</li>
-</ul>
-<h3 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><ul>
-<li><p>Playing with Redis</p>
-<p>  % cd src<br>  % ./redis-cli<br>  redis&gt; ping<br>  PONG<br>  redis&gt; set foo bar<br>  OK<br>  redis&gt; get foo<br>  “bar”<br>  redis&gt; incr mycounter<br>  (integer) 1<br>  redis&gt; incr mycounter<br>  (integer) 2<br>  redis&gt;</p>
-</li>
-</ul>
-<h3 id="Analyze"><a href="#Analyze" class="headerlink" title="Analyze"></a>Analyze</h3><ul>
-<li>size of source code, 1.3MB</li>
-<li>total lines of code, 58185</li>
-<li>allocate double memory size when append string</li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://redis.io/" target="_blank" rel="external">redis</a></li>
-<li><a href="https://github.com/antirez/redis" target="_blank" rel="external">redis on github</a></li>
-<li><a href="http://origin.redisbook.com/" target="_blank" rel="external">redis book</a></li>
-<li><a href="https://github.com/huangz1990/redisbook" target="_blank" rel="external">redis book source</a></li>
-<li><a href="http://redisdoc.com/" target="_blank" rel="external">Redis 命令参考</a></li>
-<li><a href="https://github.com/huangz1990/annotated_redis_source" target="_blank" rel="external">带有详细注释的 Redis 2.6 源码</a></li>
-<li><a href="https://github.com/springside/springside4/wiki/redis" target="_blank" rel="external">关于Redis的常识</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/redis/" data-id="cin61d0lq009lfyiz6bsmpdlp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-rdtsc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/10/24/rdtsc/" class="article-date">
@@ -261,20 +88,20 @@ Heap Location:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-is-rdtsc"><a href="#What-is-rdtsc" class="headerlink" title="What is rdtsc"></a>What is rdtsc</h3><ul>
+        <h3 id="what-is-rdtsc"><a href="#What-is-rdtsc" class="headerlink" title="What is rdtsc"></a>What is rdtsc</h3><ul>
 <li>rdtsc is ReaD TimeStamp Count</li>
 <li>limition<ul>
 <li>only work on x86 platform</li>
 </ul>
 </li>
 </ul>
-<h3 id="simple-implement-use-for-x86-64-platform"><a href="#simple-implement-use-for-x86-64-platform" class="headerlink" title="simple implement use for x86_64 platform"></a>simple implement use for x86_64 platform</h3><pre><code>uint64_t rdtsc()
+<h3 id="simple-implement-use-for-x86_64-platform"><a href="#simple-implement-use-for-x86-64-platform" class="headerlink" title="simple implement use for x86_64 platform"></a>simple implement use for x86_64 platform</h3><pre><code>uint64_t rdtsc()
 {
    uint32_t hi, lo;
    __asm__ __volatile__ (&quot;rdtsc&quot; : &quot;=a&quot;(lo), &quot;=d&quot;(hi));
    return ( (uint64_t)lo)|( ((uint64_t)hi)&lt;&lt;32 );
 }
-</code></pre><h3 id="rdtsc-h"><a href="#rdtsc-h" class="headerlink" title="rdtsc.h"></a>rdtsc.h</h3><pre><code>#ifndef __RDTSC_H_DEFINED__
+</code></pre><h3 id="rdtsch"><a href="#rdtsc-h" class="headerlink" title="rdtsc.h"></a>rdtsc.h</h3><pre><code>#ifndef __RDTSC_H_DEFINED__
 #define __RDTSC_H_DEFINED__
 
 
@@ -329,7 +156,7 @@ static __inline__ unsigned long long rdtsc(void)
  */
 
 #endif
-</code></pre><h3 id="Sample-one"><a href="#Sample-one" class="headerlink" title="Sample one"></a>Sample one</h3><pre><code>#include &lt;stdio.h&gt;
+</code></pre><h3 id="sample-one"><a href="#Sample-one" class="headerlink" title="Sample one"></a>Sample one</h3><pre><code>#include &lt;stdio.h&gt;
 #include &quot;rdtsc.h&quot;
 
 int main(int argc, char* argv[])
@@ -342,7 +169,7 @@ int main(int argc, char* argv[])
   printf(&quot;%llu\n&quot;, b-a);
   return 0;
 }
-</code></pre><h3 id="Sample-two"><a href="#Sample-two" class="headerlink" title="Sample two"></a>Sample two</h3><pre><code>#include &lt;stdio.h&gt;
+</code></pre><h3 id="sample-two"><a href="#Sample-two" class="headerlink" title="Sample two"></a>Sample two</h3><pre><code>#include &lt;stdio.h&gt;
 #include &lt;assert.h&gt;
 #include &lt;stdint.h&gt;
 #include &lt;stdlib.h&gt;
@@ -375,12 +202,12 @@ int main(int argc, char* argv[])
   printf(&quot;max=%llu\n&quot;, max);
   return 0;
 }
-</code></pre><h3 id="TODO-translate-CPU-cycle-to-time"><a href="#TODO-translate-CPU-cycle-to-time" class="headerlink" title="TODO: translate CPU cycle to time"></a>TODO: translate CPU cycle to time</h3><ul>
+</code></pre><h3 id="todo-translate-cpu-cycle-to-time"><a href="#TODO-translate-CPU-cycle-to-time" class="headerlink" title="TODO: translate CPU cycle to time"></a>TODO: translate CPU cycle to time</h3><ul>
 <li><code>time_in_seconds = number_of_clock_cycles / frequency</code></li>
-<li><code>cat /proc/cpuinfo |grep &#39;MHz&#39;</code></li>
+<li><code>cat /proc/cpuinfo |grep &apos;MHz&apos;</code></li>
 <li><code>gettimeofday</code> and <code>rdtsc</code></li>
 </ul>
-<h3 id="Something-need-to-consider"><a href="#Something-need-to-consider" class="headerlink" title="Something need to consider?"></a>Something need to consider?</h3><ul>
+<h3 id="something-need-to-consider"><a href="#Something-need-to-consider" class="headerlink" title="Something need to consider?"></a>Something need to consider?</h3><ul>
 <li>Context switch?</li>
 <li>Multi-core processors</li>
 </ul>
@@ -505,10 +332,10 @@ malloc:
 memcpy:
 
     timestamp count is 295, elapsedTime 0.234445 us
-</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc" target="_blank" rel="external">http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc</a></li>
 <li><a href="http://www.mcs.anl.gov/~kazutomo/rdtsc.html" target="_blank" rel="external">Time-stamp Counter</a></li>
-<li><a href="http://www.cnblogs.com/cnmaizi/archive/2011/01/17/1937772.html" target="_blank" rel="external">X86平台采用rdtsc指令读取时间戳计数器完成高精度计时</a></li>
+<li><a href="http://www.cnblogs.com/cnmaizi/archive/2011/01/17/1937772.html" target="_blank" rel="external">X86&#x5E73;&#x53F0;&#x91C7;&#x7528;rdtsc&#x6307;&#x4EE4;&#x8BFB;&#x53D6;&#x65F6;&#x95F4;&#x6233;&#x8BA1;&#x6570;&#x5668;&#x5B8C;&#x6210;&#x9AD8;&#x7CBE;&#x5EA6;&#x8BA1;&#x65F6;</a></li>
 <li><a href="http://www.strchr.com/performance_measurements_with_rdtsc" target="_blank" rel="external">Performance measurements with RDTSC</a></li>
 <li><a href="http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c" target="_blank" rel="external">http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c</a></li>
 </ul>
@@ -516,7 +343,7 @@ memcpy:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/rdtsc/" data-id="cin61d0m0009rfyizvisg0cku" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/24/rdtsc/" data-id="cin6a5ul1009s3cizhdg4mw1n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -548,14 +375,14 @@ memcpy:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><h3 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><h3 id="Analyze-C-driver"><a href="#Analyze-C-driver" class="headerlink" title="Analyze C++ driver"></a>Analyze C++ driver</h3><ul>
+        <h3 id="mongodb"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><h3 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><h3 id="use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><h3 id="analyze-c-driver"><a href="#Analyze-C-driver" class="headerlink" title="Analyze C++ driver"></a>Analyze C++ driver</h3><ul>
 <li>download code from <a href="https://github.com/mongodb/mongo-cxx-driver" target="_blank" rel="external">https://github.com/mongodb/mongo-cxx-driver</a></li>
 <li>size, about 60000, too big.</li>
 </ul>
-<h3 id="Analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
+<h3 id="analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
 <li>download code from <a href="https://github.com/mongodb/mongo" target="_blank" rel="external">https://github.com/mongodb/mongo</a></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://www.mongodb.org" target="_blank" rel="external">MongoDB</a></li>
 <li><a href="https://www.mongodb.org/about/source-code/" target="_blank" rel="external">MongoDB source code</a></li>
 <li><a href="http://github.com/mongodb" target="_blank" rel="external">MongoDB on github</a></li>
@@ -564,7 +391,180 @@ memcpy:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/mongodb/" data-id="cin61d0ln009jfyizuozx8xrj" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/24/mongodb/" data-id="cin6a5ul1009r3cizkwup1ipg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/24/redis/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/24/redis/">redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>Redis is an in-memory database that persist on disk. The data model is key-value,<br>but many different kind of values are supported: String, Lists, Sets, Sorted Set,<br>Hashes, HyperLogLog, Bitmaps.<a href="http://redis.io" target="_blank" rel="external">http://redis.io</a></p>
+<h3 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
+<li>Download, extract and compile Redis with:<br>  $ wget <a href="http://download.redis.io/releases/redis-3.0.5.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-3.0.5.tar.gz</a><br>  $ tar xzf redis-3.0.5.tar.gz<br>  $ cd redis-3.0.5<br>  $ make</li>
+</ul>
+<h3 id="use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><ul>
+<li><p>Playing with Redis</p>
+<p>  % cd src<br>  % ./redis-cli<br>  redis&gt; ping<br>  PONG<br>  redis&gt; set foo bar<br>  OK<br>  redis&gt; get foo<br>  &#x201C;bar&#x201D;<br>  redis&gt; incr mycounter<br>  (integer) 1<br>  redis&gt; incr mycounter<br>  (integer) 2<br>  redis&gt;</p>
+</li>
+</ul>
+<h3 id="analyze"><a href="#Analyze" class="headerlink" title="Analyze"></a>Analyze</h3><ul>
+<li>size of source code, 1.3MB</li>
+<li>total lines of code, 58185</li>
+<li>allocate double memory size when append string</li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://redis.io/" target="_blank" rel="external">redis</a></li>
+<li><a href="https://github.com/antirez/redis" target="_blank" rel="external">redis on github</a></li>
+<li><a href="http://origin.redisbook.com/" target="_blank" rel="external">redis book</a></li>
+<li><a href="https://github.com/huangz1990/redisbook" target="_blank" rel="external">redis book source</a></li>
+<li><a href="http://redisdoc.com/" target="_blank" rel="external">Redis &#x547D;&#x4EE4;&#x53C2;&#x8003;</a></li>
+<li><a href="https://github.com/huangz1990/annotated_redis_source" target="_blank" rel="external">&#x5E26;&#x6709;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;&#x7684; Redis 2.6 &#x6E90;&#x7801;</a></li>
+<li><a href="https://github.com/springside/springside4/wiki/redis" target="_blank" rel="external">&#x5173;&#x4E8E;Redis&#x7684;&#x5E38;&#x8BC6;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/10/24/redis/" data-id="cin6a5ul2009t3cizgh98o0f3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-memory" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/24/linux-memory/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/24/linux-memory/">linux memory</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="process-and-memory"><a href="#process-and-memory" class="headerlink" title="process and memory"></a>process and memory</h3><ul>
+<li><p>how process use memory<br>There are 5 kinds of segment datas on process, which is code segment, data segment,<br>BSS segment, heap segment and stack segment.</p>
+<ul>
+<li>code, use for store execute instruction.</li>
+<li>data, store global variable, which had been initialized.</li>
+<li>BSS, uninitialized global variable, all would be setted to zero.</li>
+<li>heap, memory be allocated dynamic</li>
+<li>stack, use for store local variable</li>
+</ul>
+</li>
+<li><p>how these segments look like</p>
+<ul>
+<li>|stack address &#x2026; heap address &#x2026; BSS &#x2026; data &#x2026; code|</li>
+<li>stack address is on high address, and code is on low.</li>
+<li><p>here is an example to tell the ture  </p>
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;malloc.h&gt;
+#include&lt;unistd.h&gt;
+int bss_var;
+int data_var0=1;
+int main(int argc,char **argv)
+{
+  printf(&quot;below are addresses of types of process&apos;s mem\n&quot;);
+  printf(&quot;Text location:\n&quot;);
+  printf(&quot;\tAddress of main(Code Segment):%p\n&quot;,main);
+  printf(&quot;____________________________\n&quot;);
+  int stack_var0=2;
+  printf(&quot;Stack Location:\n&quot;);
+  printf(&quot;\tInitial end of stack:%p\n&quot;,&amp;stack_var0);
+  int stack_var1=3;
+  printf(&quot;\tnew end of stack:%p\n&quot;,&amp;stack_var1);
+  printf(&quot;____________________________\n&quot;);
+  printf(&quot;Data Location:\n&quot;);
+  printf(&quot;\tAddress of data_var(Data Segment):%p\n&quot;,&amp;data_var0);
+  static int data_var1=4;
+  printf(&quot;\tNew end of data_var(Data Segment):%p\n&quot;,&amp;data_var1);
+  printf(&quot;____________________________\n&quot;);
+  printf(&quot;BSS Location:\n&quot;);
+  printf(&quot;\tAddress of bss_var:%p\n&quot;,&amp;bss_var);
+  printf(&quot;____________________________\n&quot;);
+  char *b = sbrk((ptrdiff_t)0);
+  printf(&quot;Heap Location:\n&quot;);
+  printf(&quot;\tInitial end of heap:%p\n&quot;,b);
+  brk(b+4);
+  b=sbrk((ptrdiff_t)0);
+  printf(&quot;\tNew end of heap:%p\n&quot;,b);
+  return 0;
+}
+</code></pre></li>
+<li>output as below  <pre><code>below are addresses of types of process&apos;s mem
+Text location:
+    Address of main(Code Segment):0x400606
+____________________________
+Stack Location:
+    Initial end of stack:0x7fff8b4d1b5c
+    new end of stack:0x7fff8b4d1b58
+____________________________
+Data Location:
+    Address of data_var(Data Segment):0x601050
+    New end of data_var(Data Segment):0x60104c
+____________________________
+BSS Location:
+    Address of bss_var:0x601058
+____________________________
+Heap Location:
+    Initial end of heap:0x203c000
+    New end of heap:0x203c004
+</code></pre></li>
+</ul>
+</li>
+<li>memory space of process<br>Linux use virtual memory address to express the process memory space, it make<br>all the process have isolate physic memory space, they will not interfere with<br>each other.</li>
+<li>process memory manager<br>Use command <code>cat /proc/[pid]/maps</code> can show the memory information of process.</li>
+<li>allocate and recover process memory </li>
+<li>system physic memory manager</li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.kerneltravel.net/journal/v/mem.htm" target="_blank" rel="external">Linux&#x5185;&#x5B58;&#x7BA1;&#x7406;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/10/24/linux-memory/" data-id="cin6a5ukz009q3ciz7qmmhlq5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -623,17 +623,17 @@ memcpy:
 <li>program exception</li>
 </ul>
 <h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><ul>
-<li><a href="http://baidutech.blog.51cto.com/4114344/744429" target="_blank" rel="external">异常模拟测试–场景抽象及解决方案</a></li>
+<li><a href="http://baidutech.blog.51cto.com/4114344/744429" target="_blank" rel="external">&#x5F02;&#x5E38;&#x6A21;&#x62DF;&#x6D4B;&#x8BD5;&#x2013;&#x573A;&#x666F;&#x62BD;&#x8C61;&#x53CA;&#x89E3;&#x51B3;&#x65B9;&#x6848;</a></li>
 <li><a href="http://www.sqlite.org/malloc.html#testing" target="_blank" rel="external">Test Dynamic Memory Allocation In SQLite</a></li>
 <li><a href="http://stackoverflow.com/questions/1711170/unit-testing-for-failed-malloc" target="_blank" rel="external">Unit testing for failed malloc</a></li>
-<li><a href="http://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html" target="_blank" rel="external">玩转Google开源C++单元测试框架Google Test系列(gtest)</a></li>
-<li><a href="http://www.cnblogs.com/anderslly/archive/2009/07/26/better-unit-tests.html" target="_blank" rel="external">更好的单元测试准则</a></li>
+<li><a href="http://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html" target="_blank" rel="external">&#x73A9;&#x8F6C;Google&#x5F00;&#x6E90;C++&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;Google Test&#x7CFB;&#x5217;(gtest)</a></li>
+<li><a href="http://www.cnblogs.com/anderslly/archive/2009/07/26/better-unit-tests.html" target="_blank" rel="external">&#x66F4;&#x597D;&#x7684;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x51C6;&#x5219;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/22/unit-test/" data-id="cin61d0lo009kfyizcpua0cjs" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/22/unit-test/" data-id="cin6a5uky009p3cizex63r1d9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -679,8 +679,8 @@ memcpy:
 100  5214  100  5214    0     0   1036      0  0:00:05  0:00:05 --:--:--  6998
 [dennis@localhost ~]$ sh spf13-vim.sh 
 Attempting to back up your original vim configuration.
-‘/home/dennis/.vim’ -&gt; ‘/home/dennis/.vim.20151007_1444202174’
-‘/home/dennis/.vimrc’ -&gt; ‘/home/dennis/.vimrc.20151007_1444202174’
+&#x2018;/home/dennis/.vim&#x2019; -&gt; &#x2018;/home/dennis/.vim.20151007_1444202174&#x2019;
+&#x2018;/home/dennis/.vimrc&#x2019; -&gt; &#x2018;/home/dennis/.vimrc.20151007_1444202174&#x2019;
 Trying to update spf13-vim
 Cloning into &apos;/home/dennis/.spf13-vim-3&apos;...
 remote: Counting objects: 3303, done.
@@ -688,8 +688,8 @@ remote: Total 3303 (delta 0), reused 0 (delta 0), pack-reused 3303
 Receiving objects: 100% (3303/3303), 3.16 MiB | 16.00 KiB/s, done.
 Resolving deltas: 100% (1485/1485), done.
 Checking connectivity... done.
-[✔] Successfully cloned spf13-vim.
-[✔] Setting up vim symlinks.
+[&#x2714;] Successfully cloned spf13-vim.
+[&#x2714;] Setting up vim symlinks.
 Trying to update vundle
 Cloning into &apos;/home/dennis/.vim/bundle/vundle&apos;...
 remote: Counting objects: 2941, done.
@@ -697,11 +697,11 @@ remote: Total 2941 (delta 0), reused 0 (delta 0), pack-reused 2941
 Receiving objects: 100% (2941/2941), 870.60 KiB | 19.00 KiB/s, done.
 Resolving deltas: 100% (1012/1012), done.
 Checking connectivity... done.
-[✔] Successfully cloned vundle.
-[✔] Now updating/installing plugins using Vundle
+[&#x2714;] Successfully cloned vundle.
+[&#x2714;] Now updating/installing plugins using Vundle
 
 Thanks for installing spf13-vim.
-© 2015 http://vim.spf13.com/
+&#xA9; 2015 http://vim.spf13.com/
 
 [dennis@localhost ~]$ ls .vim/bundle/
 auto-pairs           tagbar                    vim-less
@@ -732,7 +732,7 @@ tabular              vim-jst                   wildfire.vim
 [dennis@localhost ~]$ tar zcf tab.tar.gz .vim
 [dennis@localhost ~]$ ls -lh tab.tar.gz 
 -rw-rw-r--. 1 dennis dennis 67M Oct  7 17:07 tab.tar.gz
-</code></pre><h4 id="Plugin-instroduce"><a href="#Plugin-instroduce" class="headerlink" title="Plugin instroduce"></a>Plugin instroduce</h4><ul>
+</code></pre><h4 id="plugin-instroduce"><a href="#Plugin-instroduce" class="headerlink" title="Plugin instroduce"></a>Plugin instroduce</h4><ul>
 <li>Vundle The best plugin manager</li>
 <li>NERDTree<ul>
 <li>quick start/close using <code>ctrl+e</code></li>
@@ -756,12 +756,12 @@ tabular              vim-jst                   wildfire.vim
 <li><code>,,b</code> move backword</li>
 </ul>
 </li>
-<li>Surround managing all the ‘“[{}]”‘ etc, using <code>:help surround</code> for more<ul>
-<li><code>cs&#39;&quot;</code>  , change <code>&#39;</code> to <code>&quot;</code></li>
+<li>Surround managing all the &#x2018;&#x201C;[{}]&#x201D;&#x2018; etc, using <code>:help surround</code> for more<ul>
+<li><code>cs&apos;&quot;</code>  , change <code>&apos;</code> to <code>&quot;</code></li>
 <li><code>ysiw&quot;</code> , add <code>&quot;</code> around the word</li>
 <li><code>ysiw[</code></li>
 <li><code>ysiw&lt;p&gt;</code></li>
-<li><code>ds&#39;</code>  , delete <code>&#39;</code> around the word</li>
+<li><code>ds&apos;</code>  , delete <code>&apos;</code> around the word</li>
 </ul>
 </li>
 <li>neocwomplcache autocomplete++</li>
@@ -797,21 +797,21 @@ tabular              vim-jst                   wildfire.vim
 </li>
 <li>Syntastic integrated syntax checking</li>
 </ul>
-<h4 id="Weakness"><a href="#Weakness" class="headerlink" title="Weakness"></a>Weakness</h4><ul>
+<h4 id="weakness"><a href="#Weakness" class="headerlink" title="Weakness"></a>Weakness</h4><ul>
 <li>More suitable for the front-end program (html and python)</li>
 <li>Too many plugins, and too big (100+MB)</li>
 <li>Ag better than Ack</li>
 <li>Not include vimshell and vimproc</li>
 </ul>
-<h4 id="Advantage-just-for-me"><a href="#Advantage-just-for-me" class="headerlink" title="Advantage (just for me)"></a>Advantage (just for me)</h4><ul>
+<h4 id="advantage-just-for-me"><a href="#Advantage-just-for-me" class="headerlink" title="Advantage (just for me)"></a>Advantage (just for me)</h4><ul>
 <li>NERDTree</li>
 <li>Tagbar</li>
 <li>EasyMotion</li>
 <li>Surround</li>
 </ul>
-<h4 id="More-powerful-plugin"><a href="#More-powerful-plugin" class="headerlink" title="More powerful plugin"></a>More powerful plugin</h4><ul>
+<h4 id="more-powerful-plugin"><a href="#More-powerful-plugin" class="headerlink" title="More powerful plugin"></a>More powerful plugin</h4><ul>
 <li>YouCompleteMe<ul>
-<li><code>Bundle &#39;Valloric/YouCompleteMe&#39;</code></li>
+<li><code>Bundle &apos;Valloric/YouCompleteMe&apos;</code></li>
 <li><a href="https://github.com/Valloric/YouCompleteMe" target="_blank" rel="external">https://github.com/Valloric/YouCompleteMe</a></li>
 <li><a href="http://blog.marchtea.com/archives/161" target="_blank" rel="external">http://blog.marchtea.com/archives/161</a></li>
 <li><a href="http://zuyunfei.com/2013/05/16/killer-plugin-of-vim-youcompleteme/" target="_blank" rel="external">http://zuyunfei.com/2013/05/16/killer-plugin-of-vim-youcompleteme/</a></li>
@@ -821,20 +821,20 @@ tabular              vim-jst                   wildfire.vim
 </ul>
 </li>
 </ul>
-<h3 id="YouCompleteMe-install-offline"><a href="#YouCompleteMe-install-offline" class="headerlink" title="YouCompleteMe install offline"></a>YouCompleteMe install offline</h3><ul>
+<h3 id="youcompleteme-install-offline"><a href="#YouCompleteMe-install-offline" class="headerlink" title="YouCompleteMe install offline"></a>YouCompleteMe install offline</h3><ul>
 <li><a href="http://pengblog.sinaapp.com/?cat=2" target="_blank" rel="external">http://pengblog.sinaapp.com/?cat=2</a></li>
 <li><a href="https://github.com/haoren3696/ycm_complete.git" target="_blank" rel="external">https://github.com/haoren3696/ycm_complete.git</a></li>
 </ul>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://www.open-open.com/lib/view/open1342676273979.html" target="_blank" rel="external">spf13 vim how to</a></li>
-<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git时代的VIM不完全使用教程</a></li>
-<li><a href="http://feihu.me/blog/2014/intro-to-vim/" target="_blank" rel="external">跟我一起学习VIM</a></li>
+<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git&#x65F6;&#x4EE3;&#x7684;VIM&#x4E0D;&#x5B8C;&#x5168;&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
+<li><a href="http://feihu.me/blog/2014/intro-to-vim/" target="_blank" rel="external">&#x8DDF;&#x6211;&#x4E00;&#x8D77;&#x5B66;&#x4E60;VIM</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/07/spf13-vim/" data-id="cin61d0lm009ifyiz5d3lq9me" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/07/spf13-vim/" data-id="cin6a5ukx009o3ciz3qrv9r0d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -866,7 +866,7 @@ tabular              vim-jst                   wildfire.vim
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Requirement"><a href="#Requirement" class="headerlink" title="Requirement"></a>Requirement</h3><ul>
+        <h3 id="requirement"><a href="#Requirement" class="headerlink" title="Requirement"></a>Requirement</h3><ul>
 <li><p>project files</p>
 <pre><code>myprj
     build
@@ -900,13 +900,13 @@ tabular              vim-jst                   wildfire.vim
 </ul>
 </li>
 </ul>
-<h3 id="Test-1-using-export-PRJ-HOME-dirname-dirname-0"><a href="#Test-1-using-export-PRJ-HOME-dirname-dirname-0" class="headerlink" title="Test 1, using export PRJ_HOME=$(dirname $(dirname $0))"></a>Test 1, using <code>export PRJ_HOME=$(dirname $(dirname $0))</code></h3><ul>
+<h3 id="test-1-using-export-prj_homedirname-dirname-0"><a href="#Test-1-using-export-PRJ-HOME-dirname-dirname-0" class="headerlink" title="Test 1, using export PRJ_HOME=$(dirname $(dirname $0))"></a>Test 1, using <code>export PRJ_HOME=$(dirname $(dirname $0))</code></h3><ul>
 <li>Failure case, when on suse release version, will failed to do <code>dirname $0</code>,<br>you will find that <code>echo $0</code> output <code>-bash</code>, not <code>bash</code> expected.</li>
 </ul>
-<h3 id="Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0"><a href="#Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0" class="headerlink" title="Test 2, using export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))"></a>Test 2, using <code>export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))</code></h3><ul>
+<h3 id="test-2-using-export-prj_homedirname-dirname-bash_source0"><a href="#Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0" class="headerlink" title="Test 2, using export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))"></a>Test 2, using <code>export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))</code></h3><ul>
 <li>Failure case, when using relative directory.</li>
 </ul>
-<h3 id="Other-test"><a href="#Other-test" class="headerlink" title="Other test"></a>Other test</h3><pre><code>echo &quot;working directory is &quot; $(pwd)
+<h3 id="other-test"><a href="#Other-test" class="headerlink" title="Other test"></a>Other test</h3><pre><code>echo &quot;working directory is &quot; $(pwd)
 echo &quot;BASH_SOURCE is &quot; ${BASH_SOURCE}
 echo &quot;BASH_SOURCE[0] is &quot; ${BASH_SOURCE[0]}
 echo &quot;dirname BASH_SOURCE[0] is &quot; $(dirname ${BASH_SOURCE[0]})
@@ -914,18 +914,18 @@ echo &quot;2 dirname BASH_SOURCE[0] is &quot; $(dirname $(dirname ${BASH_SOURCE[
 PARENT_DIR=$(dirname $(dirname ${BASH_SOURCE[0]}))
 echo &quot;parent dir is &quot; ${PARENT_DIR}
 export GMDB_HOME=$(pwd ${PARENT_DIR})
-</code></pre><h3 id="TODO-find-the-effective-method"><a href="#TODO-find-the-effective-method" class="headerlink" title="TODO, find the effective method"></a>TODO, find the effective method</h3><ul>
+</code></pre><h3 id="todo-find-the-effective-method"><a href="#TODO-find-the-effective-method" class="headerlink" title="TODO, find the effective method"></a>TODO, find the effective method</h3><ul>
 <li>If we can get the bash file name?</li>
 <li>How to translate relative directory to be full directory?</li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.sina.com.cn/s/blog_60d6fadc01013k0k.html" target="_blank" rel="external">Difference of source , ./ , sh, bash</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" data-id="cin61d0lj009gfyiz1az3uxqz" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" data-id="cin6a5ukx009n3cizyveot50y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -957,7 +957,7 @@ export GMDB_HOME=$(pwd ${PARENT_DIR})
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Generate-each-source-file-to-be-one-bin-file"><a href="#Generate-each-source-file-to-be-one-bin-file" class="headerlink" title="Generate each source file to be one bin file"></a>Generate each source file to be one bin file</h3><ul>
+        <h3 id="generate-each-source-file-to-be-one-bin-file"><a href="#Generate-each-source-file-to-be-one-bin-file" class="headerlink" title="Generate each source file to be one bin file"></a>Generate each source file to be one bin file</h3><ul>
 <li><p>Makefile</p>
 <pre><code>CC     = g++
 CFLAGS += -g -Wall
@@ -977,7 +977,7 @@ clean:
     rm -f *.o $(BINS)
 </code></pre></li>
 </ul>
-<h3 id="Generate-all-source-files-to-be-on-bin-file"><a href="#Generate-all-source-files-to-be-on-bin-file" class="headerlink" title="Generate all source files to be on bin file"></a>Generate all source files to be on bin file</h3><ul>
+<h3 id="generate-all-source-files-to-be-on-bin-file"><a href="#Generate-all-source-files-to-be-on-bin-file" class="headerlink" title="Generate all source files to be on bin file"></a>Generate all source files to be on bin file</h3><ul>
 <li><p>Makefile</p>
 <pre><code>CC     = g++
 CFLAGS += -g -Wall
@@ -998,7 +998,7 @@ clean:
     rm -f *.o $(TARGET)
 </code></pre></li>
 </ul>
-<h3 id="Auto-run-all-Makefile-in-all-sub-directory"><a href="#Auto-run-all-Makefile-in-all-sub-directory" class="headerlink" title="Auto run all Makefile in all sub-directory"></a>Auto run all Makefile in all sub-directory</h3><ul>
+<h3 id="auto-run-all-makefile-in-all-sub-directory"><a href="#Auto-run-all-Makefile-in-all-sub-directory" class="headerlink" title="Auto run all Makefile in all sub-directory"></a>Auto run all Makefile in all sub-directory</h3><ul>
 <li><p>Makefile</p>
 <pre><code>########################################################
 # Makefile
@@ -1056,7 +1056,7 @@ clean:
     rm -f *.o $(TARGET)
 </code></pre></li>
 </ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<h3 id="example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>###########################################################
 # Makefile
@@ -1148,7 +1148,7 @@ clean:
     rm -f *.o 
 </code></pre></li>
 </ul>
-<h3 id="An-complex-example"><a href="#An-complex-example" class="headerlink" title="An complex example"></a>An complex example</h3><ul>
+<h3 id="an-complex-example"><a href="#An-complex-example" class="headerlink" title="An complex example"></a>An complex example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>###########################################################
 # Makefile
@@ -1204,7 +1204,7 @@ tail -n+$ARCHIVE $0 | tar xzv -C $TMPDIR
 CDIR=`pwd`
 cd $TMPDIR
 
-#./installer   # 改为压缩包中安装程序的地址
+#./installer   # &#x6539;&#x4E3A;&#x538B;&#x7F29;&#x5305;&#x4E2D;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x7684;&#x5730;&#x5740;
 
 # Make sure we are root
 if [ `id | sed -e &apos;s/(.*//&apos;` != &quot;uid=0&quot; ]; then
@@ -1247,12 +1247,12 @@ sh -c &quot;sed -i -e &apos;/__MYAPP_AUTO_DATE__/ {
 <pre><code>/*===============================================================
  * Copyright (C) 2014 All rights reserved.
  * 
- * 文件名称：version.h
- * 创 建 者：Matrix207
- * 创建日期：2014年07月12日
- * 描    述：
+ * &#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF1A;version.h
+ * &#x521B; &#x5EFA; &#x8005;&#xFF1A;Matrix207
+ * &#x521B;&#x5EFA;&#x65E5;&#x671F;&#xFF1A;2014&#x5E74;07&#x6708;12&#x65E5;
+ * &#x63CF;    &#x8FF0;&#xFF1A;
  *
- * 更新日志：
+ * &#x66F4;&#x65B0;&#x65E5;&#x5FD7;&#xFF1A;
  *
  ================================================================*/
 #ifndef _VERSION_H_
@@ -1263,18 +1263,18 @@ char __MYAPP_AUTO_DATE__[] = &quot;2014&quot;;
 #endif /* _VERSION_H_ */
 </code></pre></li>
 </ul>
-<h3 id="Another-example"><a href="#Another-example" class="headerlink" title="Another example"></a>Another example</h3><ul>
+<h3 id="another-example"><a href="#Another-example" class="headerlink" title="Another example"></a>Another example</h3><ul>
 <li><p>Makefile</p>
 <pre><code>#################################################################
 # Copyright (C) 2014 All rights reserved.
 # 
-# 文件名称：Makefile
-# 创 建 者：Dennis
-# 创建日期：2014年12月11日
-# 描    述：
+# &#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF1A;Makefile
+# &#x521B; &#x5EFA; &#x8005;&#xFF1A;Dennis
+# &#x521B;&#x5EFA;&#x65E5;&#x671F;&#xFF1A;2014&#x5E74;12&#x6708;11&#x65E5;
+# &#x63CF;    &#x8FF0;&#xFF1A;
 #
-# 更新日志：
-#   v0.1  20141211  Dennis  创建
+# &#x66F4;&#x65B0;&#x65E5;&#x5FD7;&#xFF1A;
+#   v0.1  20141211  Dennis  &#x521B;&#x5EFA;
 ##################################################################
 DATE_TIME=$(shell date &apos;+%y%m%d%H%M%S&apos;)
 DATE_TIME2=$(shell date &apos;+%Y-%m-%d %H:%M&apos;)
@@ -1312,7 +1312,7 @@ clean:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/09/03/makefile/" data-id="cin61d0ll009hfyiz9r5wps8w" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/09/03/makefile/" data-id="cin6a5ukw009m3cizl0n9y167" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1345,28 +1345,28 @@ clean:
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="analyzed-apace-avro-c-code"><a href="#analyzed-apace-avro-c-code" class="headerlink" title="analyzed apace avro c code"></a>analyzed apace avro c code</h4><pre><code>////////////////////////////////////////////////////////////
-// Apache Avro c实现代码分析
+// Apache Avro c&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x5206;&#x6790;
 // 
 // By matrix207 2015-08-03 at home
 // 
 ////////////////////////////////////////////////////////////
 
 /////////////////////// Part 1 /////////////////////////////
-文件                             功能
+&#x6587;&#x4EF6;                             &#x529F;&#x80FD;
 --------------------------------------------------------------------------
-allocation.c allocation.h   一个提供申请、追加和释放内存功能的接口实现
-                            参考Lua的解析器实现
+allocation.c allocation.h   &#x4E00;&#x4E2A;&#x63D0;&#x4F9B;&#x7533;&#x8BF7;&#x3001;&#x8FFD;&#x52A0;&#x548C;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x529F;&#x80FD;&#x7684;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;
+                            &#x53C2;&#x8003;Lua&#x7684;&#x89E3;&#x6790;&#x5668;&#x5B9E;&#x73B0;
 array.c
-avroappend.c                例子?
-avrocat.c                   例子?
+avroappend.c                &#x4F8B;&#x5B50;?
+avrocat.c                   &#x4F8B;&#x5B50;?
 avro_generic_internal.h
-avro.h                      include一些头文件
-avromod.c                   应该是测试压缩一个schema文件的例子?
-avropipe.c                  例子?
-avro_private.h              一些宏,感觉没有特别用处
-codec.h codec.c             编码器, 支持三种压缩算法:DEFLATE、LZMA和SNAPPY
+avro.h                      include&#x4E00;&#x4E9B;&#x5934;&#x6587;&#x4EF6;
+avromod.c                   &#x5E94;&#x8BE5;&#x662F;&#x6D4B;&#x8BD5;&#x538B;&#x7F29;&#x4E00;&#x4E2A;schema&#x6587;&#x4EF6;&#x7684;&#x4F8B;&#x5B50;?
+avropipe.c                  &#x4F8B;&#x5B50;?
+avro_private.h              &#x4E00;&#x4E9B;&#x5B8F;,&#x611F;&#x89C9;&#x6CA1;&#x6709;&#x7279;&#x522B;&#x7528;&#x5904;
+codec.h codec.c             &#x7F16;&#x7801;&#x5668;, &#x652F;&#x6301;&#x4E09;&#x79CD;&#x538B;&#x7F29;&#x7B97;&#x6CD5;:DEFLATE&#x3001;LZMA&#x548C;SNAPPY
 consume-binary.c
-consumer.h consumer.c       消费者???
+consumer.h consumer.c       &#x6D88;&#x8D39;&#x8005;???
 datafile.c
 datum.h datum.c             
 datum_equal.c
@@ -1380,40 +1380,40 @@ dump.c
 dump.h
 encoding_binary.c
 encoding.h
-errors.h errors.c           错误信息，支持设置和提取功能，支持在已有的错误信息前插入新的错误信息.
-generic.h generic.c         内容很多,还要继续研究????
-io.h io.c                   io类型，包含文件io和内存io
-map.c                       map数据操作的实现
-memoize.c                   avro_memoize_t数据类型操作的实现
+errors.h errors.c           &#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF0C;&#x652F;&#x6301;&#x8BBE;&#x7F6E;&#x548C;&#x63D0;&#x53D6;&#x529F;&#x80FD;&#xFF0C;&#x652F;&#x6301;&#x5728;&#x5DF2;&#x6709;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x524D;&#x63D2;&#x5165;&#x65B0;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;.
+generic.h generic.c         &#x5185;&#x5BB9;&#x5F88;&#x591A;,&#x8FD8;&#x8981;&#x7EE7;&#x7EED;&#x7814;&#x7A76;????
+io.h io.c                   io&#x7C7B;&#x578B;&#xFF0C;&#x5305;&#x542B;&#x6587;&#x4EF6;io&#x548C;&#x5185;&#x5B58;io
+map.c                       map&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x7684;&#x5B9E;&#x73B0;
+memoize.c                   avro_memoize_t&#x6570;&#x636E;&#x7C7B;&#x578B;&#x64CD;&#x4F5C;&#x7684;&#x5B9E;&#x73B0;
 resolved-reader.c
 resolved-writer.c
 resolver.h resolver.c
 schema.h schema.c
 schema_equal.c
 schema_specific.c
-st.h st.c                   通用hash表实现
-string.c                    使用wrapper buffer的方式创建一个类似string的数据avro_raw_string_t
-                            这里主要实现相关操作
+st.h st.c                   &#x901A;&#x7528;hash&#x8868;&#x5B9E;&#x73B0;
+string.c                    &#x4F7F;&#x7528;wrapper buffer&#x7684;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;string&#x7684;&#x6570;&#x636E;avro_raw_string_t
+                            &#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x76F8;&#x5173;&#x64CD;&#x4F5C;
 value.h value.c
-value-hash.c                value的hash操作，功能是??
-value-json.c                把二进制格式数据(datum)转化为支持UTF-8的JSON格式数据(avrocat中有使用)
-value-read.c                定义方法avro_value_read, 供datafile.c使用,avro_file_writer_open用到
-value-sizeof.c              定义方法avro_value_sizeof, 没有找到使用者???
-value-write.c               定义方法avro_value_write,供datum_write.c和datafile.c使用
-wrapped-buffer.c            buffer操作
+value-hash.c                value&#x7684;hash&#x64CD;&#x4F5C;&#xFF0C;&#x529F;&#x80FD;&#x662F;??
+value-json.c                &#x628A;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#x6570;&#x636E;(datum)&#x8F6C;&#x5316;&#x4E3A;&#x652F;&#x6301;UTF-8&#x7684;JSON&#x683C;&#x5F0F;&#x6570;&#x636E;(avrocat&#x4E2D;&#x6709;&#x4F7F;&#x7528;)
+value-read.c                &#x5B9A;&#x4E49;&#x65B9;&#x6CD5;avro_value_read, &#x4F9B;datafile.c&#x4F7F;&#x7528;,avro_file_writer_open&#x7528;&#x5230;
+value-sizeof.c              &#x5B9A;&#x4E49;&#x65B9;&#x6CD5;avro_value_sizeof, &#x6CA1;&#x6709;&#x627E;&#x5230;&#x4F7F;&#x7528;&#x8005;???
+value-write.c               &#x5B9A;&#x4E49;&#x65B9;&#x6CD5;avro_value_write,&#x4F9B;datum_write.c&#x548C;datafile.c&#x4F7F;&#x7528;
+wrapped-buffer.c            buffer&#x64CD;&#x4F5C;
 
-msinttypes.h                windows平台文件
-platform.h                  平台文件, 针对不同平台include不同的头文件
-basics.h                    简单和复杂数据类型的枚举型定义、schema和datum类型定义、对象类型定义
-                            各种宏来判断数据类型(简单和复杂类型)
-data.h                      各种数据类型的结构体定义(array、Maps、Wrapped buffer、strings、Memoization
-legacy.h                    为了兼容旧接口而保留的接口(新代码不会使用)
-msstdint.h                  windows平台文件
-refcount.h                  引用计数
-schema.h                    一些函数声明而已
+msinttypes.h                windows&#x5E73;&#x53F0;&#x6587;&#x4EF6;
+platform.h                  &#x5E73;&#x53F0;&#x6587;&#x4EF6;, &#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x5E73;&#x53F0;include&#x4E0D;&#x540C;&#x7684;&#x5934;&#x6587;&#x4EF6;
+basics.h                    &#x7B80;&#x5355;&#x548C;&#x590D;&#x6742;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x679A;&#x4E3E;&#x578B;&#x5B9A;&#x4E49;&#x3001;schema&#x548C;datum&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x3001;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;
+                            &#x5404;&#x79CD;&#x5B8F;&#x6765;&#x5224;&#x65AD;&#x6570;&#x636E;&#x7C7B;&#x578B;(&#x7B80;&#x5355;&#x548C;&#x590D;&#x6742;&#x7C7B;&#x578B;)
+data.h                      &#x5404;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x5B9A;&#x4E49;(array&#x3001;Maps&#x3001;Wrapped buffer&#x3001;strings&#x3001;Memoization
+legacy.h                    &#x4E3A;&#x4E86;&#x517C;&#x5BB9;&#x65E7;&#x63A5;&#x53E3;&#x800C;&#x4FDD;&#x7559;&#x7684;&#x63A5;&#x53E3;(&#x65B0;&#x4EE3;&#x7801;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528;)
+msstdint.h                  windows&#x5E73;&#x53F0;&#x6587;&#x4EF6;
+refcount.h                  &#x5F15;&#x7528;&#x8BA1;&#x6570;
+schema.h                    &#x4E00;&#x4E9B;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x800C;&#x5DF2;
 
 ////////////////////////////////////////////////////////////
-重点，理解这些代码, from encoding_binary.c
+&#x91CD;&#x70B9;&#xFF0C;&#x7406;&#x89E3;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;, from encoding_binary.c
 
 static int write_long(avro_writer_t writer, int64_t l)
 {
@@ -1432,7 +1432,7 @@ static int write_long(avro_writer_t writer, int64_t l)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/08/25/apache-avro-analyzed/" data-id="cin61d0li009ffyizmw6r95r4" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/08/25/apache-avro-analyzed/" data-id="cin6a5ukv009l3cizvozlh4nl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1464,18 +1464,18 @@ static int write_long(avro_writer_t writer, int64_t l)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-is-coredump"><a href="#What-is-coredump" class="headerlink" title="What is coredump"></a>What is coredump</h3><h3 id="How-to-analyse-coredump"><a href="#How-to-analyse-coredump" class="headerlink" title="How to analyse coredump"></a>How to analyse coredump</h3><h3 id="Why-program-coredump"><a href="#Why-program-coredump" class="headerlink" title="Why program coredump"></a>Why program coredump</h3><ul>
+        <h3 id="what-is-coredump"><a href="#What-is-coredump" class="headerlink" title="What is coredump"></a>What is coredump</h3><h3 id="how-to-analyse-coredump"><a href="#How-to-analyse-coredump" class="headerlink" title="How to analyse coredump"></a>How to analyse coredump</h3><h3 id="why-program-coredump"><a href="#Why-program-coredump" class="headerlink" title="Why program coredump"></a>Why program coredump</h3><ul>
 <li>memory overload</li>
 <li>using thread-unsafe functions on multi-thread</li>
 <li>not using lock when read-write data in multi-thread</li>
 <li>invalid point</li>
 <li>stack overload</li>
 </ul>
-<h3 id="How-to-use-core-file"><a href="#How-to-use-core-file" class="headerlink" title="How to use core file"></a>How to use core file</h3><ul>
+<h3 id="how-to-use-core-file"><a href="#How-to-use-core-file" class="headerlink" title="How to use core file"></a>How to use core file</h3><ul>
 <li>allow to generate core file<ul>
-<li><code>ulimit –c unlimited</code></li>
+<li><code>ulimit &#x2013;c unlimited</code></li>
 <li><code>echo /tmp/core.%e.%p &gt; /proc/sys/kernel/core_pattern</code></li>
-<li><code>gcc –g core_dump_test.c -o core_dump_test</code>, must used <code>-g</code> to build.</li>
+<li><code>gcc &#x2013;g core_dump_test.c -o core_dump_test</code>, must used <code>-g</code> to build.</li>
 </ul>
 </li>
 <li>get core file<ul>
@@ -1490,10 +1490,10 @@ static int write_long(avro_writer_t writer, int64_t l)
 </ul>
 </li>
 </ul>
-<h3 id="Signal-of-core"><a href="#Signal-of-core" class="headerlink" title="Signal of core"></a>Signal of core</h3><ul>
+<h3 id="signal-of-core"><a href="#Signal-of-core" class="headerlink" title="Signal of core"></a>Signal of core</h3><ul>
 <li><code>man 7 signal</code></li>
 </ul>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<h3 id="examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
 <li><p>write data to protected memory</p>
 <pre><code>#include &lt;stdio.h&gt;
 int main(){
@@ -1535,13 +1535,13 @@ int main(){
      char c=&apos;c&apos;;
      int i=10;
      char buf[100];
-     printf(&quot;%s&quot;, c); //试图把char型按照字符串格式输出，这里的字符会解释成整数，
-                           //再解释成地址，所以原因同上面那个例子
-     printf(&quot;%s&quot;, i); //试图把int型按照字符串输出
+     printf(&quot;%s&quot;, c); //&#x8BD5;&#x56FE;&#x628A;char&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x5B57;&#x7B26;&#x4F1A;&#x89E3;&#x91CA;&#x6210;&#x6574;&#x6570;&#xFF0C;
+                           //&#x518D;&#x89E3;&#x91CA;&#x6210;&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x539F;&#x56E0;&#x540C;&#x4E0A;&#x9762;&#x90A3;&#x4E2A;&#x4F8B;&#x5B50;
+     printf(&quot;%s&quot;, i); //&#x8BD5;&#x56FE;&#x628A;int&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x8F93;&#x51FA;
      memset(buf, 0, 100);
-     sprintf(buf, &quot;%s&quot;, c);  试图把char型按照字符串格式转换
+     sprintf(buf, &quot;%s&quot;, c);  &#x8BD5;&#x56FE;&#x628A;char&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x8F6C;&#x6362;
      memset(buf, 0, 100);
-     sprintf(buf, &quot;%s&quot;, i);//试图把int型按照字符串转换
+     sprintf(buf, &quot;%s&quot;, i);//&#x8BD5;&#x56FE;&#x628A;int&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;
 }
 </code></pre><ul>
 <li>Other, likes:<ul>
@@ -1551,7 +1551,7 @@ int main(){
 </ul>
 </li>
 </ul>
-<h3 id="Auto-start-gdb-when-core-occur"><a href="#Auto-start-gdb-when-core-occur" class="headerlink" title="Auto start gdb when core occur"></a>Auto start gdb when core occur</h3><pre><code>#include &lt;stdio.h&gt;
+<h3 id="auto-start-gdb-when-core-occur"><a href="#Auto-start-gdb-when-core-occur" class="headerlink" title="Auto start gdb when core occur"></a>Auto start gdb when core occur</h3><pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;signal.h&gt;
 #include &lt;string.h&gt;
@@ -1591,16 +1591,16 @@ int main (void)
 
     return 0;
 }
-</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.csdn.net/newnewman80/article/details/8173770" target="_blank" rel="external">coredump简介与coredump原因总结</a></li>
-<li><a href="http://www.cnblogs.com/hello--the-world/archive/2012/05/31/2528326.html" target="_blank" rel="external">C/C++中的段错误（Segmentation fault）</a></li>
-<li><a href="http://blog.csdn.net/freshman_fantom_ywj/article/details/6434074" target="_blank" rel="external">段错误bug的调试</a></li>
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/newnewman80/article/details/8173770" target="_blank" rel="external">coredump&#x7B80;&#x4ECB;&#x4E0E;coredump&#x539F;&#x56E0;&#x603B;&#x7ED3;</a></li>
+<li><a href="http://www.cnblogs.com/hello--the-world/archive/2012/05/31/2528326.html" target="_blank" rel="external">C/C++&#x4E2D;&#x7684;&#x6BB5;&#x9519;&#x8BEF;&#xFF08;Segmentation fault&#xFF09;</a></li>
+<li><a href="http://blog.csdn.net/freshman_fantom_ywj/article/details/6434074" target="_blank" rel="external">&#x6BB5;&#x9519;&#x8BEF;bug&#x7684;&#x8C03;&#x8BD5;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/08/24/core-dumped/" data-id="cin61d0lh009efyizdwwh6crn" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/08/24/core-dumped/" data-id="cin6a5uku009k3cizlysnqfv8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1671,7 +1671,7 @@ int main (void)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

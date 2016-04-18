@@ -66,6 +66,178 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-use-moosefs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/06/17/use-moosefs/" class="article-date">
+  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/17/use-moosefs/">use moosefs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="master-server-installation"><a href="#Master-server-installation" class="headerlink" title="Master server installation"></a>Master server installation</h3><ul>
+<li><p><strong>Installation</strong></p>
+<pre><code>groupadd mfs
+useradd -g mfs mfs
+cd /usr/src
+tar -zxvf mfs-1.6.15.tar.gz
+cd mfs-1.6.15
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib 
+--with-default-user=mfs --with-default-group=mfs --disable-mfschunkserver 
+--disable-mfsmount
+make
+make install 
+</code></pre></li>
+<li><p><strong>Configuration</strong></p>
+</li>
+</ul>
+<ol>
+<li><p>Copy config</p>
+<pre><code>cd /etc
+cp mfsmaster.cfg.dist mfsmaster.cfg
+cp mfsmetalogger.cfg.dist mfsmetalogger.cfg
+cp mfsexports.cfg.dist mfsexports.cfg
+
+# modify mfsexports.cfg 
+# 192.168.2.0/24 / rw,alldirs,maproot=0 
+</code></pre></li>
+<li><p>Copy meta data file</p>
+<pre><code>cd /var/lib/mfs
+cp metadata.mfs.empty metadata.mfs
+</code></pre></li>
+<li><p>Config host name</p>
+<pre><code>echo 192.168.1.1 mfsmaster&gt;&gt; /etc/hosts
+</code></pre></li>
+</ol>
+<ul>
+<li><p><strong>Run server</strong></p>
+<pre><code>/usr/sbin/mfsmaster start
+
+# Run CGI monitor server, and view info under &lt;http://192.168.1.1:9425&gt;
+/usr/sbin/mfscgiserv 
+</code></pre></li>
+</ul>
+<h3 id="install-backup-server-metalogger"><a href="#Install-Backup-Server-metalogger" class="headerlink" title="Install Backup Server (metalogger)"></a>Install Backup Server (metalogger)</h3><p>Metalogger installation is very similar to that of the master server.<br>We issue the following commands:</p>
+<pre><code>groupadd mfs
+useradd -g mfs mfs
+cd /usr/src
+tar -zxvf mfs-1.6.15.tar.gz
+cd mfs-1.6.15
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib 
+--with-default-user=mfs --with-default-group=mfs --disable-mfschunkserver 
+--disable-mfsmount
+make
+make install
+
+cd /etc
+cp mfsmetalogger.cfg.dist mfsmetalogger.cfg
+</code></pre><p>Similarly, in /etc/hosts we add:</p>
+<pre><code>192.168.1.1 mfsmaster
+</code></pre><p>Now we are ready to start the backup server process :</p>
+<pre><code>/usr/sbin/mfsmetalogger start
+</code></pre><p>In a production environment you should set up automatic start of mfsmetalogger. </p>
+<h3 id="chunk-servers-installation"><a href="#Chunk-servers-installation" class="headerlink" title="Chunk servers installation"></a>Chunk servers installation</h3><p>We issue the following commands on the machines which are to be chunks servers:</p>
+<pre><code>groupadd mfs
+useradd -g mfs mfs
+cd /usr/src
+tar -zxvf mfs-1.6.15.tar.gz
+cd mfs-1.6.15
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib 
+--with-default-user=mfs --with-default-group=mfs --disable-mfsmaster
+make
+make install
+</code></pre><p>Now we similarly prepare configuration files of the chunk server:</p>
+<pre><code>cd /etc/
+cp mfschunkserver.cfg.dist mfschunkserver.cfg
+cp mfshdd.cfg.dist mfshdd.cfg 
+</code></pre><p>use <code>/mnt/mfschunks1</code> and <code>/mnt/mfschunks2</code> locations , so we add these two<br>lines to mfshdd.cfg file:</p>
+<pre><code>/mnt/mfschunks1
+/mnt/mfschunks2
+</code></pre><p>Create a <code>.lock</code> file to make user <code>mfs</code> has rights to write the mounted partitions.</p>
+<pre><code>chown -R mfs:mfs /mnt/mfschunks1
+chown -R mfs:mfs /mnt/mfschunks2 
+</code></pre><p>Similarly we add the following line in <code>/etc/hosts</code> file:</p>
+<pre><code>192.168.1.1 mfsmaster
+</code></pre><p>Now we are ready to start the chunk server:</p>
+<pre><code>/usr/sbin/mfschunkserver start 
+</code></pre><h3 id="users-computers-installation"><a href="#Users&#x2019;-computers-installation" class="headerlink" title="Users&#x2019; computers installation"></a>Users&#x2019; computers installation</h3><p>Install FUSE</p>
+<pre><code>cd /usr/src
+tar -zxvf fuse-2.8.3.tar.gz
+cd fuse-2.8.3
+./configure
+make
+make install
+</code></pre><p>In order to install mfsmount package we do the following steps:</p>
+<pre><code>tar -zxvf mfs-1.6.15.tar.gz
+cd mfs-1.6.15
+./configure --prefix=/usr --sysconfdir=/etc
+--localstatedir=/var/lib --with-default-user=mfs
+--with-default-group=mfs --disable-mfsmaster
+--disable-mfschunkserver
+make
+make install
+</code></pre><p>In a /etc/hosts file we add this line:</p>
+<pre><code>192.168.1.1 mfsmaster
+</code></pre><p>Let&#x2019;s assume that we will mount the system in a /mnt/mfs folder on a client&#x2019;s<br>machine. We issue the following commands:</p>
+<pre><code>mkdir -p /mnt/mfs
+/usr/bin/mfsmount /mnt/mfs -H mfsmaster
+</code></pre><p>Now after issuing the <code>df -h | grep mfs</code> command we should get information<br>similar to this:</p>
+<pre><code>/storage/mfschunks/mfschunks1
+    2.0G 69M 1.9G 4% /mnt/mfschunks1
+/storage/mfschunks/mfschunks2
+    2.0G 69M 1.9G 4% /mnt/mfschunks2
+mfs#mfsmaster:9421 3.2G 0 3.2G 0% /mnt/mfs 
+</code></pre><h3 id="installing-moosefs-on-one-server"><a href="#Installing-MooseFS-on-one-server" class="headerlink" title="Installing MooseFS on one server"></a>Installing MooseFS on one server</h3><ul>
+<li>Install <code>FUSE</code></li>
+<li>Install <code>Moosefs</code></li>
+</ul>
+<h3 id="basic-moosefs-usage"><a href="#Basic-MooseFS-Usage" class="headerlink" title="Basic MooseFS Usage"></a>Basic MooseFS Usage</h3><p>The number of copies for the folder is set with the <code>mfssetgoal &#x2013;r</code> command: </p>
+<pre><code>mfssetgoal -r 1 /mnt/mfs/folder1
+/mnt/mfs/folder1:
+inodes with goal changed: 0
+inodes with goal not changed: 1
+inodes with permission denied: 0
+mfssetgoal -r 2 /mnt/mfs/folder2
+/mnt/mfs/folder2:
+inodes with goal changed: 0
+inodes with goal not changed: 1
+inodes with permission denied: 0 
+</code></pre><p>The command <code>mfscheckfile</code> is used for checking in how many copies the given<br>file is stored. </p>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-v.1.1.pdf" target="_blank" rel="external">http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-v.1.1.pdf</a></li>
+<li><a href="http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-cn-v.1.1.pdf" target="_blank" rel="external">http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-cn-v.1.1.pdf</a></li>
+<li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
+<li><a href="http://bbs.chinaunix.net/thread-1644309-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1644309-1-1.html</a></li>
+<li><a href="http://bbs.chinaunix.net/thread-1643863-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1643863-1-1.html</a></li>
+<li><a href="http://sery.blog.51cto.com/10037/263515" target="_blank" rel="external">http://sery.blog.51cto.com/10037/263515</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cin6a5ujn00863cizr4bbewwa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-sms-develop" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/06/17/sms-develop/" class="article-date">
@@ -88,13 +260,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ol>
+        <h4 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ol>
 <li><p>Different between RS232 and USB interface<br> For RS232, use serial operation directory, not need driver.<br> For USB, should intall driver.</p>
 </li>
 <li><p>OS support<br> Both windows and Linux will be supported, if the device support RS232, and<br> most of it support AT command, customer develop application with AT mostly.</p>
 </li>
 </ol>
-<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
+<h4 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
 <li>Minicom</li>
 </ol>
 <p>Ref:  </p>
@@ -105,9 +277,9 @@
 <ol>
 <li>Gnokii</li>
 </ol>
-<h4 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h4><p>minicom, not response for input<br>Serial port setup –&gt;Hardware Flow Contorl : NO<br>Local on/off  </p>
+<h4 id="issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h4><p>minicom, not response for input<br>Serial port setup &#x2013;&gt;Hardware Flow Contorl : NO<br>Local on/off  </p>
 <p><a href="http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html</a></p>
-<h4 id="AT"><a href="#AT" class="headerlink" title="AT"></a>AT</h4><ul>
+<h4 id="at"><a href="#AT" class="headerlink" title="AT"></a>AT</h4><ul>
 <li><p>get SIM ID</p>
 <p>  at+ccid</p>
 </li>
@@ -130,7 +302,7 @@
 <li><p>set SMS format</p>
 <p>  at+cmgf=1</p>
 </li>
-<li><p>send SMS, success if return “+CMGS: “</p>
+<li><p>send SMS, success if return &#x201C;+CMGS: &#x201C;</p>
 <p>  at+cmgs=137<strong>**</strong></p>
 <blockquote>
 <p>Hi, this is a SMS test</p>
@@ -200,15 +372,15 @@ OK
 </code></pre></li>
 </ul>
 <p>Ref <a href="http://www.sendsms.cn/download/js1.pdf" target="_blank" rel="external">http://www.sendsms.cn/download/js1.pdf</a></p>
-<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ol>
+<h4 id="features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ol>
 <li>auto detect device by baut-rate </li>
 <li>simple interface<br> 1). send message<br> 2). recv message</li>
 </ol>
-<h4 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><ol>
+<h4 id="faq"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><ol>
 <li>Fail to find device</li>
 <li>Fail to send message<br>there are many reasons to cause this, list the main reasons as below:<br>1). device error<br>1). baut-rate error<br>1). signal too weak</li>
 </ol>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://bbs.chinaunix.net/thread-1793815-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1793815-1-1.html</a></li>
 <li><a href="http://blog.csdn.net/lyserver/article/details/3007090" target="_blank" rel="external">http://blog.csdn.net/lyserver/article/details/3007090</a></li>
 <li><a href="http://blog.chinaunix.net/uid-27717657-id-3378194.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-27717657-id-3378194.html</a></li>
@@ -219,7 +391,7 @@ OK
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/sms-develop/" data-id="cin61d0jv0084fyizi74syd5h" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/17/sms-develop/" data-id="cin6a5ujn00853ciz2solxbcv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -251,9 +423,9 @@ OK
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="mfs-1-5-9"><a href="#mfs-1-5-9" class="headerlink" title="mfs-1.5.9"></a>mfs-1.5.9</h3><ol>
+        <h3 id="mfs-159"><a href="#mfs-1-5-9" class="headerlink" title="mfs-1.5.9"></a>mfs-1.5.9</h3><ol>
 <li><p>Files</p>
-<p> main.c —&gt; Init,<br> init.c —&gt; defined a <code>RunTab</code>, use for mainloop<br> changelog.c  changelog_init change log<br> random.c rndinit  random generator<br> matocsserv.c matocsserv_init  communication with chunkserver<br> matocuserv.c matocuserv_init  communication with customer<br> filesystem.c fs_init  file system manager<br> stats.c stats_init  statistics module</p>
+<p> main.c &#x2014;&gt; Init,<br> init.c &#x2014;&gt; defined a <code>RunTab</code>, use for mainloop<br> changelog.c  changelog_init change log<br> random.c rndinit  random generator<br> matocsserv.c matocsserv_init  communication with chunkserver<br> matocuserv.c matocuserv_init  communication with customer<br> filesystem.c fs_init  file system manager<br> stats.c stats_init  statistics module</p>
 <p> [dennis@localhost mfs-1.5.9]$ ls<br> aclocal.m4    config.sub    COPYING  INSTALL      Makefile.in<br> config.guess  configure     depcomp  install-sh   mfschunkserver<br> config.h.in   configure.ac  doc      Makefile.am  MFSCommunication.h<br> mfsdata       mfsmount      README   mfsmaster    missing mfsmetarestore<br> NEWS</p>
 </li>
 <li><p>TODO</p>
@@ -270,7 +442,7 @@ OK
 <h4 id="client"><a href="#client" class="headerlink" title="client"></a>client</h4><ol>
 <li>TODO</li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.moosefs.org/download.html" target="_blank" rel="external">MooseFS HomePage</a></li>
 <li><a href="http://sourceforge.net/projects/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/</a></li>
 <li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
@@ -282,7 +454,7 @@ OK
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/moosefs-source-code-analysis/" data-id="cin61d0ju0083fyizavsnhijf" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/17/moosefs-source-code-analysis/" data-id="cin6a5ujm00843cizq543gtaa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -292,10 +464,10 @@ OK
 
 
   
-    <article id="post-use-moosefs" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-use-protobuf" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/06/17/use-moosefs/" class="article-date">
-  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
+    <a href="/2014/06/07/use-protobuf/" class="article-date">
+  <time datetime="2014-06-06T16:00:00.000Z" itemprop="datePublished">2014-06-07</time>
 </a>
     
   </div>
@@ -306,7 +478,7 @@ OK
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/17/use-moosefs/">use moosefs</a>
+      <a class="article-title" href="/2014/06/07/use-protobuf/">use protobuf</a>
     </h1>
   
 
@@ -314,147 +486,268 @@ OK
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Master-server-installation"><a href="#Master-server-installation" class="headerlink" title="Master server installation"></a>Master server installation</h3><ul>
-<li><p><strong>Installation</strong></p>
-<pre><code>groupadd mfs
-useradd -g mfs mfs
-cd /usr/src
-tar -zxvf mfs-1.6.15.tar.gz
-cd mfs-1.6.15
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib 
---with-default-user=mfs --with-default-group=mfs --disable-mfschunkserver 
---disable-mfsmount
-make
-make install 
-</code></pre></li>
-<li><p><strong>Configuration</strong></p>
-</li>
-</ul>
-<ol>
-<li><p>Copy config</p>
-<pre><code>cd /etc
-cp mfsmaster.cfg.dist mfsmaster.cfg
-cp mfsmetalogger.cfg.dist mfsmetalogger.cfg
-cp mfsexports.cfg.dist mfsexports.cfg
+        <h4 id="checkout-protobuf"><a href="#checkout-protobuf" class="headerlink" title="checkout protobuf"></a>checkout protobuf</h4><pre><code>svn checkout http://protobuf.googlecode.com/svn/trunk protobuf
+</code></pre><h4 id="compile-install"><a href="#compile-install" class="headerlink" title="compile, install"></a>compile, install</h4><pre><code>[dennis@localhost protobuf]$ cd protobuf
+[dennis@localhost protobuf]$ sh autogen.sh 
+[dennis@localhost protobuf]$ ./configure
+[dennis@localhost protobuf]$ make check 
+[dennis@localhost protobuf]$ make install
 
-# modify mfsexports.cfg 
-# 192.168.2.0/24 / rw,alldirs,maproot=0 
-</code></pre></li>
-<li><p>Copy meta data file</p>
-<pre><code>cd /var/lib/mfs
-cp metadata.mfs.empty metadata.mfs
-</code></pre></li>
-<li><p>Config host name</p>
-<pre><code>echo 192.168.1.1 mfsmaster&gt;&gt; /etc/hosts
-</code></pre></li>
-</ol>
-<ul>
-<li><p><strong>Run server</strong></p>
-<pre><code>/usr/sbin/mfsmaster start
+[dennis@localhost protobuf]$ protoc --version
+libprotoc 2.5.1
+</code></pre><h4 id="write-sample-code"><a href="#write-sample-code" class="headerlink" title="write sample code"></a>write sample code</h4><pre><code>[dennis@localhost protobuf]$ mkdir ../google-code-sample
+[dennis@localhost protobuf]$ cd ../google-code-sample
+[dennis@localhost google-code-sample]$ vim addressbook.proto
+[dennis@localhost google-code-sample]$ vim pb_write.cc
+[dennis@localhost google-code-sample]$ vim pb_read.cc
+[dennis@localhost google-code-sample]$ vim Makefile
+</code></pre><h4 id="cat-addressbookproto"><a href="#cat-addressbook-proto" class="headerlink" title="cat addressbook.proto"></a>cat addressbook.proto</h4><pre><code>package tutorial;
 
-# Run CGI monitor server, and view info under &lt;http://192.168.1.1:9425&gt;
-/usr/sbin/mfscgiserv 
-</code></pre></li>
-</ul>
-<h3 id="Install-Backup-Server-metalogger"><a href="#Install-Backup-Server-metalogger" class="headerlink" title="Install Backup Server (metalogger)"></a>Install Backup Server (metalogger)</h3><p>Metalogger installation is very similar to that of the master server.<br>We issue the following commands:</p>
-<pre><code>groupadd mfs
-useradd -g mfs mfs
-cd /usr/src
-tar -zxvf mfs-1.6.15.tar.gz
-cd mfs-1.6.15
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib 
---with-default-user=mfs --with-default-group=mfs --disable-mfschunkserver 
---disable-mfsmount
-make
-make install
+message Person {
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
 
-cd /etc
-cp mfsmetalogger.cfg.dist mfsmetalogger.cfg
-</code></pre><p>Similarly, in /etc/hosts we add:</p>
-<pre><code>192.168.1.1 mfsmaster
-</code></pre><p>Now we are ready to start the backup server process :</p>
-<pre><code>/usr/sbin/mfsmetalogger start
-</code></pre><p>In a production environment you should set up automatic start of mfsmetalogger. </p>
-<h3 id="Chunk-servers-installation"><a href="#Chunk-servers-installation" class="headerlink" title="Chunk servers installation"></a>Chunk servers installation</h3><p>We issue the following commands on the machines which are to be chunks servers:</p>
-<pre><code>groupadd mfs
-useradd -g mfs mfs
-cd /usr/src
-tar -zxvf mfs-1.6.15.tar.gz
-cd mfs-1.6.15
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib 
---with-default-user=mfs --with-default-group=mfs --disable-mfsmaster
-make
-make install
-</code></pre><p>Now we similarly prepare configuration files of the chunk server:</p>
-<pre><code>cd /etc/
-cp mfschunkserver.cfg.dist mfschunkserver.cfg
-cp mfshdd.cfg.dist mfshdd.cfg 
-</code></pre><p>use <code>/mnt/mfschunks1</code> and <code>/mnt/mfschunks2</code> locations , so we add these two<br>lines to mfshdd.cfg file:</p>
-<pre><code>/mnt/mfschunks1
-/mnt/mfschunks2
-</code></pre><p>Create a <code>.lock</code> file to make user <code>mfs</code> has rights to write the mounted partitions.</p>
-<pre><code>chown -R mfs:mfs /mnt/mfschunks1
-chown -R mfs:mfs /mnt/mfschunks2 
-</code></pre><p>Similarly we add the following line in <code>/etc/hosts</code> file:</p>
-<pre><code>192.168.1.1 mfsmaster
-</code></pre><p>Now we are ready to start the chunk server:</p>
-<pre><code>/usr/sbin/mfschunkserver start 
-</code></pre><h3 id="Users’-computers-installation"><a href="#Users’-computers-installation" class="headerlink" title="Users’ computers installation"></a>Users’ computers installation</h3><p>Install FUSE</p>
-<pre><code>cd /usr/src
-tar -zxvf fuse-2.8.3.tar.gz
-cd fuse-2.8.3
-./configure
-make
-make install
-</code></pre><p>In order to install mfsmount package we do the following steps:</p>
-<pre><code>tar -zxvf mfs-1.6.15.tar.gz
-cd mfs-1.6.15
-./configure --prefix=/usr --sysconfdir=/etc
---localstatedir=/var/lib --with-default-user=mfs
---with-default-group=mfs --disable-mfsmaster
---disable-mfschunkserver
-make
-make install
-</code></pre><p>In a /etc/hosts file we add this line:</p>
-<pre><code>192.168.1.1 mfsmaster
-</code></pre><p>Let’s assume that we will mount the system in a /mnt/mfs folder on a client’s<br>machine. We issue the following commands:</p>
-<pre><code>mkdir -p /mnt/mfs
-/usr/bin/mfsmount /mnt/mfs -H mfsmaster
-</code></pre><p>Now after issuing the <code>df -h | grep mfs</code> command we should get information<br>similar to this:</p>
-<pre><code>/storage/mfschunks/mfschunks1
-    2.0G 69M 1.9G 4% /mnt/mfschunks1
-/storage/mfschunks/mfschunks2
-    2.0G 69M 1.9G 4% /mnt/mfschunks2
-mfs#mfsmaster:9421 3.2G 0 3.2G 0% /mnt/mfs 
-</code></pre><h3 id="Installing-MooseFS-on-one-server"><a href="#Installing-MooseFS-on-one-server" class="headerlink" title="Installing MooseFS on one server"></a>Installing MooseFS on one server</h3><ul>
-<li>Install <code>FUSE</code></li>
-<li>Install <code>Moosefs</code></li>
-</ul>
-<h3 id="Basic-MooseFS-Usage"><a href="#Basic-MooseFS-Usage" class="headerlink" title="Basic MooseFS Usage"></a>Basic MooseFS Usage</h3><p>The number of copies for the folder is set with the <code>mfssetgoal –r</code> command: </p>
-<pre><code>mfssetgoal -r 1 /mnt/mfs/folder1
-/mnt/mfs/folder1:
-inodes with goal changed: 0
-inodes with goal not changed: 1
-inodes with permission denied: 0
-mfssetgoal -r 2 /mnt/mfs/folder2
-/mnt/mfs/folder2:
-inodes with goal changed: 0
-inodes with goal not changed: 1
-inodes with permission denied: 0 
-</code></pre><p>The command <code>mfscheckfile</code> is used for checking in how many copies the given<br>file is stored. </p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-v.1.1.pdf" target="_blank" rel="external">http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-v.1.1.pdf</a></li>
-<li><a href="http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-cn-v.1.1.pdf" target="_blank" rel="external">http://www.moosefs.org/tl_files/manpageszip/moosefs-step-by-step-tutorial-cn-v.1.1.pdf</a></li>
-<li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
-<li><a href="http://bbs.chinaunix.net/thread-1644309-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1644309-1-1.html</a></li>
-<li><a href="http://bbs.chinaunix.net/thread-1643863-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1643863-1-1.html</a></li>
-<li><a href="http://sery.blog.51cto.com/10037/263515" target="_blank" rel="external">http://sery.blog.51cto.com/10037/263515</a></li>
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    required string number = 1;
+    optional PhoneType type = 2 [default = HOME];
+  }
+
+  repeated PhoneNumber phone = 4;
+}
+
+message AddressBook {
+  repeated Person person = 1;
+}
+</code></pre><h4 id="cat-pb_writecc"><a href="#cat-pb-write-cc" class="headerlink" title="cat pb_write.cc"></a>cat pb_write.cc</h4><pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &quot;addressbook.pb.h&quot;
+using namespace std;
+
+// This function fills in a Person message based on user input.
+void PromptForAddress(tutorial::Person* person) {
+  cout &lt;&lt; &quot;Enter person ID number: &quot;;
+  int id;
+  cin &gt;&gt; id;
+  person-&gt;set_id(id);
+  cin.ignore(256, &apos;\n&apos;);
+
+  cout &lt;&lt; &quot;Enter name: &quot;;
+  getline(cin, *person-&gt;mutable_name());
+
+  cout &lt;&lt; &quot;Enter email address (blank for none): &quot;;
+  string email;
+  getline(cin, email);
+  if (!email.empty()) {
+    person-&gt;set_email(email);
+  }
+
+  while (true) {
+    cout &lt;&lt; &quot;Enter a phone number (or leave blank to finish): &quot;;
+    string number;
+    getline(cin, number);
+    if (number.empty()) {
+      break;
+    }
+
+    tutorial::Person::PhoneNumber* phone_number = person-&gt;add_phone();
+    phone_number-&gt;set_number(number);
+
+    cout &lt;&lt; &quot;Is this a mobile, home, or work phone? &quot;;
+    string type;
+    getline(cin, type);
+    if (type == &quot;mobile&quot;) {
+      phone_number-&gt;set_type(tutorial::Person::MOBILE);
+    } else if (type == &quot;home&quot;) {
+      phone_number-&gt;set_type(tutorial::Person::HOME);
+    } else if (type == &quot;work&quot;) {
+      phone_number-&gt;set_type(tutorial::Person::WORK);
+    } else {
+      cout &lt;&lt; &quot;Unknown phone type.  Using default.&quot; &lt;&lt; endl;
+    }
+  }
+}
+
+// Main function:  Reads the entire address book from a file,
+//   adds one person based on user input, then writes it back out to the same
+//   file.
+int main(int argc, char* argv[]) {
+  // Verify that the version of the library that we linked against is
+  // compatible with the version of the headers we compiled against.
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  if (argc != 2) {
+    cerr &lt;&lt; &quot;Usage:  &quot; &lt;&lt; argv[0] &lt;&lt; &quot; ADDRESS_BOOK_FILE&quot; &lt;&lt; endl;
+    return -1;
+  }
+
+  tutorial::AddressBook address_book;
+
+  {
+    // Read the existing address book.
+    fstream input(argv[1], ios::in | ios::binary);
+    if (!input) {
+      cout &lt;&lt; argv[1] &lt;&lt; &quot;: File not found.  Creating a new file.&quot; &lt;&lt; endl;
+    } else if (!address_book.ParseFromIstream(&amp;input)) {
+      cerr &lt;&lt; &quot;Failed to parse address book.&quot; &lt;&lt; endl;
+      return -1;
+    }
+  }
+
+  // Add an address.
+  PromptForAddress(address_book.add_person());
+
+  {
+    // Write the new address book back to disk.
+    fstream output(argv[1], ios::out | ios::trunc | ios::binary);
+    if (!address_book.SerializeToOstream(&amp;output)) {
+      cerr &lt;&lt; &quot;Failed to write address book.&quot; &lt;&lt; endl;
+      return -1;
+    }
+  }
+
+  // Optional:  Delete all global objects allocated by libprotobuf.
+  google::protobuf::ShutdownProtobufLibrary();
+
+  return 0;
+}
+</code></pre><h4 id="cat-pb_readcc"><a href="#cat-pb-read-cc" class="headerlink" title="cat pb_read.cc"></a>cat pb_read.cc</h4><pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &quot;addressbook.pb.h&quot;
+using namespace std;
+
+// Iterates though all people in the AddressBook and prints info about them.
+void ListPeople(const tutorial::AddressBook&amp; address_book) {
+  for (int i = 0; i &lt; address_book.person_size(); i++) {
+    const tutorial::Person&amp; person = address_book.person(i);
+
+    cout &lt;&lt; &quot;Person ID: &quot; &lt;&lt; person.id() &lt;&lt; endl;
+    cout &lt;&lt; &quot;  Name: &quot; &lt;&lt; person.name() &lt;&lt; endl;
+    if (person.has_email()) {
+      cout &lt;&lt; &quot;  E-mail address: &quot; &lt;&lt; person.email() &lt;&lt; endl;
+    }
+
+    for (int j = 0; j &lt; person.phone_size(); j++) {
+      const tutorial::Person::PhoneNumber&amp; phone_number = person.phone(j);
+
+      switch (phone_number.type()) {
+        case tutorial::Person::MOBILE:
+          cout &lt;&lt; &quot;  Mobile phone #: &quot;;
+          break;
+        case tutorial::Person::HOME:
+          cout &lt;&lt; &quot;  Home phone #: &quot;;
+          break;
+        case tutorial::Person::WORK:
+          cout &lt;&lt; &quot;  Work phone #: &quot;;
+          break;
+      }
+      cout &lt;&lt; phone_number.number() &lt;&lt; endl;
+    }
+  }
+}
+
+// Main function:  Reads the entire address book from a file and prints all
+//   the information inside.
+int main(int argc, char* argv[]) {
+  // Verify that the version of the library that we linked against is
+  // compatible with the version of the headers we compiled against.
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  if (argc != 2) {
+    cerr &lt;&lt; &quot;Usage:  &quot; &lt;&lt; argv[0] &lt;&lt; &quot; ADDRESS_BOOK_FILE&quot; &lt;&lt; endl;
+    return -1;
+  }
+
+  tutorial::AddressBook address_book;
+
+  {
+    // Read the existing address book.
+    fstream input(argv[1], ios::in | ios::binary);
+    if (!address_book.ParseFromIstream(&amp;input)) {
+      cerr &lt;&lt; &quot;Failed to parse address book.&quot; &lt;&lt; endl;
+      return -1;
+    }
+  }
+
+  ListPeople(address_book);
+
+  // Optional:  Delete all global objects allocated by libprotobuf.
+  google::protobuf::ShutdownProtobufLibrary();
+
+  return 0;
+}
+</code></pre><h4 id="cat-makefile"><a href="#cat-Makefile" class="headerlink" title="cat Makefile"></a>cat Makefile</h4><pre><code>CC     = g++
+FLAGS  = -Wall
+PRO_F  = addressbook
+PRO_SRC= $(PRO_F).pb.cc
+LIBS   = -lprotobuf
+TARGET = pb_write pb_read
+
+all:$(TARGET) 
+
+pb_write: proto_file 
+    $(CC) $(FLAGS) $(LIBS) -o $@ pb_write.cc $(PRO_SRC)
+
+pb_read: proto_file 
+    $(CC) $(FLAGS) $(LIBS) -o $@ pb_read.cc $(PRO_SRC)
+
+proto_file: $(PRO_F).proto
+    protoc -I=./ --cpp_out=./ $(PRO_F).proto
+
+.PHONEY:clean 
+clean:
+    rm -f $(TARGET) $(OBJS) $(PRO_F).pb.h $(PRO_F).pb.cc
+</code></pre><h4 id="files"><a href="#Files" class="headerlink" title="Files:"></a>Files:</h4><pre><code>[dennis@localhost google-code-sample]$ ls
+addressbook.proto  Makefile  pb_read.cc  pb_write.cc
+</code></pre><h4 id="compile-and-run"><a href="#Compile-and-run" class="headerlink" title="Compile and run:"></a>Compile and run:</h4><pre><code>[dennis@localhost google-code-sample]$ make
+protoc -I=./ --cpp_out=./ addressbook.proto
+g++ -Wall -lprotobuf -o pb_write pb_write.cc addressbook.pb.cc
+g++ -Wall -lprotobuf -o pb_read pb_read.cc addressbook.pb.cc
+[dennis@localhost google-code-sample]$ ls
+addressbook.pb.cc  addressbook.pb.h  addressbook.proto  Makefile  pb_read  pb_read.cc  pb_write  pb_write.cc
+[dennis@localhost google-code-sample]$ ./pb_write dennis
+dennis: File not found.  Creating a new file.
+Enter person ID number: 13
+Enter name: dennis
+Enter email address (blank for none): dennis.cpp@gmail.com
+Enter a phone number (or leave blank to finish): 14159265358
+Is this a mobile, home, or work phone? mobile
+Enter a phone number (or leave blank to finish): 
+[dennis@localhost google-code-sample]$ ./pb_write dennis
+Enter person ID number: 19
+Enter name: tina
+Enter email address (blank for none): tina.mm@gmail.com
+Enter a phone number (or leave blank to finish): 21714169628
+Is this a mobile, home, or work phone? home 
+Enter a phone number (or leave blank to finish): 
+[dennis@localhost google-code-sample]$ ./pb_read dennis
+Person ID: 13
+  Name: dennis
+  E-mail address: dennis.cpp@gmail.com
+  Mobile phone #: 14159265358
+Person ID: 19
+  Name: tina
+  E-mail address: tina.mm@gmail.com
+  Home phone #: 21714169628
+[dennis@localhost google-code-sample]$ ls
+addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_read  pb_read.cc  pb_write  pb_write.cc
+</code></pre><h4 id="problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>solution of error while loading shared libraries,<br>look <a href="../../../../2014/06/07/solution-of-error-while-loading-shared-libraries">here</a><br>for details.</p>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><ul>
+<li><a href="https://developers.google.com/protocol-buffers/docs/cpptutorial" target="_blank" rel="external">Protocol Buffer Basics: C++</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cin61d0jx0085fyizeh1r49l5" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cin6a5ujl00833cizmwigbeua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -552,305 +845,12 @@ Password:
 <pre><code>[dennis@localhost google-code-sample]$ ls /etc/ld.so.cache -l
 -rw-r--r--. 1 root root 141410 Jun  7 13:07 /etc/ld.so.cache
 </code></pre><p>Reference: </p>
-<p><a href="http://blog.csdn.net/sahusoft/article/details/7388617" target="_blank" rel="external">error while loading shared libraries: xxx.so.x错误的原因和解决办法</a></p>
+<p><a href="http://blog.csdn.net/sahusoft/article/details/7388617" target="_blank" rel="external">error while loading shared libraries: xxx.so.x&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;&#x548C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/07/solution-of-error-while-loading-shared-libraries/" data-id="cin61d0jz0087fyiz7gb46oy2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-use-protobuf" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/06/07/use-protobuf/" class="article-date">
-  <time datetime="2014-06-06T16:00:00.000Z" itemprop="datePublished">2014-06-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/07/use-protobuf/">use protobuf</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="checkout-protobuf"><a href="#checkout-protobuf" class="headerlink" title="checkout protobuf"></a>checkout protobuf</h4><pre><code>svn checkout http://protobuf.googlecode.com/svn/trunk protobuf
-</code></pre><h4 id="compile-install"><a href="#compile-install" class="headerlink" title="compile, install"></a>compile, install</h4><pre><code>[dennis@localhost protobuf]$ cd protobuf
-[dennis@localhost protobuf]$ sh autogen.sh 
-[dennis@localhost protobuf]$ ./configure
-[dennis@localhost protobuf]$ make check 
-[dennis@localhost protobuf]$ make install
-
-[dennis@localhost protobuf]$ protoc --version
-libprotoc 2.5.1
-</code></pre><h4 id="write-sample-code"><a href="#write-sample-code" class="headerlink" title="write sample code"></a>write sample code</h4><pre><code>[dennis@localhost protobuf]$ mkdir ../google-code-sample
-[dennis@localhost protobuf]$ cd ../google-code-sample
-[dennis@localhost google-code-sample]$ vim addressbook.proto
-[dennis@localhost google-code-sample]$ vim pb_write.cc
-[dennis@localhost google-code-sample]$ vim pb_read.cc
-[dennis@localhost google-code-sample]$ vim Makefile
-</code></pre><h4 id="cat-addressbook-proto"><a href="#cat-addressbook-proto" class="headerlink" title="cat addressbook.proto"></a>cat addressbook.proto</h4><pre><code>package tutorial;
-
-message Person {
-  required string name = 1;
-  required int32 id = 2;
-  optional string email = 3;
-
-  enum PhoneType {
-    MOBILE = 0;
-    HOME = 1;
-    WORK = 2;
-  }
-
-  message PhoneNumber {
-    required string number = 1;
-    optional PhoneType type = 2 [default = HOME];
-  }
-
-  repeated PhoneNumber phone = 4;
-}
-
-message AddressBook {
-  repeated Person person = 1;
-}
-</code></pre><h4 id="cat-pb-write-cc"><a href="#cat-pb-write-cc" class="headerlink" title="cat pb_write.cc"></a>cat pb_write.cc</h4><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-#include &lt;string&gt;
-#include &quot;addressbook.pb.h&quot;
-using namespace std;
-
-// This function fills in a Person message based on user input.
-void PromptForAddress(tutorial::Person* person) {
-  cout &lt;&lt; &quot;Enter person ID number: &quot;;
-  int id;
-  cin &gt;&gt; id;
-  person-&gt;set_id(id);
-  cin.ignore(256, &apos;\n&apos;);
-
-  cout &lt;&lt; &quot;Enter name: &quot;;
-  getline(cin, *person-&gt;mutable_name());
-
-  cout &lt;&lt; &quot;Enter email address (blank for none): &quot;;
-  string email;
-  getline(cin, email);
-  if (!email.empty()) {
-    person-&gt;set_email(email);
-  }
-
-  while (true) {
-    cout &lt;&lt; &quot;Enter a phone number (or leave blank to finish): &quot;;
-    string number;
-    getline(cin, number);
-    if (number.empty()) {
-      break;
-    }
-
-    tutorial::Person::PhoneNumber* phone_number = person-&gt;add_phone();
-    phone_number-&gt;set_number(number);
-
-    cout &lt;&lt; &quot;Is this a mobile, home, or work phone? &quot;;
-    string type;
-    getline(cin, type);
-    if (type == &quot;mobile&quot;) {
-      phone_number-&gt;set_type(tutorial::Person::MOBILE);
-    } else if (type == &quot;home&quot;) {
-      phone_number-&gt;set_type(tutorial::Person::HOME);
-    } else if (type == &quot;work&quot;) {
-      phone_number-&gt;set_type(tutorial::Person::WORK);
-    } else {
-      cout &lt;&lt; &quot;Unknown phone type.  Using default.&quot; &lt;&lt; endl;
-    }
-  }
-}
-
-// Main function:  Reads the entire address book from a file,
-//   adds one person based on user input, then writes it back out to the same
-//   file.
-int main(int argc, char* argv[]) {
-  // Verify that the version of the library that we linked against is
-  // compatible with the version of the headers we compiled against.
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  if (argc != 2) {
-    cerr &lt;&lt; &quot;Usage:  &quot; &lt;&lt; argv[0] &lt;&lt; &quot; ADDRESS_BOOK_FILE&quot; &lt;&lt; endl;
-    return -1;
-  }
-
-  tutorial::AddressBook address_book;
-
-  {
-    // Read the existing address book.
-    fstream input(argv[1], ios::in | ios::binary);
-    if (!input) {
-      cout &lt;&lt; argv[1] &lt;&lt; &quot;: File not found.  Creating a new file.&quot; &lt;&lt; endl;
-    } else if (!address_book.ParseFromIstream(&amp;input)) {
-      cerr &lt;&lt; &quot;Failed to parse address book.&quot; &lt;&lt; endl;
-      return -1;
-    }
-  }
-
-  // Add an address.
-  PromptForAddress(address_book.add_person());
-
-  {
-    // Write the new address book back to disk.
-    fstream output(argv[1], ios::out | ios::trunc | ios::binary);
-    if (!address_book.SerializeToOstream(&amp;output)) {
-      cerr &lt;&lt; &quot;Failed to write address book.&quot; &lt;&lt; endl;
-      return -1;
-    }
-  }
-
-  // Optional:  Delete all global objects allocated by libprotobuf.
-  google::protobuf::ShutdownProtobufLibrary();
-
-  return 0;
-}
-</code></pre><h4 id="cat-pb-read-cc"><a href="#cat-pb-read-cc" class="headerlink" title="cat pb_read.cc"></a>cat pb_read.cc</h4><pre><code>#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-#include &lt;string&gt;
-#include &quot;addressbook.pb.h&quot;
-using namespace std;
-
-// Iterates though all people in the AddressBook and prints info about them.
-void ListPeople(const tutorial::AddressBook&amp; address_book) {
-  for (int i = 0; i &lt; address_book.person_size(); i++) {
-    const tutorial::Person&amp; person = address_book.person(i);
-
-    cout &lt;&lt; &quot;Person ID: &quot; &lt;&lt; person.id() &lt;&lt; endl;
-    cout &lt;&lt; &quot;  Name: &quot; &lt;&lt; person.name() &lt;&lt; endl;
-    if (person.has_email()) {
-      cout &lt;&lt; &quot;  E-mail address: &quot; &lt;&lt; person.email() &lt;&lt; endl;
-    }
-
-    for (int j = 0; j &lt; person.phone_size(); j++) {
-      const tutorial::Person::PhoneNumber&amp; phone_number = person.phone(j);
-
-      switch (phone_number.type()) {
-        case tutorial::Person::MOBILE:
-          cout &lt;&lt; &quot;  Mobile phone #: &quot;;
-          break;
-        case tutorial::Person::HOME:
-          cout &lt;&lt; &quot;  Home phone #: &quot;;
-          break;
-        case tutorial::Person::WORK:
-          cout &lt;&lt; &quot;  Work phone #: &quot;;
-          break;
-      }
-      cout &lt;&lt; phone_number.number() &lt;&lt; endl;
-    }
-  }
-}
-
-// Main function:  Reads the entire address book from a file and prints all
-//   the information inside.
-int main(int argc, char* argv[]) {
-  // Verify that the version of the library that we linked against is
-  // compatible with the version of the headers we compiled against.
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  if (argc != 2) {
-    cerr &lt;&lt; &quot;Usage:  &quot; &lt;&lt; argv[0] &lt;&lt; &quot; ADDRESS_BOOK_FILE&quot; &lt;&lt; endl;
-    return -1;
-  }
-
-  tutorial::AddressBook address_book;
-
-  {
-    // Read the existing address book.
-    fstream input(argv[1], ios::in | ios::binary);
-    if (!address_book.ParseFromIstream(&amp;input)) {
-      cerr &lt;&lt; &quot;Failed to parse address book.&quot; &lt;&lt; endl;
-      return -1;
-    }
-  }
-
-  ListPeople(address_book);
-
-  // Optional:  Delete all global objects allocated by libprotobuf.
-  google::protobuf::ShutdownProtobufLibrary();
-
-  return 0;
-}
-</code></pre><h4 id="cat-Makefile"><a href="#cat-Makefile" class="headerlink" title="cat Makefile"></a>cat Makefile</h4><pre><code>CC     = g++
-FLAGS  = -Wall
-PRO_F  = addressbook
-PRO_SRC= $(PRO_F).pb.cc
-LIBS   = -lprotobuf
-TARGET = pb_write pb_read
-
-all:$(TARGET) 
-
-pb_write: proto_file 
-    $(CC) $(FLAGS) $(LIBS) -o $@ pb_write.cc $(PRO_SRC)
-
-pb_read: proto_file 
-    $(CC) $(FLAGS) $(LIBS) -o $@ pb_read.cc $(PRO_SRC)
-
-proto_file: $(PRO_F).proto
-    protoc -I=./ --cpp_out=./ $(PRO_F).proto
-
-.PHONEY:clean 
-clean:
-    rm -f $(TARGET) $(OBJS) $(PRO_F).pb.h $(PRO_F).pb.cc
-</code></pre><h4 id="Files"><a href="#Files" class="headerlink" title="Files:"></a>Files:</h4><pre><code>[dennis@localhost google-code-sample]$ ls
-addressbook.proto  Makefile  pb_read.cc  pb_write.cc
-</code></pre><h4 id="Compile-and-run"><a href="#Compile-and-run" class="headerlink" title="Compile and run:"></a>Compile and run:</h4><pre><code>[dennis@localhost google-code-sample]$ make
-protoc -I=./ --cpp_out=./ addressbook.proto
-g++ -Wall -lprotobuf -o pb_write pb_write.cc addressbook.pb.cc
-g++ -Wall -lprotobuf -o pb_read pb_read.cc addressbook.pb.cc
-[dennis@localhost google-code-sample]$ ls
-addressbook.pb.cc  addressbook.pb.h  addressbook.proto  Makefile  pb_read  pb_read.cc  pb_write  pb_write.cc
-[dennis@localhost google-code-sample]$ ./pb_write dennis
-dennis: File not found.  Creating a new file.
-Enter person ID number: 13
-Enter name: dennis
-Enter email address (blank for none): dennis.cpp@gmail.com
-Enter a phone number (or leave blank to finish): 14159265358
-Is this a mobile, home, or work phone? mobile
-Enter a phone number (or leave blank to finish): 
-[dennis@localhost google-code-sample]$ ./pb_write dennis
-Enter person ID number: 19
-Enter name: tina
-Enter email address (blank for none): tina.mm@gmail.com
-Enter a phone number (or leave blank to finish): 21714169628
-Is this a mobile, home, or work phone? home 
-Enter a phone number (or leave blank to finish): 
-[dennis@localhost google-code-sample]$ ./pb_read dennis
-Person ID: 13
-  Name: dennis
-  E-mail address: dennis.cpp@gmail.com
-  Mobile phone #: 14159265358
-Person ID: 19
-  Name: tina
-  E-mail address: tina.mm@gmail.com
-  Home phone #: 21714169628
-[dennis@localhost google-code-sample]$ ls
-addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_read  pb_read.cc  pb_write  pb_write.cc
-</code></pre><h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>solution of error while loading shared libraries,<br>look <a href="../../../../2014/06/07/solution-of-error-while-loading-shared-libraries">here</a><br>for details.</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><ul>
-<li><a href="https://developers.google.com/protocol-buffers/docs/cpptutorial" target="_blank" rel="external">Protocol Buffer Basics: C++</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cin61d0k3008afyizw7b8kvkq" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/07/solution-of-error-while-loading-shared-libraries/" data-id="cin6a5ujk00823cizi2rxkzwr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -882,7 +882,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Google-open-source"><a href="#Google-open-source" class="headerlink" title="Google open source"></a>Google open source</h3><ul>
+        <h3 id="google-open-source"><a href="#Google-open-source" class="headerlink" title="Google open source"></a>Google open source</h3><ul>
 <li><p><a href="https://code.google.com/p/google-breakpad/" target="_blank" rel="external">breakpad</a><br>  Crash reporting</p>
 </li>
 <li><p><a href="https://code.google.com/p/gflags/" target="_blank" rel="external">gflags</a><br>  Commandline flags module for C++</p>
@@ -895,10 +895,10 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
 </li>
 <li><p><a href="https://code.google.com/p/leveldb/" target="_blank" rel="external">leveldb</a><br>  A fast and lightweight key/value database library by Google.</p>
 </li>
-<li><p><a href="https://code.google.com/p/protobuf/" target="_blank" rel="external">protobuf</a><br>  Protocol Buffers - Google’s data interchange format</p>
+<li><p><a href="https://code.google.com/p/protobuf/" target="_blank" rel="external">protobuf</a><br>  Protocol Buffers - Google&#x2019;s data interchange format</p>
 </li>
 </ul>
-<h3 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h3><ul>
+<h3 id="other"><a href="#Other" class="headerlink" title="Other"></a>Other</h3><ul>
 <li><p><a href="http://libevent.org/" target="_blank" rel="external">libevent</a><br>  an event notification library </p>
 </li>
 <li><p><a href="http://www.carisma.slowglass.com/~tgr/libnl/" target="_blank" rel="external">libnl</a><br>  The libnl suite is a collection of libraries providing APIs to netlink protocol based Linux kernel interfaces. </p>
@@ -911,7 +911,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
 </li>
 <li><p><a href="http://fuse.sourceforge.net/" target="_blank" rel="external">fuse</a><br>  With FUSE it is possible to implement a fully functional filesystem in a userspace program.<br>  <a href="http://sourceforge.net/projects/fuse/files/fuse-2.X/" target="_blank" rel="external">http://sourceforge.net/projects/fuse/files/fuse-2.X/</a></p>
 </li>
-<li><p><a href="http://fuse.sourceforge.net/sshfs.html" target="_blank" rel="external">sshfs-fuse</a><br>  This is a filesystem client based on the SSH File Transfer Protocol.<br>  Since most SSH servers already support this protocol it is very easy to set up: i.e.<br>  on the server side there’s nothing to do.<br>  On the client side mounting the filesystem is as easy as logging into the server with ssh.<br>  <a href="http://sourceforge.net/projects/fuse/files/sshfs-fuse/2.5/" target="_blank" rel="external">http://sourceforge.net/projects/fuse/files/sshfs-fuse/2.5/</a>  </p>
+<li><p><a href="http://fuse.sourceforge.net/sshfs.html" target="_blank" rel="external">sshfs-fuse</a><br>  This is a filesystem client based on the SSH File Transfer Protocol.<br>  Since most SSH servers already support this protocol it is very easy to set up: i.e.<br>  on the server side there&#x2019;s nothing to do.<br>  On the client side mounting the filesystem is as easy as logging into the server with ssh.<br>  <a href="http://sourceforge.net/projects/fuse/files/sshfs-fuse/2.5/" target="_blank" rel="external">http://sourceforge.net/projects/fuse/files/sshfs-fuse/2.5/</a>  </p>
 </li>
 <li><p><a href="http://zookeeper.apache.org/" target="_blank" rel="external">zookeeper</a><br>  Apache ZooKeeper is an effort to develop and maintain an open-source server which enables highly reliable distributed coordination.</p>
 </li>
@@ -921,7 +921,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/06/open-source-need-to-master/" data-id="cin61d0jt0082fyiz29telgwz" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/06/open-source-need-to-master/" data-id="cin6a5ujk00813cizsuyn4mj3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -953,29 +953,29 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="User-mode-and-kernel-mode-debugger"><a href="#User-mode-and-kernel-mode-debugger" class="headerlink" title="User mode and kernel mode debugger"></a>User mode and kernel mode debugger</h4><h4 id="Basic-Debug-methods"><a href="#Basic-Debug-methods" class="headerlink" title="Basic Debug methods"></a>Basic Debug methods</h4><ul>
+        <h4 id="user-mode-and-kernel-mode-debugger"><a href="#User-mode-and-kernel-mode-debugger" class="headerlink" title="User mode and kernel mode debugger"></a>User mode and kernel mode debugger</h4><h4 id="basic-debug-methods"><a href="#Basic-Debug-methods" class="headerlink" title="Basic Debug methods"></a>Basic Debug methods</h4><ul>
 <li>Run with IDE directory, and use breakpoint and single step to check the problem</li>
 <li>Using OutputDebugString, and capture the message with debugview</li>
 <li>Write debugging information to a log file</li>
 </ul>
-<h4 id="Advanced-method"><a href="#Advanced-method" class="headerlink" title="Advanced method"></a>Advanced method</h4><ul>
+<h4 id="advanced-method"><a href="#Advanced-method" class="headerlink" title="Advanced method"></a>Advanced method</h4><ul>
 <li>dump file</li>
 <li>windbg</li>
 </ul>
-<h4 id="Memory-leak-detect-tools"><a href="#Memory-leak-detect-tools" class="headerlink" title="Memory leak detect tools"></a>Memory leak detect tools</h4><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<h4 id="memory-leak-detect-tools"><a href="#Memory-leak-detect-tools" class="headerlink" title="Memory leak detect tools"></a>Memory leak detect tools</h4><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://msdn.microsoft.com/en-us/windows/hardware/hh852365" target="_blank" rel="external">WDK and WinDbg</a></li>
 <li><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ee416349(v=vs.85" target="_blank" rel="external">Crash Dump Analysis</a>.aspx)</li>
-<li><a href="http://www.cnitblog.com/cc682/archive/2008/11/27/51945.html" target="_blank" rel="external">Windows调试工具入门 1</a></li>
-<li><a href="http://www.cnitblog.com/cc682/archive/2008/12/03/52182.html" target="_blank" rel="external">Windows调试工具入门 2</a></li>
-<li><a href="http://www.cnitblog.com/cc682/archive/2008/12/13/52566.html" target="_blank" rel="external">Windows调试工具入门 3</a></li>
-<li><a href="http://blog.csdn.net/ithzhang/article/category/1338390" target="_blank" rel="external">Windows程序员进阶系列-软件调试</a></li>
-<li><a href="http://blog.csdn.net/ithzhang/article/details/8545821" target="_blank" rel="external">Windows程序员进阶应该看的那些书</a></li>
+<li><a href="http://www.cnitblog.com/cc682/archive/2008/11/27/51945.html" target="_blank" rel="external">Windows&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x5165;&#x95E8; 1</a></li>
+<li><a href="http://www.cnitblog.com/cc682/archive/2008/12/03/52182.html" target="_blank" rel="external">Windows&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x5165;&#x95E8; 2</a></li>
+<li><a href="http://www.cnitblog.com/cc682/archive/2008/12/13/52566.html" target="_blank" rel="external">Windows&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x5165;&#x95E8; 3</a></li>
+<li><a href="http://blog.csdn.net/ithzhang/article/category/1338390" target="_blank" rel="external">Windows&#x7A0B;&#x5E8F;&#x5458;&#x8FDB;&#x9636;&#x7CFB;&#x5217;-&#x8F6F;&#x4EF6;&#x8C03;&#x8BD5;</a></li>
+<li><a href="http://blog.csdn.net/ithzhang/article/details/8545821" target="_blank" rel="external">Windows&#x7A0B;&#x5E8F;&#x5458;&#x8FDB;&#x9636;&#x5E94;&#x8BE5;&#x770B;&#x7684;&#x90A3;&#x4E9B;&#x4E66;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/24/software-debugging-on-windows/" data-id="cin61d0js0081fyiz3cp7v6ea" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/24/software-debugging-on-windows/" data-id="cin6a5ujj00803ciza0m09vkf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1015,14 +1015,14 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
 <li>IBM</li>
 <li>Microsoft</li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.zhihu.com/question/19683731" target="_blank" rel="external">1</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/22/bat-technology-and-salary-level/" data-id="cin61d0jr0080fyizgz388cgp" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/22/bat-technology-and-salary-level/" data-id="cin6a5uji007z3cizjija10kw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1054,16 +1054,16 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h4><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+        <h4 id="continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h4><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="https://www.dre.vanderbilt.edu/~schmidt/PDF/cpd-www4.pdf" target="_blank" rel="external">Using Design Patterns and Frameworks to Develop Object-Oriented Communication Systems</a></li>
-<li><a href="http://www.jos.org.cn/ch/reader/create_pdf.aspx?file_no=20030614&amp;flag=1&amp;journal_id=jos" target="_blank" rel="external">基于流水线的高性能Web服务器</a></li>
-<li><a href="http://docs.huihoo.com/ace_tao/ACE-2002-12/Part-Three/Chapter-2.htm" target="_blank" rel="external">JAWS：高性能Web服务器构架</a></li>
+<li><a href="http://www.jos.org.cn/ch/reader/create_pdf.aspx?file_no=20030614&amp;flag=1&amp;journal_id=jos" target="_blank" rel="external">&#x57FA;&#x4E8E;&#x6D41;&#x6C34;&#x7EBF;&#x7684;&#x9AD8;&#x6027;&#x80FD;Web&#x670D;&#x52A1;&#x5668;</a></li>
+<li><a href="http://docs.huihoo.com/ace_tao/ACE-2002-12/Part-Three/Chapter-2.htm" target="_blank" rel="external">JAWS&#xFF1A;&#x9AD8;&#x6027;&#x80FD;Web&#x670D;&#x52A1;&#x5668;&#x6784;&#x67B6;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/15/web-server-design-patterns/" data-id="cin61d0jq007zfyiz1kit4dm2" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/15/web-server-design-patterns/" data-id="cin6a5ujh007y3ciznt0lj0r7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1103,7 +1103,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/15/ace/" data-id="cin61d0jp007yfyiz0fxls9ft" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/15/ace/" data-id="cin6a5uje007x3cizw9ckye7v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1174,7 +1174,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

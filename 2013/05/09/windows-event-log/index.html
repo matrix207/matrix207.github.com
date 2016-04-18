@@ -91,12 +91,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-Introduce"><a href="#1-Introduce" class="headerlink" title="1. Introduce"></a>1. Introduce</h2><p>Application can use the Event logging API to report and view events.<br>For details on reporting events, see Reporting Events.<br>To view events that have been written to log files, see Querying for Event Source Messages<br>and Receiving Event Notification. </p>
+        <h2 id="1-introduce"><a href="#1-Introduce" class="headerlink" title="1. Introduce"></a>1. Introduce</h2><p>Application can use the Event logging API to report and view events.<br>For details on reporting events, see Reporting Events.<br>To view events that have been written to log files, see Querying for Event Source Messages<br>and Receiving Event Notification. </p>
 <p>You can find widows event log files(binary file) on C:\WINDOWS\system32\config\, list as below:</p>
 <pre><code>C:\WINDOWS\system32\config\AppEvent.Evt
 C:\WINDOWS\system32\config\SecEvent.Evt
 C:\WINDOWS\system32\config\SysEvent.Evt
-</code></pre><h2 id="2-Program"><a href="#2-Program" class="headerlink" title="2. Program"></a>2. Program</h2><h3 id="2-1-Prepare-work"><a href="#2-1-Prepare-work" class="headerlink" title="2.1 Prepare work"></a>2.1 Prepare work</h3><h4 id="2-1-1-Write-a-message-text-file-name-provider-mc-the-follow-show-it"><a href="#2-1-1-Write-a-message-text-file-name-provider-mc-the-follow-show-it" class="headerlink" title="2.1.1 Write a message text file, name provider.mc, the follow show it"></a>2.1.1 Write a message text file, name provider.mc, the follow show it</h4><pre><code>; // MyEventProvider.mc 
+</code></pre><h2 id="2-program"><a href="#2-Program" class="headerlink" title="2. Program"></a>2. Program</h2><h3 id="21-prepare-work"><a href="#2-1-Prepare-work" class="headerlink" title="2.1 Prepare work"></a>2.1 Prepare work</h3><h4 id="211-write-a-message-text-file-name-providermc-the-follow-show-it"><a href="#2-1-1-Write-a-message-text-file-name-provider-mc-the-follow-show-it" class="headerlink" title="2.1.1 Write a message text file, name provider.mc, the follow show it"></a>2.1.1 Write a message text file, name provider.mc, the follow show it</h4><pre><code>; // MyEventProvider.mc 
 
 ; // This is the header section.
 
@@ -208,8 +208,8 @@ MSG0409.bin
 </code></pre><p>Generate only one file, provider.res</p>
 <p>Last use link to create resource-dll file:</p>
 <pre><code>link -dll -noentry provider.res
-</code></pre><p>Output file, provider.dll, with these library, event log viewer can show the<br>the detail description by ID, Type … etc.(at the follow, Receiving event<br>notification use thid library)</p>
-<h3 id="2-2-Report-event-log"><a href="#2-2-Report-event-log" class="headerlink" title="2.2 Report event log"></a>2.2 Report event log</h3><p>An example show how to report event.<br>Create a win32 console project, with empty file.<br>Then, add a reportevent.cpp to it, and add the follow code.</p>
+</code></pre><p>Output file, provider.dll, with these library, event log viewer can show the<br>the detail description by ID, Type &#x2026; etc.(at the follow, Receiving event<br>notification use thid library)</p>
+<h3 id="22-report-event-log"><a href="#2-2-Report-event-log" class="headerlink" title="2.2 Report event log"></a>2.2 Report event log</h3><p>An example show how to report event.<br>Create a win32 console project, with empty file.<br>Then, add a reportevent.cpp to it, and add the follow code.</p>
 <pre><code>#ifndef UNICODE
 #define UNICODE
 #endif
@@ -285,13 +285,13 @@ cleanup:
     if (hEventLog)
         DeregisterEventSource(hEventLog);
 }
-</code></pre><h3 id="2-3-View-event-log"><a href="#2-3-View-event-log" class="headerlink" title="2.3 View event log"></a>2.3 View event log</h3><p>go to <a href="http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx</a><br>get the source code of “Receiving Event Notification”.</p>
+</code></pre><h3 id="23-view-event-log"><a href="#2-3-View-event-log" class="headerlink" title="2.3 View event log"></a>2.3 View event log</h3><p>go to <a href="http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx</a><br>get the source code of &#x201C;Receiving Event Notification&#x201D;.</p>
 <p>Notice that, change these two lines for your apply:  </p>
 <pre><code>#define PROVIDER_NAME L&quot;MyEventProvider&quot;
 #define RESOURCE_DLL  L&quot;&lt;path&gt;\\Provider.dll&quot;
-</code></pre><h2 id="3-Questions"><a href="#3-Questions" class="headerlink" title="3. Questions"></a>3. Questions</h2><p>How to monitor multi event logs? And make it to be a component.<br>I want to implement it, on this site you can find a first version project<br><a href="https://github.com/matrix207/VC/tree/master/eventlog/EventLogMonitor" target="_blank" rel="external">Click here</a></p>
-<p>But I think, it was a pool method to check each event name. Is there exist any<br>good method to do it? I meet the same problem with this guy,<br><a href="http://social.msdn.microsoft.com/Forums/en-US/windowssdk/thread/2c0d8708-4d07-47f9-87f4-c3f7141b55fd" target="_blank" rel="external">Unexpected behavior of WaitForMultipleObjects for events used in NotifyChangeEventLog</a><br>I’m sad, why he don’t told the detail info.</p>
-<h2 id="4-Reference"><a href="#4-Reference" class="headerlink" title="4. Reference"></a>4. Reference</h2><ul>
+</code></pre><h2 id="3-questions"><a href="#3-Questions" class="headerlink" title="3. Questions"></a>3. Questions</h2><p>How to monitor multi event logs? And make it to be a component.<br>I want to implement it, on this site you can find a first version project<br><a href="https://github.com/matrix207/VC/tree/master/eventlog/EventLogMonitor" target="_blank" rel="external">Click here</a></p>
+<p>But I think, it was a pool method to check each event name. Is there exist any<br>good method to do it? I meet the same problem with this guy,<br><a href="http://social.msdn.microsoft.com/Forums/en-US/windowssdk/thread/2c0d8708-4d07-47f9-87f4-c3f7141b55fd" target="_blank" rel="external">Unexpected behavior of WaitForMultipleObjects for events used in NotifyChangeEventLog</a><br>I&#x2019;m sad, why he don&#x2019;t told the detail info.</p>
+<h2 id="4-reference"><a href="#4-Reference" class="headerlink" title="4. Reference"></a>4. Reference</h2><ul>
 <li><a href="http://msdn.microsoft.com/en-us/library/aa363681%28v=vs.85%29.aspx" target="_blank" rel="external">Using Event Logging</a></li>
 <li>Reporting Events: <a href="http://msdn.microsoft.com/en-us/library/aa363680(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/aa363680(v=vs.85).aspx</a></li>
 <li>Receiving Event Notification: <a href="http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx</a></li>
@@ -303,7 +303,7 @@ cleanup:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/09/windows-event-log/" data-id="cin61d0hz006dfyizvvraninh" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/05/09/windows-event-log/" data-id="cin6a5ui900693cizqbnhx2ot" class="article-share-link">Share</a>
       
       
     </footer>
@@ -312,19 +312,19 @@ cleanup:
     
 <nav id="article-nav">
   
-    <a href="/2013/05/09/network-client-server-model/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2013/05/21/skill-of-c/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          network client server model
+          The Art of C Programming
         
       </div>
     </a>
   
   
-    <a href="/2013/05/08/early-linux-kernel-analyze/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/05/09/network-client-server-model/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Early Linux Kernel Analyze</div>
+      <div class="article-nav-title">network client server model</div>
     </a>
   
 </nav>
@@ -388,7 +388,7 @@ cleanup:
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

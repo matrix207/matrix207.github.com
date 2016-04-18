@@ -96,7 +96,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>list some text from command <code>dmesg</code>:  </p>
+        <h4 id="description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>list some text from command <code>dmesg</code>:  </p>
 <pre><code>792 igb 0000:02:00.0: Intel(R) Gigabit Ethernet Network Connection
 793 igb 0000:02:00.0: eth0: (PCIe:2.5GT/s:Width x1)
 794 igb 0000:02:00.0: eth0: MAC: 00:1e:67:58:cc:b8
@@ -121,7 +121,7 @@
 813 udev: renamed network interface eth1 to eth3
 </code></pre><p>we can see that, interface name is eth0 and eth1 at the begin, then udev rename them.  </p>
 <p>why?</p>
-<h4 id="Checking-and-fix"><a href="#Checking-and-fix" class="headerlink" title="Checking and fix"></a>Checking and fix</h4><p>check the rule of udev:</p>
+<h4 id="checking-and-fix"><a href="#Checking-and-fix" class="headerlink" title="Checking and fix"></a>Checking and fix</h4><p>check the rule of udev:</p>
 <pre><code>[root@Ustor network]# cat /etc/udev/rules.d/70-persistent-net.rules
 SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, ATTR{address}==&quot;00:25:90:d7:be:b4&quot;, ATTR{type}==&quot;1&quot;, KERNEL==&quot;eth*&quot;, NAME=&quot;eth0&quot;
 SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, ATTR{address}==&quot;00:25:90:d7:be:b5&quot;, ATTR{type}==&quot;1&quot;, KERNEL==&quot;eth*&quot;, NAME=&quot;eth1&quot;
@@ -149,11 +149,11 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
 <li>update mac address to /etc/udev/rules.d/70-persistent-net.rules.mb2  </li>
 <li>reboot  </li>
 </ol>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cin61d0kw008yfyiz7ml86slm" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cin6a5ukg00953ciz56j5i9tk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,7 +238,7 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

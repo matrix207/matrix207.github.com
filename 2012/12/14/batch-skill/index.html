@@ -91,18 +91,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Batch-skills"><a href="#Batch-skills" class="headerlink" title="Batch skills"></a>Batch skills</h3><p>1.<strong>获取当前日期时间</strong><br>    set date<em>time=%date:~,10%</em>%time:~,2%<em>%time:~3,2%</em>%time:~6,2%</p>
-<p>2.<strong>获取当前路径</strong><br>    set pwd=%CD%</p>
-<p>3.<strong>延时</strong>  </p>
+        <h3 id="batch-skills"><a href="#Batch-skills" class="headerlink" title="Batch skills"></a>Batch skills</h3><p>1.<strong>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;&#x65F6;&#x95F4;</strong><br>    set date<em>time=%date:~,10%</em>%time:~,2%<em>%time:~3,2%</em>%time:~6,2%</p>
+<p>2.<strong>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8DEF;&#x5F84;</strong><br>    set pwd=%CD%</p>
+<p>3.<strong>&#x5EF6;&#x65F6;</strong>  </p>
 <pre><code>`ping -n 11 127.0.0.1 &gt;nul`  
 
-ping 本机 11 次，可用于批处理延时 10 秒。命令中的&gt;nul 为屏蔽输出。  
-_简短式可以写成:_  
+ping &#x672C;&#x673A; 11 &#x6B21;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x6279;&#x5904;&#x7406;&#x5EF6;&#x65F6; 10 &#x79D2;&#x3002;&#x547D;&#x4EE4;&#x4E2D;&#x7684;&gt;nul &#x4E3A;&#x5C4F;&#x853D;&#x8F93;&#x51FA;&#x3002;  
+_&#x7B80;&#x77ED;&#x5F0F;&#x53EF;&#x4EE5;&#x5199;&#x6210;:_  
 `ping -n 11 127.1 &gt;nul`
-</code></pre><p>4.<strong>计算运行时间</strong>  </p>
+</code></pre><p>4.<strong>&#x8BA1;&#x7B97;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</strong>  </p>
 <pre><code>    @ECHO off&amp;setlocal enabledelayedexpansion
     CALL :TIME_START
-    REM 修改这里的 ping 为你需要写的代码
+    REM &#x4FEE;&#x6539;&#x8FD9;&#x91CC;&#x7684; ping &#x4E3A;&#x4F60;&#x9700;&#x8981;&#x5199;&#x7684;&#x4EE3;&#x7801;
     ping 127.1 -n 2 &gt;nul
     CALL :TIME_END
     PAUSE&amp;exit /B 0
@@ -119,26 +119,26 @@ _简短式可以写成:_
     @ECHO Elapsed time: %total% sec
     GOTO :EOF
 
-_运行效果:_  
+_&#x8FD0;&#x884C;&#x6548;&#x679C;:_  
 
     D:\work\project\tmp&gt;test.bat
     Start  time: 13:52:00.43
     End  time: 13:52:01.48
     Elapsed time: 1 sec
-    请按任意键继续. . .
-</code></pre><p>5.<strong>罗列当前目录所有 txt 文件</strong>  </p>
+    &#x8BF7;&#x6309;&#x4EFB;&#x610F;&#x952E;&#x7EE7;&#x7EED;. . .
+</code></pre><p>5.<strong>&#x7F57;&#x5217;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x6240;&#x6709; txt &#x6587;&#x4EF6;</strong>  </p>
 <pre><code>@echo off
 for %%i in (*.txt) do echo &quot;%%i&quot;
 pause
-</code></pre><p>6.<strong>罗列当前和子目录所有 cfg 文件</strong>  </p>
-<pre><code>for /r 参数 遍历搜索  
-格式：`FOR /R [[drive:]path] %%variable IN (set) DO command [command-parameters]`  
+</code></pre><p>6.<strong>&#x7F57;&#x5217;&#x5F53;&#x524D;&#x548C;&#x5B50;&#x76EE;&#x5F55;&#x6240;&#x6709; cfg &#x6587;&#x4EF6;</strong>  </p>
+<pre><code>for /r &#x53C2;&#x6570; &#x904D;&#x5386;&#x641C;&#x7D22;  
+&#x683C;&#x5F0F;&#xFF1A;`FOR /R [[drive:]path] %%variable IN (set) DO command [command-parameters]`  
 
-举例:  
-命令:(注意，该命令在 dos 窗口运行)  
+&#x4E3E;&#x4F8B;:  
+&#x547D;&#x4EE4;:(&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x547D;&#x4EE4;&#x5728; dos &#x7A97;&#x53E3;&#x8FD0;&#x884C;)  
     `D:\work\project\tmp\CI&gt;for /r %i in (*.cfg) do @echo %i`  
 
-输出:  
+&#x8F93;&#x51FA;:  
 
     D:\work\project\tmp\CI\ci_cfg\ci_scm_trunk.cfg
     D:\work\project\tmp\CI\ci_cfg\ci_ubackup.cfg
@@ -147,16 +147,16 @@ pause
     D:\work\project\tmp\CI\zd15_lcd\src\service\apprun.cfg
     D:\work\project\tmp\CI\zd15_lcd\src\service\service.cfg  
 
-方法二:(注意，该命令在批处理文件中运行)  
+&#x65B9;&#x6CD5;&#x4E8C;:(&#x6CE8;&#x610F;&#xFF0C;&#x8BE5;&#x547D;&#x4EE4;&#x5728;&#x6279;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x4E2D;&#x8FD0;&#x884C;)  
     `for /f %%i in (&apos;dir /s /b /a-d *.cfg&apos;) do @ECHO %%i`  
 
-解决路径中出现空格  
-    `for /f “delims=*”%%i in (&apos;dir /s /b /a-d *.cfg&apos;) do @ECHO %%`  
+&#x89E3;&#x51B3;&#x8DEF;&#x5F84;&#x4E2D;&#x51FA;&#x73B0;&#x7A7A;&#x683C;  
+    `for /f &#x201C;delims=*&#x201D;%%i in (&apos;dir /s /b /a-d *.cfg&apos;) do @ECHO %%`
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cin61d0fr0011fyizpe9f13ux" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cin6a5ug400153ciznuynjkeg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -243,7 +243,7 @@ pause
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

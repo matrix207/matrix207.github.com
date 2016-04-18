@@ -99,7 +99,7 @@ There are a number of open source choices of messaging middleware systems, inclu
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><ul>
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><ul>
 <li>MOM: Message Oriented Middleware</li>
 <li>Message Queue ( MQ ) is a middleware between applications and networks.</li>
 </ul>
@@ -116,14 +116,14 @@ There are a number of open source choices of messaging middleware systems, inclu
 <li>HTTPSQS</li>
 <li><a href="http://en.wikipedia.org/wiki/Microsoft_Message_Queuing" target="_blank" rel="external">MSMQ</a></li>
 </ul>
-<h3 id="Compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
-<li>Application A &lt;–&gt; Network &lt;–&gt; Application B</li>
-<li>Application A &lt;–&gt; MOM &lt;—&gt; Application B</li>
+<h3 id="compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
+<li>Application A &lt;&#x2013;&gt; Network &lt;&#x2013;&gt; Application B</li>
+<li>Application A &lt;&#x2013;&gt; MOM &lt;&#x2014;&gt; Application B</li>
 </ul>
-<h3 id="Standard-and-protocol"><a href="#Standard-and-protocol" class="headerlink" title="Standard and protocol"></a>Standard and protocol</h3><ul>
+<h3 id="standard-and-protocol"><a href="#Standard-and-protocol" class="headerlink" title="Standard and protocol"></a>Standard and protocol</h3><ul>
 <li>AMQP</li>
 </ul>
-<h3 id="Using-ActiveMQ"><a href="#Using-ActiveMQ" class="headerlink" title="Using ActiveMQ"></a>Using ActiveMQ</h3><p><strong>1.Download and run activemq</strong>:  </p>
+<h3 id="using-activemq"><a href="#Using-ActiveMQ" class="headerlink" title="Using ActiveMQ"></a>Using ActiveMQ</h3><p><strong>1.Download and run activemq</strong>:  </p>
 <ul>
 <li>Download the latest activemq from <a href="http://activemq.apache.org/download.html" target="_blank" rel="external">http://activemq.apache.org/download.html</a></li>
 <li>tar xvf apache-activemq-5.11.0-bin.tar.gz </li>
@@ -148,22 +148,22 @@ There are a number of open source choices of messaging middleware systems, inclu
 <p><strong>3.Running example</strong>:  </p>
 <ul>
 <li><p>3.1 Run service as root </p>
-<p>  [dennis@localhost apache-activemq-5.11.0]$ su<br>  Password:<br>  [root@localhost apache-activemq-5.11.0]# ./bin/activemq start<br>  INFO: Loading ‘/home/dennis/Downloads/apache-activemq-5.11.0/bin/env’<br>  INFO: Using java ‘/usr/bin/java’<br>  INFO: Process with pid ‘3510’ is already running</p>
+<p>  [dennis@localhost apache-activemq-5.11.0]$ su<br>  Password:<br>  [root@localhost apache-activemq-5.11.0]# ./bin/activemq start<br>  INFO: Loading &#x2018;/home/dennis/Downloads/apache-activemq-5.11.0/bin/env&#x2019;<br>  INFO: Using java &#x2018;/usr/bin/java&#x2019;<br>  INFO: Process with pid &#x2018;3510&#x2019; is already running</p>
 </li>
 <li><p>3.2 Run listener  </p>
-<h1 id="dennis-localhost-cpp-listener"><a href="#dennis-localhost-cpp-listener" class="headerlink" title="  [dennis@localhost cpp]$ ./listener "></a>  [dennis@localhost cpp]$ ./listener </h1><h2 id="Starting-the-Listener-example"><a href="#Starting-the-Listener-example" class="headerlink" title="  Starting the Listener example:"></a>  Starting the Listener example:</h2><p>  Waiting for messages…<br>  Received 1000 messages.<br>  Received 2000 messages.<br>  Received 3000 messages.<br>  Received 4000 messages.<br>  Received 5000 messages.<br>  Received 6000 messages.<br>  Received 7000 messages.<br>  Received 8000 messages.<br>  Received 9000 messages.<br>  Received 10000 messages.</p>
-<h2 id="Received-10000-in-1-606-seconds"><a href="#Received-10000-in-1-606-seconds" class="headerlink" title="  Received 10000 in 1.606 seconds"></a>  Received 10000 in 1.606 seconds</h2><h1 id="Finished-with-the-example"><a href="#Finished-with-the-example" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
+<h1 id="dennislocalhost-cpp-listener"><a href="#dennis-localhost-cpp-listener" class="headerlink" title="  [dennis@localhost cpp]$ ./listener "></a>  [dennis@localhost cpp]$ ./listener </h1><h2 id="starting-the-listener-example"><a href="#Starting-the-Listener-example" class="headerlink" title="  Starting the Listener example:"></a>  Starting the Listener example:</h2><p>  Waiting for messages&#x2026;<br>  Received 1000 messages.<br>  Received 2000 messages.<br>  Received 3000 messages.<br>  Received 4000 messages.<br>  Received 5000 messages.<br>  Received 6000 messages.<br>  Received 7000 messages.<br>  Received 8000 messages.<br>  Received 9000 messages.<br>  Received 10000 messages.</p>
+<h2 id="received-10000-in-1606-seconds"><a href="#Received-10000-in-1-606-seconds" class="headerlink" title="  Received 10000 in 1.606 seconds"></a>  Received 10000 in 1.606 seconds</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
 <li><p>3.3 Run publisher  </p>
-<h1 id="dennis-localhost-cpp-publisher"><a href="#dennis-localhost-cpp-publisher" class="headerlink" title="  [dennis@localhost cpp]$ ./publisher "></a>  [dennis@localhost cpp]$ ./publisher </h1><h2 id="Starting-the-Publisher-example"><a href="#Starting-the-Publisher-example" class="headerlink" title="  Starting the Publisher example:"></a>  Starting the Publisher example:</h2><p>  Sent 1000 messages<br>  Sent 2000 messages<br>  Sent 3000 messages<br>  Sent 4000 messages<br>  Sent 5000 messages<br>  Sent 6000 messages<br>  Sent 7000 messages<br>  Sent 8000 messages<br>  Sent 9000 messages</p>
-<h2 id="Sent-10000-messages"><a href="#Sent-10000-messages" class="headerlink" title="  Sent 10000 messages"></a>  Sent 10000 messages</h2><h1 id="Finished-with-the-example-1"><a href="#Finished-with-the-example-1" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
+<h1 id="dennislocalhost-cpp-publisher"><a href="#dennis-localhost-cpp-publisher" class="headerlink" title="  [dennis@localhost cpp]$ ./publisher "></a>  [dennis@localhost cpp]$ ./publisher </h1><h2 id="starting-the-publisher-example"><a href="#Starting-the-Publisher-example" class="headerlink" title="  Starting the Publisher example:"></a>  Starting the Publisher example:</h2><p>  Sent 1000 messages<br>  Sent 2000 messages<br>  Sent 3000 messages<br>  Sent 4000 messages<br>  Sent 5000 messages<br>  Sent 6000 messages<br>  Sent 7000 messages<br>  Sent 8000 messages<br>  Sent 9000 messages</p>
+<h2 id="sent-10000-messages"><a href="#Sent-10000-messages" class="headerlink" title="  Sent 10000 messages"></a>  Sent 10000 messages</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example-1" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://en.wikipedia.org/wiki/Message_queue" target="_blank" rel="external">Message Queue</a></li>
 <li><a href="http://en.wikipedia.org/wiki/Message-oriented_middleware" target="_blank" rel="external">Message-oriented middleware</a></li>
-<li><a href="http://blog.fity.cn/post/377/" target="_blank" rel="external">消息队列中间件的技术选型分析</a></li>
-<li><a href="http://www.infoq.com/cn/articles/apache-kafka" target="_blank" rel="external">Apache Kafka：下一代分布式消息系统</a></li>
-<li>★★★<a href="http://alibaba.github.io/RocketMQ-docs/document/openuser/mqvsmq.pdf" target="_blank" rel="external">消息队列中间件调研文档</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/loulijun/MQnewer/MQnewer.html" target="_blank" rel="external">消息中间件及WebSphere MQ入门</a></li>
+<li><a href="http://blog.fity.cn/post/377/" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x6280;&#x672F;&#x9009;&#x578B;&#x5206;&#x6790;</a></li>
+<li><a href="http://www.infoq.com/cn/articles/apache-kafka" target="_blank" rel="external">Apache Kafka&#xFF1A;&#x4E0B;&#x4E00;&#x4EE3;&#x5206;&#x5E03;&#x5F0F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</a></li>
+<li>&#x2605;&#x2605;&#x2605;<a href="http://alibaba.github.io/RocketMQ-docs/document/openuser/mqvsmq.pdf" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x8C03;&#x7814;&#x6587;&#x6863;</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/loulijun/MQnewer/MQnewer.html" target="_blank" rel="external">&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x53CA;WebSphere MQ&#x5165;&#x95E8;</a></li>
 <li><a href="https://github.com/zeromq" target="_blank" rel="external">The ZeroMQ project</a></li>
 <li><a href="http://api.zeromq.org/" target="_blank" rel="external">api of zeroMQ</a></li>
 </ul>
@@ -171,7 +171,7 @@ There are a number of open source choices of messaging middleware systems, inclu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cin61d0l40093fyiz6ahb3x69" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cin6a5ukl009a3cizfjz62by9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -256,7 +256,7 @@ There are a number of open source choices of messaging middleware systems, inclu
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

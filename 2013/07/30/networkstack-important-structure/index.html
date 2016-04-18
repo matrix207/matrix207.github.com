@@ -103,81 +103,81 @@ etherdevice.h">
 <pre><code>File                Struct                        Description
 -------------------------------------------------------------------
 path: /include/linux
-etherdevice.h                                     以太网协议相关函数声明
-icmp.h                                            ICMP协议结构定议
+etherdevice.h                                     &#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x58F0;&#x660E;
+icmp.h                                            ICMP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x8BAE;
                     icmphdr
                     icmp_err
-if.h                                              接口相关结构定议
+if.h                                              &#x63A5;&#x53E3;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x8BAE;
                     ifmap
                     ifreq
                     ifconf
-if_arp.h                                          ARP协议结构定议
+if_arp.h                                          ARP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x8BAE;
                     arpreq
                     arphdr
-if_ether.h                                        以太网首部及标志位定义
+if_ether.h                                        &#x4EE5;&#x592A;&#x7F51;&#x9996;&#x90E8;&#x53CA;&#x6807;&#x5FD7;&#x4F4D;&#x5B9A;&#x4E49;
                     ethhdr
                     enet_statistics
-if_plip.h                                         并行线网络协议
+if_plip.h                                         &#x5E76;&#x884C;&#x7EBF;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;
                     plip_conf
-if_slip.h                                         串行线协议
-igmp.h                                            IGMP协议结构定义
+if_slip.h                                         &#x4E32;&#x884C;&#x7EBF;&#x534F;&#x8BAE;
+igmp.h                                            IGMP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     igmphdr
                     ip_mc_socklist
                     ip_mc_list
-in.h                                              协议号定义
+in.h                                              &#x534F;&#x8BAE;&#x53F7;&#x5B9A;&#x4E49;
                     in_addr
                     ip_mreq
                     sockaddr_in
-inet.h                                            INET域部分函数声明
-interrupt.h                                       下半部分结构定义
+inet.h                                            INET&#x57DF;&#x90E8;&#x5206;&#x51FD;&#x6570;&#x58F0;&#x660E;
+interrupt.h                                       &#x4E0B;&#x534A;&#x90E8;&#x5206;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     bh_struct
-ip.h                                              IP协议结构定义
+ip.h                                              IP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     timestamp
                     route
                     iphdr
-ip_fw.h                                           防火墙相关结构定义
+ip_fw.h                                           &#x9632;&#x706B;&#x5899;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     ip_fw
                     ip_fwpkt
-ipx.h                                             IPX包交换协议结构定义
+ipx.h                                             IPX&#x5305;&#x4EA4;&#x6362;&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     sockaddr_ipx
                     ipx_route_definition
                     ipx_interface_definition
                     ipx_config_data
                     ipx_route_def
-net.h                                             INET层关键结构定义
+net.h                                             INET&#x5C42;&#x5173;&#x952E;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     socket
                     proto_ops
                     net_proto
-netdevice.h                                       设备相关结构定义
+netdevice.h                                       &#x8BBE;&#x5907;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     de_mc_list
                     device
                     packet_type
-notifier.h                                        事件响应相关结构定义
+notifier.h                                        &#x4E8B;&#x4EF6;&#x54CD;&#x5E94;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     notifier_block
-ppp.h                                             点对点协议结构定义
+ppp.h                                             &#x70B9;&#x5BF9;&#x70B9;&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     ppp_lqp_packet_hdr
                     ppp_lqp_packet_trailer
                     ppp_lqp_packet
                     ppp_ddinfo
                     ppp
-route.h                                           路由结构定义
+route.h                                           &#x8DEF;&#x7531;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     old_rtentry
                     rtentry
-skbuff.h                                          数据包封装结构定义
+skbuff.h                                          &#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     sk_buff_head
                     sk_buff
-socket.h                                          常数选项定义
+socket.h                                          &#x5E38;&#x6570;&#x9009;&#x9879;&#x5B9A;&#x4E49;
                     sockaddr
                     linger
-sockios.h                                         选项定义
-tcp.h                                             TCP协议结构定义
+sockios.h                                         &#x9009;&#x9879;&#x5B9A;&#x4E49;
+tcp.h                                             TCP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     tcphdr
-timer.h                                           定时器相关结构定义
+timer.h                                           &#x5B9A;&#x65F6;&#x5668;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     timer_struct
                     timer_list
-udp.h                                             UDP协议结构定义
+udp.h                                             UDP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     udphdr
-un.h                                              UNIX域地址结构定义
+un.h                                              UNIX&#x57DF;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
                     sockaddr_un
 
 path: net/inet
@@ -279,7 +279,7 @@ fs.h
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/30/networkstack-important-structure/" data-id="cin61d0if006ufyiz1wjxcrah" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/07/30/networkstack-important-structure/" data-id="cin6a5uil006s3cizymef05h5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetworkStack/">NetworkStack</a></li></ul>
@@ -366,7 +366,7 @@ fs.h
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -121,13 +121,13 @@ It would ap">
 </ol>
 <p>It would appear warning as below:  </p>
 <pre><code>[dennis@localhost test]$ gcc -o t t.c
-t.c: In function ‘main’:
-t.c:179:2: warning: passing argument 1 of ‘test’ from incompatible pointer type [enabled by default]
-t.c:146:6: note: expected ‘char **’ but argument is of type ‘char (*)[255]’
+t.c: In function &#x2018;main&#x2019;:
+t.c:179:2: warning: passing argument 1 of &#x2018;test&#x2019; from incompatible pointer type [enabled by default]
+t.c:146:6: note: expected &#x2018;char **&#x2019; but argument is of type &#x2018;char (*)[255]&#x2019;
 </code></pre><p>The correct function format is : <code>void test(char (*buf)[255])</code></p>
 <ol>
 <li><p>Array initial:</p>
-<p> /<em> This code is from strace’s source code </em>/<br> /<em> strace is tool use for trace all the system call of linux binary </em>/<br> #include <stdio.h><br> #include <stdlib.h></stdlib.h></stdio.h></p>
+<p> /<em> This code is from strace&#x2019;s source code </em>/<br> /<em> strace is tool use for trace all the system call of linux binary </em>/<br> #include <stdio.h><br> #include <stdlib.h></stdlib.h></stdio.h></p>
 <p> #define PTRACE_EVENT_CLONE       3<br> #define PTRACE_EVENT_FORK        1<br> #define PTRACE_EVENT_VFORK       2<br> #define PTRACE_EVENT_VFORK_DONE  5<br> #define PTRACE_EVENT_EXEC        4<br> #define PTRACE_EVENT_EXIT        6</p>
 <p> #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))</p>
 <p> int main(int argc, char* argv[])<br> {</p>
@@ -150,7 +150,7 @@ return 0;
 <p> #include <stdlib.h><br> #include <string.h></string.h></stdlib.h></p>
 <p> struct line {</p>
 <pre><code>int length;
-char contents[0]; // C99的玩法是：char contents[]; 没有指定数组长度
+char contents[0]; // C99&#x7684;&#x73A9;&#x6CD5;&#x662F;&#xFF1A;char contents[]; &#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x6570;&#x7EC4;&#x957F;&#x5EA6;
 </code></pre><p> };</p>
 <p> int main(){</p>
 <pre><code>int this_length=10;
@@ -164,10 +164,10 @@ return 0;
 </li>
 </ol>
 <p>##2. point</p>
-<h3 id="2-1-void-test-char-a"><a href="#2-1-void-test-char-a" class="headerlink" title="2.1 void test(char *a)"></a>2.1 void test(char *a)</h3><pre><code>if want to change the value, use this.
-</code></pre><h3 id="2-2-void-test-char-a"><a href="#2-2-void-test-char-a" class="headerlink" title="2.2 void test(char **a)"></a>2.2 void test(char **a)</h3><pre><code>if want to allocate memory, use this.
+<h3 id="21-void-testchar-a"><a href="#2-1-void-test-char-a" class="headerlink" title="2.1 void test(char *a)"></a>2.1 void test(char *a)</h3><pre><code>if want to change the value, use this.
+</code></pre><h3 id="22-void-testchar-a"><a href="#2-2-void-test-char-a" class="headerlink" title="2.2 void test(char **a)"></a>2.2 void test(char **a)</h3><pre><code>if want to allocate memory, use this.
 </code></pre><p>##3. structure</p>
-<h3 id="3-1-initial-by-bit"><a href="#3-1-initial-by-bit" class="headerlink" title="3.1 initial by bit"></a>3.1 initial by bit</h3><pre><code>struct pid_tag {
+<h3 id="31-initial-by-bit"><a href="#3-1-initial-by-bit" class="headerlink" title="3.1 initial by bit"></a>3.1 initial by bit</h3><pre><code>struct pid_tag {
     unsigned int inactive : 1;
     unsigned int          : 1; /* fill 1 bit */
     unsigned int refcount : 6;
@@ -175,7 +175,7 @@ return 0;
     short pid_id;
     struct pid_tag *link;
 }
-</code></pre><h3 id="3-2-alignment"><a href="#3-2-alignment" class="headerlink" title="3.2 alignment"></a>3.2 alignment</h3><pre><code>struct st_a {
+</code></pre><h3 id="32-alignment"><a href="#3-2-alignment" class="headerlink" title="3.2 alignment"></a>3.2 alignment</h3><pre><code>struct st_a {
     int a;
     char b;
     short c;
@@ -198,25 +198,25 @@ the value of sizeof(st_b) is 8  (address: 0 . | 2 3 | 4 5 6 7)
 the value of sizeof(st_c) is 12 (address: 0 . . . | 4 5 6 7 | 8 9 . .)
 </code></pre><p>Therefore, you should careful for doing structure copy, and socket programming.</p>
 <p>##4. Function</p>
-<h1 id="For-more"><a href="#For-more" class="headerlink" title="For more :"></a>For more :</h1><ul>
+<h1 id="for-more"><a href="#For-more" class="headerlink" title="For more :"></a>For more :</h1><ul>
 <li><a href="http://c-faq.com/index.html" target="_blank" rel="external">comp.lang.c Frequently Asked Questions</a></li>
 <li><a href="ftp://rtfm.mit.edu/pub/usenet-by-group/news.answers/C-faq/faq" target="_blank" rel="external">C-FAQ</a></li>
 <li><a href="http://stackoverflow.com/questions/tagged/c?sort=votes&amp;pagesize=15" target="_blank" rel="external">Top votes of c questions on stackoverflow</a></li>
-<li><a href="http://coolshell.cn/articles/4102.html" target="_blank" rel="external">如何学好C语言</a></li>
-<li><a href="http://coolshell.cn/articles/945.html" target="_blank" rel="external">C语言的谜题</a></li>
-<li><a href="http://coolshell.cn/articles/873.html" target="_blank" rel="external">谁说C语言很简单？</a></li>
+<li><a href="http://coolshell.cn/articles/4102.html" target="_blank" rel="external">&#x5982;&#x4F55;&#x5B66;&#x597D;C&#x8BED;&#x8A00;</a></li>
+<li><a href="http://coolshell.cn/articles/945.html" target="_blank" rel="external">C&#x8BED;&#x8A00;&#x7684;&#x8C1C;&#x9898;</a></li>
+<li><a href="http://coolshell.cn/articles/873.html" target="_blank" rel="external">&#x8C01;&#x8BF4;C&#x8BED;&#x8A00;&#x5F88;&#x7B80;&#x5355;&#xFF1F;</a></li>
 <li><a href="http://stackoverflow.com/questions/6893285/why-do-all-these-crazy-function-pointer-definitions-all-work-what-is-really-goi" target="_blank" rel="external">Why do all these crazy function pointer definitions all work? What is really going on?</a></li>
 <li><a href="http://programmers.stackexchange.com/questions/62502/small-c-projects" target="_blank" rel="external">small c project</a></li>
-<li><a href="http://blog.csdn.net/zhaori/article/details/7659268" target="_blank" rel="external">结构体内存对齐</a></li>
-<li><a href="http://bbs.chinaunix.net/thread-480691-1-1.html" target="_blank" rel="external">二维数组做函数参数的问题</a></li>
+<li><a href="http://blog.csdn.net/zhaori/article/details/7659268" target="_blank" rel="external">&#x7ED3;&#x6784;&#x4F53;&#x5185;&#x5B58;&#x5BF9;&#x9F50;</a></li>
+<li><a href="http://bbs.chinaunix.net/thread-480691-1-1.html" target="_blank" rel="external">&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x505A;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x95EE;&#x9898;</a></li>
 <li><a href="http://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html" target="_blank" rel="external">Arrays of Length Zero</a></li>
-<li><a href="http://coolshell.cn/articles/11377.html" target="_blank" rel="external">C语言结构体里的成员数组和指针</a></li>
+<li><a href="http://coolshell.cn/articles/11377.html" target="_blank" rel="external">C&#x8BED;&#x8A00;&#x7ED3;&#x6784;&#x4F53;&#x91CC;&#x7684;&#x6210;&#x5458;&#x6570;&#x7EC4;&#x548C;&#x6307;&#x9488;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/07/do-you-really-master-c-language/" data-id="cin61d0hu0066fyizx0zthc6r" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/05/07/do-you-really-master-c-language/" data-id="cin6a5ui600643cizpt48q34d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li></ul>
@@ -303,7 +303,7 @@ the value of sizeof(st_c) is 12 (address: 0 . . . | 4 5 6 7 | 8 9 . .)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

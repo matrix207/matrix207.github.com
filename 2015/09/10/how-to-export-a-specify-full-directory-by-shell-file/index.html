@@ -132,7 +132,7 @@ myprj
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Requirement"><a href="#Requirement" class="headerlink" title="Requirement"></a>Requirement</h3><ul>
+        <h3 id="requirement"><a href="#Requirement" class="headerlink" title="Requirement"></a>Requirement</h3><ul>
 <li><p>project files</p>
 <pre><code>myprj
     build
@@ -166,13 +166,13 @@ myprj
 </ul>
 </li>
 </ul>
-<h3 id="Test-1-using-export-PRJ-HOME-dirname-dirname-0"><a href="#Test-1-using-export-PRJ-HOME-dirname-dirname-0" class="headerlink" title="Test 1, using export PRJ_HOME=$(dirname $(dirname $0))"></a>Test 1, using <code>export PRJ_HOME=$(dirname $(dirname $0))</code></h3><ul>
+<h3 id="test-1-using-export-prj_homedirname-dirname-0"><a href="#Test-1-using-export-PRJ-HOME-dirname-dirname-0" class="headerlink" title="Test 1, using export PRJ_HOME=$(dirname $(dirname $0))"></a>Test 1, using <code>export PRJ_HOME=$(dirname $(dirname $0))</code></h3><ul>
 <li>Failure case, when on suse release version, will failed to do <code>dirname $0</code>,<br>you will find that <code>echo $0</code> output <code>-bash</code>, not <code>bash</code> expected.</li>
 </ul>
-<h3 id="Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0"><a href="#Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0" class="headerlink" title="Test 2, using export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))"></a>Test 2, using <code>export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))</code></h3><ul>
+<h3 id="test-2-using-export-prj_homedirname-dirname-bash_source0"><a href="#Test-2-using-export-PRJ-HOME-dirname-dirname-BASH-SOURCE-0" class="headerlink" title="Test 2, using export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))"></a>Test 2, using <code>export PRJ_HOME=$(dirname $(dirname ${BASH_SOURCE[0]))</code></h3><ul>
 <li>Failure case, when using relative directory.</li>
 </ul>
-<h3 id="Other-test"><a href="#Other-test" class="headerlink" title="Other test"></a>Other test</h3><pre><code>echo &quot;working directory is &quot; $(pwd)
+<h3 id="other-test"><a href="#Other-test" class="headerlink" title="Other test"></a>Other test</h3><pre><code>echo &quot;working directory is &quot; $(pwd)
 echo &quot;BASH_SOURCE is &quot; ${BASH_SOURCE}
 echo &quot;BASH_SOURCE[0] is &quot; ${BASH_SOURCE[0]}
 echo &quot;dirname BASH_SOURCE[0] is &quot; $(dirname ${BASH_SOURCE[0]})
@@ -180,18 +180,18 @@ echo &quot;2 dirname BASH_SOURCE[0] is &quot; $(dirname $(dirname ${BASH_SOURCE[
 PARENT_DIR=$(dirname $(dirname ${BASH_SOURCE[0]}))
 echo &quot;parent dir is &quot; ${PARENT_DIR}
 export GMDB_HOME=$(pwd ${PARENT_DIR})
-</code></pre><h3 id="TODO-find-the-effective-method"><a href="#TODO-find-the-effective-method" class="headerlink" title="TODO, find the effective method"></a>TODO, find the effective method</h3><ul>
+</code></pre><h3 id="todo-find-the-effective-method"><a href="#TODO-find-the-effective-method" class="headerlink" title="TODO, find the effective method"></a>TODO, find the effective method</h3><ul>
 <li>If we can get the bash file name?</li>
 <li>How to translate relative directory to be full directory?</li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://blog.sina.com.cn/s/blog_60d6fadc01013k0k.html" target="_blank" rel="external">Difference of source , ./ , sh, bash</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" data-id="cin61d0lj009gfyiz1az3uxqz" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" data-id="cin6a5ukx009n3cizyveot50y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +276,7 @@ export GMDB_HOME=$(pwd ${PARENT_DIR})
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

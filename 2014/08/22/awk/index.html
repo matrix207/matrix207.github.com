@@ -7,35 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Basic
 build-in variables
-$0       当前记录（这个变量中存放着整个行的内容）
-$1~$n    当前记录的第n个字段，字段间由FS分隔
-FS       输入字段分隔符 默认是空格或Tab
-NF       当前记录中的字段个数，就是有多少列
-NR       已经读出的记录数，就是行号，从1开始，如果有多个文件话，这个值也是不断累加中。
-FNR      当前记录">
+$0       &amp;#x5F53;&amp;#x524D;&amp;#x8BB0;&amp;#x5F55;&amp;#xFF08;&amp;#x8FD9;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x4E2D;&amp;#x5B58;&amp;#x653E;&amp;#x7740;&amp;#x6574;&amp;#x4E2A;&amp;#x884C;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#xFF09;
+$1~$n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="awk">
 <meta property="og:url" content="http://matrix207.github.com/2014/08/22/awk/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description" content="Basic
 build-in variables
-$0       当前记录（这个变量中存放着整个行的内容）
-$1~$n    当前记录的第n个字段，字段间由FS分隔
-FS       输入字段分隔符 默认是空格或Tab
-NF       当前记录中的字段个数，就是有多少列
-NR       已经读出的记录数，就是行号，从1开始，如果有多个文件话，这个值也是不断累加中。
-FNR      当前记录">
+$0       &amp;#x5F53;&amp;#x524D;&amp;#x8BB0;&amp;#x5F55;&amp;#xFF08;&amp;#x8FD9;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x4E2D;&amp;#x5B58;&amp;#x653E;&amp;#x7740;&amp;#x6574;&amp;#x4E2A;&amp;#x884C;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#xFF09;
+$1~$n">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="awk">
 <meta name="twitter:description" content="Basic
 build-in variables
-$0       当前记录（这个变量中存放着整个行的内容）
-$1~$n    当前记录的第n个字段，字段间由FS分隔
-FS       输入字段分隔符 默认是空格或Tab
-NF       当前记录中的字段个数，就是有多少列
-NR       已经读出的记录数，就是行号，从1开始，如果有多个文件话，这个值也是不断累加中。
-FNR      当前记录">
+$0       &amp;#x5F53;&amp;#x524D;&amp;#x8BB0;&amp;#x5F55;&amp;#xFF08;&amp;#x8FD9;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x4E2D;&amp;#x5B58;&amp;#x653E;&amp;#x7740;&amp;#x6574;&amp;#x4E2A;&amp;#x884C;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#xFF09;
+$1~$n">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -108,45 +96,45 @@ FNR      当前记录">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+        <h3 id="basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
 <li>build-in variables<ul>
-<li>$0       当前记录（这个变量中存放着整个行的内容）</li>
-<li>$1~$n    当前记录的第n个字段，字段间由FS分隔</li>
-<li>FS       输入字段分隔符 默认是空格或Tab</li>
-<li>NF       当前记录中的字段个数，就是有多少列</li>
-<li>NR       已经读出的记录数，就是行号，从1开始，如果有多个文件话，这个值也是不断累加中。</li>
-<li>FNR      当前记录数，与NR不同的是，这个值会是各个文件自己的行号</li>
-<li>RS       输入的记录分隔符， 默认为换行符</li>
-<li>OFS      输出字段分隔符， 默认也是空格</li>
-<li>ORS      输出的记录分隔符，默认为换行符</li>
-<li>FILENAME 当前输入文件的名字</li>
+<li>$0       &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#xFF08;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x4E2D;&#x5B58;&#x653E;&#x7740;&#x6574;&#x4E2A;&#x884C;&#x7684;&#x5185;&#x5BB9;&#xFF09;</li>
+<li>$1~$n    &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#x7684;&#x7B2C;n&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x5B57;&#x6BB5;&#x95F4;&#x7531;FS&#x5206;&#x9694;</li>
+<li>FS       &#x8F93;&#x5165;&#x5B57;&#x6BB5;&#x5206;&#x9694;&#x7B26; &#x9ED8;&#x8BA4;&#x662F;&#x7A7A;&#x683C;&#x6216;Tab</li>
+<li>NF       &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#x4E2D;&#x7684;&#x5B57;&#x6BB5;&#x4E2A;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x6709;&#x591A;&#x5C11;&#x5217;</li>
+<li>NR       &#x5DF2;&#x7ECF;&#x8BFB;&#x51FA;&#x7684;&#x8BB0;&#x5F55;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x884C;&#x53F7;&#xFF0C;&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x8BDD;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x4E5F;&#x662F;&#x4E0D;&#x65AD;&#x7D2F;&#x52A0;&#x4E2D;&#x3002;</li>
+<li>FNR      &#x5F53;&#x524D;&#x8BB0;&#x5F55;&#x6570;&#xFF0C;&#x4E0E;NR&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x4F1A;&#x662F;&#x5404;&#x4E2A;&#x6587;&#x4EF6;&#x81EA;&#x5DF1;&#x7684;&#x884C;&#x53F7;</li>
+<li>RS       &#x8F93;&#x5165;&#x7684;&#x8BB0;&#x5F55;&#x5206;&#x9694;&#x7B26;&#xFF0C; &#x9ED8;&#x8BA4;&#x4E3A;&#x6362;&#x884C;&#x7B26;</li>
+<li>OFS      &#x8F93;&#x51FA;&#x5B57;&#x6BB5;&#x5206;&#x9694;&#x7B26;&#xFF0C; &#x9ED8;&#x8BA4;&#x4E5F;&#x662F;&#x7A7A;&#x683C;</li>
+<li>ORS      &#x8F93;&#x51FA;&#x7684;&#x8BB0;&#x5F55;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;&#x6362;&#x884C;&#x7B26;</li>
+<li>FILENAME &#x5F53;&#x524D;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;</li>
 </ul>
 </li>
 </ul>
 <h3 id="reg"><a href="#reg" class="headerlink" title="reg"></a>reg</h3><ul>
-<li>[:alnum:] 字母数字字符 [:alpha:] 字母字符</li>
+<li>[:alnum:] &#x5B57;&#x6BCD;&#x6570;&#x5B57;&#x5B57;&#x7B26; [:alpha:] &#x5B57;&#x6BCD;&#x5B57;&#x7B26;</li>
 </ul>
-<h3 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
-<li><p><code>awk FS&#39;&#39; &#39;condition1{operator1}condition2{operator2}...&#39; filename</code>  </p>
+<h3 id="skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h3><ul>
+<li><p><code>awk FS&apos;&apos; &apos;condition1{operator1}condition2{operator2}...&apos; filename</code>  </p>
 </li>
-<li><p><code>awk &#39;NR==1{print $0}&#39;</code>  </p>
+<li><p><code>awk &apos;NR==1{print $0}&apos;</code>  </p>
 </li>
-<li><p><code>arr=($(awk -F&#39;#&#39; &#39;{print $1,$2,$3,$4}&#39; $conf_file))</code>  </p>
+<li><p><code>arr=($(awk -F&apos;#&apos; &apos;{print $1,$2,$3,$4}&apos; $conf_file))</code>  </p>
 </li>
-<li><p><code>ps aux | awk &#39;NR==1{print $0}$3&gt;10{print $0}&#39;</code>  </p>
+<li><p><code>ps aux | awk &apos;NR==1{print $0}$3&gt;10{print $0}&apos;</code>  </p>
 </li>
-<li><p><code>awk -F&#39;&lt;|&gt;&#39; &#39;{if(NF&gt;3){print $2 &quot;:&quot; $3}}&#39; /tmp/test.xml</code> parse xml file  </p>
+<li><p><code>awk -F&apos;&lt;|&gt;&apos; &apos;{if(NF&gt;3){print $2 &quot;:&quot; $3}}&apos; /tmp/test.xml</code> parse xml file  </p>
 </li>
-<li><p><code>awk -F&#39;=&#39; &#39;/HWADDR/{print $2}&#39; /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
+<li><p><code>awk -F&apos;=&apos; &apos;/HWADDR/{print $2}&apos; /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
 </li>
-<li><p><code>ip -o link show eth0 |awk &#39;{ print toupper(gensub(/.*link\/[^ ]* ([[:alnum:]:]*).*/,&quot;\\1&quot;, 1)); }&#39;</code></p>
+<li><p><code>ip -o link show eth0 |awk &apos;{ print toupper(gensub(/.*link\/[^ ]* ([[:alnum:]:]*).*/,&quot;\\1&quot;, 1)); }&apos;</code></p>
 </li>
-<li><p><code>awk &#39;END{print $0}&#39; /root/test.log</code> print the last line</p>
+<li><p><code>awk &apos;END{print $0}&apos; /root/test.log</code> print the last line</p>
 </li>
-<li><p><code>lvdisplay |awk &#39;/LV Name/{n=$3} /Block device/{d=$3; sub(&quot;.*:&quot;,&quot;dm-&quot;,d); print d,n;}&#39;</code><br> print the mapping relationship of dm-*</p>
+<li><p><code>lvdisplay |awk &apos;/LV Name/{n=$3} /Block device/{d=$3; sub(&quot;.*:&quot;,&quot;dm-&quot;,d); print d,n;}&apos;</code><br> print the mapping relationship of dm-*</p>
 </li>
 <li><p>statistics</p>
-<p>count the total size of all c files <code>ls -l src/*.c |awk &#39;{sum+=$5} END {print sum}&#39;</code> </p>
+<p>count the total size of all c files <code>ls -l src/*.c |awk &apos;{sum+=$5} END {print sum}&apos;</code> </p>
 </li>
 <li><p>BEGIN, END</p>
 </li>
@@ -161,7 +149,7 @@ Bob     2415 40 57 62
 </code></pre><p>the awk script:</p>
 <pre><code>$ cat cal.awk
 #!/bin/awk -f
-#运行前
+#&#x8FD0;&#x884C;&#x524D;
 BEGIN {
     math = 0
     english = 0
@@ -170,14 +158,14 @@ BEGIN {
     printf &quot;NAME    NO.   MATH  ENGLISH  COMPUTER   TOTAL\n&quot;
     printf &quot;---------------------------------------------\n&quot;
 }
-#运行中
+#&#x8FD0;&#x884C;&#x4E2D;
 {
     math+=$3
     english+=$4
     computer+=$5
     printf &quot;%-6s %-6s %4d %8d %8d %8d\n&quot;, $1, $2, $3,$4,$5, $3+$4+$5
 }
-#运行后
+#&#x8FD0;&#x884C;&#x540E;
 END {
     printf &quot;---------------------------------------------\n&quot;
     printf &quot;  TOTAL:%10d %8d %8d \n&quot;, math, english, computer
@@ -196,26 +184,26 @@ Bob    2415     40       57       62      159
   TOTAL:       319      393      350
 AVERAGE:     63.80    78.60    70.00
 </code></pre><ul>
-<li>ls -l |awk ‘$6 == “Dec”‘</li>
-<li><code>netstat -apn |grep 3260 |awk &#39;{if($2&gt;0||$3&gt;0){print $0}}&#39;</code> print lines if Recv-Q<br>or Send-Q large than 0</li>
-<li><code>cat /tmp/.nic |awk &#39;{print $1,$2}&#39;|awk &#39;{aa[$1]=aa[$1]&quot;,&quot;$2;asorti(aa,tA);}END{for(i in tA)print aa[tA[i]]}&#39;|sed &#39;s/^,//&#39;</code></li>
-<li><code>echo -e &quot;12345\na25\nt123&quot; | awk &#39;/a25/{print a;}{a=$0}&#39;</code> print the previous line of match line</li>
+<li>ls -l |awk &#x2018;$6 == &#x201C;Dec&#x201D;&#x2018;</li>
+<li><code>netstat -apn |grep 3260 |awk &apos;{if($2&gt;0||$3&gt;0){print $0}}&apos;</code> print lines if Recv-Q<br>or Send-Q large than 0</li>
+<li><code>cat /tmp/.nic |awk &apos;{print $1,$2}&apos;|awk &apos;{aa[$1]=aa[$1]&quot;,&quot;$2;asorti(aa,tA);}END{for(i in tA)print aa[tA[i]]}&apos;|sed &apos;s/^,//&apos;</code></li>
+<li><code>echo -e &quot;12345\na25\nt123&quot; | awk &apos;/a25/{print a;}{a=$0}&apos;</code> print the previous line of match line</li>
 </ul>
-<h3 id="For-more"><a href="#For-more" class="headerlink" title="For more"></a>For more</h3><ul>
-<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Built_002din-Variables" target="_blank" rel="external">内建变量</a></li>
-<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Statements" target="_blank" rel="external">流控方面</a></li>
-<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Built_002din" target="_blank" rel="external">内建函数</a></li>
-<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Regexp" target="_blank" rel="external">正则表达式</a></li>
+<h3 id="for-more"><a href="#For-more" class="headerlink" title="For more"></a>For more</h3><ul>
+<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Built_002din-Variables" target="_blank" rel="external">&#x5185;&#x5EFA;&#x53D8;&#x91CF;</a></li>
+<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Statements" target="_blank" rel="external">&#x6D41;&#x63A7;&#x65B9;&#x9762;</a></li>
+<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Built_002din" target="_blank" rel="external">&#x5185;&#x5EFA;&#x51FD;&#x6570;</a></li>
+<li><a href="http://www.gnu.org/software/gawk/manual/gawk.html#Regexp" target="_blank" rel="external">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</a></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://coolshell.cn/articles/9070.html" target="_blank" rel="external">awk 简明教程</a></li>
-<li><a href="http://www.cnblogs.com/chengmo/archive/2010/10/09/1846696.html" target="_blank" rel="external">数组排序多种实现方法</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://coolshell.cn/articles/9070.html" target="_blank" rel="external">awk &#x7B80;&#x660E;&#x6559;&#x7A0B;</a></li>
+<li><a href="http://www.cnblogs.com/chengmo/archive/2010/10/09/1846696.html" target="_blank" rel="external">&#x6570;&#x7EC4;&#x6392;&#x5E8F;&#x591A;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/08/22/awk/" data-id="cin61d0kl008ofyiz1kieq28n" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/08/22/awk/" data-id="cin6a5uk3008s3ciz2sxs10am" class="article-share-link">Share</a>
       
       
     </footer>
@@ -224,19 +212,19 @@ AVERAGE:     63.80    78.60    70.00
     
 <nav id="article-nav">
   
-    <a href="/2014/08/22/sed/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/08/22/grep/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          sed
+          grep
         
       </div>
     </a>
   
   
-    <a href="/2014/08/22/grep/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/08/09/optimal-file-system-with-tune2fs/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">grep</div>
+      <div class="article-nav-title">optimal file system with tune2fs</div>
     </a>
   
 </nav>
@@ -300,7 +288,7 @@ AVERAGE:     63.80    78.60    70.00
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -6,18 +6,18 @@
   <title>MegaCli Common Command and Procedures | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="From MegaCli Common Commands and Procedures
-IntroductionMegaCli commands have presented a number of questions among our users for Cisco’sPhysical Security.  Here is an attempt to explain thier meaning">
+IntroductionMegaCli commands have presented a number of questions among our users for Cisco&amp;#x2019;sPhysical Security.  Here is an attempt to explain thier">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MegaCli Common Command and Procedures">
 <meta property="og:url" content="http://matrix207.github.com/2014/08/07/megacli-common-command-and-procedures/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description" content="From MegaCli Common Commands and Procedures
-IntroductionMegaCli commands have presented a number of questions among our users for Cisco’sPhysical Security.  Here is an attempt to explain thier meaning">
+IntroductionMegaCli commands have presented a number of questions among our users for Cisco&amp;#x2019;sPhysical Security.  Here is an attempt to explain thier">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MegaCli Common Command and Procedures">
 <meta name="twitter:description" content="From MegaCli Common Commands and Procedures
-IntroductionMegaCli commands have presented a number of questions among our users for Cisco’sPhysical Security.  Here is an attempt to explain thier meaning">
+IntroductionMegaCli commands have presented a number of questions among our users for Cisco&amp;#x2019;sPhysical Security.  Here is an attempt to explain thier">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -91,10 +91,10 @@ IntroductionMegaCli commands have presented a number of questions among our user
     <div class="article-entry" itemprop="articleBody">
       
         <p>From <strong><a href="https://supportforums.cisco.com/document/62901/megacli-common-commands-and-procedures" target="_blank" rel="external">MegaCli Common Commands and Procedures</a></strong></p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>MegaCli commands have presented a number of questions among our users for Cisco’s<br>Physical Security.  Here is an attempt to explain thier meaning and uses.</p>
+<h3 id="introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>MegaCli commands have presented a number of questions among our users for Cisco&#x2019;s<br>Physical Security.  Here is an attempt to explain thier meaning and uses.</p>
 <p>See also: Cisco VSM RAID Viewer</p>
-<h3 id="General-Parameters"><a href="#General-Parameters" class="headerlink" title="General Parameters"></a>General Parameters</h3><pre><code>Adapter parameter -aN 
-</code></pre><p>The parameter -aN (where N is a number starting with zero or the string ALL)<br>specifies the adapter ID. If you have only one controller it’s safe to use ALL<br>instead of a specific ID, but you’re encouraged to use the ID for everything<br>that makes changes to your RAID configuration.</p>
+<h3 id="general-parameters"><a href="#General-Parameters" class="headerlink" title="General Parameters"></a>General Parameters</h3><pre><code>Adapter parameter -aN 
+</code></pre><p>The parameter -aN (where N is a number starting with zero or the string ALL)<br>specifies the adapter ID. If you have only one controller it&#x2019;s safe to use ALL<br>instead of a specific ID, but you&#x2019;re encouraged to use the ID for everything<br>that makes changes to your RAID configuration.</p>
 <pre><code>Physical drive parameter      -PhysDrv [E:S] 
 </code></pre><p>For commands that operate on one or more pysical drives, the -PhysDrv [E:S]<br>parameter is used, where E is the enclosure device ID in which the drive resides<br>and S the slot number (starting with zero). You can get the enclosure device ID<br>using MegaCli -EncInfo -aALL. The E:S syntax is also used for specifying the<br>physical drives when creating a new RAID virtual drive (see 5).</p>
 <pre><code>Virtual drive parameter -Lx 
@@ -104,7 +104,7 @@ IntroductionMegaCli commands have presented a number of questions among our user
 </code></pre><p>or</p>
 <pre><code>shell&gt; cd /opt/MegaRAID/MegaCli
 shell&gt; ./MegaCli &lt;cmd&gt;
-</code></pre><h3 id="Gather-information"><a href="#Gather-information" class="headerlink" title="Gather information"></a>Gather information</h3><p>Controller information </p>
+</code></pre><h3 id="gather-information"><a href="#Gather-information" class="headerlink" title="Gather information"></a>Gather information</h3><p>Controller information </p>
 <pre><code>MegaCli -AdpAllInfo -aALL
 MegaCli -CfgDsply -aALL
 MegaCli -adpeventlog -getevents -f lsi-events.log -a0 -nolog
@@ -120,7 +120,7 @@ MegaCli -PDInfo -PhysDrv [E:S] -aALL
 <pre><code>MegaCli -AdpBbuCmd -aALL 
 </code></pre><p>Check Battery backup warning on boot.  If this is enabled on an MSP, it will<br>require manual intervention every time the system boots</p>
 <pre><code>MegaCli -AdpGetProp BatWarnDsbl -a0 
-</code></pre><h3 id="Controller-management"><a href="#Controller-management" class="headerlink" title="Controller management"></a>Controller management</h3><p>Silence active alarm </p>
+</code></pre><h3 id="controller-management"><a href="#Controller-management" class="headerlink" title="Controller management"></a>Controller management</h3><p>Silence active alarm </p>
 <pre><code>MegaCli -AdpSetProp AlarmSilence -aALL
 </code></pre><p>Disable alarm </p>
 <pre><code>MegaCli -AdpSetProp AlarmDsbl -aALL
@@ -130,13 +130,13 @@ MegaCli -PDInfo -PhysDrv [E:S] -aALL
 <pre><code>MegaCli -AdpSetProp BatWarnDsbl -a0
 </code></pre><p>Change the adapter rebuild rate to 60%:</p>
 <pre><code>MegaCli -AdpSetProp {RebuildRate -60} -aALL
-</code></pre><h3 id="Virtual-drive-management"><a href="#Virtual-drive-management" class="headerlink" title="Virtual drive management"></a>Virtual drive management</h3><p>Create RAID 0, 1, 5 drive </p>
+</code></pre><h3 id="virtual-drive-management"><a href="#Virtual-drive-management" class="headerlink" title="Virtual drive management"></a>Virtual drive management</h3><p>Create RAID 0, 1, 5 drive </p>
 <pre><code>MegaCli -CfgLdAdd -r(0|1|5) [E:S, E:S, ...] -aN
 </code></pre><p>Create RAID 10 drive </p>
 <pre><code>MegaCli -CfgSpanAdd -r10 -Array0[E:S,E:S] -Array1[E:S,E:S] -aN
 </code></pre><p>Remove drive </p>
 <pre><code>MegaCli -CfgLdDel -Lx -aN 
-</code></pre><h3 id="Physical-drive-management"><a href="#Physical-drive-management" class="headerlink" title="Physical drive management"></a>Physical drive management</h3><p>Set state to offline </p>
+</code></pre><h3 id="physical-drive-management"><a href="#Physical-drive-management" class="headerlink" title="Physical drive management"></a>Physical drive management</h3><p>Set state to offline </p>
 <pre><code>MegaCli -PDOffline -PhysDrv [E:S] -aN
 </code></pre><p>Set state to online </p>
 <pre><code>MegaCli -PDOnline -PhysDrv [E:S] -aN
@@ -146,8 +146,8 @@ MegaCli -PDInfo -PhysDrv [E:S] -aALL
 <pre><code>MegaCli -PdPrpRmv -PhysDrv [E:S] -aN
 </code></pre><p>Replace missing drive </p>
 <pre><code>MegaCli -PdReplaceMissing -PhysDrv [E:S] -ArrayN -rowN -aN
-</code></pre><p>The number N of the array parameter is the Span Reference you get using<br><strong>MegaCli -CfgDsply -aALL</strong> and the number N of the row parameter is the<br>Physical Disk in that span or array starting with zero (it’s not the physical<br>disk’s slot!).</p>
-<p>Rebuild drive - Drive status should be “Firmware state: Rebuild”</p>
+</code></pre><p>The number N of the array parameter is the Span Reference you get using<br><strong>MegaCli -CfgDsply -aALL</strong> and the number N of the row parameter is the<br>Physical Disk in that span or array starting with zero (it&#x2019;s not the physical<br>disk&#x2019;s slot!).</p>
+<p>Rebuild drive - Drive status should be &#x201C;Firmware state: Rebuild&#x201D;</p>
 <pre><code>MegaCli -PDRbld -Start -PhysDrv [E:S] -aN
 MegaCli -PDRbld -Stop -PhysDrv [E:S] -aN
 MegaCli -PDRbld -ShowProg -PhysDrv [E:S] -aN     
@@ -159,13 +159,13 @@ MegaCli -PDClear -ShowProg -PhysDrv [E:S] -aN
 </code></pre><p>Bad to good </p>
 <pre><code>MegaCli -PDMakeGood -PhysDrv[E:S] -aN
 </code></pre><p>Changes drive in state Unconfigured-Bad to Unconfigured-Good.</p>
-<h3 id="Hot-spare-management"><a href="#Hot-spare-management" class="headerlink" title="Hot spare management"></a>Hot spare management</h3><p>Set global hot spare </p>
+<h3 id="hot-spare-management"><a href="#Hot-spare-management" class="headerlink" title="Hot spare management"></a>Hot spare management</h3><p>Set global hot spare </p>
 <pre><code>MegaCli -PDHSP -Set -PhysDrv [E:S] -aN
 </code></pre><p>Remove hot spare </p>
 <pre><code>MegaCli -PDHSP -Rmv -PhysDrv [E:S] -aN
 </code></pre><p>Set dedicated hot spare </p>
 <pre><code>MegaCli -PDHSP -Set -Dedicated -ArrayN,M,... -PhysDrv [E:S] -aN 
-</code></pre><h3 id="Walkthrough-Rebuild-a-Drive-that-is-marked-‘Foreign’-when-Inserted"><a href="#Walkthrough-Rebuild-a-Drive-that-is-marked-‘Foreign’-when-Inserted" class="headerlink" title="Walkthrough: Rebuild a Drive that is marked ‘Foreign’ when Inserted:"></a>Walkthrough: Rebuild a Drive that is marked ‘Foreign’ when Inserted:</h3><ul>
+</code></pre><h3 id="walkthrough-rebuild-a-drive-that-is-marked-foreign-when-inserted"><a href="#Walkthrough-Rebuild-a-Drive-that-is-marked-&#x2018;Foreign&#x2019;-when-Inserted" class="headerlink" title="Walkthrough: Rebuild a Drive that is marked &#x2018;Foreign&#x2019; when Inserted:"></a>Walkthrough: Rebuild a Drive that is marked &#x2018;Foreign&#x2019; when Inserted:</h3><ul>
 <li><p>Bad to good </p>
 <p>  MegaCli -PDMakeGood -PhysDrv [E:S]  -aALL</p>
 </li>
@@ -176,20 +176,20 @@ MegaCli -PDClear -ShowProg -PhysDrv [E:S] -aN
 <p>   MegaCli -PDHSP -Set -PhysDrv [E:S] -aN</p>
 </li>
 </ul>
-<h3 id="Walkthrough-Change-replace-a-drive"><a href="#Walkthrough-Change-replace-a-drive" class="headerlink" title="Walkthrough: Change/replace a drive"></a>Walkthrough: Change/replace a drive</h3><p>1.Set the drive offline, if it is not already offline due to an error</p>
+<h3 id="walkthrough-changereplace-a-drive"><a href="#Walkthrough-Change-replace-a-drive" class="headerlink" title="Walkthrough: Change/replace a drive"></a>Walkthrough: Change/replace a drive</h3><p>1.Set the drive offline, if it is not already offline due to an error</p>
 <pre><code>MegaCli -PDOffline -PhysDrv [E:S] -aN
 </code></pre><p>2.Mark the drive as missing</p>
 <pre><code>MegaCli -PDMarkMissing -PhysDrv [E:S] -aN
 </code></pre><p>3.Prepare drive for removal</p>
 <pre><code>MegaCli -PDPrpRmv -PhysDrv [E:S] -aN
 </code></pre><p>4.Change/replace the drive</p>
-<p>5.If you’re using hot spares then the replaced drive should become your new hot spare drive</p>
+<p>5.If you&#x2019;re using hot spares then the replaced drive should become your new hot spare drive</p>
 <pre><code>MegaCli -PDHSP -Set -PhysDrv [E:S] -aN
-</code></pre><p>6.In case you’re not working with hot spares, you must re-add the new drive to<br>your RAID virtual drive and start the rebuilding</p>
+</code></pre><p>6.In case you&#x2019;re not working with hot spares, you must re-add the new drive to<br>your RAID virtual drive and start the rebuilding</p>
 <pre><code>MegaCli -PdReplaceMissing -PhysDrv [E:S] -ArrayN -rowN -aN
 MegaCli -PDRbld -Start -PhysDrv [E:S] -aN
-</code></pre><h3 id="Gathering-Standard-logs"><a href="#Gathering-Standard-logs" class="headerlink" title="Gathering Standard logs"></a>Gathering Standard logs</h3><p>On every instance of a hard drive problem with an MSP server, we need to run the<br>following commands to have any information about the problem:</p>
-<pre><code>shell&gt; rm –f MegaSAS.log
+</code></pre><h3 id="gathering-standard-logs"><a href="#Gathering-Standard-logs" class="headerlink" title="Gathering Standard logs"></a>Gathering Standard logs</h3><p>On every instance of a hard drive problem with an MSP server, we need to run the<br>following commands to have any information about the problem:</p>
+<pre><code>shell&gt; rm &#x2013;f MegaSAS.log
 
 shell&gt; /opt/MegaRAID/MegaCli/MegaCli -adpallinfo -a0
 
@@ -207,7 +207,7 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/08/07/megacli-common-command-and-procedures/" data-id="cin61d0kk008nfyizs18llx7f" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/08/07/megacli-common-command-and-procedures/" data-id="cin6a5uk0008p3cizx4m5a5fv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -292,7 +292,7 @@ shell&gt; /opt/MegaRAID/MegaCli/MegaCli -fwtermlog -dsply -a0 -nolog &gt; lsi-fw
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

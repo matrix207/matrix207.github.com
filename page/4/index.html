@@ -88,7 +88,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><ul>
+        <h3 id="difference"><a href="#Difference" class="headerlink" title="Difference"></a>Difference</h3><ul>
 <li>stack <ul>
 <li>allocate memory on stack by operate system</li>
 <li>Have limit size, and less than 1MB always</li>
@@ -102,7 +102,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="What-is-memory-fragments"><a href="#What-is-memory-fragments" class="headerlink" title="What is memory fragments"></a>What is memory fragments</h3><ul>
+<h3 id="what-is-memory-fragments"><a href="#What-is-memory-fragments" class="headerlink" title="What is memory fragments"></a>What is memory fragments</h3><ul>
 <li>Internal fragmentation <ul>
 <li>memory allocation provided memory to program in chunks divisible by 4, 8 or 16</li>
 <li>if application request 23 bytes, it actually get a chunk of 32 bytes. </li>
@@ -111,11 +111,11 @@
 </li>
 <li>External fragmentation <ul>
 <li>cause by <code>free</code> called</li>
-<li>An example, first, you allocate 9 bytes memory, then allocate another 5 bytes,<br>and later you free the first 9 bytes, but now, you want to allocate 10 bytes,<br>this time the first 9 bytes memory can’t be used, because it is not enough.<br>Allocation must using continues memory, so it would allocate another 10 bytes<br>behind the 5 bytes position. Now the first block memory is memory fragments.</li>
+<li>An example, first, you allocate 9 bytes memory, then allocate another 5 bytes,<br>and later you free the first 9 bytes, but now, you want to allocate 10 bytes,<br>this time the first 9 bytes memory can&#x2019;t be used, because it is not enough.<br>Allocation must using continues memory, so it would allocate another 10 bytes<br>behind the 5 bytes position. Now the first block memory is memory fragments.</li>
 </ul>
 </li>
 </ul>
-<h3 id="How-to-avoid-memory-fragments"><a href="#How-to-avoid-memory-fragments" class="headerlink" title="How to avoid memory fragments"></a>How to avoid memory fragments</h3><h3 id="Why-memory-overflow-but-not-error-occur"><a href="#Why-memory-overflow-but-not-error-occur" class="headerlink" title="Why memory overflow but not error occur?"></a>Why memory overflow but not error occur?</h3><ul>
+<h3 id="how-to-avoid-memory-fragments"><a href="#How-to-avoid-memory-fragments" class="headerlink" title="How to avoid memory fragments"></a>How to avoid memory fragments</h3><h3 id="why-memory-overflow-but-not-error-occur"><a href="#Why-memory-overflow-but-not-error-occur" class="headerlink" title="Why memory overflow but not error occur?"></a>Why memory overflow but not error occur?</h3><ul>
 <li><p>sample code</p>
 <pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -153,56 +153,15 @@ void main()
 }
 </code></pre></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.csdn.net/xuzhonghai/article/details/7285821" target="_blank" rel="external">内存碎片</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/xuzhonghai/article/details/7285821" target="_blank" rel="external">&#x5185;&#x5B58;&#x788E;&#x7247;</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Fragmentation_(computing" target="_blank" rel="external">Fragmentation</a>)</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/17/difference-between-stack-and-heap/" data-id="cin61d0lf009cfyizmdb2wlhj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-key-technology-for-database" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/07/12/key-technology-for-database/" class="article-date">
-  <time datetime="2015-07-11T16:00:00.000Z" itemprop="datePublished">2015-07-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/12/key-technology-for-database/">key technology for database</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><h3 id="BTree"><a href="#BTree" class="headerlink" title="BTree"></a>BTree</h3><h3 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B+Tree"></a>B+Tree</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li>Add wikipedia of Hash key</li>
-<li>Add wikipedia of BTree key</li>
-<li>Add wikipedia of B+Tree key</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/12/key-technology-for-database/" data-id="cin61d0le009bfyizndeq612q" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/17/difference-between-stack-and-heap/" data-id="cin6a5ukt009j3ciz57cy5qps" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +193,7 @@ void main()
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Data-model"><a href="#Data-model" class="headerlink" title="Data model"></a>Data model</h3><h3 id="Why-need-it"><a href="#Why-need-it" class="headerlink" title="Why need it"></a>Why need it</h3><h3 id="Schema-Node"><a href="#Schema-Node" class="headerlink" title="Schema Node"></a>Schema Node</h3><ul>
+        <h3 id="data-model"><a href="#Data-model" class="headerlink" title="Data model"></a>Data model</h3><h3 id="why-need-it"><a href="#Why-need-it" class="headerlink" title="Why need it"></a>Why need it</h3><h3 id="schema-node"><a href="#Schema-Node" class="headerlink" title="Schema Node"></a>Schema Node</h3><ul>
 <li>Define<ul>
 <li>R : root node (record node)</li>
 <li>S : single node (child node, subschema)</li>
@@ -275,11 +234,52 @@ void main()
 <li>What is difference between full and delta object</li>
 <li>Since there are read and write interfaces, why not insert and delete</li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/12/schema-data-mode/" data-id="cin61d0lg009dfyizhcu0ifa6" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/12/schema-data-mode/" data-id="cin6a5uks009i3cizvf0pr2cq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-key-technology-for-database" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/12/key-technology-for-database/" class="article-date">
+  <time datetime="2015-07-11T16:00:00.000Z" itemprop="datePublished">2015-07-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/12/key-technology-for-database/">key technology for database</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><h3 id="hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><h3 id="btree"><a href="#BTree" class="headerlink" title="BTree"></a>BTree</h3><h3 id="btree"><a href="#B-Tree" class="headerlink" title="B+Tree"></a>B+Tree</h3><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li>Add wikipedia of Hash key</li>
+<li>Add wikipedia of BTree key</li>
+<li>Add wikipedia of B+Tree key</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/07/12/key-technology-for-database/" data-id="cin6a5uks009h3cizdit7j1er" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +311,7 @@ void main()
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-are-the-distributed-database"><a href="#What-are-the-distributed-database" class="headerlink" title="What are the distributed database"></a>What are the distributed database</h3><p>A distributed database include features:  </p>
+        <h3 id="what-are-the-distributed-database"><a href="#What-are-the-distributed-database" class="headerlink" title="What are the distributed database"></a>What are the distributed database</h3><p>A distributed database include features:  </p>
 <ul>
 <li>Data model</li>
 <li>SQL Engine</li>
@@ -324,11 +324,11 @@ void main()
 </ul>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/06/what-learn-from-distributed-database/" data-id="cin61d0lb0099fyizvpnupfze" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/06/what-learn-from-distributed-database/" data-id="cin6a5ukq009g3cizu0l52a22" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +360,7 @@ void main()
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-is-an-executable-program"><a href="#What-is-an-executable-program" class="headerlink" title="What is an executable program"></a>What is an executable program</h3><ul>
+        <h3 id="what-is-an-executable-program"><a href="#What-is-an-executable-program" class="headerlink" title="What is an executable program"></a>What is an executable program</h3><ul>
 <li>On linux, the format of executable program is ELF (<code>Executable and Linking Format</code>)</li>
 <li>members of executable program<ul>
 <li>text segment</li>
@@ -369,11 +369,11 @@ void main()
 </ul>
 </li>
 </ul>
-<h3 id="How-source-code-be-compiled"><a href="#How-source-code-be-compiled" class="headerlink" title="How source code be compiled"></a>How source code be compiled</h3><h3 id="Relation-of-source-code-object-file-library-file-bin-file"><a href="#Relation-of-source-code-object-file-library-file-bin-file" class="headerlink" title="Relation of source code, object file, library file, bin file"></a>Relation of source code, object file, library file, bin file</h3><h3 id="How-bin-file-to-load-library"><a href="#How-bin-file-to-load-library" class="headerlink" title="How bin file to load library"></a>How bin file to load library</h3><ul>
+<h3 id="how-source-code-be-compiled"><a href="#How-source-code-be-compiled" class="headerlink" title="How source code be compiled"></a>How source code be compiled</h3><h3 id="relation-of-source-code-object-file-library-file-bin-file"><a href="#Relation-of-source-code-object-file-library-file-bin-file" class="headerlink" title="Relation of source code, object file, library file, bin file"></a>Relation of source code, object file, library file, bin file</h3><h3 id="how-bin-file-to-load-library"><a href="#How-bin-file-to-load-library" class="headerlink" title="How bin file to load library"></a>How bin file to load library</h3><ul>
 <li>dynamic library</li>
 <li>static library</li>
 </ul>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
+<h3 id="example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><ul>
 <li><p>Hello world, a.c</p>
 <pre><code>#include &lt;stdio.h&gt;
 int main()
@@ -418,15 +418,15 @@ ELF Header:
 [dennis@localhost ~]$ readelf -S a.out
 </code></pre></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://bbs.pediy.com/showthread.php?t=81284.html" target="_blank" rel="external">linux可执行文件格式</a></li>
-<li><a href="http://blog.csdn.net/topasstem8/article/details/38730971" target="_blank" rel="external">Linux下可执行文件格式详解</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://bbs.pediy.com/showthread.php?t=81284.html" target="_blank" rel="external">linux&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x683C;&#x5F0F;</a></li>
+<li><a href="http://blog.csdn.net/topasstem8/article/details/38730971" target="_blank" rel="external">Linux&#x4E0B;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x8BE6;&#x89E3;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/05/how-source-code-turn-to-be-an-executable-program/" data-id="cin61d0ld009afyizehv04rwv" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/05/how-source-code-turn-to-be-an-executable-program/" data-id="cin6a5ukq009f3ciz98jik8w5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +461,7 @@ ELF Header:
         <h4 id="what-is-ramcloud"><a href="#what-is-ramcloud" class="headerlink" title="what is ramcloud"></a>what is ramcloud</h4><ul>
 <li>ramcloud<ul>
 <li><a href="https://ramcloud.atlassian.net/wiki/display/RAM/RAMCloud;jsessionid=D118195965ABC5BF8B90B34EC242B5CE" target="_blank" rel="external">ramcloud</a></li>
-<li><a href="http://blog.csdn.net/anzhsoft/article/details/21830991" target="_blank" rel="external">RAMCloud：内存云存储的内存分配机制</a></li>
+<li><a href="http://blog.csdn.net/anzhsoft/article/details/21830991" target="_blank" rel="external">RAMCloud&#xFF1A;&#x5185;&#x5B58;&#x4E91;&#x5B58;&#x50A8;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x673A;&#x5236;</a></li>
 </ul>
 </li>
 </ul>
@@ -520,9 +520,9 @@ from code `tableId2 = ramcloud-&gt;createTable(&quot;table2&quot;);`, expect id 
 </ul>
 <h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><ul>
 <li><a href="https://ramcloud.atlassian.net/wiki/display/RAM/General+Information+for+Developers" target="_blank" rel="external">General Information for Developers</a></li>
-<li><a href="http://fumin.hustbackup.cn/?p=1104&amp;utm_source=tuicool" target="_blank" rel="external">RAMCloud 小结</a></li>
-<li><a href="http://blog.csdn.net/anzhsoft/article/details/21830991" target="_blank" rel="external">RAMCloud：内存云存储的内存分配机制</a></li>
-<li><a href="http://www.csdn.net/article/2011-08-01/302490" target="_blank" rel="external">大规模存储的未来——内存云</a></li>
+<li><a href="http://fumin.hustbackup.cn/?p=1104&amp;utm_source=tuicool" target="_blank" rel="external">RAMCloud &#x5C0F;&#x7ED3;</a></li>
+<li><a href="http://blog.csdn.net/anzhsoft/article/details/21830991" target="_blank" rel="external">RAMCloud&#xFF1A;&#x5185;&#x5B58;&#x4E91;&#x5B58;&#x50A8;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x673A;&#x5236;</a></li>
+<li><a href="http://www.csdn.net/article/2011-08-01/302490" target="_blank" rel="external">&#x5927;&#x89C4;&#x6A21;&#x5B58;&#x50A8;&#x7684;&#x672A;&#x6765;&#x2014;&#x2014;&#x5185;&#x5B58;&#x4E91;</a></li>
 <li><a href="http://web.stanford.edu/~ouster/cgi-bin/papers/ramcloud.pdf" target="_blank" rel="external">The Case for RAMClouds: Scalable High-Performance Storage Entirely in DRAM</a></li>
 <li><a href="http://web.stanford.edu/~ouster/cgi-bin/papers/RumblePhd.pdf" target="_blank" rel="external">MEMORY AND OBJECT MANAGEMENT IN RAMCLOUD</a></li>
 </ul>
@@ -530,7 +530,7 @@ from code `tableId2 = ramcloud-&gt;createTable(&quot;table2&quot;);`, expect id 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/06/06/ramcloud/" data-id="cin61d0l90097fyiznup11a0p" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/06/06/ramcloud/" data-id="cin6a5ukp009e3ciza93x25fq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -562,21 +562,21 @@ from code `tableId2 = ramcloud-&gt;createTable(&quot;table2&quot;);`, expect id 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="About-NFS"><a href="#About-NFS" class="headerlink" title="About NFS"></a>About NFS</h3><p>NFS is “Network File System”.</p>
+        <h3 id="about-nfs"><a href="#About-NFS" class="headerlink" title="About NFS"></a>About NFS</h3><p>NFS is &#x201C;Network File System&#x201D;.</p>
 <ul>
-<li>linux find NFS version, using command <code>nfsstat -m</code> on client machine, 找到字符串”vers=4.0”<ul>
-<li><a href="http://network.51cto.com/art/201008/216664.htm" target="_blank" rel="external">对比分析各个NFS版本的特点</a></li>
+<li>linux find NFS version, using command <code>nfsstat -m</code> on client machine, &#x627E;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x201D;vers=4.0&#x201D;<ul>
+<li><a href="http://network.51cto.com/art/201008/216664.htm" target="_blank" rel="external">&#x5BF9;&#x6BD4;&#x5206;&#x6790;&#x5404;&#x4E2A;NFS&#x7248;&#x672C;&#x7684;&#x7279;&#x70B9;</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><ul>
+<h3 id="how-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><ul>
 <li><p>On server:</p>
 <ul>
 <li>service nfs start|stop</li>
 <li>set ACL (Access Control Lists) of files and directories.<ul>
-<li>setfacl -m other::— PATH</li>
+<li>setfacl -m other::&#x2014; PATH</li>
 <li>setfacl -m g:GROUP_NAME:rwx PATH</li>
-<li>setfacl -m g:GROUP_NAME:— PATH</li>
+<li>setfacl -m g:GROUP_NAME:&#x2014; PATH</li>
 </ul>
 </li>
 </ul>
@@ -591,47 +591,47 @@ from code `tableId2 = ramcloud-&gt;createTable(&quot;table2&quot;);`, expect id 
 </ul>
 </li>
 <li><p>command operation:  </p>
-<p>  [root@Ustor ~]# service nfs start<br>  Starting RPC svcgssd:                                      [  OK  ]<br>  Starting NFS services:                                     [  OK  ]<br>  Starting NFS quotas:                                       [  OK  ]<br>  Starting NFS mountd:                                       [  OK  ]<br>  Stopping RPC idmapd:                                       [  OK  ]<br>  Starting RPC idmapd:                                       [  OK  ]<br>  Starting NFS daemon:                                       [  OK  ]<br>  [root@Ustor ~]# service nfs status<br>  rpc.svcgssd (pid 11647) is running…<br>  rpc.mountd (pid 11657) is running…<br>  nfsd (pid 11722 11721 11720 11719 11718 11717 11716 11715) is running…<br>  rpc.rquotad (pid 11653) is running..<br>  [root@Ustor ~]# ps aux |grep nfs<br>  root   11713  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4]<br>  root   11714  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4_callbacks]<br>  root   11715  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11716  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11717  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11718  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11719  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11720  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11721  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11722  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11904  0.0  0.0 103240   844 pts/1  S+   23:35   0:00 grep nfs<br>  [root@Ustor ~]# netstat -apn |grep 2049<br>  tcp     0      0 0.0.0.0:2049         0.0.0.0:<em>            LISTEN      -<br>  tcp     0      0 :::2049              :::</em>                 LISTEN      -<br>  udp     0      0 0.0.0.0:2049         0.0.0.0:<em>                        -<br>  udp     0      0 :::2049              :::</em>                             -<br>  [root@Ustor ~]# service nfs stop<br>  Shutting down NFS daemon:                                  [  OK  ]<br>  Shutting down NFS mountd:                                  [  OK  ]<br>  Shutting down NFS quotas:                                  [  OK  ]<br>  Shutting down RPC svcgssd:                                 [  OK  ]</p>
+<p>  [root@Ustor ~]# service nfs start<br>  Starting RPC svcgssd:                                      [  OK  ]<br>  Starting NFS services:                                     [  OK  ]<br>  Starting NFS quotas:                                       [  OK  ]<br>  Starting NFS mountd:                                       [  OK  ]<br>  Stopping RPC idmapd:                                       [  OK  ]<br>  Starting RPC idmapd:                                       [  OK  ]<br>  Starting NFS daemon:                                       [  OK  ]<br>  [root@Ustor ~]# service nfs status<br>  rpc.svcgssd (pid 11647) is running&#x2026;<br>  rpc.mountd (pid 11657) is running&#x2026;<br>  nfsd (pid 11722 11721 11720 11719 11718 11717 11716 11715) is running&#x2026;<br>  rpc.rquotad (pid 11653) is running..<br>  [root@Ustor ~]# ps aux |grep nfs<br>  root   11713  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4]<br>  root   11714  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4_callbacks]<br>  root   11715  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11716  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11717  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11718  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11719  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11720  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11721  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11722  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11904  0.0  0.0 103240   844 pts/1  S+   23:35   0:00 grep nfs<br>  [root@Ustor ~]# netstat -apn |grep 2049<br>  tcp     0      0 0.0.0.0:2049         0.0.0.0:<em>            LISTEN      -<br>  tcp     0      0 :::2049              :::</em>                 LISTEN      -<br>  udp     0      0 0.0.0.0:2049         0.0.0.0:<em>                        -<br>  udp     0      0 :::2049              :::</em>                             -<br>  [root@Ustor ~]# service nfs stop<br>  Shutting down NFS daemon:                                  [  OK  ]<br>  Shutting down NFS mountd:                                  [  OK  ]<br>  Shutting down NFS quotas:                                  [  OK  ]<br>  Shutting down RPC svcgssd:                                 [  OK  ]</p>
 </li>
 <li><p>check status from /proc/fs/nfs and /proc/fs/nfsd/</p>
 </li>
 </ul>
-<h3 id="Optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h3><ul>
-<li><p>★★★ <strong><a href="http://blog.csdn.net/yangzhongxuan/article/details/7918884" target="_blank" rel="external">nfs的传输速度优化</a></strong></p>
+<h3 id="optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h3><ul>
+<li><p>&#x2605;&#x2605;&#x2605; <strong><a href="http://blog.csdn.net/yangzhongxuan/article/details/7918884" target="_blank" rel="external">nfs&#x7684;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x4F18;&#x5316;</a></strong></p>
 <ul>
-<li>设置块大小 <ul>
-<li>time dd if=/dev/zero of=/testfs/testfile bs=8k count=1024 测试nfs写</li>
-<li>time dd if=/testfs/testfile of=/dev/null bs=8k 测试nfs读</li>
+<li>&#x8BBE;&#x7F6E;&#x5757;&#x5927;&#x5C0F; <ul>
+<li>time dd if=/dev/zero of=/testfs/testfile bs=8k count=1024 &#x6D4B;&#x8BD5;nfs&#x5199;</li>
+<li>time dd if=/testfs/testfile of=/dev/null bs=8k &#x6D4B;&#x8BD5;nfs&#x8BFB;</li>
 </ul>
 </li>
-<li>网络传输包的大小<ul>
+<li>&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x5305;&#x7684;&#x5927;&#x5C0F;<ul>
 <li>ping -s 2048 -f hostname, try different package size</li>
-<li>nfsstat －o net</li>
-<li>tracepath node1/端口号</li>
+<li>nfsstat &#xFF0D;o net</li>
+<li>tracepath node1/&#x7AEF;&#x53E3;&#x53F7;</li>
 <li>ifconfig eth0</li>
 <li>ifconfig eth0 mtu 16436, modify MTU value</li>
-<li>/proc/sys/net/ipv4/ipfrag_high_thresh和/proc/sys/net/ipv4/ipfrag_low_thresh</li>
+<li>/proc/sys/net/ipv4/ipfrag_high_thresh&#x548C;/proc/sys/net/ipv4/ipfrag_low_thresh</li>
 </ul>
 </li>
-<li>nfs挂载的优化<ul>
-<li>timeo:如果超时，客户端等待的时间，以十分之一秒计算。</li>
-<li>retrans：超时尝试的次数。</li>
-<li>bg：后台挂载，很有用</li>
-<li>hard：如果server端没有响应，那么客户端一直尝试挂载。</li>
-<li>wsize：写块大小</li>
-<li>rsize：读块大小</li>
-<li>intr：可以中断不成功的挂载</li>
-<li>noatime：不更新文件的inode访问时间，可以提高速度。</li>
-<li>async：异步读写。</li>
+<li>nfs&#x6302;&#x8F7D;&#x7684;&#x4F18;&#x5316;<ul>
+<li>timeo:&#x5982;&#x679C;&#x8D85;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x5341;&#x5206;&#x4E4B;&#x4E00;&#x79D2;&#x8BA1;&#x7B97;&#x3002;</li>
+<li>retrans&#xFF1A;&#x8D85;&#x65F6;&#x5C1D;&#x8BD5;&#x7684;&#x6B21;&#x6570;&#x3002;</li>
+<li>bg&#xFF1A;&#x540E;&#x53F0;&#x6302;&#x8F7D;&#xFF0C;&#x5F88;&#x6709;&#x7528;</li>
+<li>hard&#xFF1A;&#x5982;&#x679C;server&#x7AEF;&#x6CA1;&#x6709;&#x54CD;&#x5E94;&#xFF0C;&#x90A3;&#x4E48;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x76F4;&#x5C1D;&#x8BD5;&#x6302;&#x8F7D;&#x3002;</li>
+<li>wsize&#xFF1A;&#x5199;&#x5757;&#x5927;&#x5C0F;</li>
+<li>rsize&#xFF1A;&#x8BFB;&#x5757;&#x5927;&#x5C0F;</li>
+<li>intr&#xFF1A;&#x53EF;&#x4EE5;&#x4E2D;&#x65AD;&#x4E0D;&#x6210;&#x529F;&#x7684;&#x6302;&#x8F7D;</li>
+<li>noatime&#xFF1A;&#x4E0D;&#x66F4;&#x65B0;&#x6587;&#x4EF6;&#x7684;inode&#x8BBF;&#x95EE;&#x65F6;&#x95F4;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x901F;&#x5EA6;&#x3002;</li>
+<li>async&#xFF1A;&#x5F02;&#x6B65;&#x8BFB;&#x5199;&#x3002;</li>
 </ul>
 </li>
-<li>nfsd的个数<ul>
+<li>nfsd&#x7684;&#x4E2A;&#x6570;<ul>
 <li>ps -efl |grep nfsd</li>
 <li>vi /etc/init.d/nfs, modify RPCNFSDCOUNT </li>
 <li>service nfs restart</li>
 </ul>
 </li>
-<li>nfsd的队列长度<ul>
+<li>nfsd&#x7684;&#x961F;&#x5217;&#x957F;&#x5EA6;<ul>
 <li>/proc/sys/net/core/rmem_default</li>
 <li>/proc/sys/net/core/rmem_max</li>
 <li>/proc/sys/net/core/wmem_default</li>
@@ -642,122 +642,122 @@ from code `tableId2 = ramcloud-&gt;createTable(&quot;table2&quot;);`, expect id 
 <li>mount 192.168.1.220:/mnt/nfs /mnt/nfs_t -o nolock, rsize=1024,wsize=1024,timeo=15</li>
 </ul>
 </li>
-<li><p><strong>Linux NFS服务性能优化</strong></p>
+<li><p><strong>Linux NFS&#x670D;&#x52A1;&#x6027;&#x80FD;&#x4F18;&#x5316;</strong></p>
 <ul>
 <li>nfsstat -rc</li>
 <li><a href="http://blog.chinaunix.net/uid-24404943-id-3389539.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-24404943-id-3389539.html</a></li>
-<li>NFS的队列大小, modify server and client machine: (262144 = 256KB)<br>#echo 262144 &gt; /proc/sys/net/core/rmem_default<br>#echo 262144 &gt; /proc/sys/net/core/rmem_max<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_default<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_max  </li>
+<li>NFS&#x7684;&#x961F;&#x5217;&#x5927;&#x5C0F;, modify server and client machine: (262144 = 256KB)<br>#echo 262144 &gt; /proc/sys/net/core/rmem_default<br>#echo 262144 &gt; /proc/sys/net/core/rmem_max<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_default<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_max  </li>
 <li>[root@localhost iperf-2.0.5]# dd if=/dev/zero of=/tmp/test01.dat bs=1M count=10240<br>10240+0 records in<br>10240+0 records out<br>10737418240 bytes (11 GB) copied, 28.2585 s, 380 MB/s  </li>
 <li>ping -s 2048 -f 192.16.110.80</li>
 <li><a href="http://www.cnblogs.com/derekchen/archive/2013/01/17/2865207.html" target="_blank" rel="external">http://www.cnblogs.com/derekchen/archive/2013/01/17/2865207.html</a></li>
-<li><a href="http://www.lichaozheng.info/2011/10/13/nfs性能优化/" target="_blank" rel="external">http://www.lichaozheng.info/2011/10/13/nfs性能优化/</a></li>
+<li><a href="http://www.lichaozheng.info/2011/10/13/nfs&#x6027;&#x80FD;&#x4F18;&#x5316;/" target="_blank" rel="external">http://www.lichaozheng.info/2011/10/13/nfs&#x6027;&#x80FD;&#x4F18;&#x5316;/</a></li>
 <li><a href="http://blog.csdn.net/anghlq/article/details/8532312" target="_blank" rel="external">http://blog.csdn.net/anghlq/article/details/8532312</a></li>
 <li>tracepath 192.16.110.80</li>
-<li>[root@localhost iperf-2.0.5]# echo “4096” &gt;/sys/class/net/enp10s0f0/mtu</li>
+<li>[root@localhost iperf-2.0.5]# echo &#x201C;4096&#x201D; &gt;/sys/class/net/enp10s0f0/mtu</li>
 <li>[root@localhost iperf-2.0.5]# dd if=/dev/zero of=/tmp/test04.dat bs=1M count=10240<br>10737418240 bytes (11 GB) copied, 28.0778 s, 382 MB/s  </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p>NFS共享在使用前需要挂载（mount）。挂载时使用的参数很大程度上影响了读写的性能</p>
+<li><p>NFS&#x5171;&#x4EAB;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x9700;&#x8981;&#x6302;&#x8F7D;&#xFF08;mount&#xFF09;&#x3002;&#x6302;&#x8F7D;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x53C2;&#x6570;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x5F71;&#x54CD;&#x4E86;&#x8BFB;&#x5199;&#x7684;&#x6027;&#x80FD;</p>
 <ul>
 <li><ol>
 <li>TCP or UDP</li>
 </ol>
 </li>
 <li><ol>
-<li>rsize和wsize，每次读写的最大值</li>
+<li>rsize&#x548C;wsize&#xFF0C;&#x6BCF;&#x6B21;&#x8BFB;&#x5199;&#x7684;&#x6700;&#x5927;&#x503C;</li>
 </ol>
 </li>
 <li><ol>
-<li>sync和async. sync参数会强制wsize变成4KB，这会大大降低写性能。 </li>
+<li>sync&#x548C;async. sync&#x53C2;&#x6570;&#x4F1A;&#x5F3A;&#x5236;wsize&#x53D8;&#x6210;4KB&#xFF0C;&#x8FD9;&#x4F1A;&#x5927;&#x5927;&#x964D;&#x4F4E;&#x5199;&#x6027;&#x80FD;&#x3002; </li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p><strong>关于SAMBA和NFS是否支持断点续传</strong></p>
+<li><p><strong>&#x5173;&#x4E8E;SAMBA&#x548C;NFS&#x662F;&#x5426;&#x652F;&#x6301;&#x65AD;&#x70B9;&#x7EED;&#x4F20;</strong></p>
 <ul>
-<li>经过测试，得出如下结论：<ul>
-<li>1.samba 不支持</li>
-<li>2.nfs     支持</li>
+<li>&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF0C;&#x5F97;&#x51FA;&#x5982;&#x4E0B;&#x7ED3;&#x8BBA;&#xFF1A;<ul>
+<li>1.samba &#x4E0D;&#x652F;&#x6301;</li>
+<li>2.nfs     &#x652F;&#x6301;</li>
 </ul>
 </li>
-<li>测试环境和步骤如下：</li>
-<li>服务端：<ul>
-<li>1.172.16.130.200， Centos7.0</li>
+<li>&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x548C;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</li>
+<li>&#x670D;&#x52A1;&#x7AEF;&#xFF1A;<ul>
+<li>1.172.16.130.200&#xFF0C; Centos7.0</li>
 </ul>
 </li>
-<li>Windows 客户端:<ul>
-<li>1.yujl本地机器</li>
-<li>2.开始-&gt;运行-&gt;\172.16.130.200</li>
-<li>3.拷贝一个大的iso文件到xuni文件夹</li>
-<li>4.去机房拔掉172.16.130.200机器的网线</li>
-<li>5.发现本地的拷贝窗口停止传送数据</li>
-<li>6.接上网线，拷贝窗口仍然没有继续传送的迹象</li>
+<li>Windows &#x5BA2;&#x6237;&#x7AEF;:<ul>
+<li>1.yujl&#x672C;&#x5730;&#x673A;&#x5668;</li>
+<li>2.&#x5F00;&#x59CB;-&gt;&#x8FD0;&#x884C;-&gt;\172.16.130.200</li>
+<li>3.&#x62F7;&#x8D1D;&#x4E00;&#x4E2A;&#x5927;&#x7684;iso&#x6587;&#x4EF6;&#x5230;xuni&#x6587;&#x4EF6;&#x5939;</li>
+<li>4.&#x53BB;&#x673A;&#x623F;&#x62D4;&#x6389;172.16.130.200&#x673A;&#x5668;&#x7684;&#x7F51;&#x7EBF;</li>
+<li>5.&#x53D1;&#x73B0;&#x672C;&#x5730;&#x7684;&#x62F7;&#x8D1D;&#x7A97;&#x53E3;&#x505C;&#x6B62;&#x4F20;&#x9001;&#x6570;&#x636E;</li>
+<li>6.&#x63A5;&#x4E0A;&#x7F51;&#x7EBF;&#xFF0C;&#x62F7;&#x8D1D;&#x7A97;&#x53E3;&#x4ECD;&#x7136;&#x6CA1;&#x6709;&#x7EE7;&#x7EED;&#x4F20;&#x9001;&#x7684;&#x8FF9;&#x8C61;</li>
 </ul>
 </li>
-<li>Linux 客户端:<ul>
-<li>1.我本地机器</li>
-<li>2.挂载172.16.130.200的/share/sambatest目录到本地的/mnt/nfs</li>
+<li>Linux &#x5BA2;&#x6237;&#x7AEF;:<ul>
+<li>1.&#x6211;&#x672C;&#x5730;&#x673A;&#x5668;</li>
+<li>2.&#x6302;&#x8F7D;172.16.130.200&#x7684;/share/sambatest&#x76EE;&#x5F55;&#x5230;&#x672C;&#x5730;&#x7684;/mnt/nfs</li>
 <li>3.cp ~/Downloads/iso/CentOS-6.5-x86_64-bin-DVD1.iso /mnt/nfs/</li>
-<li>4.去机房拔掉172.16.130.200机器的网线</li>
-<li>5.确认本地无法连接172.16.130.200</li>
-<li>6.接上网线，使用ls -l /mnt/nfs/发现iso文件的大小还继续增加</li>
-<li>7.待cp完成后，md5sume计算两个iso文件，发现md5值一</li>
+<li>4.&#x53BB;&#x673A;&#x623F;&#x62D4;&#x6389;172.16.130.200&#x673A;&#x5668;&#x7684;&#x7F51;&#x7EBF;</li>
+<li>5.&#x786E;&#x8BA4;&#x672C;&#x5730;&#x65E0;&#x6CD5;&#x8FDE;&#x63A5;172.16.130.200</li>
+<li>6.&#x63A5;&#x4E0A;&#x7F51;&#x7EBF;&#xFF0C;&#x4F7F;&#x7528;ls -l /mnt/nfs/&#x53D1;&#x73B0;iso&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#x8FD8;&#x7EE7;&#x7EED;&#x589E;&#x52A0;</li>
+<li>7.&#x5F85;cp&#x5B8C;&#x6210;&#x540E;&#xFF0C;md5sume&#x8BA1;&#x7B97;&#x4E24;&#x4E2A;iso&#x6587;&#x4EF6;&#xFF0C;&#x53D1;&#x73B0;md5&#x503C;&#x4E00;</li>
 </ul>
 </li>
-<li>不支持，<a href="http://bbs.chinaunix.net/thread-4057603-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-4057603-1-1.html</a></li>
+<li>&#x4E0D;&#x652F;&#x6301;&#xFF0C;<a href="http://bbs.chinaunix.net/thread-4057603-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-4057603-1-1.html</a></li>
 <li><a href="http://bbs.chinaunix.net/thread-4057603-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-4057603-1-1.html</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="Code-analysed-kernel-version-linux-2-6-32-279-el6"><a href="#Code-analysed-kernel-version-linux-2-6-32-279-el6" class="headerlink" title="Code analysed(kernel version: linux-2.6.32-279.el6)"></a>Code analysed(kernel version: linux-2.6.32-279.el6)</h3><ul>
-<li><p>NFS 文件系统主要分为三个部分：The Protocol（网络协议），Client Side（NFS 客户端）和 Server Side（NFS 服务器）</p>
+<h3 id="code-analysedkernel-version-linux-2632-279el6"><a href="#Code-analysed-kernel-version-linux-2-6-32-279-el6" class="headerlink" title="Code analysed(kernel version: linux-2.6.32-279.el6)"></a>Code analysed(kernel version: linux-2.6.32-279.el6)</h3><ul>
+<li><p>NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E3B;&#x8981;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;The Protocol&#xFF08;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#xFF09;&#xFF0C;Client Side&#xFF08;NFS &#x5BA2;&#x6237;&#x7AEF;&#xFF09;&#x548C; Server Side&#xFF08;NFS &#x670D;&#x52A1;&#x5668;&#xFF09;</p>
 <ul>
-<li>NFS 客户端提供了接口，保证用户或者应用程序能像访问本地文件系统一样访问NFS 文件系统，</li>
-<li>NFS 服务器作为数据源，为 NFS 客户端提供真实的文件系统服务</li>
-<li>NFS 网络协议则使得 NFS 客户端和 NFS 服务器能够高效和可靠地进行通信</li>
-<li>NFS 网络协议使用的是 RPC（Remote Procedure Call，远程过程调用）/XDR（External Data Representation，外部数据表示）机制</li>
+<li>NFS &#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4F9B;&#x4E86;&#x63A5;&#x53E3;&#xFF0C;&#x4FDD;&#x8BC1;&#x7528;&#x6237;&#x6216;&#x8005;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x80FD;&#x50CF;&#x8BBF;&#x95EE;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E00;&#x6837;&#x8BBF;&#x95EE;NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;</li>
+<li>NFS &#x670D;&#x52A1;&#x5668;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x4E3A; NFS &#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4F9B;&#x771F;&#x5B9E;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;</li>
+<li>NFS &#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x5219;&#x4F7F;&#x5F97; NFS &#x5BA2;&#x6237;&#x7AEF;&#x548C; NFS &#x670D;&#x52A1;&#x5668;&#x80FD;&#x591F;&#x9AD8;&#x6548;&#x548C;&#x53EF;&#x9760;&#x5730;&#x8FDB;&#x884C;&#x901A;&#x4FE1;</li>
+<li>NFS &#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x4F7F;&#x7528;&#x7684;&#x662F; RPC&#xFF08;Remote Procedure Call&#xFF0C;&#x8FDC;&#x7A0B;&#x8FC7;&#x7A0B;&#x8C03;&#x7528;&#xFF09;/XDR&#xFF08;External Data Representation&#xFF0C;&#x5916;&#x90E8;&#x6570;&#x636E;&#x8868;&#x793A;&#xFF09;&#x673A;&#x5236;</li>
 </ul>
 </li>
 <li><p>code file list: </p>
 <p>  [dennis@localhost fs]$ pwd<br>  /home/dennis/work/kernel/linux-2.6.32-279.el6/fs<br>  [dennis@localhost fs]$ ls nfs<br>  cache_lib.c      file.c           nfs2xdr.c            nfsroot.c<br>  cache_lib.h      fscache.c        nfs3acl.c            pagelist.c<br>  callback.c       fscache.h        nfs3proc.c           pnfs.c<br>  callback.h       fscache-index.c  nfs3xdr.c            pnfs_dev.c<br>  callback_proc.c  getroot.c        nfs4filelayout.c     pnfs.h<br>  callback_xdr.c   idmap.c          nfs4filelayoutdev.c  proc.c<br>  client.c         inode.c          nfs4filelayout.h     read.c<br>  delegation.c     internal.h       nfs4_fs.h            super.c<br>  delegation.h     iostat.h         nfs4namespace.c      symlink.c<br>  dir.c            Kconfig          nfs4proc.c           sysctl.c<br>  direct.c         Makefile         nfs4renewd.c         unlink.c<br>  dns_resolve.c    mount_clnt.c     nfs4state.c          write.c<br>  dns_resolve.h    namespace.c      nfs4xdr.c<br>  [dennis@localhost fs]$ ls nfsd<br>  auth.c    Makefile    nfs4callback.c  nfscache.c  nfssvc.c  xdr3.h<br>  auth.h    nfs2acl.c   nfs4idmap.c     nfsctl.c    nfsxdr.c  xdr4.h<br>  cache.h   nfs3acl.c   nfs4proc.c      nfsd.h      state.h   xdr.h<br>  export.c  nfs3proc.c  nfs4recover.c   nfsfh.c     stats.c<br>  Kconfig   nfs3xdr.c   nfs4state.c     nfsfh.h     vfs.c<br>  lockd.c   nfs4acl.c   nfs4xdr.c       nfsproc.c   vfs.h<br>  [dennis@localhost fs]$ ls nfs_common<br>  Makefile  nfsacl.c<br>  [dennis@localhost fs]$ cd ../include/linux/<br>  [dennis@localhost linux]$ ls nfs*<br>  nfs2.h      nfs4.h        nfsd_idmap.h  nfs_fs_sb.h  nfs_iostat.h  nfs_xdr.h<br>  nfs3.h      nfs4_mount.h  nfs_fs.h      nfs.h        nfs_mount.h<br>  nfs4_acl.h  nfsacl.h      nfs_fs_i.h    nfs_idmap.h  nfs_page.h</p>
 <p>  nfsd:<br>  const.h  debug.h  export.h  Kbuild  nfsfh.h  stats.h  syscall.h</p>
 </li>
-<li><p>Client Side 源代码  </p>
-<p>Client Side 的头文件在 include/linux/ 下面，C 文件在 fs/nfs 下面。</p>
-<p>  dir.c/file.c/inode.c/symlink.c/unlink.c：与文件操作相关的系统调用<br>  read.c/write.c/flushd.c：文件读写<br>  mount_clnt.c/nfs_root.c：将 NFS 文件系统作为 root 目录的相关实现<br>  proc.c/nfs2xdr.c/nfs3proc.c/nfs3xdr.c：网络数据交换 </p>
+<li><p>Client Side &#x6E90;&#x4EE3;&#x7801;  </p>
+<p>Client Side &#x7684;&#x5934;&#x6587;&#x4EF6;&#x5728; include/linux/ &#x4E0B;&#x9762;&#xFF0C;C &#x6587;&#x4EF6;&#x5728; fs/nfs &#x4E0B;&#x9762;&#x3002;</p>
+<p>  dir.c/file.c/inode.c/symlink.c/unlink.c&#xFF1A;&#x4E0E;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x76F8;&#x5173;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;<br>  read.c/write.c/flushd.c&#xFF1A;&#x6587;&#x4EF6;&#x8BFB;&#x5199;<br>  mount_clnt.c/nfs_root.c&#xFF1A;&#x5C06; NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4F5C;&#x4E3A; root &#x76EE;&#x5F55;&#x7684;&#x76F8;&#x5173;&#x5B9E;&#x73B0;<br>  proc.c/nfs2xdr.c/nfs3proc.c/nfs3xdr.c&#xFF1A;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x4EA4;&#x6362; </p>
 </li>
 </ul>
-<p>与文件操作相关的系统调用都在 struct file_operations，struct inode_operations<br>这两个数据结构里面定义。文件的读操作 nfs_file_read 和写操作 nfs_file_write 被单<br>独提出来，因为文件读写性能将直接关系到文件系统的成败</p>
+<p>&#x4E0E;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x76F8;&#x5173;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x90FD;&#x5728; struct file_operations&#xFF0C;struct inode_operations<br>&#x8FD9;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x91CC;&#x9762;&#x5B9A;&#x4E49;&#x3002;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x64CD;&#x4F5C; nfs_file_read &#x548C;&#x5199;&#x64CD;&#x4F5C; nfs_file_write &#x88AB;&#x5355;<br>&#x72EC;&#x63D0;&#x51FA;&#x6765;&#xFF0C;&#x56E0;&#x4E3A;&#x6587;&#x4EF6;&#x8BFB;&#x5199;&#x6027;&#x80FD;&#x5C06;&#x76F4;&#x63A5;&#x5173;&#x7CFB;&#x5230;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6210;&#x8D25;</p>
 <ul>
-<li>Server Side 源代码</li>
+<li>Server Side &#x6E90;&#x4EE3;&#x7801;</li>
 </ul>
-<p>Server Side 的头文件在 include/linux/nfsd 下面，C 文件在 fs/nfsd 下面。</p>
-<pre><code>auth.c/lockd.c/export.c/nfsctl.c/nfscache.c/nfsfh.c/stats.c：导出目录的访问管理
-nfssvc.c：NFS 服务 deamon 的实现
-vfs.c：将 NFS 文件系统的操作转换成具体文件系统的操作
-nfsproc.c/nfsxdr.c/nfs3proc.c/nfs3xdr.c：网络数据交换
-</code></pre><p>导出目录的访问管理主要解决网络文件系统实现面临的几个重要问题，包括目录导出服务，<br>外部访问的权限控制，多客户端以及客户端与服务器的文件并发操作等。 </p>
+<p>Server Side &#x7684;&#x5934;&#x6587;&#x4EF6;&#x5728; include/linux/nfsd &#x4E0B;&#x9762;&#xFF0C;C &#x6587;&#x4EF6;&#x5728; fs/nfsd &#x4E0B;&#x9762;&#x3002;</p>
+<pre><code>auth.c/lockd.c/export.c/nfsctl.c/nfscache.c/nfsfh.c/stats.c&#xFF1A;&#x5BFC;&#x51FA;&#x76EE;&#x5F55;&#x7684;&#x8BBF;&#x95EE;&#x7BA1;&#x7406;
+nfssvc.c&#xFF1A;NFS &#x670D;&#x52A1; deamon &#x7684;&#x5B9E;&#x73B0;
+vfs.c&#xFF1A;&#x5C06; NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x64CD;&#x4F5C;&#x8F6C;&#x6362;&#x6210;&#x5177;&#x4F53;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x64CD;&#x4F5C;
+nfsproc.c/nfsxdr.c/nfs3proc.c/nfs3xdr.c&#xFF1A;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x4EA4;&#x6362;
+</code></pre><p>&#x5BFC;&#x51FA;&#x76EE;&#x5F55;&#x7684;&#x8BBF;&#x95EE;&#x7BA1;&#x7406;&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#x7F51;&#x7EDC;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5B9E;&#x73B0;&#x9762;&#x4E34;&#x7684;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x95EE;&#x9898;&#xFF0C;&#x5305;&#x62EC;&#x76EE;&#x5F55;&#x5BFC;&#x51FA;&#x670D;&#x52A1;&#xFF0C;<br>&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x7684;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x591A;&#x5BA2;&#x6237;&#x7AEF;&#x4EE5;&#x53CA;&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6587;&#x4EF6;&#x5E76;&#x53D1;&#x64CD;&#x4F5C;&#x7B49;&#x3002; </p>
 <ul>
 <li><p>process number of nfsd:  </p>
 </li>
 <li><p>rename call stack:  </p>
 <p>  client: nfs_rename -&gt;<br>  server: nfsd4_rename -&gt; nfsd_rename </p>
 </li>
-<li><p><strong>To be continue…</strong></p>
+<li><p><strong>To be continue&#x2026;</strong></p>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><strong><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-nfs/" target="_blank" rel="external">NFS文件系统源代码剖析</a></strong></li>
-<li><a href="http://zohead.com/archives/nfs-rwsize/" target="_blank" rel="external">NFS读写块大小问题分析</a></li>
-<li><a href="http://www.lichaozheng.info/2011/10/13/nfs性能优化/" target="_blank" rel="external">NFS性能优化手册</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><strong><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-nfs/" target="_blank" rel="external">NFS&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6E90;&#x4EE3;&#x7801;&#x5256;&#x6790;</a></strong></li>
+<li><a href="http://zohead.com/archives/nfs-rwsize/" target="_blank" rel="external">NFS&#x8BFB;&#x5199;&#x5757;&#x5927;&#x5C0F;&#x95EE;&#x9898;&#x5206;&#x6790;</a></li>
+<li><a href="http://www.lichaozheng.info/2011/10/13/nfs&#x6027;&#x80FD;&#x4F18;&#x5316;/" target="_blank" rel="external">NFS&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x518C;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/03/25/nfs/" data-id="cin61d0la0098fyiz663wca5n" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/03/25/nfs/" data-id="cin6a5ukn009d3cize0tr4yig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -789,13 +789,13 @@ nfsproc.c/nfsxdr.c/nfs3proc.c/nfs3xdr.c：网络数据交换
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-I-want"><a href="#What-I-want" class="headerlink" title="What I want"></a>What I want</h3><p>How can know how many route/hub/switch are in my LAN network?</p>
-<h3 id="What-I-know"><a href="#What-I-know" class="headerlink" title="What I know"></a>What I know</h3><ul>
+        <h3 id="what-i-want"><a href="#What-I-want" class="headerlink" title="What I want"></a>What I want</h3><p>How can know how many route/hub/switch are in my LAN network?</p>
+<h3 id="what-i-know"><a href="#What-I-know" class="headerlink" title="What I know"></a>What I know</h3><ul>
 <li>Host LAN IP is : 172.16.50.39</li>
 <li>gateway is : 172.16.50.1</li>
 <li>WLan IP: 219.134.89.155</li>
 </ul>
-<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><pre><code>[dennis@localhost ~]$ ip addr
+<h3 id="operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><pre><code>[dennis@localhost ~]$ ip addr
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default 
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -896,7 +896,7 @@ traceroute to 219.134.89.155 (219.134.89.155), 30 hops max, 60 byte packets
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/03/12/how-to-detect-the-internal-network-topology-of-company/" data-id="cin61d0l60095fyizbuh3sbk6" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/03/12/how-to-detect-the-internal-network-topology-of-company/" data-id="cin6a5ukm009c3cize5lz7shh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -928,9 +928,9 @@ traceroute to 219.134.89.155 (219.134.89.155), 30 hops max, 60 byte packets
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="路由规则理解"><a href="#路由规则理解" class="headerlink" title="路由规则理解"></a>路由规则理解</h3><p>主机的网络封包需要会根据路由规则来判断如何将封包发送出去</p>
-<p>路由是雙向的，你必須要瞭解出去的路由與回來時的規則</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+        <h3 id="&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;"><a href="#&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;" class="headerlink" title="&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;"></a>&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;</h3><p>&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x7EDC;&#x5C01;&#x5305;&#x9700;&#x8981;&#x4F1A;&#x6839;&#x636E;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x6765;&#x5224;&#x65AD;&#x5982;&#x4F55;&#x5C06;&#x5C01;&#x5305;&#x53D1;&#x9001;&#x51FA;&#x53BB;</p>
+<p>&#x8DEF;&#x7531;&#x662F;&#x96D9;&#x5411;&#x7684;&#xFF0C;&#x4F60;&#x5FC5;&#x9808;&#x8981;&#x77AD;&#x89E3;&#x51FA;&#x53BB;&#x7684;&#x8DEF;&#x7531;&#x8207;&#x56DE;&#x4F86;&#x6642;&#x7684;&#x898F;&#x5247;</p>
+<h3 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="headerlink" title="&#x5E38;&#x7528;&#x547D;&#x4EE4;"></a>&#x5E38;&#x7528;&#x547D;&#x4EE4;</h3><ul>
 <li><code>route</code><br><code>route -n</code><br><code>route add default gw 172.16.130.1 eth2</code><br><code>route del default gw 172.16.130.1 eth2</code><br><code>route add -host 192.168.168.110 dev eth0</code><br><code>route del -host 192.168.168.110 dev eth0</code><br><code>route add -net 172.16.130.0/24 gw 172.16.130.1 eth2</code><br><code>route del -net 172.16.0.0 netmask 255.255.0.0 dev eth0</code><br><code>ip route flush cache</code>  </li>
 <li><code>sysctl -a |grep forward</code></li>
 <li><code>sysctl -a |grep ignore</code></li>
@@ -940,7 +940,7 @@ traceroute to 219.134.89.155 (219.134.89.155), 30 hops max, 60 byte packets
 <li><code>vim /etc/sysctl.conf</code></li>
 <li><code>traceroute www.baidu.com</code></li>
 </ul>
-<h3 id="相关配置文件"><a href="#相关配置文件" class="headerlink" title="相关配置文件"></a>相关配置文件</h3><pre><code>[root@localhost ~]# cat /etc/iproute2/rt_tables
+<h3 id="&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3><pre><code>[root@localhost ~]# cat /etc/iproute2/rt_tables
 #
 # reserved values
 #
@@ -962,24 +962,24 @@ net.ipv4.icmp_echo_ignore_all = 0
 net.ipv4.icmp_echo_ignore_broadcasts = 1
 net.ipv4.icmp_ignore_bogus_error_responses = 1
 [root@localhost ~]# cat /etc/sysctl.conf 
-</code></pre><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>如果是双网卡且设定的是同一网段IP:   </p>
+</code></pre><h3 id="&#x4F8B;&#x5B50;"><a href="#&#x4F8B;&#x5B50;" class="headerlink" title="&#x4F8B;&#x5B50;"></a>&#x4F8B;&#x5B50;</h3><p>&#x5982;&#x679C;&#x662F;&#x53CC;&#x7F51;&#x5361;&#x4E14;&#x8BBE;&#x5B9A;&#x7684;&#x662F;&#x540C;&#x4E00;&#x7F51;&#x6BB5;IP:   </p>
 <ul>
 <li>eth0 : 192.168.0.100</li>
 <li>eth1 : 192.168.0.200</li>
 </ul>
-<p>那么一般会生成这样的路由规则:  </p>
+<p>&#x90A3;&#x4E48;&#x4E00;&#x822C;&#x4F1A;&#x751F;&#x6210;&#x8FD9;&#x6837;&#x7684;&#x8DEF;&#x7531;&#x89C4;&#x5219;:  </p>
 <pre><code>[root@www ~]# route -n
 Kernel IP routing table
 Destination     Gateway   Genmask         Flags Metric Ref   Use Iface
 192.168.0.0     0.0.0.0   255.255.255.0   U     0      0       0 eth1
 192.168.0.0     0.0.0.0   255.255.255.0   U     0      0       0 eth0
-</code></pre><p>也就是說:  </p>
+</code></pre><p>&#x4E5F;&#x5C31;&#x662F;&#x8AAA;:  </p>
 <ul>
-<li>當要主動發送封包到192.168.0.0/24的網域時，都只會透過第一條規則，也就是透過eth1來傳出去!</li>
-<li>在回應封包方面，不管是由eth0還是由eth1進來的網路封包，都會透過 eth1 來回傳!</li>
+<li>&#x7576;&#x8981;&#x4E3B;&#x52D5;&#x767C;&#x9001;&#x5C01;&#x5305;&#x5230;192.168.0.0/24&#x7684;&#x7DB2;&#x57DF;&#x6642;&#xFF0C;&#x90FD;&#x53EA;&#x6703;&#x900F;&#x904E;&#x7B2C;&#x4E00;&#x689D;&#x898F;&#x5247;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x900F;&#x904E;eth1&#x4F86;&#x50B3;&#x51FA;&#x53BB;!</li>
+<li>&#x5728;&#x56DE;&#x61C9;&#x5C01;&#x5305;&#x65B9;&#x9762;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x7531;eth0&#x9084;&#x662F;&#x7531;eth1&#x9032;&#x4F86;&#x7684;&#x7DB2;&#x8DEF;&#x5C01;&#x5305;&#xFF0C;&#x90FD;&#x6703;&#x900F;&#x904E; eth1 &#x4F86;&#x56DE;&#x50B3;!</li>
 </ul>
-<p>来自: <a href="http://linux.vbird.org/linux_server/0230router.php" target="_blank" rel="external">http://linux.vbird.org/linux_server/0230router.php</a>, [8.1.3 重複路由的問題] </p>
-<h3 id="只设置一个网口IP"><a href="#只设置一个网口IP" class="headerlink" title="只设置一个网口IP"></a>只设置一个网口IP</h3><pre><code>[dennis@localhost ~]$ ssh root@172.16.60.53
+<p>&#x6765;&#x81EA;: <a href="http://linux.vbird.org/linux_server/0230router.php" target="_blank" rel="external">http://linux.vbird.org/linux_server/0230router.php</a>, [8.1.3 &#x91CD;&#x8907;&#x8DEF;&#x7531;&#x7684;&#x554F;&#x984C;] </p>
+<h3 id="&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;ip"><a href="#&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;IP" class="headerlink" title="&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;IP"></a>&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;IP</h3><pre><code>[dennis@localhost ~]$ ssh root@172.16.60.53
 root@172.16.60.53&apos;s password: 
 Last login: Wed Mar 11 17:54:12 2015 from 172.16.50.39
 [root@localhost ~]# route
@@ -1006,7 +1006,7 @@ default         172.16.60.1     0.0.0.0         UG    0      0        0 eth2
     link/ether 00:25:90:f4:6b:61 brd ff:ff:ff:ff:ff:ff
     inet6 fe80::225:90ff:fef4:6b61/64 scope link 
        valid_lft forever preferred_lft forever
-</code></pre><h3 id="没有问题的设定"><a href="#没有问题的设定" class="headerlink" title="没有问题的设定"></a>没有问题的设定</h3><pre><code>[dennis@localhost ~]$ ssh root@172.16.130.105
+</code></pre><h3 id="&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;"><a href="#&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;" class="headerlink" title="&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;"></a>&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;</h3><pre><code>[dennis@localhost ~]$ ssh root@172.16.130.105
 root@172.16.130.105&apos;s password: 
 Permission denied, please try again.
 root@172.16.130.105&apos;s password: 
@@ -1056,10 +1056,10 @@ rtt min/avg/max/mdev = 0.244/4.290/6.504/2.866 ms
 172.16.130.0/24 dev eth1  proto kernel  scope link  src 172.16.130.106 
 default via 172.16.130.1 dev eth1 
 default via 172.16.130.1 dev eth0 
-</code></pre><h3 id="一台奇怪问题的机器"><a href="#一台奇怪问题的机器" class="headerlink" title="一台奇怪问题的机器"></a>一台奇怪问题的机器</h3><p>问题机器: 双网卡，IP信息 eth0:172.16.60.150 eth1:172.16.60.151 网关172.16.60.1  </p>
-<p>本地主机: IP 172.16.50.39, 网关:172.16.50.1</p>
-<p>本地(50.39)可以正常ssh登陆60.150  </p>
-<p>但ping 172.16.60.151没有回应:</p>
+</code></pre><h3 id="&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;"><a href="#&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;" class="headerlink" title="&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;"></a>&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;</h3><p>&#x95EE;&#x9898;&#x673A;&#x5668;: &#x53CC;&#x7F51;&#x5361;&#xFF0C;IP&#x4FE1;&#x606F; eth0:172.16.60.150 eth1:172.16.60.151 &#x7F51;&#x5173;172.16.60.1  </p>
+<p>&#x672C;&#x5730;&#x4E3B;&#x673A;: IP 172.16.50.39, &#x7F51;&#x5173;:172.16.50.1</p>
+<p>&#x672C;&#x5730;(50.39)&#x53EF;&#x4EE5;&#x6B63;&#x5E38;ssh&#x767B;&#x9646;60.150  </p>
+<p>&#x4F46;ping 172.16.60.151&#x6CA1;&#x6709;&#x56DE;&#x5E94;:</p>
 <pre><code>[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0
 DEVICE=eth0
 HWADDR=00:1e:67:c9:9a:f4
@@ -1110,7 +1110,7 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 link-local      *               255.255.0.0     U     1002   0        0 eth0  
 link-local      *               255.255.0.0     U     1003   0        0 eth1  
 default         172.16.60.1     0.0.0.0         UG    0      0        0 eth0  
-</code></pre><p>通过同一网段的机器(172.16.60.53)，ping 151得到的是Destination Host Unreachable  </p>
+</code></pre><p>&#x901A;&#x8FC7;&#x540C;&#x4E00;&#x7F51;&#x6BB5;&#x7684;&#x673A;&#x5668;(172.16.60.53)&#xFF0C;ping 151&#x5F97;&#x5230;&#x7684;&#x662F;Destination Host Unreachable  </p>
 <pre><code>[dennis@localhost ~]$ ssh root@172.16.60.53
 The authenticity of host &apos;172.16.60.53 (172.16.60.53)&apos; can&apos;t be established.
 RSA key fingerprint is e6:b0:c1:60:53:cd:77:7c:32:e4:27:4f:01:43:5a:8a.
@@ -1142,7 +1142,7 @@ PING 172.16.60.150 (172.16.60.150) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2045ms
 rtt min/avg/max/mdev = 0.223/0.463/0.933/0.332 ms
 [root@localhost ~]# 
-</code></pre><p>且从eth1(60.151)ping不通网关(172.16.60.1), ping同网段另外一台机器(60.53)开始会停顿:   </p>
+</code></pre><p>&#x4E14;&#x4ECE;eth1(60.151)ping&#x4E0D;&#x901A;&#x7F51;&#x5173;(172.16.60.1), ping&#x540C;&#x7F51;&#x6BB5;&#x53E6;&#x5916;&#x4E00;&#x53F0;&#x673A;&#x5668;(60.53)&#x5F00;&#x59CB;&#x4F1A;&#x505C;&#x987F;:   </p>
 <pre><code>[root@localhost ~]# arp
 Address                  HWtype  HWaddress           Flags Mask            Iface
 172.16.60.1              ether   00:0f:e2:b1:c7:5d   C                     eth0
@@ -1180,8 +1180,8 @@ From 172.16.60.151 icmp_seq=8 Destination Host Unreachable
 pipe 3
 [root@localhost ~]# ping 172.16.60.1 -I eth1
 PING 172.16.60.1 (172.16.60.1) from 172.16.60.151 eth1: 56(84) bytes of data.
-</code></pre><p>执行<code>route add default gw 172.16.60.1 eth1</code>后，可以ping 172.16.60.151,但是150有问题了.  </p>
-<p>使用ssh root@172.16.60.151登陆看到的路由信息</p>
+</code></pre><p>&#x6267;&#x884C;<code>route add default gw 172.16.60.1 eth1</code>&#x540E;&#xFF0C;&#x53EF;&#x4EE5;ping 172.16.60.151,&#x4F46;&#x662F;150&#x6709;&#x95EE;&#x9898;&#x4E86;.  </p>
+<p>&#x4F7F;&#x7528;ssh root@172.16.60.151&#x767B;&#x9646;&#x770B;&#x5230;&#x7684;&#x8DEF;&#x7531;&#x4FE1;&#x606F;</p>
 <pre><code>[root@localhost ~]# route
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
@@ -1236,29 +1236,29 @@ PING 172.16.60.53 (172.16.60.53) from 172.16.60.151 eth1: 56(84) bytes of data.
 --- 172.16.60.53 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2431ms
 rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
-</code></pre><p><strong>这时候应该怎么设置route呢?</strong></p>
-<p>可是没有看出哪里有问题，发往172.16.60.XX ip段的都从eth0走，其他IP段的从eth0发送给默认网关172.16.60.1</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="http://linux.vbird.org/linux_server/0150detect_network.php" target="_blank" rel="external">Linux 網路偵錯</a></li>
-<li><a href="http://my.oschina.net/jing31/blog/6611" target="_blank" rel="external">Linux双网卡设置IP属于同一网段的问题</a></li>
-<li><a href="http://os.51cto.com/art/201205/339800.htm" target="_blank" rel="external">Linux系统IP路由的工作原理</a></li>
-<li><a href="http://linux.vbird.org/linux_server/0230router.php" target="_blank" rel="external">路由觀念與路由器設定</a></li>
-<li><a href="http://my.oschina.net/guol/blog/156607" target="_blank" rel="external">Linux策略路由</a></li>
-<li><a href="http://yuangeqingtian.blog.51cto.com/6994701/1218946" target="_blank" rel="external">linux下路由表详解</a></li>
-<li><a href="http://www.centoscn.com/CentOS/Intermediate/2013/0915/1633.html" target="_blank" rel="external">CentOS双网卡策略路由测试</a></li>
-<li><a href="http://my.oschina.net/7shell/blog/308887" target="_blank" rel="external">Linux双网卡(内外网)同时使用路由设置</a></li>
-<li><a href="http://forum.ubuntu.org.cn/viewtopic.php?f=54&amp;t=327616" target="_blank" rel="external">linux双网卡实现局域网跨网段访问</a></li>
-<li><a href="http://blog.csdn.net/zhuying_linux/article/details/6770730" target="_blank" rel="external">ping工作原理</a></li>
-<li><a href="http://stackoverflow.com/questions/18536796/icmp-request-received-but-doesnt-reply" target="_blank" rel="external">icmp request received, but doesn’t reply</a></li>
+</code></pre><p><strong>&#x8FD9;&#x65F6;&#x5019;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x8BBE;&#x7F6E;route&#x5462;?</strong></p>
+<p>&#x53EF;&#x662F;&#x6CA1;&#x6709;&#x770B;&#x51FA;&#x54EA;&#x91CC;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x53D1;&#x5F80;172.16.60.XX ip&#x6BB5;&#x7684;&#x90FD;&#x4ECE;eth0&#x8D70;&#xFF0C;&#x5176;&#x4ED6;IP&#x6BB5;&#x7684;&#x4ECE;eth0&#x53D1;&#x9001;&#x7ED9;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;172.16.60.1</p>
+<h3 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h3><ul>
+<li><a href="http://linux.vbird.org/linux_server/0150detect_network.php" target="_blank" rel="external">Linux &#x7DB2;&#x8DEF;&#x5075;&#x932F;</a></li>
+<li><a href="http://my.oschina.net/jing31/blog/6611" target="_blank" rel="external">Linux&#x53CC;&#x7F51;&#x5361;&#x8BBE;&#x7F6E;IP&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x7F51;&#x6BB5;&#x7684;&#x95EE;&#x9898;</a></li>
+<li><a href="http://os.51cto.com/art/201205/339800.htm" target="_blank" rel="external">Linux&#x7CFB;&#x7EDF;IP&#x8DEF;&#x7531;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</a></li>
+<li><a href="http://linux.vbird.org/linux_server/0230router.php" target="_blank" rel="external">&#x8DEF;&#x7531;&#x89C0;&#x5FF5;&#x8207;&#x8DEF;&#x7531;&#x5668;&#x8A2D;&#x5B9A;</a></li>
+<li><a href="http://my.oschina.net/guol/blog/156607" target="_blank" rel="external">Linux&#x7B56;&#x7565;&#x8DEF;&#x7531;</a></li>
+<li><a href="http://yuangeqingtian.blog.51cto.com/6994701/1218946" target="_blank" rel="external">linux&#x4E0B;&#x8DEF;&#x7531;&#x8868;&#x8BE6;&#x89E3;</a></li>
+<li><a href="http://www.centoscn.com/CentOS/Intermediate/2013/0915/1633.html" target="_blank" rel="external">CentOS&#x53CC;&#x7F51;&#x5361;&#x7B56;&#x7565;&#x8DEF;&#x7531;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="http://my.oschina.net/7shell/blog/308887" target="_blank" rel="external">Linux&#x53CC;&#x7F51;&#x5361;(&#x5185;&#x5916;&#x7F51;)&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x8DEF;&#x7531;&#x8BBE;&#x7F6E;</a></li>
+<li><a href="http://forum.ubuntu.org.cn/viewtopic.php?f=54&amp;t=327616" target="_blank" rel="external">linux&#x53CC;&#x7F51;&#x5361;&#x5B9E;&#x73B0;&#x5C40;&#x57DF;&#x7F51;&#x8DE8;&#x7F51;&#x6BB5;&#x8BBF;&#x95EE;</a></li>
+<li><a href="http://blog.csdn.net/zhuying_linux/article/details/6770730" target="_blank" rel="external">ping&#x5DE5;&#x4F5C;&#x539F;&#x7406;</a></li>
+<li><a href="http://stackoverflow.com/questions/18536796/icmp-request-received-but-doesnt-reply" target="_blank" rel="external">icmp request received, but doesn&#x2019;t reply</a></li>
 <li><a href="https://access.redhat.com/solutions/53031" target="_blank" rel="external">https://access.redhat.com/solutions/53031</a></li>
-<li><a href="http://fengyun.blog.51cto.com/532912/608713" target="_blank" rel="external">杂谈icmp</a></li>
-<li><a href="http://leo0216.blog.51cto.com/188904/84863" target="_blank" rel="external">LINUX ROUTE配置小记</a></li>
+<li><a href="http://fengyun.blog.51cto.com/532912/608713" target="_blank" rel="external">&#x6742;&#x8C08;icmp</a></li>
+<li><a href="http://leo0216.blog.51cto.com/188904/84863" target="_blank" rel="external">LINUX ROUTE&#x914D;&#x7F6E;&#x5C0F;&#x8BB0;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/03/11/understand-linux-route/" data-id="cin61d0l50094fyizgg7gvquu" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/03/11/understand-linux-route/" data-id="cin6a5ukl009b3cizio6g1kp5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1290,7 +1290,7 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><ul>
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><ul>
 <li>MOM: Message Oriented Middleware</li>
 <li>Message Queue ( MQ ) is a middleware between applications and networks.</li>
 </ul>
@@ -1307,14 +1307,14 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
 <li>HTTPSQS</li>
 <li><a href="http://en.wikipedia.org/wiki/Microsoft_Message_Queuing" target="_blank" rel="external">MSMQ</a></li>
 </ul>
-<h3 id="Compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
-<li>Application A &lt;–&gt; Network &lt;–&gt; Application B</li>
-<li>Application A &lt;–&gt; MOM &lt;—&gt; Application B</li>
+<h3 id="compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
+<li>Application A &lt;&#x2013;&gt; Network &lt;&#x2013;&gt; Application B</li>
+<li>Application A &lt;&#x2013;&gt; MOM &lt;&#x2014;&gt; Application B</li>
 </ul>
-<h3 id="Standard-and-protocol"><a href="#Standard-and-protocol" class="headerlink" title="Standard and protocol"></a>Standard and protocol</h3><ul>
+<h3 id="standard-and-protocol"><a href="#Standard-and-protocol" class="headerlink" title="Standard and protocol"></a>Standard and protocol</h3><ul>
 <li>AMQP</li>
 </ul>
-<h3 id="Using-ActiveMQ"><a href="#Using-ActiveMQ" class="headerlink" title="Using ActiveMQ"></a>Using ActiveMQ</h3><p><strong>1.Download and run activemq</strong>:  </p>
+<h3 id="using-activemq"><a href="#Using-ActiveMQ" class="headerlink" title="Using ActiveMQ"></a>Using ActiveMQ</h3><p><strong>1.Download and run activemq</strong>:  </p>
 <ul>
 <li>Download the latest activemq from <a href="http://activemq.apache.org/download.html" target="_blank" rel="external">http://activemq.apache.org/download.html</a></li>
 <li>tar xvf apache-activemq-5.11.0-bin.tar.gz </li>
@@ -1339,22 +1339,22 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
 <p><strong>3.Running example</strong>:  </p>
 <ul>
 <li><p>3.1 Run service as root </p>
-<p>  [dennis@localhost apache-activemq-5.11.0]$ su<br>  Password:<br>  [root@localhost apache-activemq-5.11.0]# ./bin/activemq start<br>  INFO: Loading ‘/home/dennis/Downloads/apache-activemq-5.11.0/bin/env’<br>  INFO: Using java ‘/usr/bin/java’<br>  INFO: Process with pid ‘3510’ is already running</p>
+<p>  [dennis@localhost apache-activemq-5.11.0]$ su<br>  Password:<br>  [root@localhost apache-activemq-5.11.0]# ./bin/activemq start<br>  INFO: Loading &#x2018;/home/dennis/Downloads/apache-activemq-5.11.0/bin/env&#x2019;<br>  INFO: Using java &#x2018;/usr/bin/java&#x2019;<br>  INFO: Process with pid &#x2018;3510&#x2019; is already running</p>
 </li>
 <li><p>3.2 Run listener  </p>
-<h1 id="dennis-localhost-cpp-listener"><a href="#dennis-localhost-cpp-listener" class="headerlink" title="  [dennis@localhost cpp]$ ./listener "></a>  [dennis@localhost cpp]$ ./listener </h1><h2 id="Starting-the-Listener-example"><a href="#Starting-the-Listener-example" class="headerlink" title="  Starting the Listener example:"></a>  Starting the Listener example:</h2><p>  Waiting for messages…<br>  Received 1000 messages.<br>  Received 2000 messages.<br>  Received 3000 messages.<br>  Received 4000 messages.<br>  Received 5000 messages.<br>  Received 6000 messages.<br>  Received 7000 messages.<br>  Received 8000 messages.<br>  Received 9000 messages.<br>  Received 10000 messages.</p>
-<h2 id="Received-10000-in-1-606-seconds"><a href="#Received-10000-in-1-606-seconds" class="headerlink" title="  Received 10000 in 1.606 seconds"></a>  Received 10000 in 1.606 seconds</h2><h1 id="Finished-with-the-example"><a href="#Finished-with-the-example" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
+<h1 id="dennislocalhost-cpp-listener"><a href="#dennis-localhost-cpp-listener" class="headerlink" title="  [dennis@localhost cpp]$ ./listener "></a>  [dennis@localhost cpp]$ ./listener </h1><h2 id="starting-the-listener-example"><a href="#Starting-the-Listener-example" class="headerlink" title="  Starting the Listener example:"></a>  Starting the Listener example:</h2><p>  Waiting for messages&#x2026;<br>  Received 1000 messages.<br>  Received 2000 messages.<br>  Received 3000 messages.<br>  Received 4000 messages.<br>  Received 5000 messages.<br>  Received 6000 messages.<br>  Received 7000 messages.<br>  Received 8000 messages.<br>  Received 9000 messages.<br>  Received 10000 messages.</p>
+<h2 id="received-10000-in-1606-seconds"><a href="#Received-10000-in-1-606-seconds" class="headerlink" title="  Received 10000 in 1.606 seconds"></a>  Received 10000 in 1.606 seconds</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
 <li><p>3.3 Run publisher  </p>
-<h1 id="dennis-localhost-cpp-publisher"><a href="#dennis-localhost-cpp-publisher" class="headerlink" title="  [dennis@localhost cpp]$ ./publisher "></a>  [dennis@localhost cpp]$ ./publisher </h1><h2 id="Starting-the-Publisher-example"><a href="#Starting-the-Publisher-example" class="headerlink" title="  Starting the Publisher example:"></a>  Starting the Publisher example:</h2><p>  Sent 1000 messages<br>  Sent 2000 messages<br>  Sent 3000 messages<br>  Sent 4000 messages<br>  Sent 5000 messages<br>  Sent 6000 messages<br>  Sent 7000 messages<br>  Sent 8000 messages<br>  Sent 9000 messages</p>
-<h2 id="Sent-10000-messages"><a href="#Sent-10000-messages" class="headerlink" title="  Sent 10000 messages"></a>  Sent 10000 messages</h2><h1 id="Finished-with-the-example-1"><a href="#Finished-with-the-example-1" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
+<h1 id="dennislocalhost-cpp-publisher"><a href="#dennis-localhost-cpp-publisher" class="headerlink" title="  [dennis@localhost cpp]$ ./publisher "></a>  [dennis@localhost cpp]$ ./publisher </h1><h2 id="starting-the-publisher-example"><a href="#Starting-the-Publisher-example" class="headerlink" title="  Starting the Publisher example:"></a>  Starting the Publisher example:</h2><p>  Sent 1000 messages<br>  Sent 2000 messages<br>  Sent 3000 messages<br>  Sent 4000 messages<br>  Sent 5000 messages<br>  Sent 6000 messages<br>  Sent 7000 messages<br>  Sent 8000 messages<br>  Sent 9000 messages</p>
+<h2 id="sent-10000-messages"><a href="#Sent-10000-messages" class="headerlink" title="  Sent 10000 messages"></a>  Sent 10000 messages</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example-1" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://en.wikipedia.org/wiki/Message_queue" target="_blank" rel="external">Message Queue</a></li>
 <li><a href="http://en.wikipedia.org/wiki/Message-oriented_middleware" target="_blank" rel="external">Message-oriented middleware</a></li>
-<li><a href="http://blog.fity.cn/post/377/" target="_blank" rel="external">消息队列中间件的技术选型分析</a></li>
-<li><a href="http://www.infoq.com/cn/articles/apache-kafka" target="_blank" rel="external">Apache Kafka：下一代分布式消息系统</a></li>
-<li>★★★<a href="http://alibaba.github.io/RocketMQ-docs/document/openuser/mqvsmq.pdf" target="_blank" rel="external">消息队列中间件调研文档</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/loulijun/MQnewer/MQnewer.html" target="_blank" rel="external">消息中间件及WebSphere MQ入门</a></li>
+<li><a href="http://blog.fity.cn/post/377/" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x6280;&#x672F;&#x9009;&#x578B;&#x5206;&#x6790;</a></li>
+<li><a href="http://www.infoq.com/cn/articles/apache-kafka" target="_blank" rel="external">Apache Kafka&#xFF1A;&#x4E0B;&#x4E00;&#x4EE3;&#x5206;&#x5E03;&#x5F0F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</a></li>
+<li>&#x2605;&#x2605;&#x2605;<a href="http://alibaba.github.io/RocketMQ-docs/document/openuser/mqvsmq.pdf" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x8C03;&#x7814;&#x6587;&#x6863;</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/loulijun/MQnewer/MQnewer.html" target="_blank" rel="external">&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x53CA;WebSphere MQ&#x5165;&#x95E8;</a></li>
 <li><a href="https://github.com/zeromq" target="_blank" rel="external">The ZeroMQ project</a></li>
 <li><a href="http://api.zeromq.org/" target="_blank" rel="external">api of zeroMQ</a></li>
 </ul>
@@ -1362,7 +1362,7 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cin61d0l40093fyiz6ahb3x69" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cin6a5ukl009a3cizfjz62by9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1433,7 +1433,7 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

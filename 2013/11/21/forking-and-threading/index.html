@@ -106,16 +106,16 @@ Sometimes, wo need to write some application, which should do multi task, thisti
 <p><strong>From:</strong> <a href="http://www.geekride.com/fork-forking-vs-threading-thread-linux-kernel/" target="_blank" rel="external">http://www.geekride.com/fork-forking-vs-threading-thread-linux-kernel/</a></p>
 <p>So, finally after long time, i am able to figure out the difference between forking and threading :)</p>
 <p>When i have been surfing around, i see a lots of threads/questions regarding forking and threading, lots of queries which one should be used in the applications. So i wrote this post which could clarify the difference between these two based on which you could decide what you want to use in your application/scripts.</p>
-<h3 id="What-is-Fork-Forking"><a href="#What-is-Fork-Forking" class="headerlink" title="What is Fork/Forking:"></a>What is Fork/Forking:</h3><p>Fork is nothing but a new process that looks exactly like the old or the parent process but still it is a different process with different process ID and having  it’s own memory. Parent process creates a separate address space for child. Both parent and child process possess the same code segment, but execute independently from each other.</p>
+<h3 id="what-is-forkforking"><a href="#What-is-Fork-Forking" class="headerlink" title="What is Fork/Forking:"></a>What is Fork/Forking:</h3><p>Fork is nothing but a new process that looks exactly like the old or the parent process but still it is a different process with different process ID and having  it&#x2019;s own memory. Parent process creates a separate address space for child. Both parent and child process possess the same code segment, but execute independently from each other.</p>
 <p>The simplest example of forking is when you run a command on shell in unix/linux. Each time a user issues a command, the shell forks a child process and the task is done.</p>
-<p>When a fork system call is issued, a copy of all the pages corresponding to the parent process is created, loaded into a separate memory location by the OS for the child process, but in certain cases, this is not needed. Like in ‘exec’ system calls, there is not need to copy the parent process pages, as execv replaces the address space of the parent process itself.<br>Few things to note about forking are:</p>
+<p>When a fork system call is issued, a copy of all the pages corresponding to the parent process is created, loaded into a separate memory location by the OS for the child process, but in certain cases, this is not needed. Like in &#x2018;exec&#x2019; system calls, there is not need to copy the parent process pages, as execv replaces the address space of the parent process itself.<br>Few things to note about forking are:</p>
 <ul>
-<li>The child process will be having it’s own unique process ID.</li>
-<li>The child process shall have it’s own copy of parent’s file descriptor.</li>
+<li>The child process will be having it&#x2019;s own unique process ID.</li>
+<li>The child process shall have it&#x2019;s own copy of parent&#x2019;s file descriptor.</li>
 <li>File locks set by parent process shall not be inherited by child process.</li>
 <li>Any semaphores that are open in the parent process shall also be open in the child process.</li>
-<li>Child process shall have it’s own copy of message queue descriptors of the parents.</li>
-<li>Child will have it’s own address space and memory.</li>
+<li>Child process shall have it&#x2019;s own copy of message queue descriptors of the parents.</li>
+<li>Child will have it&#x2019;s own address space and memory.</li>
 </ul>
 <p>Fork is universally accepted than thread because of the following reasons:</p>
 <ul>
@@ -129,12 +129,12 @@ Sometimes, wo need to write some application, which should do multi task, thisti
 <p>Some of the applications in which forking is used are: telnetd(freebsd), vsftpd, proftpd, Apache13, Apache2, thttpd, PostgreSQL.</p>
 <p>Pitfalls in Fork:</p>
 <ul>
-<li>In fork, every new process should have it’s own memory/address space, hence a longer startup and stopping time.</li>
+<li>In fork, every new process should have it&#x2019;s own memory/address space, hence a longer startup and stopping time.</li>
 <li>If you fork, you have two independent processes which need to talk to each other in some way. This inter-process communication is really costly.</li>
 <li>When the parent exits before the forked child, you will get a ghost process. That is all much easier with a thread. You can end, suspend and resume threads from the parent easily. And if your parent exits suddenly the thread will be ended automatically.</li>
 <li>In-sufficient storage space could lead the fork system to fail.</li>
 </ul>
-<h3 id="What-are-Threads-Threading"><a href="#What-are-Threads-Threading" class="headerlink" title="What are Threads/Threading:"></a>What are Threads/Threading:</h3><p>Threads are Light Weight Processes (LWPs). Traditionally, a thread is just a CPU (and some other minimal state) state with the process containing the remains (data, stack, I/O, signals). Threads require less overhead than “forking” or spawning a new process because the system does not initialize a new system virtual memory space and environment for the process. While most effective on a multiprocessor system where the process flow can be scheduled to run on another processor thus gaining speed through parallel or distributed processing, gains are also found on uniprocessor systems which exploit latency in I/O and other system functions which may halt process execution.</p>
+<h3 id="what-are-threadsthreading"><a href="#What-are-Threads-Threading" class="headerlink" title="What are Threads/Threading:"></a>What are Threads/Threading:</h3><p>Threads are Light Weight Processes (LWPs). Traditionally, a thread is just a CPU (and some other minimal state) state with the process containing the remains (data, stack, I/O, signals). Threads require less overhead than &#x201C;forking&#x201D; or spawning a new process because the system does not initialize a new system virtual memory space and environment for the process. While most effective on a multiprocessor system where the process flow can be scheduled to run on another processor thus gaining speed through parallel or distributed processing, gains are also found on uniprocessor systems which exploit latency in I/O and other system functions which may halt process execution.</p>
 <p>Threads in the same process share:</p>
 <ul>
 <li>Process instructions</li>
@@ -156,7 +156,7 @@ Sometimes, wo need to write some application, which should do multi task, thisti
 <p>Few things to note about threading are:</p>
 <ul>
 <li>Thread are most effective on multi-processor or multi-core systems.</li>
-<li>For thread – only one process/thread table and one scheduler is needed.</li>
+<li>For thread &#x2013; only one process/thread table and one scheduler is needed.</li>
 <li>All threads within a process share the same address space.</li>
 <li>A thread does not maintain a list of created threads, nor does it know the thread that created it.</li>
 <li>Threads reduce overhead by sharing fundamental parts.</li>
@@ -165,7 +165,7 @@ Sometimes, wo need to write some application, which should do multi task, thisti
 <p>Pitfalls in threads:</p>
 <ul>
 <li>Race conditions: The big loss with threads is that there is no natural protection from having multiple threads working on the same data at the same time without knowing that others are messing with it. This is called race condition. While the code may appear on the screen in the order you wish the code to execute, threads are scheduled by the operating system and are executed at random. It cannot be assumed that threads are executed in the order they are created. They may also execute at different speeds. When threads are executing (racing to complete) they may give unexpected results (race condition). Mutexes and joins must be utilized to achieve a predictable execution order and outcome.</li>
-<li>Thread safe code: The threaded routines must call functions which are “thread safe”. This means that there are no static or global variables which other threads may clobber or read assuming single threaded operation. If static or global variables are used then mutexes must be applied or the functions must be re-written to avoid the use of these variables. In C, local variables are dynamically allocated on the stack. Therefore, any function that does not use static data or other shared resources is thread-safe. Thread-unsafe functions may be used by only one thread at a time in a program and the uniqueness of the thread must be ensured. Many non-reentrant functions return a pointer to static data. This can be avoided by returning dynamically allocated data or using caller-provided storage. An example of a non-thread safe function is strtok which is also not re-entrant. The “thread safe” version is the re-entrant version strtok_r.</li>
+<li>Thread safe code: The threaded routines must call functions which are &#x201C;thread safe&#x201D;. This means that there are no static or global variables which other threads may clobber or read assuming single threaded operation. If static or global variables are used then mutexes must be applied or the functions must be re-written to avoid the use of these variables. In C, local variables are dynamically allocated on the stack. Therefore, any function that does not use static data or other shared resources is thread-safe. Thread-unsafe functions may be used by only one thread at a time in a program and the uniqueness of the thread must be ensured. Many non-reentrant functions return a pointer to static data. This can be avoided by returning dynamically allocated data or using caller-provided storage. An example of a non-thread safe function is strtok which is also not re-entrant. The &#x201C;thread safe&#x201D; version is the re-entrant version strtok_r.</li>
 </ul>
 <p>Advantages in threads:</p>
 <ul>
@@ -174,27 +174,27 @@ Sometimes, wo need to write some application, which should do multi task, thisti
 <li>Threads are really fast to start and terminate.</li>
 </ul>
 <p>Some of the applications in which threading is used are: MySQL, Firebird, Apache2, MySQL 323</p>
-<h3 id="FAQs"><a href="#FAQs" class="headerlink" title="FAQs:"></a>FAQs:</h3><ol>
+<h3 id="faqs"><a href="#FAQs" class="headerlink" title="FAQs:"></a>FAQs:</h3><ol>
 <li><p>Which should i use in my application ?<br>Ans: That depends on a lot of factors. Forking is more heavy-weight than threading, and have a higher startup and shutdown cost. Interprocess communication (IPC) is also harder and slower than interthread communication. Actually threads really win the race when it comes to inter communication. Conversely, whereas if a thread crashes, it takes down all of the other threads in the process, and if a thread has a buffer overrun, it opens up a security hole in all of the threads.<br>which would share the same address space with the parent process and they only needed a reduced context switch, which would make the context switch more efficient.</p>
 </li>
 <li><p>Which one is better, threading or forking ?<br>Ans: That is something which totally depends on what you are looking for. Still to answer, In a contemporary Linux (2.6.x) there is not much difference in performance between a context switch of a process/forking compared to a thread (only the MMU stuff is additional for the thread). There is the issue with the shared address space, which means that a faulty pointer in a thread can corrupt memory of the parent process or another thread within the same address space.</p>
 </li>
-<li><p>What kinds of things should be threaded or multitasked?<br>Ans: If you are a programmer and would like to take advantage of multithreading, the natural question is what parts of the program should/ should not be threaded. Here are a few rules of thumb (if you say “yes” to these, have fun!):</p>
+<li><p>What kinds of things should be threaded or multitasked?<br>Ans: If you are a programmer and would like to take advantage of multithreading, the natural question is what parts of the program should/ should not be threaded. Here are a few rules of thumb (if you say &#x201C;yes&#x201D; to these, have fun!):</p>
 </li>
 </ol>
 <ul>
-<li>Are there groups of lengthy operations that don’t necessarily depend on other processing (like painting a window, printing a document, responding to a mouse-click, calculating a spreadsheet column, signal handling, etc.)?</li>
-<li>Will there be few locks on data (the amount of shared data is identifiable and “small”)?</li>
+<li>Are there groups of lengthy operations that don&#x2019;t necessarily depend on other processing (like painting a window, printing a document, responding to a mouse-click, calculating a spreadsheet column, signal handling, etc.)?</li>
+<li>Will there be few locks on data (the amount of shared data is identifiable and &#x201C;small&#x201D;)?</li>
 <li>Are you prepared to worry about locking (mutually excluding data regions from other threads), deadlocks (a condition where two COEs have locked data that other is trying to get) and race conditions (a nasty, intractable problem where data is not locked properly and gets corrupted through threaded reads &amp; writes)?</li>
-<li>Could the task be broken into various “responsibilities”? E.g. Could one thread handle the signals, another handle GUI stuff, etc.?</li>
+<li>Could the task be broken into various &#x201C;responsibilities&#x201D;? E.g. Could one thread handle the signals, another handle GUI stuff, etc.?</li>
 </ul>
-<h3 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions:"></a>Conclusions:</h3><ul>
+<h3 id="conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions:"></a>Conclusions:</h3><ul>
 <li>Whether you have to use threading or forking, totally depends on the requirement of your application.</li>
 <li>Threads more powerful than events, but power is not something which is always needed.</li>
 <li>Threads are much harder to program than forking, so only for experts.</li>
 <li>Use threads mostly for performance-critical applications.</li>
 </ul>
-<h3 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h3><ul>
+<h3 id="references"><a href="#References" class="headerlink" title="References:"></a>References:</h3><ul>
 <li><a href="http://en.wikipedia.org/wiki/Fork_(operating_system)" target="_blank" rel="external">http://en.wikipedia.org/wiki/Fork_(operating_system)</a></li>
 <li><a href="http://tldp.org/FAQ/Threads-FAQ/Comparison.html" target="_blank" rel="external">http://tldp.org/FAQ/Threads-FAQ/Comparison.html</a></li>
 <li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html" target="_blank" rel="external">http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html</a></li>
@@ -204,7 +204,7 @@ Sometimes, wo need to write some application, which should do multi task, thisti
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/11/21/forking-and-threading/" data-id="cin61d0j0007efyizlmh64h6f" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/11/21/forking-and-threading/" data-id="cin6a5uiv007a3cizul5sv5dd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,7 +289,7 @@ Sometimes, wo need to write some application, which should do multi task, thisti
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

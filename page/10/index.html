@@ -91,17 +91,17 @@
         <h3 id="web-server-performance-test-tools"><a href="#web-server-performance-test-tools" class="headerlink" title="web server performance test tools"></a>web server performance test tools</h3><ul>
 <li><p>AB(Apache Bench) </p>
 <p>  ab -r -k -n 100000 -c 500 url</p>
-<p>  -r 表示遇到错误继续<br>  -k 表示keepalive<br>  -n 表示总共请求的次数<br>  -c 表示每次请求的数量（即并发数）<br>  url即要请求的地址</p>
+<p>  -r &#x8868;&#x793A;&#x9047;&#x5230;&#x9519;&#x8BEF;&#x7EE7;&#x7EED;<br>  -k &#x8868;&#x793A;keepalive<br>  -n &#x8868;&#x793A;&#x603B;&#x5171;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;<br>  -c &#x8868;&#x793A;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x91CF;&#xFF08;&#x5373;&#x5E76;&#x53D1;&#x6570;&#xFF09;<br>  url&#x5373;&#x8981;&#x8BF7;&#x6C42;&#x7684;&#x5730;&#x5740;</p>
 </li>
 </ul>
-<p>以上命令表示请求总数达到10万后就停止</p>
-<p>执行上面的命令前先使用ulimit -n 100000解除操作系统内的并发限制</p>
+<p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x603B;&#x6570;&#x8FBE;&#x5230;10&#x4E07;&#x540E;&#x5C31;&#x505C;&#x6B62;</p>
+<p>&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x524D;&#x5148;&#x4F7F;&#x7528;ulimit -n 100000&#x89E3;&#x9664;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x7684;&#x5E76;&#x53D1;&#x9650;&#x5236;</p>
 <pre><code>watch ab -r -k -n 100000 -c 500 url
-</code></pre><p>watch命令会自动重复执行，每次执行时，自动间隔2秒</p>
-<p>以上命令表示请求达到10万次后，自动休息2秒，然后重新请求</p>
-<p>设置watch的间隔时间</p>
+</code></pre><p>watch&#x547D;&#x4EE4;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x590D;&#x6267;&#x884C;&#xFF0C;&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x95F4;&#x9694;2&#x79D2;</p>
+<p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x8FBE;&#x5230;10&#x4E07;&#x6B21;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x4F11;&#x606F;2&#x79D2;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;</p>
+<p>&#x8BBE;&#x7F6E;watch&#x7684;&#x95F4;&#x9694;&#x65F6;&#x95F4;</p>
 <pre><code>watch -d 3 ab -r -k -n 100000 -c 500 url
-</code></pre><p>以上命令表示请求达到10万次后，自动休息3秒，然后重新请求 </p>
+</code></pre><p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x8FBE;&#x5230;10&#x4E07;&#x6B21;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x4F11;&#x606F;3&#x79D2;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8BF7;&#x6C42; </p>
 <ul>
 <li><p>Nikto </p>
 </li>
@@ -120,16 +120,16 @@
 <li><p>iftop </p>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://os.51cto.com/art/201205/337302.htm" target="_blank" rel="external">三大开源工具监控Apache Web服务器性能</a></li>
-<li><a href="http://www.vpser.net/opt/webserver-test.html" target="_blank" rel="external">Web服务器性能/压力测试工具http_load、webbench、ab、Siege使用教程</a></li>
-<li><a href="http://www.drupal001.com/2012/07/linux-server-monitor/" target="_blank" rel="external">Linux服务器性能追踪以及服务器监控常用命令</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://os.51cto.com/art/201205/337302.htm" target="_blank" rel="external">&#x4E09;&#x5927;&#x5F00;&#x6E90;&#x5DE5;&#x5177;&#x76D1;&#x63A7;Apache Web&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;</a></li>
+<li><a href="http://www.vpser.net/opt/webserver-test.html" target="_blank" rel="external">Web&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;/&#x538B;&#x529B;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;http_load&#x3001;webbench&#x3001;ab&#x3001;Siege&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
+<li><a href="http://www.drupal001.com/2012/07/linux-server-monitor/" target="_blank" rel="external">Linux&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x8FFD;&#x8E2A;&#x4EE5;&#x53CA;&#x670D;&#x52A1;&#x5668;&#x76D1;&#x63A7;&#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/16/linux-server-performance-tools/" data-id="cin61d0jb007nfyiz7ddat388" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/16/linux-server-performance-tools/" data-id="cin6a5uj4007m3ciz5l3i1zxz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -161,19 +161,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Netfilter-hacking"><a href="#Netfilter-hacking" class="headerlink" title="Netfilter hacking"></a>Netfilter hacking</h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+        <h3 id="netfilter-hacking"><a href="#Netfilter-hacking" class="headerlink" title="Netfilter hacking"></a>Netfilter hacking</h3><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.netfilter.org/documentation/HOWTO/netfilter-hacking-HOWTO.html#toc3.3" target="_blank" rel="external">Netfilter hacking HOWTO</a></li>
 <li><a href="http://inai.de/documents/Netfilter_Modules.pdf" target="_blank" rel="external">Write netfilter modules</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-ntflt/" target="_blank" rel="external">Linux Netfilter实现机制和扩展技术</a></li>
-<li><a href="http://blog.chinaunix.net/uid-27064719-id-3503855.html" target="_blank" rel="external">十四 洞悉linux下的Netfilter&amp;iptables：开发一个match模块【实战】</a></li>
-<li><a href="http://blog.ownlinux.net/2010/05/netfilter-kernel-source-code-intro.html" target="_blank" rel="external">Linux内核中的Netfilter介绍</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/linux/l-ntflt/" target="_blank" rel="external">Linux Netfilter&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x548C;&#x6269;&#x5C55;&#x6280;&#x672F;</a></li>
+<li><a href="http://blog.chinaunix.net/uid-27064719-id-3503855.html" target="_blank" rel="external">&#x5341;&#x56DB; &#x6D1E;&#x6089;linux&#x4E0B;&#x7684;Netfilter&amp;iptables&#xFF1A;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;match&#x6A21;&#x5757;&#x3010;&#x5B9E;&#x6218;&#x3011;</a></li>
+<li><a href="http://blog.ownlinux.net/2010/05/netfilter-kernel-source-code-intro.html" target="_blank" rel="external">Linux&#x5185;&#x6838;&#x4E2D;&#x7684;Netfilter&#x4ECB;&#x7ECD;</a></li>
 <li><a href="https://github.com/platinum-PT/xt_domain.git" target="_blank" rel="external">iptables domain filter</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/14/netfilter-hacking/" data-id="cin61d0ja007mfyiz5v1udu8p" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/14/netfilter-hacking/" data-id="cin6a5uj3007l3cizmz7jnprd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,22 +205,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-use-existing-open-source"><a href="#1-use-existing-open-source" class="headerlink" title="1.use existing open source"></a>1.use existing open source</h3><ul>
+        <h3 id="1use-existing-open-source"><a href="#1-use-existing-open-source" class="headerlink" title="1.use existing open source"></a>1.use existing open source</h3><ul>
 <li>Apache </li>
 <li>Nginx</li>
 </ul>
-<h3 id="2-use-librarys"><a href="#2-use-librarys" class="headerlink" title="2.use librarys"></a>2.use librarys</h3><ul>
+<h3 id="2use-librarys"><a href="#2-use-librarys" class="headerlink" title="2.use librarys"></a>2.use librarys</h3><ul>
 <li>Python HTTPServer / CGIHTTPServer</li>
 <li>libevent</li>
 </ul>
-<h3 id="3-implement-it-in-c"><a href="#3-implement-it-in-c" class="headerlink" title="3.implement it in c"></a>3.implement it in c</h3><ul>
+<h3 id="3implement-it-in-c"><a href="#3-implement-it-in-c" class="headerlink" title="3.implement it in c"></a>3.implement it in c</h3><ul>
 <li><p>basic (learn from APUE/UNP)<br>1.HTTP protocol(RFC 2616)<br>2.TCP server(select/poll/epoll)<br>3.multi-process model(fork, one proces per connection)<br>4.multi-thread model(one thread per connection)<br>5.IPC (interprocess communication)<br>6.NON-Block I/O, edge trigger  </p>
 </li>
 <li><p>advanced (learn from open source, lots pagers)<br>1.performance optimists: memory cached, I/O(linux AIO), TCP/IP<br>2.support CGI/FastCGI/WSGI/AJK<br>3.support HTTPS<br>4.dynamic modules<br>5.support cluster  </p>
 </li>
 </ul>
-<h3 id="4-Reference"><a href="#4-Reference" class="headerlink" title="4.Reference"></a>4.Reference</h3><ul>
-<li>[1]<a href="http://www.zhihu.com/question/20199473" target="_blank" rel="external">实现一个http服务器需要怎样进行？需要哪些知识呢</a></li>
+<h3 id="4reference"><a href="#4-Reference" class="headerlink" title="4.Reference"></a>4.Reference</h3><ul>
+<li>[1]<a href="http://www.zhihu.com/question/20199473" target="_blank" rel="external">&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;http&#x670D;&#x52A1;&#x5668;&#x9700;&#x8981;&#x600E;&#x6837;&#x8FDB;&#x884C;&#xFF1F;&#x9700;&#x8981;&#x54EA;&#x4E9B;&#x77E5;&#x8BC6;&#x5462;</a></li>
 <li>[2]<a href="http://stackoverflow.com/questions/2338775/how-do-i-write-a-web-server-in-c-on-linux" target="_blank" rel="external">how-do-i-write-a-web-server-in-c-on-linux</a></li>
 <li>[3]<a href="http://en.wikipedia.org/wiki/Comparison_of_lightweight_web_servers" target="_blank" rel="external">Comparison of lightweight web servers</a></li>
 <li>[4]<a href="http://www.ruilog.com/article/view/5249.html" target="_blank" rel="external">libevent webserver in 40 lines of c</a></li>
@@ -229,54 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/14/how-to-implement-a-http-server-in-c-on-linux/" data-id="cin61d0j9007lfyiz2r0wg42q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nas-storage-system-performance-optimization" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/04/12/nas-storage-system-performance-optimization/" class="article-date">
-  <time datetime="2014-04-11T16:00:00.000Z" itemprop="datePublished">2014-04-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/12/nas-storage-system-performance-optimization/">NAS storage system performance optimization</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h3><p>Network attach storage, there are two protocol NFS(Linux) and CIFS(windows)</p>
-<h3 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h3><p>1.use UDP or TCP<br>2.modify rsize and wsize<br>3.use sync or async  </p>
-<h3 id="CIFS"><a href="#CIFS" class="headerlink" title="CIFS"></a>CIFS</h3><p>1.smb or smb2<br>2.modify rsize and wsize<br>3.prefetch  </p>
-<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><p>Watch the memory,disk I/O and net speed.<br>1.vmstat<br>2.cat /proc/cpuinfo, /proc/meminfo, /proc/net/dev  </p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.huawei.com/ecommunity/bbs/10167439.html" target="_blank" rel="external">存储课堂:NAS存储系统性能优化攻略</a></li>
-<li><a href="https://calomel.org/samba_optimize.html" target="_blank" rel="external">samba optimization and speed tuning for performance</a></li>
-<li><a href="https://wiki.amahi.org/index.php/Make_Samba_Go_Faster" target="_blank" rel="external">make samba go faster</a></li>
-<li><a href="http://niyunjiu.iteye.com/blog/661141" target="_blank" rel="external">samba性能调优</a></li>
-<li><a href="http://wisebyte.blogspot.com/2014/02/mavericks-nfs-vs-smb-implementation.html" target="_blank" rel="external">Mavericks NFS vs SMB Implementation - Speed Test</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/12/nas-storage-system-performance-optimization/" data-id="cin61d0j7007kfyiztvg40i54" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/14/how-to-implement-a-http-server-in-c-on-linux/" data-id="cin6a5uj2007k3cizn69a3fzs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -308,7 +261,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Server-module"><a href="#Server-module" class="headerlink" title="Server module"></a>Server module</h3><ul>
+        <h3 id="server-module"><a href="#Server-module" class="headerlink" title="Server module"></a>Server module</h3><ul>
 <li>1.<strong>select</strong> based server<br>  Advantage:  easy to implement<br>  disadvantage: limit to fd, max is 1024 on most linux  </li>
 <li>2.<strong>/dev/poll</strong> based server<br>  Advantage:<br>  disadvantage: same to select  </li>
 <li>3.<strong>epoll</strong> based server<br>  Advantage: fastly, not need to check each fd.<br>  disadvantage: do more coding  </li>
@@ -319,13 +272,13 @@
 <li>7.<strong>process-pool</strong> and <strong>thread-pool</strong> based server<br>  process pool, reference<br>  <a href="http://stackoverflow.com/questions/16286208/dynamic-pool-of-processes" target="_blank" rel="external">dynamic-pool-of-processes</a><br>  <a href="http://www.devshed.com/c/a/Administration/Design-and-Architecture/3/" target="_blank" rel="external">Preforking: Process Pools</a><br>  <a href="http://blog.chinaunix.net/uid-20481436-id-1941519.html" target="_blank" rel="external">3</a><br>  Advantage:<br>  disadvantage:  </li>
 <li>8.<strong>event</strong> based server<br>  Advantage:<br>  disadvantage:  </li>
 </ul>
-<h3 id="Biggest-performance-killers"><a href="#Biggest-performance-killers" class="headerlink" title="Biggest performance-killers"></a>Biggest performance-killers</h3><ul>
+<h3 id="biggest-performance-killers"><a href="#Biggest-performance-killers" class="headerlink" title="Biggest performance-killers"></a>Biggest performance-killers</h3><ul>
 <li>1.Data copies  </li>
 <li>2.Context switches  </li>
 <li>3.Memory allocation  </li>
 <li>4.Lock contention  </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://www.kegel.com/c10k.html#examples.nb.select" target="_blank" rel="external"><strong>The C10K problem</strong></a></li>
 <li><a href="http://bulk.fefe.de/scalable-networking.pdf" target="_blank" rel="external"><strong>Scalable Network Programming</strong></a></li>
 <li><a href="http://pl.atyp.us/content/tech/servers.html" target="_blank" rel="external">High performance server architecture</a></li>
@@ -345,7 +298,54 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/12/how-to-write-a-good-web-server/" data-id="cin61d0j6007jfyizidlh5op1" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/12/how-to-write-a-good-web-server/" data-id="cin6a5uj1007i3ciz95vnrraa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nas-storage-system-performance-optimization" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/12/nas-storage-system-performance-optimization/" class="article-date">
+  <time datetime="2014-04-11T16:00:00.000Z" itemprop="datePublished">2014-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/12/nas-storage-system-performance-optimization/">NAS storage system performance optimization</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="nas"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h3><p>Network attach storage, there are two protocol NFS(Linux) and CIFS(windows)</p>
+<h3 id="nfs"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h3><p>1.use UDP or TCP<br>2.modify rsize and wsize<br>3.use sync or async  </p>
+<h3 id="cifs"><a href="#CIFS" class="headerlink" title="CIFS"></a>CIFS</h3><p>1.smb or smb2<br>2.modify rsize and wsize<br>3.prefetch  </p>
+<h3 id="tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><p>Watch the memory,disk I/O and net speed.<br>1.vmstat<br>2.cat /proc/cpuinfo, /proc/meminfo, /proc/net/dev  </p>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.huawei.com/ecommunity/bbs/10167439.html" target="_blank" rel="external">&#x5B58;&#x50A8;&#x8BFE;&#x5802;:NAS&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x653B;&#x7565;</a></li>
+<li><a href="https://calomel.org/samba_optimize.html" target="_blank" rel="external">samba optimization and speed tuning for performance</a></li>
+<li><a href="https://wiki.amahi.org/index.php/Make_Samba_Go_Faster" target="_blank" rel="external">make samba go faster</a></li>
+<li><a href="http://niyunjiu.iteye.com/blog/661141" target="_blank" rel="external">samba&#x6027;&#x80FD;&#x8C03;&#x4F18;</a></li>
+<li><a href="http://wisebyte.blogspot.com/2014/02/mavericks-nfs-vs-smb-implementation.html" target="_blank" rel="external">Mavericks NFS vs SMB Implementation - Speed Test</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/04/12/nas-storage-system-performance-optimization/" data-id="cin6a5uj2007j3cizhz6vh4bl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -377,7 +377,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="difference-between-slect-poll-and-epoll"><a href="#difference-between-slect-poll-and-epoll" class="headerlink" title="difference between slect poll and epoll"></a>difference between slect poll and epoll</h3><p>There are other reasons to avoid select and use epoll. When using select, you<br>don’t know how many descriptors need attention. So you must keep track of the<br>biggest and loop to it.</p>
+        <h3 id="difference-between-slect-poll-and-epoll"><a href="#difference-between-slect-poll-and-epoll" class="headerlink" title="difference between slect poll and epoll"></a>difference between slect poll and epoll</h3><p>There are other reasons to avoid select and use epoll. When using select, you<br>don&#x2019;t know how many descriptors need attention. So you must keep track of the<br>biggest and loop to it.</p>
 <pre><code>rc = select(...);
 /* check rc */
 for (s = 0; s &lt;= maxfd; s++) {
@@ -385,13 +385,13 @@ for (s = 0; s &lt;= maxfd; s++) {
         /* ... */
     }
 }
-</code></pre><p>Now with epoll it’s a lot cleaner:</p>
+</code></pre><p>Now with epoll it&#x2019;s a lot cleaner:</p>
 <pre><code>nfds = epoll_wait(epollfd, events, MAX_EVENTS, -1);
 /* check nfds */
 for (n = 0; n &lt; nfds; ++n) {
     /* events[n].data.fd needs attention */
 }
-</code></pre><h3 id="do-fork-process-before-create-epoll"><a href="#do-fork-process-before-create-epoll" class="headerlink" title="do fork process before create_epoll"></a>do fork process before create_epoll</h3><h3 id="Epoll-example-in-C"><a href="#Epoll-example-in-C" class="headerlink" title="Epoll example in C"></a>Epoll example in C</h3><pre><code>#include &lt;stdio.h&gt;
+</code></pre><h3 id="do-fork-process-before-create_epoll"><a href="#do-fork-process-before-create-epoll" class="headerlink" title="do fork process before create_epoll"></a>do fork process before create_epoll</h3><h3 id="epoll-example-in-c"><a href="#Epoll-example-in-C" class="headerlink" title="Epoll example in C"></a>Epoll example in C</h3><pre><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
 #include &lt;sys/types.h&gt;
@@ -658,16 +658,16 @@ main (int argc, char *argv[])
 
     return EXIT_SUCCESS;
 }
-</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://banu.com/blog/2/how-to-use-epoll-a-complete-example-in-c/" target="_blank" rel="external">How to use epoll? A complete example in C</a></li>
 <li><a href="http://stackoverflow.com/questions/6474602/does-epoll-do-its-job-in-o1" target="_blank" rel="external">Does epoll(), do its job in O(1)?</a></li>
-<li><a href="http://www.cppblog.com/converse/archive/2008/10/08/63504.html" target="_blank" rel="external">多进程服务器中,epoll的创建应该在创建子进程之后</a></li>
+<li><a href="http://www.cppblog.com/converse/archive/2008/10/08/63504.html" target="_blank" rel="external">&#x591A;&#x8FDB;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x4E2D;,epoll&#x7684;&#x521B;&#x5EFA;&#x5E94;&#x8BE5;&#x5728;&#x521B;&#x5EFA;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x540E;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/10/epoll-example-in-c/" data-id="cin61d0j5007ifyizu4m9u4fq" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/10/epoll-example-in-c/" data-id="cin6a5uj0007h3cizk012lvs7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -699,7 +699,7 @@ main (int argc, char *argv[])
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+        <h3 id="tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
 <li><p>search with specific site<br>Precede your query with site: if you know you want your answer from within a<br>specific site or type of site (.org, .edu). For example: site:edu or<br>site:nytimes.com. </p>
 <p>  op-ed site:nytimes.com    </p>
 </li>
@@ -710,15 +710,15 @@ main (int argc, char *argv[])
 <p>  define: loquaciousness</p>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="https://www.google.com/insidesearch/tipstricks/all.html" target="_blank" rel="external">googl search tips and tricks</a></li>
-<li><a href="https://www.google.com/intl/zh-CN/insidesearch/tipstricks/all.html" target="_blank" rel="external">googl search tips and tricks–chinese</a></li>
+<li><a href="https://www.google.com/intl/zh-CN/insidesearch/tipstricks/all.html" target="_blank" rel="external">googl search tips and tricks&#x2013;chinese</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/04/search-tips-and-tricks/" data-id="cin61d0j3007hfyiz20y0fh74" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/04/search-tips-and-tricks/" data-id="cin6a5uiz007g3cizfhydvuil" class="article-share-link">Share</a>
       
       
     </footer>
@@ -751,22 +751,22 @@ main (int argc, char *argv[])
     <div class="article-entry" itemprop="articleBody">
       
         <p>When we step into e-age, there are so many time we need to use internect to do<br>things, and then there are so many password we need to use, the password like a<br>key to the lock, we want the only-know guy is ourselves. But hackers can stole<br>them so easy, because we use too many weak password. Thinking, how can the<br>hackers do that, and how to avoid this things happen again, let us start to<br>study, to know what we need?</p>
-<h4 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h4><ul>
+<h4 id="questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h4><ul>
 <li>How to make a strong password?</li>
 <li>How long to crack a password by person machine?</li>
 <li>Is there any good and safe online site or software to calculate the strength<br>of password?</li>
 <li>How to calculate the strength of password?</li>
 </ul>
-<h4 id="Methods-of-crack"><a href="#Methods-of-crack" class="headerlink" title="Methods of crack"></a>Methods of crack</h4><ul>
+<h4 id="methods-of-crack"><a href="#Methods-of-crack" class="headerlink" title="Methods of crack"></a>Methods of crack</h4><ul>
 <li><strong>Dictionary attacks</strong><br>This is simple. The attackers just need to keep the 10^6 most common passwords<br>in use, and check each of them once. This can be done well under one second.<br>If your password is in the list, then it can probably be cracked nearly<br>instantaneously.</li>
-<li><strong>Brute force</strong><br>If your password isn’t in a dictionary, then one other option is to use brute<br>force. The time taken to crack a password using this method depends on (a) the<br>length of the password, and (b) the symbol set that comprises the password. </li>
-<li><strong>Combined methods</strong><br>This relies on a combination of ingenuity and brute force. It’s a mix between<br>the first two methods, and relies on common “password conventions” rather than<br>common passwords.</li>
+<li><strong>Brute force</strong><br>If your password isn&#x2019;t in a dictionary, then one other option is to use brute<br>force. The time taken to crack a password using this method depends on (a) the<br>length of the password, and (b) the symbol set that comprises the password. </li>
+<li><strong>Combined methods</strong><br>This relies on a combination of ingenuity and brute force. It&#x2019;s a mix between<br>the first two methods, and relies on common &#x201C;password conventions&#x201D; rather than<br>common passwords.</li>
 </ul>
-<h4 id="Implement-code"><a href="#Implement-code" class="headerlink" title="Implement code"></a>Implement code</h4><ul>
+<h4 id="implement-code"><a href="#Implement-code" class="headerlink" title="Implement code"></a>Implement code</h4><ul>
 <li>Implement with C [TODO]</li>
 <li>Implement with other language [TODO]</li>
 </ul>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="http://en.wikipedia.org/wiki/Password_strength#Password_guess_validation" target="_blank" rel="external">wikipedia: Password strength</a></li>
 <li><a href="http://stackoverflow.com/questions/12578851/howsecureismypassword-com-algorithm" target="_blank" rel="external">howsecureismypassword.com algorithm</a></li>
 <li><a href="https://howsecureismypassword.net/" target="_blank" rel="external">password strength checking</a></li>
@@ -775,7 +775,7 @@ main (int argc, char *argv[])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/03/how-strong-is-your-password/" data-id="cin61d0j2007gfyizxtcy4cth" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/03/how-strong-is-your-password/" data-id="cin6a5uix007f3cizvqwkubvi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -807,7 +807,7 @@ main (int argc, char *argv[])
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Hack-steps"><a href="#Hack-steps" class="headerlink" title="Hack steps:"></a>Hack steps:</h3><p>1.create a batch file, name magnify.bat<br>  add code as below:</p>
+        <h3 id="hack-steps"><a href="#Hack-steps" class="headerlink" title="Hack steps:"></a>Hack steps:</h3><p>1.create a batch file, name magnify.bat<br>  add code as below:</p>
 <pre><code>@net user hack 123456 /add
 
 @net localgroup administrators hack /add
@@ -828,8 +828,8 @@ net user administrator 123456 (modify password)
 
 net user hack /del (delete user)
 </code></pre><p>6.reboot and enjoy.</p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><ul>
-<li><a href="https://www.doorcome.com/?p=42" target="_blank" rel="external">得到WindowsXP管理员权限的有效方法</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><ul>
+<li><a href="https://www.doorcome.com/?p=42" target="_blank" rel="external">&#x5F97;&#x5230;WindowsXP&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x7684;&#x6709;&#x6548;&#x65B9;&#x6CD5;</a></li>
 <li><a href="http://www.computersecuritystudent.com/FORENSICS/Password_Clearing/lesson1/index.html" target="_blank" rel="external">Password Clearing: Clearing out any windows password</a></li>
 <li><a href="http://www.pogostick.net/~pnh/ntpasswd/" target="_blank" rel="external">Offline windows password &amp; Registry editor</a></li>
 </ul>
@@ -837,7 +837,7 @@ net user hack /del (delete user)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/03/21/hack-windows-xp-logon-password/" data-id="cin61d0j1007ffyizawsxd62r" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/03/21/hack-windows-xp-logon-password/" data-id="cin6a5uix007e3cizsbhdaqr3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -869,7 +869,7 @@ net user hack /del (delete user)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-introduce"><a href="#1-introduce" class="headerlink" title="1.introduce"></a>1.introduce</h3><p>  Pandoc is a swiss-army knife for coverting files from one markup format into<br>another, it can convert documents in markdown to HTML or pdf. To see more, knock<br>this <a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">link</a></p>
+        <h3 id="1introduce"><a href="#1-introduce" class="headerlink" title="1.introduce"></a>1.introduce</h3><p>  Pandoc is a swiss-army knife for coverting files from one markup format into<br>another, it can convert documents in markdown to HTML or pdf. To see more, knock<br>this <a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">link</a></p>
 <h3 id="2-use"><a href="#2-use" class="headerlink" title="2. use"></a>2. use</h3><p>install missing packages on fedora:</p>
 <pre><code>su -c &apos;yum install texlive-titlesec&apos;
 su -c &apos;yum install texlive-titling&apos;
@@ -880,16 +880,16 @@ su -c &apos;yum install texlive-lastpage&apos;
 <pre><code>pandoc --latex-engine=xelatex  test.md -o test.pdf
 </code></pre><p>generate pdf file by specify template:</p>
 <pre><code>pandoc --latex-engine=xelatex --template=/home/dennis/template.latex test.md -o test.pdf
-</code></pre><h3 id="3-reference"><a href="#3-reference" class="headerlink" title="3.reference"></a>3.reference</h3><ul>
+</code></pre><h3 id="3reference"><a href="#3-reference" class="headerlink" title="3.reference"></a>3.reference</h3><ul>
 <li><a href="https://github.com/jgm/pandoc" target="_blank" rel="external">pandoc source</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_5ee56d450101dah2.html" target="_blank" rel="external">利用Pandoc将markdown文件转化为pdf</a></li>
-<li><a href="http://www.yangzhiping.com/tech/pandoc.html" target="_blank" rel="external">Markdown写作进阶：Pandoc入门浅谈</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_5ee56d450101dah2.html" target="_blank" rel="external">&#x5229;&#x7528;Pandoc&#x5C06;markdown&#x6587;&#x4EF6;&#x8F6C;&#x5316;&#x4E3A;pdf</a></li>
+<li><a href="http://www.yangzhiping.com/tech/pandoc.html" target="_blank" rel="external">Markdown&#x5199;&#x4F5C;&#x8FDB;&#x9636;&#xFF1A;Pandoc&#x5165;&#x95E8;&#x6D45;&#x8C08;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/03/19/use-pandoc/" data-id="cin61d0iz007bfyiz9lazicgo" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/03/19/use-pandoc/" data-id="cin6a5uiv007b3cizrwpcxend" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pandoc/">pandoc</a></li></ul>
@@ -962,7 +962,7 @@ su -c &apos;yum install texlive-lastpage&apos;
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

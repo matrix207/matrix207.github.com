@@ -89,22 +89,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>The <strong>Intelligent Platform Management Interface (IPMI)</strong> is a standardized computer<br>system interface used by system administrators for out-of-band management of<br>computer systems and monitoring of their operation. It is a way to manage a<br>computer that may be powered off or otherwise unresponsive by using a network<br>connection to the hardware rather than to an operating system or login shell.</p>
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>The <strong>Intelligent Platform Management Interface (IPMI)</strong> is a standardized computer<br>system interface used by system administrators for out-of-band management of<br>computer systems and monitoring of their operation. It is a way to manage a<br>computer that may be powered off or otherwise unresponsive by using a network<br>connection to the hardware rather than to an operating system or login shell.</p>
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/f/f2/IPMI-Block-Diagram.png" alt=""></p>
-<h3 id="Why-use"><a href="#Why-use" class="headerlink" title="Why use"></a>Why use</h3><p>Use lm-sensor? </p>
+<h3 id="why-use"><a href="#Why-use" class="headerlink" title="Why use"></a>Why use</h3><p>Use lm-sensor? </p>
 <pre><code>[root@localhost ~]# sensors
 acpitz-virtual-0
 Adapter: Virtual device
-temp1:       +27.8°C  (crit = +106.0°C)                  
-temp2:       +29.8°C  (crit = +106.0°C)                  
+temp1:       +27.8&#xB0;C  (crit = +106.0&#xB0;C)                  
+temp2:       +29.8&#xB0;C  (crit = +106.0&#xB0;C)                  
 
 coretemp-isa-0000
 Adapter: ISA adapter
-Physical id 0: +35.0°C  (high = +85.0°C, crit = +105.0°C)  
-Core 0:        +32.0°C  (high = +85.0°C, crit = +105.0°C)  
-Core 1:        +31.0°C  (high = +85.0°C, crit = +105.0°C)  
+Physical id 0: +35.0&#xB0;C  (high = +85.0&#xB0;C, crit = +105.0&#xB0;C)  
+Core 0:        +32.0&#xB0;C  (high = +85.0&#xB0;C, crit = +105.0&#xB0;C)  
+Core 1:        +31.0&#xB0;C  (high = +85.0&#xB0;C, crit = +105.0&#xB0;C)  
 </code></pre><p>Use dmidecode?</p>
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>On Centos 6.5</p>
+<h3 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>On Centos 6.5</p>
 <pre><code>[root@localhost ~]# yum install OpenIPMI -y
 [root@localhost ~]# yum install ipmitool -y
 [root@localhost ~]# chkconfig ipmi on
@@ -125,7 +125,7 @@ depends:
 vermagic:       2.6.32-431.el6.x86_64 SMP mod_unload modversions 
 parm:           ipmi_major:Sets the major number of the IPMI device.  By default, or if you set it to zero, it will choose the next available device.  Setting it to -1 will disable the interface.  Other values will set the major device number to that value. (int)
 [root@localhost ~]#
-</code></pre><h3 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><ol>
+</code></pre><h3 id="use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><ol>
 <li><p><strong>To check firmware version</strong></p>
 <pre><code>[root@localhost ~]# ipmitool mc info
 Device ID                 : 20
@@ -203,7 +203,7 @@ CPU0_TEMP        | 21h | ok  |  7.1 | 25 degrees C
 THERMAL01        | 23h | ok  |  7.1 | 35 degrees C
 THERMAL02        | 24h | ok  |  7.1 | 31 degrees C
 </code></pre></li>
-<li><p><strong>Display/reset password for default root user (userid ‘2’)</strong></p>
+<li><p><strong>Display/reset password for default root user (userid &#x2018;2&#x2019;)</strong></p>
 <pre><code>ipmitool user list 1
 ipmitool user set password 2 &lt;new_password&gt;
 </code></pre></li>
@@ -214,21 +214,21 @@ ipmitool lan set 1 ipsrc [ static | dhcp ]
 ipmitool lan set 1 ipaddr 192.168.1.101
 ipmitool lan set 1 netmask 255.255.255.0
 ipmitool lan set 1 defgw ipaddr 192.168.1.254
-</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.chenshake.com/summary-of-ipmi/" target="_blank" rel="external">IPMI总结</a></li>
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.chenshake.com/summary-of-ipmi/" target="_blank" rel="external">IPMI&#x603B;&#x7ED3;</a></li>
 <li><a href="http://www.openfusion.net/linux/ipmi_on_centos" target="_blank" rel="external">IPMI on CentOS/RHEL</a></li>
-<li><a href="http://blog.csdn.net/goodluckwhh/article/details/9955715" target="_blank" rel="external">open ipmi内核实现简介</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-ipmi/index.html" target="_blank" rel="external">使用ipmitool实现Linux系统下对服务器的ipmi管理</a></li>
+<li><a href="http://blog.csdn.net/goodluckwhh/article/details/9955715" target="_blank" rel="external">open ipmi&#x5185;&#x6838;&#x5B9E;&#x73B0;&#x7B80;&#x4ECB;</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/linux/l-ipmi/index.html" target="_blank" rel="external">&#x4F7F;&#x7528;ipmitool&#x5B9E;&#x73B0;Linux&#x7CFB;&#x7EDF;&#x4E0B;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x7684;ipmi&#x7BA1;&#x7406;</a></li>
 <li><a href="http://sourceforge.net/projects/openipmi/" target="_blank" rel="external">openipmi on sourceforge</a></li>
-<li><a href="http://blog.csdn.net/huzhenwei/article/details/6300472" target="_blank" rel="external">在Linux系统上配置IPMI来远程控制服务器</a></li>
-<li><a href="http://wenku.baidu.com/link?url=Sk-pIPKAOIrUVwg1L00GHmIMPjuFsqj13308opURYRARvyQh-pzOEOUm5_uwk7C-eBqGb91iXhacQ6eTIFG8AQ8YO9ZUjne6J_T0JES5ihy" target="_blank" rel="external">Linux平台下IPMI驱动程序设计与实现</a></li>
+<li><a href="http://blog.csdn.net/huzhenwei/article/details/6300472" target="_blank" rel="external">&#x5728;Linux&#x7CFB;&#x7EDF;&#x4E0A;&#x914D;&#x7F6E;IPMI&#x6765;&#x8FDC;&#x7A0B;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x5668;</a></li>
+<li><a href="http://wenku.baidu.com/link?url=Sk-pIPKAOIrUVwg1L00GHmIMPjuFsqj13308opURYRARvyQh-pzOEOUm5_uwk7C-eBqGb91iXhacQ6eTIFG8AQ8YO9ZUjne6J_T0JES5ihy" target="_blank" rel="external">Linux&#x5E73;&#x53F0;&#x4E0B;IPMI&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x4E0E;&#x5B9E;&#x73B0;</a></li>
 <li><a href="http://openipmi.sourceforge.net/IPMI.pdf" target="_blank" rel="external">IPMI - Gentle Introduction with OpenIPM</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/07/09/ipmi/" data-id="cin61d0k9008ffyizrihj28g6" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/07/09/ipmi/" data-id="cin6a5uju008f3ciz8gb0u60r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -313,7 +313,7 @@ ipmitool lan set 1 defgw ipaddr 192.168.1.254
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

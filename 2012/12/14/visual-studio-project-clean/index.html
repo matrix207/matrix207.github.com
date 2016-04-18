@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Clean-visual-studio-project"><a href="#Clean-visual-studio-project" class="headerlink" title="Clean visual studio project"></a>Clean visual studio project</h3><pre><code>@ECHO off
+        <h3 id="clean-visual-studio-project"><a href="#Clean-visual-studio-project" class="headerlink" title="Clean visual studio project"></a>Clean visual studio project</h3><pre><code>@ECHO off
 setlocal enabledelayedexpansion
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Clean Visual studio project
@@ -126,7 +126,7 @@ pause
 goto _LOOP
 
 :_DEL_TYPE_2
-::使用*号做分隔符,解决路径中出现空格导致无法获取完整路径问题 
+::&#x4F7F;&#x7528;*&#x53F7;&#x505A;&#x5206;&#x9694;&#x7B26;,&#x89E3;&#x51B3;&#x8DEF;&#x5F84;&#x4E2D;&#x51FA;&#x73B0;&#x7A7A;&#x683C;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#x95EE;&#x9898; 
 @for /f &quot;delims=*&quot; %%i in (&apos;dir /s /b /ad&apos;) do (
     if /i &quot;%%~ni&quot;==&quot;debug&quot; rmdir /s /q &quot;%%i&quot;
     if /i &quot;%%~ni&quot;==&quot;release&quot; rmdir /s /q &quot;%%i&quot;
@@ -141,7 +141,7 @@ pause&amp;exit /B 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cin61d0ft0015fyizznwlba3g" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cin6a5ug600193cizdbjumnik" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -228,7 +228,7 @@ pause&amp;exit /B 0
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

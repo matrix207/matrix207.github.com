@@ -5,28 +5,19 @@
   
   <title>connect wifi in linux terminal | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##1.工具介绍
-wireless-tools   使用到的工具 iwlist、iwconfig、dhclient   只适用于WEP加密方式, WPA方式需要使用wpa_supplicant
-wpa_supplicant   可用于WPA加密方式
-##2.编译源码
-wireless-tools   1). 下载 wireless_tools.29.tar.gz     wget http://w">
+  <meta name="description" content="##1.&amp;#x5DE5;&amp;#x5177;&amp;#x4ECB;&amp;#x7ECD;
+wireless-tools   &amp;#x4F7F;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x5DE5;&amp;#x5177; iwlist&amp;#x3001;iwconfig&amp;#x3001;dhclient   &amp;#x53EA;&amp;#x9002;&amp;#x7528;&amp;#x4E8E;WEP&amp;#x52A0;&amp;#x5BC6;&amp;#x65">
 <meta property="og:type" content="article">
 <meta property="og:title" content="connect wifi in linux terminal">
 <meta property="og:url" content="http://matrix207.github.com/2013/03/13/connect-wifi-in-linux-terminal/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
-<meta property="og:description" content="##1.工具介绍
-wireless-tools   使用到的工具 iwlist、iwconfig、dhclient   只适用于WEP加密方式, WPA方式需要使用wpa_supplicant
-wpa_supplicant   可用于WPA加密方式
-##2.编译源码
-wireless-tools   1). 下载 wireless_tools.29.tar.gz     wget http://w">
+<meta property="og:description" content="##1.&amp;#x5DE5;&amp;#x5177;&amp;#x4ECB;&amp;#x7ECD;
+wireless-tools   &amp;#x4F7F;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x5DE5;&amp;#x5177; iwlist&amp;#x3001;iwconfig&amp;#x3001;dhclient   &amp;#x53EA;&amp;#x9002;&amp;#x7528;&amp;#x4E8E;WEP&amp;#x52A0;&amp;#x5BC6;&amp;#x65">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="connect wifi in linux terminal">
-<meta name="twitter:description" content="##1.工具介绍
-wireless-tools   使用到的工具 iwlist、iwconfig、dhclient   只适用于WEP加密方式, WPA方式需要使用wpa_supplicant
-wpa_supplicant   可用于WPA加密方式
-##2.编译源码
-wireless-tools   1). 下载 wireless_tools.29.tar.gz     wget http://w">
+<meta name="twitter:description" content="##1.&amp;#x5DE5;&amp;#x5177;&amp;#x4ECB;&amp;#x7ECD;
+wireless-tools   &amp;#x4F7F;&amp;#x7528;&amp;#x5230;&amp;#x7684;&amp;#x5DE5;&amp;#x5177; iwlist&amp;#x3001;iwconfig&amp;#x3001;dhclient   &amp;#x53EA;&amp;#x9002;&amp;#x7528;&amp;#x4E8E;WEP&amp;#x52A0;&amp;#x5BC6;&amp;#x65">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -103,26 +94,26 @@ wireless-tools   1). 下载 wireless_tools.29.tar.gz     wget http://w">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.工具介绍</p>
-<h3 id="wireless-tools"><a href="#wireless-tools" class="headerlink" title="wireless-tools"></a>wireless-tools</h3><p>   使用到的工具 iwlist、iwconfig、dhclient<br>   只适用于WEP加密方式, WPA方式需要使用wpa_supplicant</p>
-<h3 id="wpa-supplicant"><a href="#wpa-supplicant" class="headerlink" title="wpa_supplicant"></a>wpa_supplicant</h3><p>   可用于WPA加密方式</p>
-<p>##2.编译源码</p>
-<h3 id="wireless-tools-1"><a href="#wireless-tools-1" class="headerlink" title="wireless-tools"></a>wireless-tools</h3><p>   1). 下载 wireless_tools.29.tar.gz<br>     <code>wget http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz</code></p>
-<p>   2). 编译、安装<br>        <code>tar xvf wireless_tools.29.tar.gz</code><br>        <code>cd wireless_tools.29</code><br>        <code>make</code><br>        <code>make install</code>  </p>
-<h3 id="wpa-supplicant-1"><a href="#wpa-supplicant-1" class="headerlink" title="wpa_supplicant"></a>wpa_supplicant</h3><p>   1). 下载<br>     <code>wget http://www.openssl.org/source/openssl-0.9.8e.tar.gz</code><br>     <code>wget http://hostap.epitest.fi/releases/wpa_supplicant-2.0.tar.gz</code></p>
+        <p>##1.&#x5DE5;&#x5177;&#x4ECB;&#x7ECD;</p>
+<h3 id="wireless-tools"><a href="#wireless-tools" class="headerlink" title="wireless-tools"></a>wireless-tools</h3><p>   &#x4F7F;&#x7528;&#x5230;&#x7684;&#x5DE5;&#x5177; iwlist&#x3001;iwconfig&#x3001;dhclient<br>   &#x53EA;&#x9002;&#x7528;&#x4E8E;WEP&#x52A0;&#x5BC6;&#x65B9;&#x5F0F;, WPA&#x65B9;&#x5F0F;&#x9700;&#x8981;&#x4F7F;&#x7528;wpa_supplicant</p>
+<h3 id="wpa_supplicant"><a href="#wpa-supplicant" class="headerlink" title="wpa_supplicant"></a>wpa_supplicant</h3><p>   &#x53EF;&#x7528;&#x4E8E;WPA&#x52A0;&#x5BC6;&#x65B9;&#x5F0F;</p>
+<p>##2.&#x7F16;&#x8BD1;&#x6E90;&#x7801;</p>
+<h3 id="wireless-tools"><a href="#wireless-tools-1" class="headerlink" title="wireless-tools"></a>wireless-tools</h3><p>   1). &#x4E0B;&#x8F7D; wireless_tools.29.tar.gz<br>     <code>wget http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.29.tar.gz</code></p>
+<p>   2). &#x7F16;&#x8BD1;&#x3001;&#x5B89;&#x88C5;<br>        <code>tar xvf wireless_tools.29.tar.gz</code><br>        <code>cd wireless_tools.29</code><br>        <code>make</code><br>        <code>make install</code>  </p>
+<h3 id="wpa_supplicant"><a href="#wpa-supplicant-1" class="headerlink" title="wpa_supplicant"></a>wpa_supplicant</h3><p>   1). &#x4E0B;&#x8F7D;<br>     <code>wget http://www.openssl.org/source/openssl-0.9.8e.tar.gz</code><br>     <code>wget http://hostap.epitest.fi/releases/wpa_supplicant-2.0.tar.gz</code></p>
 <p>   2). Reference:<br>     <a href="http://blog.csdn.net/penglijiang/article/details/8573946" target="_blank" rel="external">http://blog.csdn.net/penglijiang/article/details/8573946</a><br>     <a href="http://blog.csdn.net/ti_tantbx/article/details/7037741" target="_blank" rel="external">http://blog.csdn.net/ti_tantbx/article/details/7037741</a></p>
-<p>##3.操作步骤</p>
-<h3 id="wireless-tools-2"><a href="#wireless-tools-2" class="headerlink" title="wireless_tools"></a>wireless_tools</h3><p>注意： 操作前提，无线路由器使用WEP方式加密</p>
-<p>使用步骤:  </p>
+<p>##3.&#x64CD;&#x4F5C;&#x6B65;&#x9AA4;</p>
+<h3 id="wireless_tools"><a href="#wireless-tools-2" class="headerlink" title="wireless_tools"></a>wireless_tools</h3><p>&#x6CE8;&#x610F;&#xFF1A; &#x64CD;&#x4F5C;&#x524D;&#x63D0;&#xFF0C;&#x65E0;&#x7EBF;&#x8DEF;&#x7531;&#x5668;&#x4F7F;&#x7528;WEP&#x65B9;&#x5F0F;&#x52A0;&#x5BC6;</p>
+<p>&#x4F7F;&#x7528;&#x6B65;&#x9AA4;:  </p>
 <ul>
-<li>使用命令ifconfig查找无线网卡接口，通常为wlan0  </li>
-<li>使用命令iwlist扫描无线网络  </li>
-<li>使用命令iwconfig设置要连接的无线网络  </li>
-<li>使用命令iwconfig设置无线网络密码  </li>
-<li>使用命令dhclient开始连接网络  </li>
-<li>使用命令ifconfig和ping验证是否无线网络设置成功  </li>
+<li>&#x4F7F;&#x7528;&#x547D;&#x4EE4;ifconfig&#x67E5;&#x627E;&#x65E0;&#x7EBF;&#x7F51;&#x5361;&#x63A5;&#x53E3;&#xFF0C;&#x901A;&#x5E38;&#x4E3A;wlan0  </li>
+<li>&#x4F7F;&#x7528;&#x547D;&#x4EE4;iwlist&#x626B;&#x63CF;&#x65E0;&#x7EBF;&#x7F51;&#x7EDC;  </li>
+<li>&#x4F7F;&#x7528;&#x547D;&#x4EE4;iwconfig&#x8BBE;&#x7F6E;&#x8981;&#x8FDE;&#x63A5;&#x7684;&#x65E0;&#x7EBF;&#x7F51;&#x7EDC;  </li>
+<li>&#x4F7F;&#x7528;&#x547D;&#x4EE4;iwconfig&#x8BBE;&#x7F6E;&#x65E0;&#x7EBF;&#x7F51;&#x7EDC;&#x5BC6;&#x7801;  </li>
+<li>&#x4F7F;&#x7528;&#x547D;&#x4EE4;dhclient&#x5F00;&#x59CB;&#x8FDE;&#x63A5;&#x7F51;&#x7EDC;  </li>
+<li>&#x4F7F;&#x7528;&#x547D;&#x4EE4;ifconfig&#x548C;ping&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x65E0;&#x7EBF;&#x7F51;&#x7EDC;&#x8BBE;&#x7F6E;&#x6210;&#x529F;  </li>
 </ul>
-<p>下面是使用TP-Link无线网卡连接无线路由器的操作记录</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4F7F;&#x7528;TP-Link&#x65E0;&#x7EBF;&#x7F51;&#x5361;&#x8FDE;&#x63A5;&#x65E0;&#x7EBF;&#x8DEF;&#x7531;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;</p>
 <pre><code>[root@localhost ~]# ifconfig
 [root@localhost ~]# iwlist wlan0 scanning
 [root@localhost ~]# iwconfig wlan0 essid TP_Link_Test
@@ -138,11 +129,11 @@ wlan0     Link encap:Ethernet  HWaddr 14:CF:92:23:B5:BF
           collisions:0 txqueuelen:1000 
           RX bytes:425292 (415.3 KiB)  TX bytes:6687 (6.5 KiB)
 
-说明：
-iwconfig wlan0 essid TP_Link_Test 这里的 TP_Link_Test 是无线网络名称
-iwconfig wlan0 key s:12349 这里的s:表示密码为ASCII格式
-</code></pre><h3 id="wpa-supplicant-2"><a href="#wpa-supplicant-2" class="headerlink" title="wpa_supplicant"></a>wpa_supplicant</h3><p>1). 生成配置文件<br>    其中TP_Link_Test为无线网络名称, 1234567890为无线网络密码<br>    <code>wpa_passphrase TP_Link_Test &quot;1234567890&quot; &gt; /etc/wpa_supplicant.conf</code></p>
-<p>2). 修改配置/etc/wpa_supplicant/wpa_supplicant.conf  </p>
+&#x8BF4;&#x660E;&#xFF1A;
+iwconfig wlan0 essid TP_Link_Test &#x8FD9;&#x91CC;&#x7684; TP_Link_Test &#x662F;&#x65E0;&#x7EBF;&#x7F51;&#x7EDC;&#x540D;&#x79F0;
+iwconfig wlan0 key s:12349 &#x8FD9;&#x91CC;&#x7684;s:&#x8868;&#x793A;&#x5BC6;&#x7801;&#x4E3A;ASCII&#x683C;&#x5F0F;
+</code></pre><h3 id="wpa_supplicant"><a href="#wpa-supplicant-2" class="headerlink" title="wpa_supplicant"></a>wpa_supplicant</h3><p>1). &#x751F;&#x6210;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<br>    &#x5176;&#x4E2D;TP_Link_Test&#x4E3A;&#x65E0;&#x7EBF;&#x7F51;&#x7EDC;&#x540D;&#x79F0;, 1234567890&#x4E3A;&#x65E0;&#x7EBF;&#x7F51;&#x7EDC;&#x5BC6;&#x7801;<br>    <code>wpa_passphrase TP_Link_Test &quot;1234567890&quot; &gt; /etc/wpa_supplicant.conf</code></p>
+<p>2). &#x4FEE;&#x6539;&#x914D;&#x7F6E;/etc/wpa_supplicant/wpa_supplicant.conf  </p>
 <pre><code>ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
 
@@ -155,8 +146,8 @@ network={
     #psk=&quot;1234567890&quot;
     psk=eed346e10ee03dd93b9d25abbc117d58be9f619cf7d6aa1c7f3c080bbe94b84e
 }
-</code></pre><p>3). 连接网络<br>    <code>wpa_supplicant -Dwext -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf</code></p>
-<pre><code>执行命令后可能出现&quot;Operation not permitted&quot;,看似是错误信息，不用管。  
+</code></pre><p>3). &#x8FDE;&#x63A5;&#x7F51;&#x7EDC;<br>    <code>wpa_supplicant -Dwext -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf</code></p>
+<pre><code>&#x6267;&#x884C;&#x547D;&#x4EE4;&#x540E;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&quot;Operation not permitted&quot;,&#x770B;&#x4F3C;&#x662F;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF0C;&#x4E0D;&#x7528;&#x7BA1;&#x3002;  
 [root@localhost ~]# wpa_supplicant -Dwext -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf 
 ioctl[SIOCSIWAP]: Operation not permitted
 Trying to associate with 1c:92:73:b0:02:33 (SSID=&apos;TP_Link_Test&apos; freq=2412 MHz)
@@ -164,9 +155,9 @@ Associated with 1c:92:73:b0:02:33
 WPA: Key negotiation completed with 1c:92:73:b0:02:33 [PTK=TKIP GTK=TKIP]
 CTRL-EVENT-CONNECTED - Connection to 1c:92:73:b0:02:33 completed (auth) [id=0 id_str=]
 WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
-</code></pre><p>4). 获取IP<br>    <code>dhclient wlan0</code>  </p>
-<p>5). 检查是否获取成功<br>    <code>ifconfig wlan0</code><br>    ping 网关:<br>    <code>ping 192.168.1.1</code></p>
-<p>6). 断开网络<br>    <code>wpa_cli disable_network 0</code><br>    <code>wpa_cli remove_network 0</code><br>    <code>dhclient -x wlan0</code>  </p>
+</code></pre><p>4). &#x83B7;&#x53D6;IP<br>    <code>dhclient wlan0</code>  </p>
+<p>5). &#x68C0;&#x67E5;&#x662F;&#x5426;&#x83B7;&#x53D6;&#x6210;&#x529F;<br>    <code>ifconfig wlan0</code><br>    ping &#x7F51;&#x5173;:<br>    <code>ping 192.168.1.1</code></p>
+<p>6). &#x65AD;&#x5F00;&#x7F51;&#x7EDC;<br>    <code>wpa_cli disable_network 0</code><br>    <code>wpa_cli remove_network 0</code><br>    <code>dhclient -x wlan0</code>  </p>
 <p>Reference:  </p>
 <ul>
 <li><a href="http://hostap.epitest.fi/wpa_supplicant/" target="_blank" rel="external">http://hostap.epitest.fi/wpa_supplicant/</a></li>
@@ -174,10 +165,10 @@ WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
 <li>[<a href="http://xitong.iteye.com/blog/1723427" target="_blank" rel="external">http://xitong.iteye.com/blog/1723427</a>] (<a href="http://xitong.iteye.com/blog/1723427" target="_blank" rel="external">http://xitong.iteye.com/blog/1723427</a>)</li>
 <li>[<a href="http://evan7s.blog.163.com/blog/static/108955356201132494921476/" target="_blank" rel="external">http://evan7s.blog.163.com/blog/static/108955356201132494921476/</a>] (<a href="http://evan7s.blog.163.com/blog/static/108955356201132494921476/" target="_blank" rel="external">http://evan7s.blog.163.com/blog/static/108955356201132494921476/</a>)</li>
 <li>[<a href="http://blog.csdn.net/lin772662623/article/details/7830336" target="_blank" rel="external">http://blog.csdn.net/lin772662623/article/details/7830336</a>] (<a href="http://blog.csdn.net/lin772662623/article/details/7830336" target="_blank" rel="external">http://blog.csdn.net/lin772662623/article/details/7830336</a>)</li>
-<li><a href="http://blog.csdn.net/ti_tantbx/article/details/7037741" target="_blank" rel="external">wpa_supplicant的移植和可能遇到的问题</a></li>
+<li><a href="http://blog.csdn.net/ti_tantbx/article/details/7037741" target="_blank" rel="external">wpa_supplicant&#x7684;&#x79FB;&#x690D;&#x548C;&#x53EF;&#x80FD;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</a></li>
 <li><a href="https://github.com/kimperator/Samen/blob/master/src/samen-handler/samen-handler.c" target="_blank" rel="external">https://github.com/kimperator/Samen/blob/master/src/samen-handler/samen-handler.c</a></li>
 </ul>
-<p>##4.其他参考资料  </p>
+<p>##4.&#x5176;&#x4ED6;&#x53C2;&#x8003;&#x8D44;&#x6599;  </p>
 <ul>
 <li><a href="http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html" target="_blank" rel="external">Wireless Tools for Linux</a></li>
 <li><a href="http://blog.csdn.net/jacobywu/article/details/7366080" target="_blank" rel="external">http://blog.csdn.net/jacobywu/article/details/7366080</a></li>
@@ -189,7 +180,7 @@ WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/13/connect-wifi-in-linux-terminal/" data-id="cin61d0hc004tfyiz4awgz3y7" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/13/connect-wifi-in-linux-terminal/" data-id="cin6a5uho004q3ciz3xdv2adi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wifi/">wifi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wireless-tools/">wireless-tools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wpa-supplicant/">wpa_supplicant</a></li></ul>
@@ -210,9 +201,9 @@ WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
     </a>
   
   
-    <a href="/2013/03/12/skype-api-for-linux/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/03/12/install-skype-on-fedora18-x86_64/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">skype api for linux</div>
+      <div class="article-nav-title">install skype on fedora18 x86_64</div>
     </a>
   
 </nav>
@@ -276,7 +267,7 @@ WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

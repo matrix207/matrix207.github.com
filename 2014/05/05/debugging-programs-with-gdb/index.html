@@ -108,13 +108,13 @@ add -g option to compile, e.g: gcc -g -Wall -o test test">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
+        <h3 id="features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
 <li>let program run by your order</li>
 <li>set breakpoints and let program stop</li>
 <li>check values when program stop</li>
 <li>change environment of program</li>
 </ul>
-<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ol>
+<h3 id="basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ol>
 <li><p><strong>add <code>-g</code> option to compile, e.g: <code>gcc -g -Wall -o test test.c</code></strong>  </p>
 </li>
 <li><p>run</p>
@@ -132,7 +132,7 @@ finish       &lt;--- exit function
 q            &lt;--- exit gdb
 </code></pre></li>
 </ol>
-<h3 id="Advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ol>
+<h3 id="advance"><a href="#Advance" class="headerlink" title="Advance"></a>Advance</h3><ol>
 <li><p>modify program running environment  </p>
 <pre><code>(gdb) set args -f -i /tmp/rssp.pid  
 (gdb) show args  
@@ -140,7 +140,7 @@ Argument list to give program being debugged when it is started is &quot;-f -i /
 </code></pre></li>
 <li><p>debug running programm  </p>
 <pre><code>find PID by command pgrep, then using `gdb &lt;program&gt; PID` start debugging  
-using command `gdb &lt;program&gt;`，then using `attach PID` to start debugging, `detach` to cancel.
+using command `gdb &lt;program&gt;`&#xFF0C;then using `attach PID` to start debugging, `detach` to cancel.
 </code></pre></li>
 <li><p>info command  </p>
 <pre><code>info address -- Describe where symbol SYM is stored  
@@ -212,31 +212,31 @@ info watchpoints
 <li><p>signal  </p>
 </li>
 <li><p>thread  </p>
-<pre><code>- info threads 显示当前可调试的所有线程，每个线程会有一个GDB为其分配的ID，后面操  
-               作线程的时候会用到这个ID。 前面有*的是当前调试的线程。
-- thread ID 切换当前调试的线程为指定ID的线程。
-- break thread_test.c:123 thread all 在所有线程中相应的行上设置断点
-- thread apply ID1 ID2 command 让一个或者多个线程执行GDB命令command。 
-- thread apply all command 让所有被调试线程执行GDB命令command。
+<pre><code>- info threads &#x663E;&#x793A;&#x5F53;&#x524D;&#x53EF;&#x8C03;&#x8BD5;&#x7684;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;GDB&#x4E3A;&#x5176;&#x5206;&#x914D;&#x7684;ID&#xFF0C;&#x540E;&#x9762;&#x64CD;  
+               &#x4F5C;&#x7EBF;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x7528;&#x5230;&#x8FD9;&#x4E2A;ID&#x3002; &#x524D;&#x9762;&#x6709;*&#x7684;&#x662F;&#x5F53;&#x524D;&#x8C03;&#x8BD5;&#x7684;&#x7EBF;&#x7A0B;&#x3002;
+- thread ID &#x5207;&#x6362;&#x5F53;&#x524D;&#x8C03;&#x8BD5;&#x7684;&#x7EBF;&#x7A0B;&#x4E3A;&#x6307;&#x5B9A;ID&#x7684;&#x7EBF;&#x7A0B;&#x3002;
+- break thread_test.c:123 thread all &#x5728;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x4E2D;&#x76F8;&#x5E94;&#x7684;&#x884C;&#x4E0A;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;
+- thread apply ID1 ID2 command &#x8BA9;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x6267;&#x884C;GDB&#x547D;&#x4EE4;command&#x3002; 
+- thread apply all command &#x8BA9;&#x6240;&#x6709;&#x88AB;&#x8C03;&#x8BD5;&#x7EBF;&#x7A0B;&#x6267;&#x884C;GDB&#x547D;&#x4EE4;command&#x3002;
 - set scheduler-locking off|on|step   
-  估计是实际使用过多线程调试的人都可以发现，在使用step或者continue命令调试当前被  
-  调试线程的时候，其他线程也是同时执行的，怎么只让被调试程序执行呢？通过这个命令  
-  就可以实现这个需求。
-  + off 不锁定任何线程，也就是所有线程都执行，这是默认值。   
-  + on只有当前被调试程序会执行。 
-  + step 在单步的时候，除了next过一个函数的情况(熟悉情况的人可能知道，这其实是一  
-    个设置断点然后continue的行为)以外，只有当前线程会执行。
+  &#x4F30;&#x8BA1;&#x662F;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x8FC7;&#x591A;&#x7EBF;&#x7A0B;&#x8C03;&#x8BD5;&#x7684;&#x4EBA;&#x90FD;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x5728;&#x4F7F;&#x7528;step&#x6216;&#x8005;continue&#x547D;&#x4EE4;&#x8C03;&#x8BD5;&#x5F53;&#x524D;&#x88AB;  
+  &#x8C03;&#x8BD5;&#x7EBF;&#x7A0B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E5F;&#x662F;&#x540C;&#x65F6;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x600E;&#x4E48;&#x53EA;&#x8BA9;&#x88AB;&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x5462;&#xFF1F;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;  
+  &#x5C31;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x9700;&#x6C42;&#x3002;
+  + off &#x4E0D;&#x9501;&#x5B9A;&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x90FD;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x662F;&#x9ED8;&#x8BA4;&#x503C;&#x3002;   
+  + on&#x53EA;&#x6709;&#x5F53;&#x524D;&#x88AB;&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F;&#x4F1A;&#x6267;&#x884C;&#x3002; 
+  + step &#x5728;&#x5355;&#x6B65;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9664;&#x4E86;next&#x8FC7;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x60C5;&#x51B5;(&#x719F;&#x6089;&#x60C5;&#x51B5;&#x7684;&#x4EBA;&#x53EF;&#x80FD;&#x77E5;&#x9053;&#xFF0C;&#x8FD9;&#x5176;&#x5B9E;&#x662F;&#x4E00;  
+    &#x4E2A;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x7136;&#x540E;continue&#x7684;&#x884C;&#x4E3A;)&#x4EE5;&#x5916;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4F1A;&#x6267;&#x884C;&#x3002;
 </code></pre></li>
 </ol>
 <p>example:</p>
 <pre><code>(gdb) r
 Starting program: /root/thread
 [New Thread 1073951360 (LWP 12900)]
-[New Thread 1082342592 (LWP 12907)]---以下三个为新产生的线程
+[New Thread 1082342592 (LWP 12907)]---&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x4E3A;&#x65B0;&#x4EA7;&#x751F;&#x7684;&#x7EBF;&#x7A0B;
 [New Thread 1090731072 (LWP 12908)]
 [New Thread 1099119552 (LWP 12909)]
 
-查看线程：使用info threads可以查看运行的线程。 
+&#x67E5;&#x770B;&#x7EBF;&#x7A0B;&#xFF1A;&#x4F7F;&#x7528;info threads&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x8FD0;&#x884C;&#x7684;&#x7EBF;&#x7A0B;&#x3002; 
 
 (gdb) info threads
   4 Thread 1099119552 (LWP 12940)   0xffffe002 in ?? ()
@@ -245,13 +245,13 @@ Starting program: /root/thread
 * 1 Thread 1073951360 (LWP 12931)   main (argc=1, argv=0xbfffda04) at thread.c:21
 (gdb)
 
-注意，行首的蓝色文字为gdb分配的线程号，对线程进行切换时，使用该该号码，而不是
-上文标出的绿色数字。
+&#x6CE8;&#x610F;&#xFF0C;&#x884C;&#x9996;&#x7684;&#x84DD;&#x8272;&#x6587;&#x5B57;&#x4E3A;gdb&#x5206;&#x914D;&#x7684;&#x7EBF;&#x7A0B;&#x53F7;&#xFF0C;&#x5BF9;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5207;&#x6362;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x8BE5;&#x8BE5;&#x53F7;&#x7801;&#xFF0C;&#x800C;&#x4E0D;&#x662F;
+&#x4E0A;&#x6587;&#x6807;&#x51FA;&#x7684;&#x7EFF;&#x8272;&#x6570;&#x5B57;&#x3002;
 
-另外，行首的红色星号标识了当前活动的线程
+&#x53E6;&#x5916;&#xFF0C;&#x884C;&#x9996;&#x7684;&#x7EA2;&#x8272;&#x661F;&#x53F7;&#x6807;&#x8BC6;&#x4E86;&#x5F53;&#x524D;&#x6D3B;&#x52A8;&#x7684;&#x7EBF;&#x7A0B;
 
-切换线程：使用 thread THREADNUMBER 进行切换，THREADNUMBER 为上文提到的线程号。
-下例显示将活动线程从 1 切换至 4。 
+&#x5207;&#x6362;&#x7EBF;&#x7A0B;&#xFF1A;&#x4F7F;&#x7528; thread THREADNUMBER &#x8FDB;&#x884C;&#x5207;&#x6362;&#xFF0C;THREADNUMBER &#x4E3A;&#x4E0A;&#x6587;&#x63D0;&#x5230;&#x7684;&#x7EBF;&#x7A0B;&#x53F7;&#x3002;
+&#x4E0B;&#x4F8B;&#x663E;&#x793A;&#x5C06;&#x6D3B;&#x52A8;&#x7EBF;&#x7A0B;&#x4ECE; 1 &#x5207;&#x6362;&#x81F3; 4&#x3002; 
 
 (gdb) info threads
    4 Thread 1099119552 (LWP 12940)   0xffffe002 in ?? ()
@@ -266,12 +266,12 @@ Starting program: /root/thread
    2 Thread 1082342592 (LWP 12938)   0xffffe002 in ?? ()
    1 Thread 1073951360 (LWP 12931)   main (argc=1, argv=0xbfffda04) at thread.c:21
 (gdb)
-</code></pre><p>打印线程信息:</p>
+</code></pre><p>&#x6253;&#x5370;&#x7EBF;&#x7A0B;&#x4FE1;&#x606F;:</p>
 <pre><code>usage:
     break &lt;linespec&gt; thread &lt;threadno&gt;
     break &lt;linespec&gt; thread &lt;threadno&gt; if ...
 </code></pre><p>example:<br>    (gdb) break frik.c:13 thread 28 if bartab &gt; lim</p>
-<p>例子:</p>
+<p>&#x4F8B;&#x5B50;:</p>
 <pre><code>(gdb) r
 Starting program: /home/dennis/work/test/test 
 [Thread debugging using libthread_db enabled]
@@ -361,22 +361,22 @@ $1 = 97
 <li><p><code>dump binary memory filename start_addr end_addr</code> dump memory to files<br>ref : <a href="https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html" target="_blank" rel="external">https://sourceware.org/gdb/onlinedocs/gdb/Dump_002fRestore-Files.html</a></p>
 </li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="external">用GDB调试程序 1</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2880" target="_blank" rel="external">用GDB调试程序 2</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2881" target="_blank" rel="external">用GDB调试程序 3</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2882" target="_blank" rel="external">用GDB调试程序 4</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2883" target="_blank" rel="external">用GDB调试程序 5</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2884" target="_blank" rel="external">用GDB调试程序 6</a></li>
-<li><a href="http://blog.csdn.net/haoel/article/details/2885" target="_blank" rel="external">用GDB调试程序 7</a></li>
-<li><a href="http://blog.csdn.net/xiajun07061225/article/details/8960332" target="_blank" rel="external">GDB调试器基本命令必知必会</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/haoel/article/details/2879" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 1</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2880" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 2</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2881" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 3</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2882" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 4</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2883" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 5</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2884" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 6</a></li>
+<li><a href="http://blog.csdn.net/haoel/article/details/2885" target="_blank" rel="external">&#x7528;GDB&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F; 7</a></li>
+<li><a href="http://blog.csdn.net/xiajun07061225/article/details/8960332" target="_blank" rel="external">GDB&#x8C03;&#x8BD5;&#x5668;&#x57FA;&#x672C;&#x547D;&#x4EE4;&#x5FC5;&#x77E5;&#x5FC5;&#x4F1A;</a></li>
 <li><a href="http://poormansprofiler.org/hpmp.txt" target="_blank" rel="external">http://poormansprofiler.org/hpmp.txt</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/05/debugging-programs-with-gdb/" data-id="cin61d0jm007vfyizhpd662ck" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/05/debugging-programs-with-gdb/" data-id="cin6a5ujb007u3cizjfm7qjya" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +461,7 @@ $1 = 97
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -5,37 +5,19 @@
   
   <title>use raid | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux下建立raid11、先用fdisk在硬盘上划分出空间。
-    fdisk /dev/sdc  (后面的根据自己实际情况修改，因为我这里是虚拟机，
-    所以就用2个500M的来做成一个raid)
-    然后将其的功能改为 Linux raid autodetect 
-    (也就是在fdisk下面 用t选择功能然后输入 --&amp;gt;fd)
-
-2、建立raid
-    mdadm">
+  <meta name="description" content="Linux&amp;#x4E0B;&amp;#x5EFA;&amp;#x7ACB;raid11&amp;#x3001;&amp;#x5148;&amp;#x7528;fdisk&amp;#x5728;&amp;#x786C;&amp;#x76D8;&amp;#x4E0A;&amp;#x5212;&amp;#x5206;&amp;#x51FA;&amp;#x7A7A;&amp;#x95F4;&amp;#x3002;
+    fdisk /dev/sdc  (&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x6839;&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="use raid">
 <meta property="og:url" content="http://matrix207.github.com/2013/03/31/use-raid/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
-<meta property="og:description" content="Linux下建立raid11、先用fdisk在硬盘上划分出空间。
-    fdisk /dev/sdc  (后面的根据自己实际情况修改，因为我这里是虚拟机，
-    所以就用2个500M的来做成一个raid)
-    然后将其的功能改为 Linux raid autodetect 
-    (也就是在fdisk下面 用t选择功能然后输入 --&amp;gt;fd)
-
-2、建立raid
-    mdadm">
+<meta property="og:description" content="Linux&amp;#x4E0B;&amp;#x5EFA;&amp;#x7ACB;raid11&amp;#x3001;&amp;#x5148;&amp;#x7528;fdisk&amp;#x5728;&amp;#x786C;&amp;#x76D8;&amp;#x4E0A;&amp;#x5212;&amp;#x5206;&amp;#x51FA;&amp;#x7A7A;&amp;#x95F4;&amp;#x3002;
+    fdisk /dev/sdc  (&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x6839;&amp;#">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="use raid">
-<meta name="twitter:description" content="Linux下建立raid11、先用fdisk在硬盘上划分出空间。
-    fdisk /dev/sdc  (后面的根据自己实际情况修改，因为我这里是虚拟机，
-    所以就用2个500M的来做成一个raid)
-    然后将其的功能改为 Linux raid autodetect 
-    (也就是在fdisk下面 用t选择功能然后输入 --&amp;gt;fd)
-
-2、建立raid
-    mdadm">
+<meta name="twitter:description" content="Linux&amp;#x4E0B;&amp;#x5EFA;&amp;#x7ACB;raid11&amp;#x3001;&amp;#x5148;&amp;#x7528;fdisk&amp;#x5728;&amp;#x786C;&amp;#x76D8;&amp;#x4E0A;&amp;#x5212;&amp;#x5206;&amp;#x51FA;&amp;#x7A7A;&amp;#x95F4;&amp;#x3002;
+    fdisk /dev/sdc  (&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x6839;&amp;#">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -112,26 +94,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Linux下建立raid1"><a href="#Linux下建立raid1" class="headerlink" title="Linux下建立raid1"></a>Linux下建立raid1</h3><pre><code>1、先用fdisk在硬盘上划分出空间。
-    fdisk /dev/sdc  (后面的根据自己实际情况修改，因为我这里是虚拟机，
-    所以就用2个500M的来做成一个raid)
-    然后将其的功能改为 Linux raid autodetect 
-    (也就是在fdisk下面 用t选择功能然后输入 --&gt;fd)
+        <h3 id="linux&#x4E0B;&#x5EFA;&#x7ACB;raid1"><a href="#Linux&#x4E0B;&#x5EFA;&#x7ACB;raid1" class="headerlink" title="Linux&#x4E0B;&#x5EFA;&#x7ACB;raid1"></a>Linux&#x4E0B;&#x5EFA;&#x7ACB;raid1</h3><pre><code>1&#x3001;&#x5148;&#x7528;fdisk&#x5728;&#x786C;&#x76D8;&#x4E0A;&#x5212;&#x5206;&#x51FA;&#x7A7A;&#x95F4;&#x3002;
+    fdisk /dev/sdc  (&#x540E;&#x9762;&#x7684;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x4FEE;&#x6539;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x8FD9;&#x91CC;&#x662F;&#x865A;&#x62DF;&#x673A;&#xFF0C;
+    &#x6240;&#x4EE5;&#x5C31;&#x7528;2&#x4E2A;500M&#x7684;&#x6765;&#x505A;&#x6210;&#x4E00;&#x4E2A;raid)
+    &#x7136;&#x540E;&#x5C06;&#x5176;&#x7684;&#x529F;&#x80FD;&#x6539;&#x4E3A; Linux raid autodetect 
+    (&#x4E5F;&#x5C31;&#x662F;&#x5728;fdisk&#x4E0B;&#x9762; &#x7528;t&#x9009;&#x62E9;&#x529F;&#x80FD;&#x7136;&#x540E;&#x8F93;&#x5165; --&gt;fd)
 
-2、建立raid
+2&#x3001;&#x5EFA;&#x7ACB;raid
     mdadm -C /dev/md1 -l 1 -n 2 /dev/sda /dev/sdb
-    下面是在分区上建raid
+    &#x4E0B;&#x9762;&#x662F;&#x5728;&#x5206;&#x533A;&#x4E0A;&#x5EFA;raid
     mdadm -C /dev/md1 -l 1 -n 2 /dev/sda -n 2 /dev/sda1 /dev/sda2
-    mdadm -C raid阵列所在 -l raid等级 -n 设备数 设备分别是什么
-    建立完毕之后，可以通过cat /proc/mdstat 查看是否成功
+    mdadm -C raid&#x9635;&#x5217;&#x6240;&#x5728; -l raid&#x7B49;&#x7EA7; -n &#x8BBE;&#x5907;&#x6570; &#x8BBE;&#x5907;&#x5206;&#x522B;&#x662F;&#x4EC0;&#x4E48;
+    &#x5EFA;&#x7ACB;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;cat /proc/mdstat &#x67E5;&#x770B;&#x662F;&#x5426;&#x6210;&#x529F;
 
-3、格式化
+3&#x3001;&#x683C;&#x5F0F;&#x5316;
     mkfs.ext3 /dev/md1
 
-4、挂载
+4&#x3001;&#x6302;&#x8F7D;
     mount /dev/md1 /raid1
 
-5、建立mdadm.conf文件
+5&#x3001;&#x5EFA;&#x7ACB;mdadm.conf&#x6587;&#x4EF6;
     echo &apos;DEVICE /dev/sd[ab]&apos; &gt; /etc/mdadm.conf
     mdadm -Ds &gt;&gt; /etc/mdadm.conf
 
@@ -141,93 +123,93 @@
     mdadm -E /dev/sda
     mdadm -E /dev/sdb
 
-7. 配置mdadm开机自启动 
-    设备配置文件只能使系统在开机时正常启用RAID设备，但自动挂载RAID设备还是要再修改/etc/fstab
+7. &#x914D;&#x7F6E;mdadm&#x5F00;&#x673A;&#x81EA;&#x542F;&#x52A8; 
+    &#x8BBE;&#x5907;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x53EA;&#x80FD;&#x4F7F;&#x7CFB;&#x7EDF;&#x5728;&#x5F00;&#x673A;&#x65F6;&#x6B63;&#x5E38;&#x542F;&#x7528;RAID&#x8BBE;&#x5907;&#xFF0C;&#x4F46;&#x81EA;&#x52A8;&#x6302;&#x8F7D;RAID&#x8BBE;&#x5907;&#x8FD8;&#x662F;&#x8981;&#x518D;&#x4FEE;&#x6539;/etc/fstab
     #vi /etc/fstab
     ===============================================
     /dev/md0 /mnt/raid ext3 defaults 0 0
     ===============================================
 
-8. 停止与开启RAID设备：
-    停止：
+8. &#x505C;&#x6B62;&#x4E0E;&#x5F00;&#x542F;RAID&#x8BBE;&#x5907;&#xFF1A;
+    &#x505C;&#x6B62;&#xFF1A;
     #umount /mnt/raid
     #mdadm -S /dev/md0
     mdadm: stopped /dev/md0
-    开启：
-    使用配置文件时：
+    &#x5F00;&#x542F;&#xFF1A;
+    &#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65F6;&#xFF1A;
     #mdadm -As /dev/md0
     mdadm: /dev/md0 has been started with 3 drives and 1 spare.
-    没有使用配置文件时：
+    &#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x65F6;&#xFF1A;
     #mdadm -A /dev/md0 /dev/sd[bcde]
     mdadm: /dev/md0 has been started with 3 drives and 1 spare.
 
-9. 故障演示
-    1).将一个磁盘标记为faulty，模拟硬盘坏损
+9. &#x6545;&#x969C;&#x6F14;&#x793A;
+    1).&#x5C06;&#x4E00;&#x4E2A;&#x78C1;&#x76D8;&#x6807;&#x8BB0;&#x4E3A;faulty&#xFF0C;&#x6A21;&#x62DF;&#x786C;&#x76D8;&#x574F;&#x635F;
     #mdadm /dev/md0 -f /dev/sdb
-    2).查看RAID5重建过程
+    2).&#x67E5;&#x770B;RAID5&#x91CD;&#x5EFA;&#x8FC7;&#x7A0B;
     #mdadm -D /dev/md0    
     #cat /proc/mdstat 
-    3).查看完成坏损设备后的RAID状态
+    3).&#x67E5;&#x770B;&#x5B8C;&#x6210;&#x574F;&#x635F;&#x8BBE;&#x5907;&#x540E;&#x7684;RAID&#x72B6;&#x6001;
     #mdadm -D /dev/md0
     #cat /proc/mdstat 
-    4).移除坏损设备
+    4).&#x79FB;&#x9664;&#x574F;&#x635F;&#x8BBE;&#x5907;
     #mdadm /dev/md0 -r /dev/sdb
     mdadm: hot removed /dev/sdb
-    5).添加新的设备
+    5).&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x8BBE;&#x5907;
     #mdadm /dev/md0 -a /dev/sdb
     mdadm: added /dev/sdb
-    6).查看最终状态
+    6).&#x67E5;&#x770B;&#x6700;&#x7EC8;&#x72B6;&#x6001;
     #mdadm -D /dev/md0
     #cat /proc/mdstat 
 
-10. 删除整个RAID：
+10. &#x5220;&#x9664;&#x6574;&#x4E2A;RAID&#xFF1A;
     mdadm /dev/md0 --fail /dev/sda --remove /dev/sda
     mdadm /dev/md0 --fail /dev/sdb --remove /dev/sdb
     mdadm --stop /dev/md0
     mdadm --misc --zero-superblock /dev/sda
     mdadm --misc --zero-superblock /dev/sdb
-    即： 先删除RAID中的所有设备，然后停止该RAID即可
-</code></pre><h3 id="mdadm语法"><a href="#mdadm语法" class="headerlink" title="mdadm语法"></a>mdadm语法</h3><pre><code>基本语法 ： mdadm [mode] [options]
-[mode] 有7种：
-    Assemble：将以前定义的某个阵列加入当前在用阵列。
-    Build：   Build a legacy array ，每个device 没有 superblocks
-    Create：  创建一个新的阵列，每个device 具有 superblocks
-    Manage： 管理阵列，比如 add 或 remove
-    Misc：   允许单独对阵列中的某个 device 做操作，比如抹去superblocks 或 终止在用的阵列。
-    Follow or Monitor:监控 raid 1,4,5,6 和 multipath 的状态
-    Grow：   改变raid 容量或 阵列中的 device 数目
-可用的 [options]:
--A, --assemble：加入一个以前定义的阵列
--B, --build：Build a legacy array without superblocks.
--C, --create：创建一个新的阵列
--Q, --query：查看一个device，判断它为一个 md device 或是 一个 md 阵列的一部分
--D, --detail：打印一个或多个 md device 的详细信息
--E, --examine：打印 device 上的 md superblock 的内容
--F, --follow, --monitor：选择 Monitor 模式
--G, --grow：改变在用阵列的大小或形态
--h, --help：帮助信息，用在以上选项后，则显示该选项信息
+    &#x5373;&#xFF1A; &#x5148;&#x5220;&#x9664;RAID&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8BBE;&#x5907;&#xFF0C;&#x7136;&#x540E;&#x505C;&#x6B62;&#x8BE5;RAID&#x5373;&#x53EF;
+</code></pre><h3 id="mdadm&#x8BED;&#x6CD5;"><a href="#mdadm&#x8BED;&#x6CD5;" class="headerlink" title="mdadm&#x8BED;&#x6CD5;"></a>mdadm&#x8BED;&#x6CD5;</h3><pre><code>&#x57FA;&#x672C;&#x8BED;&#x6CD5; &#xFF1A; mdadm [mode] [options]
+[mode] &#x6709;7&#x79CD;&#xFF1A;
+    Assemble&#xFF1A;&#x5C06;&#x4EE5;&#x524D;&#x5B9A;&#x4E49;&#x7684;&#x67D0;&#x4E2A;&#x9635;&#x5217;&#x52A0;&#x5165;&#x5F53;&#x524D;&#x5728;&#x7528;&#x9635;&#x5217;&#x3002;
+    Build&#xFF1A;   Build a legacy array &#xFF0C;&#x6BCF;&#x4E2A;device &#x6CA1;&#x6709; superblocks
+    Create&#xFF1A;  &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9635;&#x5217;&#xFF0C;&#x6BCF;&#x4E2A;device &#x5177;&#x6709; superblocks
+    Manage&#xFF1A; &#x7BA1;&#x7406;&#x9635;&#x5217;&#xFF0C;&#x6BD4;&#x5982; add &#x6216; remove
+    Misc&#xFF1A;   &#x5141;&#x8BB8;&#x5355;&#x72EC;&#x5BF9;&#x9635;&#x5217;&#x4E2D;&#x7684;&#x67D0;&#x4E2A; device &#x505A;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x62B9;&#x53BB;superblocks &#x6216; &#x7EC8;&#x6B62;&#x5728;&#x7528;&#x7684;&#x9635;&#x5217;&#x3002;
+    Follow or Monitor:&#x76D1;&#x63A7; raid 1,4,5,6 &#x548C; multipath &#x7684;&#x72B6;&#x6001;
+    Grow&#xFF1A;   &#x6539;&#x53D8;raid &#x5BB9;&#x91CF;&#x6216; &#x9635;&#x5217;&#x4E2D;&#x7684; device &#x6570;&#x76EE;
+&#x53EF;&#x7528;&#x7684; [options]:
+-A, --assemble&#xFF1A;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x4EE5;&#x524D;&#x5B9A;&#x4E49;&#x7684;&#x9635;&#x5217;
+-B, --build&#xFF1A;Build a legacy array without superblocks.
+-C, --create&#xFF1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x9635;&#x5217;
+-Q, --query&#xFF1A;&#x67E5;&#x770B;&#x4E00;&#x4E2A;device&#xFF0C;&#x5224;&#x65AD;&#x5B83;&#x4E3A;&#x4E00;&#x4E2A; md device &#x6216;&#x662F; &#x4E00;&#x4E2A; md &#x9635;&#x5217;&#x7684;&#x4E00;&#x90E8;&#x5206;
+-D, --detail&#xFF1A;&#x6253;&#x5370;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A; md device &#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;
+-E, --examine&#xFF1A;&#x6253;&#x5370; device &#x4E0A;&#x7684; md superblock &#x7684;&#x5185;&#x5BB9;
+-F, --follow, --monitor&#xFF1A;&#x9009;&#x62E9; Monitor &#x6A21;&#x5F0F;
+-G, --grow&#xFF1A;&#x6539;&#x53D8;&#x5728;&#x7528;&#x9635;&#x5217;&#x7684;&#x5927;&#x5C0F;&#x6216;&#x5F62;&#x6001;
+-h, --help&#xFF1A;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;&#xFF0C;&#x7528;&#x5728;&#x4EE5;&#x4E0A;&#x9009;&#x9879;&#x540E;&#xFF0C;&#x5219;&#x663E;&#x793A;&#x8BE5;&#x9009;&#x9879;&#x4FE1;&#x606F;
 --help-options
 -V, --version
--v, --verbose：显示细节
--b, --brief：较少的细节。用于 --detail 和 --examine 选项
+-v, --verbose&#xFF1A;&#x663E;&#x793A;&#x7EC6;&#x8282;
+-b, --brief&#xFF1A;&#x8F83;&#x5C11;&#x7684;&#x7EC6;&#x8282;&#x3002;&#x7528;&#x4E8E; --detail &#x548C; --examine &#x9009;&#x9879;
 -f, --force
--c, --config= ：指定配置文件，缺省为 /etc/mdadm/mdadm.conf
--s, --scan：扫描配置文件或 /proc/mdstat以搜寻丢失的信息。配置文件/etc/mdadm/mdadm.conf
-create 或 build 使用的选项:
--c, --chunk=:Specify chunk size of kibibytes. 缺省为 64.
+-c, --config= &#xFF1A;&#x6307;&#x5B9A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x7F3A;&#x7701;&#x4E3A; /etc/mdadm/mdadm.conf
+-s, --scan&#xFF1A;&#x626B;&#x63CF;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6216; /proc/mdstat&#x4EE5;&#x641C;&#x5BFB;&#x4E22;&#x5931;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x914D;&#x7F6E;&#x6587;&#x4EF6;/etc/mdadm/mdadm.conf
+create &#x6216; build &#x4F7F;&#x7528;&#x7684;&#x9009;&#x9879;:
+-c, --chunk=:Specify chunk size of kibibytes. &#x7F3A;&#x7701;&#x4E3A; 64.
 --rounding=: Specify rounding factor for linear array (==chunk size)
--l, --level=:设定 raid level.
---create可用:linear, raid0, 0, stripe, raid1,1, mirror, raid4, 4, raid5, 5, raid6, 6, multipath, mp.
---build可用：linear, raid0, 0, stripe.
--p, --parity=：设定 raid5 的奇偶校验规则:eft-asymmetric, left-symmetric, right-asymmetric, right-symmetric, la, ra, ls, rs.缺省为left-symmetric
---layout=:类似于--parity
--n, --raid-devices=:指定阵列中可用 device 数目，这个数目只能由 --grow 修改
--x, --spare-devices=：指定初始阵列的富余device 数目
--z, --size=：组建RAID1/4/5/6后从每个device获取的空间总数
---assume-clean:目前仅用于 --build 选项
--R, --run:阵列中的某一部分出现在其他阵列或文件系统中时，mdadm会确认该阵列。此选项将不作确认。
--f, --force:通常mdadm不允许只用一个device 创建阵列，而且创建raid5时会使用一个device作为missing drive。此选项正相反。
--a, --auto{=no,yes,md,mdp,part,p}{NN}：
+-l, --level=:&#x8BBE;&#x5B9A; raid level.
+--create&#x53EF;&#x7528;:linear, raid0, 0, stripe, raid1,1, mirror, raid4, 4, raid5, 5, raid6, 6, multipath, mp.
+--build&#x53EF;&#x7528;&#xFF1A;linear, raid0, 0, stripe.
+-p, --parity=&#xFF1A;&#x8BBE;&#x5B9A; raid5 &#x7684;&#x5947;&#x5076;&#x6821;&#x9A8C;&#x89C4;&#x5219;:eft-asymmetric, left-symmetric, right-asymmetric, right-symmetric, la, ra, ls, rs.&#x7F3A;&#x7701;&#x4E3A;left-symmetric
+--layout=:&#x7C7B;&#x4F3C;&#x4E8E;--parity
+-n, --raid-devices=:&#x6307;&#x5B9A;&#x9635;&#x5217;&#x4E2D;&#x53EF;&#x7528; device &#x6570;&#x76EE;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x76EE;&#x53EA;&#x80FD;&#x7531; --grow &#x4FEE;&#x6539;
+-x, --spare-devices=&#xFF1A;&#x6307;&#x5B9A;&#x521D;&#x59CB;&#x9635;&#x5217;&#x7684;&#x5BCC;&#x4F59;device &#x6570;&#x76EE;
+-z, --size=&#xFF1A;&#x7EC4;&#x5EFA;RAID1/4/5/6&#x540E;&#x4ECE;&#x6BCF;&#x4E2A;device&#x83B7;&#x53D6;&#x7684;&#x7A7A;&#x95F4;&#x603B;&#x6570;
+--assume-clean:&#x76EE;&#x524D;&#x4EC5;&#x7528;&#x4E8E; --build &#x9009;&#x9879;
+-R, --run:&#x9635;&#x5217;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x90E8;&#x5206;&#x51FA;&#x73B0;&#x5728;&#x5176;&#x4ED6;&#x9635;&#x5217;&#x6216;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x65F6;&#xFF0C;mdadm&#x4F1A;&#x786E;&#x8BA4;&#x8BE5;&#x9635;&#x5217;&#x3002;&#x6B64;&#x9009;&#x9879;&#x5C06;&#x4E0D;&#x4F5C;&#x786E;&#x8BA4;&#x3002;
+-f, --force:&#x901A;&#x5E38;mdadm&#x4E0D;&#x5141;&#x8BB8;&#x53EA;&#x7528;&#x4E00;&#x4E2A;device &#x521B;&#x5EFA;&#x9635;&#x5217;&#xFF0C;&#x800C;&#x4E14;&#x521B;&#x5EFA;raid5&#x65F6;&#x4F1A;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;device&#x4F5C;&#x4E3A;missing drive&#x3002;&#x6B64;&#x9009;&#x9879;&#x6B63;&#x76F8;&#x53CD;&#x3002;
+-a, --auto{=no,yes,md,mdp,part,p}{NN}&#xFF1A;
 </code></pre><h3 id="other"><a href="#other" class="headerlink" title="other:"></a>other:</h3><pre><code>1). check file system type
     before check, should mount the device first
     [root@localhost ]# df -T /mnt/raid1/
@@ -249,23 +231,23 @@ create 或 build 使用的选项:
     reference:
     (1). Linux how to determine the file system type
         www.cyberciti.biz/faq/linux-how-to-determine-find-out-file-system-type/ 
-2).如果想了解你的kernel目前支持哪些文件系统，可以查看/proc/filesystems的内容 
+2).&#x5982;&#x679C;&#x60F3;&#x4E86;&#x89E3;&#x4F60;&#x7684;kernel&#x76EE;&#x524D;&#x652F;&#x6301;&#x54EA;&#x4E9B;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x770B;/proc/filesystems&#x7684;&#x5185;&#x5BB9; 
     reference:
-    (1).linux /etc/fstab 文件说明 www.wokeke.com/?p=350 
-</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><ul>
-<li><a href="http://linux.vbird.org/linux_basic/0420quota.php#raid" target="_blank" rel="external">鳥哥的 Linux 私房菜 軟體磁碟陣列 (Software RAID)</a></li>
-<li><a href="http://page.renren.com/600235506/note/486081565?op=pre&amp;curTime=1282876355000" target="_blank" rel="external">Linux建立Raid</a></li>
-<li><a href="http://blog.csdn.net/sense5/article/details/3888249" target="_blank" rel="external">mdadm详解</a></li>
+    (1).linux /etc/fstab &#x6587;&#x4EF6;&#x8BF4;&#x660E; www.wokeke.com/?p=350 
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h3><ul>
+<li><a href="http://linux.vbird.org/linux_basic/0420quota.php#raid" target="_blank" rel="external">&#x9CE5;&#x54E5;&#x7684; Linux &#x79C1;&#x623F;&#x83DC; &#x8EDF;&#x9AD4;&#x78C1;&#x789F;&#x9663;&#x5217; (Software RAID)</a></li>
+<li><a href="http://page.renren.com/600235506/note/486081565?op=pre&amp;curTime=1282876355000" target="_blank" rel="external">Linux&#x5EFA;&#x7ACB;Raid</a></li>
+<li><a href="http://blog.csdn.net/sense5/article/details/3888249" target="_blank" rel="external">mdadm&#x8BE6;&#x89E3;</a></li>
 <li><a href="http://supportex.net/2010/11/determine-raid-controller-type-model/" target="_blank" rel="external">How to determine RAID controller type and a model</a></li>
 <li><a href="www.cyberciti.biz/faq/linux-how-to-delete-a-partition-with-fdisk-command/">Linux: How to delete a partition with fdisk command</a></li>
-<li><a href="www.51chongdian.net/bbs/thread-35739-1-1.html">Linux DD命令删除掉分区shell</a></li>
-<li><a href="blog.csdn.net/fjb2080/article/details/5032274">使用libparted库写个程序来打印我们的设备信息</a></li>
-<li><a href="yuetao.org/linux-fdisk/">linux fdisk 分区、格式化、挂载！</a></li>
-<li><a href="www.ixpub.net/thread-763965-1-1.html">关于删除软raid设备md0</a></li>
-<li><a href="http://david0341.iteye.com/blog/382399" target="_blank" rel="external">Linux软Raid配置</a></li>
-<li><a href="http://blog.csdn.net/sense5/article/details/1828868" target="_blank" rel="external">mdadm使用详解及RAID 5简单分析</a></li>
+<li><a href="www.51chongdian.net/bbs/thread-35739-1-1.html">Linux DD&#x547D;&#x4EE4;&#x5220;&#x9664;&#x6389;&#x5206;&#x533A;shell</a></li>
+<li><a href="blog.csdn.net/fjb2080/article/details/5032274">&#x4F7F;&#x7528;libparted&#x5E93;&#x5199;&#x4E2A;&#x7A0B;&#x5E8F;&#x6765;&#x6253;&#x5370;&#x6211;&#x4EEC;&#x7684;&#x8BBE;&#x5907;&#x4FE1;&#x606F;</a></li>
+<li><a href="yuetao.org/linux-fdisk/">linux fdisk &#x5206;&#x533A;&#x3001;&#x683C;&#x5F0F;&#x5316;&#x3001;&#x6302;&#x8F7D;&#xFF01;</a></li>
+<li><a href="www.ixpub.net/thread-763965-1-1.html">&#x5173;&#x4E8E;&#x5220;&#x9664;&#x8F6F;raid&#x8BBE;&#x5907;md0</a></li>
+<li><a href="http://david0341.iteye.com/blog/382399" target="_blank" rel="external">Linux&#x8F6F;Raid&#x914D;&#x7F6E;</a></li>
+<li><a href="http://blog.csdn.net/sense5/article/details/1828868" target="_blank" rel="external">mdadm&#x4F7F;&#x7528;&#x8BE6;&#x89E3;&#x53CA;RAID 5&#x7B80;&#x5355;&#x5206;&#x6790;</a></li>
 </ul>
-<h3 id="我的一些raid操作"><a href="#我的一些raid操作" class="headerlink" title="我的一些raid操作:"></a>我的一些raid操作:</h3><pre><code>1. stop raid
+<h3 id="&#x6211;&#x7684;&#x4E00;&#x4E9B;raid&#x64CD;&#x4F5C;"><a href="#&#x6211;&#x7684;&#x4E00;&#x4E9B;raid&#x64CD;&#x4F5C;" class="headerlink" title="&#x6211;&#x7684;&#x4E00;&#x4E9B;raid&#x64CD;&#x4F5C;:"></a>&#x6211;&#x7684;&#x4E00;&#x4E9B;raid&#x64CD;&#x4F5C;:</h3><pre><code>1. stop raid
     mdadm -S /dev/md0
     mdadm -S /dev/md1
     mdadm -S /dev/md126
@@ -275,13 +257,13 @@ create 或 build 使用的选项:
 3. check states
     cat /proc/mdstat
 
-系统中原来插有两块盘，分别显示为/dev/sda /dev/sdb
-如果把第一块盘/dev/sda拔掉，重启后，第二块盘自动识别为/dev/sda
-如果原来/dev/sda和/dev/sdb建了raid1，拔掉/dev/sda并重启系统后，做如下操作:
+&#x7CFB;&#x7EDF;&#x4E2D;&#x539F;&#x6765;&#x63D2;&#x6709;&#x4E24;&#x5757;&#x76D8;&#xFF0C;&#x5206;&#x522B;&#x663E;&#x793A;&#x4E3A;/dev/sda /dev/sdb
+&#x5982;&#x679C;&#x628A;&#x7B2C;&#x4E00;&#x5757;&#x76D8;/dev/sda&#x62D4;&#x6389;&#xFF0C;&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x7B2C;&#x4E8C;&#x5757;&#x76D8;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x4E3A;/dev/sda
+&#x5982;&#x679C;&#x539F;&#x6765;/dev/sda&#x548C;/dev/sdb&#x5EFA;&#x4E86;raid1&#xFF0C;&#x62D4;&#x6389;/dev/sda&#x5E76;&#x91CD;&#x542F;&#x7CFB;&#x7EDF;&#x540E;&#xFF0C;&#x505A;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;:
 [root@localhost ]# cat /proc/mdstat 
 Personalities : [linear] [raid0] [raid1] 
 md0 : active raid1 sda[1]
-      976761424 blocks super 1.2 [2/1] [_U]  # 正常应该是[UU]
+      976761424 blocks super 1.2 [2/1] [_U]  # &#x6B63;&#x5E38;&#x5E94;&#x8BE5;&#x662F;[UU]
 
 unused devices: &lt;none&gt;
 [root@localhost ]# mdadm --detail /dev/md0
@@ -307,12 +289,12 @@ Working Devices : 1
          Events : 6
 
     Number   Major   Minor   RaidDevice State
-       0       0        0        0      removed     # 这里看到有一块盘被移除了
+       0       0        0        0      removed     # &#x8FD9;&#x91CC;&#x770B;&#x5230;&#x6709;&#x4E00;&#x5757;&#x76D8;&#x88AB;&#x79FB;&#x9664;&#x4E86;
        1       8        0        1      active sync   /dev/sda
 [root@localhost ]# 
 
 
-正常情况
+&#x6B63;&#x5E38;&#x60C5;&#x51B5;
 [root@localhost ]# cat /proc/mdstat 
 Personalities : [linear] [raid0] [raid1] 
 md0 : active raid1 sdb[1] sda[0]
@@ -320,7 +302,7 @@ md0 : active raid1 sdb[1] sda[0]
 
 unused devices: &lt;none&gt;
 
-拔掉一块raid盘，删掉剩下的raid盘数据，重启后插入有raid数据的盘
+&#x62D4;&#x6389;&#x4E00;&#x5757;raid&#x76D8;&#xFF0C;&#x5220;&#x6389;&#x5269;&#x4E0B;&#x7684;raid&#x76D8;&#x6570;&#x636E;&#xFF0C;&#x91CD;&#x542F;&#x540E;&#x63D2;&#x5165;&#x6709;raid&#x6570;&#x636E;&#x7684;&#x76D8;
 [root@localhost ]# cat /proc/mdstat 
 Personalities : [linear] [raid0] [raid1] 
 md127 : inactive sdb[0](S)
@@ -329,7 +311,7 @@ md127 : inactive sdb[0](S)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/31/use-raid/" data-id="cin61d0hi005afyizw7ckxqvz" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/31/use-raid/" data-id="cin6a5uhq004y3cizh6rec2yy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raid/">raid</a></li></ul>
@@ -416,7 +398,7 @@ md127 : inactive sdb[0](S)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

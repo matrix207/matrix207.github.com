@@ -5,49 +5,25 @@
   
   <title>nfs | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About NFSNFS is “Network File System”.
+  <meta name="description" content="About NFSNFS is &amp;#x201C;Network File System&amp;#x201D;.
 
-linux find NFS version, using command nfsstat -m on client machine, 找到字符串”vers=4.0”
-对比分析各个NFS版本的特点
-
-
-
-How to use
-On server:
-
-service nfs start|stop
-set ACL (Acc">
+linux find NFS version, using command nfsstat -m on client machine, &amp;#x627E;&amp;#x5230;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x201D;vers=4.0&amp;#x201D;
+&amp;#x5BF9;&amp;#x6B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nfs">
 <meta property="og:url" content="http://matrix207.github.com/2015/03/25/nfs/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
-<meta property="og:description" content="About NFSNFS is “Network File System”.
+<meta property="og:description" content="About NFSNFS is &amp;#x201C;Network File System&amp;#x201D;.
 
-linux find NFS version, using command nfsstat -m on client machine, 找到字符串”vers=4.0”
-对比分析各个NFS版本的特点
-
-
-
-How to use
-On server:
-
-service nfs start|stop
-set ACL (Acc">
+linux find NFS version, using command nfsstat -m on client machine, &amp;#x627E;&amp;#x5230;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x201D;vers=4.0&amp;#x201D;
+&amp;#x5BF9;&amp;#x6B">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nfs">
-<meta name="twitter:description" content="About NFSNFS is “Network File System”.
+<meta name="twitter:description" content="About NFSNFS is &amp;#x201C;Network File System&amp;#x201D;.
 
-linux find NFS version, using command nfsstat -m on client machine, 找到字符串”vers=4.0”
-对比分析各个NFS版本的特点
-
-
-
-How to use
-On server:
-
-service nfs start|stop
-set ACL (Acc">
+linux find NFS version, using command nfsstat -m on client machine, &amp;#x627E;&amp;#x5230;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x201D;vers=4.0&amp;#x201D;
+&amp;#x5BF9;&amp;#x6B">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -120,21 +96,21 @@ set ACL (Acc">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="About-NFS"><a href="#About-NFS" class="headerlink" title="About NFS"></a>About NFS</h3><p>NFS is “Network File System”.</p>
+        <h3 id="about-nfs"><a href="#About-NFS" class="headerlink" title="About NFS"></a>About NFS</h3><p>NFS is &#x201C;Network File System&#x201D;.</p>
 <ul>
-<li>linux find NFS version, using command <code>nfsstat -m</code> on client machine, 找到字符串”vers=4.0”<ul>
-<li><a href="http://network.51cto.com/art/201008/216664.htm" target="_blank" rel="external">对比分析各个NFS版本的特点</a></li>
+<li>linux find NFS version, using command <code>nfsstat -m</code> on client machine, &#x627E;&#x5230;&#x5B57;&#x7B26;&#x4E32;&#x201D;vers=4.0&#x201D;<ul>
+<li><a href="http://network.51cto.com/art/201008/216664.htm" target="_blank" rel="external">&#x5BF9;&#x6BD4;&#x5206;&#x6790;&#x5404;&#x4E2A;NFS&#x7248;&#x672C;&#x7684;&#x7279;&#x70B9;</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><ul>
+<h3 id="how-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h3><ul>
 <li><p>On server:</p>
 <ul>
 <li>service nfs start|stop</li>
 <li>set ACL (Access Control Lists) of files and directories.<ul>
-<li>setfacl -m other::— PATH</li>
+<li>setfacl -m other::&#x2014; PATH</li>
 <li>setfacl -m g:GROUP_NAME:rwx PATH</li>
-<li>setfacl -m g:GROUP_NAME:— PATH</li>
+<li>setfacl -m g:GROUP_NAME:&#x2014; PATH</li>
 </ul>
 </li>
 </ul>
@@ -149,47 +125,47 @@ set ACL (Acc">
 </ul>
 </li>
 <li><p>command operation:  </p>
-<p>  [root@Ustor ~]# service nfs start<br>  Starting RPC svcgssd:                                      [  OK  ]<br>  Starting NFS services:                                     [  OK  ]<br>  Starting NFS quotas:                                       [  OK  ]<br>  Starting NFS mountd:                                       [  OK  ]<br>  Stopping RPC idmapd:                                       [  OK  ]<br>  Starting RPC idmapd:                                       [  OK  ]<br>  Starting NFS daemon:                                       [  OK  ]<br>  [root@Ustor ~]# service nfs status<br>  rpc.svcgssd (pid 11647) is running…<br>  rpc.mountd (pid 11657) is running…<br>  nfsd (pid 11722 11721 11720 11719 11718 11717 11716 11715) is running…<br>  rpc.rquotad (pid 11653) is running..<br>  [root@Ustor ~]# ps aux |grep nfs<br>  root   11713  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4]<br>  root   11714  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4_callbacks]<br>  root   11715  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11716  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11717  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11718  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11719  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11720  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11721  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11722  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11904  0.0  0.0 103240   844 pts/1  S+   23:35   0:00 grep nfs<br>  [root@Ustor ~]# netstat -apn |grep 2049<br>  tcp     0      0 0.0.0.0:2049         0.0.0.0:<em>            LISTEN      -<br>  tcp     0      0 :::2049              :::</em>                 LISTEN      -<br>  udp     0      0 0.0.0.0:2049         0.0.0.0:<em>                        -<br>  udp     0      0 :::2049              :::</em>                             -<br>  [root@Ustor ~]# service nfs stop<br>  Shutting down NFS daemon:                                  [  OK  ]<br>  Shutting down NFS mountd:                                  [  OK  ]<br>  Shutting down NFS quotas:                                  [  OK  ]<br>  Shutting down RPC svcgssd:                                 [  OK  ]</p>
+<p>  [root@Ustor ~]# service nfs start<br>  Starting RPC svcgssd:                                      [  OK  ]<br>  Starting NFS services:                                     [  OK  ]<br>  Starting NFS quotas:                                       [  OK  ]<br>  Starting NFS mountd:                                       [  OK  ]<br>  Stopping RPC idmapd:                                       [  OK  ]<br>  Starting RPC idmapd:                                       [  OK  ]<br>  Starting NFS daemon:                                       [  OK  ]<br>  [root@Ustor ~]# service nfs status<br>  rpc.svcgssd (pid 11647) is running&#x2026;<br>  rpc.mountd (pid 11657) is running&#x2026;<br>  nfsd (pid 11722 11721 11720 11719 11718 11717 11716 11715) is running&#x2026;<br>  rpc.rquotad (pid 11653) is running..<br>  [root@Ustor ~]# ps aux |grep nfs<br>  root   11713  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4]<br>  root   11714  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd4_callbacks]<br>  root   11715  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11716  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11717  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11718  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11719  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11720  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11721  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11722  0.0  0.0      0     0 ?      S    23:34   0:00 [nfsd]<br>  root   11904  0.0  0.0 103240   844 pts/1  S+   23:35   0:00 grep nfs<br>  [root@Ustor ~]# netstat -apn |grep 2049<br>  tcp     0      0 0.0.0.0:2049         0.0.0.0:<em>            LISTEN      -<br>  tcp     0      0 :::2049              :::</em>                 LISTEN      -<br>  udp     0      0 0.0.0.0:2049         0.0.0.0:<em>                        -<br>  udp     0      0 :::2049              :::</em>                             -<br>  [root@Ustor ~]# service nfs stop<br>  Shutting down NFS daemon:                                  [  OK  ]<br>  Shutting down NFS mountd:                                  [  OK  ]<br>  Shutting down NFS quotas:                                  [  OK  ]<br>  Shutting down RPC svcgssd:                                 [  OK  ]</p>
 </li>
 <li><p>check status from /proc/fs/nfs and /proc/fs/nfsd/</p>
 </li>
 </ul>
-<h3 id="Optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h3><ul>
-<li><p>★★★ <strong><a href="http://blog.csdn.net/yangzhongxuan/article/details/7918884" target="_blank" rel="external">nfs的传输速度优化</a></strong></p>
+<h3 id="optimal"><a href="#Optimal" class="headerlink" title="Optimal"></a>Optimal</h3><ul>
+<li><p>&#x2605;&#x2605;&#x2605; <strong><a href="http://blog.csdn.net/yangzhongxuan/article/details/7918884" target="_blank" rel="external">nfs&#x7684;&#x4F20;&#x8F93;&#x901F;&#x5EA6;&#x4F18;&#x5316;</a></strong></p>
 <ul>
-<li>设置块大小 <ul>
-<li>time dd if=/dev/zero of=/testfs/testfile bs=8k count=1024 测试nfs写</li>
-<li>time dd if=/testfs/testfile of=/dev/null bs=8k 测试nfs读</li>
+<li>&#x8BBE;&#x7F6E;&#x5757;&#x5927;&#x5C0F; <ul>
+<li>time dd if=/dev/zero of=/testfs/testfile bs=8k count=1024 &#x6D4B;&#x8BD5;nfs&#x5199;</li>
+<li>time dd if=/testfs/testfile of=/dev/null bs=8k &#x6D4B;&#x8BD5;nfs&#x8BFB;</li>
 </ul>
 </li>
-<li>网络传输包的大小<ul>
+<li>&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x5305;&#x7684;&#x5927;&#x5C0F;<ul>
 <li>ping -s 2048 -f hostname, try different package size</li>
-<li>nfsstat －o net</li>
-<li>tracepath node1/端口号</li>
+<li>nfsstat &#xFF0D;o net</li>
+<li>tracepath node1/&#x7AEF;&#x53E3;&#x53F7;</li>
 <li>ifconfig eth0</li>
 <li>ifconfig eth0 mtu 16436, modify MTU value</li>
-<li>/proc/sys/net/ipv4/ipfrag_high_thresh和/proc/sys/net/ipv4/ipfrag_low_thresh</li>
+<li>/proc/sys/net/ipv4/ipfrag_high_thresh&#x548C;/proc/sys/net/ipv4/ipfrag_low_thresh</li>
 </ul>
 </li>
-<li>nfs挂载的优化<ul>
-<li>timeo:如果超时，客户端等待的时间，以十分之一秒计算。</li>
-<li>retrans：超时尝试的次数。</li>
-<li>bg：后台挂载，很有用</li>
-<li>hard：如果server端没有响应，那么客户端一直尝试挂载。</li>
-<li>wsize：写块大小</li>
-<li>rsize：读块大小</li>
-<li>intr：可以中断不成功的挂载</li>
-<li>noatime：不更新文件的inode访问时间，可以提高速度。</li>
-<li>async：异步读写。</li>
+<li>nfs&#x6302;&#x8F7D;&#x7684;&#x4F18;&#x5316;<ul>
+<li>timeo:&#x5982;&#x679C;&#x8D85;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x5341;&#x5206;&#x4E4B;&#x4E00;&#x79D2;&#x8BA1;&#x7B97;&#x3002;</li>
+<li>retrans&#xFF1A;&#x8D85;&#x65F6;&#x5C1D;&#x8BD5;&#x7684;&#x6B21;&#x6570;&#x3002;</li>
+<li>bg&#xFF1A;&#x540E;&#x53F0;&#x6302;&#x8F7D;&#xFF0C;&#x5F88;&#x6709;&#x7528;</li>
+<li>hard&#xFF1A;&#x5982;&#x679C;server&#x7AEF;&#x6CA1;&#x6709;&#x54CD;&#x5E94;&#xFF0C;&#x90A3;&#x4E48;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x76F4;&#x5C1D;&#x8BD5;&#x6302;&#x8F7D;&#x3002;</li>
+<li>wsize&#xFF1A;&#x5199;&#x5757;&#x5927;&#x5C0F;</li>
+<li>rsize&#xFF1A;&#x8BFB;&#x5757;&#x5927;&#x5C0F;</li>
+<li>intr&#xFF1A;&#x53EF;&#x4EE5;&#x4E2D;&#x65AD;&#x4E0D;&#x6210;&#x529F;&#x7684;&#x6302;&#x8F7D;</li>
+<li>noatime&#xFF1A;&#x4E0D;&#x66F4;&#x65B0;&#x6587;&#x4EF6;&#x7684;inode&#x8BBF;&#x95EE;&#x65F6;&#x95F4;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x901F;&#x5EA6;&#x3002;</li>
+<li>async&#xFF1A;&#x5F02;&#x6B65;&#x8BFB;&#x5199;&#x3002;</li>
 </ul>
 </li>
-<li>nfsd的个数<ul>
+<li>nfsd&#x7684;&#x4E2A;&#x6570;<ul>
 <li>ps -efl |grep nfsd</li>
 <li>vi /etc/init.d/nfs, modify RPCNFSDCOUNT </li>
 <li>service nfs restart</li>
 </ul>
 </li>
-<li>nfsd的队列长度<ul>
+<li>nfsd&#x7684;&#x961F;&#x5217;&#x957F;&#x5EA6;<ul>
 <li>/proc/sys/net/core/rmem_default</li>
 <li>/proc/sys/net/core/rmem_max</li>
 <li>/proc/sys/net/core/wmem_default</li>
@@ -200,122 +176,122 @@ set ACL (Acc">
 <li>mount 192.168.1.220:/mnt/nfs /mnt/nfs_t -o nolock, rsize=1024,wsize=1024,timeo=15</li>
 </ul>
 </li>
-<li><p><strong>Linux NFS服务性能优化</strong></p>
+<li><p><strong>Linux NFS&#x670D;&#x52A1;&#x6027;&#x80FD;&#x4F18;&#x5316;</strong></p>
 <ul>
 <li>nfsstat -rc</li>
 <li><a href="http://blog.chinaunix.net/uid-24404943-id-3389539.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-24404943-id-3389539.html</a></li>
-<li>NFS的队列大小, modify server and client machine: (262144 = 256KB)<br>#echo 262144 &gt; /proc/sys/net/core/rmem_default<br>#echo 262144 &gt; /proc/sys/net/core/rmem_max<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_default<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_max  </li>
+<li>NFS&#x7684;&#x961F;&#x5217;&#x5927;&#x5C0F;, modify server and client machine: (262144 = 256KB)<br>#echo 262144 &gt; /proc/sys/net/core/rmem_default<br>#echo 262144 &gt; /proc/sys/net/core/rmem_max<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_default<br>#echo 262144 &gt; /proc/sys/net/core/wmmen_max  </li>
 <li>[root@localhost iperf-2.0.5]# dd if=/dev/zero of=/tmp/test01.dat bs=1M count=10240<br>10240+0 records in<br>10240+0 records out<br>10737418240 bytes (11 GB) copied, 28.2585 s, 380 MB/s  </li>
 <li>ping -s 2048 -f 192.16.110.80</li>
 <li><a href="http://www.cnblogs.com/derekchen/archive/2013/01/17/2865207.html" target="_blank" rel="external">http://www.cnblogs.com/derekchen/archive/2013/01/17/2865207.html</a></li>
-<li><a href="http://www.lichaozheng.info/2011/10/13/nfs性能优化/" target="_blank" rel="external">http://www.lichaozheng.info/2011/10/13/nfs性能优化/</a></li>
+<li><a href="http://www.lichaozheng.info/2011/10/13/nfs&#x6027;&#x80FD;&#x4F18;&#x5316;/" target="_blank" rel="external">http://www.lichaozheng.info/2011/10/13/nfs&#x6027;&#x80FD;&#x4F18;&#x5316;/</a></li>
 <li><a href="http://blog.csdn.net/anghlq/article/details/8532312" target="_blank" rel="external">http://blog.csdn.net/anghlq/article/details/8532312</a></li>
 <li>tracepath 192.16.110.80</li>
-<li>[root@localhost iperf-2.0.5]# echo “4096” &gt;/sys/class/net/enp10s0f0/mtu</li>
+<li>[root@localhost iperf-2.0.5]# echo &#x201C;4096&#x201D; &gt;/sys/class/net/enp10s0f0/mtu</li>
 <li>[root@localhost iperf-2.0.5]# dd if=/dev/zero of=/tmp/test04.dat bs=1M count=10240<br>10737418240 bytes (11 GB) copied, 28.0778 s, 382 MB/s  </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p>NFS共享在使用前需要挂载（mount）。挂载时使用的参数很大程度上影响了读写的性能</p>
+<li><p>NFS&#x5171;&#x4EAB;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x9700;&#x8981;&#x6302;&#x8F7D;&#xFF08;mount&#xFF09;&#x3002;&#x6302;&#x8F7D;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x53C2;&#x6570;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x5F71;&#x54CD;&#x4E86;&#x8BFB;&#x5199;&#x7684;&#x6027;&#x80FD;</p>
 <ul>
 <li><ol>
 <li>TCP or UDP</li>
 </ol>
 </li>
 <li><ol>
-<li>rsize和wsize，每次读写的最大值</li>
+<li>rsize&#x548C;wsize&#xFF0C;&#x6BCF;&#x6B21;&#x8BFB;&#x5199;&#x7684;&#x6700;&#x5927;&#x503C;</li>
 </ol>
 </li>
 <li><ol>
-<li>sync和async. sync参数会强制wsize变成4KB，这会大大降低写性能。 </li>
+<li>sync&#x548C;async. sync&#x53C2;&#x6570;&#x4F1A;&#x5F3A;&#x5236;wsize&#x53D8;&#x6210;4KB&#xFF0C;&#x8FD9;&#x4F1A;&#x5927;&#x5927;&#x964D;&#x4F4E;&#x5199;&#x6027;&#x80FD;&#x3002; </li>
 </ol>
 </li>
 </ul>
 </li>
-<li><p><strong>关于SAMBA和NFS是否支持断点续传</strong></p>
+<li><p><strong>&#x5173;&#x4E8E;SAMBA&#x548C;NFS&#x662F;&#x5426;&#x652F;&#x6301;&#x65AD;&#x70B9;&#x7EED;&#x4F20;</strong></p>
 <ul>
-<li>经过测试，得出如下结论：<ul>
-<li>1.samba 不支持</li>
-<li>2.nfs     支持</li>
+<li>&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF0C;&#x5F97;&#x51FA;&#x5982;&#x4E0B;&#x7ED3;&#x8BBA;&#xFF1A;<ul>
+<li>1.samba &#x4E0D;&#x652F;&#x6301;</li>
+<li>2.nfs     &#x652F;&#x6301;</li>
 </ul>
 </li>
-<li>测试环境和步骤如下：</li>
-<li>服务端：<ul>
-<li>1.172.16.130.200， Centos7.0</li>
+<li>&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x548C;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</li>
+<li>&#x670D;&#x52A1;&#x7AEF;&#xFF1A;<ul>
+<li>1.172.16.130.200&#xFF0C; Centos7.0</li>
 </ul>
 </li>
-<li>Windows 客户端:<ul>
-<li>1.yujl本地机器</li>
-<li>2.开始-&gt;运行-&gt;\172.16.130.200</li>
-<li>3.拷贝一个大的iso文件到xuni文件夹</li>
-<li>4.去机房拔掉172.16.130.200机器的网线</li>
-<li>5.发现本地的拷贝窗口停止传送数据</li>
-<li>6.接上网线，拷贝窗口仍然没有继续传送的迹象</li>
+<li>Windows &#x5BA2;&#x6237;&#x7AEF;:<ul>
+<li>1.yujl&#x672C;&#x5730;&#x673A;&#x5668;</li>
+<li>2.&#x5F00;&#x59CB;-&gt;&#x8FD0;&#x884C;-&gt;\172.16.130.200</li>
+<li>3.&#x62F7;&#x8D1D;&#x4E00;&#x4E2A;&#x5927;&#x7684;iso&#x6587;&#x4EF6;&#x5230;xuni&#x6587;&#x4EF6;&#x5939;</li>
+<li>4.&#x53BB;&#x673A;&#x623F;&#x62D4;&#x6389;172.16.130.200&#x673A;&#x5668;&#x7684;&#x7F51;&#x7EBF;</li>
+<li>5.&#x53D1;&#x73B0;&#x672C;&#x5730;&#x7684;&#x62F7;&#x8D1D;&#x7A97;&#x53E3;&#x505C;&#x6B62;&#x4F20;&#x9001;&#x6570;&#x636E;</li>
+<li>6.&#x63A5;&#x4E0A;&#x7F51;&#x7EBF;&#xFF0C;&#x62F7;&#x8D1D;&#x7A97;&#x53E3;&#x4ECD;&#x7136;&#x6CA1;&#x6709;&#x7EE7;&#x7EED;&#x4F20;&#x9001;&#x7684;&#x8FF9;&#x8C61;</li>
 </ul>
 </li>
-<li>Linux 客户端:<ul>
-<li>1.我本地机器</li>
-<li>2.挂载172.16.130.200的/share/sambatest目录到本地的/mnt/nfs</li>
+<li>Linux &#x5BA2;&#x6237;&#x7AEF;:<ul>
+<li>1.&#x6211;&#x672C;&#x5730;&#x673A;&#x5668;</li>
+<li>2.&#x6302;&#x8F7D;172.16.130.200&#x7684;/share/sambatest&#x76EE;&#x5F55;&#x5230;&#x672C;&#x5730;&#x7684;/mnt/nfs</li>
 <li>3.cp ~/Downloads/iso/CentOS-6.5-x86_64-bin-DVD1.iso /mnt/nfs/</li>
-<li>4.去机房拔掉172.16.130.200机器的网线</li>
-<li>5.确认本地无法连接172.16.130.200</li>
-<li>6.接上网线，使用ls -l /mnt/nfs/发现iso文件的大小还继续增加</li>
-<li>7.待cp完成后，md5sume计算两个iso文件，发现md5值一</li>
+<li>4.&#x53BB;&#x673A;&#x623F;&#x62D4;&#x6389;172.16.130.200&#x673A;&#x5668;&#x7684;&#x7F51;&#x7EBF;</li>
+<li>5.&#x786E;&#x8BA4;&#x672C;&#x5730;&#x65E0;&#x6CD5;&#x8FDE;&#x63A5;172.16.130.200</li>
+<li>6.&#x63A5;&#x4E0A;&#x7F51;&#x7EBF;&#xFF0C;&#x4F7F;&#x7528;ls -l /mnt/nfs/&#x53D1;&#x73B0;iso&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#x8FD8;&#x7EE7;&#x7EED;&#x589E;&#x52A0;</li>
+<li>7.&#x5F85;cp&#x5B8C;&#x6210;&#x540E;&#xFF0C;md5sume&#x8BA1;&#x7B97;&#x4E24;&#x4E2A;iso&#x6587;&#x4EF6;&#xFF0C;&#x53D1;&#x73B0;md5&#x503C;&#x4E00;</li>
 </ul>
 </li>
-<li>不支持，<a href="http://bbs.chinaunix.net/thread-4057603-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-4057603-1-1.html</a></li>
+<li>&#x4E0D;&#x652F;&#x6301;&#xFF0C;<a href="http://bbs.chinaunix.net/thread-4057603-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-4057603-1-1.html</a></li>
 <li><a href="http://bbs.chinaunix.net/thread-4057603-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-4057603-1-1.html</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="Code-analysed-kernel-version-linux-2-6-32-279-el6"><a href="#Code-analysed-kernel-version-linux-2-6-32-279-el6" class="headerlink" title="Code analysed(kernel version: linux-2.6.32-279.el6)"></a>Code analysed(kernel version: linux-2.6.32-279.el6)</h3><ul>
-<li><p>NFS 文件系统主要分为三个部分：The Protocol（网络协议），Client Side（NFS 客户端）和 Server Side（NFS 服务器）</p>
+<h3 id="code-analysedkernel-version-linux-2632-279el6"><a href="#Code-analysed-kernel-version-linux-2-6-32-279-el6" class="headerlink" title="Code analysed(kernel version: linux-2.6.32-279.el6)"></a>Code analysed(kernel version: linux-2.6.32-279.el6)</h3><ul>
+<li><p>NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E3B;&#x8981;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;The Protocol&#xFF08;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#xFF09;&#xFF0C;Client Side&#xFF08;NFS &#x5BA2;&#x6237;&#x7AEF;&#xFF09;&#x548C; Server Side&#xFF08;NFS &#x670D;&#x52A1;&#x5668;&#xFF09;</p>
 <ul>
-<li>NFS 客户端提供了接口，保证用户或者应用程序能像访问本地文件系统一样访问NFS 文件系统，</li>
-<li>NFS 服务器作为数据源，为 NFS 客户端提供真实的文件系统服务</li>
-<li>NFS 网络协议则使得 NFS 客户端和 NFS 服务器能够高效和可靠地进行通信</li>
-<li>NFS 网络协议使用的是 RPC（Remote Procedure Call，远程过程调用）/XDR（External Data Representation，外部数据表示）机制</li>
+<li>NFS &#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4F9B;&#x4E86;&#x63A5;&#x53E3;&#xFF0C;&#x4FDD;&#x8BC1;&#x7528;&#x6237;&#x6216;&#x8005;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x80FD;&#x50CF;&#x8BBF;&#x95EE;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E00;&#x6837;&#x8BBF;&#x95EE;NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;</li>
+<li>NFS &#x670D;&#x52A1;&#x5668;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x6E90;&#xFF0C;&#x4E3A; NFS &#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4F9B;&#x771F;&#x5B9E;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;</li>
+<li>NFS &#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x5219;&#x4F7F;&#x5F97; NFS &#x5BA2;&#x6237;&#x7AEF;&#x548C; NFS &#x670D;&#x52A1;&#x5668;&#x80FD;&#x591F;&#x9AD8;&#x6548;&#x548C;&#x53EF;&#x9760;&#x5730;&#x8FDB;&#x884C;&#x901A;&#x4FE1;</li>
+<li>NFS &#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x4F7F;&#x7528;&#x7684;&#x662F; RPC&#xFF08;Remote Procedure Call&#xFF0C;&#x8FDC;&#x7A0B;&#x8FC7;&#x7A0B;&#x8C03;&#x7528;&#xFF09;/XDR&#xFF08;External Data Representation&#xFF0C;&#x5916;&#x90E8;&#x6570;&#x636E;&#x8868;&#x793A;&#xFF09;&#x673A;&#x5236;</li>
 </ul>
 </li>
 <li><p>code file list: </p>
 <p>  [dennis@localhost fs]$ pwd<br>  /home/dennis/work/kernel/linux-2.6.32-279.el6/fs<br>  [dennis@localhost fs]$ ls nfs<br>  cache_lib.c      file.c           nfs2xdr.c            nfsroot.c<br>  cache_lib.h      fscache.c        nfs3acl.c            pagelist.c<br>  callback.c       fscache.h        nfs3proc.c           pnfs.c<br>  callback.h       fscache-index.c  nfs3xdr.c            pnfs_dev.c<br>  callback_proc.c  getroot.c        nfs4filelayout.c     pnfs.h<br>  callback_xdr.c   idmap.c          nfs4filelayoutdev.c  proc.c<br>  client.c         inode.c          nfs4filelayout.h     read.c<br>  delegation.c     internal.h       nfs4_fs.h            super.c<br>  delegation.h     iostat.h         nfs4namespace.c      symlink.c<br>  dir.c            Kconfig          nfs4proc.c           sysctl.c<br>  direct.c         Makefile         nfs4renewd.c         unlink.c<br>  dns_resolve.c    mount_clnt.c     nfs4state.c          write.c<br>  dns_resolve.h    namespace.c      nfs4xdr.c<br>  [dennis@localhost fs]$ ls nfsd<br>  auth.c    Makefile    nfs4callback.c  nfscache.c  nfssvc.c  xdr3.h<br>  auth.h    nfs2acl.c   nfs4idmap.c     nfsctl.c    nfsxdr.c  xdr4.h<br>  cache.h   nfs3acl.c   nfs4proc.c      nfsd.h      state.h   xdr.h<br>  export.c  nfs3proc.c  nfs4recover.c   nfsfh.c     stats.c<br>  Kconfig   nfs3xdr.c   nfs4state.c     nfsfh.h     vfs.c<br>  lockd.c   nfs4acl.c   nfs4xdr.c       nfsproc.c   vfs.h<br>  [dennis@localhost fs]$ ls nfs_common<br>  Makefile  nfsacl.c<br>  [dennis@localhost fs]$ cd ../include/linux/<br>  [dennis@localhost linux]$ ls nfs*<br>  nfs2.h      nfs4.h        nfsd_idmap.h  nfs_fs_sb.h  nfs_iostat.h  nfs_xdr.h<br>  nfs3.h      nfs4_mount.h  nfs_fs.h      nfs.h        nfs_mount.h<br>  nfs4_acl.h  nfsacl.h      nfs_fs_i.h    nfs_idmap.h  nfs_page.h</p>
 <p>  nfsd:<br>  const.h  debug.h  export.h  Kbuild  nfsfh.h  stats.h  syscall.h</p>
 </li>
-<li><p>Client Side 源代码  </p>
-<p>Client Side 的头文件在 include/linux/ 下面，C 文件在 fs/nfs 下面。</p>
-<p>  dir.c/file.c/inode.c/symlink.c/unlink.c：与文件操作相关的系统调用<br>  read.c/write.c/flushd.c：文件读写<br>  mount_clnt.c/nfs_root.c：将 NFS 文件系统作为 root 目录的相关实现<br>  proc.c/nfs2xdr.c/nfs3proc.c/nfs3xdr.c：网络数据交换 </p>
+<li><p>Client Side &#x6E90;&#x4EE3;&#x7801;  </p>
+<p>Client Side &#x7684;&#x5934;&#x6587;&#x4EF6;&#x5728; include/linux/ &#x4E0B;&#x9762;&#xFF0C;C &#x6587;&#x4EF6;&#x5728; fs/nfs &#x4E0B;&#x9762;&#x3002;</p>
+<p>  dir.c/file.c/inode.c/symlink.c/unlink.c&#xFF1A;&#x4E0E;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x76F8;&#x5173;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;<br>  read.c/write.c/flushd.c&#xFF1A;&#x6587;&#x4EF6;&#x8BFB;&#x5199;<br>  mount_clnt.c/nfs_root.c&#xFF1A;&#x5C06; NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4F5C;&#x4E3A; root &#x76EE;&#x5F55;&#x7684;&#x76F8;&#x5173;&#x5B9E;&#x73B0;<br>  proc.c/nfs2xdr.c/nfs3proc.c/nfs3xdr.c&#xFF1A;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x4EA4;&#x6362; </p>
 </li>
 </ul>
-<p>与文件操作相关的系统调用都在 struct file_operations，struct inode_operations<br>这两个数据结构里面定义。文件的读操作 nfs_file_read 和写操作 nfs_file_write 被单<br>独提出来，因为文件读写性能将直接关系到文件系统的成败</p>
+<p>&#x4E0E;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x76F8;&#x5173;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x90FD;&#x5728; struct file_operations&#xFF0C;struct inode_operations<br>&#x8FD9;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x91CC;&#x9762;&#x5B9A;&#x4E49;&#x3002;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x64CD;&#x4F5C; nfs_file_read &#x548C;&#x5199;&#x64CD;&#x4F5C; nfs_file_write &#x88AB;&#x5355;<br>&#x72EC;&#x63D0;&#x51FA;&#x6765;&#xFF0C;&#x56E0;&#x4E3A;&#x6587;&#x4EF6;&#x8BFB;&#x5199;&#x6027;&#x80FD;&#x5C06;&#x76F4;&#x63A5;&#x5173;&#x7CFB;&#x5230;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6210;&#x8D25;</p>
 <ul>
-<li>Server Side 源代码</li>
+<li>Server Side &#x6E90;&#x4EE3;&#x7801;</li>
 </ul>
-<p>Server Side 的头文件在 include/linux/nfsd 下面，C 文件在 fs/nfsd 下面。</p>
-<pre><code>auth.c/lockd.c/export.c/nfsctl.c/nfscache.c/nfsfh.c/stats.c：导出目录的访问管理
-nfssvc.c：NFS 服务 deamon 的实现
-vfs.c：将 NFS 文件系统的操作转换成具体文件系统的操作
-nfsproc.c/nfsxdr.c/nfs3proc.c/nfs3xdr.c：网络数据交换
-</code></pre><p>导出目录的访问管理主要解决网络文件系统实现面临的几个重要问题，包括目录导出服务，<br>外部访问的权限控制，多客户端以及客户端与服务器的文件并发操作等。 </p>
+<p>Server Side &#x7684;&#x5934;&#x6587;&#x4EF6;&#x5728; include/linux/nfsd &#x4E0B;&#x9762;&#xFF0C;C &#x6587;&#x4EF6;&#x5728; fs/nfsd &#x4E0B;&#x9762;&#x3002;</p>
+<pre><code>auth.c/lockd.c/export.c/nfsctl.c/nfscache.c/nfsfh.c/stats.c&#xFF1A;&#x5BFC;&#x51FA;&#x76EE;&#x5F55;&#x7684;&#x8BBF;&#x95EE;&#x7BA1;&#x7406;
+nfssvc.c&#xFF1A;NFS &#x670D;&#x52A1; deamon &#x7684;&#x5B9E;&#x73B0;
+vfs.c&#xFF1A;&#x5C06; NFS &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x64CD;&#x4F5C;&#x8F6C;&#x6362;&#x6210;&#x5177;&#x4F53;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x64CD;&#x4F5C;
+nfsproc.c/nfsxdr.c/nfs3proc.c/nfs3xdr.c&#xFF1A;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x4EA4;&#x6362;
+</code></pre><p>&#x5BFC;&#x51FA;&#x76EE;&#x5F55;&#x7684;&#x8BBF;&#x95EE;&#x7BA1;&#x7406;&#x4E3B;&#x8981;&#x89E3;&#x51B3;&#x7F51;&#x7EDC;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5B9E;&#x73B0;&#x9762;&#x4E34;&#x7684;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x95EE;&#x9898;&#xFF0C;&#x5305;&#x62EC;&#x76EE;&#x5F55;&#x5BFC;&#x51FA;&#x670D;&#x52A1;&#xFF0C;<br>&#x5916;&#x90E8;&#x8BBF;&#x95EE;&#x7684;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x591A;&#x5BA2;&#x6237;&#x7AEF;&#x4EE5;&#x53CA;&#x5BA2;&#x6237;&#x7AEF;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6587;&#x4EF6;&#x5E76;&#x53D1;&#x64CD;&#x4F5C;&#x7B49;&#x3002; </p>
 <ul>
 <li><p>process number of nfsd:  </p>
 </li>
 <li><p>rename call stack:  </p>
 <p>  client: nfs_rename -&gt;<br>  server: nfsd4_rename -&gt; nfsd_rename </p>
 </li>
-<li><p><strong>To be continue…</strong></p>
+<li><p><strong>To be continue&#x2026;</strong></p>
 </li>
 </ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><strong><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-nfs/" target="_blank" rel="external">NFS文件系统源代码剖析</a></strong></li>
-<li><a href="http://zohead.com/archives/nfs-rwsize/" target="_blank" rel="external">NFS读写块大小问题分析</a></li>
-<li><a href="http://www.lichaozheng.info/2011/10/13/nfs性能优化/" target="_blank" rel="external">NFS性能优化手册</a></li>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><strong><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-nfs/" target="_blank" rel="external">NFS&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6E90;&#x4EE3;&#x7801;&#x5256;&#x6790;</a></strong></li>
+<li><a href="http://zohead.com/archives/nfs-rwsize/" target="_blank" rel="external">NFS&#x8BFB;&#x5199;&#x5757;&#x5927;&#x5C0F;&#x95EE;&#x9898;&#x5206;&#x6790;</a></li>
+<li><a href="http://www.lichaozheng.info/2011/10/13/nfs&#x6027;&#x80FD;&#x4F18;&#x5316;/" target="_blank" rel="external">NFS&#x6027;&#x80FD;&#x4F18;&#x5316;&#x624B;&#x518C;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/03/25/nfs/" data-id="cin61d0la0098fyiz663wca5n" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/03/25/nfs/" data-id="cin6a5ukn009d3cize0tr4yig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -400,7 +376,7 @@ nfsproc.c/nfsxdr.c/nfs3proc.c/nfs3xdr.c：网络数据交换
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

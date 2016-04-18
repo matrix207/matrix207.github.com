@@ -111,7 +111,7 @@ libprotoc 2.5.1
 [dennis@localhost google-code-sample]$ vim pb_write.cc
 [dennis@localhost google-code-sample]$ vim pb_read.cc
 [dennis@localhost google-code-sample]$ vim Makefile
-</code></pre><h4 id="cat-addressbook-proto"><a href="#cat-addressbook-proto" class="headerlink" title="cat addressbook.proto"></a>cat addressbook.proto</h4><pre><code>package tutorial;
+</code></pre><h4 id="cat-addressbookproto"><a href="#cat-addressbook-proto" class="headerlink" title="cat addressbook.proto"></a>cat addressbook.proto</h4><pre><code>package tutorial;
 
 message Person {
   required string name = 1;
@@ -135,7 +135,7 @@ message Person {
 message AddressBook {
   repeated Person person = 1;
 }
-</code></pre><h4 id="cat-pb-write-cc"><a href="#cat-pb-write-cc" class="headerlink" title="cat pb_write.cc"></a>cat pb_write.cc</h4><pre><code>#include &lt;iostream&gt;
+</code></pre><h4 id="cat-pb_writecc"><a href="#cat-pb-write-cc" class="headerlink" title="cat pb_write.cc"></a>cat pb_write.cc</h4><pre><code>#include &lt;iostream&gt;
 #include &lt;fstream&gt;
 #include &lt;string&gt;
 #include &quot;addressbook.pb.h&quot;
@@ -228,7 +228,7 @@ int main(int argc, char* argv[]) {
 
   return 0;
 }
-</code></pre><h4 id="cat-pb-read-cc"><a href="#cat-pb-read-cc" class="headerlink" title="cat pb_read.cc"></a>cat pb_read.cc</h4><pre><code>#include &lt;iostream&gt;
+</code></pre><h4 id="cat-pb_readcc"><a href="#cat-pb-read-cc" class="headerlink" title="cat pb_read.cc"></a>cat pb_read.cc</h4><pre><code>#include &lt;iostream&gt;
 #include &lt;fstream&gt;
 #include &lt;string&gt;
 #include &quot;addressbook.pb.h&quot;
@@ -294,7 +294,7 @@ int main(int argc, char* argv[]) {
 
   return 0;
 }
-</code></pre><h4 id="cat-Makefile"><a href="#cat-Makefile" class="headerlink" title="cat Makefile"></a>cat Makefile</h4><pre><code>CC     = g++
+</code></pre><h4 id="cat-makefile"><a href="#cat-Makefile" class="headerlink" title="cat Makefile"></a>cat Makefile</h4><pre><code>CC     = g++
 FLAGS  = -Wall
 PRO_F  = addressbook
 PRO_SRC= $(PRO_F).pb.cc
@@ -315,9 +315,9 @@ proto_file: $(PRO_F).proto
 .PHONEY:clean 
 clean:
     rm -f $(TARGET) $(OBJS) $(PRO_F).pb.h $(PRO_F).pb.cc
-</code></pre><h4 id="Files"><a href="#Files" class="headerlink" title="Files:"></a>Files:</h4><pre><code>[dennis@localhost google-code-sample]$ ls
+</code></pre><h4 id="files"><a href="#Files" class="headerlink" title="Files:"></a>Files:</h4><pre><code>[dennis@localhost google-code-sample]$ ls
 addressbook.proto  Makefile  pb_read.cc  pb_write.cc
-</code></pre><h4 id="Compile-and-run"><a href="#Compile-and-run" class="headerlink" title="Compile and run:"></a>Compile and run:</h4><pre><code>[dennis@localhost google-code-sample]$ make
+</code></pre><h4 id="compile-and-run"><a href="#Compile-and-run" class="headerlink" title="Compile and run:"></a>Compile and run:</h4><pre><code>[dennis@localhost google-code-sample]$ make
 protoc -I=./ --cpp_out=./ addressbook.proto
 g++ -Wall -lprotobuf -o pb_write pb_write.cc addressbook.pb.cc
 g++ -Wall -lprotobuf -o pb_read pb_read.cc addressbook.pb.cc
@@ -349,15 +349,15 @@ Person ID: 19
   Home phone #: 21714169628
 [dennis@localhost google-code-sample]$ ls
 addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_read  pb_read.cc  pb_write  pb_write.cc
-</code></pre><h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>solution of error while loading shared libraries,<br>look <a href="../../../../2014/06/07/solution-of-error-while-loading-shared-libraries">here</a><br>for details.</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><ul>
+</code></pre><h4 id="problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>solution of error while loading shared libraries,<br>look <a href="../../../../2014/06/07/solution-of-error-while-loading-shared-libraries">here</a><br>for details.</p>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h4><ul>
 <li><a href="https://developers.google.com/protocol-buffers/docs/cpptutorial" target="_blank" rel="external">Protocol Buffer Basics: C++</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cin61d0k3008afyizw7b8kvkq" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cin6a5ujl00833cizmwigbeua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,19 +366,19 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
     
 <nav id="article-nav">
   
-    <a href="/2014/06/07/solution-of-error-while-loading-shared-libraries/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/06/17/moosefs-source-code-analysis/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          solution of error while loading shared libraries
+          moosefs source code analysis
         
       </div>
     </a>
   
   
-    <a href="/2014/06/06/open-source-need-to-master/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/06/07/solution-of-error-while-loading-shared-libraries/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Open source need to master</div>
+      <div class="article-nav-title">solution of error while loading shared libraries</div>
     </a>
   
 </nav>
@@ -442,7 +442,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

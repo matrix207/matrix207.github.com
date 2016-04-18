@@ -96,7 +96,7 @@ The include file time_test.h, can be got fromehttps://github.com/matrix207/C/blo
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Test-code"><a href="#Test-code" class="headerlink" title="Test code"></a>Test code</h3><p>compile with <code>gcc -Wall -o test test.c</code></p>
+        <h3 id="test-code"><a href="#Test-code" class="headerlink" title="Test code"></a>Test code</h3><p>compile with <code>gcc -Wall -o test test.c</code></p>
 <p>The include file time_test.h, can be got frome<br><a href="https://github.com/matrix207/C/blob/master/util/time_test.h" target="_blank" rel="external">https://github.com/matrix207/C/blob/master/util/time_test.h</a></p>
 <pre><code>#include &lt;stdio.h&gt;  
 #include &lt;stdlib.h&gt;  
@@ -216,7 +216,7 @@ int main(int argc,char **argv)
     time_test(argc, argv);
     return 0;
 }
-</code></pre><h3 id="Test-detail"><a href="#Test-detail" class="headerlink" title="Test detail"></a>Test detail</h3><p>Using strace to log system calling time (output to file 1.log)</p>
+</code></pre><h3 id="test-detail"><a href="#Test-detail" class="headerlink" title="Test detail"></a>Test detail</h3><p>Using strace to log system calling time (output to file 1.log)</p>
 <p><code>strace -tT -o 1.log ./test</code></p>
 <p>The log info we care list as below:</p>
 <pre><code>11:00:47 write(1, &quot;---------from proc system-------&quot;..., 35) = 35 &lt;0.000030&gt;
@@ -247,7 +247,7 @@ int main(int argc,char **argv)
 11:00:47 write(1, &quot;mac is 00:23:ae:96:d6:9a\n&quot;, 25) = 25 &lt;0.000018&gt;
 11:00:47 write(1, &quot;\n&quot;, 1)              = 1 &lt;0.000014&gt;
 11:00:47 write(1, &quot;Elapsed time 6639 usec\n&quot;, 23) = 23 &lt;0.000022&gt;
-</code></pre><p>find the max 10 time by <code>awk &#39;{print $NF}&#39; 1.log |sort |tail</code></p>
+</code></pre><p>find the max 10 time by <code>awk &apos;{print $NF}&apos; 1.log |sort |tail</code></p>
 <pre><code>&lt;0.000021&gt;
 &lt;0.000022&gt;
 &lt;0.000030&gt;
@@ -264,15 +264,15 @@ int main(int argc,char **argv)
 </code></pre><p>so, we know that the killer code is </p>
 <pre><code>fgets(result, size, fp);
 </code></pre><p>If we using much code for our programming, and time is what we should care about,<br>then avoid pipe code as possible as we can.</p>
-<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><ol>
+<h3 id="todo"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><ol>
 <li>Is each system call have fixed time?(ofcourse, there should be a litter<br>different for each testing)</li>
 <li>Sort the time elapse for all the system call</li>
 </ol>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/08/08/speed-for-getting-info-from-pipe-and-proc-system/" data-id="cin61d0kc008ifyiz2rykf6rg" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/08/08/speed-for-getting-info-from-pipe-and-proc-system/" data-id="cin6a5uk1008q3ciz43fo2zr7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -357,7 +357,7 @@ int main(int argc,char **argv)
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

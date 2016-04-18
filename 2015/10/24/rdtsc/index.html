@@ -117,20 +117,20 @@ simple implement use for x86_64 platformuint64_t rdtsc()
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="What-is-rdtsc"><a href="#What-is-rdtsc" class="headerlink" title="What is rdtsc"></a>What is rdtsc</h3><ul>
+        <h3 id="what-is-rdtsc"><a href="#What-is-rdtsc" class="headerlink" title="What is rdtsc"></a>What is rdtsc</h3><ul>
 <li>rdtsc is ReaD TimeStamp Count</li>
 <li>limition<ul>
 <li>only work on x86 platform</li>
 </ul>
 </li>
 </ul>
-<h3 id="simple-implement-use-for-x86-64-platform"><a href="#simple-implement-use-for-x86-64-platform" class="headerlink" title="simple implement use for x86_64 platform"></a>simple implement use for x86_64 platform</h3><pre><code>uint64_t rdtsc()
+<h3 id="simple-implement-use-for-x86_64-platform"><a href="#simple-implement-use-for-x86-64-platform" class="headerlink" title="simple implement use for x86_64 platform"></a>simple implement use for x86_64 platform</h3><pre><code>uint64_t rdtsc()
 {
    uint32_t hi, lo;
    __asm__ __volatile__ (&quot;rdtsc&quot; : &quot;=a&quot;(lo), &quot;=d&quot;(hi));
    return ( (uint64_t)lo)|( ((uint64_t)hi)&lt;&lt;32 );
 }
-</code></pre><h3 id="rdtsc-h"><a href="#rdtsc-h" class="headerlink" title="rdtsc.h"></a>rdtsc.h</h3><pre><code>#ifndef __RDTSC_H_DEFINED__
+</code></pre><h3 id="rdtsch"><a href="#rdtsc-h" class="headerlink" title="rdtsc.h"></a>rdtsc.h</h3><pre><code>#ifndef __RDTSC_H_DEFINED__
 #define __RDTSC_H_DEFINED__
 
 
@@ -185,7 +185,7 @@ static __inline__ unsigned long long rdtsc(void)
  */
 
 #endif
-</code></pre><h3 id="Sample-one"><a href="#Sample-one" class="headerlink" title="Sample one"></a>Sample one</h3><pre><code>#include &lt;stdio.h&gt;
+</code></pre><h3 id="sample-one"><a href="#Sample-one" class="headerlink" title="Sample one"></a>Sample one</h3><pre><code>#include &lt;stdio.h&gt;
 #include &quot;rdtsc.h&quot;
 
 int main(int argc, char* argv[])
@@ -198,7 +198,7 @@ int main(int argc, char* argv[])
   printf(&quot;%llu\n&quot;, b-a);
   return 0;
 }
-</code></pre><h3 id="Sample-two"><a href="#Sample-two" class="headerlink" title="Sample two"></a>Sample two</h3><pre><code>#include &lt;stdio.h&gt;
+</code></pre><h3 id="sample-two"><a href="#Sample-two" class="headerlink" title="Sample two"></a>Sample two</h3><pre><code>#include &lt;stdio.h&gt;
 #include &lt;assert.h&gt;
 #include &lt;stdint.h&gt;
 #include &lt;stdlib.h&gt;
@@ -231,12 +231,12 @@ int main(int argc, char* argv[])
   printf(&quot;max=%llu\n&quot;, max);
   return 0;
 }
-</code></pre><h3 id="TODO-translate-CPU-cycle-to-time"><a href="#TODO-translate-CPU-cycle-to-time" class="headerlink" title="TODO: translate CPU cycle to time"></a>TODO: translate CPU cycle to time</h3><ul>
+</code></pre><h3 id="todo-translate-cpu-cycle-to-time"><a href="#TODO-translate-CPU-cycle-to-time" class="headerlink" title="TODO: translate CPU cycle to time"></a>TODO: translate CPU cycle to time</h3><ul>
 <li><code>time_in_seconds = number_of_clock_cycles / frequency</code></li>
-<li><code>cat /proc/cpuinfo |grep &#39;MHz&#39;</code></li>
+<li><code>cat /proc/cpuinfo |grep &apos;MHz&apos;</code></li>
 <li><code>gettimeofday</code> and <code>rdtsc</code></li>
 </ul>
-<h3 id="Something-need-to-consider"><a href="#Something-need-to-consider" class="headerlink" title="Something need to consider?"></a>Something need to consider?</h3><ul>
+<h3 id="something-need-to-consider"><a href="#Something-need-to-consider" class="headerlink" title="Something need to consider?"></a>Something need to consider?</h3><ul>
 <li>Context switch?</li>
 <li>Multi-core processors</li>
 </ul>
@@ -361,10 +361,10 @@ malloc:
 memcpy:
 
     timestamp count is 295, elapsedTime 0.234445 us
-</code></pre><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
 <li><a href="http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc" target="_blank" rel="external">http://stackoverflow.com/questions/23402701/function-asm-volatile-rdtsc</a></li>
 <li><a href="http://www.mcs.anl.gov/~kazutomo/rdtsc.html" target="_blank" rel="external">Time-stamp Counter</a></li>
-<li><a href="http://www.cnblogs.com/cnmaizi/archive/2011/01/17/1937772.html" target="_blank" rel="external">X86平台采用rdtsc指令读取时间戳计数器完成高精度计时</a></li>
+<li><a href="http://www.cnblogs.com/cnmaizi/archive/2011/01/17/1937772.html" target="_blank" rel="external">X86&#x5E73;&#x53F0;&#x91C7;&#x7528;rdtsc&#x6307;&#x4EE4;&#x8BFB;&#x53D6;&#x65F6;&#x95F4;&#x6233;&#x8BA1;&#x6570;&#x5668;&#x5B8C;&#x6210;&#x9AD8;&#x7CBE;&#x5EA6;&#x8BA1;&#x65F6;</a></li>
 <li><a href="http://www.strchr.com/performance_measurements_with_rdtsc" target="_blank" rel="external">Performance measurements with RDTSC</a></li>
 <li><a href="http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c" target="_blank" rel="external">http://stackoverflow.com/questions/2150291/how-do-i-measure-a-time-interval-in-c</a></li>
 </ul>
@@ -372,7 +372,7 @@ memcpy:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/rdtsc/" data-id="cin61d0m0009rfyizvisg0cku" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/24/rdtsc/" data-id="cin6a5ul1009s3cizhdg4mw1n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -381,11 +381,11 @@ memcpy:
     
 <nav id="article-nav">
   
-    <a href="/2015/10/24/redis/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/25/write-document-with-sphinx/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          redis
+          write document with sphinx
         
       </div>
     </a>
@@ -457,7 +457,7 @@ memcpy:
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

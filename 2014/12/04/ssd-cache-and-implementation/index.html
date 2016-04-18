@@ -6,30 +6,24 @@
   <title>ssd cache and implementation | Matrix207&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Introduce
-SSD缓存技术
+SSD&amp;#x7F13;&amp;#x5B58;&amp;#x6280;&amp;#x672F;
 
-SSD的特性是读速高于写，因此在无盘领域应用SSD时多用作读缓存来使用，SSD缓存源自PXD无盘的SSD二级缓存技术。这里的二级缓存不是指CPU的二级CACHE，而是指应用于无盘架构的第二级读缓存功能。 
-http://baike.baidu.com/view/3967982.htm
-http://www.searchstorage.com.cn/showco">
+SSD&amp;#x7684;&amp;#x7279;&amp;#x6027;&amp;#x662F;&amp;#x8BFB;&amp;#x901F;&amp;#x9AD8;&amp;#x4E8E;&amp;#x5199;&amp;#xFF0C;&amp;#x56E0;&amp;#x6B64;&amp;#x5728;&amp;#x65E0;&amp;#x76D8;&amp;#x9886;&amp;#x57DF;&amp;#x5E94;&amp;#x752">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssd cache and implementation">
 <meta property="og:url" content="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/index.html">
 <meta property="og:site_name" content="Matrix207's Blog">
 <meta property="og:description" content="Introduce
-SSD缓存技术
+SSD&amp;#x7F13;&amp;#x5B58;&amp;#x6280;&amp;#x672F;
 
-SSD的特性是读速高于写，因此在无盘领域应用SSD时多用作读缓存来使用，SSD缓存源自PXD无盘的SSD二级缓存技术。这里的二级缓存不是指CPU的二级CACHE，而是指应用于无盘架构的第二级读缓存功能。 
-http://baike.baidu.com/view/3967982.htm
-http://www.searchstorage.com.cn/showco">
+SSD&amp;#x7684;&amp;#x7279;&amp;#x6027;&amp;#x662F;&amp;#x8BFB;&amp;#x901F;&amp;#x9AD8;&amp;#x4E8E;&amp;#x5199;&amp;#xFF0C;&amp;#x56E0;&amp;#x6B64;&amp;#x5728;&amp;#x65E0;&amp;#x76D8;&amp;#x9886;&amp;#x57DF;&amp;#x5E94;&amp;#x752">
 <meta property="og:updated_time" content="2016-04-17T17:41:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssd cache and implementation">
 <meta name="twitter:description" content="Introduce
-SSD缓存技术
+SSD&amp;#x7F13;&amp;#x5B58;&amp;#x6280;&amp;#x672F;
 
-SSD的特性是读速高于写，因此在无盘领域应用SSD时多用作读缓存来使用，SSD缓存源自PXD无盘的SSD二级缓存技术。这里的二级缓存不是指CPU的二级CACHE，而是指应用于无盘架构的第二级读缓存功能。 
-http://baike.baidu.com/view/3967982.htm
-http://www.searchstorage.com.cn/showco">
+SSD&amp;#x7684;&amp;#x7279;&amp;#x6027;&amp;#x662F;&amp;#x8BFB;&amp;#x901F;&amp;#x9AD8;&amp;#x4E8E;&amp;#x5199;&amp;#xFF0C;&amp;#x56E0;&amp;#x6B64;&amp;#x5728;&amp;#x65E0;&amp;#x76D8;&amp;#x9886;&amp;#x57DF;&amp;#x5E94;&amp;#x752">
   
     <link rel="alternate" href="/atom.xml" title="Matrix207&#39;s Blog" type="application/atom+xml">
   
@@ -102,49 +96,49 @@ http://www.searchstorage.com.cn/showco">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ul>
-<li><p>SSD缓存技术</p>
+        <h4 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ul>
+<li><p>SSD&#x7F13;&#x5B58;&#x6280;&#x672F;</p>
 <ul>
-<li>SSD的特性是读速高于写，因此在无盘领域应用SSD时多用作读缓存来使用，SSD缓存源自<br>PXD无盘的SSD二级缓存技术。这里的二级缓存不是指CPU的二级CACHE，而是指应用于无<br>盘架构的第二级读缓存功能。 </li>
+<li>SSD&#x7684;&#x7279;&#x6027;&#x662F;&#x8BFB;&#x901F;&#x9AD8;&#x4E8E;&#x5199;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x65E0;&#x76D8;&#x9886;&#x57DF;&#x5E94;&#x7528;SSD&#x65F6;&#x591A;&#x7528;&#x4F5C;&#x8BFB;&#x7F13;&#x5B58;&#x6765;&#x4F7F;&#x7528;&#xFF0C;SSD&#x7F13;&#x5B58;&#x6E90;&#x81EA;<br>PXD&#x65E0;&#x76D8;&#x7684;SSD&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x6280;&#x672F;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x4E8C;&#x7EA7;&#x7F13;&#x5B58;&#x4E0D;&#x662F;&#x6307;CPU&#x7684;&#x4E8C;&#x7EA7;CACHE&#xFF0C;&#x800C;&#x662F;&#x6307;&#x5E94;&#x7528;&#x4E8E;&#x65E0;<br>&#x76D8;&#x67B6;&#x6784;&#x7684;&#x7B2C;&#x4E8C;&#x7EA7;&#x8BFB;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#x3002; </li>
 <li><a href="http://baike.baidu.com/view/3967982.htm" target="_blank" rel="external">http://baike.baidu.com/view/3967982.htm</a></li>
 <li><a href="http://www.searchstorage.com.cn/showcontent_66616.htm" target="_blank" rel="external">http://www.searchstorage.com.cn/showcontent_66616.htm</a></li>
 </ul>
 </li>
-<li><p>快速块设备为较慢的块设备提供缓存</p>
+<li><p>&#x5FEB;&#x901F;&#x5757;&#x8BBE;&#x5907;&#x4E3A;&#x8F83;&#x6162;&#x7684;&#x5757;&#x8BBE;&#x5907;&#x63D0;&#x4F9B;&#x7F13;&#x5B58;</p>
 <ul>
-<li>Red Hat Enterprise Linux 7.0 中引进让快速块设备作为较慢块设备的缓存的功能作为<br>技术预览。这个功能可让 PCIe SSD 设备作为直接附加存储（DAS）或者存储局域网（SAN）<br>存储的缓存使用，以便提高文件系统性能</li>
+<li>Red Hat Enterprise Linux 7.0 &#x4E2D;&#x5F15;&#x8FDB;&#x8BA9;&#x5FEB;&#x901F;&#x5757;&#x8BBE;&#x5907;&#x4F5C;&#x4E3A;&#x8F83;&#x6162;&#x5757;&#x8BBE;&#x5907;&#x7684;&#x7F13;&#x5B58;&#x7684;&#x529F;&#x80FD;&#x4F5C;&#x4E3A;<br>&#x6280;&#x672F;&#x9884;&#x89C8;&#x3002;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x53EF;&#x8BA9; PCIe SSD &#x8BBE;&#x5907;&#x4F5C;&#x4E3A;&#x76F4;&#x63A5;&#x9644;&#x52A0;&#x5B58;&#x50A8;&#xFF08;DAS&#xFF09;&#x6216;&#x8005;&#x5B58;&#x50A8;&#x5C40;&#x57DF;&#x7F51;&#xFF08;SAN&#xFF09;<br>&#x5B58;&#x50A8;&#x7684;&#x7F13;&#x5B58;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x4FBF;&#x63D0;&#x9AD8;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;</li>
 <li><a href="https://access.redhat.com/documentation/zh-CN/Red_Hat_Enterprise_Linux/7/html/7.0_Release_Notes/chap-storage.html" target="_blank" rel="external">Reference</a></li>
 </ul>
 </li>
 </ul>
-<h4 id="Facebook-flashcache"><a href="#Facebook-flashcache" class="headerlink" title="Facebook flashcache"></a>Facebook flashcache</h4><p>Flashcache是Facebook技术团队的一个开源项目，最初是为加速MySQL设计。Flashcache通过<br>在文件系统（VFS）和设备驱动之间新增了一次缓存层，来实现对热门数据的缓存。</p>
-<p>Flashcache在内核的层次：<br>VFS -&gt; Block层 -&gt; DM层 -&gt; flashcache -&gt; DeviceDriver -&gt; Disk</p>
-<p>Flashcache最初的实现是write backup机制cache，后来又加入了write through和write around机制</p>
-<pre><code>write backup: 先写入到cahce，然后cache中的脏块会由后台定期刷到持久存储。
-write through: 同步写入到cache和持久存储。
-write around: 只写入到持久存储。
-</code></pre><p>参考:   </p>
+<h4 id="facebook-flashcache"><a href="#Facebook-flashcache" class="headerlink" title="Facebook flashcache"></a>Facebook flashcache</h4><p>Flashcache&#x662F;Facebook&#x6280;&#x672F;&#x56E2;&#x961F;&#x7684;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#xFF0C;&#x6700;&#x521D;&#x662F;&#x4E3A;&#x52A0;&#x901F;MySQL&#x8BBE;&#x8BA1;&#x3002;Flashcache&#x901A;&#x8FC7;<br>&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF08;VFS&#xFF09;&#x548C;&#x8BBE;&#x5907;&#x9A71;&#x52A8;&#x4E4B;&#x95F4;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x6B21;&#x7F13;&#x5B58;&#x5C42;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x70ED;&#x95E8;&#x6570;&#x636E;&#x7684;&#x7F13;&#x5B58;&#x3002;</p>
+<p>Flashcache&#x5728;&#x5185;&#x6838;&#x7684;&#x5C42;&#x6B21;&#xFF1A;<br>VFS -&gt; Block&#x5C42; -&gt; DM&#x5C42; -&gt; flashcache -&gt; DeviceDriver -&gt; Disk</p>
+<p>Flashcache&#x6700;&#x521D;&#x7684;&#x5B9E;&#x73B0;&#x662F;write backup&#x673A;&#x5236;cache&#xFF0C;&#x540E;&#x6765;&#x53C8;&#x52A0;&#x5165;&#x4E86;write through&#x548C;write around&#x673A;&#x5236;</p>
+<pre><code>write backup: &#x5148;&#x5199;&#x5165;&#x5230;cahce&#xFF0C;&#x7136;&#x540E;cache&#x4E2D;&#x7684;&#x810F;&#x5757;&#x4F1A;&#x7531;&#x540E;&#x53F0;&#x5B9A;&#x671F;&#x5237;&#x5230;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#x3002;
+write through: &#x540C;&#x6B65;&#x5199;&#x5165;&#x5230;cache&#x548C;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#x3002;
+write around: &#x53EA;&#x5199;&#x5165;&#x5230;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#x3002;
+</code></pre><p>&#x53C2;&#x8003;:   </p>
 <ul>
-<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache初探</a>  </li>
-<li><a href="http://oldblog.donghao.org/2012/12/flashcacheoaiaoippt.html" target="_blank" rel="external">flashcache原理及改造（PPT）</a>  </li>
-<li><a href="http://wenku.baidu.com/view/4c37447131b765ce0508142b?refer=&amp;clickSort=download" target="_blank" rel="external">flashcache原理及改造</a>  </li>
+<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache&#x521D;&#x63A2;</a>  </li>
+<li><a href="http://oldblog.donghao.org/2012/12/flashcacheoaiaoippt.html" target="_blank" rel="external">flashcache&#x539F;&#x7406;&#x53CA;&#x6539;&#x9020;&#xFF08;PPT&#xFF09;</a>  </li>
+<li><a href="http://wenku.baidu.com/view/4c37447131b765ce0508142b?refer=&amp;clickSort=download" target="_blank" rel="external">flashcache&#x539F;&#x7406;&#x53CA;&#x6539;&#x9020;</a>  </li>
 </ul>
-<h4 id="What-skills-need-to-master"><a href="#What-skills-need-to-master" class="headerlink" title="What skills need to master"></a>What skills need to master</h4><h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="http://blog.csdn.net/column/details/flashcache.html" target="_blank" rel="external">linux内核源码阅读之facebook硬盘加速利器flashcache</a></li>
-<li><a href="http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;tid=1917560&amp;page=1#pid13842158" target="_blank" rel="external">发几个自己做的关于内核IO方面的ppt</a></li>
+<h4 id="what-skills-need-to-master"><a href="#What-skills-need-to-master" class="headerlink" title="What skills need to master"></a>What skills need to master</h4><h4 id="implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://blog.csdn.net/column/details/flashcache.html" target="_blank" rel="external">linux&#x5185;&#x6838;&#x6E90;&#x7801;&#x9605;&#x8BFB;&#x4E4B;facebook&#x786C;&#x76D8;&#x52A0;&#x901F;&#x5229;&#x5668;flashcache</a></li>
+<li><a href="http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;tid=1917560&amp;page=1#pid13842158" target="_blank" rel="external">&#x53D1;&#x51E0;&#x4E2A;&#x81EA;&#x5DF1;&#x505A;&#x7684;&#x5173;&#x4E8E;&#x5185;&#x6838;IO&#x65B9;&#x9762;&#x7684;ppt</a></li>
 <li><a href="https://github.com/facebook/flashcache/" target="_blank" rel="external">flashcache</a>  </li>
-<li><a href="http://www.haiyun.me/archives/centos-flashcache.html" target="_blank" rel="external">Centos安装Flashcache使用SSD缓存</a>  </li>
-<li><a href="http://blog.csdn.net/kidd_3/article/details/6984822" target="_blank" rel="external">flashcache的实现与分析</a>  </li>
-<li><a href="https://awk.so/patents/CN103744624A?cl=zh" target="_blank" rel="external">一种实现存储系统ssd缓存数据选择性升级的系统架构</a>  </li>
-<li><a href="http://www.csdn.net/article/2013-10-31/2817357-facebook-flashcache-2010-2013" target="_blank" rel="external">命中率80%，磁盘I/O减半，Flashcache的发展史</a>  </li>
+<li><a href="http://www.haiyun.me/archives/centos-flashcache.html" target="_blank" rel="external">Centos&#x5B89;&#x88C5;Flashcache&#x4F7F;&#x7528;SSD&#x7F13;&#x5B58;</a>  </li>
+<li><a href="http://blog.csdn.net/kidd_3/article/details/6984822" target="_blank" rel="external">flashcache&#x7684;&#x5B9E;&#x73B0;&#x4E0E;&#x5206;&#x6790;</a>  </li>
+<li><a href="https://awk.so/patents/CN103744624A?cl=zh" target="_blank" rel="external">&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;ssd&#x7F13;&#x5B58;&#x6570;&#x636E;&#x9009;&#x62E9;&#x6027;&#x5347;&#x7EA7;&#x7684;&#x7CFB;&#x7EDF;&#x67B6;&#x6784;</a>  </li>
+<li><a href="http://www.csdn.net/article/2013-10-31/2817357-facebook-flashcache-2010-2013" target="_blank" rel="external">&#x547D;&#x4E2D;&#x7387;80%&#xFF0C;&#x78C1;&#x76D8;I/O&#x51CF;&#x534A;&#xFF0C;Flashcache&#x7684;&#x53D1;&#x5C55;&#x53F2;</a>  </li>
 <li><a href="http://cdn.oreillystatic.com/en/assets/1/event/45/Flashcache%20Presentation.pdf" target="_blank" rel="external">FlashCache at Facebook</a>  </li>
-<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache初探</a>  </li>
+<li><a href="http://blog.chinaunix.net/uid-26950862-id-3948198.html" target="_blank" rel="external">Flashcache&#x521D;&#x63A2;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cin61d0ku008xfyiz3wgtzsfy" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cin6a5uke00943ciza92lgne1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -229,7 +223,7 @@ write around: 只写入到持久存储。
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

@@ -87,15 +87,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I use a variety of vi(m) commands for my job, so many that I can’t always<br>remember how to do something that I have done before. Therefore I keep notes<br>them here, for my bad memory.</p>
-<h3 id="What-is-the-difference-between-Vi-and-Vim"><a href="#What-is-the-difference-between-Vi-and-Vim" class="headerlink" title="What is the difference between Vi and Vim"></a>What is the difference between Vi and Vim</h3><p>Vim is Vi improve, everything that in vi is available in vim.<br>Here is some of the extended vim features:<a href="http://askubuntu.com/questions/418396/what-is-the-difference-between-vi-and-vim" target="_blank" rel="external">ref</a>  </p>
+        <p>I use a variety of vi(m) commands for my job, so many that I can&#x2019;t always<br>remember how to do something that I have done before. Therefore I keep notes<br>them here, for my bad memory.</p>
+<h3 id="what-is-the-difference-between-vi-and-vim"><a href="#What-is-the-difference-between-Vi-and-Vim" class="headerlink" title="What is the difference between Vi and Vim"></a>What is the difference between Vi and Vim</h3><p>Vim is Vi improve, everything that in vi is available in vim.<br>Here is some of the extended vim features:<a href="http://askubuntu.com/questions/418396/what-is-the-difference-between-vi-and-vim" target="_blank" rel="external">ref</a>  </p>
 <ol>
 <li>Vim support syntax highlighting, code folding, etc.  </li>
 <li>Vim allows the screen to be split for editing multiple files.  </li>
 <li>Vim includes a built in diff for comparing files (vimdiff)  </li>
 <li>Vim support plugins  </li>
 </ol>
-<h3 id="General-command-use-in-VIM"><a href="#General-command-use-in-VIM" class="headerlink" title="General command use in VIM"></a>General command use in VIM</h3><pre><code>### insert mode
+<h3 id="general-command-use-in-vim"><a href="#General-command-use-in-VIM" class="headerlink" title="General command use in VIM"></a>General command use in VIM</h3><pre><code>### insert mode
 i -&gt; insert mode at cursor
 I -&gt; insert mode at the beginning of Line
 a -&gt; append after the cursor
@@ -104,7 +104,7 @@ o -&gt; insert bank line below current line
 O -&gt; insert bank line above current line
 
 ### Cursor move
-h,j,k,l ←, ↓, ↑, →
+h,j,k,l &#x2190;, &#x2193;, &#x2191;, &#x2192;
 w      -&gt; jump to the head of next word
 W      -&gt; jump to the head of next word which begin with bank
 e      -&gt; jump to the end of next word
@@ -396,13 +396,13 @@ vi -e -s -c &quot;:%s/pattern/string/g&quot; -c &quot;:wq&quot; file-name
 </li>
 <li><p>delete all comments<br> <code>:%s/\/\*\_.\{-}\*\//g</code> or <code>:%s#\M/*\m\_.\{-}\M*/##g</code></p>
 </li>
-<li><p>delete match/unmatch lines<br> <code>:g/.*patternSearch.*/d</code><br> <code>:v/#include/d</code> Delete all lines except “#include” lines  </p>
+<li><p>delete match/unmatch lines<br> <code>:g/.*patternSearch.*/d</code><br> <code>:v/#include/d</code> Delete all lines except &#x201C;#include&#x201D; lines  </p>
 </li>
-<li><p>more substitution<br> Substituting all lines with its line number<br> <code>:%s/^/\=line(&quot;.&quot;) . &quot;. &quot;/g</code><br> Resort numeric<br> <code>:4,$s/\d\+/\=submatch(0) + 1/</code><br> Insert sequence number to column position<br> <code>:%s/table\[\]/\=&#39;table[&#39; . printf(&quot;%d&quot;,line(&quot;.&quot;)) . &#39;]&#39;/g</code><br> <code>:%s/table\[\]/\=&#39;table[&#39; . printf(&quot;%d&quot;,line(&quot;.&quot;)+9) . &#39;]&#39;/g</code> start from 10  </p>
+<li><p>more substitution<br> Substituting all lines with its line number<br> <code>:%s/^/\=line(&quot;.&quot;) . &quot;. &quot;/g</code><br> Resort numeric<br> <code>:4,$s/\d\+/\=submatch(0) + 1/</code><br> Insert sequence number to column position<br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)) . &apos;]&apos;/g</code><br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)+9) . &apos;]&apos;/g</code> start from 10  </p>
 </li>
 <li><p>delete bank line<br> <code>:g/^$/d</code><br> <code>:g/^ *$/d</code> delete lines only contain space   </p>
 </li>
-<li><p>add “inline” to all function<br> <code>:%s/\(.*(\)/inline \1/g</code>  this can work, but not perfect!!<br> <code>%s/\(^[□tab]*\)\(.*(.*\)/\1inline \2/g</code>  </p>
+<li><p>add &#x201C;inline&#x201D; to all function<br> <code>:%s/\(.*(\)/inline \1/g</code>  this can work, but not perfect!!<br> <code>%s/\(^[&#x25A1;tab]*\)\(.*(.*\)/\1inline \2/g</code>  </p>
 </li>
 <li><p>delete all spaces at the end of every line:<br><code>:%s/\(.*\)  *$/\1/</code></p>
 </li>
@@ -421,7 +421,7 @@ function Inc(...)
   let g:i += a:0 &gt; 0 ? a:1 : 1
   return result
 endfunction
-</code></pre><p>then type <code>:so ~/.vimrc</code> to make it effective, and use command<br><code>:let i = 1 | %s/ /\=&#39; &#39; . Inc() . &#39;.&#39;/</code></p>
+</code></pre><p>then type <code>:so ~/.vimrc</code> to make it effective, and use command<br><code>:let i = 1 | %s/ /\=&apos; &apos; . Inc() . &apos;.&apos;/</code></p>
 <p>before:  </p>
 <pre><code>* How do you write a fast network server?
 * How do you write a network server that can handle 10000 clients?
@@ -430,7 +430,7 @@ endfunction
 <pre><code>* 10.How do you write a fast network server?
 * 11.How do you write a network server that can handle 10000 clients?
 * 12.What bottlenecks are there and how do you avoid them?
-</code></pre><p>Test command <code>:let i = 0 | %s/f0/\=&#39;f&#39; . Inc()/</code></p>
+</code></pre><p>Test command <code>:let i = 0 | %s/f0/\=&apos;f&apos; . Inc()/</code></p>
 <p>before:</p>
 <pre><code>&lt;f0&gt;int state;\l|\
 &lt;f0&gt;int iostate;\l|\
@@ -448,7 +448,7 @@ endfunction
 </li>
 <li><p><code>:%TOhtml</code> translate to html format</p>
 </li>
-<li><p>Encrypt<br>method one <code>:set key=123456</code>, then save and quit <code>:wq</code><br>method two <code>:X</code>, type the passwd twice，save and quit <code>:wq</code><br>clean passwd <code>:set key=</code>, save and quit <code>:wq</code></p>
+<li><p>Encrypt<br>method one <code>:set key=123456</code>, then save and quit <code>:wq</code><br>method two <code>:X</code>, type the passwd twice&#xFF0C;save and quit <code>:wq</code><br>clean passwd <code>:set key=</code>, save and quit <code>:wq</code></p>
 </li>
 <li><p><code>autocmd FileType c,cpp set shiftwidth=4 | set expandtab</code> add to .vimrc, expand tab to be four space</p>
 </li>
@@ -473,8 +473,8 @@ endfunction
 <h3 id="other-version"><a href="#other-version" class="headerlink" title="other version"></a>other version</h3><ul>
 <li><a href="https://neovim.io/" target="_blank" rel="external">neovim</a></li>
 </ul>
-<h3 id="Vundle-plugin-manager"><a href="#Vundle-plugin-manager" class="headerlink" title="Vundle, plugin manager"></a>Vundle, plugin manager</h3><ul>
-<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git时代的VIM不完全使用教程</a></li>
+<h3 id="vundle-plugin-manager"><a href="#Vundle-plugin-manager" class="headerlink" title="Vundle, plugin manager"></a>Vundle, plugin manager</h3><ul>
+<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git&#x65F6;&#x4EE3;&#x7684;VIM&#x4E0D;&#x5B8C;&#x5168;&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
 <li>install<ul>
 <li><code>git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</code></li>
 </ul>
@@ -504,19 +504,19 @@ filetype plugin indent on &quot; required!
 </ul>
 </li>
 <li>powerful plugin<ul>
-<li>Bundle ‘ag.vim’</li>
-<li>Bundle ‘ctrlp.vim’</li>
-<li>Bundle ‘EasyMotion’</li>
-<li>Bundle ‘The-NERD-tree’</li>
-<li>Bundle ‘The-NERD-Commenter’</li>
-<li>Bundle ‘UltiSnips’</li>
-<li>Bundle ‘Tabular’</li>
-<li>Bundle ‘Valloric/YouCompleteMe’</li>
+<li>Bundle &#x2018;ag.vim&#x2019;</li>
+<li>Bundle &#x2018;ctrlp.vim&#x2019;</li>
+<li>Bundle &#x2018;EasyMotion&#x2019;</li>
+<li>Bundle &#x2018;The-NERD-tree&#x2019;</li>
+<li>Bundle &#x2018;The-NERD-Commenter&#x2019;</li>
+<li>Bundle &#x2018;UltiSnips&#x2019;</li>
+<li>Bundle &#x2018;Tabular&#x2019;</li>
+<li>Bundle &#x2018;Valloric/YouCompleteMe&#x2019;</li>
 </ul>
 </li>
 </ul>
 <h3 id="install-vim-by-source"><a href="#install-vim-by-source" class="headerlink" title="install vim by source"></a>install vim by source</h3><ul>
-<li>./configure –prefix=path-to-install</li>
+<li>./configure &#x2013;prefix=path-to-install</li>
 <li>make &amp;&amp; make install</li>
 <li>export PATH=path-to-install:PATH</li>
 </ul>
@@ -532,7 +532,7 @@ filetype plugin indent on &quot; required!
 <h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><ul>
 <li><a href="http://www.moolenaar.net/" target="_blank" rel="external">vim author</a></li>
 <li><a href="http://wiki.hotoo.me/Vim.html" target="_blank" rel="external">vim fans</a></li>
-<li><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">简明 Vim 练级攻略</a></li>
+<li><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">&#x7B80;&#x660E; Vim &#x7EC3;&#x7EA7;&#x653B;&#x7565;</a></li>
 <li><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/" target="_blank" rel="external">Learn Vim Progressively</a></li>
 <li><a href="http://vim.wikia.com/wiki/Power_of_g" target="_blank" rel="external">Power of g</a></li>
 <li><a href="http://michael.peopleofhonoronly.com/vim/" target="_blank" rel="external">vim cheat sheet for programmers</a></li>
@@ -543,7 +543,7 @@ filetype plugin indent on &quot; required!
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cin61d0gq003bfyizd4vwyedp" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cin6a5ug1000y3cizo9tch7fi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -630,7 +630,7 @@ filetype plugin indent on &quot; required!
           </li>
         
           <li>
-            <a href="/2016/03/09/check-pow-overflow/">check pow overflow</a>
+            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>
