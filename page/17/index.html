@@ -66,123 +66,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-copy-file-with-progress-bar" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/01/04/copy-file-with-progress-bar/" class="article-date">
-  <time datetime="2013-01-03T16:00:00.000Z" itemprop="datePublished">2013-01-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/01/04/copy-file-with-progress-bar/">Copy file with progress bar</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="copy-file-with-progress-bar"><a href="#Copy-file-with-progress-bar" class="headerlink" title="Copy file with progress bar"></a>Copy file with progress bar</h4><pre><code>#!/usr/bin/bash
-
-print_bar() {        # print the bar 
-
-    local Count=$1
-    local Max=$2
-    local Remain=$3
-    local Elapsed=$4
-    local Speed=$5
-    local LenBar=50
-    if [ $# -eq 6 ]; then
-        LenBar=$6
-    fi
-    if [ ${Count} -gt ${Max} ]; then
-        Count=${Max}
-    fi
-    local Percent=$(((100*Count)/Max))
-    local BarPercent=$(((LenBar*Percent)/100))
-
-    if [ ${Percent} -eq 100 ]; then
-        Remain=0
-    fi
-
-    local BarProgress=$(for i in $(seq ${BarPercent}); do echo -n &apos;=&apos;; done)
-    BarProgress=&quot;${BarProgress:0:${#BarProgress}}&gt;&quot;
-    local Nxt=$((LenBar-BarPercent))
-    local BarPad=$(for i in $(seq ${Nxt}); do echo -n &apos;.&apos;; done)
-
-    local TElapsed=$(date -u -d @$Elapsed +%Hh%Mm%Ss)
-    TElapsed=$(echo ${TElapsed} | sed -e &quot;s/^00h//&quot; -e &quot;s/^00m//&quot;)
-
-    local TRemain=$(date -u -d @$Remain +%Hh%Mm%Ss)
-    TRemain=$(echo ${TRemain} | sed -e &quot;s/^00h//&quot; -e &quot;s/^00m//&quot;)
-
-    local larg=$(tput cols)
-    if [ ${TimeElapsed} -gt ${TimeDiff} ] &amp;&amp; [ ${EndBar} -eq 0 ] &amp;&amp; [ ${Remain} -gt 0 ]; then        
-        local mess0=&quot;[ ${Percent}% ][${BarProgress}${BarPad}] (${Speed}K/s) [ Remain: ${TRemain} Spent: ${TElapsed} ]&quot;
-        local mess=&quot; :: ${mess0}&quot;
-        local mess1=&quot;${TAB_}${mess0}&quot;
-        echo -en &quot;\r${mess1}\033[K&quot;
-        if [ ${#mess} -gt ${larg} ]; then
-            echo -ne &quot;\r\033[1A&quot; src/lib/progbar
-        fi
-    else
-        echo -en &quot;\r${TAB_}[ ${Percent}% ][${BarProgress}${BarPad}][ Time: ${TElapsed} ]\033[K&quot;
-    fi
-}
-
-if [ $# -eq 2 ]; then
-    cp $1 $2 &amp;
-fi
-
-file_size_org=0
-file_size_dst=0
-file_size_org=$(du $1 | awk &apos;{print $1}&apos;)
-#echo org size ${file_size_org}
-
-TimeDiff=10
-EndBar=1
-TimeStart=$(date +%s)
-while [ ${file_size_org} -gt ${file_size_dst} ] &amp;&amp; sleep 1
-do
-    file_size_dst=$(du $2 | awk &apos;{print $1}&apos;)
-    TimeNow=$(date +%s)
-    TimeElapsed=$(( TimeNow-TimeStart ))
-    Speed=$(( file_size_dst/TimeElapsed ))
-    TimeRemain=$(( (file_size_org-file_size_dst)/Speed ))
-#    echo dst size ${file_size_dst}
-    print_bar ${file_size_dst} ${file_size_org} ${TimeRemain} ${TimeElapsed} ${Speed}
-#    print_bar ${BytesLoadNow} ${BytesLoadMax} ${TimeRemain} ${TimeElapsed} ${Speed} ${LenBar}
-done
-echo
-</code></pre><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="http://sourceforge.net/projects/raider/files/?source=navbar" target="_blank" rel="external">raider: src/lib/progbar</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/04/copy-file-with-progress-bar/" data-id="cin6a5ugi00283cizd1otnrr9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-svn-project-revision-monitor-linux" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2012/12/20/svn-project-revision-monitor-linux/" class="article-date">
@@ -291,10 +174,10 @@ project02#http://172.168.1.122/repos/dev/project02#18635#usr02@gmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cin6a5ugf001w3ciz7ikg8eg8" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cinefv6y0001jjiiz7kyvn2u8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mail/">mail</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
 
     </footer>
   </div>
@@ -309,6 +192,10 @@ project02#http://172.168.1.122/repos/dev/project02#18635#usr02@gmail.com
   <time datetime="2012-12-16T16:00:00.000Z" itemprop="datePublished">2012-12-17</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/windows/">windows</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -375,10 +262,10 @@ EXIT /B %retval%
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cin6a5uge001s3cizf61osr63" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cinefv6xz001gjiizxvr0pqn8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auto-compile/">auto compile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
 
     </footer>
   </div>
@@ -742,11 +629,9 @@ IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cin6a5ugc001o3cizyyah7t0k" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cinefv6xy001ejiizjx3sxztn" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hardware-monitor/">hardware monitor</a></li></ul>
-
     </footer>
   </div>
   
@@ -895,10 +780,10 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cin6a5uga001j3cizpbq5lvgv" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cinefv6xw001bjiizbbhje6iy" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blat/">blat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
 
     </footer>
   </div>
@@ -944,10 +829,10 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cin6a5ug7001c3cizyoadnx4d" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cinefv6xv0018jiizsm990pit" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blat/">blat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
 
     </footer>
   </div>
@@ -1032,7 +917,7 @@ pause&amp;exit /B 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cin6a5ug600193cizdbjumnik" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cinefv6xt0015jiiz8g1pe7jf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1135,7 +1020,7 @@ pause
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cin6a5ug400153ciznuynjkeg" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cinefv6xs0011jiiz3o4mng1e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1153,6 +1038,10 @@ pause
   <time datetime="2012-09-26T16:00:00.000Z" itemprop="datePublished">2012-09-27</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/source/">source</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1203,10 +1092,10 @@ Binary file &quot;wget&quot; will be generated at wget-1.9/src/
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cin6a5ug200103ciz3ltbmly0" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cinefv6xq000wjiizu4s1vas0" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/source-analyze/">source analyze</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wget/">wget</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wget/">wget</a></li></ul>
 
     </footer>
   </div>
@@ -1221,6 +1110,10 @@ Binary file &quot;wget&quot; will be generated at wget-1.9/src/
   <time datetime="2012-09-25T16:00:00.000Z" itemprop="datePublished">2012-09-26</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1693,10 +1586,59 @@ filetype plugin indent on &quot; required!
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cin6a5ug1000y3cizo9tch7fi" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cinefv6xo000rjiizvp64tw71" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-study-plan-120924" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/24/study-plan-120924/" class="article-date">
+  <time datetime="2012-09-23T16:00:00.000Z" itemprop="datePublished">2012-09-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/person/">person</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/24/study-plan-120924/">Study plan in the future</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Study plan in the future</p>
+<p><a href="http://www.net-snmp.org/" target="_blank" rel="external">net-snmp</a></p>
+<p><a href="http://directory.fsf.org/wiki/GNU" target="_blank" rel="external">GNU Software list</a> <a href="http://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%BD%AF%E4%BB%B6%E5%88%97%E8%A1%A8#.E6.96.87.E6.9C.AC.E7.BC.96.E8.BE.91.E5.99.A8" target="_blank" rel="external">zh linker</a></p>
+<p><a href="http://www.gnu.org/software/wget/" target="_blank" rel="external">wget</a></p>
+<p><a href="http://en.wikipedia.org/wiki/Standard_Commands_for_Programmable_Instruments" target="_blank" rel="external">SCPI protocol</a></p>
+<p><a href="http://linux.101hacks.com/toc/" target="_blank" rel="external">Linux 101 hacks</a></p>
+<p><a href="http://www.thegeekstuff.com/archives-2/" target="_blank" rel="external">Read this blog articles</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2012/09/24/study-plan-120924/" data-id="cinefv6xm000mjiiz1ktx3jig" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
 
     </footer>
   </div>
@@ -1718,7 +1660,7 @@ filetype plugin indent on &quot; required!
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/debug/">debug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/article/">article</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
   </div>
 
@@ -1728,7 +1670,7 @@ filetype plugin indent on &quot; required!
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 12.5px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iscsi/" style="font-size: 20px;">iscsi</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1750,6 +1692,10 @@ filetype plugin indent on &quot; required!
       <ul>
         
           <li>
+            <a href="/2016/04/24/speed-up-cplusplus-compilation/">speed up c++ compilation</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/18/hexo/">Hexo</a>
           </li>
         
@@ -1763,10 +1709,6 @@ filetype plugin indent on &quot; required!
         
           <li>
             <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

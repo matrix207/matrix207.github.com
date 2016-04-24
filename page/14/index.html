@@ -66,326 +66,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-kvm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/04/07/kvm/" class="article-date">
-  <time datetime="2013-04-06T16:00:00.000Z" itemprop="datePublished">2013-04-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/04/07/kvm/">kvm</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##KVM Install</p>
-<h4 id="install-tools"><a href="#Install-Tools" class="headerlink" title="Install Tools:"></a>Install Tools:</h4><p><code>yum -y install kvm python-virtinst libvirt  bridge-utils virt-manager qemu-kvm-tools  virt-viewer  virt-v2v</code></p>
-<h4 id="&#x5B89;&#x88C5;"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</h4><pre><code>virt-install --name=win2003test --ram 1024 --vcpus=1 --disk path=/mnt/win2003test.img,size=20 --accelerate --cdrom /mnt/WindowsServer2003SP2.iso --graphics vnc,password=123456,listen=0.0.0.0,port=5920 --force --autostart
-</code></pre><h4 id="&#x5220;&#x9664;"><a href="#&#x5220;&#x9664;" class="headerlink" title="&#x5220;&#x9664;"></a>&#x5220;&#x9664;</h4><pre><code>[root@localhost ~]# virsh -c qemu:///system
-virsh # list --all
-virsh # destroy win2003Test
-virsh # undefine win2003Test
-</code></pre><h4 id="&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#x5728;&#x7CFB;&#x7EDF;&#x91CD;&#x542F;&#x540E;&#x8BBE;&#x7F6E;cd"><a href="#&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x8BBE;&#x7F6E;CD" class="headerlink" title="&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x8BBE;&#x7F6E;CD"></a>&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x91CD;&#x542F;&#x540E;&#xFF0C;&#x8BBE;&#x7F6E;CD</h4><pre><code>&#x4FEE;&#x6539; /etc/libvirt/qemu/win2003test.xml &#x6216;&#x6267;&#x884C;&#x547D;&#x4EE4; virsh edit win2003test
-&lt;source dev=&apos;/mnt/WindowsServer2003SP2.iso&apos;/&gt; 
-&#x52A0;&#x5165;&#x5230;
-&lt;disk type=&apos;block&apos; device=&apos;cdrom&apos;&gt;
- &lt;driver name=&apos;qemu&apos; type=&apos;raw&apos;/&gt;
- &lt;source dev=&apos;/mnt/WindowsServer2003SP2.iso&apos;/&gt; 
- ...
-&lt;/disk&gt;
-
-&#x7136;&#x540E;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#x547D;&#x4EE4;  
-
-[root@localhost ~]# virsh -c qemu:///system
-virsh # shutdown win2003test
-virsh # destroy win2003test
-virsh # define /etc/libvirt/qemu/win2003test.xml
-virsh # start win2003test
-virsh # quit
-[root@localhost ~]# virt-viewer win2003test
-</code></pre><h4 id="&#x89E3;&#x51B3;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x9F20;&#x6807;&#x5149;&#x6807;&#x95EE;&#x9898;"><a href="#&#x89E3;&#x51B3;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x9F20;&#x6807;&#x5149;&#x6807;&#x95EE;&#x9898;" class="headerlink" title="&#x89E3;&#x51B3;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x9F20;&#x6807;&#x5149;&#x6807;&#x95EE;&#x9898;"></a>&#x89E3;&#x51B3;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x9F20;&#x6807;&#x5149;&#x6807;&#x95EE;&#x9898;</h4><pre><code>&#x4FEE;&#x6539; /etc/libvirt/qemu/win2003test.xml &#x6216;&#x6267;&#x884C;&#x547D;&#x4EE4; virsh edit win2003test 
-&lt;/console&gt;
-&lt;input type=&apos;tablet&apos; bus=&apos;usb&apos;/&gt;
-&lt;input type=&apos;mouse&apos; bus=&apos;ps2&apos;/&gt;
-</code></pre><h4 id="&#x5B89;&#x88C5;&#x7F51;&#x5361;&#x9A71;&#x52A8;"><a href="#&#x5B89;&#x88C5;&#x7F51;&#x5361;&#x9A71;&#x52A8;" class="headerlink" title="&#x5B89;&#x88C5;&#x7F51;&#x5361;&#x9A71;&#x52A8;"></a>&#x5B89;&#x88C5;&#x7F51;&#x5361;&#x9A71;&#x52A8;</h4><pre><code>&#x4E0B;&#x8F7D;virtio-win-0.1-52.iso
-http://alt.fedoraproject.org/pub/alt/virtio-win/latest/images/bin/virtio-win-0.1-52.iso
-&#x4FEE;&#x6539;
-&lt;source dev=&apos;/mnt/WindowsServer2003SP2.iso&apos;/&gt; 
-&#x4E3A;
-&lt;source dev=&apos;/mnt/virtio-win-0.1-52.iso&apos;/&gt; 
-&#x91CD;&#x542F;&#x7CFB;&#x7EDF;
-[root@localhost ~]# virsh shutdown win2003test
-[root@localhost ~]# virsh define /etc/libvirt/qemu/win2003test.xml
-[root@localhost ~]# virsh start win2003test
-&#x8FDB;&#x5165;&#x7CFB;&#x7EDF;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x4ECE;&#x5149;&#x9A71;&#x5B89;&#x88C5;&#x7F51;&#x5361;&#x9A71;&#x52A8;&#x4E86;.
-
-[root@localhost ~]# /etc/init.d/network stop
-Shutting down interface br0:  [  OK  ]
-Shutting down interface eth0:  [  OK  ]
-Shutting down interface eth1:  [  OK  ]
-Shutting down interface eth2:  [  OK  ]
-Shutting down interface eth3:  [  OK  ]
-Shutting down interface eth4:  [  OK  ]
-Shutting down interface eth5:  [  OK  ]
-Shutting down loopback interface:  [  OK  ]
-</code></pre><h4 id="&#x53C2;&#x8003;&#x6587;&#x7AE0;"><a href="#&#x53C2;&#x8003;&#x6587;&#x7AE0;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x7AE0;:"></a>&#x53C2;&#x8003;&#x6587;&#x7AE0;:</h4><ul>
-<li><a href="http://blog.chinaunix.net/uid-796091-id-3291518.html" target="_blank" rel="external">fedora 17&#x4E0A;kvm&#x7684;&#x914D;&#x7F6E;</a></li>
-<li><a href="http://g.51cto.com/netengineer/216414" target="_blank" rel="external">CentOS 6.3&#x90E8;&#x7F72;KVM&#x865A;&#x62DF;&#x673A;V1.0</a></li>
-<li><a href="http://www.techotopia.com/index.php/Creating_an_RHEL_6_KVM_Networked_Bridge_Interface" target="_blank" rel="external">Creating an RHEL 6 KVM Networked Bridge Interface</a></li>
-<li><a href="http://www.cnblogs.com/kumulinux/archive/2012/12/06/2808678.html" target="_blank" rel="external">RHEL6 KVM&#x5B89;&#x88C5;&#x5907;&#x5FD8;</a></li>
-<li><a href="http://www.linux-kvm.org/page/HOWTO" target="_blank" rel="external">KVM Howto</a></li>
-</ul>
-<hr>
-<p>##KVM Bridge</p>
-<p>command list:  </p>
-<pre><code>[root@localhost ~]#service network stop
-[root@localhost ~]#cd /etc/sysconfig/network-scripts/
-[root@localhost ~]#cat ifcfg-eth0
-    DEVICE=eth0
-    ONBOOT=yes
-    BRIDGE=br0
-    HWADDR=b3:1c:51:ca:a9:f0
-
-[root@localhost ~]#cat ifcfg-br0
-    DEVICE=br0   
-    TYPE=Bridge 
-    BOOTPROTO=static
-    ONBOOT=yes 
-    IPADDR=192.168.110.30
-    NETMASK=255.255.255.192
-    GATEWAY=192.168.110.1
-
-[root@localhost ~]#service network start
-
-[root@localhost ~]#route add default gw 192.168.110.1 dev br0
-</code></pre><h4 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;:"></a>&#x53C2;&#x8003;:</h4><ul>
-<li><a href="http://bloodiron888.blog.163.com/blog/static/1647332712010101853023528/" target="_blank" rel="external">linux kvm &#x7F51;&#x5361;Bridge&#x8BBE;&#x7F6E;</a></li>
-<li><a href="http://blog.csdn.net/samlei/article/details/7598541" target="_blank" rel="external">Redhat/CentOS6.2 x86&#x7CFB;&#x7EDF;KVM&#x865A;&#x62DF;&#x673A;&#x7F51;&#x7EDC;&#x914D;&#x7F6E;(&#x4E8C;)&#x2014;Bridge&#x65B9;&#x5F0F;</a></li>
-<li><a href="http://bbs.chinaunix.net/thread-3591185-1-1.html" target="_blank" rel="external">CentOS 6.0 &#x4E0B; KVM &#x7F51;&#x5361;&#x6865;&#x63A5;&#x7684;&#x914D;&#x7F6E;</a></li>
-<li><a href="http://forum.ubuntu.org.cn/viewtopic.php?t=154792" target="_blank" rel="external">&#x865A;&#x62DF;&#x5316;&#x65B9;&#x6848;&#x4E4B;&#xFF0D;&#xFF0D;kvm&#x7B80;&#x5355;&#x6559;&#x7A0B;&#xFF08;&#x7F51;&#x7EDC;&#x6865;&#x63A5;&#x65B9;&#x6848;&#xFF0C;&#x5168;&#x6587;&#x66F4;&#x65B0;&#x4E2D;&#x3002;&#x3002;&#x3002;&#xFF09;</a></li>
-<li><a href="www.anyshare.org/open/355.html">RHEL KVM&#x865A;&#x62DF;&#x673A;&#x7F51;&#x6865;&#x8BBE;&#x7F6E;</a></li>
-<li><a href="http://linuxkvm.blogspot.co.uk/2012/01/linux-bridge.html" target="_blank" rel="external">Linux &#x539F;&#x751F;&#x6A4B;&#x63A5;&#x5668;&#xFF08;Bridge&#xFF09;</a></li>
-<li><a href="http://www.net527.cn/a/Ciscomoniqi/Ciscomoniqiruanjian/2012/0524/23095.html" target="_blank" rel="external">Fedora KVM Networking</a></li>
-<li><a href="http://www.07net01.com/linux/Redhat_CentOS6_2_x86xitongKVMxunijiwangluopeizhi_Bridgefangshi_23477_1352279007.html" target="_blank" rel="external">Redhat/CentOS6.2 x86&#x7CFB;&#x7EDF;KVM&#x865A;&#x62DF;&#x673A;&#x7F51;&#x7EDC;&#x914D;&#x7F6E; Bridge&#x65B9;&#x5F0F;</a></li>
-</ul>
-<hr>
-<p>##KVM Bond</p>
-<h4 id="&#x5173;&#x6389;networkmanager&#x670D;&#x52A1;"><a href="#&#x5173;&#x6389;NetworkManager&#x670D;&#x52A1;" class="headerlink" title="&#x5173;&#x6389;NetworkManager&#x670D;&#x52A1;"></a>&#x5173;&#x6389;NetworkManager&#x670D;&#x52A1;</h4><pre><code>[root@localhost ~]# service NetworkManager stop
-
-[root@localhost ~]# service NetworkManager status
-NetworkManager is stopped
-</code></pre><h4 id="&#x5217;&#x51FA;&#x5F53;&#x524D;&#x7684;&#x7F51;&#x5361;&#x7684;&#x4E2A;&#x6570;"><a href="#&#x5217;&#x51FA;&#x5F53;&#x524D;&#x7684;&#x7F51;&#x5361;&#x7684;&#x4E2A;&#x6570;" class="headerlink" title="&#x5217;&#x51FA;&#x5F53;&#x524D;&#x7684;&#x7F51;&#x5361;&#x7684;&#x4E2A;&#x6570;"></a>&#x5217;&#x51FA;&#x5F53;&#x524D;&#x7684;&#x7F51;&#x5361;&#x7684;&#x4E2A;&#x6570;</h4><pre><code>&#x67E5;&#x8BE2;eth*,&#x5176;&#x4E2D;[[:digit:]]&#x5339;&#x914D;&#x6570;&#x5B57;&#xFF0C;+&#x5339;&#x914D;&#x7528;&#x6765;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6570;&#x5B57;
-[root@localhost ~]# ip a | grep -E &quot;eth[[:digit:]]+:&quot;
-2: eth4: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
-3: eth2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
-4: eth5: &lt;BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast master bond0 state UP qlen 1000
-5: eth3: &lt;BROADCAST,MULTICAST,SLAVE,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast master bond0 state UP qlen 1000
-6: eth6: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN qlen 1000
-7: eth7: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN qlen 1000    
-[root@localhost ~]# ip a | grep -E &quot;eth[[:digit:]]+:&quot; | wc -l
-6
-
-[root@localhost ~]# grep -E &quot;eth[[:digit:]]+&quot; /proc/net/dev | awk -F&apos; |:&apos; &apos;{print $3}&apos; | sort
-eth2
-eth3
-eth4
-eth5
-eth6
-eth7
-
-HowTo: Linux Show List Of Network Cards    
-http://www.cyberciti.biz/faq/linux-list-network-cards-command/
-</code></pre><h4 id="&#x5217;&#x51FA;bond&#x7684;&#x4E2A;&#x6570;&#x548C;&#x7EC4;&#x6210;"><a href="#&#x5217;&#x51FA;bond&#x7684;&#x4E2A;&#x6570;&#x548C;&#x7EC4;&#x6210;" class="headerlink" title="&#x5217;&#x51FA;bond&#x7684;&#x4E2A;&#x6570;&#x548C;&#x7EC4;&#x6210;"></a>&#x5217;&#x51FA;bond&#x7684;&#x4E2A;&#x6570;&#x548C;&#x7EC4;&#x6210;</h4><pre><code>[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-bond0 
-DEVICE=bond0
-BOOTPROTO=static
-ONBOOT=yes
-USERCTL=no
-TYPE=Ethernet
-BRIDGE=br1
-
-&#x67E5;&#x770B;&#x7ED1;&#x5B9A;&#x72B6;&#x6001;
-[root@localhost ~]# cat /proc/net/bonding/bond0 
-Ethernet Channel Bonding Driver: v3.6.0 (September 26, 2009)
-
-Bonding Mode: adaptive load balancing
-Primary Slave: None
-Currently Active Slave: eth5    # &#x5F53;&#x524D;&#x4F7F;&#x7528;eth5
-MII Status: up
-MII Polling Interval (ms): 100
-Up Delay (ms): 0
-Down Delay (ms): 0
-
-Slave Interface: eth3           # &#x7ED1;&#x5B9A;&#x6210;&#x5458;eth3
-MII Status: up
-Speed: 1000 Mbps
-Duplex: full
-Link Failure Count: 0
-Permanent HW addr: 00:24:ec:20:00:fe
-Slave queue ID: 0
-
-Slave Interface: eth5           # &#x7ED1;&#x5B9A;&#x6210;&#x5458;eth5
-MII Status: up
-Speed: 1000 Mbps
-Duplex: full
-Link Failure Count: 0
-Permanent HW addr: 00:24:ec:20:00:fd
-Slave queue ID: 0
-</code></pre><h4 id="&#x5217;&#x51FA;&#x7F51;&#x6865;&#x7684;&#x4E2A;&#x6570;&#x53CA;&#x5176;&#x7EC4;&#x6210;&#x548C;vnet&#x7684;&#x60C5;&#x51B5;"><a href="#&#x5217;&#x51FA;&#x7F51;&#x6865;&#x7684;&#x4E2A;&#x6570;&#x53CA;&#x5176;&#x7EC4;&#x6210;&#xFF0C;&#x548C;vnet&#x7684;&#x60C5;&#x51B5;" class="headerlink" title="&#x5217;&#x51FA;&#x7F51;&#x6865;&#x7684;&#x4E2A;&#x6570;&#x53CA;&#x5176;&#x7EC4;&#x6210;&#xFF0C;&#x548C;vnet&#x7684;&#x60C5;&#x51B5;"></a>&#x5217;&#x51FA;&#x7F51;&#x6865;&#x7684;&#x4E2A;&#x6570;&#x53CA;&#x5176;&#x7EC4;&#x6210;&#xFF0C;&#x548C;vnet&#x7684;&#x60C5;&#x51B5;</h4><pre><code>1).&#x67E5;&#x8BE2;&#x7F51;&#x6865;&#x4E2A;&#x6570;
-    [root@localhost ~]# brctl show
-    bridge name    bridge id        STP enabled    interfaces
-    br0        8000.0024ec2000fb    no        eth4
-                                tap0
-    br1        8000.0024ec2000fe    no        bond0
-                                tap1
-                                vnet0
-    virbr0        8000.525400d2af63    yes        virbr0-nic
-
-    [root@localhost ~]# ifconfig | grep -E &quot;^br[[:digit:]]&quot;
-    br0       Link encap:Ethernet  HWaddr 00:24:EC:20:00:FB  
-    br1       Link encap:Ethernet  HWaddr 00:24:EC:20:00:FE  
-    [root@localhost ~]# ifconfig | grep -E &quot;^br[[:digit:]]&quot; | wc -l
-    2
-
-2).&#x67E5;&#x8BE2;vnet&#x60C5;&#x51B5;,&#x4F7F;&#x7528;sed&#xFF0C;&#x67E5;&#x627E;vnet&#x5F00;&#x59CB;&#x5230;&#x7A7A;&#x884C;&#x7ED3;&#x675F;&#x7684;&#x884C;
-    [root@localhost ~]# ifconfig | sed -n &apos;/vnet[[:digit:]]/,/^$/p&apos;
-    vnet0     Link encap:Ethernet  HWaddr FE:24:EC:20:00:FF  
-              inet6 addr: fe80::fc24:ecff:fe20:ff/64 Scope:Link
-              UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-              RX packets:2669288 errors:0 dropped:0 overruns:0 frame:0
-              TX packets:26731021 errors:0 dropped:0 overruns:0 carrier:0
-              collisions:0 txqueuelen:500 
-              RX bytes:323410384 (308.4 MiB)  TX bytes:2495782478 (2.3 GiB)
-
-    [root@localhost ~]# 
-</code></pre><h4 id="&#x4E24;&#x4E2A;&#x7F51;&#x5361;&#x5EFA;&#x7ACB;&#x7ED1;&#x5B9A;"><a href="#&#x4E24;&#x4E2A;&#x7F51;&#x5361;&#x5EFA;&#x7ACB;&#x7ED1;&#x5B9A;" class="headerlink" title="&#x4E24;&#x4E2A;&#x7F51;&#x5361;&#x5EFA;&#x7ACB;&#x7ED1;&#x5B9A;"></a>&#x4E24;&#x4E2A;&#x7F51;&#x5361;&#x5EFA;&#x7ACB;&#x7ED1;&#x5B9A;</h4><pre><code>[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-bond0 
-DEVICE=bond0
-BOOTPROTO=static
-ONBOOT=yes
-USERCTL=no
-TYPE=Ethernet
-BRIDGE=br1
-
-echo &quot;MASTER=bond0
-SLAVE=yes&quot; &gt;&gt; /etc/sysconfig/network-scripts/ifcfg-eth0
-
-echo &quot;MASTER=bond0
-SLAVE=yes&quot; &gt;&gt; /etc/sysconfig/network-scripts/ifcfg-eth1
-</code></pre><h4 id="&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x7F51;&#x6865;"><a href="#&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x7F51;&#x6865;" class="headerlink" title="&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x7F51;&#x6865;"></a>&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x7F51;&#x6865;</h4><pre><code>[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-br0
-DEVICE=&quot;br0&quot;
-BOOTPROTO=static
-NM_CONTROLLED=&quot;yes&quot;
-ONBOOT=yes
-IPADDR=192.168.110.30
-PREFIX=24
-GATEWAY=192.168.110.1
-DEFROUTE=yes
-TYPE=Bridge
-[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-br1
-DEVICE=&quot;br1&quot;
-BOOTPROTO=none
-NM_CONTROLLED=&quot;yes&quot;
-ONBOOT=yes
-IPADDR=192.168.110.32
-NETMASK=255.255.255.0
-GATEWAY=192.168.110.1
-DEFROUTE=yes
-TYPE=Bridge
-</code></pre><h4 id="&#x5220;&#x9664;&#x7F51;&#x6865;&#x5220;&#x9664;&#x7ED1;&#x5B9A;"><a href="#&#x5220;&#x9664;&#x7F51;&#x6865;&#xFF0C;&#x5220;&#x9664;&#x7ED1;&#x5B9A;" class="headerlink" title="&#x5220;&#x9664;&#x7F51;&#x6865;&#xFF0C;&#x5220;&#x9664;&#x7ED1;&#x5B9A;"></a>&#x5220;&#x9664;&#x7F51;&#x6865;&#xFF0C;&#x5220;&#x9664;&#x7ED1;&#x5B9A;</h4><pre><code>[root@localhost ~]# brctl delif br1 eth3
-[root@localhost ~]# brctl delif br1 eth5
-[root@localhost ~]# brctl delbr br1
-
-service network stop
-rm -f ifcfg-br*
-</code></pre><h4 id="a-bonded-machine-look-as-below"><a href="#A-bonded-machine-look-as-below" class="headerlink" title="A bonded machine look as below:"></a>A bonded machine look as below:</h4><pre><code>[root@localhost ~]# ls  /etc/sysconfig/network-scripts/
-ifcfg-bond0  ifcfg-eth3  ifdown-bnep  ifdown-post    ifup          ifup-ipv6   ifup-ppp       init.ipv6-global
-ifcfg-br0    ifcfg-eth4  ifdown-eth   ifdown-ppp     ifup-aliases  ifup-isdn   ifup-routes    net.hotplug
-ifcfg-br1    ifcfg-eth5  ifdown-ippp  ifdown-routes  ifup-bnep     ifup-plip   ifup-sit       network-functions
-ifcfg-eth0   ifcfg-lo    ifdown-ipv6  ifdown-sit     ifup-eth      ifup-plusb  ifup-tunnel    network-functions-ipv6
-ifcfg-eth1   ifdown      ifdown-isdn  ifdown-tunnel  ifup-ippp     ifup-post   ifup-wireless
-[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-bond0 
-DEVICE=bond0
-BOOTPROTO=static
-ONBOOT=yes
-USERCTL=no
-TYPE=Ethernet
-BRIDGE=br1
-[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-br1
-DEVICE=&quot;br1&quot;
-BOOTPROTO=none
-NM_CONTROLLED=&quot;yes&quot;
-ONBOOT=yes
-IPADDR=192.168.110.32
-NETMASK=255.255.255.0
-GATEWAY=192.168.110.1
-DEFROUTE=yes
-TYPE=Bridge
-[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth3
-DEVICE=eth3
-BOOTPROTO=static
-ONBOOT=yes
-MASTER=bond0
-SLAVE=yes
-USERCTL=no
-TYPE=Ethernet
-[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth5
-DEVICE=eth5
-BOOTPROTO=static
-ONBOOT=yes
-MASTER=bond0
-SLAVE=yes
-USERCTL=no
-TYPE=Ethernet
-[root@localhost ~]# cat /etc/modprobe.d/modprobe.conf 
-alias bond0 bonding
-options bond0 miimon=100 mode=6
-[root@localhost ~]# grep -r &quot;bond0&quot; /etc
-/etc/modprobe.d/modprobe.conf:alias bond0 bonding
-/etc/modprobe.d/modprobe.conf:options bond0 miimon=100 mode=6
-/etc/sysconfig/network-scripts/ifcfg-eth5:MASTER=bond0
-/etc/sysconfig/network-scripts/ifcfg-bond0:DEVICE=bond0
-/etc/sysconfig/network-scripts/ifcfg-eth3:MASTER=bond0
-[root@localhost ~]#
-</code></pre><h4 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;-1" class="headerlink" title="&#x53C2;&#x8003;:"></a>&#x53C2;&#x8003;:</h4><ul>
-<li><a href="www.cnblogs.com/kumulinux/archive/2012/10/18/2808702.html">RHEL6&#x53CC;&#x7F51;&#x5361;&#x7ED1;&#x5B9A;</a></li>
-<li><a href="http://join12.blog.51cto.com/1194785/992705" target="_blank" rel="external">linux&#x7CFB;&#x7EDF;&#x53CC;&#x7F51;&#x5361;&#x7ED1;&#x5B9A;&#x8BE6;&#x7EC6;&#x914D;&#x7F6E;</a></li>
-<li><a href="http://19861022.blog.51cto.com/353339/556781" target="_blank" rel="external">CentOS5.5 &#x53CC;&#x7F51;&#x5361;&#x7ED1;&#x5B9A;</a></li>
-<li><a href="http://bbs.ywlm.net/thread-1156-1-1.html" target="_blank" rel="external">Linux&#x53CC;&#x7F51;&#x5361;&#x7ED1;&#x5B9A;&#x5B9E;&#x73B0;&#x8D1F;&#x8F7D;&#x5747;&#x8861;(Bonding&#x53CC;&#x7F51;&#x5361;&#x7ED1;&#x5B9A;)</a></li>
-<li><a href="www.yunvn.com/thread-2464-1-1.html">shell&#x811A;&#x672C;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x53CC;&#x7F51;&#x5361;&#x7ED1;&#x5B9A;</a></li>
-<li><a href="http://serverfault.com/questions/316623/what-is-the-correct-way-to-setup-a-bonded-bridge-on-centos-6-for-kvm-guests" target="_blank" rel="external">What is the correct way to setup a bonded bridge on Centos 6 for KVM guests?</a></li>
-</ul>
-<hr>
-<h4 id="other"><a href="#Other" class="headerlink" title="Other:"></a>Other:</h4><ul>
-<li><a href="http://wiki.ubuntu.org.cn/Kvm%E6%95%99%E7%A8%8B#KVM_.E4.B8.8E_vbox.E7.9A.84.E5.8C.BA.E5.88.AB" target="_blank" rel="external">Kvm&#x6559;&#x7A0B;</a></li>
-<li><a href="http://trac.nchc.org.tw/grid/wiki/KVM/OpenNebula" target="_blank" rel="external">KVM + OpenNebula = Virtual Cluster Deployment&#x2605;&#x2605;&#x2605;&#x2605;</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/linux/l-using-kvm/" target="_blank" rel="external">&#x4F7F;&#x7528; KVM &#x865A;&#x62DF;&#x5316;&#x6280;&#x672F;</a></li>
-<li><a href="http://www.csdn.net/article/a/2013-09-12/15816609-Virtualization" target="_blank" rel="external">&#x865A;&#x62DF;&#x5316;&#x53D1;&#x5C55;&#x7B80;&#x53F2;&#x548C;&#x4EAC;&#x4E1C;&#x7684;&#x865A;&#x62DF;&#x5316;&#x5E94;&#x7528;&#x65B9;&#x6848;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/07/kvm/" data-id="cin6a5uhv005b3cizp79n39m3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kvm/">kvm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-arp-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/04/07/arp-on-windows/" class="article-date">
@@ -429,10 +109,10 @@ options bond0 miimon=100 mode=6
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/07/arp-on-windows/" data-id="cin6a5uhu00573cizivnuyfz8" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/04/07/arp-on-windows/" data-id="cinefv6zl0059jiiz2pjvurox" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arp/">arp</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
   </div>
@@ -447,6 +127,10 @@ options bond0 miimon=100 mode=6
   <time datetime="2013-04-01T16:00:00.000Z" itemprop="datePublished">2013-04-02</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/database/">database</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -544,10 +228,10 @@ SQL error near line 809: no such table: main.user_log
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/02/convert-mysql-to-sqlite/" data-id="cin6a5uhs00523cizfbnphy47" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/04/02/convert-mysql-to-sqlite/" data-id="cinefv6zj0054jiizota6foqm" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sqlite/">sqlite</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
 
     </footer>
   </div>
@@ -563,7 +247,7 @@ SQL error near line 809: no such table: main.user_log
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
+    <a class="article-category-link" href="/categories/storage/">storage</a>
   </div>
 
   </div>
@@ -799,10 +483,10 @@ md127 : inactive sdb[0](S)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/31/use-raid/" data-id="cin6a5uhq004y3cizh6rec2yy" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/31/use-raid/" data-id="cinefv6zh004zjiizrpnisu1b" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raid/">raid</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/">storage</a></li></ul>
 
     </footer>
   </div>
@@ -818,7 +502,7 @@ md127 : inactive sdb[0](S)
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
+    <a class="article-category-link" href="/categories/network/">network</a>
   </div>
 
   </div>
@@ -923,10 +607,10 @@ WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/13/connect-wifi-in-linux-terminal/" data-id="cin6a5uho004q3ciz3xdv2adi" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/13/connect-wifi-in-linux-terminal/" data-id="cinefv6zg004ujiiz3bci6jkm" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wifi/">wifi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wireless-tools/">wireless-tools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wpa-supplicant/">wpa_supplicant</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
   </div>
@@ -941,6 +625,10 @@ WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
   <time datetime="2013-03-11T16:00:00.000Z" itemprop="datePublished">2013-03-12</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1006,7 +694,7 @@ EOF
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/12/install-skype-on-fedora18-x86_64/" data-id="cin6a5uhk004j3cizatb2ax2x" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/12/install-skype-on-fedora18-x86_64/" data-id="cinefv6zb004ljiizhvb2qfmt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skype/">skype</a></li></ul>
@@ -1024,6 +712,10 @@ EOF
   <time datetime="2013-03-11T16:00:00.000Z" itemprop="datePublished">2013-03-12</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1053,7 +745,7 @@ EOF
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/12/skype-api-for-linux/" data-id="cin6a5uhn004m3cizlcmkk756" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/12/skype-api-for-linux/" data-id="cinefv6zf004pjiizmk3uxmuv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skype/">skype</a></li></ul>
@@ -1071,6 +763,10 @@ EOF
   <time datetime="2013-03-05T16:00:00.000Z" itemprop="datePublished">2013-03-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1179,7 +875,7 @@ echo &quot;rsync&quot; &gt; d:/rsync/rsyncd.secrets
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/06/use-rsync/" data-id="cin6a5uhj004g3cizdvlnzh1s" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/06/use-rsync/" data-id="cinefv6za004hjiiztcg5am76" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/">rsync</a></li></ul>
@@ -1197,6 +893,10 @@ echo &quot;rsync&quot; &gt; d:/rsync/rsyncd.secrets
   <time datetime="2013-03-04T16:00:00.000Z" itemprop="datePublished">2013-03-05</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/language/">language</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1325,7 +1025,7 @@ exit 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/05/xml-parse/" data-id="cin6a5uhh00483cizajptayoo" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/05/xml-parse/" data-id="cinefv6z90048jiizwl49uom3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vi/">vi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml/">xml</a></li></ul>
@@ -1343,6 +1043,10 @@ exit 0
   <time datetime="2013-03-03T16:00:00.000Z" itemprop="datePublished">2013-03-04</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/english/">english</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1492,7 +1196,166 @@ exit 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/" data-id="cin6a5uhg00463cizrs3dldcd" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/" data-id="cinefv6z80045jiizb7knp4y6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translation/">Translation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-30-linux-kernel-developers-in-30-weeks-sarah-sharp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/03/04/30-linux-kernel-developers-in-30-weeks-sarah-sharp/" class="article-date">
+  <time datetime="2013-03-03T16:00:00.000Z" itemprop="datePublished">2013-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/english/">english</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/03/04/30-linux-kernel-developers-in-30-weeks-sarah-sharp/">30 Linux Kernel Developers in 30 Weeks: Sarah Sharp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x539F;&#x6587; <a href="https://www.linux.com/news/special-feature/linux-developers/593966-30-linux-kernel-developers-in-30-weeks-sarah-sharp" target="_blank" rel="external">30 Linux Kernel Developers in 30 Weeks: Sarah Sharp</a></p>
+<blockquote>
+<p>This is the third profile in our 30-week series that features a different Linux kernel developer each week. Last week we featured Thomas Gleixner, after beginning the series with Linus Torvalds. The profiles we publish throughout the rest of 2012 will help illustrate how these developers do their work, providing important insight on how to work with them and what makes them tick.</p>
+</blockquote>
+<p>&#x8FD9;&#x662F;30&#x5468;30&#x4F4D;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x8005;&#x7CFB;&#x5217;&#x7684;&#x7B2C;&#x4E09;&#x671F;&#x3002;&#x4E0A;&#x5468;&#x6211;&#x4EEC;&#x5728;&#x9996;&#x671F;&#x7684;Linus Torvalds&#x4E13;&#x8BBF;&#x540E;&#x4ECB;&#x7ECD;&#x4E86;Thomas Gleixner&#x3002;&#x5728;2012&#x5E74;&#x4F59;&#x4E0B;&#x65F6;&#x95F4;&#x4E2D;&#x53D1;&#x8868;&#x7684;&#x8FD9;&#x4E9B;&#x6587;&#x7AE0;&#x5C06;&#x544A;&#x8BC9;&#x5927;&#x5BB6;&#x4ED6;&#x4EEC;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x600E;&#x6837;&#x4E0E;&#x4ED6;&#x4EEC;&#x534F;&#x540C;&#x5DE5;&#x4F5C;&#x4EE5;&#x53CA;&#x4ED6;&#x4EEC;&#x6210;&#x529F;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<blockquote>
+<p>Name</p>
+</blockquote>
+<p>&#x59D3;&#x540D;</p>
+<blockquote>
+<p>Sarah Sharp</p>
+</blockquote>
+<p>Sarah Sharp</p>
+<blockquote>
+<p>What role do you play in the community and/or what subsystem(s) do you work on?</p>
+</blockquote>
+<p>&#x4F60;&#x6700;&#x793E;&#x533A;&#x4E2D;&#x626E;&#x6F14;&#x4EC0;&#x4E48;&#x89D2;&#x8272;&#x6216;&#x8005;&#x8D1F;&#x8D23;&#x54EA;&#x4E2A;&#x5B50;&#x7CFB;&#x7EDF;&#x7684;&#x5F00;&#x53D1;&#xFF1F;</p>
+<blockquote>
+<p>I&#x2019;m the Linux kernel xHCI driver maintainer. I own Linux USB 3.0 support, and I send my patches up to Greg Kroah-Hartman, who is the USB subsystem maintainer.</p>
+</blockquote>
+<p>&#x6211;&#x662F;Linux&#x5185;&#x6838;&#x6A21;&#x5757;xHCI&#x9A71;&#x52A8;&#x7684;&#x7EF4;&#x62A4;&#x8005;&#x3002;&#x6211;&#x8D1F;&#x8D23;Linux USB 3.0&#x7684;&#x5F00;&#x53D1;&#x652F;&#x6301;&#xFF0C;&#x6211;&#x4F1A;&#x628A;&#x8865;&#x4E01;&#x5305;&#x63D0;&#x4EA4;&#x7ED9;USB&#x5B50;&#x7CFB;&#x7EDF;&#x7EF4;&#x62A4;&#x8005;Grep Kroah-Hartman&#x3002;</p>
+<blockquote>
+<p>Where do you get your paycheck?</p>
+</blockquote>
+<p>&#x4F60;&#x7684;&#x6536;&#x5165;&#x6765;&#x6E90;&#xFF1F;</p>
+<blockquote>
+<p>I work in Intel&#x2019;s Open Source Technology Center, along with a bunch of other cool Linux kernel developers.</p>
+</blockquote>
+<p>&#x6211;&#x5728;&#x82F1;&#x7279;&#x5C14;&#x5F00;&#x6E90;&#x6280;&#x672F;&#x4E2D;&#x5FC3;&#x548C;&#x4E00;&#x7FA4;&#x5F88;&#x9177;&#x7684;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x8005;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#xFF0C;</p>
+<blockquote>
+<p>What part of the world do you live in? Why there?</p>
+</blockquote>
+<p>&#x4F60;&#x5728;&#x54EA;&#x91CC;&#x751F;&#x6D3B;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p>I live in Portland, Oregon. There&#x2019;s a reason why we say, &#x201C;Keep Portland Weird&#x201D;. We have everything from Voodoo Donuts to mini-bike-riding &#x201C;Zoo Bombers&#x201D; to Powell&#x2019;s, which is America&#x2019;s largest book store. Portland is also really friendly to open source development. It&#x2019;s home to OSCON (Open Source Convention), and there&#x2019;s this great cross-pollination between Linux users and the bicycle community. The electronics maker community is pretty strong in Portland, too. Check out a Dorkbot meeting when you&#x2019;re in town, or hang out with cool techie women at Code N Splode.</p>
+</blockquote>
+<p>&#x6211;&#x5C45;&#x4F4F;&#x5728;&#x4FC4;&#x52D2;&#x5188;&#x5DDE;&#x7684;&#x6CE2;&#x7279;&#x5170;&#x3002;&#x539F;&#x56E0;&#x4E4B;&#x4E00;&#x662F;&#x201C;&#x795E;&#x5947;&#x7684;&#x6CE2;&#x7279;&#x5170;&#x201D;&#x3002; &#x6CE2;&#x7279;&#x5170;&#x662F;&#x5F00;&#x6E90;&#x53D1;&#x5C55;&#x7684;&#x670B;&#x53CB;&#x3002;&#x662F;OSCON&#x7684;&#x6545;&#x4E61;&#xFF0C;&#x540C;&#x65F6;&#x662F;Linux&#x7528;&#x6237;&#x7FA4;&#x548C;&#x8F66;&#x53CB;&#x76F8;&#x4E92;&#x4EA4;&#x6D41;&#x7684;&#x5730;&#x65B9;&#x3002;&#x7535;&#x5B50;&#x4EA7;&#x4E1A;&#x5728;&#x6CE2;&#x7279;&#x5170;&#x4E5F;&#x5F88;&#x725B;&#x3002;&#xFF1F;&#xFF1F;&#xFF1F;</p>
+<blockquote>
+<p>What are your favorite productivity tools for software development? What do you run on your desktop?</p>
+</blockquote>
+<p>&#x4F60;&#x6700;&#x559C;&#x6B22;&#x7684;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x4F60;&#x4E00;&#x822C;&#x7528;&#x4EC0;&#x4E48;&#x5DE5;&#x5177;&#xFF1F;</p>
+<blockquote>
+<p>Um, I&#x2019;m pretty much a vim and mutt person. Software development is all text for me. As for what I run on my desktop, it&#x2019;s Linux, of course. :) I run either Debian or Ubuntu on my boxes, and try to do all my work in Linux.</p>
+</blockquote>
+<p>&#x6211;&#x6BD4;&#x8F83;&#x4E2D;&#x610F;vim&#x548C;mutt.&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x90FD;&#x662F;&#x6587;&#x672C;&#x5316;&#x7684;&#x3002;&#x5F53;&#x7136;&#x6211;&#x7684;&#x684C;&#x9762;&#x7CFB;&#x7EDF;&#x662F;Linux&#x3002;&#x4E0D;&#x662F;Debian&#x5C31;&#x662F;Ubuntu&#xFF0C;&#x6211;&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x90FD;&#x662F;&#x5728;Linux&#x4E0B;&#x8FDB;&#x884C;&#x7684;&#x3002;</p>
+<blockquote>
+<p>How did you get involved in Linux kernel development?</p>
+</blockquote>
+<p>&#x4F60;&#x662F;&#x5982;&#x4F55;&#x53C2;&#x4E0E;&#x5230;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x4E2D;&#x7684;&#xFF1F;</p>
+<blockquote>
+<p>My computer science professor, Bart Massey, was approached by Greg Kroah-Hartman, who was looking for a student to do a Linux USB project. Bart thought I would be a great fit, and was my faculty advisor for the &#x201C;usbfs2&#x201D; project. I worked on usbfs2 for Portland State University senior elective credits, and later as a paid project under the Intel Undergraduate Research Program.</p>
+</blockquote>
+<p>&#x6211;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x79D1;&#x5B66;&#x6559;&#x6388;Bart Massey&#xFF0C;&#x548C;Greg Kroah-Hartman&#x6BD4;&#x8F83;&#x719F;&#xFF0C;&#x4ED6;&#x5F53;&#x65F6;&#x5728;&#x627E;&#x4EBA;&#x505A;Linux USB&#x9879;&#x76EE;&#x3002;Bart&#x8BA4;&#x4E3A;&#x6211;&#x5F88;&#x5408;&#x9002;&#xFF0C;&#x53EF;&#x4EE5;&#x80DC;&#x4EFB;&#x201C;usbfs2&#x201D;&#x9879;&#x76EE;&#x3002;usbfs2&#x5F00;&#x59CB;&#x662F;&#x6211;&#x7684;&#x6CE2;&#x7279;&#x5170;&#x5DDE;&#x7ACB;&#x5927;&#x5B66;&#x9AD8;&#x7EA7;&#x9009;&#x4FEE;&#x8BFE;&#x9879;&#x76EE;&#xFF0C;&#x540E;&#x6765;&#x53D8;&#x6210;&#x82F1;&#x7279;&#x5C14;&#x5927;&#x5B66;&#x751F;&#x7814;&#x7A76;&#x8BA1;&#x5212;&#x4E0B;&#x7684;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x3002;</p>
+<blockquote>
+<p>It was pretty nerve-racking to send my first patchset out, but my then-boyfriend-now-husband encouraged me to actually hit send. The Linux USB community was a pretty good place to start doing kernel development, and the people on the mailing list were patient about answering my newbie questions.</p>
+</blockquote>
+<p>&#x6211;&#x7B2C;&#x4E00;&#x6B21;&#x63D0;&#x4EA4;&#x8865;&#x4E01;&#x5305;&#x7684;&#x65F6;&#x5019;&#x975E;&#x5E38;&#x7684;&#x7D27;&#x5F20;&#xFF0C;&#x4F46;&#x6211;&#x7684;&#x7537;&#x53CB;-&#x73B0;&#x5728;&#x662F;&#x4E08;&#x592B;&#x9F13;&#x52B1;&#x6211;&#x53D1;&#x9001;&#x51FA;&#x3002;Linux USB&#x793E;&#x533A;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x59CB;&#x5185;&#x6838;&#x5F00;&#x53D1;&#x7684;&#x597D;&#x5730;&#x65B9;&#xFF0C;&#x90AE;&#x4EF6;&#x5217;&#x8868;&#x4E0A;&#x7684;&#x4EBA;&#x90FD;&#x5F88;&#x8010;&#x5FC3;&#x5730;&#x56DE;&#x7B54;&#x6211;&#x8FD9;&#x4E2A;&#x4FE1;&#x5B88;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<blockquote>
+<p>A couple months before I graduated, I proposed a talk on my usbfs2 project for OSCON 2007. Kristen Accardi was on the OSCON selection committee, and remembered me from some Portland Linux gatherings I had been to. She knew that Intel&#x2019;s Open Source Technology Center was looking for a Linux USB developer, so she got me an interview with OTC. I&#x2019;ve been working for OTC for the past five years now, continuing my work on the Linux USB subsystem.</p>
+</blockquote>
+<p>&#x5728;&#x6BD5;&#x4E1A;&#x524D;&#x51E0;&#x4E2A;&#x6708;&#xFF0C;&#x6211;&#x5728;2007&#x5E74;&#x5EA6;&#x7684;OSCON&#x4E0A;&#x505A;&#x4E86;usbfs2&#x7684;&#x6F14;&#x8BB2;&#x3002;OSCON&#x9009;&#x4E3E;&#x59D4;&#x5458;&#x4F1A;&#x7684;Kristen Accardi&#x770B;&#x5230;&#x6211;&#x6765;&#x81EA;&#x6CE2;&#x7279;&#x5170;Linux&#x7FA4;&#x3002;&#x5979;&#x77E5;&#x9053;&#x82F1;&#x7279;&#x5C14;&#x7684;&#x5F00;&#x6E90;&#x6280;&#x672F;&#x4E2D;&#x5FC3;&#x6B63;&#x5728;&#x62DB;&#x8058;Linux USB&#x5F00;&#x53D1;&#x5458;&#xFF0C;&#x6240;&#x4EE5;&#x5979;&#x7ED9;&#x6211;&#x4E00;&#x4E2A;&#x9762;&#x8BD5;&#x673A;&#x4F1A;&#x3002;&#x6211;&#x7814;&#x7A76;&#x5728;&#x82F1;&#x7279;&#x5C14;&#x5F00;&#x6E90;&#x6280;&#x672F;&#x4E2D;&#x5FC3;&#x505A;&#x4E86;5&#x5E74;&#x7684;Linux USB&#x5B50;&#x7CFB;&#x7EDF;&#x5F00;&#x53D1;&#x3002;</p>
+<blockquote>
+<p>I wouldn&#x2019;t be a Linux kernel developer today without the contacts I created by networking with other developers at conferences and tech events.</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x96C6;&#x4F1A;&#x548C;&#x6280;&#x672F;&#x8BBA;&#x575B;&#x7684;&#x5176;&#x4ED6;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x4EA4;&#x6D41;&#x5E2E;&#x52A9;&#xFF0C;&#x6211;&#x4E0D;&#x53EF;&#x80FD;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x8005;&#x3002;</p>
+<blockquote>
+<p>What keeps you interested in it?</p>
+</blockquote>
+<p>&#x662F;&#x4EC0;&#x4E48;&#x8BA9;&#x4F60;&#x5174;&#x8DA3;&#x4E0D;&#x51CF;&#xFF1F;</p>
+<blockquote>
+<p>The people keep me coming back. I really love learning and discussing new ideas with the Linux kernel community, and my Intel co-workers. Sure, there&#x2019;s some heated discussions every once in a while, but most developers are friendly enough to take the time and answer any questions I have.</p>
+</blockquote>
+<p>&#x6211;&#x559C;&#x6B22;&#x548C;Linux&#x5185;&#x6838;&#x8BBA;&#x575B;&#x4EE5;&#x53CA;&#x6211;&#x7684;&#x82F1;&#x7279;&#x5C14;&#x540C;&#x4E8B;&#xFF0C;&#x4E00;&#x8D77;&#x5B66;&#x4E60;&#x3001;&#x8BA8;&#x8BBA;&#x65B0;&#x7684;&#x60F3;&#x6CD5;&#x3002;&#x786E;&#x5B9E;&#xFF0C;&#x65F6;&#x5E38;&#x4F1A;&#x6709;&#x4E00;&#x4E9B;&#x6FC0;&#x70C8;&#x7684;&#x8BA8;&#x8BBA;&#xFF0C;&#x4F46;&#x5927;&#x591A;&#x6570;&#x5F00;&#x53D1;&#x8005;&#x90FD;&#x662F;&#x5F88;&#x53CB;&#x597D;&#x7684;&#x82B1;&#x65F6;&#x95F4;&#x56DE;&#x7B54;&#x6211;&#x7684;&#x4EFB;&#x4F55;&#x95EE;&#x9898;&#x3002;</p>
+<blockquote>
+<p>What&#x2019;s the most amused you&#x2019;ve ever been by the collaborative development process (flame war, silly code submission, amazing accomplishment)?</p>
+</blockquote>
+<p>&#x5728;&#x534F;&#x4F5C;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F60;&#x89C9;&#x5F97;&#x597D;&#x73A9;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#xFF08;&#x5634;&#x4ED7;&#xFF0C;&#x611A;&#x8822;&#x4EE3;&#x7801;&#x7684;&#x63D0;&#x4EA4;&#xFF0C;&#x60CA;&#x4EBA;&#x7684;&#x6210;&#x5C31;&#xFF09;&#xFF1F;</p>
+<blockquote>
+<p>I&#x2019;ve certainly amused Greg KH in the past with my pull request descriptions. Here&#x2019;s an excerpt from a reply he sent me:</p>
+</blockquote>
+<p>&#x6211;&#x89C9;&#x5F97;&#x6700;&#x641E;&#x7684;&#x662F;Greg KH&#x5BF9;&#x6211;&#x975E;&#x5E38;&#x611A;&#x8822;&#x7684;&#x8BF7;&#x6C42;&#x7684;&#x56DE;&#x5E94;&#x3002;&#x8FD9;&#x91CC;&#x662F;&#x56DE;&#x4FE1;&#x7684;&#x7247;&#x6BB5;&#xFF1A;</p>
+<blockquote>
+<p>Date: Thu, 26 May 2011 00:04:50 -0700<br>From: Greg KH<br>To: Sarah Sharp<br>Cc: linux-usb@vger.kernel.org<br>Subject: Re: [RFC 0/3] xhci: Remove useless debugging</p>
+<p>On Wed, May 25, 2011 at 04:28:51PM -0700, Sarah Sharp wrote:<br>            The xHCI driver is what, two years old now? It&#x2019;s high time it put on<br>            its big girl pants and stop crapping out useless debugging information.</p>
+<pre><code>you now owe me a wet-wipe to clean my laptop up from the coffee i just
+snorted out my nose all over it.
+</code></pre></blockquote>
+<p>2011&#x5E74;5&#x6708;25&#x65E5;&#xFF0C;&#x661F;&#x671F;&#x4E09;&#xFF0C;&#x65E9;&#x4E0A;04:28:51&#xFF0C;Sarah Sharp&#x5199;&#x9053;&#xFF1A;<br>            xHCI&#x9A71;&#x52A8;&#x4E24;&#x5E74;&#x4E86;&#xFF1F;&#x662F;&#x65F6;&#x5019;</p>
+<p>&#x4F60;&#x73B0;&#x5728;&#x6B20;&#x6211;&#x4E00;&#x6761;&#x6E7F;&#x7EB8;&#x5DFE;</p>
+<blockquote>
+<p>What&#x2019;s your advice for developers who want to get involved?</p>
+</blockquote>
+<p>&#x5BF9;&#x60F3;&#x8FDB;&#x5165;&#x8BE5;&#x9886;&#x57DF;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x4F60;&#x6709;&#x4EC0;&#x4E48;&#x5EFA;&#x8BAE;&#xFF1F;</p>
+<blockquote>
+<p>Find a medium-sized project, in a part of the Linux kernel community that has a responsive mailing list. Don&#x2019;t waste your time on a bunch of spelling fix patches. A couple bug fix patches should be enough to get you used to the patch submission process, but at some point you need to move on and start making useful, bigger, contributions to the kernel.</p>
+</blockquote>
+<p>&#x627E;&#x4E00;&#x4E2A;&#x4E2D;&#x7B49;&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x5728;linux&#x5185;&#x6838;&#x793E;&#x533A;&#x4E2D;&#x6709;&#x5F88;&#x597D;&#x7684;&#x90AE;&#x4EF6;&#x5217;&#x8868;&#x3002;&#x522B;&#x6D6A;&#x8D39;&#x65F6;&#x95F4;&#x5728;&#x62FC;&#x5199;&#x9519;&#x8BEF;&#x7684;&#x8865;&#x4E01;&#x5305;&#x4E0A;&#x3002;</p>
+<blockquote>
+<p>Find a mentor. It doesn&#x2019;t have to be someone who is a Linux subsystem maintainer. It should be someone who knows git basics, can review your code, and help you set up a mail client so you can send patches. Team up with a friend to do joint code review and try to figure out a Linux kernel subsystem together.</p>
+</blockquote>
+<p>&#x627E;&#x4E00;&#x4E2A;&#x6709;&#x7ECF;&#x9A8C;&#x7684;&#x4EBA;&#x3002;&#x4E0D;&#x4E00;&#x5B9A;&#x975E;&#x8981;&#x662F;Linux&#x5B50;&#x7CFB;&#x7EDF;&#x7684;&#x7EF4;&#x62A4;&#x8005;&#x3002;&#x53EA;&#x8981;&#x8FD9;&#x4E2A;&#x4EBA;&#x77E5;&#x9053;&#x57FA;&#x672C;&#x7684;git&#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;review&#x4F60;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x53CA;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x4F60;&#x914D;&#x7F6E;&#x63D0;&#x4EA4;&#x8865;&#x4E01;&#x5305;&#x7684;&#x90AE;&#x4EF6;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x548C;&#x4F60;&#x7684;&#x670B;&#x53CB;&#x8FDB;&#x884C;&#x4E92;&#x76F8;code review&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5E76;&#x4E14;&#x4E00;&#x8D77;&#x5C1D;&#x8BD5;&#x8FDB;&#x884C;Linux&#x5185;&#x6838;&#x5B50;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x3002;</p>
+<blockquote>
+<p>What do you listen to when you code?</p>
+</blockquote>
+<p>&#x5728;&#x7F16;&#x7801;&#x7684;&#x65F6;&#x5019;&#x4F60;&#x90FD;&#x542C;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p>I can&#x2019;t concentrate on coding when I listen to vocals, so I tend to lean towards electronica, break beats, or classical movie sound tracks. I usually listen to Daft Punk, Justice, Hans Zimmer, and Klaus Badelt.</p>
+</blockquote>
+<p>&#x592A;&#x5435;&#x95F9;&#x7684;&#x97F3;&#x4E50;&#x6211;&#x662F;&#x65E0;&#x6CD5;&#x96C6;&#x4E2D;&#x7CBE;&#x795E;&#x7F16;&#x7801;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x503E;&#x5411;&#x4E8E;&#x7535;&#x5B50;&#x97F3;&#x4E50;&#xFF0C;&#x6162;&#x8282;&#x62CD;&#xFF0C;&#x53E4;&#x5178;&#x7535;&#x5F71;&#x7684;&#x63D2;&#x66F2;&#x3002;&#x6211;&#x5E38;&#x542C;Daft Punk, Justice, Hans Zimmer, and Klaus Badelt&#x3002;</p>
+<blockquote>
+<p>What mailing list or IRC channel will people find you hanging out at? What conference(s)?</p>
+</blockquote>
+<p>&#x5728;&#x54EA;&#x4E9B;&#x90AE;&#x4EF6;&#x5217;&#x8868;&#x6216;IRC&#x9891;&#x9053;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x4F60;&#xFF1F;&#x4F1A;&#x8BAE;&#x5462;&#xFF1F;</p>
+<blockquote>
+<p>I&#x2019;m on the linux-usb@vger.kernel.org mailing list. As for conferences, I go to OSCON, Open Source Bridge, LinuxCon America, Linux Plumbers Conf, Linux Kernel Summit, and Linux Conf Australia. This year, I&#x2019;ll also be at AdaCamp D.C., representing women in open source.</p>
+</blockquote>
+<p>&#x6211;&#x5728;linux-usb@vger.kernel.org&#x90AE;&#x4EF6;&#x5217;&#x8868;&#x3002;&#x4F1A;&#x8BAE;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4F1A;&#x53C2;&#x52A0;OSCON, &#x5F00;&#x6E90;Bridge&#xFF0C;&#x7F8E;&#x56FD;Linux&#x4F1A;&#x8BAE;&#xFF0C;Linux Plumbers Conf, Linux&#x5185;&#x6838;&#x5CF0;&#x4F1A;&#x4EE5;&#x53CA;&#x6FB3;&#x5927;&#x5229;&#x4E9A;Linux&#x4F1A;&#x8BAE;&#x3002;&#x4ECA;&#x5E74;&#x6211;&#x5C06;&#x4EE3;&#x8868;&#x5F00;&#x6E90;&#x4E2D;&#x7684;&#x5973;&#x6027;&#x53C2;&#x52A0;&#x534E;&#x76DB;&#x987F;&#x7684;AdaCamp&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/03/04/30-linux-kernel-developers-in-30-weeks-sarah-sharp/" data-id="cinefv6z60042jiizdklkzxfs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translation/">Translation</a></li></ul>
@@ -1517,7 +1380,7 @@ exit 0
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/debug/">debug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/article/">article</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
   </div>
 
@@ -1527,7 +1390,7 @@ exit 0
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 12.5px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iscsi/" style="font-size: 20px;">iscsi</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1549,6 +1412,10 @@ exit 0
       <ul>
         
           <li>
+            <a href="/2016/04/24/speed-up-cplusplus-compilation/">speed up c++ compilation</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/18/hexo/">Hexo</a>
           </li>
         
@@ -1562,10 +1429,6 @@ exit 0
         
           <li>
             <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>

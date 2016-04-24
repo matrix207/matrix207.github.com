@@ -66,158 +66,16 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-forking-and-threading" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/11/21/forking-and-threading/" class="article-date">
-  <time datetime="2013-11-20T16:00:00.000Z" itemprop="datePublished">2013-11-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/11/21/forking-and-threading/">Forking and Threading</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##Why?</p>
-<p>Sometimes, wo need to write some application, which should do multi task, this<br>time fork thread or multithread will show in our brain. But which one should we<br>need exactly, I think we should known them more before make decision.</p>
-<p>##what?</p>
-<p>History:</p>
-<p>Linkers: </p>
-<ul>
-<li><a href="http://blog.csdn.net/Solstice/article/details/5307710" target="_blank" rel="external">http://blog.csdn.net/Solstice/article/details/5307710</a></li>
-<li><a href="http://stackoverflow.com/questions/16354460/forking-vs-threading" target="_blank" rel="external">http://stackoverflow.com/questions/16354460/forking-vs-threading</a></li>
-<li><a href="http://stackoverflow.com/questions/2483041/what-is-the-difference-between-fork-and-thread" target="_blank" rel="external">http://stackoverflow.com/questions/2483041/what-is-the-difference-between-fork-and-thread</a></li>
-<li><a href="http://guogoul.com/2008/03/23/process/" target="_blank" rel="external">http://guogoul.com/2008/03/23/process/</a></li>
-<li><a href="http://blog.csdn.net/blade2001/article/details/6790890" target="_blank" rel="external">http://blog.csdn.net/blade2001/article/details/6790890</a></li>
-</ul>
-<p>##Forking vs threading</p>
-<p><strong>From:</strong> <a href="http://www.geekride.com/fork-forking-vs-threading-thread-linux-kernel/" target="_blank" rel="external">http://www.geekride.com/fork-forking-vs-threading-thread-linux-kernel/</a></p>
-<p>So, finally after long time, i am able to figure out the difference between forking and threading :)</p>
-<p>When i have been surfing around, i see a lots of threads/questions regarding forking and threading, lots of queries which one should be used in the applications. So i wrote this post which could clarify the difference between these two based on which you could decide what you want to use in your application/scripts.</p>
-<h3 id="what-is-forkforking"><a href="#What-is-Fork-Forking" class="headerlink" title="What is Fork/Forking:"></a>What is Fork/Forking:</h3><p>Fork is nothing but a new process that looks exactly like the old or the parent process but still it is a different process with different process ID and having  it&#x2019;s own memory. Parent process creates a separate address space for child. Both parent and child process possess the same code segment, but execute independently from each other.</p>
-<p>The simplest example of forking is when you run a command on shell in unix/linux. Each time a user issues a command, the shell forks a child process and the task is done.</p>
-<p>When a fork system call is issued, a copy of all the pages corresponding to the parent process is created, loaded into a separate memory location by the OS for the child process, but in certain cases, this is not needed. Like in &#x2018;exec&#x2019; system calls, there is not need to copy the parent process pages, as execv replaces the address space of the parent process itself.<br>Few things to note about forking are:</p>
-<ul>
-<li>The child process will be having it&#x2019;s own unique process ID.</li>
-<li>The child process shall have it&#x2019;s own copy of parent&#x2019;s file descriptor.</li>
-<li>File locks set by parent process shall not be inherited by child process.</li>
-<li>Any semaphores that are open in the parent process shall also be open in the child process.</li>
-<li>Child process shall have it&#x2019;s own copy of message queue descriptors of the parents.</li>
-<li>Child will have it&#x2019;s own address space and memory.</li>
-</ul>
-<p>Fork is universally accepted than thread because of the following reasons:</p>
-<ul>
-<li>Development is much easier on fork based implementations.</li>
-<li>Fork based code a more maintainable.</li>
-<li>Forking is much safer and more secure because each forked process runs in its own virtual address space. If one process crashes or has a buffer overrun, it does not affect any other process at all.</li>
-<li>Threads code is much harder to debug than fork.</li>
-<li>Fork are more portable than threads.</li>
-<li>Forking is faster than threading on single cpu as there are no locking over-heads or context switching.</li>
-</ul>
-<p>Some of the applications in which forking is used are: telnetd(freebsd), vsftpd, proftpd, Apache13, Apache2, thttpd, PostgreSQL.</p>
-<p>Pitfalls in Fork:</p>
-<ul>
-<li>In fork, every new process should have it&#x2019;s own memory/address space, hence a longer startup and stopping time.</li>
-<li>If you fork, you have two independent processes which need to talk to each other in some way. This inter-process communication is really costly.</li>
-<li>When the parent exits before the forked child, you will get a ghost process. That is all much easier with a thread. You can end, suspend and resume threads from the parent easily. And if your parent exits suddenly the thread will be ended automatically.</li>
-<li>In-sufficient storage space could lead the fork system to fail.</li>
-</ul>
-<h3 id="what-are-threadsthreading"><a href="#What-are-Threads-Threading" class="headerlink" title="What are Threads/Threading:"></a>What are Threads/Threading:</h3><p>Threads are Light Weight Processes (LWPs). Traditionally, a thread is just a CPU (and some other minimal state) state with the process containing the remains (data, stack, I/O, signals). Threads require less overhead than &#x201C;forking&#x201D; or spawning a new process because the system does not initialize a new system virtual memory space and environment for the process. While most effective on a multiprocessor system where the process flow can be scheduled to run on another processor thus gaining speed through parallel or distributed processing, gains are also found on uniprocessor systems which exploit latency in I/O and other system functions which may halt process execution.</p>
-<p>Threads in the same process share:</p>
-<ul>
-<li>Process instructions</li>
-<li>Most data</li>
-<li>open files (descriptors)</li>
-<li>signals and signal handlers</li>
-<li>current working directory</li>
-<li>User and group id</li>
-</ul>
-<p>Each thread has a unique:</p>
-<ul>
-<li>Thread ID</li>
-<li>set of registers, stack pointer</li>
-<li>stack for local variables, return addresses</li>
-<li>signal mask</li>
-<li>priority</li>
-<li>Return value: errno</li>
-</ul>
-<p>Few things to note about threading are:</p>
-<ul>
-<li>Thread are most effective on multi-processor or multi-core systems.</li>
-<li>For thread &#x2013; only one process/thread table and one scheduler is needed.</li>
-<li>All threads within a process share the same address space.</li>
-<li>A thread does not maintain a list of created threads, nor does it know the thread that created it.</li>
-<li>Threads reduce overhead by sharing fundamental parts.</li>
-<li>Threads are more effective in memory management because they uses the same memory block of the parent instead of creating new.</li>
-</ul>
-<p>Pitfalls in threads:</p>
-<ul>
-<li>Race conditions: The big loss with threads is that there is no natural protection from having multiple threads working on the same data at the same time without knowing that others are messing with it. This is called race condition. While the code may appear on the screen in the order you wish the code to execute, threads are scheduled by the operating system and are executed at random. It cannot be assumed that threads are executed in the order they are created. They may also execute at different speeds. When threads are executing (racing to complete) they may give unexpected results (race condition). Mutexes and joins must be utilized to achieve a predictable execution order and outcome.</li>
-<li>Thread safe code: The threaded routines must call functions which are &#x201C;thread safe&#x201D;. This means that there are no static or global variables which other threads may clobber or read assuming single threaded operation. If static or global variables are used then mutexes must be applied or the functions must be re-written to avoid the use of these variables. In C, local variables are dynamically allocated on the stack. Therefore, any function that does not use static data or other shared resources is thread-safe. Thread-unsafe functions may be used by only one thread at a time in a program and the uniqueness of the thread must be ensured. Many non-reentrant functions return a pointer to static data. This can be avoided by returning dynamically allocated data or using caller-provided storage. An example of a non-thread safe function is strtok which is also not re-entrant. The &#x201C;thread safe&#x201D; version is the re-entrant version strtok_r.</li>
-</ul>
-<p>Advantages in threads:</p>
-<ul>
-<li>Threads share the same memory space hence sharing data between them is really faster means inter-process communication (IPC) is real fast.</li>
-<li>If properly designed and implemented threads give you more speed because there aint any process level context switching in a multi threaded application.</li>
-<li>Threads are really fast to start and terminate.</li>
-</ul>
-<p>Some of the applications in which threading is used are: MySQL, Firebird, Apache2, MySQL 323</p>
-<h3 id="faqs"><a href="#FAQs" class="headerlink" title="FAQs:"></a>FAQs:</h3><ol>
-<li><p>Which should i use in my application ?<br>Ans: That depends on a lot of factors. Forking is more heavy-weight than threading, and have a higher startup and shutdown cost. Interprocess communication (IPC) is also harder and slower than interthread communication. Actually threads really win the race when it comes to inter communication. Conversely, whereas if a thread crashes, it takes down all of the other threads in the process, and if a thread has a buffer overrun, it opens up a security hole in all of the threads.<br>which would share the same address space with the parent process and they only needed a reduced context switch, which would make the context switch more efficient.</p>
-</li>
-<li><p>Which one is better, threading or forking ?<br>Ans: That is something which totally depends on what you are looking for. Still to answer, In a contemporary Linux (2.6.x) there is not much difference in performance between a context switch of a process/forking compared to a thread (only the MMU stuff is additional for the thread). There is the issue with the shared address space, which means that a faulty pointer in a thread can corrupt memory of the parent process or another thread within the same address space.</p>
-</li>
-<li><p>What kinds of things should be threaded or multitasked?<br>Ans: If you are a programmer and would like to take advantage of multithreading, the natural question is what parts of the program should/ should not be threaded. Here are a few rules of thumb (if you say &#x201C;yes&#x201D; to these, have fun!):</p>
-</li>
-</ol>
-<ul>
-<li>Are there groups of lengthy operations that don&#x2019;t necessarily depend on other processing (like painting a window, printing a document, responding to a mouse-click, calculating a spreadsheet column, signal handling, etc.)?</li>
-<li>Will there be few locks on data (the amount of shared data is identifiable and &#x201C;small&#x201D;)?</li>
-<li>Are you prepared to worry about locking (mutually excluding data regions from other threads), deadlocks (a condition where two COEs have locked data that other is trying to get) and race conditions (a nasty, intractable problem where data is not locked properly and gets corrupted through threaded reads &amp; writes)?</li>
-<li>Could the task be broken into various &#x201C;responsibilities&#x201D;? E.g. Could one thread handle the signals, another handle GUI stuff, etc.?</li>
-</ul>
-<h3 id="conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions:"></a>Conclusions:</h3><ul>
-<li>Whether you have to use threading or forking, totally depends on the requirement of your application.</li>
-<li>Threads more powerful than events, but power is not something which is always needed.</li>
-<li>Threads are much harder to program than forking, so only for experts.</li>
-<li>Use threads mostly for performance-critical applications.</li>
-</ul>
-<h3 id="references"><a href="#References" class="headerlink" title="References:"></a>References:</h3><ul>
-<li><a href="http://en.wikipedia.org/wiki/Fork_(operating_system)" target="_blank" rel="external">http://en.wikipedia.org/wiki/Fork_(operating_system)</a></li>
-<li><a href="http://tldp.org/FAQ/Threads-FAQ/Comparison.html" target="_blank" rel="external">http://tldp.org/FAQ/Threads-FAQ/Comparison.html</a></li>
-<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html" target="_blank" rel="external">http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html</a></li>
-<li><a href="http://linas.org/linux/threads-faq.html" target="_blank" rel="external">http://linas.org/linux/threads-faq.html</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/11/21/forking-and-threading/" data-id="cin6a5uiv007a3cizul5sv5dd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-programmer-live-as-a-freelancer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/11/16/programmer-live-as-a-freelancer/" class="article-date">
   <time datetime="2013-11-15T16:00:00.000Z" itemprop="datePublished">2013-11-16</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/others/">others</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -251,9 +109,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/11/16/programmer-live-as-a-freelancer/" data-id="cin6a5uiu00793ciz4vcfrs8d" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/11/16/programmer-live-as-a-freelancer/" data-id="cinefv70q0086jiizifoju481" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/">others</a></li></ul>
+
     </footer>
   </div>
   
@@ -267,6 +127,10 @@
   <time datetime="2013-10-29T16:00:00.000Z" itemprop="datePublished">2013-10-30</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/others/">others</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -293,9 +157,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/10/30/bitcoin/" data-id="cin6a5uit00783cizto85zs7c" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/10/30/bitcoin/" data-id="cinefv70p0083jiiz61rgtndm" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/">others</a></li></ul>
+
     </footer>
   </div>
   
@@ -309,6 +175,10 @@
   <time datetime="2013-10-08T16:00:00.000Z" itemprop="datePublished">2013-10-09</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/others/">others</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -343,9 +213,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/10/09/raspberry-pi/" data-id="cin6a5uis00773cizc7bu0i0b" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/10/09/raspberry-pi/" data-id="cinefv70n007zjiizp16ngaim" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/">others</a></li></ul>
+
     </footer>
   </div>
   
@@ -359,6 +231,10 @@
   <time datetime="2013-09-03T16:00:00.000Z" itemprop="datePublished">2013-09-04</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/storage/">storage</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -390,9 +266,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/09/04/cifs-protocol-and-implementation/" data-id="cin6a5uir00763ciz42d5lodw" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/09/04/cifs-protocol-and-implementation/" data-id="cinefv70m007wjiizz909mkh1" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
     </footer>
   </div>
   
@@ -521,7 +399,7 @@ CFLAGS_iscsi_target_transport.o := -DDEBUG
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/08/28/hacking-linux-kernel/" data-id="cin6a5uiq00713cizraukxlgv" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/08/28/hacking-linux-kernel/" data-id="cinefv70k007sjiizi1358c8q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/">kernel</a></li></ul>
@@ -539,6 +417,10 @@ CFLAGS_iscsi_target_transport.o := -DDEBUG
   <time datetime="2013-08-05T16:00:00.000Z" itemprop="datePublished">2013-08-06</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/network/">network</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -791,9 +673,11 @@ struct arp_table *arp_tables[FULL_ARP_TABLE_SIZE] =
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/08/06/linux-protocol-stack/" data-id="cin6a5uip00703cizw0dx5o1b" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/08/06/linux-protocol-stack/" data-id="cinefv70j007ojiizyqmljwo8" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/">kernel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
     </footer>
   </div>
   
@@ -931,10 +815,10 @@ struct arp_table *arp_tables[FULL_ARP_TABLE_SIZE] =
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/08/06/face-to-face-office/" data-id="cin6a5uin006v3ciz4gws6z10" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/08/06/face-to-face-office/" data-id="cinefv70h007kjiizayuezs2y" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mathematician/">mathematician</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/math/">math</a></li></ul>
 
     </footer>
   </div>
@@ -949,6 +833,10 @@ struct arp_table *arp_tables[FULL_ARP_TABLE_SIZE] =
   <time datetime="2013-08-04T16:00:00.000Z" itemprop="datePublished">2013-08-05</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/program/">program</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -985,9 +873,11 @@ struct arp_table *arp_tables[FULL_ARP_TABLE_SIZE] =
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/08/05/opensource-projects-valued-for-reading/" data-id="cin6a5uim006u3ciz9lvhd1ox" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/08/05/opensource-projects-valued-for-reading/" data-id="cinefv70f007fjiizq7dejuxx" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/source/">source</a></li></ul>
+
     </footer>
   </div>
   
@@ -1001,6 +891,10 @@ struct arp_table *arp_tables[FULL_ARP_TABLE_SIZE] =
   <time datetime="2013-07-29T16:00:00.000Z" itemprop="datePublished">2013-07-30</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/network/">network</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -1197,10 +1091,187 @@ fs.h
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/30/networkstack-important-structure/" data-id="cin6a5uil006s3cizymef05h5" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/07/30/networkstack-important-structure/" data-id="cinefv70e007bjiiz3ws5zdor" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetworkStack/">NetworkStack</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/">kernel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-networkstack-internet-protocol-suite" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/07/29/networkstack-internet-protocol-suite/" class="article-date">
+  <time datetime="2013-07-28T16:00:00.000Z" itemprop="datePublished">2013-07-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/network/">network</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/07/29/networkstack-internet-protocol-suite/">NetworkStack Internet protocol suite</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-introduce"><a href="#1-Introduce" class="headerlink" title="1. Introduce"></a>1. Introduce</h3><p>The Internet protocol suite and the layered protocol stack design were in use<br>before the OSI model was established. Since then, the TCP/IP model has been<br>compared with the OSI model in books and classrooms, which often results in<br>confusion because the two models use different assumptions and goals, including<br>the relative importance of strict layering.</p>
+<h3 id="2-tcpip-network-model"><a href="#2-TCP-IP-Network-model" class="headerlink" title="2. TCP/IP Network model"></a>2. TCP/IP Network model</h3><p>Layers in the internet protocol suite:( a four-layer model )  </p>
+<pre><code>+------------------------+                         +--------+
+|    Application layer   |                         |  Data  |
++------------------------+                         +--------+
+            |
+  +--------------------+                   +-------+--------+
+  |   Transport layer  |                   |TCP/IP |  Data  |
+  +--------------------+                   +-------+--------+
+            |
+  +-------------------+              +-----+-------+--------+
+  |   Internet layer  |              | IP  |TCP/IP |  Data  |
+  +-------------------+              +-----+-------+--------+
+            |
+    +---------------+       +--------+-----+-------+--------+
+    |   Link layer  |       | Header | IP  |TCP/IP |  Data  |
+    +---------------+       +--------+-----+-------+--------+
+</code></pre><h3 id="protocol-in-layers"><a href="#Protocol-in-layers" class="headerlink" title="Protocol in layers"></a>Protocol in layers</h3><p>Application layer</p>
+<pre><code>DHCP
+DHCPv6
+DNS
+FTP
+HTTP*
+IMAP
+IRC
+LDAP
+MGCP
+NNTP
+BGP
+NTP
+POP
+RPC
+RTP
+RTSP
+RIP
+SIP
+SMTP
+SNMP*
+SOCKS
+SSH
+Telnet
+TLS/SSL
+XMPP
+</code></pre><p>Transport layer</p>
+<pre><code>TCP*
+UDP*
+DCCP
+SCTP
+RSVP
+</code></pre><p>Internet layer</p>
+<pre><code>IP(IPv4,IPv6)*
+ICMP*
+ICMPv6
+ECN
+IGMP
+IPsec
+</code></pre><p>Link layer</p>
+<pre><code>ARP/InARP*
+NDP
+OSPF
+Tunnels(L2TP)
+PPP*
+Media access control(Ethernet/DSL/ISDN/FDDI)
+</code></pre><h3 id="3-protocol-format"><a href="#3-Protocol-Format" class="headerlink" title="3. Protocol Format"></a>3. Protocol Format</h3><p>IP - <a href="http://www.ietf.org/rfc/rfc791.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc791.txt</a>, page 11<br>TCP - <a href="http://www.ietf.org/rfc/rfc793.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc793.txt</a>, page 15<br>UDP - <a href="http://www.ietf.org/rfc/rfc768.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc768.txt</a>, page 1  </p>
+<pre><code>0                   1                   2                   3   
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Version|  IHL  |Type of Service|          Total Length         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Identification        |Flags|      Fragment Offset    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Time to Live |    Protocol   |         Header Checksum       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Source Address                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Destination Address                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options                    |    Padding    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+              Example Internet Datagram Header
+
+0                   1                   2                   3   
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        Sequence Number                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Acknowledgment Number                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Data |           |U|A|P|R|S|F|                               |
+| Offset| Reserved  |R|C|S|S|Y|I|            Window             |
+|       |           |G|K|H|T|N|N|                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           Checksum            |         Urgent Pointer        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options                    |    Padding    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             data                              |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                        TCP Header Format
+
+0      7 8     15 16    23 24    31  
++--------+--------+--------+--------+ 
+|     Source      |   Destination   | 
+|      Port       |      Port       | 
++--------+--------+--------+--------+ 
+|                 |                 | 
+|     Length      |    Checksum     | 
++--------+--------+--------+--------+ 
+|                                     
+|          data octets ...            
++---------------- ...                 
+
+     User Datagram Header Format
+</code></pre><h3 id="4-protocol-links"><a href="#4-Protocol-links" class="headerlink" title="4. Protocol links"></a>4. Protocol links</h3><p>IP - Internet Protocol<br><a href="http://www.ietf.org/rfc/rfc791.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc791.txt</a></p>
+<p>ARP - Address Resolution Protocol<br><a href="http://www.ietf.org/rfc/rfc826.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc826.txt</a><br><a href="http://en.wikipedia.org/wiki/Arp_protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Arp_protocol</a></p>
+<p>ICMP - Internet Control Message Protoco<br><a href="http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol</a><br><a href="http://www.ietf.org/rfc/rfc792.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc792.txt</a></p>
+<p>TCP - Transmission Control Protocol<br><a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Transmission_Control_Protocol</a><br><a href="http://www.ietf.org/rfc/rfc793.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc793.txt</a></p>
+<p>SMTP - Simple Mail Transfer Protocol<br><a href="http://www.ietf.org/rfc/rfc821.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc821.txt</a></p>
+<p>FTP - File Transfer Protocol<br><a href="http://www.ietf.org/rfc/rfc958.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc958.txt</a></p>
+<p>SNMP - Simple Network Management Protocol<br><a href="http://www.ietf.org/rfc/rfc1067.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc1067.txt</a></p>
+<p>IGMP - Internet Group Management Protocol<br><a href="http://www.ietf.org/rfc/rfc3376.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc3376.txt</a><br><a href="http://en.wikipedia.org/wiki/Internet_Group_Management_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Internet_Group_Management_Protocol</a></p>
+<p>UDP - User Datagram Protocol<br><a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/User_Datagram_Protocol</a><br><a href="http://www.ietf.org/rfc/rfc768.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc768.txt</a></p>
+<p>PPP - Point to point protocol<br><a href="http://en.wikipedia.org/wiki/Point-to-point_protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Point-to-point_protocol</a><br><a href="http://tools.ietf.org/html/rfc1661" target="_blank" rel="external">http://tools.ietf.org/html/rfc1661</a></p>
+<p>SMTP - Simple Mail Transfer Protocol<br><a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</a>  </p>
+<p>HTTP - Hypertext Transfer Protocol<br><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a>  </p>
+<h3 id="5-reference"><a href="#5-Reference" class="headerlink" title="5. Reference"></a>5. Reference</h3><ul>
+<li><a href="http://en.wikipedia.org/wiki/Internet_protocol_suite" target="_blank" rel="external">Internet protocol suite</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/TCP/IP&#x534F;&#x8BAE;" target="_blank" rel="external">IP/IP&#x534F;&#x8BAE;</a></li>
+<li><a href="http://www.linux-tutorial.info/modules.php?name=MContent&amp;obj=page&amp;pageid=142" target="_blank" rel="external">TCP-IP</a></li>
+<li><a href="http://www.eventhelix.com/RealtimeMantra/Networking/#IP_-_Internet_Protocol" target="_blank" rel="external">TCP/IP and IMS Sequence Diagrams</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/07/29/networkstack-internet-protocol-suite/" data-id="cinefv70d0078jiizj9ndacnz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
   </div>
@@ -1222,7 +1293,7 @@ fs.h
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/debug/">debug</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/article/">article</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
   </div>
 
@@ -1232,7 +1303,7 @@ fs.h
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ARP/" style="font-size: 10px;">ARP</a> <a href="/tags/Auto-Compile/" style="font-size: 10px;">Auto Compile</a> <a href="/tags/Batch-File/" style="font-size: 10px;">Batch File</a> <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Emacs/" style="font-size: 10px;">Emacs</a> <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/ICMP/" style="font-size: 10px;">ICMP</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/NetworkStack/" style="font-size: 12.5px;">NetworkStack</a> <a href="/tags/Notepad/" style="font-size: 10px;">Notepad++</a> <a href="/tags/Translation/" style="font-size: 17.5px;">Translation</a> <a href="/tags/WinIO/" style="font-size: 10px;">WinIO</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/arp/" style="font-size: 10px;">arp</a> <a href="/tags/auto-compile/" style="font-size: 10px;">auto compile</a> <a href="/tags/awk/" style="font-size: 12.5px;">awk</a> <a href="/tags/batch/" style="font-size: 20px;">batch</a> <a href="/tags/blat/" style="font-size: 12.5px;">blat</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gedit/" style="font-size: 10px;">gedit</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/google/" style="font-size: 10px;">google</a> <a href="/tags/graphviz/" style="font-size: 12.5px;">graphviz</a> <a href="/tags/hardware-monitor/" style="font-size: 10px;">hardware monitor</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iscsi/" style="font-size: 20px;">iscsi</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/kernel/" style="font-size: 10px;">kernel</a> <a href="/tags/kvm/" style="font-size: 12.5px;">kvm</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/mail/" style="font-size: 10px;">mail</a> <a href="/tags/malloc-abc/" style="font-size: 10px;">malloc abc</a> <a href="/tags/mathematician/" style="font-size: 10px;">mathematician</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/net-snmp/" style="font-size: 10px;">net-snmp</a> <a href="/tags/netbios/" style="font-size: 10px;">netbios</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/novels/" style="font-size: 10px;">novels</a> <a href="/tags/opennebula/" style="font-size: 10px;">opennebula</a> <a href="/tags/org-mode/" style="font-size: 10px;">org mode</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/plugin/" style="font-size: 10px;">plugin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/raid/" style="font-size: 10px;">raid</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 12.5px;">sed</a> <a href="/tags/shell/" style="font-size: 17.5px;">shell</a> <a href="/tags/skype/" style="font-size: 12.5px;">skype</a> <a href="/tags/source-analyze/" style="font-size: 10px;">source analyze</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 17.5px;">svn</a> <a href="/tags/tunnel/" style="font-size: 10px;">tunnel</a> <a href="/tags/valgrind/" style="font-size: 12.5px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 17.5px;">vim</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/wifi/" style="font-size: 10px;">wifi</a> <a href="/tags/wireless-tools/" style="font-size: 10px;">wireless-tools</a> <a href="/tags/wpa-supplicant/" style="font-size: 10px;">wpa_supplicant</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1254,6 +1325,10 @@ fs.h
       <ul>
         
           <li>
+            <a href="/2016/04/24/speed-up-cplusplus-compilation/">speed up c++ compilation</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/18/hexo/">Hexo</a>
           </li>
         
@@ -1267,10 +1342,6 @@ fs.h
         
           <li>
             <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/database-knowledges/">Database knowledges</a>
           </li>
         
       </ul>
