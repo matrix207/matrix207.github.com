@@ -66,6 +66,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-linux-server-performance-tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/16/linux-server-performance-tools/" class="article-date">
+  <time datetime="2014-04-15T16:00:00.000Z" itemprop="datePublished">2014-04-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/program/">program</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/16/linux-server-performance-tools/">linux server performance tools</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="web-server-performance-test-tools"><a href="#web-server-performance-test-tools" class="headerlink" title="web server performance test tools"></a>web server performance test tools</h3><ul>
+<li><p>AB(Apache Bench) </p>
+<p>  ab -r -k -n 100000 -c 500 url</p>
+<p>  -r &#x8868;&#x793A;&#x9047;&#x5230;&#x9519;&#x8BEF;&#x7EE7;&#x7EED;<br>  -k &#x8868;&#x793A;keepalive<br>  -n &#x8868;&#x793A;&#x603B;&#x5171;&#x8BF7;&#x6C42;&#x7684;&#x6B21;&#x6570;<br>  -c &#x8868;&#x793A;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x91CF;&#xFF08;&#x5373;&#x5E76;&#x53D1;&#x6570;&#xFF09;<br>  url&#x5373;&#x8981;&#x8BF7;&#x6C42;&#x7684;&#x5730;&#x5740;</p>
+</li>
+</ul>
+<p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x603B;&#x6570;&#x8FBE;&#x5230;10&#x4E07;&#x540E;&#x5C31;&#x505C;&#x6B62;</p>
+<p>&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x524D;&#x5148;&#x4F7F;&#x7528;ulimit -n 100000&#x89E3;&#x9664;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x7684;&#x5E76;&#x53D1;&#x9650;&#x5236;</p>
+<pre><code>watch ab -r -k -n 100000 -c 500 url
+</code></pre><p>watch&#x547D;&#x4EE4;&#x4F1A;&#x81EA;&#x52A8;&#x91CD;&#x590D;&#x6267;&#x884C;&#xFF0C;&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x95F4;&#x9694;2&#x79D2;</p>
+<p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x8FBE;&#x5230;10&#x4E07;&#x6B21;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x4F11;&#x606F;2&#x79D2;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8BF7;&#x6C42;</p>
+<p>&#x8BBE;&#x7F6E;watch&#x7684;&#x95F4;&#x9694;&#x65F6;&#x95F4;</p>
+<pre><code>watch -d 3 ab -r -k -n 100000 -c 500 url
+</code></pre><p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x8868;&#x793A;&#x8BF7;&#x6C42;&#x8FBE;&#x5230;10&#x4E07;&#x6B21;&#x540E;&#xFF0C;&#x81EA;&#x52A8;&#x4F11;&#x606F;3&#x79D2;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x8BF7;&#x6C42; </p>
+<ul>
+<li><p>Nikto </p>
+</li>
+<li><p>piwik</p>
+</li>
+</ul>
+<h3 id="linux-server-performance-monitors-tools"><a href="#linux-server-performance-monitors-tools" class="headerlink" title="linux server performance monitors tools"></a>linux server performance monitors tools</h3><ul>
+<li><p>free -m </p>
+</li>
+<li><p>top , htop </p>
+</li>
+<li><p>ps </p>
+</li>
+<li><p>iostat </p>
+</li>
+<li><p>iftop </p>
+</li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://os.51cto.com/art/201205/337302.htm" target="_blank" rel="external">&#x4E09;&#x5927;&#x5F00;&#x6E90;&#x5DE5;&#x5177;&#x76D1;&#x63A7;Apache Web&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;</a></li>
+<li><a href="http://www.vpser.net/opt/webserver-test.html" target="_blank" rel="external">Web&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;/&#x538B;&#x529B;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;http_load&#x3001;webbench&#x3001;ab&#x3001;Siege&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
+<li><a href="http://www.drupal001.com/2012/07/linux-server-monitor/" target="_blank" rel="external">Linux&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x8FFD;&#x8E2A;&#x4EE5;&#x53CA;&#x670D;&#x52A1;&#x5668;&#x76D1;&#x63A7;&#x5E38;&#x7528;&#x547D;&#x4EE4;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/04/16/linux-server-performance-tools/" data-id="cineh9ouy0096oxizy7akvpl9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-netfilter-hacking" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/04/14/netfilter-hacking/" class="article-date">
@@ -104,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/14/netfilter-hacking/" data-id="cinegqt1y0093msiz01i794p7" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/14/netfilter-hacking/" data-id="cineh9ouw0093oxiz54tnuq0b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -166,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/14/how-to-implement-a-http-server-in-c-on-linux/" data-id="cinegqt1x0090msizogoqn16l" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/14/how-to-implement-a-http-server-in-c-on-linux/" data-id="cineh9ouv0090oxiz604or7r2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -241,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/12/how-to-write-a-good-web-server/" data-id="cinegqt1u008umsizgs527elo" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/12/how-to-write-a-good-web-server/" data-id="cineh9out008uoxiz49hwu4yi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -294,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/12/nas-storage-system-performance-optimization/" data-id="cinegqt1w008xmsizhv4yl4am" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/12/nas-storage-system-performance-optimization/" data-id="cineh9ouu008xoxize3g3ocdn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/">storage</a></li></ul>
@@ -622,7 +701,7 @@ main (int argc, char *argv[])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/10/epoll-example-in-c/" data-id="cinegqt1t008rmsizhkr7o142" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/10/epoll-example-in-c/" data-id="cineh9ous008roxiztispctm0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
@@ -679,7 +758,7 @@ main (int argc, char *argv[])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/04/search-tips-and-tricks/" data-id="cinegqt1s008nmsizolv07sz2" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/04/search-tips-and-tricks/" data-id="cineh9our008noxizrcvkvt6n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/">google</a></li></ul>
@@ -742,7 +821,7 @@ main (int argc, char *argv[])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/04/03/how-strong-is-your-password/" data-id="cinegqt1r008kmsizt2akht5f" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/04/03/how-strong-is-your-password/" data-id="cineh9ouq008koxiznrqyk25p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/">others</a></li></ul>
@@ -810,7 +889,7 @@ net user hack /del (delete user)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/03/21/hack-windows-xp-logon-password/" data-id="cinegqt1q008hmsizvx9yhmtg" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/03/21/hack-windows-xp-logon-password/" data-id="cineh9ouo008hoxiz9hhfn2q9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
@@ -868,162 +947,10 @@ su -c &apos;yum install texlive-lastpage&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/03/19/use-pandoc/" data-id="cinegqt1o008cmsiziyujoz94" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/03/19/use-pandoc/" data-id="cineh9oum008coxizwi17t12g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pandoc/">pandoc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/write/">write</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-forking-and-threading" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/11/21/forking-and-threading/" class="article-date">
-  <time datetime="2013-11-20T16:00:00.000Z" itemprop="datePublished">2013-11-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/language/">language</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/11/21/forking-and-threading/">Forking and Threading</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##Why?</p>
-<p>Sometimes, wo need to write some application, which should do multi task, this<br>time fork thread or multithread will show in our brain. But which one should we<br>need exactly, I think we should known them more before make decision.</p>
-<p>##what?</p>
-<p>History:</p>
-<p>Linkers: </p>
-<ul>
-<li><a href="http://blog.csdn.net/Solstice/article/details/5307710" target="_blank" rel="external">http://blog.csdn.net/Solstice/article/details/5307710</a></li>
-<li><a href="http://stackoverflow.com/questions/16354460/forking-vs-threading" target="_blank" rel="external">http://stackoverflow.com/questions/16354460/forking-vs-threading</a></li>
-<li><a href="http://stackoverflow.com/questions/2483041/what-is-the-difference-between-fork-and-thread" target="_blank" rel="external">http://stackoverflow.com/questions/2483041/what-is-the-difference-between-fork-and-thread</a></li>
-<li><a href="http://guogoul.com/2008/03/23/process/" target="_blank" rel="external">http://guogoul.com/2008/03/23/process/</a></li>
-<li><a href="http://blog.csdn.net/blade2001/article/details/6790890" target="_blank" rel="external">http://blog.csdn.net/blade2001/article/details/6790890</a></li>
-</ul>
-<p>##Forking vs threading</p>
-<p><strong>From:</strong> <a href="http://www.geekride.com/fork-forking-vs-threading-thread-linux-kernel/" target="_blank" rel="external">http://www.geekride.com/fork-forking-vs-threading-thread-linux-kernel/</a></p>
-<p>So, finally after long time, i am able to figure out the difference between forking and threading :)</p>
-<p>When i have been surfing around, i see a lots of threads/questions regarding forking and threading, lots of queries which one should be used in the applications. So i wrote this post which could clarify the difference between these two based on which you could decide what you want to use in your application/scripts.</p>
-<h3 id="what-is-forkforking"><a href="#What-is-Fork-Forking" class="headerlink" title="What is Fork/Forking:"></a>What is Fork/Forking:</h3><p>Fork is nothing but a new process that looks exactly like the old or the parent process but still it is a different process with different process ID and having  it&#x2019;s own memory. Parent process creates a separate address space for child. Both parent and child process possess the same code segment, but execute independently from each other.</p>
-<p>The simplest example of forking is when you run a command on shell in unix/linux. Each time a user issues a command, the shell forks a child process and the task is done.</p>
-<p>When a fork system call is issued, a copy of all the pages corresponding to the parent process is created, loaded into a separate memory location by the OS for the child process, but in certain cases, this is not needed. Like in &#x2018;exec&#x2019; system calls, there is not need to copy the parent process pages, as execv replaces the address space of the parent process itself.<br>Few things to note about forking are:</p>
-<ul>
-<li>The child process will be having it&#x2019;s own unique process ID.</li>
-<li>The child process shall have it&#x2019;s own copy of parent&#x2019;s file descriptor.</li>
-<li>File locks set by parent process shall not be inherited by child process.</li>
-<li>Any semaphores that are open in the parent process shall also be open in the child process.</li>
-<li>Child process shall have it&#x2019;s own copy of message queue descriptors of the parents.</li>
-<li>Child will have it&#x2019;s own address space and memory.</li>
-</ul>
-<p>Fork is universally accepted than thread because of the following reasons:</p>
-<ul>
-<li>Development is much easier on fork based implementations.</li>
-<li>Fork based code a more maintainable.</li>
-<li>Forking is much safer and more secure because each forked process runs in its own virtual address space. If one process crashes or has a buffer overrun, it does not affect any other process at all.</li>
-<li>Threads code is much harder to debug than fork.</li>
-<li>Fork are more portable than threads.</li>
-<li>Forking is faster than threading on single cpu as there are no locking over-heads or context switching.</li>
-</ul>
-<p>Some of the applications in which forking is used are: telnetd(freebsd), vsftpd, proftpd, Apache13, Apache2, thttpd, PostgreSQL.</p>
-<p>Pitfalls in Fork:</p>
-<ul>
-<li>In fork, every new process should have it&#x2019;s own memory/address space, hence a longer startup and stopping time.</li>
-<li>If you fork, you have two independent processes which need to talk to each other in some way. This inter-process communication is really costly.</li>
-<li>When the parent exits before the forked child, you will get a ghost process. That is all much easier with a thread. You can end, suspend and resume threads from the parent easily. And if your parent exits suddenly the thread will be ended automatically.</li>
-<li>In-sufficient storage space could lead the fork system to fail.</li>
-</ul>
-<h3 id="what-are-threadsthreading"><a href="#What-are-Threads-Threading" class="headerlink" title="What are Threads/Threading:"></a>What are Threads/Threading:</h3><p>Threads are Light Weight Processes (LWPs). Traditionally, a thread is just a CPU (and some other minimal state) state with the process containing the remains (data, stack, I/O, signals). Threads require less overhead than &#x201C;forking&#x201D; or spawning a new process because the system does not initialize a new system virtual memory space and environment for the process. While most effective on a multiprocessor system where the process flow can be scheduled to run on another processor thus gaining speed through parallel or distributed processing, gains are also found on uniprocessor systems which exploit latency in I/O and other system functions which may halt process execution.</p>
-<p>Threads in the same process share:</p>
-<ul>
-<li>Process instructions</li>
-<li>Most data</li>
-<li>open files (descriptors)</li>
-<li>signals and signal handlers</li>
-<li>current working directory</li>
-<li>User and group id</li>
-</ul>
-<p>Each thread has a unique:</p>
-<ul>
-<li>Thread ID</li>
-<li>set of registers, stack pointer</li>
-<li>stack for local variables, return addresses</li>
-<li>signal mask</li>
-<li>priority</li>
-<li>Return value: errno</li>
-</ul>
-<p>Few things to note about threading are:</p>
-<ul>
-<li>Thread are most effective on multi-processor or multi-core systems.</li>
-<li>For thread &#x2013; only one process/thread table and one scheduler is needed.</li>
-<li>All threads within a process share the same address space.</li>
-<li>A thread does not maintain a list of created threads, nor does it know the thread that created it.</li>
-<li>Threads reduce overhead by sharing fundamental parts.</li>
-<li>Threads are more effective in memory management because they uses the same memory block of the parent instead of creating new.</li>
-</ul>
-<p>Pitfalls in threads:</p>
-<ul>
-<li>Race conditions: The big loss with threads is that there is no natural protection from having multiple threads working on the same data at the same time without knowing that others are messing with it. This is called race condition. While the code may appear on the screen in the order you wish the code to execute, threads are scheduled by the operating system and are executed at random. It cannot be assumed that threads are executed in the order they are created. They may also execute at different speeds. When threads are executing (racing to complete) they may give unexpected results (race condition). Mutexes and joins must be utilized to achieve a predictable execution order and outcome.</li>
-<li>Thread safe code: The threaded routines must call functions which are &#x201C;thread safe&#x201D;. This means that there are no static or global variables which other threads may clobber or read assuming single threaded operation. If static or global variables are used then mutexes must be applied or the functions must be re-written to avoid the use of these variables. In C, local variables are dynamically allocated on the stack. Therefore, any function that does not use static data or other shared resources is thread-safe. Thread-unsafe functions may be used by only one thread at a time in a program and the uniqueness of the thread must be ensured. Many non-reentrant functions return a pointer to static data. This can be avoided by returning dynamically allocated data or using caller-provided storage. An example of a non-thread safe function is strtok which is also not re-entrant. The &#x201C;thread safe&#x201D; version is the re-entrant version strtok_r.</li>
-</ul>
-<p>Advantages in threads:</p>
-<ul>
-<li>Threads share the same memory space hence sharing data between them is really faster means inter-process communication (IPC) is real fast.</li>
-<li>If properly designed and implemented threads give you more speed because there aint any process level context switching in a multi threaded application.</li>
-<li>Threads are really fast to start and terminate.</li>
-</ul>
-<p>Some of the applications in which threading is used are: MySQL, Firebird, Apache2, MySQL 323</p>
-<h3 id="faqs"><a href="#FAQs" class="headerlink" title="FAQs:"></a>FAQs:</h3><ol>
-<li><p>Which should i use in my application ?<br>Ans: That depends on a lot of factors. Forking is more heavy-weight than threading, and have a higher startup and shutdown cost. Interprocess communication (IPC) is also harder and slower than interthread communication. Actually threads really win the race when it comes to inter communication. Conversely, whereas if a thread crashes, it takes down all of the other threads in the process, and if a thread has a buffer overrun, it opens up a security hole in all of the threads.<br>which would share the same address space with the parent process and they only needed a reduced context switch, which would make the context switch more efficient.</p>
-</li>
-<li><p>Which one is better, threading or forking ?<br>Ans: That is something which totally depends on what you are looking for. Still to answer, In a contemporary Linux (2.6.x) there is not much difference in performance between a context switch of a process/forking compared to a thread (only the MMU stuff is additional for the thread). There is the issue with the shared address space, which means that a faulty pointer in a thread can corrupt memory of the parent process or another thread within the same address space.</p>
-</li>
-<li><p>What kinds of things should be threaded or multitasked?<br>Ans: If you are a programmer and would like to take advantage of multithreading, the natural question is what parts of the program should/ should not be threaded. Here are a few rules of thumb (if you say &#x201C;yes&#x201D; to these, have fun!):</p>
-</li>
-</ol>
-<ul>
-<li>Are there groups of lengthy operations that don&#x2019;t necessarily depend on other processing (like painting a window, printing a document, responding to a mouse-click, calculating a spreadsheet column, signal handling, etc.)?</li>
-<li>Will there be few locks on data (the amount of shared data is identifiable and &#x201C;small&#x201D;)?</li>
-<li>Are you prepared to worry about locking (mutually excluding data regions from other threads), deadlocks (a condition where two COEs have locked data that other is trying to get) and race conditions (a nasty, intractable problem where data is not locked properly and gets corrupted through threaded reads &amp; writes)?</li>
-<li>Could the task be broken into various &#x201C;responsibilities&#x201D;? E.g. Could one thread handle the signals, another handle GUI stuff, etc.?</li>
-</ul>
-<h3 id="conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions:"></a>Conclusions:</h3><ul>
-<li>Whether you have to use threading or forking, totally depends on the requirement of your application.</li>
-<li>Threads more powerful than events, but power is not something which is always needed.</li>
-<li>Threads are much harder to program than forking, so only for experts.</li>
-<li>Use threads mostly for performance-critical applications.</li>
-</ul>
-<h3 id="references"><a href="#References" class="headerlink" title="References:"></a>References:</h3><ul>
-<li><a href="http://en.wikipedia.org/wiki/Fork_(operating_system)" target="_blank" rel="external">http://en.wikipedia.org/wiki/Fork_(operating_system)</a></li>
-<li><a href="http://tldp.org/FAQ/Threads-FAQ/Comparison.html" target="_blank" rel="external">http://tldp.org/FAQ/Threads-FAQ/Comparison.html</a></li>
-<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html" target="_blank" rel="external">http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html</a></li>
-<li><a href="http://linas.org/linux/threads-faq.html" target="_blank" rel="external">http://linas.org/linux/threads-faq.html</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/11/21/forking-and-threading/" data-id="cinegqt1m0088msizbvpzc899" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
 
     </footer>
   </div>
@@ -1055,7 +982,7 @@ su -c &apos;yum install texlive-lastpage&apos;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/assembly/" style="font-size: 10px;">assembly</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1077,6 +1004,10 @@ su -c &apos;yum install texlive-lastpage&apos;
       <ul>
         
           <li>
+            <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/24/speed-up-cplusplus-compilation/">speed up c++ compilation</a>
           </li>
         
@@ -1090,10 +1021,6 @@ su -c &apos;yum install texlive-lastpage&apos;
         
           <li>
             <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>

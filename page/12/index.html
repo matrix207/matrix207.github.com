@@ -66,6 +66,183 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-networkstack-internet-protocol-suite" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/07/29/networkstack-internet-protocol-suite/" class="article-date">
+  <time datetime="2013-07-28T16:00:00.000Z" itemprop="datePublished">2013-07-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/network/">network</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/07/29/networkstack-internet-protocol-suite/">NetworkStack Internet protocol suite</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-introduce"><a href="#1-Introduce" class="headerlink" title="1. Introduce"></a>1. Introduce</h3><p>The Internet protocol suite and the layered protocol stack design were in use<br>before the OSI model was established. Since then, the TCP/IP model has been<br>compared with the OSI model in books and classrooms, which often results in<br>confusion because the two models use different assumptions and goals, including<br>the relative importance of strict layering.</p>
+<h3 id="2-tcpip-network-model"><a href="#2-TCP-IP-Network-model" class="headerlink" title="2. TCP/IP Network model"></a>2. TCP/IP Network model</h3><p>Layers in the internet protocol suite:( a four-layer model )  </p>
+<pre><code>+------------------------+                         +--------+
+|    Application layer   |                         |  Data  |
++------------------------+                         +--------+
+            |
+  +--------------------+                   +-------+--------+
+  |   Transport layer  |                   |TCP/IP |  Data  |
+  +--------------------+                   +-------+--------+
+            |
+  +-------------------+              +-----+-------+--------+
+  |   Internet layer  |              | IP  |TCP/IP |  Data  |
+  +-------------------+              +-----+-------+--------+
+            |
+    +---------------+       +--------+-----+-------+--------+
+    |   Link layer  |       | Header | IP  |TCP/IP |  Data  |
+    +---------------+       +--------+-----+-------+--------+
+</code></pre><h3 id="protocol-in-layers"><a href="#Protocol-in-layers" class="headerlink" title="Protocol in layers"></a>Protocol in layers</h3><p>Application layer</p>
+<pre><code>DHCP
+DHCPv6
+DNS
+FTP
+HTTP*
+IMAP
+IRC
+LDAP
+MGCP
+NNTP
+BGP
+NTP
+POP
+RPC
+RTP
+RTSP
+RIP
+SIP
+SMTP
+SNMP*
+SOCKS
+SSH
+Telnet
+TLS/SSL
+XMPP
+</code></pre><p>Transport layer</p>
+<pre><code>TCP*
+UDP*
+DCCP
+SCTP
+RSVP
+</code></pre><p>Internet layer</p>
+<pre><code>IP(IPv4,IPv6)*
+ICMP*
+ICMPv6
+ECN
+IGMP
+IPsec
+</code></pre><p>Link layer</p>
+<pre><code>ARP/InARP*
+NDP
+OSPF
+Tunnels(L2TP)
+PPP*
+Media access control(Ethernet/DSL/ISDN/FDDI)
+</code></pre><h3 id="3-protocol-format"><a href="#3-Protocol-Format" class="headerlink" title="3. Protocol Format"></a>3. Protocol Format</h3><p>IP - <a href="http://www.ietf.org/rfc/rfc791.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc791.txt</a>, page 11<br>TCP - <a href="http://www.ietf.org/rfc/rfc793.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc793.txt</a>, page 15<br>UDP - <a href="http://www.ietf.org/rfc/rfc768.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc768.txt</a>, page 1  </p>
+<pre><code>0                   1                   2                   3   
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Version|  IHL  |Type of Service|          Total Length         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|         Identification        |Flags|      Fragment Offset    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Time to Live |    Protocol   |         Header Checksum       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Source Address                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Destination Address                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options                    |    Padding    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+              Example Internet Datagram Header
+
+0                   1                   2                   3   
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        Sequence Number                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Acknowledgment Number                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Data |           |U|A|P|R|S|F|                               |
+| Offset| Reserved  |R|C|S|S|Y|I|            Window             |
+|       |           |G|K|H|T|N|N|                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           Checksum            |         Urgent Pointer        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Options                    |    Padding    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                             data                              |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+                        TCP Header Format
+
+0      7 8     15 16    23 24    31  
++--------+--------+--------+--------+ 
+|     Source      |   Destination   | 
+|      Port       |      Port       | 
++--------+--------+--------+--------+ 
+|                 |                 | 
+|     Length      |    Checksum     | 
++--------+--------+--------+--------+ 
+|                                     
+|          data octets ...            
++---------------- ...                 
+
+     User Datagram Header Format
+</code></pre><h3 id="4-protocol-links"><a href="#4-Protocol-links" class="headerlink" title="4. Protocol links"></a>4. Protocol links</h3><p>IP - Internet Protocol<br><a href="http://www.ietf.org/rfc/rfc791.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc791.txt</a></p>
+<p>ARP - Address Resolution Protocol<br><a href="http://www.ietf.org/rfc/rfc826.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc826.txt</a><br><a href="http://en.wikipedia.org/wiki/Arp_protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Arp_protocol</a></p>
+<p>ICMP - Internet Control Message Protoco<br><a href="http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Internet_Control_Message_Protocol</a><br><a href="http://www.ietf.org/rfc/rfc792.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc792.txt</a></p>
+<p>TCP - Transmission Control Protocol<br><a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Transmission_Control_Protocol</a><br><a href="http://www.ietf.org/rfc/rfc793.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc793.txt</a></p>
+<p>SMTP - Simple Mail Transfer Protocol<br><a href="http://www.ietf.org/rfc/rfc821.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc821.txt</a></p>
+<p>FTP - File Transfer Protocol<br><a href="http://www.ietf.org/rfc/rfc958.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc958.txt</a></p>
+<p>SNMP - Simple Network Management Protocol<br><a href="http://www.ietf.org/rfc/rfc1067.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc1067.txt</a></p>
+<p>IGMP - Internet Group Management Protocol<br><a href="http://www.ietf.org/rfc/rfc3376.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc3376.txt</a><br><a href="http://en.wikipedia.org/wiki/Internet_Group_Management_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Internet_Group_Management_Protocol</a></p>
+<p>UDP - User Datagram Protocol<br><a href="http://en.wikipedia.org/wiki/User_Datagram_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/User_Datagram_Protocol</a><br><a href="http://www.ietf.org/rfc/rfc768.txt" target="_blank" rel="external">http://www.ietf.org/rfc/rfc768.txt</a></p>
+<p>PPP - Point to point protocol<br><a href="http://en.wikipedia.org/wiki/Point-to-point_protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Point-to-point_protocol</a><br><a href="http://tools.ietf.org/html/rfc1661" target="_blank" rel="external">http://tools.ietf.org/html/rfc1661</a></p>
+<p>SMTP - Simple Mail Transfer Protocol<br><a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</a>  </p>
+<p>HTTP - Hypertext Transfer Protocol<br><a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank" rel="external">http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol</a>  </p>
+<h3 id="5-reference"><a href="#5-Reference" class="headerlink" title="5. Reference"></a>5. Reference</h3><ul>
+<li><a href="http://en.wikipedia.org/wiki/Internet_protocol_suite" target="_blank" rel="external">Internet protocol suite</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/TCP/IP&#x534F;&#x8BAE;" target="_blank" rel="external">IP/IP&#x534F;&#x8BAE;</a></li>
+<li><a href="http://www.linux-tutorial.info/modules.php?name=MContent&amp;obj=page&amp;pageid=142" target="_blank" rel="external">TCP-IP</a></li>
+<li><a href="http://www.eventhelix.com/RealtimeMantra/Networking/#IP_-_Internet_Protocol" target="_blank" rel="external">TCP/IP and IMS Sequence Diagrams</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/07/29/networkstack-internet-protocol-suite/" data-id="cineh9ou60077oxizx74dmjjt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-mac-address-swap-with-two-network-cards" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/07/19/mac-address-swap-with-two-network-cards/" class="article-date">
@@ -425,7 +602,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/19/mac-address-swap-with-two-network-cards/" data-id="cinegqt170074msizd3b3or50" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/07/19/mac-address-swap-with-two-network-cards/" data-id="cineh9ou40074oxizbpkz7ey1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -494,7 +671,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/16/steven-jobs-stanford-commencement-address-june-2005/" data-id="cinegqt160072msiz2ucp7miu" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/07/16/steven-jobs-stanford-commencement-address-june-2005/" data-id="cineh9ou30072oxizxcerahjn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -580,7 +757,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/11/novels-three-peaks/" data-id="cinegqt150070msizhqmz2012" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/07/11/novels-three-peaks/" data-id="cineh9ou20070oxiz49ui2oq0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -637,7 +814,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/06/28/android-develepment/" data-id="cinegqt14006wmsiz2e5zortw" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/06/28/android-develepment/" data-id="cineh9ou1006woxizomrqk89k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -1142,7 +1319,7 @@ Table 73 &#x2014; Array Device Slot status element -- Page 77
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/06/20/use-sg_ses/" data-id="cinegqt13006tmsiz5cq7zfpf" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/06/20/use-sg_ses/" data-id="cineh9otz006toxizr32q8hz7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/">storage</a></li></ul>
@@ -1322,7 +1499,7 @@ Table 73 &#x2014; Array Device Slot status element -- Page 77
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/06/07/iscsi-and-implementation/" data-id="cinegqt11006omsiz4kmi9nhh" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/06/07/iscsi-and-implementation/" data-id="cineh9oty006ooxiz461dyvve" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/">storage</a></li></ul>
@@ -1434,7 +1611,7 @@ freeing item to=19 from=9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/28/linux-kernel-linked-list-explained/" data-id="cinegqt10006lmsiz8a87kvoq" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/05/28/linux-kernel-linked-list-explained/" data-id="cineh9otw006loxizmbf30dmk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/">kernel</a></li></ul>
@@ -1483,7 +1660,7 @@ freeing item to=19 from=9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/28/c-thread-pool/" data-id="cinegqt0y006imsizsqppl59k" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/05/28/c-thread-pool/" data-id="cineh9otr006ioxizqn3f8zto" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
@@ -1604,260 +1781,10 @@ int main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/21/skill-of-c/" data-id="cinegqt0x006fmsiz05qmfjyr" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/05/21/skill-of-c/" data-id="cineh9otq006foxiz2i1a255u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-windows-event-log" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/05/09/windows-event-log/" class="article-date">
-  <time datetime="2013-05-08T16:00:00.000Z" itemprop="datePublished">2013-05-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/windows/">windows</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/05/09/windows-event-log/">windows event log</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-introduce"><a href="#1-Introduce" class="headerlink" title="1. Introduce"></a>1. Introduce</h2><p>Application can use the Event logging API to report and view events.<br>For details on reporting events, see Reporting Events.<br>To view events that have been written to log files, see Querying for Event Source Messages<br>and Receiving Event Notification. </p>
-<p>You can find widows event log files(binary file) on C:\WINDOWS\system32\config\, list as below:</p>
-<pre><code>C:\WINDOWS\system32\config\AppEvent.Evt
-C:\WINDOWS\system32\config\SecEvent.Evt
-C:\WINDOWS\system32\config\SysEvent.Evt
-</code></pre><h2 id="2-program"><a href="#2-Program" class="headerlink" title="2. Program"></a>2. Program</h2><h3 id="21-prepare-work"><a href="#2-1-Prepare-work" class="headerlink" title="2.1 Prepare work"></a>2.1 Prepare work</h3><h4 id="211-write-a-message-text-file-name-providermc-the-follow-show-it"><a href="#2-1-1-Write-a-message-text-file-name-provider-mc-the-follow-show-it" class="headerlink" title="2.1.1 Write a message text file, name provider.mc, the follow show it"></a>2.1.1 Write a message text file, name provider.mc, the follow show it</h4><pre><code>; // MyEventProvider.mc 
-
-; // This is the header section.
-
-
-SeverityNames=(Success=0x0:STATUS_SEVERITY_SUCCESS
-               Informational=0x1:STATUS_SEVERITY_INFORMATIONAL
-               Warning=0x2:STATUS_SEVERITY_WARNING
-               Error=0x3:STATUS_SEVERITY_ERROR
-              )
-
-
-FacilityNames=(System=0x0:FACILITY_SYSTEM
-               Runtime=0x2:FACILITY_RUNTIME
-               Stubs=0x3:FACILITY_STUBS
-               Io=0x4:FACILITY_IO_ERROR_CODE
-              )
-
-LanguageNames=(English=0x409:MSG00409)
-
-
-; // The following are the categories of events.
-
-MessageIdTypedef=WORD
-
-MessageId=0x1
-SymbolicName=NETWORK_CATEGORY
-Language=English
-Network Events
-.
-
-MessageId=0x2
-SymbolicName=DATABASE_CATEGORY
-Language=English
-Database Events
-.
-
-MessageId=0x3
-SymbolicName=UI_CATEGORY
-Language=English
-UI Events
-.
-
-
-; // The following are the message definitions.
-
-MessageIdTypedef=DWORD
-
-MessageId=0x100
-Severity=Error
-Facility=Runtime
-SymbolicName=MSG_INVALID_COMMAND
-Language=English
-The command is not valid.
-.
-
-
-MessageId=0x101
-Severity=Error
-Facility=System
-SymbolicName=MSG_BAD_FILE_CONTENTS
-Language=English
-File %1 contains content that is not valid.
-.
-
-MessageId=0x102
-Severity=Warning
-Facility=System
-SymbolicName=MSG_RETRIES
-Language=English
-There have been %1 retries with %2 success! Disconnect from
-the server and try again later.
-.
-
-MessageId=0x103
-Severity=Informational
-Facility=System
-SymbolicName=MSG_COMPUTE_CONVERSION
-Language=English
-%1 %%4096 = %2 %%4097. 
-.
-
-
-; // The following are the parameter strings */
-
-
-MessageId=0x1000
-Severity=Success
-Facility=System
-SymbolicName=QUARTS_UNITS
-Language=English
-quarts%0
-.
-
-MessageId=0x1001
-Severity=Success
-Facility=System
-SymbolicName=GALLONS_UNITS
-Language=English
-gallons%0
-.
-</code></pre><p>Use the following command to compile the message text file:</p>
-<pre><code>mc -U provider.mc
-</code></pre><p>It will generate 3 files: (the report event project use provider.h)</p>
-<pre><code>provider.h
-provider.rc
-MSG0409.bin
-</code></pre><p>Compile the resources file:</p>
-<pre><code>rc provider.rc
-</code></pre><p>Generate only one file, provider.res</p>
-<p>Last use link to create resource-dll file:</p>
-<pre><code>link -dll -noentry provider.res
-</code></pre><p>Output file, provider.dll, with these library, event log viewer can show the<br>the detail description by ID, Type &#x2026; etc.(at the follow, Receiving event<br>notification use thid library)</p>
-<h3 id="22-report-event-log"><a href="#2-2-Report-event-log" class="headerlink" title="2.2 Report event log"></a>2.2 Report event log</h3><p>An example show how to report event.<br>Create a win32 console project, with empty file.<br>Then, add a reportevent.cpp to it, and add the follow code.</p>
-<pre><code>#ifndef UNICODE
-#define UNICODE
-#endif
-#include &lt;windows.h&gt;
-#include &lt;stdio.h&gt;
-#include &quot;provider.h&quot;
-
-#pragma comment(lib, &quot;advapi32.lib&quot;)
-
-#define PROVIDER_NAME L&quot;MyEventProvider&quot;
-
-// Hardcoded insert string for the event messages.
-CONST LPWSTR pBadCommand = L&quot;The command that was not valid&quot;;
-CONST LPWSTR pFilename = L&quot;c:\\folder\\file.ext&quot;;
-CONST LPWSTR pNumberOfRetries = L&quot;3&quot;;
-CONST LPWSTR pSuccessfulRetries = L&quot;0&quot;;
-CONST LPWSTR pQuarts = L&quot;8&quot;;
-CONST LPWSTR pGallons = L&quot;2&quot;;
-
-void wmain(void)
-{
-    HANDLE hEventLog = NULL;
-    LPWSTR pInsertStrings[2] = {NULL, NULL};
-    DWORD dwEventDataSize = 0;
-
-    // The source name (provider) must exist as a subkey of Application.
-    hEventLog = RegisterEventSource(NULL, PROVIDER_NAME);
-    if (NULL == hEventLog)
-    {
-        wprintf(L&quot;RegisterEventSource failed with 0x%x.\n&quot;, GetLastError());
-        goto cleanup;
-    }
-
-    // This event includes user-defined data as part of the event. The event message
-    // does not use insert strings.
-    dwEventDataSize = ((DWORD)wcslen(pBadCommand) + 1) * sizeof(WCHAR);
-    if (!ReportEvent(hEventLog, EVENTLOG_ERROR_TYPE, UI_CATEGORY, MSG_INVALID_COMMAND, NULL, 0, dwEventDataSize, NULL, pBadCommand))
-    {
-        wprintf(L&quot;ReportEvent failed with 0x%x for event 0x%x.\n&quot;, GetLastError(), MSG_INVALID_COMMAND);
-        goto cleanup;
-    }
-
-    // This event uses insert strings.
-    pInsertStrings[0] = pFilename;
-    if (!ReportEvent(hEventLog, EVENTLOG_ERROR_TYPE, DATABASE_CATEGORY, MSG_BAD_FILE_CONTENTS, NULL, 1, 0, (LPCWSTR*)pInsertStrings, NULL))
-    {
-        wprintf(L&quot;ReportEvent failed with 0x%x for event 0x%x.\n&quot;, GetLastError(), MSG_BAD_FILE_CONTENTS);
-        goto cleanup;
-    }
-
-    // This event uses insert strings.
-    pInsertStrings[0] = pNumberOfRetries;
-    pInsertStrings[1] = pSuccessfulRetries;
-    if (!ReportEvent(hEventLog, EVENTLOG_WARNING_TYPE, NETWORK_CATEGORY, MSG_RETRIES, NULL, 2, 0, (LPCWSTR*)pInsertStrings, NULL))
-    {
-        wprintf(L&quot;ReportEvent failed with 0x%x for event 0x%x.\n&quot;, GetLastError(), MSG_RETRIES);
-        goto cleanup;
-    }
-
-    // This event uses insert strings.
-    pInsertStrings[0] = pQuarts;
-    pInsertStrings[1] = pGallons;
-    if (!ReportEvent(hEventLog, EVENTLOG_INFORMATION_TYPE, UI_CATEGORY, MSG_COMPUTE_CONVERSION, NULL, 2, 0, (LPCWSTR*)pInsertStrings, NULL))
-    {
-        wprintf(L&quot;ReportEvent failed with 0x%x for event 0x%x.\n&quot;, GetLastError(), MSG_COMPUTE_CONVERSION);
-        goto cleanup;
-    }
-
-    wprintf(L&quot;All events successfully reported.\n&quot;);
-
-cleanup:
-
-    if (hEventLog)
-        DeregisterEventSource(hEventLog);
-}
-</code></pre><h3 id="23-view-event-log"><a href="#2-3-View-event-log" class="headerlink" title="2.3 View event log"></a>2.3 View event log</h3><p>go to <a href="http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx</a><br>get the source code of &#x201C;Receiving Event Notification&#x201D;.</p>
-<p>Notice that, change these two lines for your apply:  </p>
-<pre><code>#define PROVIDER_NAME L&quot;MyEventProvider&quot;
-#define RESOURCE_DLL  L&quot;&lt;path&gt;\\Provider.dll&quot;
-</code></pre><h2 id="3-questions"><a href="#3-Questions" class="headerlink" title="3. Questions"></a>3. Questions</h2><p>How to monitor multi event logs? And make it to be a component.<br>I want to implement it, on this site you can find a first version project<br><a href="https://github.com/matrix207/VC/tree/master/eventlog/EventLogMonitor" target="_blank" rel="external">Click here</a></p>
-<p>But I think, it was a pool method to check each event name. Is there exist any<br>good method to do it? I meet the same problem with this guy,<br><a href="http://social.msdn.microsoft.com/Forums/en-US/windowssdk/thread/2c0d8708-4d07-47f9-87f4-c3f7141b55fd" target="_blank" rel="external">Unexpected behavior of WaitForMultipleObjects for events used in NotifyChangeEventLog</a><br>I&#x2019;m sad, why he don&#x2019;t told the detail info.</p>
-<h2 id="4-reference"><a href="#4-Reference" class="headerlink" title="4. Reference"></a>4. Reference</h2><ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/aa363681%28v=vs.85%29.aspx" target="_blank" rel="external">Using Event Logging</a></li>
-<li>Reporting Events: <a href="http://msdn.microsoft.com/en-us/library/aa363680(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/aa363680(v=vs.85).aspx</a></li>
-<li>Receiving Event Notification: <a href="http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx" target="_blank" rel="external">http://msdn.microsoft.com/en-us/library/aa363677(v=vs.85).aspx</a></li>
-<li><a href="http://angusj.com/resourcehacker/" target="_blank" rel="external">resource</a> a freeware utility to view, modify, rename,<br>add delete and extract resources in 32bit &amp; 64bit windows executable and resource files</li>
-<li><a href="http://social.msdn.microsoft.com/Forums/en-US/windowssdk/thread/2c0d8708-4d07-47f9-87f4-c3f7141b55fd" target="_blank" rel="external">Unexpected behavior of WaitForMultipleObjects for events used in NotifyChangeEventLog</a></li>
-<li>SNARE Auditing and EventLog Management: <http: sourceforge.net="" projects="" snare="" files="" for="" windows=""></http:></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/09/windows-event-log/" data-id="cinegqt0v006bmsizbkpx3wtj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
 
     </footer>
   </div>
@@ -1889,7 +1816,7 @@ cleanup:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/assembly/" style="font-size: 10px;">assembly</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1911,6 +1838,10 @@ cleanup:
       <ul>
         
           <li>
+            <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/24/speed-up-cplusplus-compilation/">speed up c++ compilation</a>
           </li>
         
@@ -1924,10 +1855,6 @@ cleanup:
         
           <li>
             <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>

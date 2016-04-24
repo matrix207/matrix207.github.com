@@ -66,6 +66,114 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-message-queue-middleware" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/09/message-queue-middleware/" class="article-date">
+  <time datetime="2015-02-08T16:00:00.000Z" itemprop="datePublished">2015-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/09/message-queue-middleware/">Message Queue Middleware</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><ul>
+<li>MOM: Message Oriented Middleware</li>
+<li>Message Queue ( MQ ) is a middleware between applications and networks.</li>
+</ul>
+<p>There are a number of open source choices of messaging middleware systems, including   </p>
+<ul>
+<li>JBoss Messaging </li>
+<li>JORAM </li>
+<li><a href="http://en.wikipedia.org/wiki/Apache_ActiveMQ" target="_blank" rel="external">Apache ActiveMQ</a></li>
+<li>Sun Open Message Queue </li>
+<li>Apache Qpid</li>
+<li><a href="http://en.wikipedia.org/wiki/RabbitMQ" target="_blank" rel="external">RabbitMQ</a></li>
+<li>Beanstalkd </li>
+<li>Tarantool </li>
+<li>HTTPSQS</li>
+<li><a href="http://en.wikipedia.org/wiki/Microsoft_Message_Queuing" target="_blank" rel="external">MSMQ</a></li>
+</ul>
+<h3 id="compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
+<li>Application A &lt;&#x2013;&gt; Network &lt;&#x2013;&gt; Application B</li>
+<li>Application A &lt;&#x2013;&gt; MOM &lt;&#x2014;&gt; Application B</li>
+</ul>
+<h3 id="standard-and-protocol"><a href="#Standard-and-protocol" class="headerlink" title="Standard and protocol"></a>Standard and protocol</h3><ul>
+<li>AMQP</li>
+</ul>
+<h3 id="using-activemq"><a href="#Using-ActiveMQ" class="headerlink" title="Using ActiveMQ"></a>Using ActiveMQ</h3><p><strong>1.Download and run activemq</strong>:  </p>
+<ul>
+<li>Download the latest activemq from <a href="http://activemq.apache.org/download.html" target="_blank" rel="external">http://activemq.apache.org/download.html</a></li>
+<li>tar xvf apache-activemq-5.11.0-bin.tar.gz </li>
+<li>cd apache-activemq-5.11.0</li>
+<li>./bin/activemq start </li>
+<li><a href="http://localhost:8161" target="_blank" rel="external">http://localhost:8161</a>. The default username and password is admin/admin</li>
+<li>check running: <ul>
+<li>netstat -apn |grep 61616</li>
+<li>ps aux |grep activemq</li>
+</ul>
+</li>
+<li>./bin/activemq stop</li>
+<li>for more information, read docs/user-guide.html </li>
+</ul>
+<p><strong>2.Build openwire-cpp example</strong>:  </p>
+<ul>
+<li>yum install activemq-cpp-devel</li>
+<li>cd /home/dennis/Downloads/apache-activemq-5.11.0/examples/openwire/cpp </li>
+<li>gcc Listener.cpp -o listener -I/usr/include/activemq-cpp-3.8.3 -I/usr/include/apr-1 -lactivemq-cpp -lstdc++</li>
+<li>gcc Publisher.cpp -o publisher -I/usr/include/activemq-cpp-3.8.3 -I/usr/include/apr-1 -lactivemq-cpp -lstdc++</li>
+</ul>
+<p><strong>3.Running example</strong>:  </p>
+<ul>
+<li><p>3.1 Run service as root </p>
+<p>  [dennis@localhost apache-activemq-5.11.0]$ su<br>  Password:<br>  [root@localhost apache-activemq-5.11.0]# ./bin/activemq start<br>  INFO: Loading &#x2018;/home/dennis/Downloads/apache-activemq-5.11.0/bin/env&#x2019;<br>  INFO: Using java &#x2018;/usr/bin/java&#x2019;<br>  INFO: Process with pid &#x2018;3510&#x2019; is already running</p>
+</li>
+<li><p>3.2 Run listener  </p>
+<h1 id="dennislocalhost-cpp-listener"><a href="#dennis-localhost-cpp-listener" class="headerlink" title="  [dennis@localhost cpp]$ ./listener "></a>  [dennis@localhost cpp]$ ./listener </h1><h2 id="starting-the-listener-example"><a href="#Starting-the-Listener-example" class="headerlink" title="  Starting the Listener example:"></a>  Starting the Listener example:</h2><p>  Waiting for messages&#x2026;<br>  Received 1000 messages.<br>  Received 2000 messages.<br>  Received 3000 messages.<br>  Received 4000 messages.<br>  Received 5000 messages.<br>  Received 6000 messages.<br>  Received 7000 messages.<br>  Received 8000 messages.<br>  Received 9000 messages.<br>  Received 10000 messages.</p>
+<h2 id="received-10000-in-1606-seconds"><a href="#Received-10000-in-1-606-seconds" class="headerlink" title="  Received 10000 in 1.606 seconds"></a>  Received 10000 in 1.606 seconds</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
+<li><p>3.3 Run publisher  </p>
+<h1 id="dennislocalhost-cpp-publisher"><a href="#dennis-localhost-cpp-publisher" class="headerlink" title="  [dennis@localhost cpp]$ ./publisher "></a>  [dennis@localhost cpp]$ ./publisher </h1><h2 id="starting-the-publisher-example"><a href="#Starting-the-Publisher-example" class="headerlink" title="  Starting the Publisher example:"></a>  Starting the Publisher example:</h2><p>  Sent 1000 messages<br>  Sent 2000 messages<br>  Sent 3000 messages<br>  Sent 4000 messages<br>  Sent 5000 messages<br>  Sent 6000 messages<br>  Sent 7000 messages<br>  Sent 8000 messages<br>  Sent 9000 messages</p>
+<h2 id="sent-10000-messages"><a href="#Sent-10000-messages" class="headerlink" title="  Sent 10000 messages"></a>  Sent 10000 messages</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example-1" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://en.wikipedia.org/wiki/Message_queue" target="_blank" rel="external">Message Queue</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Message-oriented_middleware" target="_blank" rel="external">Message-oriented middleware</a></li>
+<li><a href="http://blog.fity.cn/post/377/" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x6280;&#x672F;&#x9009;&#x578B;&#x5206;&#x6790;</a></li>
+<li><a href="http://www.infoq.com/cn/articles/apache-kafka" target="_blank" rel="external">Apache Kafka&#xFF1A;&#x4E0B;&#x4E00;&#x4EE3;&#x5206;&#x5E03;&#x5F0F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</a></li>
+<li>&#x2605;&#x2605;&#x2605;<a href="http://alibaba.github.io/RocketMQ-docs/document/openuser/mqvsmq.pdf" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x8C03;&#x7814;&#x6587;&#x6863;</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/loulijun/MQnewer/MQnewer.html" target="_blank" rel="external">&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x53CA;WebSphere MQ&#x5165;&#x95E8;</a></li>
+<li><a href="https://github.com/zeromq" target="_blank" rel="external">The ZeroMQ project</a></li>
+<li><a href="http://api.zeromq.org/" target="_blank" rel="external">api of zeroMQ</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cineh9ox400dyoxiz5ly9tq5j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linux-network-performance-monitor" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/21/linux-network-performance-monitor/" class="article-date">
@@ -173,7 +281,7 @@ TCP window size: 0.02 MByte (default)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cinegqt4200drmsizrd9ou451" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cineh9ox200duoxizcnsynebt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
@@ -893,7 +1001,7 @@ bus-info: 0000:02:00.0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/31/checking-speed-of-network/" data-id="cinegqt4300dvmsizgckpzosy" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/31/checking-speed-of-network/" data-id="cineh9ox100droxiz7ffdzxsd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1091,7 +1199,7 @@ tcp.port == 1863 || tcp.port == 80
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/26/network-analyze-with-wireshark/" data-id="cinegqt4000dnmsizst07o53q" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/26/network-analyze-with-wireshark/" data-id="cineh9owz00dnoxiz6ojsnd4b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wireshark/">wireshark</a></li></ul>
@@ -1153,7 +1261,7 @@ tcp.port == 1863 || tcp.port == 80
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/12/how-to-implement-a-netdisk/" data-id="cinegqt3z00djmsizasbvn6ty" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/12/how-to-implement-a-netdisk/" data-id="cineh9owy00djoxiz7hwwo4n9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netdisk/">netdisk</a></li></ul>
@@ -1248,7 +1356,7 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cinegqt3v00dfmsizgmkmudt0" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cineh9owu00dfoxizjscsi7m7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1328,7 +1436,7 @@ write around: &#x53EA;&#x5199;&#x5165;&#x5230;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cinegqt3t00damsiz9yr46q8f" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cineh9ows00daoxizqk0vodav" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cache/">cache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -1541,7 +1649,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/11/26/lio/" data-id="cinegqt3s00d7msiz6jz7236e" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/11/26/lio/" data-id="cineh9owr00d7oxiz1ar3ouh3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
@@ -1673,7 +1781,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cinegqt3q00d4msiz1h1upkjp" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cineh9owp00d4oxizrf9fluy1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -1777,170 +1885,10 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/08/linux-performace-tools/" data-id="cinegqt3o00d1msize1sie0w9" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/09/08/linux-performace-tools/" data-id="cineh9own00d1oxizrvw55e04" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sync" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/07/sync/" class="article-date">
-  <time datetime="2014-09-06T16:00:00.000Z" itemprop="datePublished">2014-09-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/07/sync/">sync</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><p>sync, linux command, using to write any data buffer in memory out to disk.</p>
-<p>It do nothing, but exercise the &#x2018;sync&#x2019; system call</p>
-<p>So, if we want to study what the &#x2018;sync&#x2019; really do, go in the kernel.</p>
-<h3 id="sync-command"><a href="#sync-command" class="headerlink" title="sync command"></a>sync command</h3><p>File: coreutils-8.9/src/sync.c</p>
-<pre><code>int
-main (int argc, char **argv)
-{
-  initialize_main (&amp;argc, &amp;argv);
-  set_program_name (argv[0]);
-  setlocale (LC_ALL, &quot;&quot;);
-  bindtextdomain (PACKAGE, LOCALEDIR);
-  textdomain (PACKAGE);
-
-  atexit (close_stdout);
-
-  parse_long_options (argc, argv, PROGRAM_NAME, PACKAGE, Version,
-                      usage, AUTHORS, (char const *) NULL);
-  if (getopt_long (argc, argv, &quot;&quot;, NULL, NULL) != -1)
-    usage (EXIT_FAILURE);
-
-  if (optind &lt; argc)
-    error (0, 0, _(&quot;ignoring all arguments&quot;));
-
-  sync ();
-  exit (EXIT_SUCCESS);
-}
-</code></pre><p>Do nothing, but do system call <code>sync()</code></p>
-<h3 id="sync-architecture-in-kernel"><a href="#sync-architecture-in-kernel" class="headerlink" title="sync architecture in kernel"></a>sync architecture in kernel</h3><p>system call <code>sync()</code> is defined in fs/sync.c</p>
-<pre><code>/*
- * sync everything.  Start out by waking pdflush, because that writes back
- * all queues in parallel.
- */
-SYSCALL_DEFINE0(sync)
-{
-    wakeup_flusher_threads(0);
-    sync_filesystems(0);
-    sync_filesystems(1);
-    if (unlikely(laptop_mode))
-        laptop_sync_completion();
-    return 0;
-}
-</code></pre><p><code>sync</code> call <code>sync_filesystems</code>  </p>
-<pre><code>static void sync_filesystems(int wait)
-{
-    struct super_block *sb;
-    static DEFINE_MUTEX(mutex);
-
-    mutex_lock(&amp;mutex);        /* Could be down_interruptible */
-    spin_lock(&amp;sb_lock);
-    list_for_each_entry(sb, &amp;super_blocks, s_list)
-        sb-&gt;s_need_sync = 1;
-
-restart:
-    list_for_each_entry(sb, &amp;super_blocks, s_list) {
-        if (!sb-&gt;s_need_sync)
-            continue;
-        sb-&gt;s_need_sync = 0;
-        sb-&gt;s_count++;
-        spin_unlock(&amp;sb_lock);
-
-        down_read(&amp;sb-&gt;s_umount);
-        if (!(sb-&gt;s_flags &amp; MS_RDONLY) &amp;&amp; sb-&gt;s_root &amp;&amp; sb-&gt;s_bdi)
-            __sync_filesystem(sb, wait);
-        up_read(&amp;sb-&gt;s_umount);
-
-        /* restart only when sb is no longer on the list */
-        spin_lock(&amp;sb_lock);
-        if (__put_super_and_need_restart(sb))
-            goto restart;
-    }
-    spin_unlock(&amp;sb_lock);
-    mutex_unlock(&amp;mutex);
-}
-</code></pre><p><code>sync_filesystems</code> call <code>__sync_filesystem</code> </p>
-<pre><code>static int __sync_filesystem(struct super_block *sb, int wait)
-{
-    /*
-     * This should be safe, as we require bdi backing to actually
-     * write out data in the first place
-     */
-    if (!sb-&gt;s_bdi)
-        return 0;
-
-    /* Avoid doing twice syncing and cache pruning for quota sync */
-    if (!wait) {
-        writeout_quota_sb(sb, -1);
-        writeback_inodes_sb(sb);
-    } else {
-        sync_quota_sb(sb, -1);
-        sync_inodes_sb(sb);
-    }
-    if (sb-&gt;s_op-&gt;sync_fs)
-        sb-&gt;s_op-&gt;sync_fs(sb, wait);
-    return __sync_blockdev(sb-&gt;s_bdev, wait);
-}
-</code></pre><p><code>__sync_filesystem</code> call <code>sb-&gt;s_op-&gt;sync_fs(sb, wait)</code>, each filesystem should<br>implement the sync_fs()</p>
-<h3 id="when-to-use"><a href="#when-to-use" class="headerlink" title="when to use"></a>when to use</h3><ol>
-<li>before shutdown computer, using <code>sync</code> more than twice</li>
-<li>after write big file to disk, such as using command <code>cp</code></li>
-<li>to be continue</li>
-</ol>
-<h3 id="syncfsyncfdatasync"><a href="#sync-fsync-fdatasync" class="headerlink" title="sync,fsync,fdatasync"></a>sync,fsync,fdatasync</h3><ul>
-<li>sync, add the modified buffer to write_queue, then return immediately, not wait<br>for the reality disk writed.</li>
-<li>fsync, used for single file with specify file description,and wait the disk write finish.</li>
-<li>fdatasync, similar to fsync, but just do effect to the data part. fsync make<br>effect to data and file property.</li>
-</ul>
-<h3 id="special-application"><a href="#special-application" class="headerlink" title="special application"></a>special application</h3><ol>
-<li>How if I want to sync from serval Virtual Disks, and ignore serval VDs</li>
-<li>To be continue</li>
-</ol>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li>man sync</li>
-<li>info coreutils &#x2018;sync invocation&#x2019; </li>
-<li>kernel code</li>
-<li><a href="ftp://ftp.gnu.org/gnu/coreutils/coreutils-8.9.tar.xz" target="_blank" rel="external">coreutils-8.9</a></li>
-<li><a href="http://jesserei.blog.163.com/blog/static/121411689201032015129673/" target="_blank" rel="external">sync&#x3001;fsync&#x548C;fdatasync&#x51FD;&#x6570;</a></li>
-<li><a href="http://www.2cto.com/os/201204/126687.html" target="_blank" rel="external">&#x7F13;&#x5B58;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x2013;sys_sync&#x7CFB;&#x7EDF;&#x8C03;&#x7528;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/07/sync/" data-id="cinegqt3n00cxmsizii8faaz7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sync/">sync</a></li></ul>
 
     </footer>
   </div>
@@ -1972,7 +1920,7 @@ restart:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/assembly/" style="font-size: 10px;">assembly</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1994,6 +1942,10 @@ restart:
       <ul>
         
           <li>
+            <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/24/speed-up-cplusplus-compilation/">speed up c++ compilation</a>
           </li>
         
@@ -2007,10 +1959,6 @@ restart:
         
           <li>
             <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>

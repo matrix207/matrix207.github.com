@@ -66,6 +66,180 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-core-dumped" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/24/core-dumped/" class="article-date">
+  <time datetime="2015-08-23T16:00:00.000Z" itemprop="datePublished">2015-08-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/program/">program</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/24/core-dumped/">core dumped</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="what-is-coredump"><a href="#What-is-coredump" class="headerlink" title="What is coredump"></a>What is coredump</h3><h3 id="how-to-analyse-coredump"><a href="#How-to-analyse-coredump" class="headerlink" title="How to analyse coredump"></a>How to analyse coredump</h3><h3 id="why-program-coredump"><a href="#Why-program-coredump" class="headerlink" title="Why program coredump"></a>Why program coredump</h3><ul>
+<li>memory overload</li>
+<li>using thread-unsafe functions on multi-thread</li>
+<li>not using lock when read-write data in multi-thread</li>
+<li>invalid point</li>
+<li>stack overload</li>
+</ul>
+<h3 id="how-to-use-core-file"><a href="#How-to-use-core-file" class="headerlink" title="How to use core file"></a>How to use core file</h3><ul>
+<li>allow to generate core file<ul>
+<li><code>ulimit &#x2013;c unlimited</code></li>
+<li><code>echo /tmp/core.%e.%p &gt; /proc/sys/kernel/core_pattern</code></li>
+<li><code>gcc &#x2013;g core_dump_test.c -o core_dump_test</code>, must used <code>-g</code> to build.</li>
+</ul>
+</li>
+<li>get core file<ul>
+<li><code>./test</code></li>
+</ul>
+</li>
+<li>debug<ul>
+<li><code>gdb ./test /tmp/core</code></li>
+<li><code>bt</code></li>
+<li><code>f 3</code></li>
+<li><code>p buffer</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="signal-of-core"><a href="#Signal-of-core" class="headerlink" title="Signal of core"></a>Signal of core</h3><ul>
+<li><code>man 7 signal</code></li>
+</ul>
+<h3 id="examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ul>
+<li><p>write data to protected memory</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(){
+   int i=0;
+   scanf(&quot;%d&quot;,i);
+   printf(&quot;%d\n&quot;,i);
+   return 0;
+}
+
+#include &lt;stdio.h&gt;
+int main(){
+   char *p;
+   p = NULL;
+   *p = &apos;x&apos;;
+   printf(&quot;%c&quot;, *p);
+   return 0;
+}
+</code></pre></li>
+<li><p>memory overflow (array overflow, variable type different and so on)</p>
+<pre><code>#include &lt;stdio.h&gt;
+int main(){
+    char test[1];
+    printf(&quot;%c&quot;, test[1000000000]);
+    return 0;
+}
+</code></pre></li>
+</ul>
+<p>Access to a not exist address</p>
+<pre><code>#include &lt;stdio.h&gt;
+ int main(){
+      int b = 10;
+      printf(&quot;%s\n&quot;, b);
+      return 0;
+}
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+  int main(){
+     char c=&apos;c&apos;;
+     int i=10;
+     char buf[100];
+     printf(&quot;%s&quot;, c); //&#x8BD5;&#x56FE;&#x628A;char&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x5B57;&#x7B26;&#x4F1A;&#x89E3;&#x91CA;&#x6210;&#x6574;&#x6570;&#xFF0C;
+                           //&#x518D;&#x89E3;&#x91CA;&#x6210;&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x539F;&#x56E0;&#x540C;&#x4E0A;&#x9762;&#x90A3;&#x4E2A;&#x4F8B;&#x5B50;
+     printf(&quot;%s&quot;, i); //&#x8BD5;&#x56FE;&#x628A;int&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x8F93;&#x51FA;
+     memset(buf, 0, 100);
+     sprintf(buf, &quot;%s&quot;, c);  &#x8BD5;&#x56FE;&#x628A;char&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x8F6C;&#x6362;
+     memset(buf, 0, 100);
+     sprintf(buf, &quot;%s&quot;, i);//&#x8BD5;&#x56FE;&#x628A;int&#x578B;&#x6309;&#x7167;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;
+}
+</code></pre><ul>
+<li>Other, likes:<ul>
+<li>Initialization when defined point, check point before using.</li>
+<li>Careful array index</li>
+<li>check if success when do <code>pthread_create</code>, if fail and do <code>pthread_join</code> for<br>this thread will occur segment fault</li>
+</ul>
+</li>
+</ul>
+<h3 id="auto-start-gdb-when-core-occur"><a href="#Auto-start-gdb-when-core-occur" class="headerlink" title="Auto start gdb when core occur"></a>Auto start gdb when core occur</h3><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+
+void dump(int signo)
+{
+    char buf[1024];
+    char cmd[1024];
+    FILE *fh;
+
+    snprintf(buf, sizeof(buf), &quot;/proc/%d/cmdline&quot;, getpid());
+    if(!(fh = fopen(buf, &quot;r&quot;)))
+        exit(0);
+    if(!fgets(buf, sizeof(buf), fh))
+        exit(0);
+    fclose(fh);
+    if(buf[strlen(buf) - 1] == &apos;\n&apos;)
+        buf[strlen(buf) - 1] = &apos;\0&apos;;
+    snprintf(cmd, sizeof(cmd), &quot;gdb %s %d&quot;, buf, getpid());
+    system(cmd);
+
+    exit(0);
+}
+
+void dummy_function (void)
+{
+    unsigned char *ptr = 0x00;
+    *ptr = 0x00;
+}
+
+int main (void)
+{
+    signal(SIGSEGV, &amp;dump);
+    dummy_function ();
+
+    return 0;
+}
+</code></pre><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.csdn.net/newnewman80/article/details/8173770" target="_blank" rel="external">coredump&#x7B80;&#x4ECB;&#x4E0E;coredump&#x539F;&#x56E0;&#x603B;&#x7ED3;</a></li>
+<li><a href="http://www.cnblogs.com/hello--the-world/archive/2012/05/31/2528326.html" target="_blank" rel="external">C/C++&#x4E2D;&#x7684;&#x6BB5;&#x9519;&#x8BEF;&#xFF08;Segmentation fault&#xFF09;</a></li>
+<li><a href="http://blog.csdn.net/freshman_fantom_ywj/article/details/6434074" target="_blank" rel="external">&#x6BB5;&#x9519;&#x8BEF;bug&#x7684;&#x8C03;&#x8BD5;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/08/24/core-dumped/" data-id="cineh9oxi00eroxizk27f7cyd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-difference-between-stack-and-heap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/17/difference-between-stack-and-heap/" class="article-date">
@@ -165,7 +339,7 @@ void main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/17/difference-between-stack-and-heap/" data-id="cinegqt4g00enmsizo7fgbr1p" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/17/difference-between-stack-and-heap/" data-id="cineh9oxg00enoxizd0g0ohl5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memory/">memory</a></li></ul>
@@ -248,7 +422,7 @@ void main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/12/schema-data-model/" data-id="cinegqt4f00ekmsizc6hrap9z" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/12/schema-data-model/" data-id="cineh9oxe00ekoxiz8ndz9q86" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
@@ -295,7 +469,7 @@ void main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/12/key-technology-for-database/" data-id="cinegqt4e00ehmsiz0gnzjzto" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/12/key-technology-for-database/" data-id="cineh9oxd00ehoxiz0njusueg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
@@ -350,7 +524,7 @@ void main()
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/06/what-learn-from-distributed-database/" data-id="cinegqt4d00eemsizw7y50c5q" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/06/what-learn-from-distributed-database/" data-id="cineh9oxc00eeoxizd6wo85rk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
@@ -454,7 +628,7 @@ ELF Header:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/07/05/how-source-code-turn-to-be-an-executable-program/" data-id="cinegqt4b00ebmsizfowpjfsj" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/07/05/how-source-code-turn-to-be-an-executable-program/" data-id="cineh9oxa00eboxizbtw94rdn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -483,7 +657,7 @@ ELF Header:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/06/06/ramcloud/" data-id="cinegqt4a00eamsizu6k563gl" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/06/06/ramcloud/" data-id="cineh9ox900eaoxizcxa8fg8p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -714,7 +888,7 @@ nfsproc.c/nfsxdr.c/nfs3proc.c/nfs3xdr.c&#xFF1A;&#x7F51;&#x7EDC;&#x6570;&#x636E;&
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/03/25/nfs/" data-id="cinegqt4900e6msiz2278zi6w" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/03/25/nfs/" data-id="cineh9ox800e6oxizox9k6tmr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file-system/">file system</a></li></ul>
@@ -859,7 +1033,7 @@ traceroute to 219.134.89.155 (219.134.89.155), 30 hops max, 60 byte packets
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/03/12/how-to-detect-the-internal-network-topology-of-company/" data-id="cinegqt4700e3msiz0yqejiax" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/03/12/how-to-detect-the-internal-network-topology-of-company/" data-id="cineh9ox600e3oxizmr3si25f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1227,119 +1401,11 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/03/11/understand-linux-route/" data-id="cinegqt4600e0msizwg88m7zd" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/03/11/understand-linux-route/" data-id="cineh9ox500e0oxizzk0zw85o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-message-queue-middleware" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/02/09/message-queue-middleware/" class="article-date">
-  <time datetime="2015-02-08T16:00:00.000Z" itemprop="datePublished">2015-02-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/09/message-queue-middleware/">Message Queue Middleware</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><ul>
-<li>MOM: Message Oriented Middleware</li>
-<li>Message Queue ( MQ ) is a middleware between applications and networks.</li>
-</ul>
-<p>There are a number of open source choices of messaging middleware systems, including   </p>
-<ul>
-<li>JBoss Messaging </li>
-<li>JORAM </li>
-<li><a href="http://en.wikipedia.org/wiki/Apache_ActiveMQ" target="_blank" rel="external">Apache ActiveMQ</a></li>
-<li>Sun Open Message Queue </li>
-<li>Apache Qpid</li>
-<li><a href="http://en.wikipedia.org/wiki/RabbitMQ" target="_blank" rel="external">RabbitMQ</a></li>
-<li>Beanstalkd </li>
-<li>Tarantool </li>
-<li>HTTPSQS</li>
-<li><a href="http://en.wikipedia.org/wiki/Microsoft_Message_Queuing" target="_blank" rel="external">MSMQ</a></li>
-</ul>
-<h3 id="compare"><a href="#Compare" class="headerlink" title="Compare"></a>Compare</h3><ul>
-<li>Application A &lt;&#x2013;&gt; Network &lt;&#x2013;&gt; Application B</li>
-<li>Application A &lt;&#x2013;&gt; MOM &lt;&#x2014;&gt; Application B</li>
-</ul>
-<h3 id="standard-and-protocol"><a href="#Standard-and-protocol" class="headerlink" title="Standard and protocol"></a>Standard and protocol</h3><ul>
-<li>AMQP</li>
-</ul>
-<h3 id="using-activemq"><a href="#Using-ActiveMQ" class="headerlink" title="Using ActiveMQ"></a>Using ActiveMQ</h3><p><strong>1.Download and run activemq</strong>:  </p>
-<ul>
-<li>Download the latest activemq from <a href="http://activemq.apache.org/download.html" target="_blank" rel="external">http://activemq.apache.org/download.html</a></li>
-<li>tar xvf apache-activemq-5.11.0-bin.tar.gz </li>
-<li>cd apache-activemq-5.11.0</li>
-<li>./bin/activemq start </li>
-<li><a href="http://localhost:8161" target="_blank" rel="external">http://localhost:8161</a>. The default username and password is admin/admin</li>
-<li>check running: <ul>
-<li>netstat -apn |grep 61616</li>
-<li>ps aux |grep activemq</li>
-</ul>
-</li>
-<li>./bin/activemq stop</li>
-<li>for more information, read docs/user-guide.html </li>
-</ul>
-<p><strong>2.Build openwire-cpp example</strong>:  </p>
-<ul>
-<li>yum install activemq-cpp-devel</li>
-<li>cd /home/dennis/Downloads/apache-activemq-5.11.0/examples/openwire/cpp </li>
-<li>gcc Listener.cpp -o listener -I/usr/include/activemq-cpp-3.8.3 -I/usr/include/apr-1 -lactivemq-cpp -lstdc++</li>
-<li>gcc Publisher.cpp -o publisher -I/usr/include/activemq-cpp-3.8.3 -I/usr/include/apr-1 -lactivemq-cpp -lstdc++</li>
-</ul>
-<p><strong>3.Running example</strong>:  </p>
-<ul>
-<li><p>3.1 Run service as root </p>
-<p>  [dennis@localhost apache-activemq-5.11.0]$ su<br>  Password:<br>  [root@localhost apache-activemq-5.11.0]# ./bin/activemq start<br>  INFO: Loading &#x2018;/home/dennis/Downloads/apache-activemq-5.11.0/bin/env&#x2019;<br>  INFO: Using java &#x2018;/usr/bin/java&#x2019;<br>  INFO: Process with pid &#x2018;3510&#x2019; is already running</p>
-</li>
-<li><p>3.2 Run listener  </p>
-<h1 id="dennislocalhost-cpp-listener"><a href="#dennis-localhost-cpp-listener" class="headerlink" title="  [dennis@localhost cpp]$ ./listener "></a>  [dennis@localhost cpp]$ ./listener </h1><h2 id="starting-the-listener-example"><a href="#Starting-the-Listener-example" class="headerlink" title="  Starting the Listener example:"></a>  Starting the Listener example:</h2><p>  Waiting for messages&#x2026;<br>  Received 1000 messages.<br>  Received 2000 messages.<br>  Received 3000 messages.<br>  Received 4000 messages.<br>  Received 5000 messages.<br>  Received 6000 messages.<br>  Received 7000 messages.<br>  Received 8000 messages.<br>  Received 9000 messages.<br>  Received 10000 messages.</p>
-<h2 id="received-10000-in-1606-seconds"><a href="#Received-10000-in-1-606-seconds" class="headerlink" title="  Received 10000 in 1.606 seconds"></a>  Received 10000 in 1.606 seconds</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
-<li><p>3.3 Run publisher  </p>
-<h1 id="dennislocalhost-cpp-publisher"><a href="#dennis-localhost-cpp-publisher" class="headerlink" title="  [dennis@localhost cpp]$ ./publisher "></a>  [dennis@localhost cpp]$ ./publisher </h1><h2 id="starting-the-publisher-example"><a href="#Starting-the-Publisher-example" class="headerlink" title="  Starting the Publisher example:"></a>  Starting the Publisher example:</h2><p>  Sent 1000 messages<br>  Sent 2000 messages<br>  Sent 3000 messages<br>  Sent 4000 messages<br>  Sent 5000 messages<br>  Sent 6000 messages<br>  Sent 7000 messages<br>  Sent 8000 messages<br>  Sent 9000 messages</p>
-<h2 id="sent-10000-messages"><a href="#Sent-10000-messages" class="headerlink" title="  Sent 10000 messages"></a>  Sent 10000 messages</h2><h1 id="finished-with-the-example"><a href="#Finished-with-the-example-1" class="headerlink" title="  Finished with the example."></a>  Finished with the example.</h1></li>
-</ul>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://en.wikipedia.org/wiki/Message_queue" target="_blank" rel="external">Message Queue</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Message-oriented_middleware" target="_blank" rel="external">Message-oriented middleware</a></li>
-<li><a href="http://blog.fity.cn/post/377/" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x6280;&#x672F;&#x9009;&#x578B;&#x5206;&#x6790;</a></li>
-<li><a href="http://www.infoq.com/cn/articles/apache-kafka" target="_blank" rel="external">Apache Kafka&#xFF1A;&#x4E0B;&#x4E00;&#x4EE3;&#x5206;&#x5E03;&#x5F0F;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;</a></li>
-<li>&#x2605;&#x2605;&#x2605;<a href="http://alibaba.github.io/RocketMQ-docs/document/openuser/mqvsmq.pdf" target="_blank" rel="external">&#x6D88;&#x606F;&#x961F;&#x5217;&#x4E2D;&#x95F4;&#x4EF6;&#x8C03;&#x7814;&#x6587;&#x6863;</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/loulijun/MQnewer/MQnewer.html" target="_blank" rel="external">&#x6D88;&#x606F;&#x4E2D;&#x95F4;&#x4EF6;&#x53CA;WebSphere MQ&#x5165;&#x95E8;</a></li>
-<li><a href="https://github.com/zeromq" target="_blank" rel="external">The ZeroMQ project</a></li>
-<li><a href="http://api.zeromq.org/" target="_blank" rel="external">api of zeroMQ</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cinegqt4500dymsizkbso0z40" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -1370,7 +1436,7 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
+      <a href="/tags/FAQ/" style="font-size: 10px;">FAQ</a> <a href="/tags/IRC/" style="font-size: 10px;">IRC</a> <a href="/tags/Translation/" style="font-size: 13px;">Translation</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/assembly/" style="font-size: 10px;">assembly</a> <a href="/tags/awk/" style="font-size: 11px;">awk</a> <a href="/tags/batch/" style="font-size: 14px;">batch</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/book/" style="font-size: 10px;">book</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/c/" style="font-size: 19px;">c++</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/database/" style="font-size: 17px;">database</a> <a href="/tags/debug/" style="font-size: 12px;">debug</a> <a href="/tags/dot/" style="font-size: 10px;">dot</a> <a href="/tags/driver/" style="font-size: 10px;">driver</a> <a href="/tags/emacs/" style="font-size: 11px;">emacs</a> <a href="/tags/exploit/" style="font-size: 10px;">exploit</a> <a href="/tags/file-system/" style="font-size: 10px;">file system</a> <a href="/tags/filesystem/" style="font-size: 12px;">filesystem</a> <a href="/tags/flowchart/" style="font-size: 10px;">flowchart</a> <a href="/tags/gcc/" style="font-size: 10px;">gcc</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/google/" style="font-size: 11px;">google</a> <a href="/tags/graphviz/" style="font-size: 11px;">graphviz</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hosts/" style="font-size: 10px;">hosts</a> <a href="/tags/iscsi/" style="font-size: 14px;">iscsi</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/job/" style="font-size: 10px;">job</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/kernel/" style="font-size: 14px;">kernel</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/makefile/" style="font-size: 10px;">makefile</a> <a href="/tags/malloc/" style="font-size: 10px;">malloc</a> <a href="/tags/math/" style="font-size: 11px;">math</a> <a href="/tags/maxima/" style="font-size: 10px;">maxima</a> <a href="/tags/memory/" style="font-size: 11px;">memory</a> <a href="/tags/memory-overflow/" style="font-size: 10px;">memory overflow</a> <a href="/tags/mtrace/" style="font-size: 10px;">mtrace</a> <a href="/tags/netdisk/" style="font-size: 10px;">netdisk</a> <a href="/tags/network/" style="font-size: 20px;">network</a> <a href="/tags/others/" style="font-size: 18px;">others</a> <a href="/tags/pandoc/" style="font-size: 10px;">pandoc</a> <a href="/tags/performance/" style="font-size: 16px;">performance</a> <a href="/tags/person/" style="font-size: 11px;">person</a> <a href="/tags/protobuf/" style="font-size: 11px;">protobuf</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/rsync/" style="font-size: 10px;">rsync</a> <a href="/tags/sed/" style="font-size: 11px;">sed</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/skype/" style="font-size: 11px;">skype</a> <a href="/tags/sms/" style="font-size: 10px;">sms</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/stack/" style="font-size: 10px;">stack</a> <a href="/tags/storage/" style="font-size: 15px;">storage</a> <a href="/tags/study/" style="font-size: 10px;">study</a> <a href="/tags/svn/" style="font-size: 11px;">svn</a> <a href="/tags/sync/" style="font-size: 10px;">sync</a> <a href="/tags/test/" style="font-size: 11px;">test</a> <a href="/tags/time/" style="font-size: 10px;">time</a> <a href="/tags/tools/" style="font-size: 15px;">tools</a> <a href="/tags/valgrind/" style="font-size: 10px;">valgrind</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 14px;">vim</a> <a href="/tags/virtual/" style="font-size: 11px;">virtual</a> <a href="/tags/wget/" style="font-size: 10px;">wget</a> <a href="/tags/windows/" style="font-size: 11px;">windows</a> <a href="/tags/wireshark/" style="font-size: 10px;">wireshark</a> <a href="/tags/write/" style="font-size: 13px;">write</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a>
     </div>
   </div>
 
@@ -1392,6 +1458,10 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
       <ul>
         
           <li>
+            <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/24/speed-up-cplusplus-compilation/">speed up c++ compilation</a>
           </li>
         
@@ -1405,10 +1475,6 @@ rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
         
           <li>
             <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/09/stack-trace-when-program-crash/">stack trace when program crash</a>
           </li>
         
       </ul>
