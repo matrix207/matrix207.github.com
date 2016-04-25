@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -171,7 +171,7 @@ echo
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/04/copy-file-with-progress-bar/" data-id="cineh9orq001uoxizfug7yfdc" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2013/01/04/copy-file-with-progress-bar/" data-id="cinga3yiq0028dciz5k21csog" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -291,98 +291,10 @@ project02#http://172.168.1.122/repos/dev/project02#18635#usr02@gmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cineh9orn001joxizx5yimnqt" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cinga3yhd001jdciz2tzx7rqp" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-visual-studio-project-atuo-compile" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/12/17/visual-studio-project-atuo-compile/" class="article-date">
-  <time datetime="2012-12-16T16:00:00.000Z" itemprop="datePublished">2012-12-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/windows/">windows</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/17/visual-studio-project-atuo-compile/">Viusal studio project auto compile</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="windows-requirements"><a href="#Windows-Requirements" class="headerlink" title="Windows Requirements"></a>Windows Requirements</h3><pre><code>microsoft visual studio 2005 or newer
-subversion 1.7.7 or newer
-
-add the path of command tool &quot;svn&quot; and &quot;devenv&quot; to environment path
-</code></pre><h3 id="check-out-project-by-svn"><a href="#check-out-project-by-svn" class="headerlink" title="check out project by svn"></a>check out project by svn</h3><p><code>svn co project_svn_url output_path -r revision</code>  </p>
-<p><strong>svn_co.bat</strong>  </p>
-<pre><code>@ECHO off&amp;SETlocal enabledelayedexpansion 
-
-REM Useage: svn_co.bat svn_src_url out_path revision log_file
-
-SET func=&quot;check out project&quot;
-
-SET src_url=%1
-SET out_path=%2
-SET src_rev=%3
-SET log_file=%4
-SET parameters=%src_url%
-
-IF NOT &quot;%out_path%&quot;==&quot;&quot; SET parameters=!parameters! %out_path%
-
-IF NOT &quot;%src_rev%&quot;==&quot;&quot; SET parameters=!parameters! -r %src_rev%
-
-SET log_file_tmp=NUL
-IF NOT &quot;%log_file%&quot;==&quot;&quot; SET log_file_tmp=%log_file%
-
-svn co !parameters!
-
-SET /a ret_code=%ERRORLEVEL%
-IF %ret_code% EQU 0 (
-    @ECHO svn checkout success
-) ELSE (
-    @ECHO svn checkout fail
-)
-</code></pre><h3 id="use-devenv-for-compile"><a href="#use-devenv-for-compile" class="headerlink" title="use devenv for compile"></a>use devenv for compile</h3><p><code>devenv solution_file /build &quot;release|win32&quot;</code>  </p>
-<p><strong>compile.bat</strong>  </p>
-<pre><code>@ECHO off
-
-REM Useage: compile.bat solution_file
-
-SET sln_file=%1
-SET cfg_build=&quot;Release|Win32&quot;
-
-devenv %sln_file% /build %cfg_build%
-
-SET /A retval=%ERRORLEVEL%
-EXIT /B %retval%
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cineh9orl001goxiz6kd4l5y3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
 
     </footer>
   </div>
@@ -746,9 +658,97 @@ IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cineh9ork001eoxizewbek8hy" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cinga3yhb001hdcizldtvmo4z" class="article-share-link">Delen</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-visual-studio-project-atuo-compile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/12/17/visual-studio-project-atuo-compile/" class="article-date">
+  <time datetime="2012-12-16T16:00:00.000Z" itemprop="datePublished">2012-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/12/17/visual-studio-project-atuo-compile/">Viusal studio project auto compile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="windows-requirements"><a href="#Windows-Requirements" class="headerlink" title="Windows Requirements"></a>Windows Requirements</h3><pre><code>microsoft visual studio 2005 or newer
+subversion 1.7.7 or newer
+
+add the path of command tool &quot;svn&quot; and &quot;devenv&quot; to environment path
+</code></pre><h3 id="check-out-project-by-svn"><a href="#check-out-project-by-svn" class="headerlink" title="check out project by svn"></a>check out project by svn</h3><p><code>svn co project_svn_url output_path -r revision</code>  </p>
+<p><strong>svn_co.bat</strong>  </p>
+<pre><code>@ECHO off&amp;SETlocal enabledelayedexpansion 
+
+REM Useage: svn_co.bat svn_src_url out_path revision log_file
+
+SET func=&quot;check out project&quot;
+
+SET src_url=%1
+SET out_path=%2
+SET src_rev=%3
+SET log_file=%4
+SET parameters=%src_url%
+
+IF NOT &quot;%out_path%&quot;==&quot;&quot; SET parameters=!parameters! %out_path%
+
+IF NOT &quot;%src_rev%&quot;==&quot;&quot; SET parameters=!parameters! -r %src_rev%
+
+SET log_file_tmp=NUL
+IF NOT &quot;%log_file%&quot;==&quot;&quot; SET log_file_tmp=%log_file%
+
+svn co !parameters!
+
+SET /a ret_code=%ERRORLEVEL%
+IF %ret_code% EQU 0 (
+    @ECHO svn checkout success
+) ELSE (
+    @ECHO svn checkout fail
+)
+</code></pre><h3 id="use-devenv-for-compile"><a href="#use-devenv-for-compile" class="headerlink" title="use devenv for compile"></a>use devenv for compile</h3><p><code>devenv solution_file /build &quot;release|win32&quot;</code>  </p>
+<p><strong>compile.bat</strong>  </p>
+<pre><code>@ECHO off
+
+REM Useage: compile.bat solution_file
+
+SET sln_file=%1
+SET cfg_build=&quot;Release|Win32&quot;
+
+devenv %sln_file% /build %cfg_build%
+
+SET /A retval=%ERRORLEVEL%
+EXIT /B %retval%
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cinga3yh8001bdcizv3cz8tsg" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
+
     </footer>
   </div>
   
@@ -897,7 +897,7 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cineh9orj001boxizwrv6uqn1" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cinga3yh60018dcizpf3sa6a3" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -946,7 +946,7 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cineh9orh0018oxiz6m47znsz" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cinga3yha001edciz7n53cg9q" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1034,7 +1034,7 @@ pause&amp;exit /B 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cineh9org0015oxizavqkw05g" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cinga3yh30012dcizlisfe2uo" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1137,7 +1137,7 @@ pause
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cineh9orf0011oxiz4q374h4b" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cinga3yh2000ydcizchzfkr0a" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1209,7 +1209,7 @@ Binary file &quot;wget&quot; will be generated at wget-1.9/src/
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cineh9ord000woxiz1axroafz" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cinga3yh0000tdciz8l14jrpc" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wget/">wget</a></li></ul>
@@ -1703,7 +1703,7 @@ filetype plugin indent on &quot; required!
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cineh9orc000toxiz7o05bwus" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cinga3yh50015dcizb8vkc2o5" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -1726,7 +1726,7 @@ filetype plugin indent on &quot; required!
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Categorieën</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1745,7 +1745,7 @@ filetype plugin indent on &quot; required!
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1755,7 +1755,7 @@ filetype plugin indent on &quot; required!
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
