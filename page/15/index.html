@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,177 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-30-linux-kernel-developers-in-30-weeks-thomas-gleixner" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/" class="article-date">
+  <time datetime="2013-03-03T16:00:00.000Z" itemprop="datePublished">2013-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/english/">english</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/">30 Linux Kernel Developers in 30 Weeks: Thomas Gleixner</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x539F;&#x6587;:<a href="https://www.linux.com/news/special-feature/linux-developers/591039-30-linux-kernel-developers-in-30-weeks-thomas-gleixner" target="_blank" rel="external">30 Linux Kernel Developers in 30 Weeks: Thomas Gleixner</a></p>
+<blockquote>
+<p>This is the second in our 30-week series that profiles a different Linux kernel developer each week. Last week we debuted the series with Linus Torvalds. The profiles we publish throughout the rest of 2012 should help illustrate how these developers do their work, providing important insight on how to work with them and what makes them tick.</p>
+</blockquote>
+<p>&#x8FD9;&#x4E2A;30&#x5468;30&#x4F4D;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x8005;&#x4ECB;&#x7ECD;&#x7684;&#x7B2C;&#x4E8C;&#x671F;&#x3002;&#x4E0A;&#x5468;&#x6211;&#x4EEC;&#x91C7;&#x8BBF;&#x4E86;Linus Toravalds&#x3002;&#x5728;2012&#x5E74;&#x4F59;&#x4E0B;&#x65F6;&#x95F4;&#x4E2D;&#x53D1;&#x8868;&#x7684;&#x8FD9;&#x4E9B;&#x6587;&#x7AE0;&#x5C06;&#x544A;&#x8BC9;&#x5927;&#x5BB6;&#x4ED6;&#x4EEC;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x600E;&#x6837;&#x4E0E;&#x4ED6;&#x4EEC;&#x534F;&#x540C;&#x5DE5;&#x4F5C;&#x4EE5;&#x53CA;&#x4ED6;&#x4EEC;&#x6210;&#x529F;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<blockquote>
+<p>Name</p>
+</blockquote>
+<p>&#x540D;&#x5B57;</p>
+<blockquote>
+<p>Thomas Gleixner, nickname: tglx</p>
+</blockquote>
+<p>Thomas Gleixner, &#x6635;&#x79F0;: tglx</p>
+<blockquote>
+<p>What role do you play in the community and/or what subsystem(s) do you work on?</p>
+</blockquote>
+<p>&#x4F60;&#x5728;&#x793E;&#x533A;&#x4E2D;&#x626E;&#x6F14;&#x4EC0;&#x4E48;&#x89C9;&#x5F97;&#x4EE5;&#x53CA;&#x7EF4;&#x62A4;&#x54EA;&#x90E8;&#x5206;&#xFF1F;</p>
+<blockquote>
+<p>Quite a few people consider me to be one of the Grumpy Old Men. That&#x2019;s related to my age and the age-related unwillingness to cope with crap.</p>
+</blockquote>
+<p>&#x5F88;&#x591A;&#x4EBA;&#x8BA4;&#x4E3A;&#x6211;&#x662F;&#x813E;&#x6C14;&#x66B4;&#x8E81;&#x7684;&#x8001;&#x4EBA;&#x5BB6;&#x3002;&#x8FD9;&#x6D89;&#x53CA;&#x5230;&#x6211;&#x7684;&#x5E74;&#x7EAA;&#xFF0C;&#x4F46;&#x548C;&#x5E74;&#x7EAA;&#x4E00;&#x4E01;&#x70B9;&#x5173;&#x7CFB;&#x90FD;&#x6CA1;&#x6709;&#x3002;</p>
+<blockquote>
+<p>As a maintainer I&#x2019;m responsible for the core infrastructure of timers, timekeeping and interrupt handling. I&#x2019;m part of the x86 architecture maintainer team and I&#x2019;m the maintainer and main developer of the real time preemption patch. Aside of that I have a strong affinity for mission impossible and tree wide code cleanups.</p>
+</blockquote>
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#xFF0C;&#x6211;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x6838;&#x5FC3;&#x57FA;&#x7840;&#xFF0C;&#x65F6;&#x95F4;&#x8BB0;&#x5F55;&#x5668;&#x4EE5;&#x53CA;&#x7EC8;&#x7AEF;&#x5904;&#x7406;&#x3002;&#x6211;&#x662F;x86&#x67B6;&#x6784;&#x7EF4;&#x62A4;&#x7EC4;&#x6210;&#x5458;&#xFF0C;&#x5B9E;&#x65F6;&#x62A2;&#x5360;&#x8865;&#x4E01;&#x7684;&#x5F00;&#x53D1;&#x548C;&#x7EF4;&#x62A4;&#x8005;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x6211;&#x559C;&#x6B22;&#x4E00;&#x4E9B;&#x9AD8;&#x96BE;&#x5EA6;&#x4EFB;&#x52A1;&#xFF0C;&#x4EE5;&#x53CA;&#x5185;&#x6838;&#x6811;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;&#x3002;</p>
+<blockquote>
+<p>Where do you get your paycheck?</p>
+</blockquote>
+<p>&#x4F60;&#x7684;&#x6536;&#x5165;&#x6765;&#x6E90;&#xFF1F;</p>
+<blockquote>
+<p>From my own company, which gets part of it refunded by contracts with Red Hat and others interested in my work.</p>
+</blockquote>
+<p>&#x6765;&#x81EA;&#x6211;&#x7684;&#x516C;&#x53F8;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x7EA2;&#x5E3D;&#x5B50;&#x7684;&#x5408;&#x7EA6;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x662F;&#x6211;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+<blockquote>
+<p>What part of the world do you live in? Why there?</p>
+</blockquote>
+<p>&#x4F60;&#x5728;&#x54EA;&#x751F;&#x6D3B;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p>Germany. It&#x2019;s my home, why should I live anywhere else?</p>
+</blockquote>
+<p>&#x5FB7;&#x56FD;&#x3002;&#x8FD9;&#x91CC;&#x662F;&#x6211;&#x7684;&#x5BB6;&#xFF0C;&#x6211;&#x4E0D;&#x53EF;&#x80FD;&#x53BB;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x3002;</p>
+<blockquote>
+<p>What are your favorite productivity tools for software development?</p>
+</blockquote>
+<p>&#x4F60;&#x6700;&#x559C;&#x6B22;&#x7684;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p>Command line tools. Don&#x2019;t try to involve me into Emacs vs. VI discussions and don&#x2019;t ask me about GUI tools :)</p>
+</blockquote>
+<p>&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x3002;&#x4E0D;&#x8981;&#x8BA9;&#x6211;&#x9677;&#x5165;Emacs&#x4E0E;VI&#x8BBA;&#x6218;&#xFF0C;&#x4E5F;&#x4E0D;&#x8981;&#x95EE;&#x4E00;&#x4E9B;GUI&#x5DE5;&#x5177;&#x3002;:)</p>
+<blockquote>
+<p>What do you run on your desktop?</p>
+</blockquote>
+<p>&#x4F60;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x5DE5;&#x5177;&#xFF1F;</p>
+<blockquote>
+<p>Changing flavors of Linux distributions. My desktop requirements are rather low: Manage a gazillion of terminals, run a graphical browser and occasionally fire up some unavoidable GUI applications.</p>
+</blockquote>
+<p>&#x4FEE;&#x6539;Linux&#x5206;&#x53D1;&#x5305;&#x7684;&#x7279;&#x6027;&#x3002;&#x6211;&#x5BF9;&#x684C;&#x9762;&#x8981;&#x6C42;&#x5F88;&#x4F4E;:&#x7BA1;&#x7406;&#x4E00;&#x4E2A;&#x56FE;&#x5F62;&#x7EC8;&#x7AEF;&#xFF0C;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x754C;&#x9762;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5076;&#x5C14;&#x4FEE;&#x6539;&#x4E00;&#x4E9B;&#x8D1F;&#x8D23;&#x7684;GUI&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<blockquote>
+<p>I&#x2019;m desperately trying to avoid the new fangled app driven &#x201C;desktops,&#x201D; which insist on knowing better than I how to manage my workflow efficiently.</p>
+</blockquote>
+<p>&#x6211;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x907F;&#x514D;&#x5728;&#x684C;&#x9762;&#x4E2D;&#x8FD0;&#x884C;&#x65B0;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;</p>
+<blockquote>
+<p>How did you get involved in Linux kernel development?</p>
+</blockquote>
+<p>&#x4F60;&#x662F;&#x5982;&#x4F55;&#x8FDB;&#x5165;&#x5230;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x7684;&#xFF1F;</p>
+<blockquote>
+<p>Curiosity.</p>
+</blockquote>
+<p>&#x597D;&#x5947;&#x5FC3;&#x4F7F;&#x7136;&#x3002;</p>
+<blockquote>
+<p>What keeps you interested in it?</p>
+</blockquote>
+<p>&#x4EC0;&#x4E48;&#x8BA9;&#x4F60;&#x4E00;&#x5982;&#x65E2;&#x5F80;&#x5E72;&#x8FD9;&#x4E8B;&#xFF1F;</p>
+<blockquote>
+<p>The fun of it. Working with smart people all over the world.</p>
+</blockquote>
+<p>&#x8FD9;&#x662F;&#x4EF6;&#x6709;&#x610F;&#x601D;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x548C;&#x5168;&#x4E16;&#x754C;&#x6700;&#x806A;&#x660E;&#x7684;&#x4EBA;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#x3002;</p>
+<blockquote>
+<p>Image: LinuxCon Europe, Gleixner second from right</p>
+</blockquote>
+<p>&#x56FE;&#x7247;:  &#x6B27;&#x6D32;Linux&#x4F1A;&#x8BAE;&#xFF0C;Gleixner&#x5728;&#x53F3;&#x8FB9;&#x7B2C;&#x4E8C;&#x4E2A;</p>
+<blockquote>
+<p>What&#x2019;s the most amused you&#x2019;ve ever been by the collaborative development process (flame war, silly code submission, amazing accomplishment)?</p>
+</blockquote>
+<p>&#x5728;&#x534F;&#x4F5C;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F60;&#x89C9;&#x5F97;&#x6700;&#x597D;&#x73A9;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#xFF08;&#x5634;&#x4ED7;&#xFF0C;&#x611A;&#x8822;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#xFF0C;&#x60CA;&#x4EBA;&#x7684;&#x6210;&#x5C31;&#xFF09;&#xFF1F;</p>
+<blockquote>
+<p>That&#x2019;s a tough question. I have my favorites in all categories, but as far as silliness, this is my favorite one:</p>
+</blockquote>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x96BE;&#x56DE;&#x7B54;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x559C;&#x6B22;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x6211;&#x89C9;&#x5F97;&#x6700;&#x50BB;&#x7684;&#x662F;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>d-&gt;core_internal_state__do_not_mess_with_it |= SOME_CONSTANT;</li>
+</ul>
+</blockquote>
+<ul>
+<li>d-&gt;core_internal_state__do_not_mess_with_it |= SOME_CONSTANT;</li>
+</ul>
+<blockquote>
+<p>See <a href="http://www.spinics.net/lists/linux-tip-commits/msg11099.html" target="_blank" rel="external">http://www.spinics.net/lists/linux-tip-commits/msg11099.html</a></p>
+</blockquote>
+<p>&#x53C2;&#x8003; <a href="http://www.spinics.net/lists/linux-tip-commits/msg11099.html" target="_blank" rel="external">http://www.spinics.net/lists/linux-tip-commits/msg11099.html</a></p>
+<blockquote>
+<p>What&#x2019;s your advice for developers who want to get involved?</p>
+</blockquote>
+<p>&#x4F60;&#x5BF9;&#x60F3;&#x8FDB;&#x5165;&#x8BE5;&#x9886;&#x57DF;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x5EFA;&#x8BAE;&#xFF1F;</p>
+<blockquote>
+<p>Find your area of interest, and start tackling problems which are affecting you.</p>
+</blockquote>
+<p>&#x627E;&#x5230;&#x4F60;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x9886;&#x57DF;&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x51B3;&#x5BF9;&#x4F60;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<blockquote>
+<p>What do you listen to when you code?</p>
+</blockquote>
+<p>&#x4F60;&#x6700;&#x7F16;&#x7801;&#x65F6;&#x90FD;&#x542C;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<blockquote>
+<p>To the thoughts drifting through my brain.</p>
+</blockquote>
+<p>&#x6211;</p>
+<blockquote>
+<p>What mailing list or IRC channel will people find you hanging out at? What conference(s)?</p>
+</blockquote>
+<p>&#x5728;&#x90A3;&#x4E9B;&#x90AE;&#x4EF6;&#x5217;&#x8868;&#x6216;IRC&#x9891;&#x9053;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x4F60;&#xFF1F;&#x4F1A;&#x8BAE;&#x5462;&#xFF1F;</p>
+<blockquote>
+<p>Mailing lists: Mostly LKML (Linux Kernel Mailing List)<br>IRC channels : My nick is unique<br>Conferences  : Too many</p>
+</blockquote>
+<p>&#x90AE;&#x4EF6;&#x5217;&#x8868;: &#x57FA;&#x672C;&#x4E0A;&#x662F;LKML&#xFF08;Linux&#x5185;&#x6838;&#x5217;&#x8868;&#xFF09;<br>IRC&#x9891;&#x9053;: &#x6211;&#x7684;&#x6635;&#x79F0;&#x662F; unique<br>&#x4F1A;&#x8BAE;: &#x592A;&#x591A;&#x4E86;</p>
+<blockquote>
+<p>Thanks to Thomas for participating in 30 Linux Kernel Developers in 30 Weeks. Next week, we talk to Sarah Sharp.</p>
+</blockquote>
+<p>&#x8C22;&#x8C22;Thomas&#x53C2;&#x52A0;30&#x5468;30&#x4F4D;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x8005;&#x3002;&#x4E0B;&#x5468;&#x6211;&#x4EEC;&#x5C06;&#x5BF9;&#x8BDD;Sarah Sharp&#x3002;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/" data-id="cinho3c0a0045zbizmk54dcqr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translation/">Translation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-30-linux-kernel-developers-in-30-weeks-sarah-sharp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -213,7 +384,7 @@ snorted out my nose all over it.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/04/30-linux-kernel-developers-in-30-weeks-sarah-sharp/" data-id="cinga3yje003vdcizvb5e35bd" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/04/30-linux-kernel-developers-in-30-weeks-sarah-sharp/" data-id="cinho3c04003vzbizdy279uql" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translation/">Translation</a></li></ul>
@@ -266,7 +437,7 @@ snorted out my nose all over it.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/02/use-irc/" data-id="cinga3yjg0041dcizaaim4luo" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/02/use-irc/" data-id="cinho3c080041zbiz9o4ypfol" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IRC/">IRC</a></li></ul>
@@ -419,7 +590,7 @@ snorted out my nose all over it.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/02/30-linux-kernel-developers-in-30-weeks-paul-mckenney/" data-id="cinga3yjf003ydcizpoydk5lu" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/02/30-linux-kernel-developers-in-30-weeks-paul-mckenney/" data-id="cinho3c07003yzbizq0xbvey8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translation/">Translation</a></li></ul>
@@ -586,7 +757,7 @@ snorted out my nose all over it.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/01/30-linux-kernel-developers-in-30-weeks-linus-torvalds/" data-id="cinga3yjc003qdciz9obsk8xg" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/01/30-linux-kernel-developers-in-30-weeks-linus-torvalds/" data-id="cinho3c03003qzbizkh2kg0dq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translation/">Translation</a></li></ul>
@@ -647,7 +818,7 @@ snorted out my nose all over it.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/02/15/frequently-questions/" data-id="cinga3yj9003jdcizyudzxcvp" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/02/15/frequently-questions/" data-id="cinho3bzx003fzbizw48l3f38" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FAQ/">FAQ</a></li></ul>
@@ -699,7 +870,7 @@ snorted out my nose all over it.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/02/01/exploit-program/" data-id="cinga3yj7003fdcizhqhhs7o8" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/02/01/exploit-program/" data-id="cinho3bzz003jzbizcp7ubtsh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exploit/">exploit</a></li></ul>
@@ -754,252 +925,9 @@ snorted out my nose all over it.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/29/valuable-info/" data-id="cinga3yja003ndcizcedz5k3a" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/01/29/valuable-info/" data-id="cinho3c01003nzbizht5jo9uc" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-emacs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/01/25/emacs/" class="article-date">
-  <time datetime="2013-01-24T16:00:00.000Z" itemprop="datePublished">2013-01-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/01/25/emacs/">emacs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p><a href="http://lpn.rnbhq.org/tools/xemacs/emacs_ref.html" target="_blank" rel="external">Emacs Command List</a></p>
-</li>
-<li><p><a href="http://aifreedom.com/technology/112" target="_blank" rel="external">Emacs&#x5FEB;&#x6377;&#x952E;&#x5217;&#x8868;</a></p>
-</li>
-<li><p><a href="http://emacser.com/capslock.htm" target="_blank" rel="external">&#x4EA4;&#x6362;&#x4F60;&#x7684;Caps-Lock&#x548C;&#x53F3;Control&#x952E;</a></p>
-</li>
-<li><p><a href="http://blog.csdn.net/DelphiNew/article/details/2053676" target="_blank" rel="external">Effective Emacs &#x4E2D;&#x6587;&#x7248;</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/25/emacs/" data-id="cinga3yj6003cdcizgh8e38vv" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-maxima-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/01/25/maxima-tutorial/" class="article-date">
-  <time datetime="2013-01-24T16:00:00.000Z" itemprop="datePublished">2013-01-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/math/">math</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/01/25/maxima-tutorial/">maxima tutorial</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><em>&#x5B89;&#x88C5;</em> <code>yum install maxima</code></li>
-<li><em>&#x8FD0;&#x884C;</em> <code>maxima</code></li>
-<li><p><em>&#x4F8B;&#x5B50;</em>  </p>
-<pre><code>[root@localhost ~]# maxima --version
-Maxima 5.29.1
-[root@localhost ~]# maxima
-Maxima 5.29.1 http://maxima.sourceforge.net
-using Lisp SBCL 1.1.2-1.fc18
-Distributed under the GNU Public License. See the file COPYING.
-Dedicated to the memory of William Schelter.
-The function bug_report() provides bug reporting information.
-(%i1) 2+3;
-(%o1)                                  5
-(%i2) 1/3;
-                                       1
-(%o2)                                  -
-                                       3
-(%i3) float(1/3);
-(%o3)                          .3333333333333333
-(%i4) sum(i^2, i, 1, 3);
-(%o4)                                 14
-(%i5) ? if
-
- -- Special operator: if
-     Represents conditional evaluation.  Various forms of `if&apos;
-     expressions are recognized.
-
-     `if &lt;cond_1&gt; then &lt;expr_1&gt; else &lt;expr_0&gt;&apos; evaluates to &lt;expr_1&gt; if
-     &lt;cond_1&gt; evaluates to `true&apos;, otherwise the expression evaluates
-     to &lt;expr_0&gt;.
-
-     The command `if &lt;cond_1&gt; then &lt;expr_1&gt; elseif &lt;cond_2&gt; then
-     &lt;expr_2&gt; elseif ... else &lt;expr_0&gt;&apos; evaluates to &lt;expr_k&gt; if
-     &lt;cond_k&gt; is `true&apos; and all preceding conditions are `false&apos;.  If
-     none of the conditions are `true&apos;, the expression evaluates to
-     `expr_0&apos;.
-
-     A trailing `else false&apos; is assumed if `else&apos; is missing.  That is,
-     the command `if &lt;cond_1&gt; then &lt;expr_1&gt;&apos; is equivalent to `if
-     &lt;cond_1&gt; then &lt;expr_1&gt; else false&apos;, and the command `if &lt;cond_1&gt;
-     then &lt;expr_1&gt; elseif ... elseif &lt;cond_n&gt; then &lt;expr_n&gt;&apos; is
-     equivalent to `if &lt;cond_1&gt; then &lt;expr_1&gt; elseif ... elseif
-     &lt;cond_n&gt; then &lt;expr_n&gt; else false&apos;.
-
-    git/ The alternatives &lt;expr_0&gt;, ..., &lt;expr_n&gt; may be any Maxima
-     expressions, including nested `if&apos; expressions.  The alternatives
-     are neither simplified nor evaluated unless the corresponding
-     condition is `true&apos;.
-
-     The conditions &lt;cond_1&gt;, ..., &lt;cond_git/n&gt; are expressions which
-     potentially or actually evaluate to `true&apos; or `false&apos;.  When a
-     condition does not actually evaluate to `true&apos; or `false&apos;, the
-     behavior of `if&apos; is governed by the global flag `prederror&apos;.  When
-     `prederror&apos; is `true&apos;, it is an error if any evaluated condition
-     does not evaluate to `true&apos; or `false&apos;.  Otherwise, conditions
-     which do not evaluate to `true&apos; or `false&apos; are accepted, and the
-     result is a conditional expression.
-
-     Among other elements, conditions may comprise relational and
-     logical operators as follows.
-
-          Operation            Symbol      Type
-
-          less than            &lt;           relational infix
-          less than            &lt;=
-            or equal to                    relational infix
-          equality (syntactic) =           relational infix
-          negation of =        #           relational infix
-          equality (value)     equal       relational function
-          negation of equal    notequal    relational function
-          greater than         &gt;=
-            or equal to                    relational infix
-          greater than         &gt;           relational infix
-          and                  and         logical infix
-          or                   or          logical infix
-          not                  not         logical prefix
-</code></pre></li>
-</ol>
-<pre><code>  There are also some inexact matches for `if&apos;.
-  Try `?? if&apos; to see them.git/
-
-(%o5)                                true
-(%i6) 
-(%i6) quit ();
-[root@localhost ~]# 
-</code></pre><ol>
-<li><p><em>&#x753B;&#x56FE;</em>  </p>
-<p> <code>plot2d(x^3+2*x^2-3,[x,-2,2]);</code></p>
-<p> <img src="/assets/image/posts/maxima-plot2d.png" alt="plot2d"></p>
-<p> <code>plot3d(sin(x)*cos(y),[x,-2,2],[y,-2,2]);</code></p>
-<p> <img src="/assets/image/posts/maxima-plot3d.png" alt="plot3d"></p>
-</li>
-<li><p><em>&#x7F16;&#x7A0B;</em><br> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540E;&#x7F00;&#x4E3A;max(&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x540E;&#x7F00;)&#x7684;&#x6587;&#x4EF6;,&#x5982;test.max,&#x7F16;&#x8F91;&#x4EE3;&#x7801;&#x540E;&#x4FDD;&#x5B58;.<br> &#x5728;maxima&#x73AF;&#x5883;&#x4E2D;&#x6267;&#x884C;<code>batch(&quot;test.max&quot;)</code></p>
-<p> test.max</p>
-<pre><code>a:2;
-b:5;
-a^3+b^2;
-</code></pre><p> &#x6267;&#x884C;&#x6548;&#x679C;</p>
-<pre><code>(%i3) batch(&quot;test.max&quot;);
-
-read and interpret file: /root/prj/git/euler/maxima/test.max
-(%i4)                                a : 2
-(%o4)                                  2
-(%i5)                                b : 5
-(%o5)                                  5
-                                    2    3
-(%i6)                               b  + a
-(%o6)                                 33
-(%o6)                 /root/prj/git/euler/maxima/test.max
-</code></pre><p> &#x5173;&#x4E8E;batch&#x7684;&#x66F4;&#x591A;&#x7528;&#x6CD5;&#xFF0C;&#x8BF7;&#x67E5;&#x9605;&#x5E2E;&#x52A9;&#x624B;&#x518C;&#x4E2D;&#x7684;&#x7AE0;&#x8282;<code>13.3 Functions and Variables for File Input and Output</code></p>
-</li>
-<li><p><em>&#x5176;&#x4ED6;&#x8303;&#x4F8B;</em><br> <a href="http://projecteuler.net/problem=1" target="_blank" rel="external">Project Euler&#x7B2C;1&#x9898;</a>  </p>
-<pre><code>sum(if (mod(i, 3) = 0) or (mod(i, 5) = 0) then i else 0, i, 1, 999)
-</code></pre><p> <a href="http://projecteuler.net/problem=1" target="_blank" rel="external">Project Euler&#x7B2C;2&#x9898;</a><br> euler2.max</p>
-<pre><code>s:0$
-for i:3 while fib(i)&lt;=4*10^6 do (s:s+fib(i), i:i+2)$
-display(s);
-</code></pre><p> &#x6267;&#x884C;&#x6548;&#x679C;</p>
-<pre><code>(%i164) batch(&quot;euler2.max&quot;);
-
-read and interpret file: /root/prj/euler/maxima/euler2.max
-(%i165)                              s : 0
-                                         6
-(%i166) for i from 3 while fib(i) &lt;= 4 10  do (s : fib(i) + s, i : 2 + i)
-(%i167)                           display(s)
-                                  s = 4613732
-
-(%o167)                              done
-(%o167)              /root/prj/euler/maxima/euler2.max    
-</code></pre></li>
-<li><p><em>&#x76F8;&#x5173;&#x8BED;&#x6CD5;&#x8BF4;&#x660E;</em><br> <code>;</code> &#x4EE3;&#x7801;&#x7ED3;&#x675F;&#x7B26;<br> <code>$</code> &#x591A;&#x884C;&#x4EE3;&#x7801;<br> <code>,</code> &#x591A;&#x4E2A;&#x8BED;&#x53E5;&#x4F7F;&#x7528;<code>(sentence1, sentence2)</code>  </p>
-</li>
-<li><p><em>&#x5E2E;&#x52A9;&#x624B;&#x518C;</em><br> &#x6D4F;&#x89C8;&#x5668;&#x67E5;&#x770B;&#x6587;&#x4EF6;<code>/usr/share/maxima/5.29.1/doc/html/maxima.html</code></p>
-</li>
-</ol>
-<p>&#x76F8;&#x5173;&#x6559;&#x7A0B;&#x8D44;&#x6E90;:  </p>
-<ul>
-<li><a href="http://maxima.sourceforge.net/docs/manual/en/maxima.html" target="_blank" rel="external">Maxima 5.28.0 Manual</a></li>
-<li><a href="http://www.matrix67.com/blog/archives/337" target="_blank" rel="external">Linux&#x4E0B;&#x7684;&#x6570;&#x5B66;&#x5DE5;&#x5177;Maxima &#x7B80;&#x660E;&#x6559;&#x7A0B; &#x4E0A;</a></li>
-<li><a href="http://www.matrix67.com/blog/archives/338" target="_blank" rel="external">Linux&#x4E0B;&#x7684;&#x6570;&#x5B66;&#x5DE5;&#x5177;Maxima &#x7B80;&#x660E;&#x6559;&#x7A0B; &#x4E0B;</a></li>
-<li><a href="http://maxima.sourceforge.net/docs/tutorial/en/gaertner-tutorial-revision/Contents.htm" target="_blank" rel="external">The Computer Algebra Program Maxima - a Tutorial</a></li>
-<li><a href="http://tranzing.blogspot.com/2005/01/maxima.html" target="_blank" rel="external">maxima &#x7B14;&#x8BB0;</a></li>
-<li><a href="http://andrejv.wordpress.com/category/maxima/" target="_blank" rel="external">andrejv&#x2019;s blog</a></li>
-<li><a href="http://inside.mines.edu/fs_home/whereman/software.html" target="_blank" rel="external">&#x4E00;&#x4E9B;&#x4EE3;&#x7801;</a></li>
-<li><a href="http://inside.mines.edu/fs_home/whereman/software/painleve/macsyma/single/np_sing.max" target="_blank" rel="external">&#x4E00;&#x4E9B;&#x4EE3;&#x7801;</a></li>
-<li><a href="http://math-blog.com/2007/06/04/a-10-minute-tutorial-for-solving-math-problems-with-maxima/" target="_blank" rel="external">A 10 minute tutorial for solving math problems with maxima</a></li>
-<li><a href="https://webfiles.uci.edu/huanm/www/maxima/maxima_zh.pdf" target="_blank" rel="external">Maxima&#x5FEB;&#x901F;&#x53C2;&#x8003;&#x624B;&#x518C;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/25/maxima-tutorial/" data-id="cinga3yj50037dciza9ihq95e" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maxima/">maxima</a></li></ul>
-
     </footer>
   </div>
   
@@ -1333,10 +1261,62 @@ Further paragraphs come after blank lines.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/25/git/" data-id="cinga3yj30034dcizntmk27df" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/01/25/git/" data-id="cinho3bzv0037zbiz21xufpmy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-emacs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/01/25/emacs/" class="article-date">
+  <time datetime="2013-01-24T16:00:00.000Z" itemprop="datePublished">2013-01-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/01/25/emacs/">emacs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p><a href="http://lpn.rnbhq.org/tools/xemacs/emacs_ref.html" target="_blank" rel="external">Emacs Command List</a></p>
+</li>
+<li><p><a href="http://aifreedom.com/technology/112" target="_blank" rel="external">Emacs&#x5FEB;&#x6377;&#x952E;&#x5217;&#x8868;</a></p>
+</li>
+<li><p><a href="http://emacser.com/capslock.htm" target="_blank" rel="external">&#x4EA4;&#x6362;&#x4F60;&#x7684;Caps-Lock&#x548C;&#x53F3;Control&#x952E;</a></p>
+</li>
+<li><p><a href="http://blog.csdn.net/DelphiNew/article/details/2053676" target="_blank" rel="external">Effective Emacs &#x4E2D;&#x6587;&#x7248;</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/01/25/emacs/" data-id="cinho3bzo002wzbizuccui5xa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emacs/">emacs</a></li></ul>
 
     </footer>
   </div>
@@ -1356,7 +1336,7 @@ Further paragraphs come after blank lines.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1375,7 +1355,7 @@ Further paragraphs come after blank lines.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1385,9 +1365,13 @@ Further paragraphs come after blank lines.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1403,10 +1387,6 @@ Further paragraphs come after blank lines.
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>

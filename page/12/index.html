@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,224 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-networkstack-important-structure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/07/30/networkstack-important-structure/" class="article-date">
+  <time datetime="2013-07-29T16:00:00.000Z" itemprop="datePublished">2013-07-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/network/">network</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/07/30/networkstack-important-structure/">NetworkStack important structure</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Version: linux-kernel-1.2.13</p>
+<pre><code>File                Struct                        Description
+-------------------------------------------------------------------
+path: /include/linux
+etherdevice.h                                     &#x4EE5;&#x592A;&#x7F51;&#x534F;&#x8BAE;&#x76F8;&#x5173;&#x51FD;&#x6570;&#x58F0;&#x660E;
+icmp.h                                            ICMP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x8BAE;
+                    icmphdr
+                    icmp_err
+if.h                                              &#x63A5;&#x53E3;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x8BAE;
+                    ifmap
+                    ifreq
+                    ifconf
+if_arp.h                                          ARP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x8BAE;
+                    arpreq
+                    arphdr
+if_ether.h                                        &#x4EE5;&#x592A;&#x7F51;&#x9996;&#x90E8;&#x53CA;&#x6807;&#x5FD7;&#x4F4D;&#x5B9A;&#x4E49;
+                    ethhdr
+                    enet_statistics
+if_plip.h                                         &#x5E76;&#x884C;&#x7EBF;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;
+                    plip_conf
+if_slip.h                                         &#x4E32;&#x884C;&#x7EBF;&#x534F;&#x8BAE;
+igmp.h                                            IGMP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    igmphdr
+                    ip_mc_socklist
+                    ip_mc_list
+in.h                                              &#x534F;&#x8BAE;&#x53F7;&#x5B9A;&#x4E49;
+                    in_addr
+                    ip_mreq
+                    sockaddr_in
+inet.h                                            INET&#x57DF;&#x90E8;&#x5206;&#x51FD;&#x6570;&#x58F0;&#x660E;
+interrupt.h                                       &#x4E0B;&#x534A;&#x90E8;&#x5206;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    bh_struct
+ip.h                                              IP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    timestamp
+                    route
+                    iphdr
+ip_fw.h                                           &#x9632;&#x706B;&#x5899;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    ip_fw
+                    ip_fwpkt
+ipx.h                                             IPX&#x5305;&#x4EA4;&#x6362;&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    sockaddr_ipx
+                    ipx_route_definition
+                    ipx_interface_definition
+                    ipx_config_data
+                    ipx_route_def
+net.h                                             INET&#x5C42;&#x5173;&#x952E;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    socket
+                    proto_ops
+                    net_proto
+netdevice.h                                       &#x8BBE;&#x5907;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    de_mc_list
+                    device
+                    packet_type
+notifier.h                                        &#x4E8B;&#x4EF6;&#x54CD;&#x5E94;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    notifier_block
+ppp.h                                             &#x70B9;&#x5BF9;&#x70B9;&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    ppp_lqp_packet_hdr
+                    ppp_lqp_packet_trailer
+                    ppp_lqp_packet
+                    ppp_ddinfo
+                    ppp
+route.h                                           &#x8DEF;&#x7531;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    old_rtentry
+                    rtentry
+skbuff.h                                          &#x6570;&#x636E;&#x5305;&#x5C01;&#x88C5;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    sk_buff_head
+                    sk_buff
+socket.h                                          &#x5E38;&#x6570;&#x9009;&#x9879;&#x5B9A;&#x4E49;
+                    sockaddr
+                    linger
+sockios.h                                         &#x9009;&#x9879;&#x5B9A;&#x4E49;
+tcp.h                                             TCP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    tcphdr
+timer.h                                           &#x5B9A;&#x65F6;&#x5668;&#x76F8;&#x5173;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    timer_struct
+                    timer_list
+udp.h                                             UDP&#x534F;&#x8BAE;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    udphdr
+un.h                                              UNIX&#x57DF;&#x5730;&#x5740;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;
+                    sockaddr_un
+
+path: net/inet
+ip.h
+                    ipfraq
+                    ipq 
+ipx.h
+                    ipx_address
+                    ipx_packet
+                    ipx_interface
+                    ipx_route
+protocol.h
+                    inet_protocol
+route.h
+                    rtable
+snmp.h
+                    ip_mib
+                    icmp_mib
+                    tcp_mib
+                    udp_mib
+sock.h
+                    sock
+                    proto
+
+path: include/linux
+fs.h
+                    file
+                    inode
+                    file_operations
+                    inode_operations
+</code></pre><hr>
+<p>Structure and memberships</p>
+<pre><code>+---------------------------+              +------------------------+
+|struct sk_buff             |              |struct sk_buff_head     |
++---------------------------+              +------------------------+
+|struct sk_buff    *next;      |              |struct sk_buff  *next;  |
+|struct sk_buff    *prev;      |              |struct sk_buff  *prev;  |
+|struct sk_buff    *link3;     |              +------------------------+
+|struct sk_buff *mem_addr;  |              
+|struct sock *sk;           |              +--------------------------+ 
+|struct device *dev;        |              |struct proto              |
+|... ...                    |              +--------------------------+
++---------------------------+              |struct sock *sock_array[];|
+                                           |int (*init) ();           |
+                                           |int (*setsockopt) ();     |
++----------------------------+             |int (*read) ();           |
+|struct device               |             |int (*write) ();          |
++----------------------------+             |int (*connect) ();        |
+|struct device *next;        |             |int (*sendto) ();         |
+|struct device *slave;       |             |int (*recvfrom)();        |
+|struct sk_buff_head buffs[];|             |... ...                   |
+|... ...                     |             +--------------------------+
++----------------------------+             
+
++----------------------------------+       +----------------------------------+
+|struct socket                     |       |struct sock                       |
++----------------------------------+       +----------------------------------+
+|short                type;        |       |struct sock *next;                |
+|socket_state         state;       |       |struct sk_buff_head write_queue;  |
+|long                 flags;       |       |struct sk_buff_head receive_queue;|
+|struct proto_ops     *ops;        |       |struct proto *prot;               |
+|void                 *data;       |       |struct socket *socket;            |
+|struct socket        *conn;       |       |struct sk_buff *send_head;        |
+|struct socket        *iconn;      |       |struct sk_buff *send_tail;        |
+|struct socket        *next;       |       |struct sk_buff_head back_log;     |
+|struct wait_queue    **wait;      |       |struct sk_buff *partial;          |
+|struct inode         *inode;      |       |... ...                           |
+|struct fasync_struct *fasync_list;|       +----------------------------------+
+|... ...                           |       
++----------------------------------+       
+                                           +-----------------------------+
++-----------------------+                  |struct file                  |
+|struct proto_ops       |                  +-----------------------------+
++-----------------------+                  |struct file *f_next, *f_prev;|
+|int    family();       |                  |struct inode *f_inode;       |
+|int    (*create)();    |                  |struct file_operations *f_op;|
+|int    (*dup)();       |                  |... ...                      |
+|int    (*release)();   |                  +-----------------------------+
+|int    (*bind)();      |                  
+|int    (*connect)();   |                  +-----------------------------+
+|int    (*socketpair)();|                  |struct file_operations       |
+|int    (*accept)();    |                  +-----------------------------+
+|int    (*getname)();   |                  |int (*open) ();              |
+|int    (*read)();      |                  |int (*read) ();              |
+|int    (*write)();     |                  |int (*write) ();             |
+|int    (*select)();    |                  |int (*select) ();            |
+|int    (*ioctl)();     |                  |int (*release) ();           |
+|int    (*listen)();    |                  |... ...                      |
+|int    (*send)();      |                  +-----------------------------+
+|int    (*recv)();      |
+|int    (*sendto)();    |                  +------------------------------+
+|int    (*recvfrom)();  |                  |struct inode                  |
+|int    (*shutdown)();  |                  +------------------------------+
+|int    (*setsockopt)();|                  |struct inode *i_next, *i_prev;|
+|int    (*getsockopt)();|                  |struct inode_operations *i_op;|
+|int    (*fcntl)();     |                  |... ...                       |
++-----------------------+                  +------------------------------+
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/07/30/networkstack-important-structure/" data-id="cinho3c19006xzbizmihg5zd6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/">kernel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-networkstack-internet-protocol-suite" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -231,7 +449,7 @@ Media access control(Ethernet/DSL/ISDN/FDDI)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/29/networkstack-internet-protocol-suite/" data-id="cinga3ykp0072dcizo4nd8evd" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/07/29/networkstack-internet-protocol-suite/" data-id="cinho3c18006uzbiz2o5nug9l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -602,7 +820,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/19/mac-address-swap-with-two-network-cards/" data-id="cinga3ykq0075dcizmokigyjj" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/07/19/mac-address-swap-with-two-network-cards/" data-id="cinho3c1d0078zbiz281na5ai" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -671,7 +889,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/16/steven-jobs-stanford-commencement-address-june-2005/" data-id="cinga3ykv007hdcizegw6hvmi" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/07/16/steven-jobs-stanford-commencement-address-june-2005/" data-id="cinho3c17006szbizazaqa155" class="article-share-link">Share</a>
       
       
     </footer>
@@ -757,7 +975,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/07/11/novels-three-peaks/" data-id="cinga3yko0070dciz2arfkjdd" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/07/11/novels-three-peaks/" data-id="cinho3c1a0071zbizsuzcm3wt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -814,7 +1032,7 @@ fi
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/06/28/android-develepment/" data-id="cinga3ykm006wdcizsz5suklz" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/06/28/android-develepment/" data-id="cinho3c15006ozbizrndjmmf0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
@@ -1319,7 +1537,7 @@ Table 73 &#x2014; Array Device Slot status element -- Page 77
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/06/20/use-sg_ses/" data-id="cinga3ykl006tdciz8l9uhbpe" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/06/20/use-sg_ses/" data-id="cinho3c13006izbizca3r9uuh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/">storage</a></li></ul>
@@ -1499,59 +1717,10 @@ Table 73 &#x2014; Array Device Slot status element -- Page 77
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/06/07/iscsi-and-implementation/" data-id="cinga3ykk006odcizd7kl3uvo" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/06/07/iscsi-and-implementation/" data-id="cinho3c1g007fzbizevxgpszf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/">storage</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-c-thread-pool" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/05/28/c-thread-pool/" class="article-date">
-  <time datetime="2013-05-27T16:00:00.000Z" itemprop="datePublished">2013-05-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/language/">language</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/05/28/c-thread-pool/">c thread pool</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>reference:  </p>
-<ul>
-<li><a href="https://github.com/mbrossard/threadpool" target="_blank" rel="external">threadpool</a></li>
-<li><a href="https://github.com/Pithikos/C-Thread-Pool" target="_blank" rel="external">C Thread Pool</a></li>
-<li><a href="http://bbs.chinaunix.net/thread-580210-1-1.html" target="_blank" rel="external">c threadpool</a></li>
-<li><a href="http://blog.csdn.net/zouxinfox/article/details/3560891" target="_blank" rel="external">&#x4E00;&#x4E2A;Linux&#x4E0B;C&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x5B9E;&#x73B0;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/28/c-thread-pool/" data-id="cinga3ykh006idcizremj9b7p" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
 
     </footer>
   </div>
@@ -1660,7 +1829,7 @@ freeing item to=19 from=9
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/28/linux-kernel-linked-list-explained/" data-id="cinga3yki006ldciz7ehfr5j9" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/05/28/linux-kernel-linked-list-explained/" data-id="cinho3c10006azbizcyjkrx0o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/">kernel</a></li></ul>
@@ -1672,10 +1841,10 @@ freeing item to=19 from=9
 
 
   
-    <article id="post-skill-of-c" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-c-thread-pool" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/05/21/skill-of-c/" class="article-date">
-  <time datetime="2013-05-20T16:00:00.000Z" itemprop="datePublished">2013-05-21</time>
+    <a href="/2013/05/28/c-thread-pool/" class="article-date">
+  <time datetime="2013-05-27T16:00:00.000Z" itemprop="datePublished">2013-05-28</time>
 </a>
     
   <div class="article-category">
@@ -1690,7 +1859,7 @@ freeing item to=19 from=9
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2013/05/21/skill-of-c/">The Art of C Programming</a>
+      <a class="article-title" href="/2013/05/28/c-thread-pool/">c thread pool</a>
     </h1>
   
 
@@ -1698,90 +1867,18 @@ freeing item to=19 from=9
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1. Principle </p>
+        <p>reference:  </p>
 <ul>
-<li><strong>Array is NOT point</strong></li>
-<li><strong>Avoid using unsafe api</strong></li>
-<li><strong>Deeply understand point</strong></li>
-</ul>
-<p>##2. math</p>
-<h3 id="21-mod"><a href="#2-1-mod" class="headerlink" title="2.1 mod"></a>2.1 mod</h3><pre><code>if n%2k=x, then x=n&amp;(2k-1)
-</code></pre><h3 id="22-even-odd-check"><a href="#2-2-even-odd-check" class="headerlink" title="2.2 even odd check"></a>2.2 even odd check</h3><p>if the lowest bit of binary mode is 0, even number, otherwise odd.</p>
-<h3 id="23-multi"><a href="#2-3-multi" class="headerlink" title="2.3 multi"></a>2.3 multi</h3><pre><code>a*5 = a&lt;&lt;2+a
-</code></pre><p>##3.structure</p>
-<h3 id="31-size"><a href="#3-1-size" class="headerlink" title="3.1 size"></a>3.1 size</h3><pre><code>int arr[] = {1, 5, 3, 18, 107, 21, 88};
-
-size of arr is sizeof(arr)/sizeof(arr[0])
-
-struct _test_ {
-    int a;
-    double b;
-    char c;
-}
-
-size of _test_ is sizeof(_test_)
-</code></pre><p>##4. Puzzle</p>
-<h3 id="41-print-the-numbers-between-1-and-1000"><a href="#4-1-Print-the-numbers-between-1-and-1000" class="headerlink" title="4.1 Print the numbers between 1 and 1000."></a>4.1 Print the numbers between 1 and 1000.</h3><ul>
-<li>Add a rule: Don&#x2019;t use any loops.</li>
-<li>Add another rule: No recursions.</li>
-<li>We can&#x2019;t do that? OK. Please look at this one.</li>
-</ul>
-<pre>
-#include &quot;stdio.h&quot;
-#define A(x) x;x;x;x;x;x;x;x;x;x;
-int main (void){
-  int n = 1;
-  A(A(A(printf (&quot;%d &quot;, n++))));
-  return 0;
-}
-</pre>
-
-<h3 id="42-swap-two-variables"><a href="#4-2-swap-two-variables" class="headerlink" title="4.2 swap two variables"></a>4.2 swap two variables</h3><pre><code>a = a^b;
-b = a^b;
-a = a^b;
-</code></pre><p>##5. What we need to avoid using?</p>
-<ul>
-<li>gets &#x2013;&gt; fgets</li>
-<li>scanf &#x2013;&gt; scanf_s sscanf</li>
-<li>sprintf &#x2013;&gt; snprintf sprintf_s</li>
-<li>strcpy &#x2013;&gt; strlcpy</li>
-<li>strcat &#x2013;&gt; strlcat</li>
-<li>strtok &#x2013;&gt; strtok_r</li>
-</ul>
-<p>##6. v[index] and index[v] are the same</p>
-<p>##7. use _Generic macro</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-void printchar(char X) { printf(&quot;char: %c\n&quot;, X); }
-void printint(int X) { printf(&quot;int: %d\n&quot;, X); }
-void printfloat(float X) { printf(&quot;float: %f\n&quot;, X); }
-void printdouble(double X) { printf(&quot;double: %lf\n&quot;, X); }
-#define print(X) _Generic((X), \
-                               char: printchar, \
-                               int: printint, \
-                               float: printfloat, \
-                               double: printdouble)(X)
-
-int main()
-{
-    print(1);
-    print(1.2);
-    print((char)&apos;a&apos;);
-    return 0;
-}
-</code></pre><p>GCC version don&#x2019;t support _Generic macro currently, but clang work.<br>Compile this code with clang as <code>clang test.c</code></p>
-<p>##8. Reference  </p>
-<ul>
-<li><a href="https://www.kernel.org/" target="_blank" rel="external">Linux kernel source</a></li>
-<li><a href="http://wangcong.org/down/taoc.ppt" target="_blank" rel="external">The Art of C Programming</a></li>
-<li><a href="http://sathyamvellal.in/blog/cool-c-programming/?d=5" target="_blank" rel="external">cool c programming</a></li>
+<li><a href="https://github.com/mbrossard/threadpool" target="_blank" rel="external">threadpool</a></li>
+<li><a href="https://github.com/Pithikos/C-Thread-Pool" target="_blank" rel="external">C Thread Pool</a></li>
+<li><a href="http://bbs.chinaunix.net/thread-580210-1-1.html" target="_blank" rel="external">c threadpool</a></li>
+<li><a href="http://blog.csdn.net/zouxinfox/article/details/3560891" target="_blank" rel="external">&#x4E00;&#x4E2A;Linux&#x4E0B;C&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x5B9E;&#x73B0;</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/21/skill-of-c/" data-id="cinga3ykd006cdcizntfbmqiw" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/05/28/c-thread-pool/" data-id="cinho3c0y0067zbizahlen714" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
@@ -1804,7 +1901,7 @@ int main()
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1823,7 +1920,7 @@ int main()
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1833,9 +1930,13 @@ int main()
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1851,10 +1952,6 @@ int main()
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>

@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,221 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-iscsi-enterprise-target" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/06/23/iscsi-enterprise-target/" class="article-date">
+  <time datetime="2014-06-22T16:00:00.000Z" itemprop="datePublished">2014-06-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/storage/">storage</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/23/iscsi-enterprise-target/">iSCSI Enterprise Target</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="iscsi-enterprise-target"><a href="#iSCSI-Enterprise-Target" class="headerlink" title="iSCSI Enterprise Target"></a>iSCSI Enterprise Target</h2><h3 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h3><pre><code>SCSI     : small computer system interface
+iSCSI    : Internet SCSI
+Initiator:
+Target   :
+</code></pre><h3 id="component-of-protocol"><a href="#component-of-protocol" class="headerlink" title="component of protocol"></a>component of protocol</h3><ol>
+<li><p>Communication</p>
+<ul>
+<li>connect </li>
+<li>session<ul>
+<li>login</li>
+<li>full feature</li>
+</ul>
+</li>
+<li>pdu</li>
+</ul>
+</li>
+<li><p>Naming and addressing</p>
+<ul>
+<li>iqn.iSCSI </li>
+<li>eui.IEEEEUI264</li>
+</ul>
+</li>
+<li><p>Error Handle</p>
+<ul>
+<li>misclassification</li>
+<li>Recovery mechanism</li>
+</ul>
+</li>
+<li><p>Security</p>
+<ul>
+<li>Authentication<ul>
+<li>CHAP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="code-flow"><a href="#Code-flow" class="headerlink" title="Code flow"></a>Code flow</h3><ol>
+<li>Login phase</li>
+<li>Data execute of text phase</li>
+<li>logout pahse<ul>
+<li>Report LUNS(0xa0)-&gt; </li>
+<li>Inquiry(0x12) -&gt; </li>
+<li>Read Capacity(10) (0x25) -&gt; </li>
+<li>Read(10)(0x28) -&gt; </li>
+<li>Mode Sense(6)(0x1a)</li>
+</ul>
+</li>
+</ol>
+<h3 id="source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h3><ul>
+<li><p>source:</p>
+</li>
+<li><p>build:</p>
+</li>
+<li><p>patch</p>
+<pre><code>tar xvf iscsitarget-1.4.20.tar.gz
+cd iscsitarget-1.4.20
+patch -p1 &lt; ../iscsitarget-1.4.20_patch/compat-2.6.32.patch
+patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsitarget-xxx-1.4.20_for_centos_6_2.patch
+patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_conn_close_raid_failed.patch
+patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_load_balance_bug_fix.patch
+patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_flow_control.patch
+patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
+</code></pre></li>
+</ul>
+<h3 id="analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><h4 id="kernel-module"><a href="#Kernel-module" class="headerlink" title="Kernel module"></a>Kernel module</h4><p>iscsi_trgt.ko</p>
+<p>most of the work were done in kernel, such as data send and recv,<br>and the user mode do session create, author and login.</p>
+<p>sub-module list as below:</p>
+<ul>
+<li>Files<ul>
+<li>iotype.c</li>
+<li>nthread.c<ul>
+<li>listen iSCSI request from iSCSI Initiator</li>
+<li>receive iSCSI request</li>
+<li>initialize iSCSI Command structure and LUN parameters</li>
+<li>allocate data cache (struct tio)</li>
+<li>handle r2t data</li>
+</ul>
+</li>
+<li>wthread.c<ul>
+<li>communicate with nthread</li>
+<li>handle iSCSI command from nthread</li>
+<li>command can be divided into two types: related , not related </li>
+<li>execute callback function</li>
+</ul>
+</li>
+<li>response<ul>
+<li>dispatch by wthread</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="user-module"><a href="#User-module" class="headerlink" title="User module"></a>User module</h4><p>ietd daemon, manager tool for IET, function description:</p>
+<ul>
+<li>configuration, such as port, uid, gid and so on.</li>
+<li>read config info from /etc/ietd.conf, and send to kernel module </li>
+</ul>
+<h4 id="iscsi-mod"><a href="#iSCSI-mod" class="headerlink" title="iSCSI mod"></a>iSCSI mod</h4><ul>
+<li>blockio<br>translate network data to struct tio, then handle by<br>blockio_make_request from block_io.c, submit_bio to<br>common layer after generate bio </li>
+<li>fileio<br>still use VFS, and do system call read/write to operate data.</li>
+<li>functional description  </li>
+</ul>
+<h3 id="how-iet-add-lun"><a href="#How-IET-add-lun" class="headerlink" title="How IET add lun?"></a>How IET add lun?</h3><p>&#x52A0;&#x5165;volume&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;:</p>
+<ol>
+<li>&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;ietd.conf</li>
+<li>&#x901A;&#x8FC7;ietdadm&#x547D;&#x4EE4;&#xFF0C;&#x4F7F;&#x7528;<code>--op new --tid=[id] --lun=[lun] --params Path=[path]</code>&#x53C2;&#x6570;</li>
+</ol>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;: (&#x7528;&#x6237;&#x6001;)<br><code>plain_init() -&gt; __plain_lunit_create -&gt; ki-&gt;lunit_create -&gt; iscsi_lunit_create -&gt; ioctl(ctrl_fd, ADD_VOLUME, &amp;info)</code></p>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;: (&#x7528;&#x6237;&#x6001;)<br><code>ietadm_request_exec -&gt; cops-&gt;lunit_add() -&gt; plain_lunit_create() -&gt; __plain_lunit_create</code>  &#x540E;&#x9762;&#x540C;&#x4E0A;</p>
+<p>&#x6838;&#x6001;&#x90E8;&#x5206;&#x76F8;&#x540C;:  </p>
+<ul>
+<li><code>config.c:add_volume -&gt; volume.c:volume_add -&gt; volume.c:parse_volume_params</code> </li>
+<li><code>volume.c:parse_volume_params</code> &#x51FD;&#x6570;&#x68C0;&#x67E5;&#x53D1;&#x73B0;&#x662F;opt_iomode&#x7C7B;&#x578B;&#xFF0C;  </li>
+</ul>
+<h3 id="type-iomode-and-sector-setting"><a href="#Type-IOMode-and-Sector-Setting" class="headerlink" title="Type, IOMode and Sector Setting"></a>Type, IOMode and Sector Setting</h3><p>Run by the ietadm command as below:  </p>
+<ul>
+<li><code>ietadm --op new --tid=%d --lun=%d --params Path=/dev/%s/%s,IOMode=%s,Sector=%s,Type=%s</code><ul>
+<li><strong>IOMode</strong>: wb or wt or ro</li>
+<li><strong>Sector</strong>: 512 or 4096</li>
+<li><strong>Type</strong>: fileio or blockio</li>
+</ul>
+</li>
+</ul>
+<p>Function calling:</p>
+<ul>
+<li><code>ietadm.c: main() -&gt; lunit_handle() -&gt; ietd_request() -&gt; ietd_connect(),ietd_request_send(),ietd_response_recv()</code><ul>
+<li><code>ietd_connect() -&gt; socket(AF_LOCAL, SOCK_STREAM, 0), connect()</code></li>
+<li><code>ietd_request_send() -&gt; write(fd, req, sizeof(*req))</code></li>
+<li><code>ietd_request_recv() -&gt; readv(), read()</code></li>
+</ul>
+</li>
+<li><code>ietd.c: main() -&gt; message.c: ietadm_request_listen() -&gt;</code><ul>
+<li><code>ietadm_request_listen() -&gt; socket(AF_LOCAL, SOCK_STREAM, 0), bind(), listen()</code></li>
+</ul>
+</li>
+</ul>
+<p>Code analysis:  </p>
+<ul>
+<li><code>ietadm --op new --tid= --lun= --params</code><ul>
+<li>&#x8C03;&#x7528; ietadm.c:lunit_handle&#x51FD;&#x6570; -&gt;ietd_request&#x51FD;&#x6570; -&gt;ietd_request_send&#x51FD;&#x6570;</li>
+<li>ietd.c&#x7684;event_loop&#x51FD;&#x6570;&#x76D1;&#x542C;&#x5230;&#x6709;&#x6D88;&#x606F;&#xFF0C;&#x6267;&#x884C;message.c:ietadm_request_handle&#x51FD;&#x6570; </li>
+<li>message.c:ietadm_request_handle&#x51FD;&#x6570; -&gt; ietadm_request_exec&#x51FD;&#x6570;<br>&#x7C7B;&#x578B;&#x4E3A;C_LUNIT_NEW, &#x6267;&#x884C;cops-&gt;lunit_add  </li>
+<li><code>plain.c:plain_lunit_create -&gt;__plain_lunit_create -&gt; ki-&gt;lunit_create</code> </li>
+<li><code>ctldev.c:iscsi_lunit_create -&gt; ioctl(ctrl_fd, ADD_VOLUME, &amp;info)</code> </li>
+<li><code>config.c:add_volume -&gt; volume.c:volume_add -&gt; volume.c:parse_volume_params</code> </li>
+<li><code>volume.c:parse_volume_params</code> &#x51FD;&#x6570;&#x68C0;&#x67E5;&#x53D1;&#x73B0;&#x662F;opt_iomode&#x7C7B;&#x578B;&#xFF0C;<br>&#x5982;&#x679C;&#x662F;ro&#x7C7B;&#x578B;&#x6267;&#x884C;SetLUReadonly(volume);<br>&#x5982;&#x679C;&#x662F;wb&#x7C7B;&#x578B;&#x6267;&#x884C;SetLUWCache(volume);<br>&#x5982;&#x679C;&#x662F;wt&#x7C7B;&#x578B;&#x5219;&#x7C7B;&#x578B;&#x4E0D;&#x53EF;&#x7528;  </li>
+<li>SetLUReadonly&#x548C;SetLUWCache&#x90FD;&#x5728;iscsi.h&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;&#x90FD;&#x53EA;&#x662F;&#x4FEE;&#x6539;struct iet_volume&#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x7684;flags&#x7684;&#x503C;&#x3002;</li>
+<li>&#x53E6;&#x5916;&#x5757;&#x5927;&#x5C0F;blocksize&#x4FDD;&#x5B58;&#x5728;&#x7ED3;&#x6784;&#x4F53;struct iet_volume&#x7684;blk_shift&#x4E2D;,&#x4E14;&#x5757;&#x5927;&#x5C0F;&#x5FC5;&#x987B;&#x662F;<br>2&#x7684;&#x5E42;&#x6B21;&#x65B9;&#xFF0C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;512&#xFF0C;&#x5C0F;&#x4E8E;4096. &#x6CE8;&#x610F;&#x4FDD;&#x5B58;&#x7684;&#x662F;2&#x7684;&#x5E42;&#x7684;&#x6B21;&#x6570;&#xFF0C;&#x5373;&#x5982;&#x679C;&#x662F;1024&#xFF0C;&#x5219;blk_shift&#x662F;10</li>
+<li>&#x5982;&#x679C;fileio,&#x8FDB;&#x5165;file-io.c:fileio_attach&#x51FD;&#x6570;, &#x8C03;&#x7528;parse_fileio_params, &#x8FD9;&#x91CC;&#x4F1A;&#x5FFD;&#x7565;&#x597D;&#x4E9B;&#x53C2;&#x6570;&#x7684;&#x503C;.<br>&#x4E4B;&#x7528;path&#x53C2;&#x6570;&#x4F1A;&#x6709;&#x5904;&#x7406;&#x3002;  </li>
+<li>&#x5982;&#x679C;blockio,&#x8FDB;&#x5165;block-io.c:blockio_attach&#x51FD;&#x6570;, &#x8C03;&#x7528;parse_blockio_params, &#x8FD9;&#x91CC;&#x4F1A;&#x5FFD;&#x7565;&#x597D;&#x4E9B;&#x53C2;&#x6570;&#x7684;&#x503C;.<br>&#x4E4B;&#x7528;path&#x53C2;&#x6570;&#x4F1A;&#x6709;&#x5904;&#x7406;&#x3002;  </li>
+<li>file-io.c &#x548C; block-io.c&#x8981;&#x597D;&#x597D;&#x770B;&#x770B;&#xFF0C;&#x8FD9;&#x4E2A;&#x903B;&#x8F91;&#x5377;&#x5230;&#x5E95;&#x600E;&#x4E48;&#x521B;&#x5EFA;&#x7684;.</li>
+</ul>
+</li>
+</ul>
+<p>Summary:</p>
+<ul>
+<li><strong>&#x603B;&#x7ED3;:</strong><ul>
+<li>Type: <strong>&#x5982;&#x679C;&#x662F;fileio&#x90A3;&#x4E48;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#x901A;&#x8FC7;vfs&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#xFF0C;&#x5982;&#x679C;&#x662F;blockio&#x5219;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#x76F4;&#x63A5;&#x6784;&#x9020;bio&#x8BF7;&#x6C42;</strong></li>
+<li>IOMode: <strong>&#x5982;&#x679C;&#x662F;wb,    </strong></li>
+<li>Sector</li>
+</ul>
+</li>
+</ul>
+<h3 id="other-iscsi-implement"><a href="#Other-iSCSI-implement" class="headerlink" title="Other iSCSI implement"></a>Other iSCSI implement</h3><ul>
+<li>open-iscsi, <a href="http://open-iscsi.org" target="_blank" rel="external">homepage</a>,<br><a href="https://github.com/mikechristie/open-iscsi" target="_blank" rel="external">source</a>,<br><a href="http://blog.chinaunix.net/uid-14518381-id-3237994.html" target="_blank" rel="external">code analysis</a></li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://en.wikipedia.org/wiki/ISCSI" target="_blank" rel="external">ISCSI Wikipedia</a></li>
+<li><a href="http://iscsitarget.sourceforge.net" target="_blank" rel="external">iSCSITarget</a></li>
+<li><a href="http://sourceforge.net/projects/iscsitarget/files/iscsitarget/" target="_blank" rel="external">iSCSITarget download</a></li>
+<li><a href="http://blog.csdn.net/kidd_3/article/details/7670415" target="_blank" rel="external">iSCSI Enterprise Target&#x7684;&#x67B6;&#x6784;&#x5206;&#x6790;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/06/23/iscsi-enterprise-target/" data-id="cinho3c2v00b0zbizkclyklvc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-software-agent" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -109,248 +324,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/21/software-agent/" data-id="cinga3ymg00b6dcizq2y8kffe" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/06/21/software-agent/" data-id="cinho3c2u00axzbiz18mjp1sm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/">others</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-moosefs-source-code-analysis" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/06/17/moosefs-source-code-analysis/" class="article-date">
-  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/source/">source</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/17/moosefs-source-code-analysis/">moosefs source code analysis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="mfs-159"><a href="#mfs-1-5-9" class="headerlink" title="mfs-1.5.9"></a>mfs-1.5.9</h3><ol>
-<li><p>Files</p>
-<p> main.c &#x2014;&gt; Init,<br> init.c &#x2014;&gt; defined a <code>RunTab</code>, use for mainloop<br> changelog.c  changelog_init change log<br> random.c rndinit  random generator<br> matocsserv.c matocsserv_init  communication with chunkserver<br> matocuserv.c matocuserv_init  communication with customer<br> filesystem.c fs_init  file system manager<br> stats.c stats_init  statistics module</p>
-<p> [dennis@localhost mfs-1.5.9]$ ls<br> aclocal.m4    config.sub    COPYING  INSTALL      Makefile.in<br> config.guess  configure     depcomp  install-sh   mfschunkserver<br> config.h.in   configure.ac  doc      Makefile.am  MFSCommunication.h<br> mfsdata       mfsmount      README   mfsmaster    missing mfsmetarestore<br> NEWS</p>
-</li>
-<li><p>TODO</p>
-</li>
-</ol>
-<h4 id="master-server"><a href="#master-server" class="headerlink" title="master server"></a>master server</h4><ol>
-<li><p>Files</p>
-<p> [dennis@localhost mfs-1.5.9]$ ls mfsmaster/<br> cfg.c        changelog.h  filesystem.h  lempelziv.h  Makefile.am<br> matocsserv.h random.c     sockets.h     cfg.h        chunks.c<br> datapack.h   init.h       main.c        Makefile.in   matocuserv.c<br> changelog.c  chunks.h     filesystem.c  lempelziv.c   main.h<br> matocsserv.c  matocuserv.h  sockets.c  stats.h        random.h   stats.c</p>
-</li>
-</ol>
-<h4 id="chunk-server"><a href="#chunk-server" class="headerlink" title="chunk  server"></a>chunk  server</h4><ol>
-<li>TODO</li>
-</ol>
-<h4 id="client"><a href="#client" class="headerlink" title="client"></a>client</h4><ol>
-<li>TODO</li>
-</ol>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.moosefs.org/download.html" target="_blank" rel="external">MooseFS HomePage</a></li>
-<li><a href="http://sourceforge.net/projects/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/</a></li>
-<li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
-<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004255.html" target="_blank" rel="external">MooseFS introduce</a></li>
-<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004259.html" target="_blank" rel="external">mfsmount module</a></li>
-<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004260.html" target="_blank" rel="external">mfsmaster module</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/moosefs-source-code-analysis/" data-id="cinga3ymb00awdcizdxqyjqqd" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/filesystem/">filesystem</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sms-develop" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/06/17/sms-develop/" class="article-date">
-  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/program/">program</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/17/sms-develop/">sms develop</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ol>
-<li><p>Different between RS232 and USB interface<br> For RS232, use serial operation directory, not need driver.<br> For USB, should intall driver.</p>
-</li>
-<li><p>OS support<br> Both windows and Linux will be supported, if the device support RS232, and<br> most of it support AT command, customer develop application with AT mostly.</p>
-</li>
-</ol>
-<h4 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
-<li>Minicom</li>
-</ol>
-<p>Ref:  </p>
-<ul>
-<li><a href="http://www.thegeekstuff.com/2013/05/modem-at-command/" target="_blank" rel="external">http://www.thegeekstuff.com/2013/05/modem-at-command/</a>  </li>
-<li><a href="http://www.cyberciti.biz/tips/connect-soekris-single-board-computer-using-minicom.html" target="_blank" rel="external">http://www.cyberciti.biz/tips/connect-soekris-single-board-computer-using-minicom.html</a>  </li>
-</ul>
-<ol>
-<li>Gnokii</li>
-</ol>
-<h4 id="issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h4><p>minicom, not response for input<br>Serial port setup &#x2013;&gt;Hardware Flow Contorl : NO<br>Local on/off  </p>
-<p><a href="http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html</a></p>
-<h4 id="at"><a href="#AT" class="headerlink" title="AT"></a>AT</h4><ul>
-<li><p>get SIM ID</p>
-<p>  at+ccid</p>
-</li>
-<li><p>get Chip Model</p>
-<p>  ati3</p>
-<p>  at+cgmr</p>
-</li>
-<li><p>get signal strength<br>normal : 16~31,<br>SMS err: <16 or="">31(display 99)</16></p>
-<p>  at+csq</p>
-</li>
-<li><p>get baud rate</p>
-<p>  at+ipr?</p>
-</li>
-<li><p>set baud rate (after set, need to re-connect)</p>
-<p>  at+ipr=115200</p>
-</li>
-<li><p>save configuration</p>
-<p>  at&amp;w</p>
-</li>
-<li><p>set SMS format</p>
-<p>  at+cmgf=1</p>
-</li>
-<li><p>send SMS, success if return &#x201C;+CMGS: &#x201C;</p>
-<p>  at+cmgs=137<strong>**</strong></p>
-<blockquote>
-<p>Hi, this is a SMS test</p>
-</blockquote>
-</li>
-<li><p>read SMS, 4 is the position of SMS</p>
-<p>  at+cmgr=4</p>
-</li>
-<li><p>get number of SMS center</p>
-<p>  at+csca?</p>
-</li>
-<li><p>calling</p>
-<p>  atd137<strong><em>**</em></strong>;</p>
-</li>
-<li><p>hand up</p>
-<p>  ath</p>
-</li>
-<li><p>check state of SMS module</p>
-<p>  at+cfun?</p>
-</li>
-<li><p>reboot SMS module</p>
-<p>  at+cfun=0<br>  OK<br>  at+cfun=1<br>  OK</p>
-</li>
-<li><p>get IMEI code</p>
-<p>  at+wmsn or at+cgsn</p>
-</li>
-<li><p>Full view</p>
-<pre><code>at+ccid
-+CCID: &quot;898600p1011130234927&quot;
-
-OK
-ati3
-657e09gg.Q24PL002 1961548 103107 17:56
-
-OK
-at+cgmr
-657e09gg.Q24PL002 1961548 103107 17:56
-
-OK
-at+csq
-+CSQ: 25,0
-
-OK
-at+ipr?
-+IPR: 115200
-
-OK
-at+ipr=9600
-OK
-
-at
-OK
-at&amp;w
-OK
-
-at+csq
-+CSQ: 25,99
-
-OK
-at+cmgf=1
-OK
-at+cmgs=13707070909
-&gt; Hi, this is SMS test.
-+CMGS: 201
-
-OK
-</code></pre></li>
-</ul>
-<p>Ref <a href="http://www.sendsms.cn/download/js1.pdf" target="_blank" rel="external">http://www.sendsms.cn/download/js1.pdf</a></p>
-<h4 id="features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ol>
-<li>auto detect device by baut-rate </li>
-<li>simple interface<br> 1). send message<br> 2). recv message</li>
-</ol>
-<h4 id="faq"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><ol>
-<li>Fail to find device</li>
-<li>Fail to send message<br>there are many reasons to cause this, list the main reasons as below:<br>1). device error<br>1). baut-rate error<br>1). signal too weak</li>
-</ol>
-<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="http://bbs.chinaunix.net/thread-1793815-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1793815-1-1.html</a></li>
-<li><a href="http://blog.csdn.net/lyserver/article/details/3007090" target="_blank" rel="external">http://blog.csdn.net/lyserver/article/details/3007090</a></li>
-<li><a href="http://blog.chinaunix.net/uid-27717657-id-3378194.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-27717657-id-3378194.html</a></li>
-<li><a href="http://www.eeworm.com/dl/693/280937.html" target="_blank" rel="external">http://www.eeworm.com/dl/693/280937.html</a></li>
-<li><a href="http://download.csdn.net/detail/zhaori/7511175" target="_blank" rel="external">http://download.csdn.net/detail/zhaori/7511175</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/sms-develop/" data-id="cinga3ymc00azdcizfe7ektdv" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sms/">sms</a></li></ul>
 
     </footer>
   </div>
@@ -525,7 +502,7 @@ inodes with permission denied: 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cinga3ym800aodciz5w2917sz" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cinho3c2s00auzbizwgllwvtk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/filesystem/">filesystem</a></li></ul>
@@ -537,10 +514,79 @@ inodes with permission denied: 0
 
 
   
-    <article id="post-solution-of-error-while-loading-shared-libraries" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-moosefs-source-code-analysis" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/06/07/solution-of-error-while-loading-shared-libraries/" class="article-date">
-  <time datetime="2014-06-06T16:00:00.000Z" itemprop="datePublished">2014-06-07</time>
+    <a href="/2014/06/17/moosefs-source-code-analysis/" class="article-date">
+  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/source/">source</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/17/moosefs-source-code-analysis/">moosefs source code analysis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="mfs-159"><a href="#mfs-1-5-9" class="headerlink" title="mfs-1.5.9"></a>mfs-1.5.9</h3><ol>
+<li><p>Files</p>
+<p> main.c &#x2014;&gt; Init,<br> init.c &#x2014;&gt; defined a <code>RunTab</code>, use for mainloop<br> changelog.c  changelog_init change log<br> random.c rndinit  random generator<br> matocsserv.c matocsserv_init  communication with chunkserver<br> matocuserv.c matocuserv_init  communication with customer<br> filesystem.c fs_init  file system manager<br> stats.c stats_init  statistics module</p>
+<p> [dennis@localhost mfs-1.5.9]$ ls<br> aclocal.m4    config.sub    COPYING  INSTALL      Makefile.in<br> config.guess  configure     depcomp  install-sh   mfschunkserver<br> config.h.in   configure.ac  doc      Makefile.am  MFSCommunication.h<br> mfsdata       mfsmount      README   mfsmaster    missing mfsmetarestore<br> NEWS</p>
+</li>
+<li><p>TODO</p>
+</li>
+</ol>
+<h4 id="master-server"><a href="#master-server" class="headerlink" title="master server"></a>master server</h4><ol>
+<li><p>Files</p>
+<p> [dennis@localhost mfs-1.5.9]$ ls mfsmaster/<br> cfg.c        changelog.h  filesystem.h  lempelziv.h  Makefile.am<br> matocsserv.h random.c     sockets.h     cfg.h        chunks.c<br> datapack.h   init.h       main.c        Makefile.in   matocuserv.c<br> changelog.c  chunks.h     filesystem.c  lempelziv.c   main.h<br> matocsserv.c  matocuserv.h  sockets.c  stats.h        random.h   stats.c</p>
+</li>
+</ol>
+<h4 id="chunk-server"><a href="#chunk-server" class="headerlink" title="chunk  server"></a>chunk  server</h4><ol>
+<li>TODO</li>
+</ol>
+<h4 id="client"><a href="#client" class="headerlink" title="client"></a>client</h4><ol>
+<li>TODO</li>
+</ol>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.moosefs.org/download.html" target="_blank" rel="external">MooseFS HomePage</a></li>
+<li><a href="http://sourceforge.net/projects/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/</a></li>
+<li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
+<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004255.html" target="_blank" rel="external">MooseFS introduce</a></li>
+<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004259.html" target="_blank" rel="external">mfsmount module</a></li>
+<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004260.html" target="_blank" rel="external">mfsmaster module</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/06/17/moosefs-source-code-analysis/" data-id="cinho3c2r00aqzbiz02en273t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/filesystem/">filesystem</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sms-develop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/06/17/sms-develop/" class="article-date">
+  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
 </a>
     
   <div class="article-category">
@@ -555,7 +601,7 @@ inodes with permission denied: 0
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/07/solution-of-error-while-loading-shared-libraries/">solution of error while loading shared libraries</a>
+      <a class="article-title" href="/2014/06/17/sms-develop/">sms develop</a>
     </h1>
   
 
@@ -563,81 +609,141 @@ inodes with permission denied: 0
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>After I finish compile and install protobuf on my machine, then I flow the tutorial<br>to compile the sample code, but after that I can not run it, the error message is<br>as below: </p>
-<pre><code>[dennis@localhost google-code-sample]$ vim addressbook.proto 
-[dennis@localhost google-code-sample]$ ls
-addressbook.proto
-[dennis@localhost google-code-sample]$ protoc -I=./ --cpp_out=./ ./addressbook.proto 
-[dennis@localhost google-code-sample]$ ls
-addressbook.pb.cc  addressbook.pb.h  addressbook.proto
-[dennis@localhost google-code-sample]$ vim pb_sample.cc
-[dennis@localhost google-code-sample]$ ls
-addressbook.pb.cc  addressbook.pb.h  addressbook.proto pb_sample.cc
-[dennis@localhost google-code-sample]$ c++ addressbook.pb.cc pb_sample.cc -o pb_sample -lprotobuf
-[dennis@localhost google-code-sample]$ ls
-addressbook.pb.cc  addressbook.pb.h  addressbook.proto  pb_sample  pb_sample.cc
-[dennis@localhost google-code-sample]$ ./pb_sample 
-./pb_sample: error while loading shared libraries: libprotobuf.so.9: cannot open shared object file: No such file or directory
-</code></pre><p>But I find the library is exist on /usr/local/lib</p>
-<pre><code>[dennis@localhost protobuf]$ ls /usr/local/lib/libproto* -l
--rw-r--r--. 1 root root 19747400 Jun  7 11:49 /usr/local/lib/libprotobuf.a
--rwxr-xr-x. 1 root root      968 Jun  7 11:49 /usr/local/lib/libprotobuf.la
--rw-r--r--. 1 root root  2065712 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.a
--rwxr-xr-x. 1 root root     1003 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.la
-lrwxrwxrwx. 1 root root       25 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.so -&gt; libprotobuf-lite.so.9.0.0
-lrwxrwxrwx. 1 root root       25 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.so.9 -&gt; libprotobuf-lite.so.9.0.0
--rwxr-xr-x. 1 root root   982744 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.so.9.0.0
-lrwxrwxrwx. 1 root root       20 Jun  7 11:49 /usr/local/lib/libprotobuf.so -&gt; libprotobuf.so.9.0.0
-lrwxrwxrwx. 1 root root       20 Jun  7 11:49 /usr/local/lib/libprotobuf.so.9 -&gt; libprotobuf.so.9.0.0
--rwxr-xr-x. 1 root root  8343446 Jun  7 11:49 /usr/local/lib/libprotobuf.so.9.0.0
--rw-r--r--. 1 root root 23573484 Jun  7 11:49 /usr/local/lib/libprotoc.a
--rwxr-xr-x. 1 root root      984 Jun  7 11:49 /usr/local/lib/libprotoc.la
-lrwxrwxrwx. 1 root root       18 Jun  7 11:49 /usr/local/lib/libprotoc.so -&gt; libprotoc.so.9.0.0
-lrwxrwxrwx. 1 root root       18 Jun  7 11:49 /usr/local/lib/libprotoc.so.9 -&gt; libprotoc.so.9.0.0
--rwxr-xr-x. 1 root root  8689345 Jun  7 11:49 /usr/local/lib/libprotoc.so.9.0.0
-</code></pre><p>How the sytem know Where the libraries is location? </p>
-<pre><code>[dennis@localhost google-code-sample]$ ls /etc/ld.so.c* -l
--rw-r--r--. 1 root root 141410 Jun  7 12:49 /etc/ld.so.cache
--rw-r--r--. 1 root root     43 Jun  7 12:48 /etc/ld.so.conf
+        <h4 id="introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h4><ol>
+<li><p>Different between RS232 and USB interface<br> For RS232, use serial operation directory, not need driver.<br> For USB, should intall driver.</p>
+</li>
+<li><p>OS support<br> Both windows and Linux will be supported, if the device support RS232, and<br> most of it support AT command, customer develop application with AT mostly.</p>
+</li>
+</ol>
+<h4 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><ol>
+<li>Minicom</li>
+</ol>
+<p>Ref:  </p>
+<ul>
+<li><a href="http://www.thegeekstuff.com/2013/05/modem-at-command/" target="_blank" rel="external">http://www.thegeekstuff.com/2013/05/modem-at-command/</a>  </li>
+<li><a href="http://www.cyberciti.biz/tips/connect-soekris-single-board-computer-using-minicom.html" target="_blank" rel="external">http://www.cyberciti.biz/tips/connect-soekris-single-board-computer-using-minicom.html</a>  </li>
+</ul>
+<ol>
+<li>Gnokii</li>
+</ol>
+<h4 id="issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h4><p>minicom, not response for input<br>Serial port setup &#x2013;&gt;Hardware Flow Contorl : NO<br>Local on/off  </p>
+<p><a href="http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_5d0e8d0d01015svy.html</a></p>
+<h4 id="at"><a href="#AT" class="headerlink" title="AT"></a>AT</h4><ul>
+<li><p>get SIM ID</p>
+<p>  at+ccid</p>
+</li>
+<li><p>get Chip Model</p>
+<p>  ati3</p>
+<p>  at+cgmr</p>
+</li>
+<li><p>get signal strength<br>normal : 16~31,<br>SMS err: <16 or="">31(display 99)</16></p>
+<p>  at+csq</p>
+</li>
+<li><p>get baud rate</p>
+<p>  at+ipr?</p>
+</li>
+<li><p>set baud rate (after set, need to re-connect)</p>
+<p>  at+ipr=115200</p>
+</li>
+<li><p>save configuration</p>
+<p>  at&amp;w</p>
+</li>
+<li><p>set SMS format</p>
+<p>  at+cmgf=1</p>
+</li>
+<li><p>send SMS, success if return &#x201C;+CMGS: &#x201C;</p>
+<p>  at+cmgs=137<strong>**</strong></p>
+<blockquote>
+<p>Hi, this is a SMS test</p>
+</blockquote>
+</li>
+<li><p>read SMS, 4 is the position of SMS</p>
+<p>  at+cmgr=4</p>
+</li>
+<li><p>get number of SMS center</p>
+<p>  at+csca?</p>
+</li>
+<li><p>calling</p>
+<p>  atd137<strong><em>**</em></strong>;</p>
+</li>
+<li><p>hand up</p>
+<p>  ath</p>
+</li>
+<li><p>check state of SMS module</p>
+<p>  at+cfun?</p>
+</li>
+<li><p>reboot SMS module</p>
+<p>  at+cfun=0<br>  OK<br>  at+cfun=1<br>  OK</p>
+</li>
+<li><p>get IMEI code</p>
+<p>  at+wmsn or at+cgsn</p>
+</li>
+<li><p>Full view</p>
+<pre><code>at+ccid
++CCID: &quot;898600p1011130234927&quot;
 
-/etc/ld.so.conf.d:
-total 48
--rw-r--r--. 1 root root 17 Sep  8  2012 atlas-x86_64.conf
--r--r--r--. 1 root root 63 Dec  3  2013 kernel-3.11.10-100.fc18.x86_64.conf
--r--r--r--. 1 root root 63 Nov  4  2013 kernel-3.11.7-100.fc18.x86_64.conf
--r--r--r--. 1 root root 63 Nov 21  2013 kernel-3.11.9-100.fc18.x86_64.conf
--rw-r--r--. 1 root root 17 May  3  2013 libiscsi-x86_64.conf
--rw-r--r--. 1 root root 16 May 29  2013 llvm-x86_64.conf
--rw-r--r--. 1 root root 17 Dec 10 23:50 mysql-x86_64.conf
--rw-r--r--. 1 root root 22 Jul 22  2012 qt-x86_64.conf
--rw-r--r--. 1 root root 24 Feb 26  2013 tracker-x86_64.conf
--rw-r--r--. 1 root root 15 Nov 25  2013 wine-32.conf
--rw-r--r--. 1 root root 17 Nov 25  2013 wine-64.conf
--rw-r--r--. 1 root root 21 Dec 10 03:28 xulrunner-64.conf
+OK
+ati3
+657e09gg.Q24PL002 1961548 103107 17:56
 
-[dennis@localhost google-code-sample]$ cat /etc/ld.so.conf
-include ld.so.conf.d/*.conf
-</code></pre><p><strong>Solution</strong>, add the library directory to config file, then update </p>
-<pre><code>[dennis@localhost google-code-sample]$ su -c &apos;echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf&apos;
-Password: 
-[dennis@localhost google-code-sample]$ cat /etc/ld.so.conf
-include ld.so.conf.d/*.conf
-/usr/local/lib
-[dennis@localhost google-code-sample]$ su -c &apos;ldconfig&apos;
-Password: 
-</code></pre><p>right now, you will see that the timestamp of cache file is new</p>
-<pre><code>[dennis@localhost google-code-sample]$ ls /etc/ld.so.cache -l
--rw-r--r--. 1 root root 141410 Jun  7 13:07 /etc/ld.so.cache
-</code></pre><p>Reference: </p>
-<p><a href="http://blog.csdn.net/sahusoft/article/details/7388617" target="_blank" rel="external">error while loading shared libraries: xxx.so.x&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;&#x548C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</a></p>
+OK
+at+cgmr
+657e09gg.Q24PL002 1961548 103107 17:56
+
+OK
+at+csq
++CSQ: 25,0
+
+OK
+at+ipr?
++IPR: 115200
+
+OK
+at+ipr=9600
+OK
+
+at
+OK
+at&amp;w
+OK
+
+at+csq
++CSQ: 25,99
+
+OK
+at+cmgf=1
+OK
+at+cmgs=13707070909
+&gt; Hi, this is SMS test.
++CMGS: 201
+
+OK
+</code></pre></li>
+</ul>
+<p>Ref <a href="http://www.sendsms.cn/download/js1.pdf" target="_blank" rel="external">http://www.sendsms.cn/download/js1.pdf</a></p>
+<h4 id="features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ol>
+<li>auto detect device by baut-rate </li>
+<li>simple interface<br> 1). send message<br> 2). recv message</li>
+</ol>
+<h4 id="faq"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><ol>
+<li>Fail to find device</li>
+<li>Fail to send message<br>there are many reasons to cause this, list the main reasons as below:<br>1). device error<br>1). baut-rate error<br>1). signal too weak</li>
+</ol>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://bbs.chinaunix.net/thread-1793815-1-1.html" target="_blank" rel="external">http://bbs.chinaunix.net/thread-1793815-1-1.html</a></li>
+<li><a href="http://blog.csdn.net/lyserver/article/details/3007090" target="_blank" rel="external">http://blog.csdn.net/lyserver/article/details/3007090</a></li>
+<li><a href="http://blog.chinaunix.net/uid-27717657-id-3378194.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-27717657-id-3378194.html</a></li>
+<li><a href="http://www.eeworm.com/dl/693/280937.html" target="_blank" rel="external">http://www.eeworm.com/dl/693/280937.html</a></li>
+<li><a href="http://download.csdn.net/detail/zhaori/7511175" target="_blank" rel="external">http://download.csdn.net/detail/zhaori/7511175</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/07/solution-of-error-while-loading-shared-libraries/" data-id="cinga3ym700ajdcizaeu5ndx2" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/06/17/sms-develop/" data-id="cinho3c2o00aizbiz2kv1wvtt" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protobuf/">protobuf</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sms/">sms</a></li></ul>
 
     </footer>
   </div>
@@ -933,7 +1039,116 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cinga3yma00asdcizmvkcik0o" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cinho3c2q00amzbiz0mapcg76" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protobuf/">protobuf</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-solution-of-error-while-loading-shared-libraries" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/06/07/solution-of-error-while-loading-shared-libraries/" class="article-date">
+  <time datetime="2014-06-06T16:00:00.000Z" itemprop="datePublished">2014-06-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/program/">program</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/07/solution-of-error-while-loading-shared-libraries/">solution of error while loading shared libraries</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>After I finish compile and install protobuf on my machine, then I flow the tutorial<br>to compile the sample code, but after that I can not run it, the error message is<br>as below: </p>
+<pre><code>[dennis@localhost google-code-sample]$ vim addressbook.proto 
+[dennis@localhost google-code-sample]$ ls
+addressbook.proto
+[dennis@localhost google-code-sample]$ protoc -I=./ --cpp_out=./ ./addressbook.proto 
+[dennis@localhost google-code-sample]$ ls
+addressbook.pb.cc  addressbook.pb.h  addressbook.proto
+[dennis@localhost google-code-sample]$ vim pb_sample.cc
+[dennis@localhost google-code-sample]$ ls
+addressbook.pb.cc  addressbook.pb.h  addressbook.proto pb_sample.cc
+[dennis@localhost google-code-sample]$ c++ addressbook.pb.cc pb_sample.cc -o pb_sample -lprotobuf
+[dennis@localhost google-code-sample]$ ls
+addressbook.pb.cc  addressbook.pb.h  addressbook.proto  pb_sample  pb_sample.cc
+[dennis@localhost google-code-sample]$ ./pb_sample 
+./pb_sample: error while loading shared libraries: libprotobuf.so.9: cannot open shared object file: No such file or directory
+</code></pre><p>But I find the library is exist on /usr/local/lib</p>
+<pre><code>[dennis@localhost protobuf]$ ls /usr/local/lib/libproto* -l
+-rw-r--r--. 1 root root 19747400 Jun  7 11:49 /usr/local/lib/libprotobuf.a
+-rwxr-xr-x. 1 root root      968 Jun  7 11:49 /usr/local/lib/libprotobuf.la
+-rw-r--r--. 1 root root  2065712 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.a
+-rwxr-xr-x. 1 root root     1003 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.la
+lrwxrwxrwx. 1 root root       25 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.so -&gt; libprotobuf-lite.so.9.0.0
+lrwxrwxrwx. 1 root root       25 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.so.9 -&gt; libprotobuf-lite.so.9.0.0
+-rwxr-xr-x. 1 root root   982744 Jun  7 11:49 /usr/local/lib/libprotobuf-lite.so.9.0.0
+lrwxrwxrwx. 1 root root       20 Jun  7 11:49 /usr/local/lib/libprotobuf.so -&gt; libprotobuf.so.9.0.0
+lrwxrwxrwx. 1 root root       20 Jun  7 11:49 /usr/local/lib/libprotobuf.so.9 -&gt; libprotobuf.so.9.0.0
+-rwxr-xr-x. 1 root root  8343446 Jun  7 11:49 /usr/local/lib/libprotobuf.so.9.0.0
+-rw-r--r--. 1 root root 23573484 Jun  7 11:49 /usr/local/lib/libprotoc.a
+-rwxr-xr-x. 1 root root      984 Jun  7 11:49 /usr/local/lib/libprotoc.la
+lrwxrwxrwx. 1 root root       18 Jun  7 11:49 /usr/local/lib/libprotoc.so -&gt; libprotoc.so.9.0.0
+lrwxrwxrwx. 1 root root       18 Jun  7 11:49 /usr/local/lib/libprotoc.so.9 -&gt; libprotoc.so.9.0.0
+-rwxr-xr-x. 1 root root  8689345 Jun  7 11:49 /usr/local/lib/libprotoc.so.9.0.0
+</code></pre><p>How the sytem know Where the libraries is location? </p>
+<pre><code>[dennis@localhost google-code-sample]$ ls /etc/ld.so.c* -l
+-rw-r--r--. 1 root root 141410 Jun  7 12:49 /etc/ld.so.cache
+-rw-r--r--. 1 root root     43 Jun  7 12:48 /etc/ld.so.conf
+
+/etc/ld.so.conf.d:
+total 48
+-rw-r--r--. 1 root root 17 Sep  8  2012 atlas-x86_64.conf
+-r--r--r--. 1 root root 63 Dec  3  2013 kernel-3.11.10-100.fc18.x86_64.conf
+-r--r--r--. 1 root root 63 Nov  4  2013 kernel-3.11.7-100.fc18.x86_64.conf
+-r--r--r--. 1 root root 63 Nov 21  2013 kernel-3.11.9-100.fc18.x86_64.conf
+-rw-r--r--. 1 root root 17 May  3  2013 libiscsi-x86_64.conf
+-rw-r--r--. 1 root root 16 May 29  2013 llvm-x86_64.conf
+-rw-r--r--. 1 root root 17 Dec 10 23:50 mysql-x86_64.conf
+-rw-r--r--. 1 root root 22 Jul 22  2012 qt-x86_64.conf
+-rw-r--r--. 1 root root 24 Feb 26  2013 tracker-x86_64.conf
+-rw-r--r--. 1 root root 15 Nov 25  2013 wine-32.conf
+-rw-r--r--. 1 root root 17 Nov 25  2013 wine-64.conf
+-rw-r--r--. 1 root root 21 Dec 10 03:28 xulrunner-64.conf
+
+[dennis@localhost google-code-sample]$ cat /etc/ld.so.conf
+include ld.so.conf.d/*.conf
+</code></pre><p><strong>Solution</strong>, add the library directory to config file, then update </p>
+<pre><code>[dennis@localhost google-code-sample]$ su -c &apos;echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf&apos;
+Password: 
+[dennis@localhost google-code-sample]$ cat /etc/ld.so.conf
+include ld.so.conf.d/*.conf
+/usr/local/lib
+[dennis@localhost google-code-sample]$ su -c &apos;ldconfig&apos;
+Password: 
+</code></pre><p>right now, you will see that the timestamp of cache file is new</p>
+<pre><code>[dennis@localhost google-code-sample]$ ls /etc/ld.so.cache -l
+-rw-r--r--. 1 root root 141410 Jun  7 13:07 /etc/ld.so.cache
+</code></pre><p>Reference: </p>
+<p><a href="http://blog.csdn.net/sahusoft/article/details/7388617" target="_blank" rel="external">error while loading shared libraries: xxx.so.x&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;&#x548C;&#x89E3;&#x51B3;&#x529E;&#x6CD5;</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/06/07/solution-of-error-while-loading-shared-libraries/" data-id="cinho3c2l00aazbizsmtthaew" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protobuf/">protobuf</a></li></ul>
@@ -1010,7 +1225,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/06/open-source-need-to-master/" data-id="cinga3ym200addcizg2gedd3x" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/06/06/open-source-need-to-master/" data-id="cinho3c2n00afzbiz3zy07p3z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/source/">source</a></li></ul>
@@ -1070,7 +1285,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/24/software-debugging-on-windows/" data-id="cinga3ym300agdcizh3ougx6d" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/05/24/software-debugging-on-windows/" data-id="cinho3c3c00c2zbizj91we9ld" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li></ul>
@@ -1123,57 +1338,10 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/22/bat-technology-and-salary-level/" data-id="cinga3ylw00a0dciz7dep50n7" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/05/22/bat-technology-and-salary-level/" data-id="cinho3c2j00a6zbizudghmtoi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/job/">job</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-web-server-design-patterns" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/05/15/web-server-design-patterns/" class="article-date">
-  <time datetime="2014-05-14T16:00:00.000Z" itemprop="datePublished">2014-05-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/network/">network</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/05/15/web-server-design-patterns/">web server design patterns</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="continue"><a href="#Continue" class="headerlink" title="Continue"></a>Continue</h4><h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li><a href="https://www.dre.vanderbilt.edu/~schmidt/PDF/cpd-www4.pdf" target="_blank" rel="external">Using Design Patterns and Frameworks to Develop Object-Oriented Communication Systems</a></li>
-<li><a href="http://www.jos.org.cn/ch/reader/create_pdf.aspx?file_no=20030614&amp;flag=1&amp;journal_id=jos" target="_blank" rel="external">&#x57FA;&#x4E8E;&#x6D41;&#x6C34;&#x7EBF;&#x7684;&#x9AD8;&#x6027;&#x80FD;Web&#x670D;&#x52A1;&#x5668;</a></li>
-<li><a href="http://docs.huihoo.com/ace_tao/ACE-2002-12/Part-Three/Chapter-2.htm" target="_blank" rel="external">JAWS&#xFF1A;&#x9AD8;&#x6027;&#x80FD;Web&#x670D;&#x52A1;&#x5668;&#x6784;&#x67B6;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/15/web-server-design-patterns/" data-id="cinga3ym000aadcizcipsl9n1" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
   </div>
@@ -1193,7 +1361,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1212,7 +1380,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1222,9 +1390,13 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1240,10 +1412,6 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>

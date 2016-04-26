@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,374 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-understand-linux-route" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/11/understand-linux-route/" class="article-date">
+  <time datetime="2015-03-10T16:00:00.000Z" itemprop="datePublished">2015-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/11/understand-linux-route/">understand linux route</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;"><a href="#&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;" class="headerlink" title="&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;"></a>&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x7406;&#x89E3;</h3><p>&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x7EDC;&#x5C01;&#x5305;&#x9700;&#x8981;&#x4F1A;&#x6839;&#x636E;&#x8DEF;&#x7531;&#x89C4;&#x5219;&#x6765;&#x5224;&#x65AD;&#x5982;&#x4F55;&#x5C06;&#x5C01;&#x5305;&#x53D1;&#x9001;&#x51FA;&#x53BB;</p>
+<p>&#x8DEF;&#x7531;&#x662F;&#x96D9;&#x5411;&#x7684;&#xFF0C;&#x4F60;&#x5FC5;&#x9808;&#x8981;&#x77AD;&#x89E3;&#x51FA;&#x53BB;&#x7684;&#x8DEF;&#x7531;&#x8207;&#x56DE;&#x4F86;&#x6642;&#x7684;&#x898F;&#x5247;</p>
+<h3 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;"><a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;" class="headerlink" title="&#x5E38;&#x7528;&#x547D;&#x4EE4;"></a>&#x5E38;&#x7528;&#x547D;&#x4EE4;</h3><ul>
+<li><code>route</code><br><code>route -n</code><br><code>route add default gw 172.16.130.1 eth2</code><br><code>route del default gw 172.16.130.1 eth2</code><br><code>route add -host 192.168.168.110 dev eth0</code><br><code>route del -host 192.168.168.110 dev eth0</code><br><code>route add -net 172.16.130.0/24 gw 172.16.130.1 eth2</code><br><code>route del -net 172.16.0.0 netmask 255.255.0.0 dev eth0</code><br><code>ip route flush cache</code>  </li>
+<li><code>sysctl -a |grep forward</code></li>
+<li><code>sysctl -a |grep ignore</code></li>
+<li><code>echo 2 &gt; /proc/sys/net/ipv4/conf/default/rp_filter</code></li>
+<li><code>echo 2 &gt; /proc/sys/net/ipv4/conf/all/rp_filter</code></li>
+<li><code>sysctl -p</code></li>
+<li><code>vim /etc/sysctl.conf</code></li>
+<li><code>traceroute www.baidu.com</code></li>
+</ul>
+<h3 id="&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3><pre><code>[root@localhost ~]# cat /etc/iproute2/rt_tables
+#
+# reserved values
+#
+255    local
+254    main
+253    default
+0    unspec
+#
+# local
+#
+#1    inr.ruhep
+[root@localhost ~]# sysctl -a |grep ignore
+net.ipv4.conf.all.arp_ignore = 0
+net.ipv4.conf.default.arp_ignore = 0
+net.ipv4.conf.lo.arp_ignore = 0
+net.ipv4.conf.eth0.arp_ignore = 0
+net.ipv4.conf.eth1.arp_ignore = 0
+net.ipv4.icmp_echo_ignore_all = 0
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+[root@localhost ~]# cat /etc/sysctl.conf 
+</code></pre><h3 id="&#x4F8B;&#x5B50;"><a href="#&#x4F8B;&#x5B50;" class="headerlink" title="&#x4F8B;&#x5B50;"></a>&#x4F8B;&#x5B50;</h3><p>&#x5982;&#x679C;&#x662F;&#x53CC;&#x7F51;&#x5361;&#x4E14;&#x8BBE;&#x5B9A;&#x7684;&#x662F;&#x540C;&#x4E00;&#x7F51;&#x6BB5;IP:   </p>
+<ul>
+<li>eth0 : 192.168.0.100</li>
+<li>eth1 : 192.168.0.200</li>
+</ul>
+<p>&#x90A3;&#x4E48;&#x4E00;&#x822C;&#x4F1A;&#x751F;&#x6210;&#x8FD9;&#x6837;&#x7684;&#x8DEF;&#x7531;&#x89C4;&#x5219;:  </p>
+<pre><code>[root@www ~]# route -n
+Kernel IP routing table
+Destination     Gateway   Genmask         Flags Metric Ref   Use Iface
+192.168.0.0     0.0.0.0   255.255.255.0   U     0      0       0 eth1
+192.168.0.0     0.0.0.0   255.255.255.0   U     0      0       0 eth0
+</code></pre><p>&#x4E5F;&#x5C31;&#x662F;&#x8AAA;:  </p>
+<ul>
+<li>&#x7576;&#x8981;&#x4E3B;&#x52D5;&#x767C;&#x9001;&#x5C01;&#x5305;&#x5230;192.168.0.0/24&#x7684;&#x7DB2;&#x57DF;&#x6642;&#xFF0C;&#x90FD;&#x53EA;&#x6703;&#x900F;&#x904E;&#x7B2C;&#x4E00;&#x689D;&#x898F;&#x5247;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x900F;&#x904E;eth1&#x4F86;&#x50B3;&#x51FA;&#x53BB;!</li>
+<li>&#x5728;&#x56DE;&#x61C9;&#x5C01;&#x5305;&#x65B9;&#x9762;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x7531;eth0&#x9084;&#x662F;&#x7531;eth1&#x9032;&#x4F86;&#x7684;&#x7DB2;&#x8DEF;&#x5C01;&#x5305;&#xFF0C;&#x90FD;&#x6703;&#x900F;&#x904E; eth1 &#x4F86;&#x56DE;&#x50B3;!</li>
+</ul>
+<p>&#x6765;&#x81EA;: <a href="http://linux.vbird.org/linux_server/0230router.php" target="_blank" rel="external">http://linux.vbird.org/linux_server/0230router.php</a>, [8.1.3 &#x91CD;&#x8907;&#x8DEF;&#x7531;&#x7684;&#x554F;&#x984C;] </p>
+<h3 id="&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;ip"><a href="#&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;IP" class="headerlink" title="&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;IP"></a>&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x7F51;&#x53E3;IP</h3><pre><code>[dennis@localhost ~]$ ssh root@172.16.60.53
+root@172.16.60.53&apos;s password: 
+Last login: Wed Mar 11 17:54:12 2015 from 172.16.50.39
+[root@localhost ~]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth2
+default         172.16.60.1     0.0.0.0         UG    0      0        0 eth2
+[root@localhost ~]# ip addr
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc mq state DOWN qlen 1000
+    link/ether a0:36:9f:32:b0:d0 brd ff:ff:ff:ff:ff:ff
+3: eth1: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc mq state DOWN qlen 1000
+    link/ether a0:36:9f:32:b0:d1 brd ff:ff:ff:ff:ff:ff
+4: eth2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP qlen 1000
+    link/ether 00:25:90:f4:6b:60 brd ff:ff:ff:ff:ff:ff
+    inet 172.16.60.53/24 brd 172.16.60.255 scope global eth2
+    inet6 fe80::225:90ff:fef4:6b60/64 scope link 
+       valid_lft forever preferred_lft forever
+5: eth3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP qlen 1000
+    link/ether 00:25:90:f4:6b:61 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::225:90ff:fef4:6b61/64 scope link 
+       valid_lft forever preferred_lft forever
+</code></pre><h3 id="&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;"><a href="#&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;" class="headerlink" title="&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;"></a>&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x8BBE;&#x5B9A;</h3><pre><code>[dennis@localhost ~]$ ssh root@172.16.130.105
+root@172.16.130.105&apos;s password: 
+Permission denied, please try again.
+root@172.16.130.105&apos;s password: 
+Last login: Wed Mar 11 16:34:38 2015 from 172.16.50.39
+[root@localhost ~]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+172.16.130.0    *               255.255.255.0   U     0      0        0 eth0
+172.16.130.0    *               255.255.255.0   U     0      0        0 eth1
+default         172.16.130.1    0.0.0.0         UG    0      0        0 eth1
+default         172.16.130.1    0.0.0.0         UG    0      0        0 eth0
+[root@localhost ~]# ping 172.16.50.39 -I eth1
+PING 172.16.50.39 (172.16.50.39) from 172.16.130.106 eth1: 56(84) bytes of data.
+64 bytes from 172.16.50.39: icmp_seq=1 ttl=63 time=11.7 ms
+64 bytes from 172.16.50.39: icmp_seq=2 ttl=63 time=0.265 ms
+^C
+--- 172.16.50.39 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1568ms
+rtt min/avg/max/mdev = 0.265/6.030/11.795/5.765 ms
+[root@localhost ~]# ping 172.16.50.39 -I eth0
+PING 172.16.50.39 (172.16.50.39) from 172.16.130.105 eth0: 56(84) bytes of data.
+64 bytes from 172.16.50.39: icmp_seq=1 ttl=63 time=0.244 ms
+64 bytes from 172.16.50.39: icmp_seq=2 ttl=63 time=6.12 ms
+64 bytes from 172.16.50.39: icmp_seq=3 ttl=63 time=6.50 ms
+^C
+--- 172.16.50.39 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2414ms
+rtt min/avg/max/mdev = 0.244/4.290/6.504/2.866 ms
+[root@localhost ~]# ip addr
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:25:90:de:fc:13 brd ff:ff:ff:ff:ff:ff
+    inet 172.16.130.106/24 scope global eth1
+    inet6 fe80::225:90ff:fede:fc13/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:25:90:de:fc:12 brd ff:ff:ff:ff:ff:ff
+    inet 172.16.130.105/24 scope global eth0
+    inet6 fe80::225:90ff:fede:fc12/64 scope link 
+       valid_lft forever preferred_lft forever
+[root@localhost ~]# ip route show
+172.16.130.0/24 dev eth0  proto kernel  scope link  src 172.16.130.105 
+172.16.130.0/24 dev eth1  proto kernel  scope link  src 172.16.130.106 
+default via 172.16.130.1 dev eth1 
+default via 172.16.130.1 dev eth0 
+</code></pre><h3 id="&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;"><a href="#&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;" class="headerlink" title="&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;"></a>&#x4E00;&#x53F0;&#x5947;&#x602A;&#x95EE;&#x9898;&#x7684;&#x673A;&#x5668;</h3><p>&#x95EE;&#x9898;&#x673A;&#x5668;: &#x53CC;&#x7F51;&#x5361;&#xFF0C;IP&#x4FE1;&#x606F; eth0:172.16.60.150 eth1:172.16.60.151 &#x7F51;&#x5173;172.16.60.1  </p>
+<p>&#x672C;&#x5730;&#x4E3B;&#x673A;: IP 172.16.50.39, &#x7F51;&#x5173;:172.16.50.1</p>
+<p>&#x672C;&#x5730;(50.39)&#x53EF;&#x4EE5;&#x6B63;&#x5E38;ssh&#x767B;&#x9646;60.150  </p>
+<p>&#x4F46;ping 172.16.60.151&#x6CA1;&#x6709;&#x56DE;&#x5E94;:</p>
+<pre><code>[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0
+HWADDR=00:1e:67:c9:9a:f4
+TYPE=Ethernet
+UUID=5adb47dc-d361-43b7-a23a-f17c2ade1e2d
+ONBOOT=yes
+NM_CONTROLLED=yes
+BOOTPROTO=none
+IPADDR=172.16.60.150
+NETMASK=255.255.255.0
+GATEWAY=172.16.60.1
+IPV6INIT=no
+USERCTL=no
+[root@localhost ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth1
+DEVICE=eth1
+HWADDR=00:1e:67:c9:9a:f5
+TYPE=Ethernet
+UUID=2af28c1e-abe2-4805-8c78-880ffbfc567e
+ONBOOT=yes
+NM_CONTROLLED=yes
+BOOTPROTO=none
+IPV6INIT=no
+USERCTL=no
+IPADDR=172.16.60.151
+NETMASK=255.255.255.0
+GATEWAY=172.16.60.1
+[root@localhost ~]# ip addr  
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 16436 qdisc noqueue state UNKNOWN   
+  link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00  
+  inet 127.0.0.1/8 scope host lo  
+  inet6 ::1/128 scope host   
+     valid_lft forever preferred_lft forever  
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP qlen 1000  
+  link/ether 00:1e:67:c9:9a:f4 brd ff:ff:ff:ff:ff:ff  
+  inet 172.16.60.150/24 brd 172.16.60.255 scope global eth0  
+  inet6 fe80::21e:67ff:fec9:9af4/64 scope link   
+     valid_lft forever preferred_lft forever  
+3: eth1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP qlen 1000  
+  link/ether 00:1e:67:c9:9a:f5 brd ff:ff:ff:ff:ff:ff  
+  inet 172.16.60.151/24 brd 172.16.60.255 scope global eth1  
+  inet6 fe80::21e:67ff:fec9:9af5/64 scope link   
+     valid_lft forever preferred_lft forever  
+[root@localhost ~]# route  
+Kernel IP routing table  
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface  
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth0  
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth1  
+link-local      *               255.255.0.0     U     1002   0        0 eth0  
+link-local      *               255.255.0.0     U     1003   0        0 eth1  
+default         172.16.60.1     0.0.0.0         UG    0      0        0 eth0  
+</code></pre><p>&#x901A;&#x8FC7;&#x540C;&#x4E00;&#x7F51;&#x6BB5;&#x7684;&#x673A;&#x5668;(172.16.60.53)&#xFF0C;ping 151&#x5F97;&#x5230;&#x7684;&#x662F;Destination Host Unreachable  </p>
+<pre><code>[dennis@localhost ~]$ ssh root@172.16.60.53
+The authenticity of host &apos;172.16.60.53 (172.16.60.53)&apos; can&apos;t be established.
+RSA key fingerprint is e6:b0:c1:60:53:cd:77:7c:32:e4:27:4f:01:43:5a:8a.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &apos;172.16.60.53&apos; (RSA) to the list of known hosts.
+root@172.16.60.53&apos;s password: 
+Last login: Fri Dec  6 04:46:04 2013
+[root@localhost ~]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth2
+default         172.16.60.1     0.0.0.0         UG    0      0        0 eth2
+[root@localhost ~]# ping 172.16.60.151
+PING 172.16.60.151 (172.16.60.151) 56(84) bytes of data.
+From 172.16.60.53 icmp_seq=2 Destination Host Unreachable
+From 172.16.60.53 icmp_seq=3 Destination Host Unreachable
+From 172.16.60.53 icmp_seq=4 Destination Host Unreachable
+^C
+--- 172.16.60.151 ping statistics ---
+5 packets transmitted, 0 received, +3 errors, 100% packet loss, time 4988ms
+pipe 3
+[root@localhost ~]# ping 172.16.60.150
+PING 172.16.60.150 (172.16.60.150) 56(84) bytes of data.
+64 bytes from 172.16.60.150: icmp_seq=1 ttl=64 time=0.933 ms
+64 bytes from 172.16.60.150: icmp_seq=2 ttl=64 time=0.235 ms
+64 bytes from 172.16.60.150: icmp_seq=3 ttl=64 time=0.223 ms
+^C
+--- 172.16.60.150 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2045ms
+rtt min/avg/max/mdev = 0.223/0.463/0.933/0.332 ms
+[root@localhost ~]# 
+</code></pre><p>&#x4E14;&#x4ECE;eth1(60.151)ping&#x4E0D;&#x901A;&#x7F51;&#x5173;(172.16.60.1), ping&#x540C;&#x7F51;&#x6BB5;&#x53E6;&#x5916;&#x4E00;&#x53F0;&#x673A;&#x5668;(60.53)&#x5F00;&#x59CB;&#x4F1A;&#x505C;&#x987F;:   </p>
+<pre><code>[root@localhost ~]# arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+172.16.60.1              ether   00:0f:e2:b1:c7:5d   C                     eth0
+[root@localhost ~]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth0
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth1
+link-local      *               255.255.0.0     U     1002   0        0 eth0
+default         172.16.60.1     0.0.0.0         UG    0      0        0 eth0
+[root@localhost ~]# ping 172.16.60.53 -I eth1
+PING 172.16.60.53 (172.16.60.53) from 172.16.60.151 eth1: 56(84) bytes of data.
+64 bytes from 172.16.60.53: icmp_seq=10 ttl=64 time=1.08 ms
+64 bytes from 172.16.60.53: icmp_seq=11 ttl=64 time=0.228 ms
+64 bytes from 172.16.60.53: icmp_seq=12 ttl=64 time=0.230 ms
+64 bytes from 172.16.60.53: icmp_seq=13 ttl=64 time=0.226 ms
+64 bytes from 172.16.60.53: icmp_seq=14 ttl=64 time=0.238 ms
+64 bytes from 172.16.60.53: icmp_seq=15 ttl=64 time=0.225 ms
+64 bytes from 172.16.60.53: icmp_seq=16 ttl=64 time=0.227 ms
+^C
+--- 172.16.60.53 ping statistics ---
+16 packets transmitted, 7 received, 56% packet loss, time 15646ms
+rtt min/avg/max/mdev = 0.225/0.351/1.085/0.299 ms
+[root@localhost ~]# ping 172.16.50.39 -I eth1
+PING 172.16.50.39 (172.16.50.39) from 172.16.60.151 eth1: 56(84) bytes of data.
+From 172.16.60.151 icmp_seq=2 Destination Host Unreachable
+From 172.16.60.151 icmp_seq=3 Destination Host Unreachable
+From 172.16.60.151 icmp_seq=4 Destination Host Unreachable
+From 172.16.60.151 icmp_seq=6 Destination Host Unreachable
+From 172.16.60.151 icmp_seq=7 Destination Host Unreachable
+From 172.16.60.151 icmp_seq=8 Destination Host Unreachable
+^C
+--- 172.16.50.39 ping statistics ---
+8 packets transmitted, 0 received, +6 errors, 100% packet loss, time 7646ms
+pipe 3
+[root@localhost ~]# ping 172.16.60.1 -I eth1
+PING 172.16.60.1 (172.16.60.1) from 172.16.60.151 eth1: 56(84) bytes of data.
+</code></pre><p>&#x6267;&#x884C;<code>route add default gw 172.16.60.1 eth1</code>&#x540E;&#xFF0C;&#x53EF;&#x4EE5;ping 172.16.60.151,&#x4F46;&#x662F;150&#x6709;&#x95EE;&#x9898;&#x4E86;.  </p>
+<p>&#x4F7F;&#x7528;ssh root@172.16.60.151&#x767B;&#x9646;&#x770B;&#x5230;&#x7684;&#x8DEF;&#x7531;&#x4FE1;&#x606F;</p>
+<pre><code>[root@localhost ~]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth0
+172.16.60.0     *               255.255.255.0   U     0      0        0 eth1
+link-local      *               255.255.0.0     U     1002   0        0 eth0
+default         172.16.60.1     0.0.0.0         UG    0      0        0 eth1
+default         172.16.60.1     0.0.0.0         UG    0      0        0 eth0
+[root@localhost ~]# ping 172.16.60.1 -I eth0
+PING 172.16.60.1 (172.16.60.1) from 172.16.60.150 eth0: 56(84) bytes of data.
+64 bytes from 172.16.60.1: icmp_seq=1 ttl=255 time=8.88 ms
+64 bytes from 172.16.60.1: icmp_seq=2 ttl=255 time=6.85 ms
+64 bytes from 172.16.60.1: icmp_seq=3 ttl=255 time=1.74 ms
+^C
+--- 172.16.60.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2142ms
+rtt min/avg/max/mdev = 1.747/5.830/8.885/3.003 ms
+[root@localhost ~]# ping 172.16.60.1 -I eth1
+PING 172.16.60.1 (172.16.60.1) from 172.16.60.151 eth1: 56(84) bytes of data.
+^C
+--- 172.16.60.1 ping statistics ---
+17 packets transmitted, 0 received, 100% packet loss, time 16976ms
+
+[root@localhost ~]# ping 172.16.50.39 -I eth0
+PING 172.16.50.39 (172.16.50.39) from 172.16.60.150 eth0: 56(84) bytes of data.
+^C
+--- 172.16.50.39 ping statistics ---
+13 packets transmitted, 0 received, 100% packet loss, time 12830ms
+
+[root@localhost ~]# ping 172.16.50.39 -I eth1
+PING 172.16.50.39 (172.16.50.39) from 172.16.60.151 eth1: 56(84) bytes of data.
+64 bytes from 172.16.50.39: icmp_seq=1 ttl=63 time=0.245 ms
+64 bytes from 172.16.50.39: icmp_seq=2 ttl=63 time=0.296 ms
+^C
+--- 172.16.50.39 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1391ms
+rtt min/avg/max/mdev = 0.245/0.270/0.296/0.030 ms
+[root@localhost ~]# ping 172.16.60.53 -I eth0
+PING 172.16.60.53 (172.16.60.53) from 172.16.60.150 eth0: 56(84) bytes of data.
+64 bytes from 172.16.60.53: icmp_seq=1 ttl=64 time=0.252 ms
+64 bytes from 172.16.60.53: icmp_seq=2 ttl=64 time=0.196 ms
+^C
+--- 172.16.60.53 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1342ms
+rtt min/avg/max/mdev = 0.196/0.224/0.252/0.028 ms
+[root@localhost ~]# ping 172.16.60.53 -I eth1
+PING 172.16.60.53 (172.16.60.53) from 172.16.60.151 eth1: 56(84) bytes of data.
+64 bytes from 172.16.60.53: icmp_seq=1 ttl=64 time=0.236 ms
+64 bytes from 172.16.60.53: icmp_seq=2 ttl=64 time=0.232 ms
+64 bytes from 172.16.60.53: icmp_seq=3 ttl=64 time=0.240 ms
+^C
+--- 172.16.60.53 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2431ms
+rtt min/avg/max/mdev = 0.232/0.236/0.240/0.003 ms
+</code></pre><p><strong>&#x8FD9;&#x65F6;&#x5019;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x8BBE;&#x7F6E;route&#x5462;?</strong></p>
+<p>&#x53EF;&#x662F;&#x6CA1;&#x6709;&#x770B;&#x51FA;&#x54EA;&#x91CC;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x53D1;&#x5F80;172.16.60.XX ip&#x6BB5;&#x7684;&#x90FD;&#x4ECE;eth0&#x8D70;&#xFF0C;&#x5176;&#x4ED6;IP&#x6BB5;&#x7684;&#x4ECE;eth0&#x53D1;&#x9001;&#x7ED9;&#x9ED8;&#x8BA4;&#x7F51;&#x5173;172.16.60.1</p>
+<h3 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h3><ul>
+<li><a href="http://linux.vbird.org/linux_server/0150detect_network.php" target="_blank" rel="external">Linux &#x7DB2;&#x8DEF;&#x5075;&#x932F;</a></li>
+<li><a href="http://my.oschina.net/jing31/blog/6611" target="_blank" rel="external">Linux&#x53CC;&#x7F51;&#x5361;&#x8BBE;&#x7F6E;IP&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x7F51;&#x6BB5;&#x7684;&#x95EE;&#x9898;</a></li>
+<li><a href="http://os.51cto.com/art/201205/339800.htm" target="_blank" rel="external">Linux&#x7CFB;&#x7EDF;IP&#x8DEF;&#x7531;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</a></li>
+<li><a href="http://linux.vbird.org/linux_server/0230router.php" target="_blank" rel="external">&#x8DEF;&#x7531;&#x89C0;&#x5FF5;&#x8207;&#x8DEF;&#x7531;&#x5668;&#x8A2D;&#x5B9A;</a></li>
+<li><a href="http://my.oschina.net/guol/blog/156607" target="_blank" rel="external">Linux&#x7B56;&#x7565;&#x8DEF;&#x7531;</a></li>
+<li><a href="http://yuangeqingtian.blog.51cto.com/6994701/1218946" target="_blank" rel="external">linux&#x4E0B;&#x8DEF;&#x7531;&#x8868;&#x8BE6;&#x89E3;</a></li>
+<li><a href="http://www.centoscn.com/CentOS/Intermediate/2013/0915/1633.html" target="_blank" rel="external">CentOS&#x53CC;&#x7F51;&#x5361;&#x7B56;&#x7565;&#x8DEF;&#x7531;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="http://my.oschina.net/7shell/blog/308887" target="_blank" rel="external">Linux&#x53CC;&#x7F51;&#x5361;(&#x5185;&#x5916;&#x7F51;)&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x8DEF;&#x7531;&#x8BBE;&#x7F6E;</a></li>
+<li><a href="http://forum.ubuntu.org.cn/viewtopic.php?f=54&amp;t=327616" target="_blank" rel="external">linux&#x53CC;&#x7F51;&#x5361;&#x5B9E;&#x73B0;&#x5C40;&#x57DF;&#x7F51;&#x8DE8;&#x7F51;&#x6BB5;&#x8BBF;&#x95EE;</a></li>
+<li><a href="http://blog.csdn.net/zhuying_linux/article/details/6770730" target="_blank" rel="external">ping&#x5DE5;&#x4F5C;&#x539F;&#x7406;</a></li>
+<li><a href="http://stackoverflow.com/questions/18536796/icmp-request-received-but-doesnt-reply" target="_blank" rel="external">icmp request received, but doesn&#x2019;t reply</a></li>
+<li><a href="https://access.redhat.com/solutions/53031" target="_blank" rel="external">https://access.redhat.com/solutions/53031</a></li>
+<li><a href="http://fengyun.blog.51cto.com/532912/608713" target="_blank" rel="external">&#x6742;&#x8C08;icmp</a></li>
+<li><a href="http://leo0216.blog.51cto.com/188904/84863" target="_blank" rel="external">LINUX ROUTE&#x914D;&#x7F6E;&#x5C0F;&#x8BB0;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/03/11/understand-linux-route/" data-id="cinho3c4500dszbizopufv0es" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-message-queue-middleware" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -164,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cinga3yns00dwdcizsi8707vg" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2015/02/09/message-queue-middleware/" data-id="cinho3c4400dqzbiz35ri0zdd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +649,7 @@ TCP window size: 0.02 MByte (default)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cinga3ynp00dpdcizylaelw8w" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2015/01/21/linux-network-performance-monitor/" data-id="cinho3c4300dmzbiz5tv90z8r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
@@ -1001,7 +1369,7 @@ bus-info: 0000:02:00.0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/31/checking-speed-of-network/" data-id="cinga3yno00dmdciz1piqkl5y" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/12/31/checking-speed-of-network/" data-id="cinho3c4200djzbiz1e8ykua4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1199,7 +1567,7 @@ tcp.port == 1863 || tcp.port == 80
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/26/network-analyze-with-wireshark/" data-id="cinga3ynm00didciz59dimpsz" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/12/26/network-analyze-with-wireshark/" data-id="cinho3c3y00dfzbizaafuko8g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wireshark/">wireshark</a></li></ul>
@@ -1261,7 +1629,7 @@ tcp.port == 1863 || tcp.port == 80
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/12/how-to-implement-a-netdisk/" data-id="cinga3yni00dedcizdzvq7acc" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/12/12/how-to-implement-a-netdisk/" data-id="cinho3c3w00dbzbizznzp94rx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netdisk/">netdisk</a></li></ul>
@@ -1356,7 +1724,7 @@ SUBSYSTEM==&quot;net&quot;, ACTION==&quot;add&quot;, DRIVERS==&quot;?*&quot;, AT
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cinga3yng00dadciztpegbuj5" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/12/08/how-to-fix-nic-name-confusion/" data-id="cinho3c3u00d7zbizn82xt9ps" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1436,7 +1804,7 @@ write around: &#x53EA;&#x5199;&#x5165;&#x5230;&#x6301;&#x4E45;&#x5B58;&#x50A8;&#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cinga3ynw00e5dcizq4w21x12" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/12/04/ssd-cache-and-implementation/" data-id="cinho3c4a00e2zbizneww77ei" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cache/">cache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
@@ -1649,7 +2017,7 @@ o- 172.16.110.11:8089 .............................................. [OK]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/11/26/lio/" data-id="cinga3yne00d7dciz7qmfsrkh" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/11/26/lio/" data-id="cinho3c3t00d4zbizi5lo818q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
@@ -1781,114 +2149,10 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cinga3ynd00d4dcizi94xfaem" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2014/09/15/rapidly-method-for-clean-directory-with-rsync/" data-id="cinho3c3q00cyzbizk8ttxt0k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-linux-performace-tools" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/08/linux-performace-tools/" class="article-date">
-  <time datetime="2014-09-07T16:00:00.000Z" itemprop="datePublished">2014-09-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/08/linux-performace-tools/">linux performace tools</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###</p>
-<p><img src="/assets/image/posts/perf/linux_benchmarking_tools.png" alt="linux benchmarking tools"></p>
-<p><img src="/assets/image/posts/perf/linux_observability_sar.png" alt="linux observability sar"></p>
-<p><img src="/assets/image/posts/perf/linux_tuning_tools.png" alt="linux tuning tools"></p>
-<h3 id="tools-basic"><a href="#Tools-Basic" class="headerlink" title="Tools: Basic"></a>Tools: Basic</h3><ul>
-<li>uptime</li>
-<li>top or htop</li>
-<li>mpstat</li>
-<li>iostat</li>
-<li>vmstat</li>
-<li>free </li>
-<li>ping</li>
-<li>nicstat</li>
-<li>dstat</li>
-</ul>
-<h3 id="tools-intermediate"><a href="#Tools-Intermediate" class="headerlink" title="Tools: Intermediate"></a>Tools: Intermediate</h3><ul>
-<li>sar</li>
-<li>netstat</li>
-<li>pidstat</li>
-<li>strace</li>
-<li>tcpdump</li>
-<li>blktrace</li>
-<li>iotop</li>
-<li>slabtop</li>
-<li>sysctl</li>
-<li>/proc</li>
-</ul>
-<h3 id="tools-advanced"><a href="#Tools-Advanced" class="headerlink" title="Tools: Advanced"></a>Tools: Advanced</h3><ul>
-<li>perf<ul>
-<li><code>perf record program [program_option]</code></li>
-<li><code>perf report</code></li>
-</ul>
-</li>
-<li>DTrace</li>
-<li>SystemTap</li>
-<li>and more&#x2026;<ul>
-<li>ps</li>
-<li>pmap</li>
-<li>traceroute</li>
-<li>ntop</li>
-<li>ss</li>
-<li>lsof</li>
-<li>oprofile</li>
-<li>gprof</li>
-<li>kcachegrind</li>
-<li>valgrind</li>
-<li>google profiler</li>
-<li>nfsiostat</li>
-<li>cifsiostat</li>
-<li>latencytop</li>
-<li>powertop</li>
-<li>LLTng</li>
-<li>ktap</li>
-</ul>
-</li>
-</ul>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.brendangregg.com/linuxperf.html" target="_blank" rel="external">Linux Performance</a></li>
-<li><a href="http://www.slideshare.net/brendangregg/linux-performance-analysis-and-tools" target="_blank" rel="external">Linux performance analysis and tools</a></li>
-<li><a href="http://www.vpsee.com/tag/performance/" target="_blank" rel="external">Tag: performance</a></li>
-<li><a href="https://perf.wiki.kernel.org/index.php/Tutorial" target="_blank" rel="external">perf wiki</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/09/08/linux-performace-tools/" data-id="cinga3yna00cydcizv5uyo21g" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
 
     </footer>
   </div>
@@ -1908,7 +2172,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1927,7 +2191,7 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1937,9 +2201,13 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1955,10 +2223,6 @@ drwxrwxr-x. 2 dennis dennis 1114112 Sep 15 09:13 tmp1
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>

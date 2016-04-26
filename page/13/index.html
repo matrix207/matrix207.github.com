@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,182 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-skill-of-c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/05/21/skill-of-c/" class="article-date">
+  <time datetime="2013-05-20T16:00:00.000Z" itemprop="datePublished">2013-05-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/language/">language</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/05/21/skill-of-c/">The Art of C Programming</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##1. Principle </p>
+<ul>
+<li><strong>Array is NOT point</strong></li>
+<li><strong>Avoid using unsafe api</strong></li>
+<li><strong>Deeply understand point</strong></li>
+</ul>
+<p>##2. math</p>
+<h3 id="21-mod"><a href="#2-1-mod" class="headerlink" title="2.1 mod"></a>2.1 mod</h3><pre><code>if n%2k=x, then x=n&amp;(2k-1)
+</code></pre><h3 id="22-even-odd-check"><a href="#2-2-even-odd-check" class="headerlink" title="2.2 even odd check"></a>2.2 even odd check</h3><p>if the lowest bit of binary mode is 0, even number, otherwise odd.</p>
+<h3 id="23-multi"><a href="#2-3-multi" class="headerlink" title="2.3 multi"></a>2.3 multi</h3><pre><code>a*5 = a&lt;&lt;2+a
+</code></pre><p>##3.structure</p>
+<h3 id="31-size"><a href="#3-1-size" class="headerlink" title="3.1 size"></a>3.1 size</h3><pre><code>int arr[] = {1, 5, 3, 18, 107, 21, 88};
+
+size of arr is sizeof(arr)/sizeof(arr[0])
+
+struct _test_ {
+    int a;
+    double b;
+    char c;
+}
+
+size of _test_ is sizeof(_test_)
+</code></pre><p>##4. Puzzle</p>
+<h3 id="41-print-the-numbers-between-1-and-1000"><a href="#4-1-Print-the-numbers-between-1-and-1000" class="headerlink" title="4.1 Print the numbers between 1 and 1000."></a>4.1 Print the numbers between 1 and 1000.</h3><ul>
+<li>Add a rule: Don&#x2019;t use any loops.</li>
+<li>Add another rule: No recursions.</li>
+<li>We can&#x2019;t do that? OK. Please look at this one.</li>
+</ul>
+<pre>
+#include &quot;stdio.h&quot;
+#define A(x) x;x;x;x;x;x;x;x;x;x;
+int main (void){
+  int n = 1;
+  A(A(A(printf (&quot;%d &quot;, n++))));
+  return 0;
+}
+</pre>
+
+<h3 id="42-swap-two-variables"><a href="#4-2-swap-two-variables" class="headerlink" title="4.2 swap two variables"></a>4.2 swap two variables</h3><pre><code>a = a^b;
+b = a^b;
+a = a^b;
+</code></pre><p>##5. What we need to avoid using?</p>
+<ul>
+<li>gets &#x2013;&gt; fgets</li>
+<li>scanf &#x2013;&gt; scanf_s sscanf</li>
+<li>sprintf &#x2013;&gt; snprintf sprintf_s</li>
+<li>strcpy &#x2013;&gt; strlcpy</li>
+<li>strcat &#x2013;&gt; strlcat</li>
+<li>strtok &#x2013;&gt; strtok_r</li>
+</ul>
+<p>##6. v[index] and index[v] are the same</p>
+<p>##7. use _Generic macro</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void printchar(char X) { printf(&quot;char: %c\n&quot;, X); }
+void printint(int X) { printf(&quot;int: %d\n&quot;, X); }
+void printfloat(float X) { printf(&quot;float: %f\n&quot;, X); }
+void printdouble(double X) { printf(&quot;double: %lf\n&quot;, X); }
+#define print(X) _Generic((X), \
+                               char: printchar, \
+                               int: printint, \
+                               float: printfloat, \
+                               double: printdouble)(X)
+
+int main()
+{
+    print(1);
+    print(1.2);
+    print((char)&apos;a&apos;);
+    return 0;
+}
+</code></pre><p>GCC version don&#x2019;t support _Generic macro currently, but clang work.<br>Compile this code with clang as <code>clang test.c</code></p>
+<p>##8. Reference  </p>
+<ul>
+<li><a href="https://www.kernel.org/" target="_blank" rel="external">Linux kernel source</a></li>
+<li><a href="http://wangcong.org/down/taoc.ppt" target="_blank" rel="external">The Art of C Programming</a></li>
+<li><a href="http://sathyamvellal.in/blog/cool-c-programming/?d=5" target="_blank" rel="external">cool c programming</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/05/21/skill-of-c/" data-id="cinho3c0x0063zbiz8ic4uohs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-network-client-server-model" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/05/09/network-client-server-model/" class="article-date">
+  <time datetime="2013-05-08T16:00:00.000Z" itemprop="datePublished">2013-05-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/network/">network</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/05/09/network-client-server-model/">network client server model</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Some words before<br>On this paper, I want to tell a story of network client server model. I would<br>do it on the coming weeks(^_^). Let&#x2019;s waiting&#x2026;</p>
+<p>##Reference:</p>
+<ul>
+<li><a href="http://blog.chinaunix.net/uid-24148050-id-3195151.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-24148050-id-3195151.html</a></li>
+<li><a href="http://daniel.haxx.se/docs/poll-vs-select.html" target="_blank" rel="external">poll vs select vs event-based </a></li>
+<li><a href="http://www.cppblog.com/feixuwu/archive/2010/07/10/119995.html" target="_blank" rel="external">select &#x548C; epoll</a></li>
+<li><a href="http://zhhzhh-43.blog.163.com/blog/static/12669737120129195459299/" target="_blank" rel="external">linux&#x901A;&#x8BAF;socket&#x6A21;&#x578B;select,epoll,poll&#x6BD4;&#x8F83;</a></li>
+<li><a href="http://blog.endlesscode.com/2010/03/27/select-poll-epoll-intro/" target="_blank" rel="external">select&#x3001;poll&#x548C;epoll</a></li>
+<li><a href="http://blog.chinaunix.net/uid-24148050-id-3195151.html" target="_blank" rel="external">&#x670D;&#x52A1;&#x5668;&#x6A21;&#x578B;</a></li>
+<li><a href="http://www.tenouk.com/Module39.html" target="_blank" rel="external">NETWORK PROGRAMMING LINUX SOCKET PART I: THE FUNDAMENTALS</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/client_server_model.htm" target="_blank" rel="external">Client Server Model - Architecture</a></li>
+<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_server_example.htm" target="_blank" rel="external">Socket Server Examples</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/05/09/network-client-server-model/" data-id="cinho3c0u005wzbiz4hsbl5p7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-windows-event-log" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -304,65 +480,10 @@ cleanup:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/09/windows-event-log/" data-id="cinga3yka0064dciz68ahxs08" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/05/09/windows-event-log/" data-id="cinho3c11006ezbizzthlx0jb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-network-client-server-model" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/05/09/network-client-server-model/" class="article-date">
-  <time datetime="2013-05-08T16:00:00.000Z" itemprop="datePublished">2013-05-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/network/">network</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/05/09/network-client-server-model/">network client server model</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##Some words before<br>On this paper, I want to tell a story of network client server model. I would<br>do it on the coming weeks(^_^). Let&#x2019;s waiting&#x2026;</p>
-<p>##Reference:</p>
-<ul>
-<li><a href="http://blog.chinaunix.net/uid-24148050-id-3195151.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-24148050-id-3195151.html</a></li>
-<li><a href="http://daniel.haxx.se/docs/poll-vs-select.html" target="_blank" rel="external">poll vs select vs event-based </a></li>
-<li><a href="http://www.cppblog.com/feixuwu/archive/2010/07/10/119995.html" target="_blank" rel="external">select &#x548C; epoll</a></li>
-<li><a href="http://zhhzhh-43.blog.163.com/blog/static/12669737120129195459299/" target="_blank" rel="external">linux&#x901A;&#x8BAF;socket&#x6A21;&#x578B;select,epoll,poll&#x6BD4;&#x8F83;</a></li>
-<li><a href="http://blog.endlesscode.com/2010/03/27/select-poll-epoll-intro/" target="_blank" rel="external">select&#x3001;poll&#x548C;epoll</a></li>
-<li><a href="http://blog.chinaunix.net/uid-24148050-id-3195151.html" target="_blank" rel="external">&#x670D;&#x52A1;&#x5668;&#x6A21;&#x578B;</a></li>
-<li><a href="http://www.tenouk.com/Module39.html" target="_blank" rel="external">NETWORK PROGRAMMING LINUX SOCKET PART I: THE FUNDAMENTALS</a></li>
-<li><a href="http://www.tutorialspoint.com/unix_sockets/client_server_model.htm" target="_blank" rel="external">Client Server Model - Architecture</a></li>
-<li><a href="http://www.tutorialspoint.com/unix_sockets/socket_server_example.htm" target="_blank" rel="external">Socket Server Examples</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/09/network-client-server-model/" data-id="cinga3ykf006fdcizeichgu63" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
 
     </footer>
   </div>
@@ -410,7 +531,7 @@ cleanup:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/08/early-linux-kernel-analyze/" data-id="cinga3yk70060dciz82lyixux" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/05/08/early-linux-kernel-analyze/" data-id="cinho3c14006lzbiz1xdq5h1b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kernel/">kernel</a></li></ul>
@@ -553,7 +674,7 @@ the value of sizeof(st_c) is 12 (address: 0 . . . | 4 5 6 7 | 8 9 . .)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/05/07/do-you-really-master-c-language/" data-id="cinga3ykb0068dcizsc3l55p8" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/05/07/do-you-really-master-c-language/" data-id="cinho3c6200htzbizyipwpjyl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
@@ -691,7 +812,7 @@ the value of sizeof(st_c) is 12 (address: 0 . . . | 4 5 6 7 | 8 9 . .)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/29/my-favour-website/" data-id="cinga3yk5005wdcizkk6eyeuz" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/29/my-favour-website/" data-id="cinho3c0w005zzbizhwa3xvdz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/person/">person</a></li></ul>
@@ -742,7 +863,7 @@ the value of sizeof(st_c) is 12 (address: 0 . . . | 4 5 6 7 | 8 9 . .)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/28/opennebula/" data-id="cinga3yk4005tdciza3mqowbi" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/28/opennebula/" data-id="cinho3c0s005tzbizc8pjlrjx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtual/">virtual</a></li></ul>
@@ -832,7 +953,7 @@ doc.write(&apos;out.pdf&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/28/nodejs/" data-id="cinga3yk1005mdcizxp8xeugd" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/28/nodejs/" data-id="cinho3c0q005mzbizaieycps8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -1294,7 +1415,7 @@ make access authority for `snmpset`.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/19/net-snmp/" data-id="cinga3yk3005qdcizematrdnm" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/19/net-snmp/" data-id="cinho3c0r005qzbizimwn352u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1552,343 +1673,7 @@ int main(int argc,char*argv[]) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/10/get-mac-with-netbios/" data-id="cinga3yjy005ddcizz4f86c0n" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-find-alive-hosts" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/04/09/find-alive-hosts/" class="article-date">
-  <time datetime="2013-04-08T16:00:00.000Z" itemprop="datePublished">2013-04-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/network/">network</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/04/09/find-alive-hosts/">Find alive hosts</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This command can find alive hosts on linux:<br><code>nmap -v -sn 192.168.1.1/24 | grep &apos;Nmap scan&apos; | grep -v &apos;host down&apos;</code></p>
-<p>Reference:  </p>
-<ul>
-<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap&#x626B;&#x63CF;&#x539F;&#x7406;&#x4E0E;&#x7528;&#x6CD5;</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_644eb9350100p3yv.html" target="_blank" rel="external">&#x901A;&#x8FC7;ARP&#x63A2;&#x6D4B;&#x5C40;&#x57DF;&#x7F51;&#x6D3B;&#x52A8;&#x4E3B;&#x673A;</a></li>
-<li><a href="http://www.2cto.com/kf/201011/78750.html" target="_blank" rel="external">&#x7F16;&#x5199;ARP&#x626B;&#x63CF;&#x5668;&#x63A2;&#x6D4B;&#x5C40;&#x57DF;&#x7F51;&#x6D3B;&#x52A8;&#x4E3B;&#x673A;</a></li>
-<li><a href="http://bbs.csdn.net/topics/350022203" target="_blank" rel="external">&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x7684;ip&#x5730;&#x5740;&#x548C;mac&#x5730;&#x5740;</a></li>
-<li><a href="http://download.csdn.net/detail/joeycc/4945784" target="_blank" rel="external">icmp&#x63A2;&#x6D4B;&#x6D3B;&#x52A8;&#x4E3B;&#x673A;</a></li>
-<li><a href="http://download.csdn.net/detail/pilipenhuolong/3118860" target="_blank" rel="external">&#x5229;&#x7528;ICMP&#x6570;&#x636E;&#x5305;&#x63A2;&#x6D4B;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x6D3B;&#x52A8;&#x4E3B;&#x673A; VC++</a></li>
-<li><a href="http://www.xfocus.net/articles/200103/77.html" target="_blank" rel="external">&#x4F7F;&#x7528;ICMP&#x534F;&#x8BAE;&#x6765;&#x8FDB;&#x884C;&#x4E3B;&#x673A;&#x63A2;&#x6D4B;</a></li>
-<li><a href="http://blog.csdn.net/yiyefangzhou24/article/details/6819874" target="_blank" rel="external">&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x626B;&#x63CF;&#x5668;&#x7684;&#x5B9E;&#x73B0; </a></li>
-</ul>
-<p>##sample code  </p>
-<h3 id="find-alive-hosts-with-arp-protocol"><a href="#Find-alive-hosts-with-ARP-protocol" class="headerlink" title="Find alive hosts with ARP protocol"></a>Find alive hosts with ARP protocol</h3><pre><code>// Find alive hosts with ARP protocol
-// Win32 console project, compile with VS2005
-// Create by Dennis
-// 2013-04-09
-
-// Reference:
-// http://msdn.microsoft.com/en-us/library/aa366358(VS.85).aspx
-
-#include &lt;winsock2.h&gt;
-#include &lt;iphlpapi.h&gt;
-#include &lt;process.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-#pragma comment(lib, &quot;iphlpapi.lib&quot;)
-#pragma comment(lib, &quot;ws2_32.lib&quot;)
-
-CRITICAL_SECTION  cs;
-
-unsigned long netIp = 0;
-
-// Get host IP
-// Reference: http://blog.csdn.net/happycock/article/details/491424
-// If your machine have more than one network adapter, you should
-// fix this function.
-void GetHostIP(char* ip, int size1, char* mask, int size2)
-{
-    ULONG len = 0; 
-    GetAdaptersInfo(NULL, &amp;len);
-    PIP_ADAPTER_INFO p = static_cast&lt;PIP_ADAPTER_INFO&gt;(malloc(len));
-    GetAdaptersInfo(p, &amp;len);
-    for (PIP_ADAPTER_INFO q = p; q != NULL; q = q-&gt;Next)
-    {
-        if (ip) strncpy(ip, q-&gt;IpAddressList.IpAddress.String, size1);
-        if (mask) strncpy(mask, q-&gt;IpAddressList.IpMask.String, size2);
-        break;
-    }
-
-    free(p);
-}
-
-unsigned int __stdcall ArpThread(LPVOID lParam)
-{
-    ULONG MacAddr[2];       /* for 6-byte hardware addresses */
-    ULONG PhysAddrLen = 6;  /* default to length of six bytes */
-
-#if 1
-    EnterCriticalSection(&amp;cs);
-    //converts to TCP/IP network byte order (which is big-endian) 
-    unsigned long dstIP=htonl(++netIp);
-    LeaveCriticalSection(&amp;cs);
-#else
-    // Reference: http://blog.csdn.net/morewindows/article/details/7429155
-    //netIp++;  
-    InterlockedIncrement((LPLONG)&amp;netIp);
-    unsigned long dstIP=htonl(netIp);
-#endif
-
-    if (NO_ERROR == SendARP(dstIP, 0,&amp;(MacAddr[0]),&amp;PhysAddrLen)) {
-        EnterCriticalSection(&amp;cs);
-        BYTE* bPhysAddr = (BYTE *) &amp; MacAddr;
-        if (PhysAddrLen) {
-            struct in_addr addr1;
-            memcpy(&amp;addr1, &amp;dstIP, 4);
-            printf(&quot;%16s : &quot;, inet_ntoa(addr1));
-            for (int i = 0; i &lt; (int) PhysAddrLen; i++) {
-                if (i == (PhysAddrLen - 1))
-                    printf(&quot;%.2X\n&quot;, (int) bPhysAddr[i]);
-                else
-                    printf(&quot;%.2X-&quot;, (int) bPhysAddr[i]);
-            }
-        } else
-            printf(&quot;Warning: SendArp completed successfully, but returned length=0\n&quot;);
-        LeaveCriticalSection(&amp;cs);
-    }
-
-    return 0;
-}
-
-int main(int argc, char **argv)
-{
-    IPAddr SrcIp = 0;
-
-    char strSrcIP[16] = {0};
-    char strSrcMask[16] = {0};
-    // Get Host IP and Mask
-    GetHostIP(strSrcIP, sizeof(strSrcIP), strSrcMask, sizeof(strSrcMask));
-
-    InitializeCriticalSection(&amp;cs);
-
-    SrcIp = inet_addr(strSrcIP);
-    unsigned long findMask=inet_addr(strSrcMask);
-    int netsize = ~ntohl(findMask);
-    netIp = ntohl(SrcIp &amp; findMask); 
-
-#if 0
-    unsigned long dstIp;
-    struct in_addr addr1;
-    HANDLE hThr[63] = {0};
-    for (int i=1; i&lt;64; i++)
-    {
-        //converts to TCP/IP network byte order (which is big-endian) 
-         dstIp=htonl(netIp+i);
-
-         hThr[i-1] = (HANDLE)_beginthreadex(NULL, 0, ArpThread, &amp;dstIp, 0, NULL);
-    }
-
-    WaitForMultipleObjects(63,&amp;(hThr[0]),TRUE,INFINITE);
-#else
-    HANDLE *phThread = (HANDLE*)malloc(netsize*sizeof(HANDLE));
-    for (int i=1; i&lt;netsize; i++)
-    {
-        // _beginthreadex if more effect than CreateThread
-        // you can google it for more information
-        phThread[i-1] = (HANDLE)_beginthreadex(NULL, 0, ArpThread, 0, 0, NULL);
-    }
-
-    // There is a limit count for function WaitForMultipleObjects
-    int netcount = netsize-1;
-    int waitcount = 0;
-    for (int i=0; i&lt;netcount;)
-    {
-        waitcount = MAXIMUM_WAIT_OBJECTS;
-        if (netcount-i&lt;MAXIMUM_WAIT_OBJECTS)
-            waitcount = netcount-i;
-        WaitForMultipleObjects(waitcount,&amp;(phThread[i]),TRUE,INFINITE);
-        i += waitcount;
-    }
-
-    free(phThread);
-
-#endif
-
-    DeleteCriticalSection(&amp;cs);
-
-    //system(&quot;pause&quot;);
-    return 0;
-}
-</code></pre><p><strong>output as below:(For security reasons, replace some of the characters as asterisks)</strong>  </p>
-<pre><code>  192.168.50.1 : **-**-E2-**-C7-**
-  192.168.50.2 : **-**-4C-**-00-**
- 192.168.50.16 : **-**-19-**-46-**
- 192.168.50.22 : **-**-09-**-3A-**
- 192.168.50.28 : **-**-AE-**-E6-**
- ...
-192.168.50.129 : **-**-9B-**-19-**
-192.168.50.238 : **-**-6F-**-28-**
-Press any key to continue. . .
-</code></pre><h3 id="find-alive-hosts-with-icmp-protocol"><a href="#Find-alive-hosts-with-icmp-protocol" class="headerlink" title="Find alive hosts with icmp protocol"></a>Find alive hosts with icmp protocol</h3><pre><code>// Find alive hosts with icmp protocol
-// Win32 console project, compile with VS2005
-// Create by Dennis
-// 2013-04-09
-
-// Reference:
-// http://msdn.microsoft.com/en-us/library/windows/desktop/aa366050%28v=vs.85%29.aspx
-
-#include &lt;winsock2.h&gt;
-#include &lt;iphlpapi.h&gt;
-#include &lt;icmpapi.h&gt;
-#include &lt;process.h&gt;
-#include &lt;stdio.h&gt;
-
-#pragma comment(lib, &quot;iphlpapi.lib&quot;)
-#pragma comment(lib, &quot;ws2_32.lib&quot;)
-
-#define IP_SECTION &quot;192.168.110.%d&quot;
-
-CRITICAL_SECTION cs;
-int g_ip_index = 0;
-
-unsigned int __stdcall IcmpThread(LPVOID LPARAM)
-{
-    // Declare and initialize variables
-
-    EnterCriticalSection(&amp;cs);
-    char ip[16] = {0};
-    sprintf(ip, IP_SECTION, ++g_ip_index);
-    HANDLE hIcmpFile;
-    unsigned long ipaddr = INADDR_NONE;
-    DWORD dwRetVal = 0;
-    char SendData[32] = &quot;Data Buffer&quot;;
-    LPVOID ReplyBuffer = NULL;
-    DWORD ReplySize = 0;
-
-    ipaddr = inet_addr(ip);
-    if (ipaddr == INADDR_NONE) {
-        return 1;
-    }
-
-    hIcmpFile = IcmpCreateFile();
-    if (hIcmpFile == INVALID_HANDLE_VALUE) {
-        printf(&quot;\tUnable to open handle.\n&quot;);
-        printf(&quot;IcmpCreatefile returned error: %ld\n&quot;, GetLastError() );
-        return 1;
-    }    
-
-    ReplySize = sizeof(ICMP_ECHO_REPLY) + sizeof(SendData);
-    ReplyBuffer = (VOID*) malloc(ReplySize);
-    if (ReplyBuffer == NULL) {
-        printf(&quot;\tUnable to allocate memory\n&quot;);
-        return 1;
-    }    
-    LeaveCriticalSection(&amp;cs);
-
-    dwRetVal = IcmpSendEcho(hIcmpFile, ipaddr, SendData, sizeof(SendData), 
-        NULL, ReplyBuffer, ReplySize, 10);
-#if 0
-    if (dwRetVal != 0) {
-        PICMP_ECHO_REPLY pEchoReply = (PICMP_ECHO_REPLY)ReplyBuffer;
-        struct in_addr ReplyAddr;
-        ReplyAddr.S_un.S_addr = pEchoReply-&gt;Address;
-        printf(&quot;\tSent icmp message to %s\n&quot;, ip);
-        if (dwRetVal &gt; 1) {
-            printf(&quot;\tReceived %ld icmp message responses\n&quot;, dwRetVal);
-            printf(&quot;\tInformation from the first response:\n&quot;); 
-        }    
-        else {    
-            printf(&quot;\tReceived %ld icmp message response\n&quot;, dwRetVal);
-            printf(&quot;\tInformation from this response:\n&quot;); 
-        }    
-        printf(&quot;\t  Received from %s\n&quot;, inet_ntoa( ReplyAddr ) );
-        printf(&quot;\t  Status = %ld\n&quot;, 
-            pEchoReply-&gt;Status);
-        printf(&quot;\t  Roundtrip time = %ld milliseconds\n&quot;, 
-            pEchoReply-&gt;RoundTripTime);
-    }
-    else {
-        printf(&quot;\tCall to IcmpSendEcho failed.\n&quot;);
-        printf(&quot;\tIcmpSendEcho returned error: %ld\n&quot;, GetLastError() );
-        return 1;
-    }
-#else
-    if (dwRetVal != 0)
-        printf(&quot;%16s is alive\n&quot;, ip);
-#endif
-}
-
-int __cdecl main(int argc, char **argv)  {
-
-    InitializeCriticalSection(&amp;cs);
-
-    int netsize = 255;
-
-    HANDLE *phThread = (HANDLE*)malloc(netsize*sizeof(HANDLE));
-    for (int i=1; i&lt;netsize; i++)
-    {
-        // _beginthreadex if more effect than CreateThread
-        // you can google it for more information
-        phThread[i-1] = (HANDLE)_beginthreadex(NULL, 0, IcmpThread, 0, 0, NULL);
-    }
-
-    // There is a limit count for function WaitForMultipleObjects
-    int netcount = netsize-1;
-    int waitcount = 0;
-    for (int i=0; i&lt;netcount;)
-    {
-        waitcount = MAXIMUM_WAIT_OBJECTS;
-        if (netcount-i&lt;MAXIMUM_WAIT_OBJECTS)
-            waitcount = netcount;
-        WaitForMultipleObjects(waitcount,&amp;(phThread[i]),TRUE,INFINITE);
-        i += waitcount;
-    }
-
-    free(phThread);
-
-    DeleteCriticalSection(&amp;cs);
-    system(&quot;pause&quot;);
-    return 0;
-}    
-</code></pre><p><strong>Output as below:</strong>  </p>
-<pre><code>  192.168.110.1 is alive
-  192.168.110.5 is alive
-  192.168.110.6 is alive
- 192.168.110.30 is alive
- 192.168.110.32 is alive
- 192.168.110.35 is alive
- ...
-192.168.110.248 is alive
-192.168.110.249 is alive
-Press any key to continue. . .
-</code></pre><h3 id="ipfind"><a href="#IPFind" class="headerlink" title="IPFind"></a>IPFind</h3><p>I have write a windows application with MFC, you can find the source code and execute file here <a href="https://github.com/matrix207/VC/blob/master/IPFind" target="_blank" rel="external">IPFind</a><br><img src="/assets/image/posts/IPFind.PNG" alt="IPFind"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/09/find-alive-hosts/" data-id="cinga3yk0005jdciz9o4a5kud" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/10/get-mac-with-netbios/" data-id="cinho3c0n005dzbizsbs69g86" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1911,7 +1696,7 @@ Press any key to continue. . .
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1930,7 +1715,7 @@ Press any key to continue. . .
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1940,9 +1725,13 @@ Press any key to continue. . .
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1958,10 +1747,6 @@ Press any key to continue. . .
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>

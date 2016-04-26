@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,210 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-linux-common-command" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/01/05/linux-common-command/" class="article-date">
+  <time datetime="2013-01-04T16:00:00.000Z" itemprop="datePublished">2013-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/01/05/linux-common-command/">Linux frequently used commands</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="shell-terminal"><a href="#shell-terminal" class="headerlink" title="shell terminal"></a>shell terminal</h4><ul>
+<li><p><code>!!</code> the previous command (Actually the latest command list with command <code>history</code>)<br><code>!-1</code> is equal to <code>!!</code><br><code>!-2</code> is second command list with command <code>history</code><br><code>!^</code>  first parameter<br><code>!:1</code> first parameter<br><code>!:n</code> the n parameter<br><code>!:$</code> last parameter  </p>
+</li>
+<li><p><code>C-A/E</code> <strong>jump to the head/end position</strong><br><code>C-U/K</code> trim to head/tail<br><code>C-P/N</code> <strong>prev/next command</strong><br><code>C-R</code>   <strong>history command</strong><br><code>C--</code>   zoom in<br><code>C-L</code>   clear screen, same as <code>clear</code><br><code>C-C</code>   cancel current command<br><code>C-&amp;</code>   cancel modify<br><code>C-T</code>   switch<br><code>C-Y</code>   paste<br><code>C-W</code>   <strong>delete a word</strong><br>Below operation need to unset Enable menu access keys option of terminal.<br><code>C-f/b</code> move cursor forward/backward a character<br><code>M-f/b</code> move cursor forward/backward a word<br><code>C-d</code>   delete a character forward<br><code>C-h</code>   delete a character backward<br><code>M-d</code>   delete a word froward<br><code>C-M-h</code> <strong>delete a word backward, the word was splited by any special symbols</strong><br><code>C-w</code>   <strong>delete a word backward, the word was splited by space symbol only</strong><br><code>C-]</code>   search character forward<br><code>C-M-]</code> <strong>search character backward</strong>  </p>
+</li>
+<li><p><code>&lt;alt&gt;+.</code> get the last parameter of previous command</p>
+</li>
+</ul>
+<h4 id="common-command"><a href="#common-command" class="headerlink" title="common command"></a>common command</h4><ul>
+<li><p><code>cd -</code> switch to last dir<br><code>cd</code> switch to user home dir  </p>
+</li>
+<li><p><code>cp filename{,.bak}</code> a fast method to bakup a file</p>
+</li>
+<li><p><code>mv filename{.bak,}</code> a fast method to cut the suffix</p>
+</li>
+<li><p><code>time command</code> count the elapsed time</p>
+</li>
+<li><p><code>mount -t cifs -o username=***,passwd=*** //ip/path /mnt/test</code><br>mount network sharing dir<br><code>mount -t iso9660 /mnt/iso/FC17-DVD.iso /mnt/dvd</code><br>use for mounting ISO file<br><code>mount --bind /root/project/myprj /root/x86_64_build/source</code><br>mount a dir to another, use for across-compilation mostly<br><code>mount -t tmpfs -o size=1024m tmpfs /mnt/ram</code><br>mount memory as a w/r dir (use for high speed I/O operation, and disk space not enough)  </p>
+</li>
+<li><p><code>tar xvf example.tar.gz -C /root/test</code> extract files to specific dir<br><code>tar tvf example.tar.gz</code> list the contents of an archive<br><code>tar -zcvf - stuff | openssl des3 -salt -k *** | dd of=stuff.des3</code> encryption<br><code>tar cvfz chenxu.tar.gz dir --exclude dir/dir1 --exclude dir/dir2/dir3</code><br><code>tar -xvf 1425279081.tar.gz var/log/message</code> get only one file<br><code>dd if=stuff.des3 | openssl des3 -d -k *** | tar zxf -</code> decryption<br><code>7z a -t7z -ptestpsw123 mytest.7z -r testfolder/*</code> zip folder and encrypt it by 7z  </p>
+</li>
+<li><p><code>getconf LONG_BIT</code>           print the operator system bits<br><code>grep -c &quot;lm&quot; /proc/cpuinfo</code> if output is not 0, it is 64bit cpu  </p>
+</li>
+<li><p><code>du -sh</code><br><code>du -s * |sort -n |tail</code></p>
+</li>
+<li><p><code>free   bg   kill pid    killall proc    chmod 777 (r:4,w:2,x:1)(user,group,all)</code></p>
+</li>
+<li><p><code>find / -name &quot;***&quot;</code><br><code>find path \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec grep -in &quot;***&quot; {} \;</code><br><code>find ./ -name &quot;*.*&quot; -exec ls -l {} \; |awk &apos;{print $5,$9}&apos; |sort -n |tail</code> find the 10 biggest files.<br><code>find / -type d -name &quot;gedit&quot;</code> search direactorys<br><code>find . \( -path ./.git -o -path dir2 \) -prune -o -type d -print</code> search sub-dir, except .git and dir2<br><code>find /usr/include/ -path /usr/include/boost -prune -o -name &apos;*.h&apos; -print &gt;1.txt</code><br><code>find . -name &quot;.svn&quot; | xargs rm -rf</code> find .svn folder in current directory, and remove it.<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) -exec wc -l {} \; | awk &apos;{s+=$1} END {print s}&apos;</code> count lines of specify files<br><code>find ./ \( -name &quot;*.h&quot; -or -name &quot;*.c&quot; \) | xargs wc -l | tail -n 1</code> count lines of specify files<br>the upon two command can count lines of specify files, but what is the<br>difference of them, look this<br><a href="http://stackoverflow.com/questions/13651212/unix-difference-xargs-and-exec" target="_blank" rel="external">Difference xargs and exec</a><br>you will find the answer.<br><code>find ./ -path ./perl -prune -o -name &quot;*.so&quot; -exec cp {} ../net-snmp-5.4.4-sdk/lib/ \;</code><br>copy files which search by find, search exclude ./perl path<br><code>find /usr -size +100M</code>  find file size larger than 100M<br><code>find /home -mtime +120</code><br><code>find /var \! -atime -90</code><br><code>find &lt;dir&gt; -executable -type f</code> only find executable files  </p>
+</li>
+<li><p><code>grep -r &quot;abc&quot; /root/source</code><br><code>grep -r --include &quot;*.h&quot; &quot;date&quot; path</code><br><code>grep -m 1 &quot;model name&quot; /proc/cpuinfo</code> only display the first match line<br><code>grep -i -E &quot;abc|123&quot;</code> match abc or 123, -i ignore, -E extended regular expression.<br><code>grep -r -l &quot;main&quot; .</code> search all files under each directory, -l files-with-match, -L files-withou-match<br><code>grep -w &quot;linux&quot; *.md</code> match word<br><code>grep -rl --include=*.{h,cpp} &quot;socket&quot; .</code> search socket only with <em>.h </em>.cpp files<br><code>grep --exclude-dir=&quot;_posts&quot; --exclude-dir=&quot;_site&quot;  -r &quot;Dennis&quot; ./</code>  exclude specify directory<br><code>grep -rni &apos;[^a-zA-Z]abc[^a-zA-Z]&apos; ./</code>  match like &#x201C;tt.abc.1234&#x201D;, not match like &#x201C;ttabccd&#x201D;</p>
+</li>
+<li><p><code>cut -d&quot;&quot; -f1</code><br>e.g:<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot;</code><br>Core 0:       +30.0&#xB0;C  (high = +76.0&#xB0;C, crit = +100.0&#xB0;C)<br>Core 1:       +37.0&#xB0;C  (high = +76.0&#xB0;C, crit = +100.0&#xB0;C)<br><code>[root@localhost ~]# sensors |grep &quot;Core &quot; |cut -d&quot;+&quot; -f2 |cut -d&quot; &quot; -f1</code><br>30.0&#xB0;C<br>37.0&#xB0;C  </p>
+</li>
+<li><p><code>history|awk &apos;{print $2}&apos;|awk &apos;begin {FS=&quot;|&quot;} {print $1}&apos;|sort|uniq -c|sort -rn|head -10</code></p>
+</li>
+<li><p><code>ps aux | sort -nk +4 | tail</code><br><code>ps -eo pid,lstart,etime | grep 3208</code> view the start and running time of specify process.<br><code>ps axjf</code> print process tree<br><code>ps -ef</code> see every process<br><code>ps -eLf</code> get about thread info<br><code>ps -U root -u root u</code> see every process running as root<br><code>pgrep firefox</code> print the procee id of firefox  </p>
+</li>
+<li><p><code>uname -a</code></p>
+</li>
+<li><p><code>whereis cp</code><br><code>rpm -qf /usr/bin/cp</code><br><code>rpm -ivp ***.rpm</code>  </p>
+</li>
+<li><p><code>rpm -qpl packetname</code> list files<br><code>rpm -i --relocate</code> change install directory<br><code>rpm -qa |grep XXX</code> check whether XXX was installed<br><code>rpm -e $(rpm -qf $(which teamviewer))</code> remove software  </p>
+</li>
+<li><p><code>mkdir -p /test/dir1/dir2/dir3</code></p>
+</li>
+<li><p><code>ftp 192.168.1.102 2121</code><br><code>pwd</code> view remote directory<br><code>lcd</code> change to the local directory<br><code>!ls</code> list local files<br><code>put 1.jpg</code><br><code>get 2.jpg</code><br><code>mput *.jpg</code><br><code>mget *.jpg</code>download multiple files<br><code>bye</code>  </p>
+</li>
+<li><code>wget ftp://IP:PORT/* --ftp-user=xxx --ftp-password=xxx -r</code> support download<br>multiple files and directories, good to replace <code>ftp</code></li>
+</ul>
+<h4 id="awk-and-sed"><a href="#awk-and-sed" class="headerlink" title="awk and sed"></a>awk and sed</h4><ul>
+<li><p>awk<br><code>awk FS&apos;&apos; &apos;condition1{operator1}condition2{operator2}...&apos; filename</code><br>NR:number row, NF:number field<br><code>awk &apos;NR==1{print $0}&apos;</code><br><code>arr=($(awk -F&apos;#&apos; &apos;{print $1,$2,$3,$4}&apos; $conf_file))</code><br><code>ps aux | awk &apos;NR==1{print $0}$3&gt;10{print $0}&apos;</code><br><code>awk -F&apos;&lt;|&gt;&apos; &apos;{if(NF&gt;3){print $2 &quot;:&quot; $3}}&apos; /tmp/test.xml</code> parse xml file<br><code>awk -F&apos;=&apos; &apos;/HWADDR/{print $2}&apos; /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
+</li>
+<li><p>sed<br><code>sed [options] &apos;command&apos; file(s)</code><br><code>sed [options] -f scriptfile file(s)</code><br><code>sed -i &apos;/&apos;$prj&apos;/{s/\(.*#.*#\)[0-9]\+/\1&apos;$rev_new&apos;/}&apos; $conf_file</code><br><code>sed -n 10,23p filepath</code> -n print the specific lines<br><code>sed &apos;N;s/\n/ /&apos; filepath</code> join two line into one<br><code>echo -e &quot;11\n22\n33\n&quot; | sed -n &apos;/22/{n;p}&apos;</code> print next line after match<br><code>sed &apos;:a;N;s/\n/ /;ba;&apos; file</code> join all lines  </p>
+</li>
+</ul>
+<h4 id="git-and-svn"><a href="#git-and-svn" class="headerlink" title="git and svn"></a>git and svn</h4><ul>
+<li><p>git<br><code>git clone url</code><br><code>git add .</code><br><code>git commit -m &quot;***&quot;</code><br><code>git commit file -m &quot;***&quot;</code><br><code>git push origin master</code><br><code>git status</code><br><code>git diff</code><br><code>git rm ***</code> remove file<br><code>git rm -r ***</code> remove directory<br><code>git pull</code><br><code>git mv *** ###</code><br><code>git remote -v</code> show remote repository info<br><code>git reset &lt;file&gt;</code> undo git add<br><code>git checkout HEAD /path/file</code> undo git rm on one file<br><code>git rm $(git ls-files --deleted)</code> undo git rm multiple files  </p>
+</li>
+<li><p>svn<br><code>svn list url</code><br><code>svn co url</code><br><code>svn status</code><br><code>svn update</code><br><code>svn info url</code><br><code>svn di</code><br><code>svn di -r ver1:ver2</code><br><code>svn di -r ver1:ver2 path</code><br><code>svn revert [-R] path</code><br><code>svn merge -r ver2:ver1 path</code><br><code>svn log -r ver1:ver2</code><br><code>svn log -l5</code> show 5 latest logs<br><code>svn add path</code><br><code>svn commit -m &quot;***&quot;</code><br><code>svn ci path -m &quot;***&quot;</code><br><code>ls ~/.subversion/auth/svn.simple</code> user information location  </p>
+</li>
+</ul>
+<h4 id="network"><a href="#network" class="headerlink" title="network"></a>network</h4><ul>
+<li><code>ip addr</code><br><code>cat /sys/class/net/eth{0,1}/address</code> display mac address<br><code>ip addr add 172.16.60.69/24 dev eth1</code>  </li>
+<li><code>ifconfig eth0 down; ifconfig eth0 hw ether MAC_ADDR; ifconfig eth0 up</code> change MAC address<br><code>ifconfig eth2 192.168.1.102 netmask 255.255.255.0 up</code> add ip address for eth2<br><code>ifconfig eth2:1 192.168.1.23 netmask 255.255.255.0 up</code> add another ip for eth2<br><code>ifconfig eth0 mtu 6000</code> set MTU  </li>
+<li><code>ping -I 192.16.4.23 192.16.4.70</code> set source address to specified interface address  </li>
+<li><code>route add default gw 172.16.130.1 eth2</code><br><code>route del default gw 172.16.130.1 eth2</code><br><code>route add -host 192.168.168.110 dev eth0</code><br><code>route del -host 192.168.168.110 dev eth0</code><br><code>route add -net 172.16.130.0/24 gw 172.16.130.1 eth2</code><br><code>route del -net 172.16.0.0 netmask 255.255.0.0 dev eth0</code><br><code>ip route flush cache</code>  </li>
+<li><code>python -m SimpleHTTPServer</code><br><code>python -m http.server</code> for windows  </li>
+<li><code>ssh root@172.168.1.101</code>  </li>
+<li><code>ssh -f -NC -D7070 user@shell.cjb.net</code> ssh tunnel<br><code>ssh -f -NC -D7070 user@216.194.70.6</code> ssh tunnel </li>
+<li><code>scp abc.sh root@172.168.1.101:/root/test</code> upload file<br><code>scp root@172.168.1.101:/root/test/abc.sh /root/mytest</code> download file<br><code>sshpass -p passwd scp abc.sh root@172.168.1.101:/root/test</code></li>
+<li><code>nmap ip</code><br><code>nmap 192.168.1.1 -p 8000</code>  check the port is open or not<br><code>nmap -v -sn 192.168.1.1/24</code><br><code>nmap -v -sn 192.168.1.1/24 |grep &apos;report&apos; |grep -v &apos;down&apos; |awk &apos;{print $NF}&apos;</code> scan local alive ip  </li>
+<li><code>nc -z -w 1 IP PORT</code><br><code>nc -z -w 1 192.168.1.1 100</code><br><code>nc -z -w 1 -u 192.168.1.1 100</code><br><code>nc -z -w 1 192.168.1.100 1-65535</code> scan all ports from 1 to 65535  </li>
+<li><code>lsof -i:111</code><br><code>netstat -apn | grep 111</code><br><code>iptables -L</code> list rules<br><code>iptables -L INPUT --line-numbers</code><br><code>iptables -A INPUT -p tcp --dport 111 -j DROP</code> forbid specific port<br><code>iptables -A OUTPUT -p tcp --dport 111 -j DROP</code><br><code>iptables -A INPUT -p tcp --dport 8024 -j ACCEPT</code> all rule, allow port 8024<br><code>iptables -I INPUT 5 -p tcp --dport 8024 -j ACCEPT</code> add rule to specify position(5)<br><code>iptables -D INPUT -p tcp --dport 8024 -j ACCEPT</code> delete rule<br><code>service iptables save</code><br><code>service iptables stop</code><br><code>service iptables start</code>  </li>
+<li><code>curl ifconfig.me</code><br><code>curl ipinfo.io/IP_ADDRESS</code> get geographic location of an IP address  </li>
+<li><code>geoiplookup IP_ADDRESS</code>  </li>
+<li><code>dig domain</code>   <code>dig -x host</code></li>
+<li><code>netstat -nlp</code> view service and listen ports<br><code>netstat -npt</code> view tcp connections<br><code>netstat -s</code> display networking statistics  </li>
+<li><code>wget url</code> download file<br><code>wget -m -p -np -k -E http://site/path/</code> mirror the site<br><code>wget -A pdf,jpg -m -p -np -k -E http://site/path/</code> only download pdf and jpg file<br><code>wget url_file -O new_name.file</code> rename  </li>
+<li><code>tcpdump -D</code> list available device(run as root)<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 80 -n</code> use specify interface &#x201C;p4p1&#x201D;<br><code>tcpdump -i p4p1 host 172.16.130.88 and port 3260 -w tcpdump.pcap</code><br><code>tcpdump -l | tee dat</code><br><code>tcpdump -U host 172.16.130.88 and port 3260 -w tcpdump.pcap</code> flush each packet to packet-buffered<br><code>tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</code><br><code>tcpdump -i eth0 src host hostname</code><br><code>tcpdump -i eth0 dst host hostname</code><br><code>tcpdump -n -e -i eth0 icmp</code><br><code>tcpdump -n -e icmp</code><br><code>tcpdump -n -e arp</code>  </li>
+<li><code>telnet 172.16.50.39 3128</code> check port is available or not</li>
+<li><code>arp -a</code>  </li>
+<li><code>squid -CNd1</code>  </li>
+<li><code>traceroute www.baidu.com</code>  display all the route from my host to the website  </li>
+</ul>
+<h4 id="os"><a href="#os" class="headerlink" title="os"></a>os</h4><ul>
+<li>Fedora<br><code>Alt+Tab</code> switch windows<br><code>Alt+` </code>  switch sub-windows<br><code>Win</code> windows key, use to show all application<br><code>Win</code> -&gt; <code>Space</code> , search application  </li>
+<li>yum use local repository  <ul>
+<li>mount iso file to /mnt/cdrom</li>
+<li>modify /etc/yum.repos.d/CentOS-Media.repo, add text &#x201C;file:///mnt/cdrom/&#x201C;<br>[c6-media]<br>name=CentOS-$releasever - Media<br>baseurl=file:///media/CentOS/  <pre><code>file:///media/cdrom/  
+file:///media/cdrecorder/  
+file:///mnt/cdrom/  
+</code></pre>gdgcheck=1<br>enabled=1<br>gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6  </li>
+</ul>
+</li>
+<li><code>yum install XXX -y</code><br><code>yum search XXX</code><br><code>yum remove XXX</code><br><code>yum clean all</code><br><code>yum makecache</code>  </li>
+<li>Ubuntu<br>reset root password, press &#x2018;e&#x2019; to edit grub boot option, change &#x2018;ro quiet splash&#x2019;<br>to &#x2018;rw init=/bin/bash&#x2019;, then login terminal with root, use &#x2018;passwd&#x2019; to reset.</li>
+<li>Ubuntu remove software<ul>
+<li>dpkg &#x2013;get-selections | grep &#x2018;software-name&#x2019;</li>
+<li>sudo apt-get remove &#x2013;purge software_name</li>
+<li>dpkg -l |grep ^rc|awk &#x2018;{print $2}&#x2019; |sudo xargs dpkg -P  </li>
+</ul>
+</li>
+</ul>
+<h4 id="vimperatorfirfox-plugin"><a href="#vimperator-Firfox-plugin" class="headerlink" title="vimperator(Firfox plugin)"></a>vimperator(Firfox plugin)</h4><ul>
+<li>vimperator<br><code>:help</code>  Open help page<br><code>:helpall</code>  Show all help on one page<br><code>C-[</code>    cancel command mode<br><code>d</code>      close current page<br><code>u</code>      undo close current page<br><code>/</code>      search<br><code>H</code>      Go back in the browser history<br><code>gg</code>     Go to the top of the page<br><code>G</code>      Go to the bottom of the page<br><code>C-f</code>    forward page<br><code>C-b</code>    backward page<br><code>y</code>      Copy the current URL to clipboad<br><code>p</code>      Open the URL from current clipboad contents in current buffer<br><code>P</code>      Open the URL from current clipboad contents in a new tab buffer<br><code>r</code>      Reload current page<br><code>ZZ</code>     Quit and save the session<br><code>C-n</code>    Go to the next buffer<br><code>C-p</code>    Go to the previous buffer<br><code>gi</code>     Go to input field<br><code>g-u</code>    Go to the parent directory<br><code>g-U</code>    Go to the root of the website<br><code>c</code>      Start caret mode.Like normal mode of vim, use <code>h j k l</code> to move, and<br>press <code>v</code> to start visual mode, then press <code>y</code> to copy select text<br><code>gi</code>     Use [count]gi to Focus to the [count]th input field<br><code>C-l</code>    Go to URL editor and select it<br><code>C-t</code>    Open a new tab  </li>
+</ul>
+<h4 id="program"><a href="#program" class="headerlink" title="program"></a>program</h4><ul>
+<li><code>man 2 sys_call_name</code> view system call function description<br><code>man 2 open</code>, <code>man 2 read</code>, <code>man 2 write</code>, <code>man 2 fork</code><br><code>man 3 errno</code> view error number description<br><code>man 3 printf</code><br><code>man ascii</code>  </li>
+</ul>
+<h4 id="others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><ul>
+<li><code>vimdiff a.log b.log</code> diff two files<br><code>vim -b file</code> edit binary file, use <code>:%!xxd</code> and <code>:%!xxd -r</code>  </li>
+<li><code>diff /tmp/test01 /tmp/test02</code> compare file in two directory<br><code>diff -r /tmp/test01 /tmp/test02</code> compare file in directory and subdirectory<br><code>diff /tmp/test01/1.c /tmp/test02/2.c</code> compare two files  </li>
+<li>patch<br><code>diff a.c b.c &gt; c.patch</code><br><code>patch a.c c.patch</code>  </li>
+<li><code>vmstat iostat ifstat nload top hexdump od</code><br><code>hexdump -C filename</code> display hex+ASCII of file<br><code>iostat -x 2 5</code><br><code>ipcs</code> show all ipc info<br><code>nload</code> monitor network traffic, use <code>tab</code> key to switch to next interface, and <code>q</code> to quit.  </li>
+<li><code>dd if=/dev/zero of=$test_file bs=1M count=$dev_size 2&gt;&gt; $log</code><br><code>dd of=/dev/sdh of=/dev/zero bs=1M count=500 oflag=direct</code> test the real hard disk speed<br><code>dd if=path/Fedora-os.iso of=/dev/sdb</code> install fedora live os to U disk(make<br>sure the mount directory of U disk is /dev/sdb, if not should change the out file directory)  </li>
+<li><code>&gt; file.txt</code></li>
+<li><code>watch -n 5 command</code></li>
+<li><code>chroot .</code></li>
+<li><code>date &quot;+%F %R:%S&quot;</code><br><code>date &quot;+%y%m%d%H%M%S&quot;</code><br><code>date +%s</code> print timestamp of current time<br><code>date -d @1420210697</code> translate timestamp to datetime<br><code>date +%s -d&quot;Jan 1, 1970 00:00:01&quot;</code> translate datetime to timestamp   </li>
+<li><code>which executefile</code> print directory of executefile<br><code>ldd /usr/bin/executefile</code> print shared library dependencies<br><code>nm /usr/lib64/libXXX.so</code> print interface  </li>
+<li><code>cat /proc/uptime | awk -F. &apos;{d=($1/86400);h=($1%86400)/3600;m=($1%3600)/60;s=($1%60);printf(&quot;system had run %d day %d hours %d mins %d secs\n&quot;,d,h,m,s)}&apos;</code></li>
+<li><code>fuser -u /home</code><br><code>fuser -v -n tcp 7070</code>  </li>
+<li><code>echo 1 &gt; /proc/sys/kernel/sysrq</code> enable sysrq<br><code>echo &quot;b&quot; &gt; /proc/sysrq-trigger</code>  reboot<br><code>echo &quot;o&quot; &gt; /proc/sysrq-trigger</code>  shutdown<br><code>shutdown -h now</code>                 shutdown<br><code>shutdown -h +10</code> shutdown 10 minutes later<br><code>shutdown -h 10:00</code> shutdown at ten clock  </li>
+<li><code>dmidecode | more</code>    : view mainboard info<br><code>cat /proc/cpuinfo</code>   : view CPU info<br><code>cat /proc/pci</code>       : view pci info<br><code>lspci</code>              : view PCI info<br><code>cat /proc/meminfo</code>   : view memory info<br><code>fdisk -l</code>            : view disk info<br><code>df</code>                  : view disk space useage<br><code>cat /proc/interrupts</code>: view interrupt request<br><code>dmesg | more</code>        : view device debug message  </li>
+<li><code>pdftk *.pdf cat output onelargepdfile.pdf</code> merge pdf to one<br><code>pdftk test.pdf cat 1-3 6-20 22-end output net.pdf</code> cut page 4,5,21 from file<br><code>qpdf --password=1234 --decrypt encrypted.pdf decrypted.pdf</code> decrypt pdf file<br><code>qpdf --decrypt encrypted.pdf decrypted.pdf</code> for empty password   </li>
+<li><code>vi -e -s -c &quot;:%s/pattern/string/g&quot; -c &quot;:wq&quot; file</code> execute vi comand in shell</li>
+<li>format u disk<br><code>fdisk -l</code>            : find u disk<br><code>umount /dev/sdb1</code>    : umount u disk<br><code>mkfs.vfat /dev/sdb1</code> : format as fat  </li>
+<li><code>history -c</code> clean<br><code>history -d offset</code> delete specify command  </li>
+<li><code>convert -resize 1024x768 input.svg output.png</code> convert svg to png<br><code>convert file.pdf file.png</code> convert pdf to images(file-XX.png)<br><code>convert *.png file.pdf</code> convert images to one pdf<br><code>convert -fill green -pointsize 40 -draw &apos;text 10,50 &quot;funny day&quot;&apos; foo.png comment.png</code> add text to picture  </li>
+<li><code>import foo.png</code> capture a select rectangular  </li>
+<li><code>for i in</code>ls<code>; do mv -f $i</code>echo $i | sed &#x2018;s/^&#x2026;&#x2026;&#x2026;/iscsi/&#x2018;<code>; done</code> rename<br>  files, replace the first 5 characters with <code>iscsi</code>  </li>
+<li><code>fc-list</code> list fonts  </li>
+<li><code>strace -o 1.log -s 1024 -T -tt -p 1234</code> print the system call and time used for process 1234</li>
+<li><code>printf</code> format and print data<br><code>printf &apos;%x\n&apos; 1550</code> convert octal value 1550 to hex, output 60e<br><code>printf &apos;%d\n&apos; 0x99</code> convert hex value 0x99 to octal, output 153   </li>
+<li><code>echo &quot;51200000/64/3&#x201C; |bc -l</code> calculate</li>
+<li><code>echo &apos;abc 123dd   3xxx tt&apos; |tr -s &apos;[:space:]&apos; &apos;\n&apos;</code> translate spaces to be line break symbol<br><code>echo &apos;abc 123dT 3xXX tt&apos; |tr &apos;[:upper:]&apos; &apos;[:lower:]&apos;</code><br><code>cat test.md |tr -s &apos;[:space:]&apos; &apos;\n&apos; |tr &apos;[:upper:]&apos; &apos;[:lower:]&apos; |sort |uniq -c| sort -nr |head -10</code><br> find the top hot words for text document.</li>
+<li><code>zip -Phq.hzy.zf.xf.hx.l@123 test.zip test</code> zip &#x201C;test&#x201D; file to be test.zip using password<br><code>unzip -Phq.hzy.zf.xf.hx.l@123 test.zip</code> unzip zip file with password<br><code>unzip -Z test.zip</code> unzip file without password<br><code>cat abc.zip.00* &gt;abc.zip</code> merge zip files  </li>
+<li><code>pkill -9 -t pts/1</code>  </li>
+<li><code>setenforce 0</code>  forbid Selinux temporary<br><code>sed -i &apos;s/SELINUX=.*/SELINUX=disabled/g&apos; /etc/selinux/config</code> forbid Selinux, need reboot  </li>
+<li><code>kill PID</code><br><code>kill -9 PID</code><br><code>kill -kill PID</code>  </li>
+<li><code>vgchange -ay</code>  </li>
+<li><code>lsof |grep &apos;/core/messages&apos;</code> find which application open the specify file</li>
+<li><code>for x in</code>seq 1 1 10<code>; do ps -eo state,pid,cmd | grep &quot;^D&quot;; echo &quot;----&quot;; sleep 5; done</code><br>print the processes in a &#x201C;D&#x201D; state every 5 seconds for 10 intervals </li>
+<li><code>echo export LANG=en_US.utf8 &gt;&gt;~/.profile</code>, set lang for os,  and checking with <code>echo $LANG</code> or <code>locale</code></li>
+<li><code>gstack threadID</code></li>
+<li><code>rm !(*.pdf)</code> remove files except pdf</li>
+<li><code>[! -d /temp/test] &amp;&amp; mkdir /tmp/test</code> if folder not exist, create it.</li>
+</ul>
+<h4 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">&#x4F60;&#x53EF;&#x80FD;&#x4E0D;&#x77E5;&#x9053;&#x7684;Shell</a></li>
+<li><a href="http://ahei.info/bash.htm" target="_blank" rel="external">&#x9AD8;&#x6548;&#x64CD;&#x4F5C;Bash</a></li>
+<li><a href="http://docs.huihoo.com/homepage/shredderyin/readline.html" target="_blank" rel="external">Bash readline &#x4F7F;&#x7528;&#x6280;&#x5DE7;</a></li>
+<li><a href="http://floss.zoomquiet.org/item20051011211622-frameset.html" target="_blank" rel="external">Shell&#x5927;&#x6742;&#x70E9;</a></li>
+<li><a href="http://blog.jobbole.com/54425/" target="_blank" rel="external">&#x6BCF;&#x4E2A;Linux&#x7528;&#x6237;&#x90FD;&#x5E94;&#x8BE5;&#x77E5;&#x9053;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x6280;&#x5DE7;</a></li>
+<li><a href="http://www.cyberciti.biz/faq/check-network-connection-linux/" target="_blank" rel="external">Check network connection command</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/11/50-linux-commands/" target="_blank" rel="external">50 Most Frequently Used UNIX / Linux Commands (With Examples)</a></li>
+<li><a href="http://albanianwizard.org/tcpdump-how-to-the-linux-troubleshooter.albanianwizard" target="_blank" rel="external">Tcpdump how to &#x2013; the linux network troubleshooter</a></li>
+<li><a href="http://linux.cn/article-4790-1.html" target="_blank" rel="external">20&#x6761;Linux&#x547D;&#x4EE4;&#x9762;&#x8BD5;&#x95EE;&#x7B54;</a></li>
+<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump&#x547D;&#x4EE4;&#x8BE6;&#x89E3;</a></li>
+<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap&#x626B;&#x63CF;&#x539F;&#x7406;&#x4E0E;&#x7528;&#x6CD5;</a></li>
+<li><a href="http://easwy.com/blog/archives/change-rpm-package-installation-directories/" target="_blank" rel="external">Linux&#x4F7F;&#x7528;&#x7B14;&#x8BB0;: &#x66F4;&#x6539;RPM&#x5305;&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/01/05/linux-common-command/" data-id="cinho3bzc0026zbizmrwsmue7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-copy-file-with-progress-bar" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -171,7 +375,7 @@ echo
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/01/04/copy-file-with-progress-bar/" data-id="cinga3yiq0028dciz5k21csog" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/01/04/copy-file-with-progress-bar/" data-id="cinho3bz8001yzbizto1k4kzs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -291,10 +495,98 @@ project02#http://172.168.1.122/repos/dev/project02#18635#usr02@gmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cinga3yhd001jdciz2tzx7rqp" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/12/20/svn-project-revision-monitor-linux/" data-id="cinho3byx001dzbizq4db9zrh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-visual-studio-project-atuo-compile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/12/17/visual-studio-project-atuo-compile/" class="article-date">
+  <time datetime="2012-12-16T16:00:00.000Z" itemprop="datePublished">2012-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/windows/">windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/12/17/visual-studio-project-atuo-compile/">Viusal studio project auto compile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="windows-requirements"><a href="#Windows-Requirements" class="headerlink" title="Windows Requirements"></a>Windows Requirements</h3><pre><code>microsoft visual studio 2005 or newer
+subversion 1.7.7 or newer
+
+add the path of command tool &quot;svn&quot; and &quot;devenv&quot; to environment path
+</code></pre><h3 id="check-out-project-by-svn"><a href="#check-out-project-by-svn" class="headerlink" title="check out project by svn"></a>check out project by svn</h3><p><code>svn co project_svn_url output_path -r revision</code>  </p>
+<p><strong>svn_co.bat</strong>  </p>
+<pre><code>@ECHO off&amp;SETlocal enabledelayedexpansion 
+
+REM Useage: svn_co.bat svn_src_url out_path revision log_file
+
+SET func=&quot;check out project&quot;
+
+SET src_url=%1
+SET out_path=%2
+SET src_rev=%3
+SET log_file=%4
+SET parameters=%src_url%
+
+IF NOT &quot;%out_path%&quot;==&quot;&quot; SET parameters=!parameters! %out_path%
+
+IF NOT &quot;%src_rev%&quot;==&quot;&quot; SET parameters=!parameters! -r %src_rev%
+
+SET log_file_tmp=NUL
+IF NOT &quot;%log_file%&quot;==&quot;&quot; SET log_file_tmp=%log_file%
+
+svn co !parameters!
+
+SET /a ret_code=%ERRORLEVEL%
+IF %ret_code% EQU 0 (
+    @ECHO svn checkout success
+) ELSE (
+    @ECHO svn checkout fail
+)
+</code></pre><h3 id="use-devenv-for-compile"><a href="#use-devenv-for-compile" class="headerlink" title="use devenv for compile"></a>use devenv for compile</h3><p><code>devenv solution_file /build &quot;release|win32&quot;</code>  </p>
+<p><strong>compile.bat</strong>  </p>
+<pre><code>@ECHO off
+
+REM Useage: compile.bat solution_file
+
+SET sln_file=%1
+SET cfg_build=&quot;Release|Win32&quot;
+
+devenv %sln_file% /build %cfg_build%
+
+SET /A retval=%ERRORLEVEL%
+EXIT /B %retval%
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cinho3bz3001rzbiz7n91a3zv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
 
     </footer>
   </div>
@@ -658,7 +950,7 @@ IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cinga3yhb001hdcizldtvmo4z" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/12/17/monitor-hardware-status/" data-id="cinho3byw001bzbizoixtid5y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -668,10 +960,10 @@ IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
 
 
   
-    <article id="post-visual-studio-project-atuo-compile" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-send-mail-by-blat" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2012/12/17/visual-studio-project-atuo-compile/" class="article-date">
-  <time datetime="2012-12-16T16:00:00.000Z" itemprop="datePublished">2012-12-17</time>
+    <a href="/2012/12/15/send-mail-by-blat/" class="article-date">
+  <time datetime="2012-12-14T16:00:00.000Z" itemprop="datePublished">2012-12-15</time>
 </a>
     
   <div class="article-category">
@@ -686,7 +978,7 @@ IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/17/visual-studio-project-atuo-compile/">Viusal studio project auto compile</a>
+      <a class="article-title" href="/2012/12/15/send-mail-by-blat/">Send mail use blat</a>
     </h1>
   
 
@@ -694,57 +986,18 @@ IoWrite8(0x2E,0xAA); //write 0xaa to port 0x2e once
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="windows-requirements"><a href="#Windows-Requirements" class="headerlink" title="Windows Requirements"></a>Windows Requirements</h3><pre><code>microsoft visual studio 2005 or newer
-subversion 1.7.7 or newer
+        <h4 id="what-is-blat"><a href="#What-is-blat" class="headerlink" title="What is blat?"></a>What is blat?</h4><p>Blat is a Windows (32 &amp; 64 bit) command line utility that sends eMail using SMTP or post to usenet using NNTP.  </p>
+<p>Home: <a href="www.blat.net">www.blat.net</a><br>syntax: <a href="www.blat.net/syntax/syntax.html">www.blat.net/syntax/syntax.html</a><br>ref: <a href="www.cybergav.in/2010/10/28/how-to-send-emails-using-blat/">how to send emails using blat</a>  </p>
+<h4 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p><code>blat -installSMTP smtp.gmail.com abc@gmail.com -u username -pw yourpasswd</code></p>
+<h4 id="send-mail"><a href="#Send-mail" class="headerlink" title="Send mail"></a>Send mail</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test body&quot;</code></p>
+<h4 id="send-email-with-body-from-a-file"><a href="#Send-email-with-body-from-a-file" class="headerlink" title="Send email with body from a file"></a>Send email with body from a file</h4><p><code>blat test.txt -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com</code></p>
+<h4 id="specify-charset-of-body-file"><a href="#specify-charset-of-body-file" class="headerlink" title="specify charset of body file"></a>specify charset of body file</h4><p><code>blat utf8.txt -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -charset GBK</code></p>
+<h4 id="send-attachment"><a href="#Send-attachment" class="headerlink" title="Send attachment"></a>Send attachment</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test attach&quot; -attach 1.txt</code></p>
 
-add the path of command tool &quot;svn&quot; and &quot;devenv&quot; to environment path
-</code></pre><h3 id="check-out-project-by-svn"><a href="#check-out-project-by-svn" class="headerlink" title="check out project by svn"></a>check out project by svn</h3><p><code>svn co project_svn_url output_path -r revision</code>  </p>
-<p><strong>svn_co.bat</strong>  </p>
-<pre><code>@ECHO off&amp;SETlocal enabledelayedexpansion 
-
-REM Useage: svn_co.bat svn_src_url out_path revision log_file
-
-SET func=&quot;check out project&quot;
-
-SET src_url=%1
-SET out_path=%2
-SET src_rev=%3
-SET log_file=%4
-SET parameters=%src_url%
-
-IF NOT &quot;%out_path%&quot;==&quot;&quot; SET parameters=!parameters! %out_path%
-
-IF NOT &quot;%src_rev%&quot;==&quot;&quot; SET parameters=!parameters! -r %src_rev%
-
-SET log_file_tmp=NUL
-IF NOT &quot;%log_file%&quot;==&quot;&quot; SET log_file_tmp=%log_file%
-
-svn co !parameters!
-
-SET /a ret_code=%ERRORLEVEL%
-IF %ret_code% EQU 0 (
-    @ECHO svn checkout success
-) ELSE (
-    @ECHO svn checkout fail
-)
-</code></pre><h3 id="use-devenv-for-compile"><a href="#use-devenv-for-compile" class="headerlink" title="use devenv for compile"></a>use devenv for compile</h3><p><code>devenv solution_file /build &quot;release|win32&quot;</code>  </p>
-<p><strong>compile.bat</strong>  </p>
-<pre><code>@ECHO off
-
-REM Useage: compile.bat solution_file
-
-SET sln_file=%1
-SET cfg_build=&quot;Release|Win32&quot;
-
-devenv %sln_file% /build %cfg_build%
-
-SET /A retval=%ERRORLEVEL%
-EXIT /B %retval%
-</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/17/visual-studio-project-atuo-compile/" data-id="cinga3yh8001bdcizv3cz8tsg" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cinho3byv0018zbiz67hk80fv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -897,56 +1150,7 @@ mail=user@gmail.com,abc@yahoo.com,test@hotmail.com
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cinga3yh60018dcizpf3sa6a3" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-send-mail-by-blat" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/12/15/send-mail-by-blat/" class="article-date">
-  <time datetime="2012-12-14T16:00:00.000Z" itemprop="datePublished">2012-12-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/windows/">windows</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/12/15/send-mail-by-blat/">Send mail use blat</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="what-is-blat"><a href="#What-is-blat" class="headerlink" title="What is blat?"></a>What is blat?</h4><p>Blat is a Windows (32 &amp; 64 bit) command line utility that sends eMail using SMTP or post to usenet using NNTP.  </p>
-<p>Home: <a href="www.blat.net">www.blat.net</a><br>syntax: <a href="www.blat.net/syntax/syntax.html">www.blat.net/syntax/syntax.html</a><br>ref: <a href="www.cybergav.in/2010/10/28/how-to-send-emails-using-blat/">how to send emails using blat</a>  </p>
-<h4 id="installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p><code>blat -installSMTP smtp.gmail.com abc@gmail.com -u username -pw yourpasswd</code></p>
-<h4 id="send-mail"><a href="#Send-mail" class="headerlink" title="Send mail"></a>Send mail</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test body&quot;</code></p>
-<h4 id="send-email-with-body-from-a-file"><a href="#Send-email-with-body-from-a-file" class="headerlink" title="Send email with body from a file"></a>Send email with body from a file</h4><p><code>blat test.txt -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com</code></p>
-<h4 id="specify-charset-of-body-file"><a href="#specify-charset-of-body-file" class="headerlink" title="specify charset of body file"></a>specify charset of body file</h4><p><code>blat utf8.txt -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -charset GBK</code></p>
-<h4 id="send-attachment"><a href="#Send-attachment" class="headerlink" title="Send attachment"></a>Send attachment</h4><p><code>blat -s &quot;blat mail&quot; -to test@gmail.com -f abc@gmail.com -body&quot;test attach&quot; -attach 1.txt</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/15/send-mail-by-blat/" data-id="cinga3yha001edciz7n53cg9q" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/12/15/svn-project-revision-monitor/" data-id="cinho3bz0001ozbiz11hjz69q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1034,7 +1238,7 @@ pause&amp;exit /B 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cinga3yh30012dcizlisfe2uo" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/visual-studio-project-clean/" data-id="cinho3byr0010zbizgcfoeh14" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1137,7 +1341,7 @@ pause
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cinga3yh2000ydcizchzfkr0a" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/12/14/batch-skill/" data-id="cinho3byp000wzbiz6nqqh6b0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/">batch</a></li></ul>
@@ -1209,504 +1413,10 @@ Binary file &quot;wget&quot; will be generated at wget-1.9/src/
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cinga3yh0000tdciz8l14jrpc" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/27/analyze-wget-source/" data-id="cinho3byn000rzbizq07f8x23" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wget/">wget</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-vim" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/09/26/vim/" class="article-date">
-  <time datetime="2012-09-25T16:00:00.000Z" itemprop="datePublished">2012-09-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/09/26/vim/">VIM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I use a variety of vi(m) commands for my job, so many that I can&#x2019;t always<br>remember how to do something that I have done before. Therefore I keep notes<br>them here, for my bad memory.</p>
-<h3 id="what-is-the-difference-between-vi-and-vim"><a href="#What-is-the-difference-between-Vi-and-Vim" class="headerlink" title="What is the difference between Vi and Vim"></a>What is the difference between Vi and Vim</h3><p>Vim is Vi improve, everything that in vi is available in vim.<br>Here is some of the extended vim features:<a href="http://askubuntu.com/questions/418396/what-is-the-difference-between-vi-and-vim" target="_blank" rel="external">ref</a>  </p>
-<ol>
-<li>Vim support syntax highlighting, code folding, etc.  </li>
-<li>Vim allows the screen to be split for editing multiple files.  </li>
-<li>Vim includes a built in diff for comparing files (vimdiff)  </li>
-<li>Vim support plugins  </li>
-</ol>
-<h3 id="general-command-use-in-vim"><a href="#General-command-use-in-VIM" class="headerlink" title="General command use in VIM"></a>General command use in VIM</h3><pre><code>### insert mode
-i -&gt; insert mode at cursor
-I -&gt; insert mode at the beginning of Line
-a -&gt; append after the cursor
-A -&gt; append at the end ot line
-o -&gt; insert bank line below current line
-O -&gt; insert bank line above current line
-
-### Cursor move
-h,j,k,l &#x2190;, &#x2193;, &#x2191;, &#x2192;
-w      -&gt; jump to the head of next word
-W      -&gt; jump to the head of next word which begin with bank
-e      -&gt; jump to the end of next word
-E      -&gt; jump to the end of next word which begin with bank
-b      -&gt; jump to the head of previous word
-B      -&gt; jump to the head of previous word which begin with bank
-0      -&gt; jump to the first character of current line
-$      -&gt; jump to the end of current line
-^      -&gt; jump to the first not-white-space character of current line
-g_     -&gt; jump to the last not-white-space character of current line
-gg     -&gt; jump to the first not-while-space character of first line
-G      -&gt; jump to the first not-while-space character of last line
-`.     -&gt; jump the position of last edit
-&apos;&apos;     -&gt; jump the previous position of cursor
-H      -&gt; jump to first line of screen
-M      -&gt; jump to the middle line of screen
-L      -&gt; jump to the last line of screen
-%      -&gt; jump to the match symbol
-{      -&gt; paragraph backward
-}      -&gt; paragraph backward
-[      -&gt; jump to previous
-]      -&gt; jump to next
-zt     -&gt; move current line to the top of window
-zz     -&gt; move current line to the center of window
-zb     -&gt; move current line to the bottom of window
-ctrl+e -&gt; scroll screen backward
-ctrl+y -&gt; scrool screen forward
-ctrl+u -&gt; scroll half screen backward
-ctrl+d -&gt; scroll half screen backward
-ctrl+f -&gt; scrool to next screen
-ctrl+b -&gt; scrool to previous screen
-
-### Edit
-cw     -&gt; change word
-C      -&gt; change to the end of line
-u      -&gt; undo
-~      -&gt; switch case
-gu     -&gt; uppercase select characters
-gU     -&gt; lowercase select characters
-&gt;&gt;     -&gt; indent line one column right
-&lt;&lt;     -&gt; indent line one column left
-==     -&gt; auto-indent current line
-ctrl+r -&gt; redo
-
-### Cut, copy and paste
-dd    -&gt; delete current line, and put it to clipboard
-x     -&gt; delete current character
-X     -&gt; delete previous character
-dw    -&gt; delete to end of word
-D     -&gt; delete to end of line
-yy    -&gt; copy current line
-yw    -&gt; copy to end of word
-y$    -&gt; copy to end of line
-p     -&gt; paste after the cursor
-P     -&gt; paste befor the cursor
-&quot;+y   -&gt; copy to system clipboard
-&quot;+gP  -&gt; paste from system clipboard
-[N]yy -&gt; copy N lines
-
-### Fold
-zm -&gt; increase the foldlevel by one
-zM -&gt; close all open folds
-zr -&gt; decrease the foldlevel by one
-zR -&gt; decrease the foldlevel to zero -- all folds will be open
-zo -&gt; opens a fold at the curse
-zO -&gt; opens all folds at the curse
-zc -&gt; close one fold
-zC -&gt; close all folds at the curse
-zj -&gt; jump to next fold
-zk -&gt; jump to previous fold
-zf -&gt; fold manual, using `V` to select lines and type `zf` to fold them
-
-### split
-:split
-:vspl
-ctrl+w+h/j/k/l  move cursor between split windows
-
-### Search
-*          -&gt; search string forward
-#          -&gt; search string backward
-/pattern   -&gt; search for pattern
-/\cpattern -&gt; search for pattern, ignore upper and lower case
-/pattern\c -&gt; search for pattern, ignore upper and lower case
-?pattern   -&gt; search backwards for pattern
-n          -&gt; repeat search in same direction
-N          -&gt; repeat search in opposite direction
-f          -&gt; search character forward
-F          -&gt; search character backward
-
-### Save and quit
-:w  -&gt; save
-:wq -&gt; save and quit
-:x  -&gt; save and quit
-:q  -&gt; quit, fail to quit if not save the changed
-:q! -&gt; force quit
-ZZ  -&gt; save and quit
-
-### File 
-use `vim file1 file2 ...` to open multiple files
-:bn     -&gt; next buffer
-:bp     -&gt; previous buffer 
-:bd!    -&gt; delete current buffer tag  
-:e path -&gt; edit file
-:e      -&gt; reload current file
-:r !cmd -&gt; read the result the command to the cursor of current file
-
-### simple skills
-xp   -&gt; swap two characters
-gg=G -&gt; indent the file
-[N]G -&gt; jump to Nth line
-yyp  -&gt; copy and paste current line
-yw   -&gt; yank to the end of word
-yiw  -&gt; yank word
-=    -&gt; auto-indent selected lines
-==   -&gt; auto-indent current lines
-n==  -&gt; auto-indent [count] lines (start from current line)
-gd   -&gt; jump to the defined position of variable
-
-### Other
-.             -&gt; repeat last change
-J             -&gt; join [count] lines
-:nohl         -&gt; not highlight
-:set          -&gt; nu show number
-:set          -&gt; wrap
-:set          -&gt; nowrap
-:set          -&gt; syntax=python` manual set syntax language
-C-x or C-a    -&gt; minus or add 1 to current digit
-:%!xxd        -&gt; hex edit
-:%!xxd -r     -&gt; return from hex edit
-:set mouse =  -&gt; available right button of mouse
-:set mouse =a -&gt; disable right button of mouse
-:set paste    -&gt; useful for paste text to vim
-:set nopaste  -&gt; disable paste mode
-
-### substitute
-(use command &quot;:help substitue&quot; for more information)
-:[range]s/pattern/string/[c,e,g,i]
-  range   1,7 line 1 to 7  1,$ line 1 to last  % all lines
-  pattern string  be searched
-  string  string for substitute
-  c    comfirm
-  e    not show error
-  g    global, match all search of current line
-  i    ignore
-e.g.
-  :%s/\s\+$//        delete all spaces between first space to the end of line
-  :%s/h14/h12/g   replace h14 to be h12 for all occurrence in the file
-  :1,$s/h14/h12/g replace h14 to be h12 from first line to the last line
-
-### Visual Mode
-(use command &quot;:help v&quot; for more information)
-v      start visual mode per character
-V      start visual mode linewise
-ctrl+v start visual mode blockwise
-
-### Text object (multiple lines possible)
-(use command &quot;:help objects&quot; for more information)
-Operator Mapping
-v|c|d|y     i|a          {|[|(|&quot;|&apos;|w|p
-visual  Inner Object      Region
-change     An Object      {} [] () &quot;&quot; &apos;&apos; word paragraph
-delete
-yank
-e.g.
-  vi{ : select characters between brace
-  va&quot; : select characters, include double quotes
-  viw : visual a word
-  di&quot; : delete characters between quotes
-  ci( : change characters between bracket
-
-### do operation to string (single line only)
-v|c|d|y  f|t  character, work on current line only
-e.g:
-  vf{ : select characters to the first &apos;{&apos;, include &apos;{&apos;.
-  vt{ : select characters to the first &apos;{&apos;, exclude &apos;{&apos;.
-  using `;` to select the next character
-v|c|d|y  /|?  character, work on the whole paper
-e.g:
-  v/{&lt;CR&gt; : select characters to the first &apos;{&apos;, include &apos;{&apos;.
-  v///&lt;CR&gt; : select characters to the first &apos;//&apos;, include &apos;//&apos;.
-  v?{ : select characters to the first &apos;{&apos;, exclude &apos;{&apos;.
-  using `n` or `N` to select the next character
-
-### do operation on lines
-[N]yy : copy N lines
-[N]dd : delete N lines
-:.,+2d : delete current line through the next 2 lines
-:3,5m10 : move lines 3 through 5 to follow 10 (like delete and put in vi)
-:3,5co10 : copy lines 3 through 5 to after 10 (like yank and put in vi)
-:3,5t. : copy lines 3 through 5 to current line (like yank and put in vi)
-
-### Auto completion
-C-p
-C-n
-C-x C-p Word completion, backward
-C 10 -x C-n Word completion, forward
-C-x C-l Line completion
-C-x C-f File name completion
-
-### regular expression
-:help regexp  -&gt; for more information
-. any character without new line
-* 0 or more
-^ begin of the line
-$ end of the line
-\+ 1 or more
-\? 0 or 1
-\
-|
-[] -&gt; [abc], [^abc], [a-z]
-()
-{} -&gt; {n}, {n,}, {n,m}
-\d -&gt; digit, [0-9]
-\D -&gt; non-digit, [^0-9]
-\s -&gt; whitespace character: &lt;Space&gt; and &lt;Tab&gt;
-\S -&gt; non-whitespace character
-\w
-\x    hex digit:            [0-9A-Fa-f]
-\X    non-hex digit:            [^0-9A-Fa-f]
-\o    octal digit:            [0-7]
-\O    non-octal digit:        [^0-7]
-\w    word character:            [0-9A-Za-z_]
-\W    non-word character:        [^0-9A-Za-z_]
-\h    head of word character:        [A-Za-z_]
-\H    non-head of word character:    [^A-Za-z_]
-\a    alphabetic character:        [A-Za-z]
-\A    non-alphabetic character:    [^A-Za-z]
-\l    lowercase character:        [a-z]
-\L    non-lowercase character:    [^a-z]
-\u    uppercase character:        [A-Z]
-\U    non-uppercase character:    [^A-Z]
-
-### Session
-:mksession .mysession.vim make a session for current documents, use &quot;gvim -S 
-.mysession.vim&quot; to open it.
-
-### History
-q: enter history commands, then choose and execute the command
-
-### Marks
-(use command &quot;:help mark-motions&quot; for more information)
-mx     set mark x, x can use a..z characters
-&apos;x     jump to mark x
-:marks show all marks
-
-### Register
-:reg  view register content
-&quot;0p   paste from register 0
-&quot;1p   paste from register 1
-&quot;_D   delete contents to back hole register
-
-### Complex repeats
-qq operators q   record all operators to q register
-100@q            repeat the operators 100 times
-
-### Editing Files in other places
-vim scp://[user@]hostname[:port]//FilePath
-e.g.: vim scp://root@172.16.110.39//root/a.c
-
-### Merge code by vimdiff
-`]c` go to next difference
-`[c` go to previous difference
-`do` diff get, get the change from another file to current file
-`dp` diff put, put the change from current file to another file
-
-### source vimrc, not need to exit vim to make config effective
-:so %        -&gt; source current file(.vimrc)
-:so ~/.vimrc -&gt; source specified file
-
-### run vi scripts under terminal
-vi -e -s -c &quot;:%s/pattern/string/g&quot; -c &quot;:wq&quot; file-name
-
-### Help
-:help symbol
-</code></pre><h3 id="skills-for-program"><a href="#skills-for-program" class="headerlink" title="skills for program"></a>skills for program</h3><ol>
-<li>open file on current cursor, use command <code>gf</code>; if the file is not in current<br> directory, use <code>:set path+=yourfilepath</code> to add more dir to the path, use<br> <code>:help path</code> for more info.</li>
-</ol>
-<h3 id="some-skills"><a href="#some-skills" class="headerlink" title="some skills"></a>some skills</h3><ol>
-<li><p>command mode type <code>:nohl</code> cancel high light</p>
-</li>
-<li><p>substituttion<br>sample lines:  </p>
-<blockquote>
-<p>+ (<a href="http://www.google.com)\[google\" target="_blank" rel="external">http://www.google.com)\[google\</a>]<br>+ (<a href="http://www.wolframalpha.com/)\[wolfram\" target="_blank" rel="external">http://www.wolframalpha.com/)\[wolfram\</a>]<br>into the lines:<br>+ [google](<a href="http://www.google.com" target="_blank" rel="external">http://www.google.com</a>)<br>+ [wolfram](<a href="http://www.wolframalpha.com/" target="_blank" rel="external">http://www.wolframalpha.com/</a>)<br>Here is the command to do this:<br><code>:%s/+ \(.*\)\(\[.*\]\)/+ \2\1/g</code>  </p>
-</blockquote>
-</li>
-<li><p>compare file<br><code>vimdiff file1 file2</code> or <code>gvim -d file1 file2</code></p>
-</li>
-<li><p>digit operator<br> <code>ctrl+a</code> increment 1<br> <code>ctrl+x</code> subtract 1  </p>
-</li>
-<li><p>delete all comments<br> <code>:%s/\/\*\_.\{-}\*\//g</code> or <code>:%s#\M/*\m\_.\{-}\M*/##g</code></p>
-</li>
-<li><p>delete match/unmatch lines<br> <code>:g/.*patternSearch.*/d</code><br> <code>:v/#include/d</code> Delete all lines except &#x201C;#include&#x201D; lines  </p>
-</li>
-<li><p>more substitution<br> Substituting all lines with its line number<br> <code>:%s/^/\=line(&quot;.&quot;) . &quot;. &quot;/g</code><br> Resort numeric<br> <code>:4,$s/\d\+/\=submatch(0) + 1/</code><br> Insert sequence number to column position<br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)) . &apos;]&apos;/g</code><br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)+9) . &apos;]&apos;/g</code> start from 10  </p>
-</li>
-<li><p>delete bank line<br> <code>:g/^$/d</code><br> <code>:g/^ *$/d</code> delete lines only contain space   </p>
-</li>
-<li><p>add &#x201C;inline&#x201D; to all function<br> <code>:%s/\(.*(\)/inline \1/g</code>  this can work, but not perfect!!<br> <code>%s/\(^[&#x25A1;tab]*\)\(.*(.*\)/\1inline \2/g</code>  </p>
-</li>
-<li><p>delete all spaces at the end of every line:<br><code>:%s/\(.*\)  *$/\1/</code></p>
-</li>
-<li><p>read range of lines from another file to current file<br><code>:r! sed -n 100,158p /home/dennis/test.c</code></p>
-</li>
-<li><p>list all the match lines of searching on screen<br><code>:g/pattern/p</code> In its longer format: <code>:global/regular-expression/print</code><br>If <code>pattern</code> is leave out, like <code>:g//p</code>, vim will uses previous search item.<br>You can leave <code>p</code> out too, because p(rint) is the default action.</p>
-</li>
-<li><p>copy all lines containing a search pattern<br><code>qaq</code> clear register a<br><code>:g/pattern/y A</code> append all matching lines to register, then use <code>p</code> to paster them.</p>
-</li>
-<li><p>make a list number, reference <a href="http://vim.wikia.com/wiki/Making_a_list_of_numbers" target="_blank" rel="external">this</a></p>
-<p>first, add this code to vimrc:  </p>
-<pre><code>&quot; Add argument (can be negative, default 1) to global variable i.
-&quot; Return value of i before the change.
-function Inc(...)
-  let result = g:i
-  let g:i += a:0 &gt; 0 ? a:1 : 1
-  return result
-endfunction
-</code></pre><p>then type <code>:so ~/.vimrc</code> to make it effective, and use command<br><code>:let i = 1 | %s/ /\=&apos; &apos; . Inc() . &apos;.&apos;/</code></p>
-<p>before:  </p>
-<pre><code>* How do you write a fast network server?
-* How do you write a network server that can handle 10000 clients?
-* What bottlenecks are there and how do you avoid them?
-</code></pre><p>after:  </p>
-<pre><code>* 10.How do you write a fast network server?
-* 11.How do you write a network server that can handle 10000 clients?
-* 12.What bottlenecks are there and how do you avoid them?
-</code></pre><p>Test command <code>:let i = 0 | %s/f0/\=&apos;f&apos; . Inc()/</code></p>
-<p>before:</p>
-<pre><code>&lt;f0&gt;int state;\l|\
-&lt;f0&gt;int iostate;\l|\
-&lt;f0&gt;int fd;\l|\
-&lt;f0&gt;struct session *session;\l|\
-</code></pre><p>after:</p>
-<pre><code>&lt;f0&gt;int state;\l|\
-&lt;f1&gt;int iostate;\l|\
-&lt;f2&gt;int fd;\l|\
-&lt;f3&gt;struct session *session;\l|\
-</code></pre></li>
-<li><p>delete all space character at the end of each line<br><code>:%s/\s\+$//g</code><br>and for the beginning of each line is <code>:%s/^\s\+//g</code></p>
-</li>
-<li><p><code>g?</code> translate the selected content by <a href="https://en.wikipedia.org/wiki/ROT13" target="_blank" rel="external">ROT13</a>, using <code>u</code> to cancel operation</p>
-</li>
-<li><p><code>:%TOhtml</code> translate to html format</p>
-</li>
-<li><p>Encrypt<br>method one <code>:set key=123456</code>, then save and quit <code>:wq</code><br>method two <code>:X</code>, type the passwd twice&#xFF0C;save and quit <code>:wq</code><br>clean passwd <code>:set key=</code>, save and quit <code>:wq</code></p>
-</li>
-<li><p><code>autocmd FileType c,cpp set shiftwidth=4 | set expandtab</code> add to .vimrc, expand tab to be four space</p>
-</li>
-<li><p><code>23,38w newfile</code> write the content between specify lines to file, <code>320,$ &gt;&gt;newfile</code> append to file</p>
-</li>
-<li><p><code>23,38!sort</code> sort lines 23 through 38</p>
-</li>
-<li><p><code>%s/  */\r/g</code> replace space as return<br><code>%s/[ \t][ \t]*/\r/g</code> replace space or tab as return</p>
-</li>
-<li><p><code>%s/\(\S\) \+/\1/g</code> delete all whitespace characters which after non-whitespace.</p>
-</li>
-<li><p><code>:g/\[/,/\]/j</code> join multiple line to one</p>
-</li>
-</ol>
-<h3 id="other-valued-skills"><a href="#other-valued-skills" class="headerlink" title="other valued skills"></a>other valued skills</h3><ul>
-<li><a href="http://www.brezeale.com/technical_notes/vim_notes.shtml" target="_blank" rel="external">vim notes</a></li>
-<li><a href="http://vim.wikia.com/wiki/Category:VimTip" target="_blank" rel="external">VimTip - Vim Tips Wiki</a></li>
-<li><a href="http://vim.wikia.com/wiki/Best_Vim_Tips" target="_blank" rel="external">Best Vim Tips</a></li>
-<li><a href="http://www.rayninfo.co.uk/vimtips.html" target="_blank" rel="external">Best of Vim Tips</a></li>
-<li><a href="http://www.thegeekstuff.com/2009/04/vi-vim-editor-search-and-replace-examples/" target="_blank" rel="external">12 Powerful Find and Replace Examples</a></li>
-</ul>
-<h3 id="other-version"><a href="#other-version" class="headerlink" title="other version"></a>other version</h3><ul>
-<li><a href="https://neovim.io/" target="_blank" rel="external">neovim</a></li>
-</ul>
-<h3 id="vundle-plugin-manager"><a href="#Vundle-plugin-manager" class="headerlink" title="Vundle, plugin manager"></a>Vundle, plugin manager</h3><ul>
-<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git&#x65F6;&#x4EE3;&#x7684;VIM&#x4E0D;&#x5B8C;&#x5168;&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
-<li>install<ul>
-<li><code>git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</code></li>
-</ul>
-</li>
-<li><p>.vimrc(put plugin name behind <code>Bundle</code>, more plugin see <a href="http://vim-scripts.org/vim/scripts.html" target="_blank" rel="external">vim-scripts.org</a>)</p>
-<pre><code>set nocompatible &quot; be iMproved
-filetype off &quot; required!
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-&quot; let Vundle manage Vundle
-&quot; required!
-Bundle &apos;gmarik/vundle&apos;
-
-&quot; vim-scripts repos
-Bundle &apos;vim-plugin-foo&apos;
-Bundle &apos;vim-plugin-bar&apos;
-
-filetype plugin indent on &quot; required!
-</code></pre></li>
-<li><p>manage plugin</p>
-<ul>
-<li><code>:BundleInstall</code></li>
-<li><code>:BundleUpdate</code></li>
-<li><code>:BundleClean</code></li>
-</ul>
-</li>
-<li>powerful plugin<ul>
-<li>Bundle &#x2018;ag.vim&#x2019;</li>
-<li>Bundle &#x2018;ctrlp.vim&#x2019;</li>
-<li>Bundle &#x2018;EasyMotion&#x2019;</li>
-<li>Bundle &#x2018;The-NERD-tree&#x2019;</li>
-<li>Bundle &#x2018;The-NERD-Commenter&#x2019;</li>
-<li>Bundle &#x2018;UltiSnips&#x2019;</li>
-<li>Bundle &#x2018;Tabular&#x2019;</li>
-<li>Bundle &#x2018;Valloric/YouCompleteMe&#x2019;</li>
-</ul>
-</li>
-</ul>
-<h3 id="install-vim-by-source"><a href="#install-vim-by-source" class="headerlink" title="install vim by source"></a>install vim by source</h3><ul>
-<li>./configure &#x2013;prefix=path-to-install</li>
-<li>make &amp;&amp; make install</li>
-<li>export PATH=path-to-install:PATH</li>
-</ul>
-<h3 id="some-useful-configuration-of-vimrc"><a href="#some-useful-configuration-of-vimrc" class="headerlink" title="some useful configuration of vimrc"></a>some useful configuration of vimrc</h3><ul>
-<li><code>set nu</code> show line number</li>
-<li><code>set hls</code> highlight search</li>
-<li><a href="http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste" target="_blank" rel="external">Toggle auto indenting for code paste</a> <ul>
-<li><code>:set paste</code></li>
-<li><code>:set nopaste</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><ul>
-<li><a href="http://www.moolenaar.net/" target="_blank" rel="external">vim author</a></li>
-<li><a href="http://wiki.hotoo.me/Vim.html" target="_blank" rel="external">vim fans</a></li>
-<li><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">&#x7B80;&#x660E; Vim &#x7EC3;&#x7EA7;&#x653B;&#x7565;</a></li>
-<li><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/" target="_blank" rel="external">Learn Vim Progressively</a></li>
-<li><a href="http://vim.wikia.com/wiki/Power_of_g" target="_blank" rel="external">Power of g</a></li>
-<li><a href="http://michael.peopleofhonoronly.com/vim/" target="_blank" rel="external">vim cheat sheet for programmers</a></li>
-<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html" target="_blank" rel="external">Linux vi and vim editor: Tutorial and advanced features</a></li>
-<li><a href="http://vimregex.com/" target="_blank" rel="external">vim regular expressions</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cinga3yh50015dcizb8vkc2o5" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
 
     </footer>
   </div>
@@ -1726,7 +1436,7 @@ filetype plugin indent on &quot; required!
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1745,7 +1455,7 @@ filetype plugin indent on &quot; required!
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1755,9 +1465,13 @@ filetype plugin indent on &quot; required!
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1773,10 +1487,6 @@ filetype plugin indent on &quot; required!
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>

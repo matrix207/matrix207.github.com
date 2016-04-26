@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,500 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/09/26/vim/" class="article-date">
+  <time datetime="2012-09-25T16:00:00.000Z" itemprop="datePublished">2012-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/09/26/vim/">VIM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I use a variety of vi(m) commands for my job, so many that I can&#x2019;t always<br>remember how to do something that I have done before. Therefore I keep notes<br>them here, for my bad memory.</p>
+<h3 id="what-is-the-difference-between-vi-and-vim"><a href="#What-is-the-difference-between-Vi-and-Vim" class="headerlink" title="What is the difference between Vi and Vim"></a>What is the difference between Vi and Vim</h3><p>Vim is Vi improve, everything that in vi is available in vim.<br>Here is some of the extended vim features:<a href="http://askubuntu.com/questions/418396/what-is-the-difference-between-vi-and-vim" target="_blank" rel="external">ref</a>  </p>
+<ol>
+<li>Vim support syntax highlighting, code folding, etc.  </li>
+<li>Vim allows the screen to be split for editing multiple files.  </li>
+<li>Vim includes a built in diff for comparing files (vimdiff)  </li>
+<li>Vim support plugins  </li>
+</ol>
+<h3 id="general-command-use-in-vim"><a href="#General-command-use-in-VIM" class="headerlink" title="General command use in VIM"></a>General command use in VIM</h3><pre><code>### insert mode
+i -&gt; insert mode at cursor
+I -&gt; insert mode at the beginning of Line
+a -&gt; append after the cursor
+A -&gt; append at the end ot line
+o -&gt; insert bank line below current line
+O -&gt; insert bank line above current line
+
+### Cursor move
+h,j,k,l &#x2190;, &#x2193;, &#x2191;, &#x2192;
+w      -&gt; jump to the head of next word
+W      -&gt; jump to the head of next word which begin with bank
+e      -&gt; jump to the end of next word
+E      -&gt; jump to the end of next word which begin with bank
+b      -&gt; jump to the head of previous word
+B      -&gt; jump to the head of previous word which begin with bank
+0      -&gt; jump to the first character of current line
+$      -&gt; jump to the end of current line
+^      -&gt; jump to the first not-white-space character of current line
+g_     -&gt; jump to the last not-white-space character of current line
+gg     -&gt; jump to the first not-while-space character of first line
+G      -&gt; jump to the first not-while-space character of last line
+`.     -&gt; jump the position of last edit
+&apos;&apos;     -&gt; jump the previous position of cursor
+H      -&gt; jump to first line of screen
+M      -&gt; jump to the middle line of screen
+L      -&gt; jump to the last line of screen
+%      -&gt; jump to the match symbol
+{      -&gt; paragraph backward
+}      -&gt; paragraph backward
+[      -&gt; jump to previous
+]      -&gt; jump to next
+zt     -&gt; move current line to the top of window
+zz     -&gt; move current line to the center of window
+zb     -&gt; move current line to the bottom of window
+ctrl+e -&gt; scroll screen backward
+ctrl+y -&gt; scrool screen forward
+ctrl+u -&gt; scroll half screen backward
+ctrl+d -&gt; scroll half screen backward
+ctrl+f -&gt; scrool to next screen
+ctrl+b -&gt; scrool to previous screen
+
+### Edit
+cw     -&gt; change word
+C      -&gt; change to the end of line
+u      -&gt; undo
+~      -&gt; switch case
+gu     -&gt; uppercase select characters
+gU     -&gt; lowercase select characters
+&gt;&gt;     -&gt; indent line one column right
+&lt;&lt;     -&gt; indent line one column left
+==     -&gt; auto-indent current line
+ctrl+r -&gt; redo
+
+### Cut, copy and paste
+dd    -&gt; delete current line, and put it to clipboard
+x     -&gt; delete current character
+X     -&gt; delete previous character
+dw    -&gt; delete to end of word
+D     -&gt; delete to end of line
+yy    -&gt; copy current line
+yw    -&gt; copy to end of word
+y$    -&gt; copy to end of line
+p     -&gt; paste after the cursor
+P     -&gt; paste befor the cursor
+&quot;+y   -&gt; copy to system clipboard
+&quot;+gP  -&gt; paste from system clipboard
+[N]yy -&gt; copy N lines
+
+### Fold
+zm -&gt; increase the foldlevel by one
+zM -&gt; close all open folds
+zr -&gt; decrease the foldlevel by one
+zR -&gt; decrease the foldlevel to zero -- all folds will be open
+zo -&gt; opens a fold at the curse
+zO -&gt; opens all folds at the curse
+zc -&gt; close one fold
+zC -&gt; close all folds at the curse
+zj -&gt; jump to next fold
+zk -&gt; jump to previous fold
+zf -&gt; fold manual, using `V` to select lines and type `zf` to fold them
+
+### split
+:split
+:vspl
+ctrl+w+h/j/k/l  move cursor between split windows
+
+### Search
+*          -&gt; search string forward
+#          -&gt; search string backward
+/pattern   -&gt; search for pattern
+/\cpattern -&gt; search for pattern, ignore upper and lower case
+/pattern\c -&gt; search for pattern, ignore upper and lower case
+?pattern   -&gt; search backwards for pattern
+n          -&gt; repeat search in same direction
+N          -&gt; repeat search in opposite direction
+f          -&gt; search character forward
+F          -&gt; search character backward
+
+### Save and quit
+:w  -&gt; save
+:wq -&gt; save and quit
+:x  -&gt; save and quit
+:q  -&gt; quit, fail to quit if not save the changed
+:q! -&gt; force quit
+ZZ  -&gt; save and quit
+
+### File 
+use `vim file1 file2 ...` to open multiple files
+:bn     -&gt; next buffer
+:bp     -&gt; previous buffer 
+:bd!    -&gt; delete current buffer tag  
+:e path -&gt; edit file
+:e      -&gt; reload current file
+:r !cmd -&gt; read the result the command to the cursor of current file
+
+### simple skills
+xp   -&gt; swap two characters
+gg=G -&gt; indent the file
+[N]G -&gt; jump to Nth line
+yyp  -&gt; copy and paste current line
+yw   -&gt; yank to the end of word
+yiw  -&gt; yank word
+=    -&gt; auto-indent selected lines
+==   -&gt; auto-indent current lines
+n==  -&gt; auto-indent [count] lines (start from current line)
+gd   -&gt; jump to the defined position of variable
+
+### Other
+.             -&gt; repeat last change
+J             -&gt; join [count] lines
+:nohl         -&gt; not highlight
+:set          -&gt; nu show number
+:set          -&gt; wrap
+:set          -&gt; nowrap
+:set          -&gt; syntax=python` manual set syntax language
+C-x or C-a    -&gt; minus or add 1 to current digit
+:%!xxd        -&gt; hex edit
+:%!xxd -r     -&gt; return from hex edit
+:set mouse =  -&gt; available right button of mouse
+:set mouse =a -&gt; disable right button of mouse
+:set paste    -&gt; useful for paste text to vim
+:set nopaste  -&gt; disable paste mode
+
+### substitute
+(use command &quot;:help substitue&quot; for more information)
+:[range]s/pattern/string/[c,e,g,i]
+  range   1,7 line 1 to 7  1,$ line 1 to last  % all lines
+  pattern string  be searched
+  string  string for substitute
+  c    comfirm
+  e    not show error
+  g    global, match all search of current line
+  i    ignore
+e.g.
+  :%s/\s\+$//        delete all spaces between first space to the end of line
+  :%s/h14/h12/g   replace h14 to be h12 for all occurrence in the file
+  :1,$s/h14/h12/g replace h14 to be h12 from first line to the last line
+
+### Visual Mode
+(use command &quot;:help v&quot; for more information)
+v      start visual mode per character
+V      start visual mode linewise
+ctrl+v start visual mode blockwise
+
+### Text object (multiple lines possible)
+(use command &quot;:help objects&quot; for more information)
+Operator Mapping
+v|c|d|y     i|a          {|[|(|&quot;|&apos;|w|p
+visual  Inner Object      Region
+change     An Object      {} [] () &quot;&quot; &apos;&apos; word paragraph
+delete
+yank
+e.g.
+  vi{ : select characters between brace
+  va&quot; : select characters, include double quotes
+  viw : visual a word
+  di&quot; : delete characters between quotes
+  ci( : change characters between bracket
+
+### do operation to string (single line only)
+v|c|d|y  f|t  character, work on current line only
+e.g:
+  vf{ : select characters to the first &apos;{&apos;, include &apos;{&apos;.
+  vt{ : select characters to the first &apos;{&apos;, exclude &apos;{&apos;.
+  using `;` to select the next character
+v|c|d|y  /|?  character, work on the whole paper
+e.g:
+  v/{&lt;CR&gt; : select characters to the first &apos;{&apos;, include &apos;{&apos;.
+  v///&lt;CR&gt; : select characters to the first &apos;//&apos;, include &apos;//&apos;.
+  v?{ : select characters to the first &apos;{&apos;, exclude &apos;{&apos;.
+  using `n` or `N` to select the next character
+
+### do operation on lines
+[N]yy : copy N lines
+[N]dd : delete N lines
+:.,+2d : delete current line through the next 2 lines
+:3,5m10 : move lines 3 through 5 to follow 10 (like delete and put in vi)
+:3,5co10 : copy lines 3 through 5 to after 10 (like yank and put in vi)
+:3,5t. : copy lines 3 through 5 to current line (like yank and put in vi)
+
+### Auto completion
+C-p
+C-n
+C-x C-p Word completion, backward
+C 10 -x C-n Word completion, forward
+C-x C-l Line completion
+C-x C-f File name completion
+
+### regular expression
+:help regexp  -&gt; for more information
+. any character without new line
+* 0 or more
+^ begin of the line
+$ end of the line
+\+ 1 or more
+\? 0 or 1
+\
+|
+[] -&gt; [abc], [^abc], [a-z]
+()
+{} -&gt; {n}, {n,}, {n,m}
+\d -&gt; digit, [0-9]
+\D -&gt; non-digit, [^0-9]
+\s -&gt; whitespace character: &lt;Space&gt; and &lt;Tab&gt;
+\S -&gt; non-whitespace character
+\w
+\x    hex digit:            [0-9A-Fa-f]
+\X    non-hex digit:            [^0-9A-Fa-f]
+\o    octal digit:            [0-7]
+\O    non-octal digit:        [^0-7]
+\w    word character:            [0-9A-Za-z_]
+\W    non-word character:        [^0-9A-Za-z_]
+\h    head of word character:        [A-Za-z_]
+\H    non-head of word character:    [^A-Za-z_]
+\a    alphabetic character:        [A-Za-z]
+\A    non-alphabetic character:    [^A-Za-z]
+\l    lowercase character:        [a-z]
+\L    non-lowercase character:    [^a-z]
+\u    uppercase character:        [A-Z]
+\U    non-uppercase character:    [^A-Z]
+
+### Session
+:mksession .mysession.vim make a session for current documents, use &quot;gvim -S 
+.mysession.vim&quot; to open it.
+
+### History
+q: enter history commands, then choose and execute the command
+
+### Marks
+(use command &quot;:help mark-motions&quot; for more information)
+mx     set mark x, x can use a..z characters
+&apos;x     jump to mark x
+:marks show all marks
+
+### Register
+:reg  view register content
+&quot;0p   paste from register 0
+&quot;1p   paste from register 1
+&quot;_D   delete contents to back hole register
+
+### Complex repeats
+qq operators q   record all operators to q register
+100@q            repeat the operators 100 times
+
+### Editing Files in other places
+vim scp://[user@]hostname[:port]//FilePath
+e.g.: vim scp://root@172.16.110.39//root/a.c
+
+### Merge code by vimdiff
+`]c` go to next difference
+`[c` go to previous difference
+`do` diff get, get the change from another file to current file
+`dp` diff put, put the change from current file to another file
+
+### source vimrc, not need to exit vim to make config effective
+:so %        -&gt; source current file(.vimrc)
+:so ~/.vimrc -&gt; source specified file
+
+### run vi scripts under terminal
+vi -e -s -c &quot;:%s/pattern/string/g&quot; -c &quot;:wq&quot; file-name
+
+### Help
+:help symbol
+</code></pre><h3 id="skills-for-program"><a href="#skills-for-program" class="headerlink" title="skills for program"></a>skills for program</h3><ol>
+<li>open file on current cursor, use command <code>gf</code>; if the file is not in current<br> directory, use <code>:set path+=yourfilepath</code> to add more dir to the path, use<br> <code>:help path</code> for more info.</li>
+</ol>
+<h3 id="some-skills"><a href="#some-skills" class="headerlink" title="some skills"></a>some skills</h3><ol>
+<li><p>command mode type <code>:nohl</code> cancel high light</p>
+</li>
+<li><p>substituttion<br>sample lines:  </p>
+<blockquote>
+<p>+ (<a href="http://www.google.com)\[google\" target="_blank" rel="external">http://www.google.com)\[google\</a>]<br>+ (<a href="http://www.wolframalpha.com/)\[wolfram\" target="_blank" rel="external">http://www.wolframalpha.com/)\[wolfram\</a>]<br>into the lines:<br>+ [google](<a href="http://www.google.com" target="_blank" rel="external">http://www.google.com</a>)<br>+ [wolfram](<a href="http://www.wolframalpha.com/" target="_blank" rel="external">http://www.wolframalpha.com/</a>)<br>Here is the command to do this:<br><code>:%s/+ \(.*\)\(\[.*\]\)/+ \2\1/g</code>  </p>
+</blockquote>
+</li>
+<li><p>compare file<br><code>vimdiff file1 file2</code> or <code>gvim -d file1 file2</code></p>
+</li>
+<li><p>digit operator<br> <code>ctrl+a</code> increment 1<br> <code>ctrl+x</code> subtract 1  </p>
+</li>
+<li><p>delete all comments<br> <code>:%s/\/\*\_.\{-}\*\//g</code> or <code>:%s#\M/*\m\_.\{-}\M*/##g</code></p>
+</li>
+<li><p>delete match/unmatch lines<br> <code>:g/.*patternSearch.*/d</code><br> <code>:v/#include/d</code> Delete all lines except &#x201C;#include&#x201D; lines  </p>
+</li>
+<li><p>more substitution<br> Substituting all lines with its line number<br> <code>:%s/^/\=line(&quot;.&quot;) . &quot;. &quot;/g</code><br> Resort numeric<br> <code>:4,$s/\d\+/\=submatch(0) + 1/</code><br> Insert sequence number to column position<br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)) . &apos;]&apos;/g</code><br> <code>:%s/table\[\]/\=&apos;table[&apos; . printf(&quot;%d&quot;,line(&quot;.&quot;)+9) . &apos;]&apos;/g</code> start from 10  </p>
+</li>
+<li><p>delete bank line<br> <code>:g/^$/d</code><br> <code>:g/^ *$/d</code> delete lines only contain space   </p>
+</li>
+<li><p>add &#x201C;inline&#x201D; to all function<br> <code>:%s/\(.*(\)/inline \1/g</code>  this can work, but not perfect!!<br> <code>%s/\(^[&#x25A1;tab]*\)\(.*(.*\)/\1inline \2/g</code>  </p>
+</li>
+<li><p>delete all spaces at the end of every line:<br><code>:%s/\(.*\)  *$/\1/</code></p>
+</li>
+<li><p>read range of lines from another file to current file<br><code>:r! sed -n 100,158p /home/dennis/test.c</code></p>
+</li>
+<li><p>list all the match lines of searching on screen<br><code>:g/pattern/p</code> In its longer format: <code>:global/regular-expression/print</code><br>If <code>pattern</code> is leave out, like <code>:g//p</code>, vim will uses previous search item.<br>You can leave <code>p</code> out too, because p(rint) is the default action.</p>
+</li>
+<li><p>copy all lines containing a search pattern<br><code>qaq</code> clear register a<br><code>:g/pattern/y A</code> append all matching lines to register, then use <code>p</code> to paster them.</p>
+</li>
+<li><p>make a list number, reference <a href="http://vim.wikia.com/wiki/Making_a_list_of_numbers" target="_blank" rel="external">this</a></p>
+<p>first, add this code to vimrc:  </p>
+<pre><code>&quot; Add argument (can be negative, default 1) to global variable i.
+&quot; Return value of i before the change.
+function Inc(...)
+  let result = g:i
+  let g:i += a:0 &gt; 0 ? a:1 : 1
+  return result
+endfunction
+</code></pre><p>then type <code>:so ~/.vimrc</code> to make it effective, and use command<br><code>:let i = 1 | %s/ /\=&apos; &apos; . Inc() . &apos;.&apos;/</code></p>
+<p>before:  </p>
+<pre><code>* How do you write a fast network server?
+* How do you write a network server that can handle 10000 clients?
+* What bottlenecks are there and how do you avoid them?
+</code></pre><p>after:  </p>
+<pre><code>* 10.How do you write a fast network server?
+* 11.How do you write a network server that can handle 10000 clients?
+* 12.What bottlenecks are there and how do you avoid them?
+</code></pre><p>Test command <code>:let i = 0 | %s/f0/\=&apos;f&apos; . Inc()/</code></p>
+<p>before:</p>
+<pre><code>&lt;f0&gt;int state;\l|\
+&lt;f0&gt;int iostate;\l|\
+&lt;f0&gt;int fd;\l|\
+&lt;f0&gt;struct session *session;\l|\
+</code></pre><p>after:</p>
+<pre><code>&lt;f0&gt;int state;\l|\
+&lt;f1&gt;int iostate;\l|\
+&lt;f2&gt;int fd;\l|\
+&lt;f3&gt;struct session *session;\l|\
+</code></pre></li>
+<li><p>delete all space character at the end of each line<br><code>:%s/\s\+$//g</code><br>and for the beginning of each line is <code>:%s/^\s\+//g</code></p>
+</li>
+<li><p><code>g?</code> translate the selected content by <a href="https://en.wikipedia.org/wiki/ROT13" target="_blank" rel="external">ROT13</a>, using <code>u</code> to cancel operation</p>
+</li>
+<li><p><code>:%TOhtml</code> translate to html format</p>
+</li>
+<li><p>Encrypt<br>method one <code>:set key=123456</code>, then save and quit <code>:wq</code><br>method two <code>:X</code>, type the passwd twice&#xFF0C;save and quit <code>:wq</code><br>clean passwd <code>:set key=</code>, save and quit <code>:wq</code></p>
+</li>
+<li><p><code>autocmd FileType c,cpp set shiftwidth=4 | set expandtab</code> add to .vimrc, expand tab to be four space</p>
+</li>
+<li><p><code>23,38w newfile</code> write the content between specify lines to file, <code>320,$ &gt;&gt;newfile</code> append to file</p>
+</li>
+<li><p><code>23,38!sort</code> sort lines 23 through 38</p>
+</li>
+<li><p><code>%s/  */\r/g</code> replace space as return<br><code>%s/[ \t][ \t]*/\r/g</code> replace space or tab as return</p>
+</li>
+<li><p><code>%s/\(\S\) \+/\1/g</code> delete all whitespace characters which after non-whitespace.</p>
+</li>
+<li><p><code>:g/\[/,/\]/j</code> join multiple line to one</p>
+</li>
+</ol>
+<h3 id="other-valued-skills"><a href="#other-valued-skills" class="headerlink" title="other valued skills"></a>other valued skills</h3><ul>
+<li><a href="http://www.brezeale.com/technical_notes/vim_notes.shtml" target="_blank" rel="external">vim notes</a></li>
+<li><a href="http://vim.wikia.com/wiki/Category:VimTip" target="_blank" rel="external">VimTip - Vim Tips Wiki</a></li>
+<li><a href="http://vim.wikia.com/wiki/Best_Vim_Tips" target="_blank" rel="external">Best Vim Tips</a></li>
+<li><a href="http://www.rayninfo.co.uk/vimtips.html" target="_blank" rel="external">Best of Vim Tips</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/04/vi-vim-editor-search-and-replace-examples/" target="_blank" rel="external">12 Powerful Find and Replace Examples</a></li>
+</ul>
+<h3 id="other-version"><a href="#other-version" class="headerlink" title="other version"></a>other version</h3><ul>
+<li><a href="https://neovim.io/" target="_blank" rel="external">neovim</a></li>
+</ul>
+<h3 id="vundle-plugin-manager"><a href="#Vundle-plugin-manager" class="headerlink" title="Vundle, plugin manager"></a>Vundle, plugin manager</h3><ul>
+<li><a href="http://beiyuu.com/git-vim-tutorial/" target="_blank" rel="external">Git&#x65F6;&#x4EE3;&#x7684;VIM&#x4E0D;&#x5B8C;&#x5168;&#x4F7F;&#x7528;&#x6559;&#x7A0B;</a></li>
+<li>install<ul>
+<li><code>git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</code></li>
+</ul>
+</li>
+<li><p>.vimrc(put plugin name behind <code>Bundle</code>, more plugin see <a href="http://vim-scripts.org/vim/scripts.html" target="_blank" rel="external">vim-scripts.org</a>)</p>
+<pre><code>set nocompatible &quot; be iMproved
+filetype off &quot; required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+&quot; let Vundle manage Vundle
+&quot; required!
+Bundle &apos;gmarik/vundle&apos;
+
+&quot; vim-scripts repos
+Bundle &apos;vim-plugin-foo&apos;
+Bundle &apos;vim-plugin-bar&apos;
+
+filetype plugin indent on &quot; required!
+</code></pre></li>
+<li><p>manage plugin</p>
+<ul>
+<li><code>:BundleInstall</code></li>
+<li><code>:BundleUpdate</code></li>
+<li><code>:BundleClean</code></li>
+</ul>
+</li>
+<li>powerful plugin<ul>
+<li>Bundle &#x2018;ag.vim&#x2019;</li>
+<li>Bundle &#x2018;ctrlp.vim&#x2019;</li>
+<li>Bundle &#x2018;EasyMotion&#x2019;</li>
+<li>Bundle &#x2018;The-NERD-tree&#x2019;</li>
+<li>Bundle &#x2018;The-NERD-Commenter&#x2019;</li>
+<li>Bundle &#x2018;UltiSnips&#x2019;</li>
+<li>Bundle &#x2018;Tabular&#x2019;</li>
+<li>Bundle &#x2018;Valloric/YouCompleteMe&#x2019;</li>
+</ul>
+</li>
+</ul>
+<h3 id="install-vim-by-source"><a href="#install-vim-by-source" class="headerlink" title="install vim by source"></a>install vim by source</h3><ul>
+<li>./configure &#x2013;prefix=path-to-install</li>
+<li>make &amp;&amp; make install</li>
+<li>export PATH=path-to-install:PATH</li>
+</ul>
+<h3 id="some-useful-configuration-of-vimrc"><a href="#some-useful-configuration-of-vimrc" class="headerlink" title="some useful configuration of vimrc"></a>some useful configuration of vimrc</h3><ul>
+<li><code>set nu</code> show line number</li>
+<li><code>set hls</code> highlight search</li>
+<li><a href="http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste" target="_blank" rel="external">Toggle auto indenting for code paste</a> <ul>
+<li><code>:set paste</code></li>
+<li><code>:set nopaste</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><ul>
+<li><a href="http://www.moolenaar.net/" target="_blank" rel="external">vim author</a></li>
+<li><a href="http://wiki.hotoo.me/Vim.html" target="_blank" rel="external">vim fans</a></li>
+<li><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">&#x7B80;&#x660E; Vim &#x7EC3;&#x7EA7;&#x653B;&#x7565;</a></li>
+<li><a href="http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/" target="_blank" rel="external">Learn Vim Progressively</a></li>
+<li><a href="http://vim.wikia.com/wiki/Power_of_g" target="_blank" rel="external">Power of g</a></li>
+<li><a href="http://michael.peopleofhonoronly.com/vim/" target="_blank" rel="external">vim cheat sheet for programmers</a></li>
+<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html" target="_blank" rel="external">Linux vi and vim editor: Tutorial and advanced features</a></li>
+<li><a href="http://vimregex.com/" target="_blank" rel="external">vim regular expressions</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2012/09/26/vim/" data-id="cinho3byl000mzbizg1fh3etv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-study-plan-120924" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -103,7 +597,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/24/study-plan-120924/" data-id="cinga3ygw000jdcizs45fqi6e" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/24/study-plan-120924/" data-id="cinho3byk000hzbizf6pemenv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/">study</a></li></ul>
@@ -498,7 +992,7 @@ vmap &lt;S-M&gt;b :s/^\(::\)//g&lt;CR&gt;:nohl&lt;CR&gt;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/22/vimrc/" data-id="cinga3ygy000odciz2j7y50h3" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/22/vimrc/" data-id="cinho3byt0015zbizv9o2wfvm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -676,7 +1170,7 @@ PAUSE
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/19/MSVS-auto-compile/" data-id="cinga3ygu000fdcizfijaby4j" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/19/MSVS-auto-compile/" data-id="cinho3bys0013zbizu9g3glze" class="article-share-link">Share</a>
       
       
     </footer>
@@ -727,7 +1221,7 @@ PAUSE
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/17/notepad++-support-markdown-syntax-highlight/" data-id="cinga3ygr000bdciztwqvopwt" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/17/notepad++-support-markdown-syntax-highlight/" data-id="cinho3byh000dzbizrk4k9fux" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/write/">write</a></li></ul>
@@ -816,7 +1310,7 @@ void TestFunc_2(void)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/16/VC++-Use-CSharp-Dll/" data-id="cinga3ygd0005dcizqdgpwwm6" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/16/VC++-Use-CSharp-Dll/" data-id="cinho3bye0008zbizg29q43up" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1027,7 +1521,7 @@ ExitApp:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/16/winio-sample/" data-id="cinga3ygv000hdciz4bj7ufk5" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/16/winio-sample/" data-id="cinho3byg000bzbizya8ocreh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1221,7 +1715,7 @@ dennis@dennis:~/work/git/matrix207.github.com$ gem -v
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2012/09/09/write-blog-on-github/" data-id="cinga3ygo0008dciz5f6xaj9p" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2012/09/09/write-blog-on-github/" data-id="cinho3bx40005zbiz2i6xnuhv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1242,7 +1736,7 @@ dennis@dennis:~/work/git/matrix207.github.com$ gem -v
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1261,7 +1755,7 @@ dennis@dennis:~/work/git/matrix207.github.com$ gem -v
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1271,9 +1765,13 @@ dennis@dennis:~/work/git/matrix207.github.com$ gem -v
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1289,10 +1787,6 @@ dennis@dennis:~/work/git/matrix207.github.com$ gem -v
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>

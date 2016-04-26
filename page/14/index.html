@@ -55,7 +55,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://matrix207.github.com"></form>
@@ -65,6 +65,342 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-find-alive-hosts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/04/09/find-alive-hosts/" class="article-date">
+  <time datetime="2013-04-08T16:00:00.000Z" itemprop="datePublished">2013-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/network/">network</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/04/09/find-alive-hosts/">Find alive hosts</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This command can find alive hosts on linux:<br><code>nmap -v -sn 192.168.1.1/24 | grep &apos;Nmap scan&apos; | grep -v &apos;host down&apos;</code></p>
+<p>Reference:  </p>
+<ul>
+<li><a href="http://blog.csdn.net/aspirationflow/article/details/7694274" target="_blank" rel="external">Nmap&#x626B;&#x63CF;&#x539F;&#x7406;&#x4E0E;&#x7528;&#x6CD5;</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_644eb9350100p3yv.html" target="_blank" rel="external">&#x901A;&#x8FC7;ARP&#x63A2;&#x6D4B;&#x5C40;&#x57DF;&#x7F51;&#x6D3B;&#x52A8;&#x4E3B;&#x673A;</a></li>
+<li><a href="http://www.2cto.com/kf/201011/78750.html" target="_blank" rel="external">&#x7F16;&#x5199;ARP&#x626B;&#x63CF;&#x5668;&#x63A2;&#x6D4B;&#x5C40;&#x57DF;&#x7F51;&#x6D3B;&#x52A8;&#x4E3B;&#x673A;</a></li>
+<li><a href="http://bbs.csdn.net/topics/350022203" target="_blank" rel="external">&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x5C40;&#x57DF;&#x7F51;&#x5185;&#x5176;&#x4ED6;&#x4E3B;&#x673A;&#x7684;ip&#x5730;&#x5740;&#x548C;mac&#x5730;&#x5740;</a></li>
+<li><a href="http://download.csdn.net/detail/joeycc/4945784" target="_blank" rel="external">icmp&#x63A2;&#x6D4B;&#x6D3B;&#x52A8;&#x4E3B;&#x673A;</a></li>
+<li><a href="http://download.csdn.net/detail/pilipenhuolong/3118860" target="_blank" rel="external">&#x5229;&#x7528;ICMP&#x6570;&#x636E;&#x5305;&#x63A2;&#x6D4B;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x6D3B;&#x52A8;&#x4E3B;&#x673A; VC++</a></li>
+<li><a href="http://www.xfocus.net/articles/200103/77.html" target="_blank" rel="external">&#x4F7F;&#x7528;ICMP&#x534F;&#x8BAE;&#x6765;&#x8FDB;&#x884C;&#x4E3B;&#x673A;&#x63A2;&#x6D4B;</a></li>
+<li><a href="http://blog.csdn.net/yiyefangzhou24/article/details/6819874" target="_blank" rel="external">&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x626B;&#x63CF;&#x5668;&#x7684;&#x5B9E;&#x73B0; </a></li>
+</ul>
+<p>##sample code  </p>
+<h3 id="find-alive-hosts-with-arp-protocol"><a href="#Find-alive-hosts-with-ARP-protocol" class="headerlink" title="Find alive hosts with ARP protocol"></a>Find alive hosts with ARP protocol</h3><pre><code>// Find alive hosts with ARP protocol
+// Win32 console project, compile with VS2005
+// Create by Dennis
+// 2013-04-09
+
+// Reference:
+// http://msdn.microsoft.com/en-us/library/aa366358(VS.85).aspx
+
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;process.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#pragma comment(lib, &quot;iphlpapi.lib&quot;)
+#pragma comment(lib, &quot;ws2_32.lib&quot;)
+
+CRITICAL_SECTION  cs;
+
+unsigned long netIp = 0;
+
+// Get host IP
+// Reference: http://blog.csdn.net/happycock/article/details/491424
+// If your machine have more than one network adapter, you should
+// fix this function.
+void GetHostIP(char* ip, int size1, char* mask, int size2)
+{
+    ULONG len = 0; 
+    GetAdaptersInfo(NULL, &amp;len);
+    PIP_ADAPTER_INFO p = static_cast&lt;PIP_ADAPTER_INFO&gt;(malloc(len));
+    GetAdaptersInfo(p, &amp;len);
+    for (PIP_ADAPTER_INFO q = p; q != NULL; q = q-&gt;Next)
+    {
+        if (ip) strncpy(ip, q-&gt;IpAddressList.IpAddress.String, size1);
+        if (mask) strncpy(mask, q-&gt;IpAddressList.IpMask.String, size2);
+        break;
+    }
+
+    free(p);
+}
+
+unsigned int __stdcall ArpThread(LPVOID lParam)
+{
+    ULONG MacAddr[2];       /* for 6-byte hardware addresses */
+    ULONG PhysAddrLen = 6;  /* default to length of six bytes */
+
+#if 1
+    EnterCriticalSection(&amp;cs);
+    //converts to TCP/IP network byte order (which is big-endian) 
+    unsigned long dstIP=htonl(++netIp);
+    LeaveCriticalSection(&amp;cs);
+#else
+    // Reference: http://blog.csdn.net/morewindows/article/details/7429155
+    //netIp++;  
+    InterlockedIncrement((LPLONG)&amp;netIp);
+    unsigned long dstIP=htonl(netIp);
+#endif
+
+    if (NO_ERROR == SendARP(dstIP, 0,&amp;(MacAddr[0]),&amp;PhysAddrLen)) {
+        EnterCriticalSection(&amp;cs);
+        BYTE* bPhysAddr = (BYTE *) &amp; MacAddr;
+        if (PhysAddrLen) {
+            struct in_addr addr1;
+            memcpy(&amp;addr1, &amp;dstIP, 4);
+            printf(&quot;%16s : &quot;, inet_ntoa(addr1));
+            for (int i = 0; i &lt; (int) PhysAddrLen; i++) {
+                if (i == (PhysAddrLen - 1))
+                    printf(&quot;%.2X\n&quot;, (int) bPhysAddr[i]);
+                else
+                    printf(&quot;%.2X-&quot;, (int) bPhysAddr[i]);
+            }
+        } else
+            printf(&quot;Warning: SendArp completed successfully, but returned length=0\n&quot;);
+        LeaveCriticalSection(&amp;cs);
+    }
+
+    return 0;
+}
+
+int main(int argc, char **argv)
+{
+    IPAddr SrcIp = 0;
+
+    char strSrcIP[16] = {0};
+    char strSrcMask[16] = {0};
+    // Get Host IP and Mask
+    GetHostIP(strSrcIP, sizeof(strSrcIP), strSrcMask, sizeof(strSrcMask));
+
+    InitializeCriticalSection(&amp;cs);
+
+    SrcIp = inet_addr(strSrcIP);
+    unsigned long findMask=inet_addr(strSrcMask);
+    int netsize = ~ntohl(findMask);
+    netIp = ntohl(SrcIp &amp; findMask); 
+
+#if 0
+    unsigned long dstIp;
+    struct in_addr addr1;
+    HANDLE hThr[63] = {0};
+    for (int i=1; i&lt;64; i++)
+    {
+        //converts to TCP/IP network byte order (which is big-endian) 
+         dstIp=htonl(netIp+i);
+
+         hThr[i-1] = (HANDLE)_beginthreadex(NULL, 0, ArpThread, &amp;dstIp, 0, NULL);
+    }
+
+    WaitForMultipleObjects(63,&amp;(hThr[0]),TRUE,INFINITE);
+#else
+    HANDLE *phThread = (HANDLE*)malloc(netsize*sizeof(HANDLE));
+    for (int i=1; i&lt;netsize; i++)
+    {
+        // _beginthreadex if more effect than CreateThread
+        // you can google it for more information
+        phThread[i-1] = (HANDLE)_beginthreadex(NULL, 0, ArpThread, 0, 0, NULL);
+    }
+
+    // There is a limit count for function WaitForMultipleObjects
+    int netcount = netsize-1;
+    int waitcount = 0;
+    for (int i=0; i&lt;netcount;)
+    {
+        waitcount = MAXIMUM_WAIT_OBJECTS;
+        if (netcount-i&lt;MAXIMUM_WAIT_OBJECTS)
+            waitcount = netcount-i;
+        WaitForMultipleObjects(waitcount,&amp;(phThread[i]),TRUE,INFINITE);
+        i += waitcount;
+    }
+
+    free(phThread);
+
+#endif
+
+    DeleteCriticalSection(&amp;cs);
+
+    //system(&quot;pause&quot;);
+    return 0;
+}
+</code></pre><p><strong>output as below:(For security reasons, replace some of the characters as asterisks)</strong>  </p>
+<pre><code>  192.168.50.1 : **-**-E2-**-C7-**
+  192.168.50.2 : **-**-4C-**-00-**
+ 192.168.50.16 : **-**-19-**-46-**
+ 192.168.50.22 : **-**-09-**-3A-**
+ 192.168.50.28 : **-**-AE-**-E6-**
+ ...
+192.168.50.129 : **-**-9B-**-19-**
+192.168.50.238 : **-**-6F-**-28-**
+Press any key to continue. . .
+</code></pre><h3 id="find-alive-hosts-with-icmp-protocol"><a href="#Find-alive-hosts-with-icmp-protocol" class="headerlink" title="Find alive hosts with icmp protocol"></a>Find alive hosts with icmp protocol</h3><pre><code>// Find alive hosts with icmp protocol
+// Win32 console project, compile with VS2005
+// Create by Dennis
+// 2013-04-09
+
+// Reference:
+// http://msdn.microsoft.com/en-us/library/windows/desktop/aa366050%28v=vs.85%29.aspx
+
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;icmpapi.h&gt;
+#include &lt;process.h&gt;
+#include &lt;stdio.h&gt;
+
+#pragma comment(lib, &quot;iphlpapi.lib&quot;)
+#pragma comment(lib, &quot;ws2_32.lib&quot;)
+
+#define IP_SECTION &quot;192.168.110.%d&quot;
+
+CRITICAL_SECTION cs;
+int g_ip_index = 0;
+
+unsigned int __stdcall IcmpThread(LPVOID LPARAM)
+{
+    // Declare and initialize variables
+
+    EnterCriticalSection(&amp;cs);
+    char ip[16] = {0};
+    sprintf(ip, IP_SECTION, ++g_ip_index);
+    HANDLE hIcmpFile;
+    unsigned long ipaddr = INADDR_NONE;
+    DWORD dwRetVal = 0;
+    char SendData[32] = &quot;Data Buffer&quot;;
+    LPVOID ReplyBuffer = NULL;
+    DWORD ReplySize = 0;
+
+    ipaddr = inet_addr(ip);
+    if (ipaddr == INADDR_NONE) {
+        return 1;
+    }
+
+    hIcmpFile = IcmpCreateFile();
+    if (hIcmpFile == INVALID_HANDLE_VALUE) {
+        printf(&quot;\tUnable to open handle.\n&quot;);
+        printf(&quot;IcmpCreatefile returned error: %ld\n&quot;, GetLastError() );
+        return 1;
+    }    
+
+    ReplySize = sizeof(ICMP_ECHO_REPLY) + sizeof(SendData);
+    ReplyBuffer = (VOID*) malloc(ReplySize);
+    if (ReplyBuffer == NULL) {
+        printf(&quot;\tUnable to allocate memory\n&quot;);
+        return 1;
+    }    
+    LeaveCriticalSection(&amp;cs);
+
+    dwRetVal = IcmpSendEcho(hIcmpFile, ipaddr, SendData, sizeof(SendData), 
+        NULL, ReplyBuffer, ReplySize, 10);
+#if 0
+    if (dwRetVal != 0) {
+        PICMP_ECHO_REPLY pEchoReply = (PICMP_ECHO_REPLY)ReplyBuffer;
+        struct in_addr ReplyAddr;
+        ReplyAddr.S_un.S_addr = pEchoReply-&gt;Address;
+        printf(&quot;\tSent icmp message to %s\n&quot;, ip);
+        if (dwRetVal &gt; 1) {
+            printf(&quot;\tReceived %ld icmp message responses\n&quot;, dwRetVal);
+            printf(&quot;\tInformation from the first response:\n&quot;); 
+        }    
+        else {    
+            printf(&quot;\tReceived %ld icmp message response\n&quot;, dwRetVal);
+            printf(&quot;\tInformation from this response:\n&quot;); 
+        }    
+        printf(&quot;\t  Received from %s\n&quot;, inet_ntoa( ReplyAddr ) );
+        printf(&quot;\t  Status = %ld\n&quot;, 
+            pEchoReply-&gt;Status);
+        printf(&quot;\t  Roundtrip time = %ld milliseconds\n&quot;, 
+            pEchoReply-&gt;RoundTripTime);
+    }
+    else {
+        printf(&quot;\tCall to IcmpSendEcho failed.\n&quot;);
+        printf(&quot;\tIcmpSendEcho returned error: %ld\n&quot;, GetLastError() );
+        return 1;
+    }
+#else
+    if (dwRetVal != 0)
+        printf(&quot;%16s is alive\n&quot;, ip);
+#endif
+}
+
+int __cdecl main(int argc, char **argv)  {
+
+    InitializeCriticalSection(&amp;cs);
+
+    int netsize = 255;
+
+    HANDLE *phThread = (HANDLE*)malloc(netsize*sizeof(HANDLE));
+    for (int i=1; i&lt;netsize; i++)
+    {
+        // _beginthreadex if more effect than CreateThread
+        // you can google it for more information
+        phThread[i-1] = (HANDLE)_beginthreadex(NULL, 0, IcmpThread, 0, 0, NULL);
+    }
+
+    // There is a limit count for function WaitForMultipleObjects
+    int netcount = netsize-1;
+    int waitcount = 0;
+    for (int i=0; i&lt;netcount;)
+    {
+        waitcount = MAXIMUM_WAIT_OBJECTS;
+        if (netcount-i&lt;MAXIMUM_WAIT_OBJECTS)
+            waitcount = netcount;
+        WaitForMultipleObjects(waitcount,&amp;(phThread[i]),TRUE,INFINITE);
+        i += waitcount;
+    }
+
+    free(phThread);
+
+    DeleteCriticalSection(&amp;cs);
+    system(&quot;pause&quot;);
+    return 0;
+}    
+</code></pre><p><strong>Output as below:</strong>  </p>
+<pre><code>  192.168.110.1 is alive
+  192.168.110.5 is alive
+  192.168.110.6 is alive
+ 192.168.110.30 is alive
+ 192.168.110.32 is alive
+ 192.168.110.35 is alive
+ ...
+192.168.110.248 is alive
+192.168.110.249 is alive
+Press any key to continue. . .
+</code></pre><h3 id="ipfind"><a href="#IPFind" class="headerlink" title="IPFind"></a>IPFind</h3><p>I have write a windows application with MFC, you can find the source code and execute file here <a href="https://github.com/matrix207/VC/blob/master/IPFind" target="_blank" rel="external">IPFind</a><br><img src="/assets/image/posts/IPFind.PNG" alt="IPFind"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2013/04/09/find-alive-hosts/" data-id="cinho3c0o005gzbiz01zm651o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-arp-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -109,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/07/arp-on-windows/" data-id="cinga3yjz005gdcizsk6nggjk" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/07/arp-on-windows/" data-id="cinho3c0p005jzbizrn4jmalf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -433,7 +769,7 @@ options bond0 miimon=100 mode=6
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/07/kvm/" data-id="cinga3yjw0059dcizpcs6ath6" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/07/kvm/" data-id="cinho3c0l0059zbizz9z44e7q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtual/">virtual</a></li></ul>
@@ -552,7 +888,7 @@ SQL error near line 809: no such table: main.user_log
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/04/02/convert-mysql-to-sqlite/" data-id="cinga3yjr004zdciz4nzopx9w" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/04/02/convert-mysql-to-sqlite/" data-id="cinho3c0i004zzbiz23uoh34h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
@@ -807,7 +1143,7 @@ md127 : inactive sdb[0](S)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/31/use-raid/" data-id="cinga3yjt0054dcizkv3yz9wk" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/31/use-raid/" data-id="cinho3c0k0054zbiz31t822yk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/">storage</a></li></ul>
@@ -931,7 +1267,7 @@ WPA: Group rekeying completed with 1c:fa:68:b9:18:16 [GTK=TKIP]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/13/connect-wifi-in-linux-terminal/" data-id="cinga3yjp004rdciz4mqaahvr" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/13/connect-wifi-in-linux-terminal/" data-id="cinho3c0e004nzbizmvc8tvw1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
@@ -1018,7 +1354,7 @@ EOF
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/12/install-skype-on-fedora18-x86_64/" data-id="cinga3yjq004wdciz1d8ssvyl" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/12/install-skype-on-fedora18-x86_64/" data-id="cinho3c0h004wzbizi9de912d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skype/">skype</a></li></ul>
@@ -1069,7 +1405,7 @@ EOF
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/12/skype-api-for-linux/" data-id="cinga3yjn004ldcizb6ilff7c" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/12/skype-api-for-linux/" data-id="cinho3c0c004hzbizjxacrgy8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skype/">skype</a></li></ul>
@@ -1199,7 +1535,7 @@ echo &quot;rsync&quot; &gt; d:/rsync/rsyncd.secrets
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/06/use-rsync/" data-id="cinga3yjm004hdcizsd7m1tii" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/06/use-rsync/" data-id="cinho3c0f004szbizub8ij3n6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/">rsync</a></li></ul>
@@ -1349,181 +1685,10 @@ exit 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/05/xml-parse/" data-id="cinga3yjk0048dcizxojcrsfh" class="article-share-link">Delen</a>
+      <a data-url="http://matrix207.github.com/2013/03/05/xml-parse/" data-id="cinho3c0b0048zbizw1cyhlj9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sed/">sed</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vi/">vi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xml/">xml</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-30-linux-kernel-developers-in-30-weeks-thomas-gleixner" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/" class="article-date">
-  <time datetime="2013-03-03T16:00:00.000Z" itemprop="datePublished">2013-03-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/english/">english</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/">30 Linux Kernel Developers in 30 Weeks: Thomas Gleixner</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x539F;&#x6587;:<a href="https://www.linux.com/news/special-feature/linux-developers/591039-30-linux-kernel-developers-in-30-weeks-thomas-gleixner" target="_blank" rel="external">30 Linux Kernel Developers in 30 Weeks: Thomas Gleixner</a></p>
-<blockquote>
-<p>This is the second in our 30-week series that profiles a different Linux kernel developer each week. Last week we debuted the series with Linus Torvalds. The profiles we publish throughout the rest of 2012 should help illustrate how these developers do their work, providing important insight on how to work with them and what makes them tick.</p>
-</blockquote>
-<p>&#x8FD9;&#x4E2A;30&#x5468;30&#x4F4D;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x8005;&#x4ECB;&#x7ECD;&#x7684;&#x7B2C;&#x4E8C;&#x671F;&#x3002;&#x4E0A;&#x5468;&#x6211;&#x4EEC;&#x91C7;&#x8BBF;&#x4E86;Linus Toravalds&#x3002;&#x5728;2012&#x5E74;&#x4F59;&#x4E0B;&#x65F6;&#x95F4;&#x4E2D;&#x53D1;&#x8868;&#x7684;&#x8FD9;&#x4E9B;&#x6587;&#x7AE0;&#x5C06;&#x544A;&#x8BC9;&#x5927;&#x5BB6;&#x4ED6;&#x4EEC;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x600E;&#x6837;&#x4E0E;&#x4ED6;&#x4EEC;&#x534F;&#x540C;&#x5DE5;&#x4F5C;&#x4EE5;&#x53CA;&#x4ED6;&#x4EEC;&#x6210;&#x529F;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
-<blockquote>
-<p>Name</p>
-</blockquote>
-<p>&#x540D;&#x5B57;</p>
-<blockquote>
-<p>Thomas Gleixner, nickname: tglx</p>
-</blockquote>
-<p>Thomas Gleixner, &#x6635;&#x79F0;: tglx</p>
-<blockquote>
-<p>What role do you play in the community and/or what subsystem(s) do you work on?</p>
-</blockquote>
-<p>&#x4F60;&#x5728;&#x793E;&#x533A;&#x4E2D;&#x626E;&#x6F14;&#x4EC0;&#x4E48;&#x89C9;&#x5F97;&#x4EE5;&#x53CA;&#x7EF4;&#x62A4;&#x54EA;&#x90E8;&#x5206;&#xFF1F;</p>
-<blockquote>
-<p>Quite a few people consider me to be one of the Grumpy Old Men. That&#x2019;s related to my age and the age-related unwillingness to cope with crap.</p>
-</blockquote>
-<p>&#x5F88;&#x591A;&#x4EBA;&#x8BA4;&#x4E3A;&#x6211;&#x662F;&#x813E;&#x6C14;&#x66B4;&#x8E81;&#x7684;&#x8001;&#x4EBA;&#x5BB6;&#x3002;&#x8FD9;&#x6D89;&#x53CA;&#x5230;&#x6211;&#x7684;&#x5E74;&#x7EAA;&#xFF0C;&#x4F46;&#x548C;&#x5E74;&#x7EAA;&#x4E00;&#x4E01;&#x70B9;&#x5173;&#x7CFB;&#x90FD;&#x6CA1;&#x6709;&#x3002;</p>
-<blockquote>
-<p>As a maintainer I&#x2019;m responsible for the core infrastructure of timers, timekeeping and interrupt handling. I&#x2019;m part of the x86 architecture maintainer team and I&#x2019;m the maintainer and main developer of the real time preemption patch. Aside of that I have a strong affinity for mission impossible and tree wide code cleanups.</p>
-</blockquote>
-<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#xFF0C;&#x6211;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x6838;&#x5FC3;&#x57FA;&#x7840;&#xFF0C;&#x65F6;&#x95F4;&#x8BB0;&#x5F55;&#x5668;&#x4EE5;&#x53CA;&#x7EC8;&#x7AEF;&#x5904;&#x7406;&#x3002;&#x6211;&#x662F;x86&#x67B6;&#x6784;&#x7EF4;&#x62A4;&#x7EC4;&#x6210;&#x5458;&#xFF0C;&#x5B9E;&#x65F6;&#x62A2;&#x5360;&#x8865;&#x4E01;&#x7684;&#x5F00;&#x53D1;&#x548C;&#x7EF4;&#x62A4;&#x8005;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x6211;&#x559C;&#x6B22;&#x4E00;&#x4E9B;&#x9AD8;&#x96BE;&#x5EA6;&#x4EFB;&#x52A1;&#xFF0C;&#x4EE5;&#x53CA;&#x5185;&#x6838;&#x6811;&#x6E05;&#x7406;&#x5DE5;&#x4F5C;&#x3002;</p>
-<blockquote>
-<p>Where do you get your paycheck?</p>
-</blockquote>
-<p>&#x4F60;&#x7684;&#x6536;&#x5165;&#x6765;&#x6E90;&#xFF1F;</p>
-<blockquote>
-<p>From my own company, which gets part of it refunded by contracts with Red Hat and others interested in my work.</p>
-</blockquote>
-<p>&#x6765;&#x81EA;&#x6211;&#x7684;&#x516C;&#x53F8;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x90E8;&#x5206;&#x662F;&#x7EA2;&#x5E3D;&#x5B50;&#x7684;&#x5408;&#x7EA6;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x662F;&#x6211;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
-<blockquote>
-<p>What part of the world do you live in? Why there?</p>
-</blockquote>
-<p>&#x4F60;&#x5728;&#x54EA;&#x751F;&#x6D3B;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;</p>
-<blockquote>
-<p>Germany. It&#x2019;s my home, why should I live anywhere else?</p>
-</blockquote>
-<p>&#x5FB7;&#x56FD;&#x3002;&#x8FD9;&#x91CC;&#x662F;&#x6211;&#x7684;&#x5BB6;&#xFF0C;&#x6211;&#x4E0D;&#x53EF;&#x80FD;&#x53BB;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x3002;</p>
-<blockquote>
-<p>What are your favorite productivity tools for software development?</p>
-</blockquote>
-<p>&#x4F60;&#x6700;&#x559C;&#x6B22;&#x7684;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
-<blockquote>
-<p>Command line tools. Don&#x2019;t try to involve me into Emacs vs. VI discussions and don&#x2019;t ask me about GUI tools :)</p>
-</blockquote>
-<p>&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x3002;&#x4E0D;&#x8981;&#x8BA9;&#x6211;&#x9677;&#x5165;Emacs&#x4E0E;VI&#x8BBA;&#x6218;&#xFF0C;&#x4E5F;&#x4E0D;&#x8981;&#x95EE;&#x4E00;&#x4E9B;GUI&#x5DE5;&#x5177;&#x3002;:)</p>
-<blockquote>
-<p>What do you run on your desktop?</p>
-</blockquote>
-<p>&#x4F60;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x5DE5;&#x5177;&#xFF1F;</p>
-<blockquote>
-<p>Changing flavors of Linux distributions. My desktop requirements are rather low: Manage a gazillion of terminals, run a graphical browser and occasionally fire up some unavoidable GUI applications.</p>
-</blockquote>
-<p>&#x4FEE;&#x6539;Linux&#x5206;&#x53D1;&#x5305;&#x7684;&#x7279;&#x6027;&#x3002;&#x6211;&#x5BF9;&#x684C;&#x9762;&#x8981;&#x6C42;&#x5F88;&#x4F4E;:&#x7BA1;&#x7406;&#x4E00;&#x4E2A;&#x56FE;&#x5F62;&#x7EC8;&#x7AEF;&#xFF0C;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x754C;&#x9762;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x5076;&#x5C14;&#x4FEE;&#x6539;&#x4E00;&#x4E9B;&#x8D1F;&#x8D23;&#x7684;GUI&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
-<blockquote>
-<p>I&#x2019;m desperately trying to avoid the new fangled app driven &#x201C;desktops,&#x201D; which insist on knowing better than I how to manage my workflow efficiently.</p>
-</blockquote>
-<p>&#x6211;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x907F;&#x514D;&#x5728;&#x684C;&#x9762;&#x4E2D;&#x8FD0;&#x884C;&#x65B0;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;</p>
-<blockquote>
-<p>How did you get involved in Linux kernel development?</p>
-</blockquote>
-<p>&#x4F60;&#x662F;&#x5982;&#x4F55;&#x8FDB;&#x5165;&#x5230;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x7684;&#xFF1F;</p>
-<blockquote>
-<p>Curiosity.</p>
-</blockquote>
-<p>&#x597D;&#x5947;&#x5FC3;&#x4F7F;&#x7136;&#x3002;</p>
-<blockquote>
-<p>What keeps you interested in it?</p>
-</blockquote>
-<p>&#x4EC0;&#x4E48;&#x8BA9;&#x4F60;&#x4E00;&#x5982;&#x65E2;&#x5F80;&#x5E72;&#x8FD9;&#x4E8B;&#xFF1F;</p>
-<blockquote>
-<p>The fun of it. Working with smart people all over the world.</p>
-</blockquote>
-<p>&#x8FD9;&#x662F;&#x4EF6;&#x6709;&#x610F;&#x601D;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x548C;&#x5168;&#x4E16;&#x754C;&#x6700;&#x806A;&#x660E;&#x7684;&#x4EBA;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#x3002;</p>
-<blockquote>
-<p>Image: LinuxCon Europe, Gleixner second from right</p>
-</blockquote>
-<p>&#x56FE;&#x7247;:  &#x6B27;&#x6D32;Linux&#x4F1A;&#x8BAE;&#xFF0C;Gleixner&#x5728;&#x53F3;&#x8FB9;&#x7B2C;&#x4E8C;&#x4E2A;</p>
-<blockquote>
-<p>What&#x2019;s the most amused you&#x2019;ve ever been by the collaborative development process (flame war, silly code submission, amazing accomplishment)?</p>
-</blockquote>
-<p>&#x5728;&#x534F;&#x4F5C;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F60;&#x89C9;&#x5F97;&#x6700;&#x597D;&#x73A9;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#xFF08;&#x5634;&#x4ED7;&#xFF0C;&#x611A;&#x8822;&#x4EE3;&#x7801;&#x63D0;&#x4EA4;&#xFF0C;&#x60CA;&#x4EBA;&#x7684;&#x6210;&#x5C31;&#xFF09;&#xFF1F;</p>
-<blockquote>
-<p>That&#x2019;s a tough question. I have my favorites in all categories, but as far as silliness, this is my favorite one:</p>
-</blockquote>
-<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x96BE;&#x56DE;&#x7B54;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x559C;&#x6B22;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x4F46;&#x6211;&#x89C9;&#x5F97;&#x6700;&#x50BB;&#x7684;&#x662F;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#xFF1A;</p>
-<blockquote>
-<ul>
-<li>d-&gt;core_internal_state__do_not_mess_with_it |= SOME_CONSTANT;</li>
-</ul>
-</blockquote>
-<ul>
-<li>d-&gt;core_internal_state__do_not_mess_with_it |= SOME_CONSTANT;</li>
-</ul>
-<blockquote>
-<p>See <a href="http://www.spinics.net/lists/linux-tip-commits/msg11099.html" target="_blank" rel="external">http://www.spinics.net/lists/linux-tip-commits/msg11099.html</a></p>
-</blockquote>
-<p>&#x53C2;&#x8003; <a href="http://www.spinics.net/lists/linux-tip-commits/msg11099.html" target="_blank" rel="external">http://www.spinics.net/lists/linux-tip-commits/msg11099.html</a></p>
-<blockquote>
-<p>What&#x2019;s your advice for developers who want to get involved?</p>
-</blockquote>
-<p>&#x4F60;&#x5BF9;&#x60F3;&#x8FDB;&#x5165;&#x8BE5;&#x9886;&#x57DF;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x6709;&#x4EC0;&#x4E48;&#x5EFA;&#x8BAE;&#xFF1F;</p>
-<blockquote>
-<p>Find your area of interest, and start tackling problems which are affecting you.</p>
-</blockquote>
-<p>&#x627E;&#x5230;&#x4F60;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x9886;&#x57DF;&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x51B3;&#x5BF9;&#x4F60;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
-<blockquote>
-<p>What do you listen to when you code?</p>
-</blockquote>
-<p>&#x4F60;&#x6700;&#x7F16;&#x7801;&#x65F6;&#x90FD;&#x542C;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1F;</p>
-<blockquote>
-<p>To the thoughts drifting through my brain.</p>
-</blockquote>
-<p>&#x6211;</p>
-<blockquote>
-<p>What mailing list or IRC channel will people find you hanging out at? What conference(s)?</p>
-</blockquote>
-<p>&#x5728;&#x90A3;&#x4E9B;&#x90AE;&#x4EF6;&#x5217;&#x8868;&#x6216;IRC&#x9891;&#x9053;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x4F60;&#xFF1F;&#x4F1A;&#x8BAE;&#x5462;&#xFF1F;</p>
-<blockquote>
-<p>Mailing lists: Mostly LKML (Linux Kernel Mailing List)<br>IRC channels : My nick is unique<br>Conferences  : Too many</p>
-</blockquote>
-<p>&#x90AE;&#x4EF6;&#x5217;&#x8868;: &#x57FA;&#x672C;&#x4E0A;&#x662F;LKML&#xFF08;Linux&#x5185;&#x6838;&#x5217;&#x8868;&#xFF09;<br>IRC&#x9891;&#x9053;: &#x6211;&#x7684;&#x6635;&#x79F0;&#x662F; unique<br>&#x4F1A;&#x8BAE;: &#x592A;&#x591A;&#x4E86;</p>
-<blockquote>
-<p>Thanks to Thomas for participating in 30 Linux Kernel Developers in 30 Weeks. Next week, we talk to Sarah Sharp.</p>
-</blockquote>
-<p>&#x8C22;&#x8C22;Thomas&#x53C2;&#x52A0;30&#x5468;30&#x4F4D;Linux&#x5185;&#x6838;&#x5F00;&#x53D1;&#x8005;&#x3002;&#x4E0B;&#x5468;&#x6211;&#x4EEC;&#x5C06;&#x5BF9;&#x8BDD;Sarah Sharp&#x3002;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2013/03/04/30-linux-kernel-developers-in-30-weeks-thomas-gleixner/" data-id="cinga3yjj0045dciz0o81wky6" class="article-share-link">Delen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Translation/">Translation</a></li></ul>
 
     </footer>
   </div>
@@ -1543,7 +1708,7 @@ exit 0
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/english/">english</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/kernel/">kernel</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/math/">math</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/person/">person</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/source/">source</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/storage/">storage</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">windows</a></li></ul>
     </div>
@@ -1562,7 +1727,7 @@ exit 0
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a></li></ul>
     </div>
@@ -1572,9 +1737,13 @@ exit 0
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+          </li>
         
           <li>
             <a href="/2016/04/24/understand-gcc-assembly-output/">understand gcc assembly output</a>
@@ -1590,10 +1759,6 @@ exit 0
         
           <li>
             <a href="/2016/04/13/malloc/">malloc</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/12/performance-optimization-of-cplusplus/">performance optimization of C++</a>
           </li>
         
       </ul>
