@@ -84,7 +84,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/27/include-what-you-use/">include what you use</a>
+      <a class="article-title" href="/2016/04/27/include-what-you-use/">使用IWYU整理头文件引用</a>
     </h1>
   
 
@@ -92,11 +92,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="0x01-&#x4ECB;&#x7ECD;"><a href="#0x01-&#x4ECB;&#x7ECD;" class="headerlink" title="0x01 &#x4ECB;&#x7ECD;"></a>0x01 &#x4ECB;&#x7ECD;</h3><p>IWYU &#x662F; include what you use&#x7684;&#x9996;&#x5B57;&#x6BCD;&#x7F29;&#x5199;, &#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x4F7F;&#x7528;&#x54EA;&#x4E9B;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x7684;<br>&#x5DE5;&#x5177;.<br>IWYU &#x4F7F;&#x7528; clang &#x5206;&#x6790;&#x7B26;&#x53F7;&#x7684;&#x5F15;&#x7528;&#x3002; &#x662F; google &#x7684;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x7ED9;&#x51FA;&#x5E94;&#x8BE5;&#x5F15;&#x7528;&#x548C;&#x79FB;&#x9664;<br>&#x7684;&#x5934;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1; 100% &#x662F;&#x6B63;&#x786E;&#x7684;&#xFF08;&#x5F53;&#x7136;&#x90FD;&#x662F;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x7684;&#x539F;&#x56E0;&#xFF09;&#x3002;</p>
+        <h3 id="0x01-&#x4ECB;&#x7ECD;"><a href="#0x01-&#x4ECB;&#x7ECD;" class="headerlink" title="0x01 &#x4ECB;&#x7ECD;"></a>0x01 &#x4ECB;&#x7ECD;</h3><p>IWYU &#x662F;include what you use&#x7684;&#x9996;&#x5B57;&#x6BCD;&#x7F29;&#x5199;<br>IWYU &#x4F7F;&#x7528;clang&#x5206;&#x6790;&#x7B26;&#x53F7;&#x7684;&#x5F15;&#x7528;&#x3002;&#x662F;google&#x7684;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x7ED9;&#x51FA;&#x5E94;&#x8BE5;&#x5F15;&#x7528;&#x548C;&#x79FB;&#x9664;<br>&#x7684;&#x5934;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1; 100% &#x662F;&#x6B63;&#x786E;&#x7684;&#xFF08;&#x5F53;&#x7136;&#x90FD;&#x662F;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x7684;&#x539F;&#x56E0;&#xFF09;&#x3002;</p>
 <h3 id="0x02-&#x7F16;&#x8BD1;&#x6E90;&#x7801;&#x5305;"><a href="#0x02-&#x7F16;&#x8BD1;&#x6E90;&#x7801;&#x5305;" class="headerlink" title="0x02 &#x7F16;&#x8BD1;&#x6E90;&#x7801;&#x5305;"></a>0x02 &#x7F16;&#x8BD1;&#x6E90;&#x7801;&#x5305;</h3><ul>
 <li>&#x5B89;&#x88C5;clang</li>
-<li>&#x68C0;&#x67E5;clang&#x7684;&#x7248;&#x672C;&#x5E76;&#x4E0B;&#x8F7D;&#x5BF9;&#x5E94;&#x7248;&#x672C;&#x7684;IWYU&#x6E90;&#x7801;<ul>
-<li><a href="https://github.com/include-what-you-use/include-what-you-use/releases" target="_blank" rel="external">https://github.com/include-what-you-use/include-what-you-use/releases</a></li>
+<li><p>&#x68C0;&#x67E5;clang&#x7684;&#x7248;&#x672C;&#x5E76;&#x4E0B;&#x8F7D;&#x5BF9;&#x5E94;&#x7248;&#x672C;&#x7684;IWYU&#x6E90;&#x7801;</p>
+<ul>
+<li><p><a href="https://github.com/include-what-you-use/include-what-you-use/releases" target="_blank" rel="external">https://github.com/include-what-you-use/include-what-you-use/releases</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dennis@dennis:~/Downloads/build$ clang --version</span><br><span class="line">Ubuntu clang version 3.4-1ubuntu3 (tags/RELEASE_34/final) (based on LLVM 3.4)</span><br><span class="line">Target: x86_64-pc-linux-gnu</span><br><span class="line">Thread model: posix</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x7684;clang&#x7248;&#x672C;&#x662F;3.4</p>
+</li>
 </ul>
 </li>
 <li>&#x7F16;&#x8BD1;<ul>
@@ -109,47 +114,16 @@
 </ul>
 <h3 id="0x03-&#x4E3E;&#x4F8B;"><a href="#0x03-&#x4E3E;&#x4F8B;" class="headerlink" title="0x03 &#x4E3E;&#x4F8B;"></a>0x03 &#x4E3E;&#x4F8B;</h3><ul>
 <li><p>c++ &#x6E90;&#x7801; mem.cc</p>
-<p>  #include <fcntl.h><br>  #include <signal.h><br>  #include <stdio.h><br>  //#include <stdlib.h><br>  #include <string.h><br>  #include <stdint.h><br>  #include <sys mman.h=""><br>  #include <sys stat.h=""><br>  #include <unistd.h><br>  #include <sys user.h=""><br>  #include <execinfo.h></execinfo.h></sys></unistd.h></sys></sys></stdint.h></string.h></stdlib.h></stdio.h></signal.h></fcntl.h></p>
-<p>  #include <thread><br>  using namespace std;</thread></p>
-<p>  void g()<br>  {</p>
-<pre><code>usleep(2000);
-printf(&quot;thread one\n&quot;);
-</code></pre><p>  }</p>
-<p>  void f()<br>  {</p>
-<pre><code>printf(&quot;thread two\n&quot;);
-</code></pre><p>  }</p>
-<p>  int main(int argc, char* argv[])<br>  {</p>
-<pre><code>std::thread t1(f);
-std::thread t2(g);
-t1.join();
-t2.join();
-return 0;
-</code></pre><p>  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;fcntl.h&gt;</span><br><span class="line">#include &lt;signal.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">//#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdint.h&gt;</span><br><span class="line">#include &lt;sys/mman.h&gt;</span><br><span class="line">#include &lt;sys/stat.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;sys/user.h&gt;</span><br><span class="line">#include &lt;execinfo.h&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;thread&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void g()</span><br><span class="line">{</span><br><span class="line">	usleep(2000);</span><br><span class="line">	printf(&quot;thread one\n&quot;);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">void f()</span><br><span class="line">{</span><br><span class="line">	printf(&quot;thread two\n&quot;);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">int main(int argc, char* argv[])</span><br><span class="line">{</span><br><span class="line">	std::thread t1(f);</span><br><span class="line">	std::thread t2(g);</span><br><span class="line">	t1.join();</span><br><span class="line">	t2.join();</span><br><span class="line">	return 0;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>&#x68C0;&#x67E5;</p>
-<p>  dennis@dennis:~/Downloads/build$ ./include-what-you-use &#x2013;std=c++11 mem.cc </p>
-<p>  mem.cc should add these lines:</p>
-<p>  mem.cc should remove these lines:</p>
-<ul>
-<li>#include <execinfo.h>  // lines 11-11</execinfo.h></li>
-<li>#include <fcntl.h>  // lines 1-1</fcntl.h></li>
-<li>#include <signal.h>  // lines 2-2</signal.h></li>
-<li>#include <stdint.h>  // lines 6-6</stdint.h></li>
-<li>#include <string.h>  // lines 5-5</string.h></li>
-<li>#include <sys mman.h="">  // lines 7-7</sys></li>
-<li>#include <sys stat.h="">  // lines 8-8</sys></li>
-<li><p>#include <sys user.h="">  // lines 10-10</sys></p>
-<p>The full include-list for mem.cc:<br>#include <stdio.h>                      // for printf<br>#include <unistd.h>                     // for usleep<br>#include <thread>                       // for thread</thread></unistd.h></stdio.h></p>
-</li>
-</ul>
-<hr>
+<li><p>&#x68C0;&#x67E5;, &#x6CE8;&#x610F;,&#x8981;&#x4F7F;&#x7528;<code>-std=c++11</code>, &#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;c11&#x7684;&#x7EBF;&#x7A0B;&#x5E93;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dennis@dennis:~/Downloads/build$ ./include-what-you-use -std=c++11 mem.cc </span><br><span class="line"></span><br><span class="line">mem.cc should add these lines:</span><br><span class="line"></span><br><span class="line">mem.cc should remove these lines:</span><br><span class="line">- #include &lt;execinfo.h&gt;  // lines 11-11</span><br><span class="line">- #include &lt;fcntl.h&gt;  // lines 1-1</span><br><span class="line">- #include &lt;signal.h&gt;  // lines 2-2</span><br><span class="line">- #include &lt;stdint.h&gt;  // lines 6-6</span><br><span class="line">- #include &lt;string.h&gt;  // lines 5-5</span><br><span class="line">- #include &lt;sys/mman.h&gt;  // lines 7-7</span><br><span class="line">- #include &lt;sys/stat.h&gt;  // lines 8-8</span><br><span class="line">- #include &lt;sys/user.h&gt;  // lines 10-10</span><br><span class="line"></span><br><span class="line">The full include-list for mem.cc:</span><br><span class="line">#include &lt;stdio.h&gt;                      // for printf</span><br><span class="line">#include &lt;unistd.h&gt;                     // for usleep</span><br><span class="line">#include &lt;thread&gt;                       // for thread</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>&#x4FEE;&#x6539;</p>
-<p>  //#include <fcntl.h><br>  //#include <signal.h><br>  #include <stdio.h><br>  //#include <stdlib.h><br>  //#include <string.h><br>  //#include <stdint.h><br>  //#include <sys mman.h=""><br>  //#include <sys stat.h=""><br>  #include <unistd.h><br>  //#include <sys user.h=""><br>  //#include <execinfo.h></execinfo.h></sys></unistd.h></sys></sys></stdint.h></string.h></stdlib.h></stdio.h></signal.h></fcntl.h></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//#include &lt;fcntl.h&gt;</span><br><span class="line">//#include &lt;signal.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">//#include &lt;stdlib.h&gt;</span><br><span class="line">//#include &lt;string.h&gt;</span><br><span class="line">//#include &lt;stdint.h&gt;</span><br><span class="line">//#include &lt;sys/mman.h&gt;</span><br><span class="line">//#include &lt;sys/stat.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">//#include &lt;sys/user.h&gt;</span><br><span class="line">//#include &lt;execinfo.h&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>&#x518D;&#x6B21;&#x68C0;&#x67E5;</p>
-<p>  dennis@dennis:~/Downloads/build$ ./include-what-you-use &#x2013;std=c++11 mem.cc </p>
-<p>  (mem.cc has correct #includes/fwd-decls)</p>
+<li><p>&#x518D;&#x6B21;&#x68C0;&#x67E5;,&#x663E;&#x793A;&#x5DF2;&#x6B63;&#x786E;&#x5F15;&#x7528;&#x6216;&#x524D;&#x5411;&#x58F0;&#x660E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dennis@dennis:~/Downloads/build$ ./include-what-you-use -std=c++11 mem.cc </span><br><span class="line"></span><br><span class="line">(mem.cc has correct #includes/fwd-decls)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="0x04-&#x53C2;&#x8003;"><a href="#0x04-&#x53C2;&#x8003;" class="headerlink" title="0x04 &#x53C2;&#x8003;"></a>0x04 &#x53C2;&#x8003;</h3><ul>
@@ -160,7 +134,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/04/27/include-what-you-use/" data-id="cinho3c5y00hqzbizw28sjm3o" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/04/27/include-what-you-use/" data-id="cinhpusd900i27riz3f5uwtpg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -217,7 +191,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/04/24/understand-gcc-assembly-output/" data-id="cinho3c6600hzzbiz9mhugk30" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/04/24/understand-gcc-assembly-output/" data-id="cinhpusd700hw7rizmseeyfgu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/assembly/">assembly</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gcc/">gcc</a></li></ul>
@@ -291,7 +265,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/04/24/speed-up-cplusplus-compilation/" data-id="cinho3c6400hwzbiz1qtl99a5" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/04/24/speed-up-cplusplus-compilation/" data-id="cinhpusd500ht7rizynx6or4p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -384,7 +358,7 @@ return 0;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/04/18/hexo/" data-id="cinho3c5u00hgzbizb2dcslxx" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/04/18/hexo/" data-id="cinhpusd300hn7rizl2pn1ysu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -515,7 +489,7 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/04/13/malloc/" data-id="cinho3c5w00hmzbizluo6isir" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/04/13/malloc/" data-id="cinhpusd100hj7riznawq1a52" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/malloc/">malloc</a></li></ul>
@@ -638,7 +612,7 @@ memory require 1048576, allocated 1052656, address 0x7f0fc11c3010, next address 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/12/performance-optimization-of-cplusplus/" data-id="cinho3c5m00gzzbizfw04n5b4" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/03/12/performance-optimization-of-cplusplus/" data-id="cinhpuscz00hf7rizqfgc11nr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li></ul>
@@ -808,7 +782,7 @@ Type: i,i 25^-20=1.09951e-28
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/09/check-pow-overflow/" data-id="cinho3c5q00h7zbizridys3kl" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/03/09/check-pow-overflow/" data-id="cinhpuscw00h67rizs7fkyt89" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -895,60 +869,10 @@ Error: signal 11:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/09/stack-trace-when-program-crash/" data-id="cinho3c5r00hazbizm16fqt0l" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/03/09/stack-trace-when-program-crash/" data-id="cinhpuscx00h97rizq8c2f3db" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crash/">crash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stack/">stack</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-wrong-coding-in-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/05/wrong-coding-in-cplusplus/" class="article-date">
-  <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/language/">language</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/05/wrong-coding-in-cplusplus/">Wrong coding in c++</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="use-exception-instead-return-boolean"><a href="#Use-exception-instead-return-boolean" class="headerlink" title="Use exception instead return boolean"></a>Use exception instead return boolean</h3><p>Sample code as below:</p>
-<pre><code>try {
-    // Do something here, which may throw exception
-} catch (MyException&amp; e) {
-    if (e.getError() == MyExceptionA) {
-        // Do another normal operation
-    }
-}
-</code></pre><h3 id="throw-exception-in-loop"><a href="#Throw-exception-in-loop" class="headerlink" title="Throw exception in loop"></a>Throw exception in loop</h3><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/05/wrong-coding-in-cplusplus/" data-id="cinho3c5l00gwzbiz6a3inc15" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
 
     </footer>
   </div>
@@ -1296,10 +1220,69 @@ Ensure failed :
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/05/cplusplus/" data-id="cinho3c5k00gtzbizjt7o6s0o" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/03/05/cplusplus/" data-id="cinhpusct00h07riz8ldwcf7v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/05/c/" class="article-date">
+  <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/language/">language</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/05/c/">c</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><h3 id="projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h3><ul>
+<li>1.<a href="http://home.tiscali.cz/~cz210552/webbench.html" target="_blank" rel="external">Webbench</a></li>
+<li>2.<a href="http://sourceforge.net/projects/tinyhttpd/" target="_blank" rel="external">Tinyhttpd</a></li>
+<li>3.<a href="http://sourceforge.net/projects/cjson/" target="_blank" rel="external">cJSON</a></li>
+<li>4.<a href="http://code.google.com/p/cmockery/downloads/list" target="_blank" rel="external">CMokery</a></li>
+<li>5.<a href="http://software.schmorp.de/pkg/libev.html" target="_blank" rel="external">Libev</a></li>
+<li>6.<a href="http://memcached.org/" target="_blank" rel="external">Memcached</a></li>
+<li>7.<a href="http://www.lua.org/" target="_blank" rel="external">Lua</a></li>
+<li>8.<a href="http://www.sqlite.org/" target="_blank" rel="external">SQLite</a></li>
+<li>9.<a href="http://minnie.tuhs.org/cgi-bin/utree.pl?file=V6" target="_blank" rel="external">UNIX v6</a></li>
+<li>10.<a href="http://www.netbsd.org/" target="_blank" rel="external">NETBSD</a></li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://blog.jobbole.com/79023/" target="_blank" rel="external">&#x6700;&#x503C;&#x5F97;&#x9605;&#x8BFB;&#x5B66;&#x4E60;&#x7684; 10 &#x4E2A; C &#x8BED;&#x8A00;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x4EE3;&#x7801;</a></li>
+<li><a href="https://notabug.org/koz.ross/awesome-c" target="_blank" rel="external">https://notabug.org/koz.ross/awesome-c</a></li>
+<li><a href="https://github.com/jobbole/awesome-c-cn" target="_blank" rel="external">https://github.com/jobbole/awesome-c-cn</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2016/03/05/c/" data-id="cinhpuscr00gx7riz1pbw45fz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
 
     </footer>
   </div>
@@ -1353,7 +1336,7 @@ Ensure failed :
       <ul>
         
           <li>
-            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+            <a href="/2016/04/27/include-what-you-use/">使用IWYU整理头文件引用</a>
           </li>
         
           <li>

@@ -66,9 +66,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-c" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-wrong-coding-in-cplusplus" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/03/05/c/" class="article-date">
+    <a href="/2016/03/05/wrong-coding-in-cplusplus/" class="article-date">
   <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
 </a>
     
@@ -84,7 +84,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/05/c/">c</a>
+      <a class="article-title" href="/2016/03/05/wrong-coding-in-cplusplus/">Wrong coding in c++</a>
     </h1>
   
 
@@ -92,31 +92,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><h3 id="projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h3><ul>
-<li>1.<a href="http://home.tiscali.cz/~cz210552/webbench.html" target="_blank" rel="external">Webbench</a></li>
-<li>2.<a href="http://sourceforge.net/projects/tinyhttpd/" target="_blank" rel="external">Tinyhttpd</a></li>
-<li>3.<a href="http://sourceforge.net/projects/cjson/" target="_blank" rel="external">cJSON</a></li>
-<li>4.<a href="http://code.google.com/p/cmockery/downloads/list" target="_blank" rel="external">CMokery</a></li>
-<li>5.<a href="http://software.schmorp.de/pkg/libev.html" target="_blank" rel="external">Libev</a></li>
-<li>6.<a href="http://memcached.org/" target="_blank" rel="external">Memcached</a></li>
-<li>7.<a href="http://www.lua.org/" target="_blank" rel="external">Lua</a></li>
-<li>8.<a href="http://www.sqlite.org/" target="_blank" rel="external">SQLite</a></li>
-<li>9.<a href="http://minnie.tuhs.org/cgi-bin/utree.pl?file=V6" target="_blank" rel="external">UNIX v6</a></li>
-<li>10.<a href="http://www.netbsd.org/" target="_blank" rel="external">NETBSD</a></li>
-</ul>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://blog.jobbole.com/79023/" target="_blank" rel="external">&#x6700;&#x503C;&#x5F97;&#x9605;&#x8BFB;&#x5B66;&#x4E60;&#x7684; 10 &#x4E2A; C &#x8BED;&#x8A00;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x4EE3;&#x7801;</a></li>
-<li><a href="https://notabug.org/koz.ross/awesome-c" target="_blank" rel="external">https://notabug.org/koz.ross/awesome-c</a></li>
-<li><a href="https://github.com/jobbole/awesome-c-cn" target="_blank" rel="external">https://github.com/jobbole/awesome-c-cn</a></li>
-</ul>
-
+        <h3 id="use-exception-instead-return-boolean"><a href="#Use-exception-instead-return-boolean" class="headerlink" title="Use exception instead return boolean"></a>Use exception instead return boolean</h3><p>Sample code as below:</p>
+<pre><code>try {
+    // Do something here, which may throw exception
+} catch (MyException&amp; e) {
+    if (e.getError() == MyExceptionA) {
+        // Do another normal operation
+    }
+}
+</code></pre><h3 id="throw-exception-in-loop"><a href="#Throw-exception-in-loop" class="headerlink" title="Throw exception in loop"></a>Throw exception in loop</h3><h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/03/05/c/" data-id="cinho3c5i00gqzbizh66zebvr" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/03/05/wrong-coding-in-cplusplus/" data-id="cinhpuscu00h37riz18htuzir" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
 
     </footer>
   </div>
@@ -170,55 +161,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/02/21/why-use-json/" data-id="cinho3c5o00h3zbizyned8rz4" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/02/21/why-use-json/" data-id="cinhpuscq00gt7rizimokx5z2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/json/">json</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-c11" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/17/c11/" class="article-date">
-  <time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished">2016-01-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/language/">language</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/c11/">c++11</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://mindhacks.cn/2012/08/27/modern-cpp-practices/" target="_blank" rel="external">C++11&#xFF08;&#x53CA;&#x73B0;&#x4EE3;C++&#x98CE;&#x683C;&#xFF09;&#x548C;&#x5FEB;&#x901F;&#x8FED;&#x4EE3;&#x5F0F;&#x5F00;&#x53D1;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/01/17/c11/" data-id="cinho3c5h00gnzbiztebfbeb0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
 
     </footer>
   </div>
@@ -277,7 +223,52 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/01/17/exception-vs-error-code/" data-id="cinho3c5g00gkzbizaa3z310z" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/01/17/exception-vs-error-code/" data-id="cinhpusco00gq7rizhieai5h7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/17/c11/" class="article-date">
+  <time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished">2016-01-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/language/">language</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/c11/">c++11</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://mindhacks.cn/2012/08/27/modern-cpp-practices/" target="_blank" rel="external">C++11&#xFF08;&#x53CA;&#x73B0;&#x4EE3;C++&#x98CE;&#x683C;&#xFF09;&#x548C;&#x5FEB;&#x901F;&#x8FED;&#x4EE3;&#x5F0F;&#x5F00;&#x53D1;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2016/01/17/c11/" data-id="cinhpuscm00gn7rizllk085az" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -329,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/01/07/linux-cc-coverage-testing-tool/" data-id="cinho3c5e00ggzbiz53n58uyu" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/01/07/linux-cc-coverage-testing-tool/" data-id="cinhpuscl00gj7rizf6f30l4d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -443,9 +434,15 @@
 </li>
 </ul>
 <h4 id="detect-tools"><a href="#Detect-tools" class="headerlink" title="Detect tools"></a>Detect tools</h4><ul>
+<li><code>mcheck</code><ul>
+<li>disadvantage: only work on c memory manager, not work for new/delete of c++</li>
+</ul>
+</li>
 <li><code>mprotect</code>, set protection on a region of memory. For more see <code>man mprotect</code></li>
 <li><code>electric-fence</code><ul>
 <li><a href="http://packages.debian.org/sid/electric-fence" target="_blank" rel="external">http://packages.debian.org/sid/electric-fence</a></li>
+<li><a href="http://xinsuiyuer.github.io/blog/2013/10/13/use-electric-fence-to-detect-heap-overruns-and-underruns/" target="_blank" rel="external">http://xinsuiyuer.github.io/blog/2013/10/13/use-electric-fence-to-detect-heap-overruns-and-underruns/</a></li>
+<li>disadvantage: like mcheck: only work on c memory manager, not work for<br>new/delete of c++</li>
 </ul>
 </li>
 <li><code>backtrac</code></li>
@@ -462,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/01/03/detect-cc-memory-overflow/" data-id="cinho3c5c00gbzbizj4btp08g" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/01/03/detect-cc-memory-overflow/" data-id="cinhpuscj00ge7rizotdvfd9g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memory-overflow/">memory overflow</a></li></ul>
@@ -538,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/11/25/memory-program-and-debug/" data-id="cinho3c5a00g5zbiz039o5jsj" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/11/25/memory-program-and-debug/" data-id="cinhpusch00g87rizpombqnwy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mtrace/">mtrace</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/valgrind/">valgrind</a></li></ul>
@@ -580,7 +577,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/11/06/what-i-had-learned-over-the-past-half-year/" data-id="cinho3c5700fyzbiz8v1xl5ol" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/11/06/what-i-had-learned-over-the-past-half-year/" data-id="cinhpuscg00g57rizk3pdaxqn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/person/">person</a></li></ul>
@@ -623,7 +620,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/11/04/lua/" data-id="cinho3c5900g1zbizr41gy3iz" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/11/04/lua/" data-id="cinhpusce00g17riz7679lxp1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lua/">lua</a></li></ul>
@@ -700,7 +697,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/11/04/database-knowledge/" data-id="cinho3c5300fszbizfe73zpsr" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/11/04/database-knowledge/" data-id="cinhpuscd00fy7rizs24be3rs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
@@ -757,7 +754,7 @@
       <ul>
         
           <li>
-            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+            <a href="/2016/04/27/include-what-you-use/">使用IWYU整理头文件引用</a>
           </li>
         
           <li>

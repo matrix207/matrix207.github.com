@@ -269,7 +269,7 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/23/iscsi-enterprise-target/" data-id="cinho3c2v00b0zbizkclyklvc" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/23/iscsi-enterprise-target/" data-id="cinhpusa500b67rizp9yruad5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/">iscsi</a></li></ul>
@@ -324,7 +324,7 @@ patch -p1 &lt; ../iscsitarget-1.4.20_patch/iscsi_disable_sync_cache.patch
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/21/software-agent/" data-id="cinho3c2u00axzbiz18mjp1sm" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/21/software-agent/" data-id="cinhpusa400b37rizv0qosrac" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/others/">others</a></li></ul>
@@ -502,76 +502,7 @@ inodes with permission denied: 0
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cinho3c2s00auzbizwgllwvtk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/filesystem/">filesystem</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-moosefs-source-code-analysis" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/06/17/moosefs-source-code-analysis/" class="article-date">
-  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/source/">source</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/17/moosefs-source-code-analysis/">moosefs source code analysis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="mfs-159"><a href="#mfs-1-5-9" class="headerlink" title="mfs-1.5.9"></a>mfs-1.5.9</h3><ol>
-<li><p>Files</p>
-<p> main.c &#x2014;&gt; Init,<br> init.c &#x2014;&gt; defined a <code>RunTab</code>, use for mainloop<br> changelog.c  changelog_init change log<br> random.c rndinit  random generator<br> matocsserv.c matocsserv_init  communication with chunkserver<br> matocuserv.c matocuserv_init  communication with customer<br> filesystem.c fs_init  file system manager<br> stats.c stats_init  statistics module</p>
-<p> [dennis@localhost mfs-1.5.9]$ ls<br> aclocal.m4    config.sub    COPYING  INSTALL      Makefile.in<br> config.guess  configure     depcomp  install-sh   mfschunkserver<br> config.h.in   configure.ac  doc      Makefile.am  MFSCommunication.h<br> mfsdata       mfsmount      README   mfsmaster    missing mfsmetarestore<br> NEWS</p>
-</li>
-<li><p>TODO</p>
-</li>
-</ol>
-<h4 id="master-server"><a href="#master-server" class="headerlink" title="master server"></a>master server</h4><ol>
-<li><p>Files</p>
-<p> [dennis@localhost mfs-1.5.9]$ ls mfsmaster/<br> cfg.c        changelog.h  filesystem.h  lempelziv.h  Makefile.am<br> matocsserv.h random.c     sockets.h     cfg.h        chunks.c<br> datapack.h   init.h       main.c        Makefile.in   matocuserv.c<br> changelog.c  chunks.h     filesystem.c  lempelziv.c   main.h<br> matocsserv.c  matocuserv.h  sockets.c  stats.h        random.h   stats.c</p>
-</li>
-</ol>
-<h4 id="chunk-server"><a href="#chunk-server" class="headerlink" title="chunk  server"></a>chunk  server</h4><ol>
-<li>TODO</li>
-</ol>
-<h4 id="client"><a href="#client" class="headerlink" title="client"></a>client</h4><ol>
-<li>TODO</li>
-</ol>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://www.moosefs.org/download.html" target="_blank" rel="external">MooseFS HomePage</a></li>
-<li><a href="http://sourceforge.net/projects/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/</a></li>
-<li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
-<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004255.html" target="_blank" rel="external">MooseFS introduce</a></li>
-<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004259.html" target="_blank" rel="external">mfsmount module</a></li>
-<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004260.html" target="_blank" rel="external">mfsmaster module</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/moosefs-source-code-analysis/" data-id="cinho3c2r00aqzbiz02en273t" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/17/use-moosefs/" data-id="cinhpusa200b07riz22iwioxn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/filesystem/">filesystem</a></li></ul>
@@ -740,10 +671,79 @@ OK
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/17/sms-develop/" data-id="cinho3c2o00aizbiz2kv1wvtt" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/17/sms-develop/" data-id="cinhpusa100aw7rizt99orx6v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sms/">sms</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-moosefs-source-code-analysis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/06/17/moosefs-source-code-analysis/" class="article-date">
+  <time datetime="2014-06-16T16:00:00.000Z" itemprop="datePublished">2014-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/source/">source</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/17/moosefs-source-code-analysis/">moosefs source code analysis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="mfs-159"><a href="#mfs-1-5-9" class="headerlink" title="mfs-1.5.9"></a>mfs-1.5.9</h3><ol>
+<li><p>Files</p>
+<p> main.c &#x2014;&gt; Init,<br> init.c &#x2014;&gt; defined a <code>RunTab</code>, use for mainloop<br> changelog.c  changelog_init change log<br> random.c rndinit  random generator<br> matocsserv.c matocsserv_init  communication with chunkserver<br> matocuserv.c matocuserv_init  communication with customer<br> filesystem.c fs_init  file system manager<br> stats.c stats_init  statistics module</p>
+<p> [dennis@localhost mfs-1.5.9]$ ls<br> aclocal.m4    config.sub    COPYING  INSTALL      Makefile.in<br> config.guess  configure     depcomp  install-sh   mfschunkserver<br> config.h.in   configure.ac  doc      Makefile.am  MFSCommunication.h<br> mfsdata       mfsmount      README   mfsmaster    missing mfsmetarestore<br> NEWS</p>
+</li>
+<li><p>TODO</p>
+</li>
+</ol>
+<h4 id="master-server"><a href="#master-server" class="headerlink" title="master server"></a>master server</h4><ol>
+<li><p>Files</p>
+<p> [dennis@localhost mfs-1.5.9]$ ls mfsmaster/<br> cfg.c        changelog.h  filesystem.h  lempelziv.h  Makefile.am<br> matocsserv.h random.c     sockets.h     cfg.h        chunks.c<br> datapack.h   init.h       main.c        Makefile.in   matocuserv.c<br> changelog.c  chunks.h     filesystem.c  lempelziv.c   main.h<br> matocsserv.c  matocuserv.h  sockets.c  stats.h        random.h   stats.c</p>
+</li>
+</ol>
+<h4 id="chunk-server"><a href="#chunk-server" class="headerlink" title="chunk  server"></a>chunk  server</h4><ol>
+<li>TODO</li>
+</ol>
+<h4 id="client"><a href="#client" class="headerlink" title="client"></a>client</h4><ol>
+<li>TODO</li>
+</ol>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://www.moosefs.org/download.html" target="_blank" rel="external">MooseFS HomePage</a></li>
+<li><a href="http://sourceforge.net/projects/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/</a></li>
+<li><a href="http://sourceforge.net/projects/moosefs/files/moosefs/" target="_blank" rel="external">http://sourceforge.net/projects/moosefs/files/moosefs/</a></li>
+<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004255.html" target="_blank" rel="external">MooseFS introduce</a></li>
+<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004259.html" target="_blank" rel="external">mfsmount module</a></li>
+<li><a href="http://www.cnblogs.com/JeffreySun/archive/2011/04/03/2004260.html" target="_blank" rel="external">mfsmaster module</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2014/06/17/moosefs-source-code-analysis/" data-id="cinhpusa000as7rizcrdggr9h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/filesystem/">filesystem</a></li></ul>
 
     </footer>
   </div>
@@ -1039,7 +1039,7 @@ addressbook.pb.cc  addressbook.pb.h  addressbook.proto  dennis  Makefile  pb_rea
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cinho3c2q00amzbiz0mapcg76" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/07/use-protobuf/" data-id="cinhpus9y00ao7rizbv38j82t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protobuf/">protobuf</a></li></ul>
@@ -1148,7 +1148,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/07/solution-of-error-while-loading-shared-libraries/" data-id="cinho3c2l00aazbizsmtthaew" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/07/solution-of-error-while-loading-shared-libraries/" data-id="cinhpus9x00aj7rizomtlxrtq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protobuf/">protobuf</a></li></ul>
@@ -1225,7 +1225,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/06/06/open-source-need-to-master/" data-id="cinho3c2n00afzbiz3zy07p3z" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/06/06/open-source-need-to-master/" data-id="cinhpus9w00ag7rizvjlus3wl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/source/">source</a></li></ul>
@@ -1285,7 +1285,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/24/software-debugging-on-windows/" data-id="cinho3c3c00c2zbizj91we9ld" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/24/software-debugging-on-windows/" data-id="cinhpus9v00ad7riz1lz2wwae" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/">debug</a></li></ul>
@@ -1338,7 +1338,7 @@ Password:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2014/05/22/bat-technology-and-salary-level/" data-id="cinho3c2j00a6zbizudghmtoi" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2014/05/22/bat-technology-and-salary-level/" data-id="cinhpus9t00a97rizfcnjqrim" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/job/">job</a></li></ul>
@@ -1395,7 +1395,7 @@ Password:
       <ul>
         
           <li>
-            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+            <a href="/2016/04/27/include-what-you-use/">使用IWYU整理头文件引用</a>
           </li>
         
           <li>

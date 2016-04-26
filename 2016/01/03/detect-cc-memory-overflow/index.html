@@ -27,7 +27,7 @@ heap (malloc and free)
 
 
 0x40000000">
-<meta property="og:updated_time" content="2016-04-25T17:29:08.000Z">
+<meta property="og:updated_time" content="2016-04-26T17:10:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Detect c/c++ memory overflow">
 <meta name="twitter:description" content="Understand the process address space
@@ -191,9 +191,15 @@ heap (malloc and free)
 </li>
 </ul>
 <h4 id="detect-tools"><a href="#Detect-tools" class="headerlink" title="Detect tools"></a>Detect tools</h4><ul>
+<li><code>mcheck</code><ul>
+<li>disadvantage: only work on c memory manager, not work for new/delete of c++</li>
+</ul>
+</li>
 <li><code>mprotect</code>, set protection on a region of memory. For more see <code>man mprotect</code></li>
 <li><code>electric-fence</code><ul>
 <li><a href="http://packages.debian.org/sid/electric-fence" target="_blank" rel="external">http://packages.debian.org/sid/electric-fence</a></li>
+<li><a href="http://xinsuiyuer.github.io/blog/2013/10/13/use-electric-fence-to-detect-heap-overruns-and-underruns/" target="_blank" rel="external">http://xinsuiyuer.github.io/blog/2013/10/13/use-electric-fence-to-detect-heap-overruns-and-underruns/</a></li>
+<li>disadvantage: like mcheck: only work on c memory manager, not work for<br>new/delete of c++</li>
 </ul>
 </li>
 <li><code>backtrac</code></li>
@@ -210,7 +216,7 @@ heap (malloc and free)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2016/01/03/detect-cc-memory-overflow/" data-id="cinho3c5c00gbzbizj4btp08g" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2016/01/03/detect-cc-memory-overflow/" data-id="cinhpuscj00ge7rizotdvfd9g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memory-overflow/">memory overflow</a></li></ul>
@@ -281,7 +287,7 @@ heap (malloc and free)
       <ul>
         
           <li>
-            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+            <a href="/2016/04/27/include-what-you-use/">使用IWYU整理头文件引用</a>
           </li>
         
           <li>

@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/11/01/network-freedom/" data-id="cinho3c5100fnzbizjav5awzk" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/11/01/network-freedom/" data-id="cinhpusc900ft7rizrqmbr9rs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hosts/">hosts</a></li></ul>
@@ -170,129 +170,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/25/write-document-with-sphinx/" data-id="cinho3c5000fkzbizhm4led87" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/25/write-document-with-sphinx/" data-id="cinhpusc800fq7riz2krb4d52" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/write/">write</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/24/mongodb/" class="article-date">
-  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/database/">database</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/24/mongodb/">mongodb</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="mongodb"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><h3 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><h3 id="use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><h3 id="analyze-c-driver"><a href="#Analyze-C-driver" class="headerlink" title="Analyze C++ driver"></a>Analyze C++ driver</h3><ul>
-<li>download code from <a href="https://github.com/mongodb/mongo-cxx-driver" target="_blank" rel="external">https://github.com/mongodb/mongo-cxx-driver</a></li>
-<li>size, about 60000, too big.</li>
-</ul>
-<h3 id="analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
-<li>download code from <a href="https://github.com/mongodb/mongo" target="_blank" rel="external">https://github.com/mongodb/mongo</a></li>
-</ul>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://www.mongodb.org" target="_blank" rel="external">MongoDB</a></li>
-<li><a href="https://www.mongodb.org/about/source-code/" target="_blank" rel="external">MongoDB source code</a></li>
-<li><a href="http://github.com/mongodb" target="_blank" rel="external">MongoDB on github</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/mongodb/" data-id="cinho3c5400fvzbiz3eyylhpr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/10/24/redis/" class="article-date">
-  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/database/">database</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/24/redis/">redis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>Redis is an in-memory database that persist on disk. The data model is key-value,<br>but many different kind of values are supported: String, Lists, Sets, Sorted Set,<br>Hashes, HyperLogLog, Bitmaps.<a href="http://redis.io" target="_blank" rel="external">http://redis.io</a></p>
-<h3 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
-<li>Download, extract and compile Redis with:<br>  $ wget <a href="http://download.redis.io/releases/redis-3.0.5.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-3.0.5.tar.gz</a><br>  $ tar xzf redis-3.0.5.tar.gz<br>  $ cd redis-3.0.5<br>  $ make</li>
-</ul>
-<h3 id="use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><ul>
-<li><p>Playing with Redis</p>
-<p>  % cd src<br>  % ./redis-cli<br>  redis&gt; ping<br>  PONG<br>  redis&gt; set foo bar<br>  OK<br>  redis&gt; get foo<br>  &#x201C;bar&#x201D;<br>  redis&gt; incr mycounter<br>  (integer) 1<br>  redis&gt; incr mycounter<br>  (integer) 2<br>  redis&gt;</p>
-</li>
-</ul>
-<h3 id="analyze"><a href="#Analyze" class="headerlink" title="Analyze"></a>Analyze</h3><ul>
-<li>size of source code, 1.3MB</li>
-<li>total lines of code, 58185</li>
-<li>allocate double memory size when append string</li>
-</ul>
-<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="http://redis.io/" target="_blank" rel="external">redis</a></li>
-<li><a href="https://github.com/antirez/redis" target="_blank" rel="external">redis on github</a></li>
-<li><a href="http://origin.redisbook.com/" target="_blank" rel="external">redis book</a></li>
-<li><a href="https://github.com/huangz1990/redisbook" target="_blank" rel="external">redis book source</a></li>
-<li><a href="http://redisdoc.com/" target="_blank" rel="external">Redis &#x547D;&#x4EE4;&#x53C2;&#x8003;</a></li>
-<li><a href="https://github.com/huangz1990/annotated_redis_source" target="_blank" rel="external">&#x5E26;&#x6709;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;&#x7684; Redis 2.6 &#x6E90;&#x7801;</a></li>
-<li><a href="https://github.com/springside/springside4/wiki/redis" target="_blank" rel="external">&#x5173;&#x4E8E;Redis&#x7684;&#x5E38;&#x8BC6;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/redis/" data-id="cinho3c4y00fhzbizidkve41t" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
 
     </footer>
   </div>
@@ -582,10 +463,75 @@ memcpy:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/rdtsc/" data-id="cinho3c4u00fczbizsy1tc8eo" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/24/rdtsc/" data-id="cinhpusc500fi7rizir87d2qz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/time/">time</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/24/redis/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/database/">database</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/24/redis/">redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>Redis is an in-memory database that persist on disk. The data model is key-value,<br>but many different kind of values are supported: String, Lists, Sets, Sorted Set,<br>Hashes, HyperLogLog, Bitmaps.<a href="http://redis.io" target="_blank" rel="external">http://redis.io</a></p>
+<h3 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ul>
+<li>Download, extract and compile Redis with:<br>  $ wget <a href="http://download.redis.io/releases/redis-3.0.5.tar.gz" target="_blank" rel="external">http://download.redis.io/releases/redis-3.0.5.tar.gz</a><br>  $ tar xzf redis-3.0.5.tar.gz<br>  $ cd redis-3.0.5<br>  $ make</li>
+</ul>
+<h3 id="use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><ul>
+<li><p>Playing with Redis</p>
+<p>  % cd src<br>  % ./redis-cli<br>  redis&gt; ping<br>  PONG<br>  redis&gt; set foo bar<br>  OK<br>  redis&gt; get foo<br>  &#x201C;bar&#x201D;<br>  redis&gt; incr mycounter<br>  (integer) 1<br>  redis&gt; incr mycounter<br>  (integer) 2<br>  redis&gt;</p>
+</li>
+</ul>
+<h3 id="analyze"><a href="#Analyze" class="headerlink" title="Analyze"></a>Analyze</h3><ul>
+<li>size of source code, 1.3MB</li>
+<li>total lines of code, 58185</li>
+<li>allocate double memory size when append string</li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="http://redis.io/" target="_blank" rel="external">redis</a></li>
+<li><a href="https://github.com/antirez/redis" target="_blank" rel="external">redis on github</a></li>
+<li><a href="http://origin.redisbook.com/" target="_blank" rel="external">redis book</a></li>
+<li><a href="https://github.com/huangz1990/redisbook" target="_blank" rel="external">redis book source</a></li>
+<li><a href="http://redisdoc.com/" target="_blank" rel="external">Redis &#x547D;&#x4EE4;&#x53C2;&#x8003;</a></li>
+<li><a href="https://github.com/huangz1990/annotated_redis_source" target="_blank" rel="external">&#x5E26;&#x6709;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;&#x7684; Redis 2.6 &#x6E90;&#x7801;</a></li>
+<li><a href="https://github.com/springside/springside4/wiki/redis" target="_blank" rel="external">&#x5173;&#x4E8E;Redis&#x7684;&#x5E38;&#x8BC6;</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/10/24/redis/" data-id="cinhpusc700fn7rizq880p9oe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
 
     </footer>
   </div>
@@ -702,10 +648,64 @@ Heap Location:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/24/linux-memory/" data-id="cinho3c4p00f2zbizbxg2yq60" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/24/linux-memory/" data-id="cinhpusbz00fc7riz438bfl7j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memory/">memory</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mongodb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/24/mongodb/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/database/">database</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/24/mongodb/">mongodb</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="mongodb"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><h3 id="install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><h3 id="use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3><h3 id="analyze-c-driver"><a href="#Analyze-C-driver" class="headerlink" title="Analyze C++ driver"></a>Analyze C++ driver</h3><ul>
+<li>download code from <a href="https://github.com/mongodb/mongo-cxx-driver" target="_blank" rel="external">https://github.com/mongodb/mongo-cxx-driver</a></li>
+<li>size, about 60000, too big.</li>
+</ul>
+<h3 id="analyze-source-code"><a href="#Analyze-source-code" class="headerlink" title="Analyze source code"></a>Analyze source code</h3><ul>
+<li>download code from <a href="https://github.com/mongodb/mongo" target="_blank" rel="external">https://github.com/mongodb/mongo</a></li>
+</ul>
+<h3 id="reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://www.mongodb.org" target="_blank" rel="external">MongoDB</a></li>
+<li><a href="https://www.mongodb.org/about/source-code/" target="_blank" rel="external">MongoDB source code</a></li>
+<li><a href="http://github.com/mongodb" target="_blank" rel="external">MongoDB on github</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://matrix207.github.com/2015/10/24/mongodb/" data-id="cinhpusc100ff7rizcbgpjyhm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li></ul>
 
     </footer>
   </div>
@@ -777,7 +777,7 @@ Heap Location:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/22/unit-test/" data-id="cinho3c4s00f8zbizglgrmgvi" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/22/unit-test/" data-id="cinhpusby00f87riz6w5cpczm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -984,7 +984,7 @@ tabular              vim-jst                   wildfire.vim
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/10/07/spf13-vim/" data-id="cinho3c4r00f5zbizltiv93rv" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/10/07/spf13-vim/" data-id="cinhpusbx00f57riz3wmcdbio" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
@@ -1081,7 +1081,7 @@ export GMDB_HOME=$(pwd ${PARENT_DIR})
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" data-id="cinho3c4o00ezzbiz0r1lojlt" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/09/10/how-to-export-a-specify-full-directory-by-shell-file/" data-id="cinhpusbv00f27rizk6sivo2t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
@@ -1474,7 +1474,7 @@ clean:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://matrix207.github.com/2015/09/03/makefile/" data-id="cinho3c4n00evzbiz885kfyzl" class="article-share-link">Share</a>
+      <a data-url="http://matrix207.github.com/2015/09/03/makefile/" data-id="cinhpusbu00ey7rizqlaszwjt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/makefile/">makefile</a></li></ul>
@@ -1531,7 +1531,7 @@ clean:
       <ul>
         
           <li>
-            <a href="/2016/04/27/include-what-you-use/">include what you use</a>
+            <a href="/2016/04/27/include-what-you-use/">使用IWYU整理头文件引用</a>
           </li>
         
           <li>
